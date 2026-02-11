@@ -1,7 +1,11 @@
 import "./App.css";
-
+import ListProblemComponent from "./components/ListProblemsComponent";
 function App() {
-  return <></>;
+  return (
+    <>
+      <ListProblemComponent></ListProblemComponent>
+    </>
+  );
 }
 
 export default App;
