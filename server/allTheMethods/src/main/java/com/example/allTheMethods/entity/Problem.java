@@ -1,0 +1,103 @@
+package com.example.allTheMethods.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Entity
+@Table
+public class Problem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private int number;
+
+    @Column(nullable = false, unique = true)
+    private String title;
+
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
+    private String difficulty;
+
+    @Column(nullable = false)
+    private String description;
+
+    @Column(nullable = false)
+    private int points;
+
+    public Problem() {
+    }
+
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+}
