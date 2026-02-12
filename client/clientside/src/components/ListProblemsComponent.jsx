@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import "../App.css";
 import { listProblems } from "../services/ProblemService";
+
 const ListProblemComponent = () => {
   const [problems, setProblems] = useState([]);
 
@@ -15,9 +17,9 @@ const ListProblemComponent = () => {
 
   const listOfProblems = problems.map((problem) => (
     <li key={problem.id}>
-      {problem.number}
-      {problem.title}
-      {problem.difficulty}
+      <div className="number">{problem.number}</div>
+      <div className="title">{problem.title}</div>
+      <div className="difficulty">{problem.difficulty}</div>
     </li>
   ));
   return (
