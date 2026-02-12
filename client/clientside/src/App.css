@@ -7,10 +7,22 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   max-width: 900px;
-  background-color: rgb(217, 217, 217);
+  background-color: rgb(241, 241, 241);
   padding: 10px;
   border-radius: 7px;
 }
 .title {
   margin-left: 1rem;
+}
+.easy {
+  margin-left: auto;
+  color: #00b8a3;
+}
+.medium {
+  margin-left: auto;
+  color: #ffc01e;
+}
+.hard {
+  margin-left: auto;
+  color: #ff375f;
 }
