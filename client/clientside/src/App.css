@@ -1,15 +1,36 @@
 ol {
   list-style: none;
 }
+a {
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
 
-li {
+.heading {
+  display: flex;
+}
+
+.menuItem {
+  margin-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.problems {
+  justify-content: left;
+}
+
+.problemLink {
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   max-width: 900px;
   background-color: rgb(241, 241, 241);
-  padding: 10px;
+  padding: 17px;
   border-radius: 7px;
+  text-decoration: none;
+  color: black;
 }
 .title {
   margin-left: 1rem;

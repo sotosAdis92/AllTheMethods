@@ -15,19 +15,22 @@ const ListProblemComponent = () => {
         console.error(error);
       });
   }, []);
-
   const listOfProblems = problems.map((problem) => (
-    <li key={problem.id}>
+    <a
+      className="problemLink"
+      href={"/problems/" + problem.title.replace(/\s+/g, "")}
+      key={problem.id}
+    >
       <div className="number">{problem.number}.</div>
       <div className="title">{problem.title}</div>
       <DifficultyComponent
         difficulty={problem.difficulty}
       ></DifficultyComponent>
-    </li>
+    </a>
   ));
   return (
     <div>
-      <ol>{listOfProblems}</ol>
+      <ol className="problems">{listOfProblems}</ol>
     </div>
   );
 };
