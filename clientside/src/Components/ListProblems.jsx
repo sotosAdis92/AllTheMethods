@@ -14,8 +14,11 @@ const ListProblems = () => {
   }, []);
 
   const listOfProblems = problems.map((problem) => (
-    <div key={problem.id}>
-      <a>
+    <div
+      key={problem.id}
+      className={problem.id % 2 === 0 ? "problemOdd" : "problemItem"}
+    >
+      <a href="/" className="problemLink">
         <div className="problemDetails">
           {problem.number}.{problem.title}
           <ProblemDifficulty

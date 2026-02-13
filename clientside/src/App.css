@@ -8,7 +8,31 @@ body {
 }
 
 .easyDifficulty {
-  color: #088f8f;
+  color: #28a697;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.problemLink {
+  text-decoration: none;
+  color: #1b1212;
+}
+
+.problemItem {
+  background-color: #f3f3f3;
+  max-width: 750px;
+  padding: 12px;
+  border-radius: 12px;
+}
+.problemOdd {
+  max-width: 750px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.problemDetails {
+  display: flex;
   font-family:
     system-ui,
     -apple-system,
@@ -21,9 +45,6 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  margin-top: -3px;
-}
-
-.problemDetails {
-  display: flex;
+  font-size: 17px;
+  font-weight: 600;
 }
