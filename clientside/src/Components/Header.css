@@ -24,7 +24,7 @@
   font-size: 20px;
   margin-left: 20px;
 }
-a {
+.headerlink {
   text-decoration: none;
   color: #1b1212;
   font-family:
@@ -40,7 +40,7 @@ a {
     "Helvetica Neue",
     sans-serif;
 }
-a:hover {
+.headerlink:hover {
   text-decoration: none;
   color: #3674b5;
   font-weight: 400;

@@ -5,13 +5,19 @@ const Header = () => {
       <h2 className="title">All The Methods</h2>
       <ul className="links">
         <li className="link">
-          <a href="/">Announcements</a>
+          <a href="/" className="headerlink">
+            Announcements
+          </a>
         </li>
         <li className="link">
-          <a href="/">Problems</a>
+          <a href="/" className="headerlink">
+            Problems
+          </a>
         </li>
         <li className="link">
-          <a href="/">Achievements</a>
+          <a href="/" className="headerlink">
+            Achievements
+          </a>
         </li>
       </ul>
     </div>
