@@ -22,13 +22,13 @@ body {
 .problemItem {
   background-color: #f3f3f3;
   max-width: 750px;
-  padding: 12px;
   border-radius: 12px;
+  padding: 12px;
 }
 .problemOdd {
   max-width: 750px;
-  padding: 12px;
   border-radius: 12px;
+  padding: 12px;
 }
 
 .problemDetails {
