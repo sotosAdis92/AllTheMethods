@@ -28,6 +28,9 @@ const ProblemComponent = () => {
   const decreasePoints = () => {
     setPoints(points - 5);
   };
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
   return (
     <div className="card">
       <div className="row">
@@ -66,6 +69,16 @@ const ProblemComponent = () => {
         <button className="changeNumber" onClick={increasePoints}></button>
         <button className="changeNumber" onClick={decreasePoints}></button>
         <p className="numberText">{points}</p>
+      </div>
+      <div className="row">
+        <input
+          type="text"
+          placeholder="Enter Problem description"
+          name="description"
+          value={description}
+          className="input"
+          onChange={handleDescription}
+        ></input>
       </div>
     </div>
   );
