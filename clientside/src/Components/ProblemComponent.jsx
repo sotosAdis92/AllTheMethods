@@ -7,11 +7,11 @@ const ProblemComponent = () => {
   const [description, setDescription] = useState("");
   const [point, setPoints] = useState("");
   return (
-    <div className="cardContainer">
+    <div className="card">
       <div className="row">
-        <div className="card">
-          <h2 className=""></h2>
-        </div>
+        <button></button>
+        <button></button>
+        <p></p>
       </div>
     </div>
   );
