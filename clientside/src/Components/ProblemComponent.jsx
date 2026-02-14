@@ -16,15 +16,14 @@ const ProblemComponent = () => {
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
+  const getSelectedCategory = (e) => {
+    setCategory(e.target.value);
+  };
   return (
     <div className="card">
       <div className="row">
-        <button className="changeNumber" onClick={increment}>
-          +
-        </button>
-        <button className="changeNumber" onClick={decrement}>
-          -
-        </button>
+        <button className="changeNumber" onClick={increment}></button>
+        <button className="changeNumber" onClick={decrement}></button>
         <p className="numberText">{number}</p>
       </div>
       <div className="row">
@@ -37,15 +36,15 @@ const ProblemComponent = () => {
           onChange={handleTitle}
         ></input>
       </div>
-      <div className="row">
-        <input
-          type="text"
-          placeholder="Enter Problem title"
-          name="title"
-          value={title}
-          className="input"
-          onChange={handleTitle}
-        ></input>
+      <div className="selector">
+        <select onChange={getSelectedCategory} value={category}>
+          <option>Polynomial Roots</option>
+          <option>Integrals</option>
+          <option>Derivatives</option>
+          <option>Linear Systems</option>
+          <option>Paremboles</option>
+          <option>Differential Equations</option>
+        </select>
       </div>
     </div>
   );
