@@ -37,6 +37,16 @@ const ProblemComponent = () => {
           onChange={handleTitle}
         ></input>
       </div>
+      <div className="row">
+        <input
+          type="text"
+          placeholder="Enter Problem title"
+          name="title"
+          value={title}
+          className="input"
+          onChange={handleTitle}
+        ></input>
+      </div>
     </div>
   );
 };
