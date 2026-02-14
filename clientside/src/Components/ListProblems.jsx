@@ -1,6 +1,9 @@
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { listProblems } from "../services/ProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
+
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   useEffect(() => {
@@ -28,6 +31,18 @@ const ListProblems = () => {
       </a>
     </div>
   ));
-  return <ol>{listOfProblems}</ol>;
+  function addNewProblem() {}
+
+  return (
+    <>
+      <h2 className="problemsTitle">List Of Problems</h2>
+      <Tooltip title="Add" placement="top" arrow>
+        <Button variant="contained" onClick={addNewProblem}>
+          Add New Problem +
+        </Button>
+      </Tooltip>
+      <ol>{listOfProblems}</ol>
+    </>
+  );
 };
 export default ListProblems;
