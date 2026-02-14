@@ -5,7 +5,7 @@ const ProblemComponent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
-  const [point, setPoints] = useState(0);
+  const [points, setPoints] = useState(0);
 
   const increment = () => {
     setNumber(number + 1);
@@ -18,6 +18,15 @@ const ProblemComponent = () => {
   };
   const getSelectedCategory = (e) => {
     setCategory(e.target.value);
+  };
+  const getSelectedDifficulty = (e) => {
+    setDifficulty(e.target.value);
+  };
+  const increasePoints = () => {
+    setPoints(points + 5);
+  };
+  const decreasePoints = () => {
+    setPoints(points - 5);
   };
   return (
     <div className="card">
@@ -45,6 +54,18 @@ const ProblemComponent = () => {
           <option>Paremboles</option>
           <option>Differential Equations</option>
         </select>
+      </div>
+      <div className="selector">
+        <select onChange={getSelectedDifficulty} value={difficulty}>
+          <option>Easy</option>
+          <option>Med.</option>
+          <option>Hard</option>
+        </select>
+      </div>
+      <div className="row">
+        <button className="changeNumber" onClick={increasePoints}></button>
+        <button className="changeNumber" onClick={decreasePoints}></button>
+        <p className="numberText">{points}</p>
       </div>
     </div>
   );
