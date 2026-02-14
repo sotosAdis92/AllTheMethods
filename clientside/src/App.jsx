@@ -15,7 +15,10 @@ function App() {
             element={<ListProblems></ListProblems>}
           ></Route>
 
-          <Route path="/addProblem" element={ProblemComponent}></Route>
+          <Route
+            path="/addProblem"
+            element={<ProblemComponent></ProblemComponent>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
