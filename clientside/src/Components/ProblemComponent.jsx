@@ -1,4 +1,14 @@
+import {
+  faCheck,
+  faMinus,
+  faPlus,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "@mui/material/Button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createProblem } from "../services/ProblemService";
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
@@ -6,6 +16,7 @@ const ProblemComponent = () => {
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
   const [points, setPoints] = useState(0);
+  const navigator = useNavigate();
 
   const increment = () => {
     setNumber(number + 1);
@@ -31,11 +42,31 @@ const ProblemComponent = () => {
   const handleDescription = (e) => {
     setDescription(e.target.value);
   };
+  const saveProblem = (e) => {
+    e.preventDefault();
+    const problem = {
+      number,
+      title,
+      category,
+      difficulty,
+      description,
+      points,
+    };
+    console.log(problem);
+    createProblem(problem).then((response) => {
+      console.log(response.data);
+      navigator("/problems");
+    });
+  };
   return (
     <div className="card">
       <div className="row">
-        <button className="changeNumber" onClick={increment}></button>
-        <button className="changeNumber" onClick={decrement}></button>
+        <button className="changeNumber" onClick={increment}>
+          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+        </button>
+        <button className="changeNumber" onClick={decrement}>
+          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+        </button>
         <p className="numberText">{number}</p>
       </div>
       <div className="row">
@@ -66,8 +97,12 @@ const ProblemComponent = () => {
         </select>
       </div>
       <div className="row">
-        <button className="changeNumber" onClick={increasePoints}></button>
-        <button className="changeNumber" onClick={decreasePoints}></button>
+        <button className="changeNumber" onClick={increasePoints}>
+          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+        </button>
+        <button className="changeNumber" onClick={decreasePoints}>
+          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+        </button>
         <p className="numberText">{points}</p>
       </div>
       <div className="row">
@@ -80,6 +115,14 @@ const ProblemComponent = () => {
           onChange={handleDescription}
         ></input>
       </div>
+      <Button variant="contained" color="success" onClick={saveProblem}>
+        Submit
+        <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+      </Button>
+      <Button variant="contained" color="error">
+        Cancel
+        <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+      </Button>
     </div>
   );
 };
