@@ -1,11 +1,13 @@
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { listProblems } from "../services/ProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
 
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
+  const navigator = useNavigate();
   useEffect(() => {
     listProblems()
       .then((response) => {
@@ -31,7 +33,9 @@ const ListProblems = () => {
       </a>
     </div>
   ));
-  function addNewProblem() {}
+  function addNewProblem() {
+    navigator("/addProblem");
+  }
 
   return (
     <>

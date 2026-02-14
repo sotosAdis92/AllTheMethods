@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
 import ListProblems from "./Components/ListProblems";
+import ProblemComponent from "./Components/ProblemComponent";
 function App() {
   return (
     <>
@@ -13,6 +14,8 @@ function App() {
             path="/problems"
             element={<ListProblems></ListProblems>}
           ></Route>
+
+          <Route path="/addProblem" element={ProblemComponent}></Route>
         </Routes>
       </BrowserRouter>
     </>
