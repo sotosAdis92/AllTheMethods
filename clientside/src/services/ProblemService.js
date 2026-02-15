@@ -5,5 +5,5 @@ export const listProblems = () => {
 };
 
 export const createProblem = (problem) => {
-  axios.post(REST_API_BASE_URL, problem);
+  return axios.post(REST_API_BASE_URL, problem);
 };
