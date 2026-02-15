@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@mui/material/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProblem } from "../services/ProblemService";
@@ -112,7 +113,7 @@ const ProblemComponent = () => {
     return valid;
   }
   return (
-    <form class="needs-validation" novalidate>
+    <form className="needs-validation">
       <div className="card">
         <div className="row">
           <button className="form-control" onClick={increment}>
