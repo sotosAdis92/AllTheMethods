@@ -17,6 +17,14 @@ const ProblemComponent = () => {
   const [description, setDescription] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
+  const [errors, setErrors] = useState({
+    number: 0,
+    title: "",
+    category: "",
+    difficulty: "",
+    description: "",
+    points: 0,
+  });
 
   const increment = () => {
     setNumber(number + 1);
@@ -58,6 +66,11 @@ const ProblemComponent = () => {
       navigator("/problems");
     });
   };
+
+  function validateForm() {
+    let valid = true;
+    const errorsCopy = { ...errors };
+  }
   return (
     <div className="card">
       <div className="row">
