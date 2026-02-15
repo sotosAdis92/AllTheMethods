@@ -52,7 +52,7 @@ const ProblemComponent = () => {
   };
   const saveProblem = (e) => {
     e.preventDefault();
-    if (validateForm) {
+    if (validateForm()) {
       const problem = {
         number,
         title,
@@ -112,101 +112,103 @@ const ProblemComponent = () => {
     return valid;
   }
   return (
-    <div className="card">
-      <div className="row">
-        <button className="changeNumber" onClick={increment}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-        </button>
-        <button className="changeNumber" onClick={decrement}>
-          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-        </button>
-        <p className="numberText">{number}</p>
-        {errors.number && (
-          <div className="invalid-feedback"> {errors.number}</div>
-        )}
+    <form class="needs-validation" novalidate>
+      <div className="card">
+        <div className="row">
+          <button className="form-control" onClick={increment}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </button>
+          <button className="form-control" onClick={decrement}>
+            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+          </button>
+          <p className="numberText">{number}</p>
+          {errors.number && (
+            <div className="invalid-feedback"> {errors.number}</div>
+          )}
+        </div>
+        <div className="row">
+          <input
+            type="text"
+            placeholder="Enter Problem title"
+            name="title"
+            value={title}
+            className={errors.title ? "is-invalid" : "form-control"}
+            onChange={handleTitle}
+          ></input>
+          {errors.title && (
+            <div className="invalid-feedback"> {errors.title}</div>
+          )}
+        </div>
+        <div className="selector">
+          <select
+            onChange={getSelectedCategory}
+            value={category}
+            id="validationCustom04"
+            className={errors.category ? "is-invalid" : "form-control"}
+          >
+            <option>Choose an option</option>
+            <option>Polynomial Roots</option>
+            <option>Integrals</option>
+            <option>Derivatives</option>
+            <option>Linear Systems</option>
+            <option>Paremboles</option>
+            <option>Differential Equations</option>
+          </select>
+          {errors.category && (
+            <div className="invalid-feedback"> {errors.category}</div>
+          )}
+        </div>
+        <div className="selector">
+          <select
+            onChange={getSelectedDifficulty}
+            value={difficulty}
+            id="validationCustom04"
+            className={errors.difficulty ? "is-invalid" : "form-control"}
+          >
+            <option>Choose an option</option>
+            <option>Easy</option>
+            <option>Med.</option>
+            <option>Hard</option>
+          </select>
+          {errors.difficulty && (
+            <div className="invalid-feedback"> {errors.difficulty}</div>
+          )}
+        </div>
+        <div className="row">
+          <button className="form-control" onClick={increasePoints}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </button>
+          <button className="form-control" onClick={decreasePoints}>
+            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+          </button>
+          <p className="numberText">{points}</p>
+          {errors.points && (
+            <div className="invalid-feedback"> {errors.points}</div>
+          )}
+        </div>
+        <div className="row">
+          <input
+            type="text"
+            placeholder="Enter Problem description"
+            name="description"
+            value={description}
+            className={errors.description ? "is-invalid" : "form-control"}
+            onChange={handleDescription}
+          ></input>
+          {errors.description && (
+            <div className="invalid-feedback"> {errors.description}</div>
+          )}
+        </div>
+        <Button variant="contained" color="success" onClick={saveProblem}>
+          Submit
+          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+        </Button>
+        <Button variant="contained" color="error">
+          Cancel
+          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+        </Button>
       </div>
-      <div className="row">
-        <input
-          type="text"
-          placeholder="Enter Problem title"
-          name="title"
-          value={title}
-          className={`form-control ${errors.title ? "is-invalid" : ""}`}
-          onChange={handleTitle}
-        ></input>
-        {errors.title && (
-          <div className="invalid-feedback"> {errors.title}</div>
-        )}
-      </div>
-      <div className="selector">
-        <select
-          onChange={getSelectedCategory}
-          value={category}
-          class="form-select"
-          id="validationCustom04"
-        >
-          <option>Choose an option</option>
-          <option>Polynomial Roots</option>
-          <option>Integrals</option>
-          <option>Derivatives</option>
-          <option>Linear Systems</option>
-          <option>Paremboles</option>
-          <option>Differential Equations</option>
-        </select>
-        {errors.category && (
-          <div className="invalid-feedback"> {errors.category}</div>
-        )}
-      </div>
-      <div className="selector">
-        <select
-          onChange={getSelectedDifficulty}
-          value={difficulty}
-          class="form-select"
-          id="validationCustom04"
-        >
-          <option>Choose an option</option>
-          <option>Easy</option>
-          <option>Med.</option>
-          <option>Hard</option>
-        </select>
-        {errors.difficulty && (
-          <div className="invalid-feedback"> {errors.difficulty}</div>
-        )}
-      </div>
-      <div className="row">
-        <button className="changeNumber" onClick={increasePoints}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-        </button>
-        <button className="changeNumber" onClick={decreasePoints}>
-          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-        </button>
-        <p className="numberText">{points}</p>
-        {errors.points && (
-          <div className="invalid-feedback"> {errors.points}</div>
-        )}
-      </div>
-      <div className="row">
-        <input
-          type="text"
-          placeholder="Enter Problem description"
-          name="description"
-          value={description}
-          className={`form-control ${errors.description ? "is-invalid" : ""}`}
-          onChange={handleDescription}
-        ></input>
-        {errors.description && (
-          <div className="invalid-feedback"> {errors.description}</div>
-        )}
-      </div>
-      <Button variant="contained" color="success" onClick={saveProblem}>
-        Submit
-        <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-      </Button>
-      <Button variant="contained" color="error">
-        Cancel
-        <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
-      </Button>
-    </div>
+    </form>
   );
 };
 export default ProblemComponent;
