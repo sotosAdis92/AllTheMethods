@@ -121,6 +121,9 @@ const ProblemComponent = () => {
           <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
         </button>
         <p className="numberText">{number}</p>
+        {errors.number && (
+          <div className="invalid-feedback"> {errors.number}</div>
+        )}
       </div>
       <div className="row">
         <input
@@ -150,10 +153,10 @@ const ProblemComponent = () => {
           <option>Paremboles</option>
           <option>Differential Equations</option>
         </select>
+        {errors.category && (
+          <div className="invalid-feedback"> {errors.category}</div>
+        )}
       </div>
-      {errors.category && (
-        <div className="invalid-feedback"> {errors.category}</div>
-      )}
       <div className="selector">
         <select
           onChange={getSelectedDifficulty}
@@ -166,10 +169,10 @@ const ProblemComponent = () => {
           <option>Med.</option>
           <option>Hard</option>
         </select>
+        {errors.difficulty && (
+          <div className="invalid-feedback"> {errors.difficulty}</div>
+        )}
       </div>
-      {errors.difficulty && (
-        <div className="invalid-feedback"> {errors.difficulty}</div>
-      )}
       <div className="row">
         <button className="changeNumber" onClick={increasePoints}>
           <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
@@ -178,6 +181,9 @@ const ProblemComponent = () => {
           <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
         </button>
         <p className="numberText">{points}</p>
+        {errors.points && (
+          <div className="invalid-feedback"> {errors.points}</div>
+        )}
       </div>
       <div className="row">
         <input
