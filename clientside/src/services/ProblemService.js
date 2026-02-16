@@ -7,3 +7,7 @@ export const listProblems = () => {
 export const createProblem = (problem) => {
   return axios.post(REST_API_BASE_URL, problem);
 };
+
+export const getProblem = (problemId) => {
+  return axios.get(REST_API_BASE_URL + "/" + problemId);
+};

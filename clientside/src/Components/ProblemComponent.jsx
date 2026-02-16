@@ -12,9 +12,9 @@ import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { createProblem } from "../services/ProblemService";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { createProblem, getProblem } from "../services/ProblemService";
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
@@ -31,6 +31,28 @@ const ProblemComponent = () => {
     description: "",
     points: "",
   });
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      getProblem(id).then((response) => {
+        setNumber(response.data.number);
+        setTitle(response.data.title);
+        setCategory(response.data.category);
+        setDifficulty(response.data.difficulty);
+        setDescription(response.data.description);
+        setPoints(response.data.points);
+      });
+    }
+  }, [id]);
+
+  function pageTitle() {
+    if (id) {
+      return <h2>Edit Problem</h2>;
+    } else {
+      return <h2>Add Problem</h2>;
+    }
+  }
 
   const increment = () => {
     setNumber(number + 1);
@@ -119,98 +141,101 @@ const ProblemComponent = () => {
     return valid;
   }
   return (
-    <div className="card">
-      <div className="row">
-        <Button type="button" variant="contained" onClick={increment}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+    <div>
+      {pageTitle()}
+      <div className="card">
+        <div className="row">
+          <Button type="button" variant="contained" onClick={increment}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </Button>
+          <Button type="button" variant="contained" onClick={decrement}>
+            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+          </Button>
+          <p className="numberText">{number}</p>
+          {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
+        </div>
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Problem title"
+            name="title"
+            value={title}
+            id={"outlined"}
+            error={errors.title}
+            helperText={errors.title}
+            onChange={handleTitle}
+          ></TextField>
+        </div>
+        <div className="selector">
+          <FormControl error={errors.category} sx={{ minWidth: 210 }}>
+            <InputLabel>Category</InputLabel>
+            <Select
+              onChange={getSelectedCategory}
+              value={category}
+              label="Category"
+            >
+              <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
+              <MenuItem value={"Integrals"}>Integrals</MenuItem>
+              <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
+              <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
+              <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
+              <MenuItem value={"Differential Equations"}>
+                Differential Equations
+              </MenuItem>
+            </Select>
+            {errors.category && (
+              <FormHelperText>{errors.category}</FormHelperText>
+            )}
+          </FormControl>
+        </div>
+        <div className="selector">
+          <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
+            <InputLabel>Difficulty</InputLabel>
+            <Select
+              onChange={getSelectedDifficulty}
+              value={difficulty}
+              label="difficulty"
+            >
+              <MenuItem value={"Easy"}>Easy</MenuItem>
+              <MenuItem value={"Med."}>Med.</MenuItem>
+              <MenuItem value={"Hard"}>Hard</MenuItem>
+            </Select>
+            {errors.difficulty && (
+              <FormHelperText> {errors.difficulty}</FormHelperText>
+            )}
+          </FormControl>
+        </div>
+        <div className="row">
+          <Button type="button" variant="contained" onClick={increasePoints}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </Button>
+          <Button type="button" variant="contained" onClick={decreasePoints}>
+            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+          </Button>
+          <p className="numberText">{points}</p>
+          {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
+        </div>
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Problem description"
+            name="description"
+            value={description}
+            onChange={handleDescription}
+            id={"outlined"}
+            error={errors.title}
+            helperText={errors.title}
+          ></TextField>
+        </div>
+        <Button variant="contained" color="success" onClick={saveProblem}>
+          Submit
+          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
         </Button>
-        <Button type="button" variant="contained" onClick={decrement}>
-          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+        <Button variant="contained" color="error">
+          Cancel
+          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
         </Button>
-        <p className="numberText">{number}</p>
-        {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
       </div>
-      <div className="row">
-        <TextField
-          type="text"
-          placeholder="Enter Problem title"
-          name="title"
-          value={title}
-          id={"outlined"}
-          error={errors.title}
-          helperText={errors.title}
-          onChange={handleTitle}
-        ></TextField>
-      </div>
-      <div className="selector">
-        <FormControl error={errors.category} sx={{ minWidth: 210 }}>
-          <InputLabel>Category</InputLabel>
-          <Select
-            onChange={getSelectedCategory}
-            value={category}
-            label="Category"
-          >
-            <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
-            <MenuItem value={"Integrals"}>Integrals</MenuItem>
-            <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
-            <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
-            <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
-            <MenuItem value={"Differential Equations"}>
-              Differential Equations
-            </MenuItem>
-          </Select>
-          {errors.category && (
-            <FormHelperText>{errors.category}</FormHelperText>
-          )}
-        </FormControl>
-      </div>
-      <div className="selector">
-        <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
-          <InputLabel>Difficulty</InputLabel>
-          <Select
-            onChange={getSelectedDifficulty}
-            value={difficulty}
-            label="difficulty"
-          >
-            <MenuItem value={"Easy"}>Easy</MenuItem>
-            <MenuItem value={"Med."}>Med.</MenuItem>
-            <MenuItem value={"Hard"}>Hard</MenuItem>
-          </Select>
-          {errors.difficulty && (
-            <FormHelperText> {errors.difficulty}</FormHelperText>
-          )}
-        </FormControl>
-      </div>
-      <div className="row">
-        <Button type="button" variant="contained" onClick={increasePoints}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-        </Button>
-        <Button type="button" variant="contained" onClick={decreasePoints}>
-          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-        </Button>
-        <p className="numberText">{points}</p>
-        {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
-      </div>
-      <div className="row">
-        <TextField
-          type="text"
-          placeholder="Enter Problem description"
-          name="description"
-          value={description}
-          onChange={handleDescription}
-          id={"outlined"}
-          error={errors.title}
-          helperText={errors.title}
-        ></TextField>
-      </div>
-      <Button variant="contained" color="success" onClick={saveProblem}>
-        Submit
-        <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-      </Button>
-      <Button variant="contained" color="error">
-        Cancel
-        <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
-      </Button>
     </div>
   );
 };
