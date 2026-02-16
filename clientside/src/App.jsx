@@ -19,6 +19,10 @@ function App() {
             path="/addProblem"
             element={<ProblemComponent></ProblemComponent>}
           ></Route>
+          <Route
+            path="/editProblem/:id"
+            element={<ProblemComponent></ProblemComponent>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

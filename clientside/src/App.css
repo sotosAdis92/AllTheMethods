@@ -20,12 +20,14 @@ body {
 }
 
 .problemItem {
+  flex: 1;
   background-color: #f3f3f3;
   max-width: 750px;
   border-radius: 12px;
   padding: 12px;
 }
 .problemOdd {
+  flex: 1;
   max-width: 750px;
   border-radius: 12px;
   padding: 12px;
@@ -99,4 +101,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+}
+.problemWithButtons {
+  display: flex;
+  flex-direction: row;
 }
