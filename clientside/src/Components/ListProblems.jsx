@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteProblem, listProblems } from "../services/ProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
+
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const navigator = useNavigate();
@@ -22,11 +23,16 @@ const ListProblems = () => {
     getAllProblems();
   }, []);
 
+  function navigate(id) {
+    navigator("/" + id);
+  }
+
   const listOfProblems = problems.map((problem, i) => (
     <div className="problemWithButtons">
       <div
         key={problem.id}
         className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
+        onClick={() => navigate(problem.id)}
       >
         <a className="problemLink">
           <div className="problemDetails">
