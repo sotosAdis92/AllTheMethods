@@ -14,7 +14,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createProblem, getProblem } from "../services/ProblemService";
+import {
+  createProblem,
+  getProblem,
+  updateProblem,
+} from "../services/ProblemService";
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
@@ -78,7 +82,7 @@ const ProblemComponent = () => {
   const handleDescription = (e) => {
     setDescription(e.target.value);
   };
-  const saveProblem = (e) => {
+  const saveOrUpdateProblem = (e) => {
     e.preventDefault();
     if (validateForm()) {
       const problem = {
@@ -89,11 +93,26 @@ const ProblemComponent = () => {
         description,
         points,
       };
-      console.log(problem);
-      createProblem(problem).then((response) => {
-        console.log(response.data);
-        navigator("/problems");
-      });
+      if (id) {
+        updateProblem(id, problem)
+          .then((response) => {
+            console.log(response.data);
+            navigator("/problems");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        console.log(problem);
+        createProblem(problem)
+          .then((response) => {
+            console.log(response.data);
+            navigator("/problems");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
     }
   };
 
@@ -227,7 +246,11 @@ const ProblemComponent = () => {
             helperText={errors.title}
           ></TextField>
         </div>
-        <Button variant="contained" color="success" onClick={saveProblem}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={saveOrUpdateProblem}
+        >
           Submit
           <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
         </Button>

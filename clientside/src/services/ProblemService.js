@@ -11,3 +11,11 @@ export const createProblem = (problem) => {
 export const getProblem = (problemId) => {
   return axios.get(REST_API_BASE_URL + "/" + problemId);
 };
+
+export const updateProblem = (problemId, problem) => {
+  return axios.put(REST_API_BASE_URL + "/" + problemId, problem);
+};
+
+export const deleteProblem = (problemId) => {
+  return axios.delete(REST_API_BASE_URL + "/" + problemId);
+};

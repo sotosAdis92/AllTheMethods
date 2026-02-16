@@ -1,15 +1,15 @@
-import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { listProblems } from "../services/ProblemService";
+import { deleteProblem, listProblems } from "../services/ProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const navigator = useNavigate();
-  useEffect(() => {
+  function getAllProblems() {
     listProblems()
       .then((response) => {
         setProblems(response.data);
@@ -17,6 +17,9 @@ const ListProblems = () => {
       .catch((error) => {
         console.error(error);
       });
+  }
+  useEffect(() => {
+    getAllProblems();
   }, []);
 
   const listOfProblems = problems.map((problem, i) => (
@@ -38,6 +41,10 @@ const ListProblems = () => {
         Update
         <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
       </Button>
+      <Button variant="contained" onClick={() => removeProblem(problem.id)}>
+        Delete
+        <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
+      </Button>
     </div>
   ));
   function addNewProblem() {
@@ -45,6 +52,16 @@ const ListProblems = () => {
   }
   function updateProblem(id) {
     navigator(`/editProblem/${id}`);
+  }
+  function removeProblem(id) {
+    console.log(id);
+    deleteProblem(id)
+      .then((response) => {
+        getAllProblems();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   return (
