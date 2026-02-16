@@ -28,21 +28,20 @@ const ListProblems = () => {
         key={problem.id}
         className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
       >
-        <a href="/" className="problemLink">
+        <a className="problemLink">
           <div className="problemDetails">
             {problem.number}.{problem.title}
             <ProblemDifficulty
               difficulty={problem.difficulty}
             ></ProblemDifficulty>
+            {problem.points}pts.
           </div>
         </a>
       </div>
       <Button variant="contained" onClick={() => updateProblem(problem.id)}>
-        Update
         <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
       </Button>
       <Button variant="contained" onClick={() => removeProblem(problem.id)}>
-        Delete
         <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
       </Button>
     </div>
@@ -56,7 +55,7 @@ const ListProblems = () => {
   function removeProblem(id) {
     console.log(id);
     deleteProblem(id)
-      .then((response) => {
+      .then(() => {
         getAllProblems();
       })
       .catch((error) => {
@@ -69,7 +68,7 @@ const ListProblems = () => {
       <h2 className="problemsTitle">List Of Problems</h2>
       <Tooltip title="Add" placement="top" arrow>
         <Button variant="contained" onClick={addNewProblem}>
-          Add New Problem +
+          +
         </Button>
       </Tooltip>
       <ol>{listOfProblems}</ol>
