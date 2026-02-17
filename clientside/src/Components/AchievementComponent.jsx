@@ -55,6 +55,9 @@ const AchievementComponent = () => {
       errorsCopy.visibility = "Error, visibility cannot be empty";
       valid = false;
     }
+
+    setErrors(errorsCopy);
+    return valid;
   }
 
   const handleName = (e) => {
@@ -75,18 +78,20 @@ const AchievementComponent = () => {
 
   function saveAchievement(e) {
     e.preventDefault();
-    const achievement = {
-      name,
-      description,
-      category,
-      rank,
-      visibility,
-    };
-    console.log(achievement);
-    createAchievement(achievement).then((response) => {
-      console.log(response.data);
-      navigator("/achievements");
-    });
+    if (validateForm()) {
+      const achievement = {
+        name,
+        description,
+        category,
+        rank,
+        visibility,
+      };
+      console.log(achievement);
+      createAchievement(achievement).then((response) => {
+        console.log(response.data);
+        navigator("/achievements");
+      });
+    }
   }
   return (
     <div>

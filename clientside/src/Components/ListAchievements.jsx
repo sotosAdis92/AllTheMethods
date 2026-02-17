@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import img1 from "../assets/223399.png";
 import { listAchievements } from "../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
@@ -26,9 +27,10 @@ const ListAchievements = () => {
 
   const listOfAchievements = achievements.map((achievement) => (
     <Achievement key={achievement.achievementId} rank={achievement.rank}>
+      <AchievementImage category={achievement.category}></AchievementImage>
       {achievement.name}
       {achievement.description}
-      <AchievementImage category={achievement.category}></AchievementImage>
+      <img src={img1}></img>
     </Achievement>
   ));
   return (
