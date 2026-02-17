@@ -1,4 +1,8 @@
-import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencil,
+  faPlus,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
@@ -74,7 +78,7 @@ const ListProblems = () => {
       <h2 className="problemsTitle">List Of Problems</h2>
       <Tooltip title="Add" placement="top" arrow>
         <Button variant="contained" onClick={addNewProblem}>
-          +
+          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
         </Button>
       </Tooltip>
       <ol>{listOfProblems}</ol>

@@ -19,6 +19,12 @@ const AchievementComponent = () => {
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
+  const handleRank = (e) => {
+    setRank(e.target.value);
+  };
+  const handleVisibility = (e) => {
+    setVisibility(e.target.value);
+  };
   return (
     <div>
       <div className="card">

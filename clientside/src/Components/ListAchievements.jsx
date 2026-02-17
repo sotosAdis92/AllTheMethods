@@ -1,3 +1,5 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Button, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 import { listAchievements } from "../services/AchievementService";
 import Achievement from "./Achievement";
@@ -24,6 +26,16 @@ const ListAchievements = () => {
       <AchievementImage category={achievement.category}></AchievementImage>
     </Achievement>
   ));
-  return <ol>{listOfAchievements}</ol>;
+  return (
+    <>
+      <h2 className="achievementsTitle">List Of Achievements</h2>
+      <Tooltip>
+        <Button>
+          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+        </Button>
+      </Tooltip>
+      <ol>{listOfAchievements}</ol>
+    </>
+  );
 };
 export default ListAchievements;
