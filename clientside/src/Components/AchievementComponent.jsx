@@ -1,4 +1,6 @@
-import { InputLabel, MenuItem, TextField } from "@mui/material";
+import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, InputLabel, MenuItem, TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
@@ -25,6 +27,18 @@ const AchievementComponent = () => {
   };
   const handleVisibility = (e) => {
     setVisibility(e.target.value);
+  };
+
+  const saveAchievement = (e) => {
+    e.preventDefault();
+    const achievement = {
+      name,
+      description,
+      category,
+      rank,
+      visibility,
+    };
+    console.log(achievement);
   };
   return (
     <div>
@@ -83,6 +97,14 @@ const AchievementComponent = () => {
             </Select>
           </FormControl>
         </div>
+        <Button variant="contained" color="success" onClick={saveAchievement}>
+          Submit
+          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+        </Button>
+        <Button variant="contained" color="error">
+          Cancel
+          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+        </Button>
       </div>
     </div>
   );
