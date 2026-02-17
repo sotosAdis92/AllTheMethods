@@ -30,7 +30,7 @@ const AchievementComponent = () => {
     setVisibility(e.target.value);
   };
 
-  const saveAchievement = (e) => {
+  function saveAchievement(e) {
     e.preventDefault();
     const achievement = {
       name,
@@ -44,7 +44,7 @@ const AchievementComponent = () => {
       console.log(response.data);
       navigator("/achievements");
     });
-  };
+  }
   return (
     <div>
       <div className="card">
