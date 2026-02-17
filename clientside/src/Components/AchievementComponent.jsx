@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createAchievement } from "../services/AchievementService";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -39,6 +40,10 @@ const AchievementComponent = () => {
       visibility,
     };
     console.log(achievement);
+    createAchievement(achievement).then((response) => {
+      console.log(response.data);
+      navigator("/achievements");
+    });
   };
   return (
     <div>
