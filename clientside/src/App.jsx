@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AchievementComponent from "./Components/AchievementComponent";
 import Header from "./Components/Header";
 import ListAchievements from "./Components/ListAchievements";
 import ListProblems from "./Components/ListProblems";
@@ -27,6 +28,10 @@ function App() {
           <Route
             path="/achievements"
             element={<ListAchievements></ListAchievements>}
+          ></Route>
+          <Route
+            path="/addAchievement"
+            element={<AchievementComponent></AchievementComponent>}
           ></Route>
         </Routes>
       </BrowserRouter>

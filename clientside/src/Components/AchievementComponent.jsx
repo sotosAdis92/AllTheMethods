@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
@@ -29,24 +30,27 @@ const AchievementComponent = () => {
     <div>
       <div className="card">
         <div className="row">
-          <TextField onChange={handleName}></TextField>
+          <TextField onChange={handleName} value={name}></TextField>
         </div>
         <div className="row">
-          <TextField onChange={handleDescription}></TextField>
+          <TextField
+            onChange={handleDescription}
+            value={description}
+          ></TextField>
         </div>
         <div className="row">
           <FormControl>
-            <Select onChange={handleCategory}></Select>
+            <Select onChange={handleCategory} value={category}></Select>
           </FormControl>
         </div>
         <div className="row">
           <FormControl>
-            <Select onChange={handleRank}></Select>
+            <Select onChange={handleRank} value={rank}></Select>
           </FormControl>
         </div>
         <div className="row">
           <FormControl>
-            <Select onChange={handleVisibility}></Select>
+            <Select onChange={handleVisibility} value={visibility}></Select>
           </FormControl>
         </div>
       </div>
