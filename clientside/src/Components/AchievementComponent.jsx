@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { InputLabel, MenuItem, TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
@@ -30,27 +30,57 @@ const AchievementComponent = () => {
     <div>
       <div className="card">
         <div className="row">
-          <TextField onChange={handleName} value={name}></TextField>
+          <TextField
+            onChange={handleName}
+            value={name}
+            type="text"
+            placeholder="Enter Achievement name"
+            id={"outlined"}
+            name="name"
+          ></TextField>
         </div>
         <div className="row">
           <TextField
             onChange={handleDescription}
             value={description}
+            type="text"
+            placeholder="Enter Achievement description"
+            id={"outlined"}
+            name="name"
           ></TextField>
         </div>
         <div className="row">
-          <FormControl>
-            <Select onChange={handleCategory} value={category}></Select>
+          <FormControl sx={{ minWidth: 210 }}>
+            <InputLabel>Category</InputLabel>
+            <Select onChange={handleCategory} value={category}>
+              <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
+              <MenuItem value={"Integrals"}>Integrals</MenuItem>
+              <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
+              <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
+              <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
+              <MenuItem value={"Differential Equations"}>
+                Differential Equations
+              </MenuItem>
+            </Select>
           </FormControl>
         </div>
         <div className="row">
-          <FormControl>
-            <Select onChange={handleRank} value={rank}></Select>
+          <FormControl sx={{ minWidth: 210 }}>
+            <InputLabel>Rank</InputLabel>
+            <Select onChange={handleRank} value={rank}>
+              <MenuItem value={"Bronze"}>Bronze</MenuItem>
+              <MenuItem value={"Silver"}>Silver</MenuItem>
+              <MenuItem value={"Gold"}>Gold</MenuItem>
+            </Select>
           </FormControl>
         </div>
         <div className="row">
-          <FormControl>
-            <Select onChange={handleVisibility} value={visibility}></Select>
+          <FormControl sx={{ minWidth: 210 }}>
+            <InputLabel>Visibility</InputLabel>
+            <Select onChange={handleVisibility} value={visibility}>
+              <MenuItem value={"Visible"}>Visible</MenuItem>
+              <MenuItem value={"Hidden"}>Hidden</MenuItem>
+            </Select>
           </FormControl>
         </div>
       </div>
