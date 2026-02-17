@@ -1,7 +1,8 @@
 import img1 from "../assets/integral.png";
+import img2 from "../assets/roots.png";
 const AchievementImage = (props) => {
   if (props.category === "Polynomial Roots") {
-    return <img src=""></img>;
+    return <img src={img2}></img>;
   } else if (props.category === "Integrals") {
     return <img src={img1}></img>;
   } else if (props.category === "Paremboles") {
