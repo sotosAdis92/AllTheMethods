@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { listAchievements } from "../services/AchievementService";
-import { AchievementImage } from "./AchievementImage";
+import Achievement from "./Achievement";
+import AchievementImage from "./AchievementImage";
 
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
-  listAchievements()
-    .then((response) => {
-      setAchievements(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+
+  useEffect(() => {
+    listAchievements()
+      .then((response) => {
+        setAchievements(response.data);
+        console.log("Api response:", response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   const listOfAchievements = achievements.map((achievement) => (
-    <div key={achievement.id}>
-      <AchievementImage value={achievement.category}></AchievementImage>
+    <Achievement key={achievement.achievementId} rank={achievement.rank}>
       {achievement.name}
       {achievement.description}
-    </div>
+      <AchievementImage category={achievement.category}></AchievementImage>
+    </Achievement>
   ));
   return <ol>{listOfAchievements}</ol>;
 };

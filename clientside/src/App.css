@@ -113,3 +113,67 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.bronze {
+  background: linear-gradient(
+    145deg,
+    #fdf3e0 0%,
+    #f7e0bc 15%,
+    #e5b57a 30%,
+    #d1924a 45%,
+    #b87c3a 50%,
+    #d1924a 55%,
+    #e5b57a 70%,
+    #f7e0bc 85%,
+    #fdf3e0 100%
+  );
+  box-shadow:
+    0 15px 25px -8px rgba(139, 90, 43, 0.4),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(245, 220, 180, 0.8);
+}
+.silver {
+  margin-top: 10px;
+  border-radius: 12px;
+  display: flex;
+  background: linear-gradient(
+    145deg,
+    #f9f9f9 0%,
+    #f0f0f0 15%,
+    #dddddd 30%,
+    #c4c4c4 45%,
+    #b0b0b0 50%,
+    #c4c4c4 55%,
+    #dddddd 70%,
+    #f0f0f0 85%,
+    #f9f9f9 100%
+  );
+  box-shadow:
+    0 15px 25px -8px rgba(80, 80, 80, 0.3),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(220, 220, 220, 0.8);
+}
+.gold {
+  margin-top: 10px;
+  border-radius: 12px;
+  display: flex;
+  background: linear-gradient(
+    145deg,
+    #fff9e6 0%,
+    #ffecb3 15%,
+    #f5c542 30%,
+    #e6b422 45%,
+    #c6991c 50%,
+    #d9a428 55%,
+    #f5c542 70%,
+    #ffecb3 85%,
+    #fff9e6 100%
+  );
+  box-shadow:
+    0 15px 25px -8px rgba(184, 134, 11, 0.5),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 245, 200, 0.8);
+}
