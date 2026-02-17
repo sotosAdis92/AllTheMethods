@@ -12,7 +12,7 @@ const AchievementComponent = () => {
   const [category, setCategory] = useState("");
   const [rank, setRank] = useState("");
   const [visibility, setVisibility] = useState("");
-  const navigator = useNavigate;
+  const navigator = useNavigate();
 
   const handleName = (e) => {
     setName(e.target.value);
