@@ -1,5 +1,5 @@
 import img1 from "../assets/integral.png";
-import img2 from "../assets/roots.png";
+import img2 from "../assets/root.png";
 const AchievementImage = (props) => {
   if (props.category === "Polynomial Roots") {
     return <img src={img2}></img>;
