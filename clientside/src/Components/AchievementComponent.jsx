@@ -14,6 +14,49 @@ const AchievementComponent = () => {
   const [visibility, setVisibility] = useState("");
   const navigator = useNavigate();
 
+  const [errors, setErrors] = useState({
+    name: "",
+    description: "",
+    category: "",
+    rank: "",
+    visibility: "",
+  });
+
+  function validateForm() {
+    let valid = true;
+    const errorsCopy = { ...errors };
+    if (name.trim()) {
+      errorsCopy.name = "";
+    } else {
+      errorsCopy.name = "name is required";
+      valid = false;
+    }
+    if (description.trim()) {
+      errorsCopy.description = "";
+    } else {
+      errorsCopy.description = "description is required";
+      valid = false;
+    }
+    if (category && category.trim() !== "") {
+      errorsCopy.category = "";
+    } else {
+      errorsCopy.category = "Error, category cannot be empty";
+      valid = false;
+    }
+    if (rank && rank.trim() !== "") {
+      errorsCopy.rank = "";
+    } else {
+      errorsCopy.rank = "Error, rank cannot be empty";
+      valid = false;
+    }
+    if (visibility && visibility.trim() !== "") {
+      errorsCopy.visibility = "";
+    } else {
+      errorsCopy.visibility = "Error, visibility cannot be empty";
+      valid = false;
+    }
+  }
+
   const handleName = (e) => {
     setName(e.target.value);
   };
