@@ -113,3 +113,396 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.bronze {
+  margin-top: 10px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background:
+    /* Deep ambient occlusion at edges */
+    radial-gradient(circle at 0% 0%, rgba(0, 0, 0, 0.3), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.25), transparent 70%),
+    /* Warm bronze glow from within */
+    radial-gradient(
+        circle at 30% 40%,
+        rgba(205, 127, 50, 0.35),
+        transparent 60%
+      ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(185, 100, 30, 0.3),
+      transparent 60%
+    ),
+    /* Primary metallic gradient */
+    linear-gradient(
+        145deg,
+        #3a2415 0%,
+        #5a3a1e 12%,
+        #7b4f2a 25%,
+        #9b6737 35%,
+        #b87c3a 42%,
+        #d1924a 48%,
+        #e8b56e 52%,
+        #d9a458 58%,
+        #c18a3e 65%,
+        #a06d2e 75%,
+        #7b4f22 85%,
+        #4d2f15 100%
+      );
+  box-shadow:
+    0 30px 45px -20px #2c1a0c,
+    0 0 0 2px rgba(205, 127, 50, 0.3) inset,
+    0 0 0 1px rgba(255, 215, 140, 0.4) inset,
+    0 0 30px rgba(160, 90, 30, 0.5);
+  border: 1px solid rgba(230, 180, 120, 0.6);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Primary light beam - more dynamic */
+.bronze::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -150%;
+  width: 200%;
+  height: 140%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 220, 150, 0.2) 35%,
+    rgba(255, 235, 180, 0.5) 45%,
+    rgba(255, 245, 210, 0.9) 50%,
+    rgba(255, 235, 180, 0.5) 55%,
+    rgba(255, 220, 150, 0.2) 65%,
+    transparent 80%
+  );
+  transform: skewX(-20deg) rotate(5deg);
+  animation: sweepBeamPremium 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  filter: blur(2px);
+}
+
+/* Secondary light beam - subtle cross */
+.bronze .beam-secondary {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -150%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    215deg,
+    transparent 30%,
+    rgba(200, 150, 80, 0.15) 45%,
+    rgba(230, 180, 100, 0.3) 50%,
+    rgba(200, 150, 80, 0.15) 55%,
+    transparent 70%
+  );
+  transform: skewX(15deg);
+  animation: sweepBeamSecondary 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* Enhanced inner glow */
+.bronze::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 215, 140, 0.2),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(205, 127, 50, 0.15),
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(160, 90, 30, 0.1) 0%,
+      transparent 40%,
+      rgba(40, 20, 5, 0.15) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Premium corner accents */
+.bronze .corner-accent-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgba(255, 225, 160, 0.6),
+    transparent 70%
+  );
+  border-radius: 24px 0 0 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(3px);
+}
+
+.bronze .corner-accent-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(205, 127, 50, 0.5),
+    transparent 70%
+  );
+  border-radius: 0 0 24px 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(3px);
+}
+
+/* Surface texture - subtle grain */
+.bronze .metal-grain {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.02) 0px,
+    rgba(0, 0, 0, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 4px
+  );
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+/* Hover state - more dramatic */
+.bronze:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 40px 60px -15px #8b5a2b,
+    0 0 0 3px rgba(255, 215, 140, 0.7) inset,
+    0 0 0 2px rgba(255, 235, 180, 0.5) inset,
+    0 0 80px rgba(205, 127, 50, 0.7);
+  border-color: rgba(255, 225, 160, 0.9);
+}
+
+.bronze:hover::before {
+  animation-duration: 5s;
+  filter: blur(1px);
+  mix-blend-mode: overlay;
+}
+
+.bronze:hover .corner-accent-tl,
+.bronze:hover .corner-accent-br {
+  opacity: 0.9;
+  filter: blur(2px);
+}
+
+/* Enhanced animations */
+@keyframes sweepBeamPremium {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    left: 20%;
+    opacity: 1;
+  }
+  50% {
+    left: 60%;
+    opacity: 0.8;
+  }
+  70% {
+    left: 100%;
+    opacity: 1;
+  }
+  90% {
+    left: 150%;
+    opacity: 0;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+@keyframes sweepBeamSecondary {
+  0% {
+    right: -150%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  40% {
+    right: 30%;
+    opacity: 0.6;
+  }
+  60% {
+    right: 80%;
+    opacity: 0.4;
+  }
+  80% {
+    right: 150%;
+    opacity: 0.2;
+  }
+  100% {
+    right: 200%;
+    opacity: 0;
+  }
+}
+
+/* Premium sparkle system */
+.bronze .sparkle {
+  position: absolute;
+  background: #fff9e6;
+  border-radius: 50%;
+  filter: blur(3px);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+.bronze .sparkle-1 {
+  width: 12px;
+  height: 12px;
+  top: 15%;
+  left: 15%;
+  animation: sparklePremium 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.bronze .sparkle-2 {
+  width: 8px;
+  height: 8px;
+  top: 75%;
+  right: 20%;
+  animation: sparklePremium 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.bronze .sparkle-3 {
+  width: 10px;
+  height: 10px;
+  bottom: 20%;
+  left: 25%;
+  animation: sparklePremium 4.5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.bronze .sparkle-4 {
+  width: 6px;
+  height: 6px;
+  top: 40%;
+  right: 30%;
+  animation: sparklePremium 3.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.bronze .sparkle-5 {
+  width: 9px;
+  height: 9px;
+  bottom: 30%;
+  right: 15%;
+  animation: sparklePremium 5.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.bronze .sparkle-6 {
+  width: 7px;
+  height: 7px;
+  top: 60%;
+  left: 10%;
+  animation: sparklePremium 4.2s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes sparklePremium {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 0.7;
+    transform: scale(1.2) rotate(45deg);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.8) rotate(90deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.5) rotate(135deg);
+    background: #fff2b5;
+    box-shadow: 0 0 15px #ffb347;
+  }
+  80% {
+    opacity: 0.3;
+    transform: scale(0.6) rotate(180deg);
+  }
+}
+
+/* Edge highlighting */
+.bronze .edge-highlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    transparent 60%,
+    rgba(255, 200, 120, 0.3) 80%,
+    transparent 100%
+  );
+  mask: linear-gradient(black, black);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+
+.bronze:hover .edge-highlight {
+  opacity: 0.8;
+}
+
+/* Content positioning */
+.bronze
+  > *:not(.corner-accent-tl):not(.corner-accent-br):not(.metal-grain):not(
+    .beam-secondary
+  ):not(.edge-highlight):not(.sparkle) {
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bronze {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .bronze .sparkle {
+    display: none; /* Performance optimization on mobile */
+  }
+}
