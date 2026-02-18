@@ -25,9 +25,17 @@ const AchievementComponent = () => {
   const { id } = useParams();
   useEffect(() => {
     if (id) {
-      getAchievemet(id).then((response) => {
-        setName(response.data.name);
-      });
+      getAchievemet(id)
+        .then((response) => {
+          setName(response.data.name);
+          setDescription(response.data.description);
+          setCategory(response.data.category);
+          setRank(response.data.rank);
+          setVisibility(response.data.visibility);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [id]);
 
