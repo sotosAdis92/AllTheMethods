@@ -49,8 +49,8 @@ const ListAchievements = () => {
   };
 
   const listOfAchievements = achievements.map((achievement) => (
-    <div>
-      <Achievement key={achievement.achievementId} rank={achievement.rank}>
+    <div key={achievement.achievementId}>
+      <Achievement rank={achievement.rank}>
         <AchievementImage category={achievement.category}></AchievementImage>
         {achievement.name}
         {achievement.description}
