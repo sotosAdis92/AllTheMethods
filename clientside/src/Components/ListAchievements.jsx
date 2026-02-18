@@ -1,16 +1,24 @@
-import { faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencil,
+  faPlus,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../assets/223399.png";
-import { listAchievements } from "../services/AchievementService";
+import {
+  deleteAchievement,
+  listAchievements,
+} from "../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const navigator = useNavigate();
-  useEffect(() => {
+
+  const getAllAchievements = () => {
     listAchievements()
       .then((response) => {
         setAchievements(response.data);
@@ -19,13 +27,25 @@ const ListAchievements = () => {
       .catch((error) => {
         console.error(error);
       });
+  };
+  useEffect(() => {
+    getAllAchievements();
   }, []);
-
   const addNewAchievement = () => {
     navigator("/addAchievement");
   };
   const updateAchievement = (id) => {
     navigator(`/updateAchievements/${id}`);
+  };
+  const removeAchievement = (id) => {
+    console.log(id);
+    deleteAchievement(id)
+      .then((response) => {
+        getAllAchievements();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const listOfAchievements = achievements.map((achievement) => (
@@ -41,6 +61,12 @@ const ListAchievements = () => {
         onClick={() => updateAchievement(achievement.achievementId)}
       >
         <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => removeAchievement(achievement.achievementId)}
+      >
+        <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
       </Button>
     </div>
   ));
