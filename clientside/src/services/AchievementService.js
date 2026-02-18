@@ -11,3 +11,7 @@ export const createAchievement = (achievement) => {
 export const getAchievemet = (achievementId) => {
   return axios.get(REST_API_BASE_URL + "/" + achievementId);
 };
+
+export const updateAchievement = (achievementId, achievement) => {
+  return axios.put(REST_API_BASE_URL + "/" + achievementId, achievement);
+};

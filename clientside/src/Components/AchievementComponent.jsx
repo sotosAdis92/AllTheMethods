@@ -14,6 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   createAchievement,
   getAchievemet,
+  updateAchievement,
 } from "../services/AchievementService";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
@@ -101,7 +102,7 @@ const AchievementComponent = () => {
     setVisibility(e.target.value);
   };
 
-  function saveAchievement(e) {
+  function saveOrUpdateAchievement(e) {
     e.preventDefault();
     if (validateForm()) {
       const achievement = {
@@ -111,11 +112,26 @@ const AchievementComponent = () => {
         rank,
         visibility,
       };
-      console.log(achievement);
-      createAchievement(achievement).then((response) => {
-        console.log(response.data);
-        navigator("/achievements");
-      });
+      if (id) {
+        updateAchievement(id, achievement)
+          .then((response) => {
+            console.log(response.data);
+            navigator("/achievements");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        console.log(achievement);
+        createAchievement(achievement)
+          .then((response) => {
+            console.log(response.data);
+            navigator("/achievements");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
     }
   }
 
@@ -195,7 +211,11 @@ const AchievementComponent = () => {
             )}
           </FormControl>
         </div>
-        <Button variant="contained" color="success" onClick={saveAchievement}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={saveOrUpdateAchievement}
+        >
           Submit
           <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
         </Button>
