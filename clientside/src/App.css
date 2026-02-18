@@ -197,3 +197,32 @@ body {
   mix-blend-mode: overlay;
   filter: blur(1px);
 }
+
+.bronze::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 235, 180, 0.3),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 215, 140, 0.2),
+      transparent 60%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bronze:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 40px 60px -15px #b87c3a,
+    0 0 0 3px rgba(255, 235, 180, 0.8) inset,
+    0 0 80px rgba(255, 215, 140, 0.7);
+  border-color: rgba(255, 245, 200, 0.9);
+}
