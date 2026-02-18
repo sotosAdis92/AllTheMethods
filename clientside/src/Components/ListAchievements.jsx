@@ -40,7 +40,7 @@ const ListAchievements = () => {
   const removeAchievement = (id) => {
     console.log(id);
     deleteAchievement(id)
-      .then((response) => {
+      .then(() => {
         getAllAchievements();
       })
       .catch((error) => {
@@ -49,11 +49,13 @@ const ListAchievements = () => {
   };
 
   const listOfAchievements = achievements.map((achievement) => (
-    <div key={achievement.achievementId}>
+    <div key={achievement.achievementId} className="achievementCardWrapper">
       <Achievement rank={achievement.rank}>
-        <AchievementImage category={achievement.category}></AchievementImage>
-        {achievement.name}
-        {achievement.description}
+        <div className="achIcon">
+          <AchievementImage category={achievement.category}></AchievementImage>
+        </div>
+        <div className="achTitle">{achievement.name}</div>
+        <div className="achDesc">{achievement.description}</div>
         <img src={img1}></img>
       </Achievement>
       <Button
