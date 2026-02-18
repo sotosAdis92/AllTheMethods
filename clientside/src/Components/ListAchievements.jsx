@@ -1,4 +1,4 @@
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -24,14 +24,25 @@ const ListAchievements = () => {
   const addNewAchievement = () => {
     navigator("/addAchievement");
   };
+  const updateAchievement = (id) => {
+    navigator(`/updateAchievements/${id}`);
+  };
 
   const listOfAchievements = achievements.map((achievement) => (
-    <Achievement key={achievement.achievementId} rank={achievement.rank}>
-      <AchievementImage category={achievement.category}></AchievementImage>
-      {achievement.name}
-      {achievement.description}
-      <img src={img1}></img>
-    </Achievement>
+    <div>
+      <Achievement key={achievement.achievementId} rank={achievement.rank}>
+        <AchievementImage category={achievement.category}></AchievementImage>
+        {achievement.name}
+        {achievement.description}
+        <img src={img1}></img>
+      </Achievement>
+      <Button
+        variant="contained"
+        onClick={() => updateAchievement(achievement.achievementId)}
+      >
+        <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
+      </Button>
+    </div>
   ));
   return (
     <>

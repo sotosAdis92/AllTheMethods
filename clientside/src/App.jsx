@@ -33,6 +33,10 @@ function App() {
             path="/addAchievement"
             element={<AchievementComponent></AchievementComponent>}
           ></Route>
+          <Route
+            path="/updateAchievements/:id"
+            element={<AchievementComponent></AchievementComponent>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

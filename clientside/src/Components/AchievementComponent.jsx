@@ -1,11 +1,20 @@
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, InputLabel, MenuItem, TextField } from "@mui/material";
+import {
+  Button,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  TextField,
+} from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { createAchievement } from "../services/AchievementService";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  createAchievement,
+  getAchievemet,
+} from "../services/AchievementService";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -13,6 +22,14 @@ const AchievementComponent = () => {
   const [rank, setRank] = useState("");
   const [visibility, setVisibility] = useState("");
   const navigator = useNavigate();
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      getAchievemet(id).then((response) => {
+        setName(response.data.name);
+      });
+    }
+  }, [id]);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -93,8 +110,17 @@ const AchievementComponent = () => {
       });
     }
   }
+
+  function pageTitle() {
+    if (id) {
+      return <h2>Update Achievement</h2>;
+    } else {
+      return <h2>Create Achievement</h2>;
+    }
+  }
   return (
     <div>
+      {pageTitle()}
       <div className="card">
         <div className="row">
           <TextField
@@ -104,6 +130,8 @@ const AchievementComponent = () => {
             placeholder="Enter Achievement name"
             id={"outlined"}
             name="name"
+            error={errors.name}
+            helperText={errors.name}
           ></TextField>
         </div>
         <div className="row">
@@ -114,10 +142,12 @@ const AchievementComponent = () => {
             placeholder="Enter Achievement description"
             id={"outlined"}
             name="name"
+            error={errors.description}
+            helperText={errors.description}
           ></TextField>
         </div>
         <div className="row">
-          <FormControl sx={{ minWidth: 210 }}>
+          <FormControl error={errors.category} sx={{ minWidth: 210 }}>
             <InputLabel>Category</InputLabel>
             <Select onChange={handleCategory} value={category}>
               <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
@@ -129,25 +159,32 @@ const AchievementComponent = () => {
                 Differential Equations
               </MenuItem>
             </Select>
+            {errors.category && (
+              <FormHelperText>{errors.category}</FormHelperText>
+            )}
           </FormControl>
         </div>
         <div className="row">
-          <FormControl sx={{ minWidth: 210 }}>
+          <FormControl error={errors.rank} sx={{ minWidth: 210 }}>
             <InputLabel>Rank</InputLabel>
             <Select onChange={handleRank} value={rank}>
               <MenuItem value={"Bronze"}>Bronze</MenuItem>
               <MenuItem value={"Silver"}>Silver</MenuItem>
               <MenuItem value={"Gold"}>Gold</MenuItem>
             </Select>
+            {errors.rank && <FormHelperText>{errors.rank}</FormHelperText>}
           </FormControl>
         </div>
         <div className="row">
-          <FormControl sx={{ minWidth: 210 }}>
+          <FormControl error={errors.visibility} sx={{ minWidth: 210 }}>
             <InputLabel>Visibility</InputLabel>
             <Select onChange={handleVisibility} value={visibility}>
               <MenuItem value={"Visible"}>Visible</MenuItem>
               <MenuItem value={"Hidden"}>Hidden</MenuItem>
             </Select>
+            {errors.visibility && (
+              <FormHelperText>{errors.visibility}</FormHelperText>
+            )}
           </FormControl>
         </div>
         <Button variant="contained" color="success" onClick={saveAchievement}>

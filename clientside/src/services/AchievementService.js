@@ -7,3 +7,7 @@ export const listAchievements = () => {
 export const createAchievement = (achievement) => {
   return axios.post(REST_API_BASE_URL, achievement);
 };
+
+export const getAchievemet = (achievementId) => {
+  return axios.get(REST_API_BASE_URL + "/" + achievementId);
+};
