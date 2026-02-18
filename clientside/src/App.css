@@ -226,3 +226,54 @@ body {
     0 0 80px rgba(255, 215, 140, 0.7);
   border-color: rgba(255, 245, 200, 0.9);
 }
+@keyframes sweepBeam {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    left: 20%;
+    opacity: 1;
+  }
+  50% {
+    left: 60%;
+    opacity: 0.8;
+  }
+  70% {
+    left: 100%;
+    opacity: 1;
+  }
+  90% {
+    left: 150%;
+    opacity: 0;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+.achIcon {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 225, 160, 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: relative;
+}
+
+.achIcon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px black);
+}
