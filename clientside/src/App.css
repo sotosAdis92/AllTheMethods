@@ -331,9 +331,55 @@ body {
   gap: 16px;
   padding: 16px 20px;
   width: 100%;
-  background: radial-gradient(
-    circle at 0% 100%,
-    rgba(255, 215, 140, 0.2),
-    transparent 50%
-  );
+
+  /* Combined background: gradient base + radial highlights */
+  background: 
+    /* Radial highlights for depth and warmth */
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(169, 149, 159, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(215, 195, 210, 0.25),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(225, 215, 220, 0.3),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(149, 129, 139, 0.2),
+      transparent 70%
+    ),
+    /* Main gradient - smoother warm silver transitions */
+    linear-gradient(
+        145deg,
+        #4f4c52 0%,
+        #625f68 8%,
+        #75717c 18%,
+        #88828f 28%,
+        #9b94a2 38%,
+        #aea6b4 48%,
+        #c2b9c6 52%,
+        #b0a8b6 58%,
+        #9e97a5 68%,
+        #8c8592 78%,
+        #7a7480 88%,
+        #5f5b64 100%
+      );
+
+  box-shadow:
+    0 30px 40px -22px #1f1e22,
+    0 0 0 1.5px rgba(189, 169, 179, 0.5) inset,
+    0 0 0 1px rgba(255, 245, 250, 0.9) inset,
+    0 0 30px rgba(159, 139, 149, 0.4);
+
+  border: 1px solid rgba(245, 235, 240, 0.8);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
