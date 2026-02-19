@@ -14,6 +14,7 @@ import {
 } from "../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
+import Icon from "./Icon";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const navigator = useNavigate();
@@ -51,9 +52,9 @@ const ListAchievements = () => {
   const listOfAchievements = achievements.map((achievement) => (
     <div key={achievement.achievementId} className="achievementCardWrapper">
       <Achievement rank={achievement.rank}>
-        <div className="achIcon">
+        <Icon rank={achievement.rank}>
           <AchievementImage category={achievement.category}></AchievementImage>
-        </div>
+        </Icon>
         <div className="achTitle">{achievement.name}</div>
         <div className="achDesc">{achievement.description}</div>
         <img src={img1}></img>
