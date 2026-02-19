@@ -119,3 +119,30 @@ body {
   max-width: 600px;
   margin: 0 auto 16px auto;
 }
+
+.bronze {
+  display: flex;
+}
+
+.bronze img {
+  width: 40px;
+  height: 40px;
+}
+
+.silver {
+  display: flex;
+}
+
+.silver img {
+  width: 40px;
+  height: 40px;
+}
+
+.gold {
+  display: flex;
+}
+
+.gold img {
+  width: 40px;
+  height: 40px;
+}
