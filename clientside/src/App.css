@@ -129,7 +129,6 @@ body {
   padding: 16px 20px;
   width: 100%;
   background:
-    /* Edge lighting - brightens corners */
     radial-gradient(
       circle at 0% 100%,
       rgba(255, 215, 140, 0.2),
@@ -140,29 +139,31 @@ body {
       rgba(255, 225, 160, 0.2),
       transparent 50%
     ),
-    /* Warm bronze glow from within */
-    radial-gradient(circle at 30% 40%, rgba(205, 127, 50, 0.4), transparent 60%),
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(205, 127, 50, 0.4),
+      transparent 60%
+    ),
     radial-gradient(
       circle at 70% 60%,
       rgba(205, 127, 50, 0.35),
       transparent 60%
     ),
-    /* Primary metallic gradient */
     linear-gradient(
-        145deg,
-        #4a2e1a 0%,
-        #6b4226 10%,
-        #8b5a2b 20%,
-        #b87c3a 30%,
-        #d1924a 40%,
-        #e8b56e 48%,
-        #f5cba0 52%,
-        #e8b56e 58%,
-        #d1924a 65%,
-        #b87c3a 75%,
-        #8b5a2b 85%,
-        #5d3a1e 100%
-      );
+      145deg,
+      #4a2e1a 0%,
+      #6b4226 10%,
+      #8b5a2b 20%,
+      #b87c3a 30%,
+      #d1924a 40%,
+      #e8b56e 48%,
+      #f5cba0 52%,
+      #e8b56e 58%,
+      #d1924a 65%,
+      #b87c3a 75%,
+      #8b5a2b 85%,
+      #5d3a1e 100%
+    );
   box-shadow:
     0 30px 45px -20px #3a2415,
     0 0 0 2px rgba(205, 127, 50, 0.4) inset,
@@ -281,7 +282,7 @@ body {
   margin: 0;
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.7),
-    0 0 8px rgba(205, 127, 50, 0.6);
+    0 0 8px rgba(56, 56, 56, 0.6);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -308,8 +309,8 @@ body {
 }
 
 .bronze img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   filter: drop-shadow(0 4px 6px black);
   z-index: 10;
@@ -406,4 +407,143 @@ body {
     0 0 90px rgba(189, 169, 189, 0.4);
   border-color: rgba(255, 250, 255, 1);
   transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.silver img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px black);
+  z-index: 10;
+  position: relative;
+}
+
+.achIconSilver {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(180, 180, 200, 0.2);
+  border: 2px solid rgba(215, 225, 255, 0.6);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: relative;
+}
+.gold {
+  margin-top: 10px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  width: 100%;
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(219, 185, 125, 0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 215, 140, 0.3),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 225, 160, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(184, 144, 84, 0.25),
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      #8b6f4c 0%,
+      #aa884e 8%,
+      #c9a257 18%,
+      #e8bc60 28%,
+      #f4cd6c 38%,
+      #fbde7a 48%,
+      #ffea8f 52%,
+      #f7da7c 58%,
+      #ebc968 68%,
+      #d9b157 78%,
+      #c79a48 88%,
+      #a87e3a 100%
+    );
+
+  box-shadow:
+    0 30px 40px -22px #3a2e1c,
+    0 0 0 1.5px rgba(218, 185, 120, 0.6) inset,
+    0 0 0 1px rgba(255, 245, 200, 1) inset,
+    0 0 30px rgba(218, 165, 32, 0.5);
+
+  border: 1px solid rgba(255, 235, 180, 0.9);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gold::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -150%;
+  width: 200%;
+  height: 140%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 235, 160, 0.3) 35%,
+    rgba(255, 245, 200, 0.6) 45%,
+    rgba(255, 255, 230, 1) 50%,
+    rgba(255, 245, 200, 0.6) 55%,
+    rgba(255, 235, 160, 0.3) 65%,
+    transparent 80%
+  );
+  transform: skew(-12deg) rotate(3deg);
+  animation: sweepBeam 6s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  filter: blur(2px);
+}
+
+.gold:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 45px 70px -15px #3f321e,
+    0 0 0 3px rgba(255, 240, 180, 1) inset,
+    0 0 50px rgba(218, 165, 32, 0.8),
+    0 0 90px rgba(255, 215, 120, 0.6);
+  border-color: rgba(255, 250, 200, 1);
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.gold img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(80, 60, 20, 0.6));
+  z-index: 10;
+  position: relative;
+}
+
+.achIconGold {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 120, 0.15);
+  border: 2px solid rgba(255, 215, 100, 0.7);
+  box-shadow: 0 8px 16px rgba(80, 60, 20, 0.5);
+  z-index: 10;
+  position: relative;
 }
