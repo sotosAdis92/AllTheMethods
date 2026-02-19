@@ -271,12 +271,6 @@ body {
   position: relative;
 }
 
-.achIcon img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px black);
-}
 .achTitle {
   font-family: "Poppins", "Montserrat", "Segoe UI", system-ui, sans-serif;
   font-size: 18px;
@@ -313,14 +307,13 @@ body {
   position: relative;
 }
 
-.bronze img:not(.achIcon img) {
-  width: 40px;
-  height: 40px;
+.bronze img {
+  width: 45px;
+  height: 45px;
   object-fit: contain;
   filter: drop-shadow(0 4px 6px black);
   z-index: 10;
   position: relative;
-  margin-left: auto;
 }
 
 .silver {
