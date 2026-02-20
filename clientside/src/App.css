@@ -122,6 +122,14 @@ body {
 
 .bronze {
   display: flex;
+  margin-top: 10px;
+  border-radius: 24px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background:
+    radial-gradient(circle at 0% rgba(255, 140, 165, 0.7)),
+    transparent 50%;
 }
 .bronze::before {
   content: "";
