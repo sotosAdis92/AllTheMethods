@@ -123,6 +123,9 @@ body {
 .bronze {
   display: flex;
 }
+.bronze::before {
+  content: "";
+}
 
 .bronze img {
   width: 40px;
