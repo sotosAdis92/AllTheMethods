@@ -266,8 +266,10 @@ body {
 }
 
 .bronze img {
-  width: 40px;
-  height: 40px;
+  height: 45px;
+  width: 45px;
+  margin-top: 5px;
+  margin-left: 7px;
 }
 
 .silver {
@@ -275,11 +277,16 @@ body {
 }
 
 .achIconBronze {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 225, 160, 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
 }
 
 .silver img {
-  width: 40px;
-  height: 40px;
 }
 
 .gold {
