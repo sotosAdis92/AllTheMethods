@@ -446,6 +446,27 @@ body {
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .gold::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -150%;
+  width: 200%;
+  height: 140%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 245, 170, 0.35) 35%,
+    rgba(255, 250, 210, 0.7) 45%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 250, 210, 0.7) 55%,
+    rgba(255, 245, 170, 0.35) 65%,
+    transparent 80%
+  );
+  transform: skew(-12deg) rotate(3deg);
+  animation: sweepBeam 6s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  filter: blur(1.5px);
 }
 
 .gold:hover {
