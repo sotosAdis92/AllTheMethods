@@ -222,7 +222,47 @@ body {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 40px 60px -15px #b87c3a,
-    0 0 0 3px rbga(255, 235, 180, 0.8) inset;
+    0 0 0 3px rgba(255, 235, 180, 0.8) inset,
+    0 0 80px rgba(255, 215, 140, 0.7);
+  border-color: rgba(255, 245, 200, 0.9);
+}
+
+@keyframes sweepBeam {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    left: 10%;
+    opacity: 1;
+  }
+  30% {
+    left: 20%;
+    opacity: 1;
+  }
+  40% {
+    left: 60%;
+    opacity: 0.8;
+  }
+  50% {
+    left: 65%;
+    opacity: 0.8;
+  }
+  70% {
+    left: 100%;
+    opacity: 1;
+  }
+  90% {
+    left: 150%;
+    opacity: 0;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
 }
 
 .bronze img {
@@ -232,6 +272,9 @@ body {
 
 .silver {
   display: flex;
+}
+
+.achIconBronze {
 }
 
 .silver img {
