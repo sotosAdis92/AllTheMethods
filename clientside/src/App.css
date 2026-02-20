@@ -149,6 +149,7 @@ body {
 
 .achTitle {
   font-family: "Poppins", "Montserrat", "Segoe UI", system-ui, sans-serif;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
@@ -169,5 +170,15 @@ body {
   font-family: "Inter", "Roboto", system-ui, sans-serif;
   font-size: 13px;
   font-weight: 400;
-  color: rgba();
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  z-index: 10;
+  position: relative;
 }
