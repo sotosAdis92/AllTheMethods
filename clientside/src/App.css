@@ -146,3 +146,28 @@ body {
   width: 40px;
   height: 40px;
 }
+
+.achTitle {
+  font-family: "Poppins", "Montserrat", "Segoe UI", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 8px rgba(56, 56, 56, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  z-index: 10;
+  position: relative;
+}
+
+.achDesc {
+  font-family: "Inter", "Roboto", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba();
+}
