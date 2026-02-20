@@ -125,6 +125,11 @@ body {
 }
 .bronze::before {
   content: "";
+  position: absolute;
+  top: -20%;
+  left: -150%;
+  width: 200%;
+  height: 140%;
 }
 
 .bronze img {
