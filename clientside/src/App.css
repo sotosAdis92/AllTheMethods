@@ -266,10 +266,12 @@ body {
 }
 
 .bronze img {
-  height: 45px;
   width: 45px;
-  margin-top: 5px;
-  margin-left: 7px;
+  height: 45px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px black);
+  z-index: 10;
+  position: relative;
 }
 
 .silver {
@@ -360,20 +362,23 @@ body {
 }
 
 .achIconBronze {
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(94, 91, 91, 0.3);
   border: 2px solid rgba(255, 225, 160, 0.5);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  position: relative;
   z-index: 10;
-  width: 60px;
-  height: 60px;
+  position: relative;
 }
 
 .silver img {
-  height: 45px;
-  width: 45px;
-  margin-top: 5px;
-  margin-left: 7px;
+  height: 40px;
+  width: 40px;
   object-fit: contain;
   filter: drop-shadow(0 4px 6px black);
   z-index: 10;
@@ -383,6 +388,16 @@ body {
 .achIconSilver {
   width: 65px;
   height: 65px;
+  min-width: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(180, 180, 200, 0.2);
+  border: 2px solid rgba(215, 225, 255, 0.6);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: relative;
 }
 
 .gold {
