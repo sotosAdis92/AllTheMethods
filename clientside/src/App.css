@@ -32,12 +32,14 @@ body {
   max-width: 750px;
   border-radius: 12px;
   padding: 12px;
+  cursor: pointer;
 }
 .problemOdd {
   flex: 1;
   max-width: 750px;
   border-radius: 12px;
   padding: 12px;
+  cursor: pointer;
 }
 
 .problemDetails {

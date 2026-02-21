@@ -59,10 +59,10 @@ const ProblemComponent = () => {
   }
 
   const increment = () => {
-    setNumber(number + 1);
+    setNumber((n) => n + 1);
   };
   const decrement = () => {
-    setNumber(number - 1);
+    setNumber((n) => n - 1);
   };
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -74,10 +74,10 @@ const ProblemComponent = () => {
     setDifficulty(e.target.value);
   };
   const increasePoints = () => {
-    setPoints(points + 5);
+    setPoints((p) => p + 5);
   };
   const decreasePoints = () => {
-    setPoints(points - 5);
+    setPoints((p) => p - 5);
   };
   const handleDescription = (e) => {
     setDescription(e.target.value);
