@@ -32,7 +32,6 @@ public class AchievementController {
         return ResponseEntity.ok(achievementDto);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<AchievementDto>> getAllAchievements(){
         List<AchievementDto> achievevments = achievementService.getAllAchievements();
