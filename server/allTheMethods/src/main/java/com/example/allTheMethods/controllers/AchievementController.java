@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class AchievementController {
         this.achievementService = achievementService;
     }
 
+
     @PostMapping
     public ResponseEntity<AchievementDto> createAchievement(@RequestBody AchievementDto achievementDto){
         AchievementDto savedAchievement = achievementService.createAchievement(achievementDto);
@@ -30,6 +32,7 @@ public class AchievementController {
         return ResponseEntity.ok(achievementDto);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<AchievementDto>> getAllAchievements(){
         List<AchievementDto> achievevments = achievementService.getAllAchievements();
