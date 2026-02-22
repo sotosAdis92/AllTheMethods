@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.classfile.Signature;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +37,7 @@ public class SignInController {
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest){
         Authentication authentication;
         try{
-            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest));
+            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
         } catch (AuthenticationException exception){
             Map<String, Object> map = new HashMap<>();
             map.put("message", "Bad credentials");
