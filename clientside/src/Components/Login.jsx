@@ -32,7 +32,7 @@ const Login = () => {
     if (password.trim()) {
       errorsCopy.password = "";
     } else {
-      errorsCopy.password = "Error, username cannot be blank";
+      errorsCopy.password = "Error, password cannot be blank";
       valid = false;
     }
     setErrors(errorsCopy);
@@ -64,6 +64,7 @@ const Login = () => {
             autoFocus
             value={username}
             error={errors.username}
+            helperText={errors.username}
             onChange={handleUsername}
           ></TextField>
         </div>
@@ -79,6 +80,7 @@ const Login = () => {
             autoFocus
             value={password}
             error={errors.password}
+            helperText={errors.password}
             onChange={handlePassword}
           ></TextField>
         </div>
