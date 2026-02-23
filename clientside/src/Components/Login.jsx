@@ -1,4 +1,6 @@
+import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -22,10 +24,15 @@ const Login = () => {
   };
   return (
     <>
+      <Typography component="h1" variant="h5">
+        Log In
+      </Typography>
       <div className="card">
         <div className="row">
           <TextField
             id="username"
+            fullWidth
+            required
             label="Username"
             name="username"
             autoComplete="username"
@@ -37,6 +44,8 @@ const Login = () => {
         <div className="row">
           <TextField
             id="password"
+            required
+            fullWidth
             label="Password"
             name="password"
             autoComplete="current-password"
@@ -47,9 +56,19 @@ const Login = () => {
           ></TextField>
         </div>
         <div className="row">
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            onClick={handleSumbit}
+          >
             Log In
           </Button>
+        </div>
+        <div className="row">
+          <Link variant="body2" onClick={() => navigate("/register")}>
+            {"Don't have an account? Sign Up"}
+          </Link>
         </div>
       </div>
     </>
