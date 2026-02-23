@@ -66,7 +66,7 @@ public class SecurityConfig {
         return new JdbcUserDetailsManager(dataSource);
     }
 
-    @Bean
+   /* @Bean
     public CommandLineRunner initData(UserDetailsService userDetailsService){
         return args -> {
             JdbcUserDetailsManager manager = (JdbcUserDetailsManager) userDetailsService;
@@ -81,7 +81,7 @@ public class SecurityConfig {
             userDetailsManager.createUser(user1);
             userDetailsManager.createUser(admin);
         };
-    }
+    } */
 
     @Bean
     public PasswordEncoder passwordEncoder(){
