@@ -24,14 +24,14 @@ import java.util.stream.Collectors;
 @RestController
 public class SignInController {
 
-    private AuthenticationManager authenticationManager;
-    private JwtUtils jwtUtils;
+    private final AuthenticationManager authenticationManager;
+    private final JwtUtils jwtUtils;
 
-    public SignInController(){}
-    public SignInController(AuthenticationManager authenticationManager, JwtUtils utils){
+    public SignInController(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
-        this.jwtUtils = utils;
+        this.jwtUtils = jwtUtils;
     }
+
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest){
@@ -48,7 +48,7 @@ public class SignInController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String jwtToken = jwtUtils.generateTokenFromUsername(userDetails);
         List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority()).collect(Collectors.toList());
-        LoginResponse response = new LoginResponse(userDetails.getUsername(), roles);
+        LoginResponse response = new LoginResponse(jwtToken,userDetails.getUsername(), roles);
         return ResponseEntity.ok(response);
     }
 }
