@@ -5,29 +5,54 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const [formData, setFormData] = useState({
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [errors, setErrors] = useState({
     username: "",
     password: "",
   });
-  const navigate = useNavigate();
-  const handleInputChange = async (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
-  const handleSumbit = async (e) => {
+  function validateForm() {
+    let valid = true;
+    const errorsCopy = { ...errors };
+    if (username.trim()) {
+      errorsCopy.username = "";
+    } else {
+      errorsCopy.username = "Error, username cannot be blank";
+      valid = false;
+    }
+    if (password.trim()) {
+      errorsCopy.password = "";
+    } else {
+      errorsCopy.password = "Error, username cannot be blank";
+      valid = false;
+    }
+    setErrors(errorsCopy);
+    return valid;
+  }
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    if (validateForm()) {
+      console.log(username);
+      console.log(password);
+    }
   };
   return (
     <>
-      <Typography component="h1" variant="h5">
-        Log In
-      </Typography>
       <div className="card">
+        <Typography component="h1" variant="h5">
+          Log In
+        </Typography>
         <div className="row">
           <TextField
             id="username"
@@ -37,8 +62,9 @@ const Login = () => {
             name="username"
             autoComplete="username"
             autoFocus
-            value={formData.username}
-            onChange={handleInputChange}
+            value={username}
+            error={errors.username}
+            onChange={handleUsername}
           ></TextField>
         </div>
         <div className="row">
@@ -51,8 +77,9 @@ const Login = () => {
             autoComplete="current-password"
             type="password"
             autoFocus
-            value={formData.password}
-            onChange={handleInputChange}
+            value={password}
+            error={errors.password}
+            onChange={handlePassword}
           ></TextField>
         </div>
         <div className="row">
@@ -60,7 +87,7 @@ const Login = () => {
             type="submit"
             fullWidth
             variant="contained"
-            onClick={handleSumbit}
+            onClick={handleSubmit}
           >
             Log In
           </Button>

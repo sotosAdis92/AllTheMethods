@@ -542,3 +542,36 @@ body {
   z-index: 10;
   position: relative;
 }
+
+.card {
+  max-width: 600px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 45px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 0.71);
+}
+
+.card:hover {
+  max-width: 600px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 45px;
+  background: rgba(0, 184, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(0, 184, 255, 0.71);
+  transition: 0.5s ease-in-out;
+}
+
+.row {
+  margin-top: 50px;
+}
