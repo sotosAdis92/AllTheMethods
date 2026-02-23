@@ -4,13 +4,17 @@ import AchievementComponent from "./Components/AchievementComponent";
 import Header from "./Components/Header";
 import ListAchievements from "./Components/ListAchievements";
 import ListProblems from "./Components/ListProblems";
+import Login from "./Components/Login";
 import ProblemComponent from "./Components/ProblemComponent";
+import Signup from "./Components/Signup";
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header></Header>
         <Routes>
+          <Route path="/register" element={<Signup></Signup>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/" element={<ListProblems></ListProblems>}></Route>
           <Route
             path="/problems"
