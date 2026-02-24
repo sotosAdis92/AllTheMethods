@@ -1,5 +1,6 @@
 package com.example.allTheMethods.entity;
 
+import com.example.allTheMethods.dto.UsersDto;
 import com.example.allTheMethods.enus.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -104,5 +105,14 @@ public class Users implements UserDetails {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public UsersDto getUsersDto(){
+        UsersDto usersDto = new UsersDto();
+        usersDto.setUserId(userId);
+        usersDto.setDisplayName(displayName);
+        usersDto.setUsername(username);
+        usersDto.setUserRole(userRole);
+        return usersDto;
     }
 }
