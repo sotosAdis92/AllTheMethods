@@ -5,8 +5,8 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import saveToken from "../enviroment/common";
-import signup from "../services/auth";
+import { saveToken } from "../enviroment/common";
+import { signup } from "../services/auth";
 
 const Signup = () => {
   const { enqueueSnackbar } = useSnackbar();
