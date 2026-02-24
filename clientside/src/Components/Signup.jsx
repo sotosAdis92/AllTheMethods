@@ -2,9 +2,14 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
+import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import saveToken from "../enviroment/common";
+import signup from "../services/auth";
+
 const Signup = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -46,9 +51,35 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log(username);
-      console.log(password);
-      console.log(displayName);
+      const formData = {
+        username,
+        password,
+        displayName,
+      };
+      try {
+        const response = await signup(formData);
+        if (response.status === 201) {
+          const responseData = response.data;
+          saveToken(responseData.token);
+          navigate("/dashboard");
+          enqueueSnackbar(`Welcome ${responseData.name}`, {
+            variant: "success",
+            autoHideDuration: 5000,
+          });
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 409) {
+          enqueueSnackbar("User Already exists", {
+            variant: "error",
+            autoHideDuration: 5000,
+          });
+        } else {
+          enqueueSnackbar("Sign up failed", {
+            variant: "error",
+            autoHideDuration: 5000,
+          });
+        }
+      }
     }
   };
   return (

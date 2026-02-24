@@ -2,9 +2,14 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
+import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import saveToken from "../enviroment/common";
+import login from "../services/auth";
+
 const Login = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -43,8 +48,27 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log(username);
-      console.log(password);
+      const formData = {
+        username,
+        password,
+      };
+      try {
+        const response = await login(formData);
+        if (response.status === 200) {
+          const responseData = response.data;
+          saveToken(responseData.token);
+          navigate("/dashboard");
+          enqueueSnackbar(`Welcome ${responseData.name}`, {
+            variant: "success",
+            autoHideDuration: 5000,
+          });
+        }
+      } catch (error) {
+        enqueueSnackbar("Sign in failed", {
+          variant: "error",
+          autoHideDuration: 5000,
+        });
+      }
     }
   };
   return (
