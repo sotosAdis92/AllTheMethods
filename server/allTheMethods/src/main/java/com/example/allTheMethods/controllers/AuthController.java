@@ -22,11 +22,16 @@ import java.util.Collections;
 
 @RestController
 @RequestMapping("/api/auth")
-@RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
     private final UsersService usersService;
     private final JWTUtil jwtUtil;
+
+    public AuthController(AuthService authService, UsersService usersService, JWTUtil jwtUtil) {
+        this.authService = authService;
+        this.usersService = usersService;
+        this.jwtUtil = jwtUtil;
+    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> signupUser(@RequestBody SignupRequest signupRequest){

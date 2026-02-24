@@ -25,10 +25,15 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-@RequiredArgsConstructor
 public class WebSecurityConfiguration {
     private final JWTAuthenticationFilter jwtAuthenticationFilter;
     private final UsersService usersService;
+
+    public WebSecurityConfiguration(JWTAuthenticationFilter jwtAuthenticationFilter, UsersService usersService) {
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.usersService = usersService;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf(AbstractHttpConfigurer::disable)

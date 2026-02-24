@@ -21,12 +21,15 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Component
-@RequiredArgsConstructor
 public class JWTUtil {
     private final UsersRepository usersRepository;
     private Key getSigninngKey(){
         byte[] keyBytes = Decoders.BASE64.decode("413F4455646B4545543265464534890489438904832904389048239043940389043V");
         return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public JWTUtil(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
     }
 
     private Claims extractAllClaims(String token){
