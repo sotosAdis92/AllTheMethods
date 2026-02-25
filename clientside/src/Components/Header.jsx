@@ -1,7 +1,32 @@
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { isTokenValid, removeToken } from "../enviroment/common";
 import "./Header.css";
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  const handleSignOut = () => {
+    navigate("/login");
+    removeToken();
+  };
+
+  useEffect(() => {
+    const isLoggedIn = isTokenValid();
+    setIsUserLoggedIn(isLoggedIn);
+  }, [location]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isTokenValid()) {
+        setIsUserLoggedIn(false);
+        handleSignOut();
+      }
+    }, 1000000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div className="container">
