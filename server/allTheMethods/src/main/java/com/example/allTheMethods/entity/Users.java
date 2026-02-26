@@ -32,7 +32,7 @@ public class Users implements UserDetails {
 
     private UserRole userRole;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     Set<UserAchievements> achievements;
 
     public Users() {
