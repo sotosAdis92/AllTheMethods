@@ -49,6 +49,9 @@ const Header = () => {
               </a>
             </li>
           </ul>
+          <Button color="inherit" onClick={handleSignOut}>
+            Logout
+          </Button>
         </div>
       ) : (
         <>
