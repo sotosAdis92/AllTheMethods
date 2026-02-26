@@ -8,6 +8,9 @@ import ListProblems from "./Components/ListProblems";
 import Login from "./Components/Login";
 import ProblemComponent from "./Components/ProblemComponent";
 import Signup from "./Components/Signup";
+import MyProfile from "./Components/UserComponents/MyProfile";
+import ViewMyAchievements from "./Components/UserComponents/ViewMyAchievements";
+import ViewMyProblems from "./Components/UserComponents/ViewMyProblems";
 function App() {
   return (
     <>
@@ -43,6 +46,15 @@ function App() {
             path="/updateAchievements/:id"
             element={<AchievementComponent></AchievementComponent>}
           ></Route>
+          <Route
+            path="user/viewUserAchievements"
+            element={<ViewMyAchievements></ViewMyAchievements>}
+          ></Route>
+          <Route
+            path="user/viewUserProblems"
+            element={<ViewMyProblems></ViewMyProblems>}
+          ></Route>
+          <Route path="user/profile" element={<MyProfile></MyProfile>}></Route>
         </Routes>
       </BrowserRouter>
     </>
