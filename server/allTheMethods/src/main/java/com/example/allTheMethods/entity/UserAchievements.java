@@ -1,5 +1,7 @@
 package com.example.allTheMethods.entity;
 
+import com.example.allTheMethods.dto.UserAchievementDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -12,12 +14,14 @@ public class UserAchievements {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userAchievementId;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "userId", nullable = false)
+    @JsonIgnore
     private Users user;
 
-    @ManyToOne
-    @JoinColumn(name = "achievementId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "achievementId", nullable = false)
+    @JsonIgnore
     private Achievement achievement;
 
     private LocalDateTime achievedAt;
@@ -62,5 +66,9 @@ public class UserAchievements {
 
     public LocalDateTime getAchievedAt() {
         return achievedAt;
+    }
+
+    public UserAchievementDto getUserAchievementDto(){
+
     }
 }
