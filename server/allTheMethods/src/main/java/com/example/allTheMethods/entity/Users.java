@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -31,6 +32,9 @@ public class Users implements UserDetails {
 
     private UserRole userRole;
 
+    @OneToMany(mappedBy = "users")
+    Set<UserAchievements> achievements;
+
     public Users() {
     }
 
@@ -40,6 +44,15 @@ public class Users implements UserDetails {
         this.password = password;
         this.displayName = displayName;
         this.userRole = userRole;
+    }
+
+    public Users(Long userId, String username, String password, String displayName, UserRole userRole, Set<UserAchievements> achievements) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.displayName = displayName;
+        this.userRole = userRole;
+        this.achievements = achievements;
     }
 
     public Long getUserId() {
@@ -87,6 +100,10 @@ public class Users implements UserDetails {
         return userRole;
     }
 
+    public Set<UserAchievements> getAchievements() {
+        return achievements;
+    }
+
     public void setUserId(Long userId) {
         this.userId = userId;
     }
@@ -105,6 +122,10 @@ public class Users implements UserDetails {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public void setAchievements(Set<UserAchievements> achievements) {
+        this.achievements = achievements;
     }
 
     public UsersDto getUsersDto(){

@@ -2,6 +2,8 @@ package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table
 public class Achievement {
@@ -24,6 +26,9 @@ public class Achievement {
     @Column(nullable = false)
     private String visibility;
 
+    @OneToMany(mappedBy = "achievement")
+    Set<UserAchievements> achievements;
+
     public Achievement() {
     }
 
@@ -34,6 +39,16 @@ public class Achievement {
         this.category = category;
         this.rank = rank;
         this.visibility = visibility;
+    }
+
+    public Achievement(Long achievementId, String name, String description, String category, String rank, String visibility, Set<UserAchievements> achievements) {
+        this.achievementId = achievementId;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.rank = rank;
+        this.visibility = visibility;
+        this.achievements = achievements;
     }
 
     public Long getAchievementId() {
@@ -82,5 +97,13 @@ public class Achievement {
 
     public void setVisibility(String visibility) {
         this.visibility = visibility;
+    }
+
+    public void setAchievements(Set<UserAchievements> achievements) {
+        this.achievements = achievements;
+    }
+
+    public Set<UserAchievements> getAchievements() {
+        return achievements;
     }
 }
