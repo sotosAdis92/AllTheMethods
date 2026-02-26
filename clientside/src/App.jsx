@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AchievementComponent from "./Components/AchievementComponent";
+import AnnouncementsBoard from "./Components/Announcements";
 import Dashboard from "./Components/Dashboard";
 import Header from "./Components/Header";
 import ListAchievements from "./Components/ListAchievements";
@@ -55,6 +56,10 @@ function App() {
             element={<ViewMyProblems></ViewMyProblems>}
           ></Route>
           <Route path="/profile/:id" element={<MyProfile></MyProfile>}></Route>
+          <Route
+            path="/announcements"
+            element={<AnnouncementsBoard></AnnouncementsBoard>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

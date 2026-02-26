@@ -34,7 +34,7 @@ const Header = () => {
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">
-              <a href="/" className="headerlink">
+              <a href="/announcements" className="headerlink">
                 Announcements
               </a>
             </li>
@@ -54,7 +54,7 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <Button color="inherit" onClick={handleSignOut}>
+          <Button variant="contained" onClick={handleSignOut}>
             Logout
           </Button>
         </div>
