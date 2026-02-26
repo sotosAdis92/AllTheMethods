@@ -14,13 +14,13 @@ public class UserAchievements {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    Users user;
+    private Users user;
 
     @ManyToOne
     @JoinColumn(name = "achievementId")
-    Achievement achievement;
+    private Achievement achievement;
 
-    LocalDateTime achievedAt;
+    private LocalDateTime achievedAt;
 
     public UserAchievements() {
     }
