@@ -48,6 +48,11 @@ const Header = () => {
                 Achievements
               </a>
             </li>
+            <li className="link">
+              <a href="/profile" className="headerlink">
+                My Profile
+              </a>
+            </li>
           </ul>
           <Button color="inherit" onClick={handleSignOut}>
             Logout

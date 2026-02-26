@@ -27,7 +27,7 @@ export const decodeToken = () => {
 
 export const isTokenValid = () => {
   const decodedToken = decodeToken();
-  if (!decodeToken || !decodeToken.exp) return false;
+  if (!decodedToken || !decodedToken.exp) return false;
   const expiry = decodedToken.exp * 1000;
   return Date.now() < expiry;
 };
