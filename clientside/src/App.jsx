@@ -47,14 +47,14 @@ function App() {
             element={<AchievementComponent></AchievementComponent>}
           ></Route>
           <Route
-            path="user/viewUserAchievements"
+            path="/viewUserAchievements"
             element={<ViewMyAchievements></ViewMyAchievements>}
           ></Route>
           <Route
-            path="user/viewUserProblems"
+            path="/viewUserProblems"
             element={<ViewMyProblems></ViewMyProblems>}
           ></Route>
-          <Route path="user/profile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="/profile/:id" element={<MyProfile></MyProfile>}></Route>
         </Routes>
       </BrowserRouter>
     </>
