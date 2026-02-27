@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface UserAchievementsRepository extends JpaRepository<UserAchievements, Long> {
-    boolean existsByAchievementIdAndUserId(Long achievementId, Long userId);
     List<UserAchievements> findAllByUserId(Long userId);
 }

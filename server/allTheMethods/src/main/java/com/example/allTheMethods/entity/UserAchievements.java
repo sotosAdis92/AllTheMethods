@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -75,7 +74,7 @@ public class UserAchievements {
     public UserAchievementDto getUserAchievementDto(){
         UserAchievementDto userAchievementDto = new UserAchievementDto();
         userAchievementDto.setUserAchievementId(userAchievementId);
-        userAchievementDto.setUserId(user.getUserId());
+        userAchievementDto.setUserId(user.getId());
         userAchievementDto.setAchievementId(achievement.getAchievementId());
         userAchievementDto.setAchievedAt(achievedAt);
         return userAchievementDto;

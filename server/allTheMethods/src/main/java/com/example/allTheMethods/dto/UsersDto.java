@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class UsersDto {
-    private Long userId;
+    private Long id;
     private String username;
     private String password;
     private String displayName;
@@ -14,16 +14,16 @@ public class UsersDto {
     public UsersDto() {
     }
 
-    public UsersDto(Long userId, String username, String password, String displayName, UserRole userRole) {
-        this.userId = userId;
+    public UsersDto(Long id, String username, String password, String displayName, UserRole userRole) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.displayName = displayName;
         this.userRole = userRole;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -42,8 +42,8 @@ public class UsersDto {
         return userRole;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {

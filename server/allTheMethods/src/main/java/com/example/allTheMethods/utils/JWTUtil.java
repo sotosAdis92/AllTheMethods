@@ -7,7 +7,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -71,7 +70,7 @@ public class JWTUtil {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication != null && authentication.isAuthenticated()){
             Users user = (Users) authentication.getPrincipal();
-            Optional<Users> optionalUsers = usersRepository.findById(user.getUserId());
+            Optional<Users> optionalUsers = usersRepository.findById(user.getId());
             return optionalUsers.orElse(null);
         }
         return null;

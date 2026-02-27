@@ -9,8 +9,6 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.AuthService;
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -54,7 +52,7 @@ public class AuthController {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "User creation failed, please try again"));
             }
             UserDetails userDetails = usersService.userDetailsService().loadUserByUsername(createdUser.getUsername());
-            String jwt = jwtUtil.generateToken(userDetails, createdUser.getUserId());
+            String jwt = jwtUtil.generateToken(userDetails, createdUser.getId());
             AuthenticationResponse authenticationResponse = new AuthenticationResponse();
             authenticationResponse.setJwtToken(jwt);
             authenticationResponse.setName(createdUser.getDisplayName());
@@ -76,7 +74,7 @@ public class AuthController {
 
             if(optionalUsers.isPresent()){
                 Users users = optionalUsers.get();
-                String jwt = jwtUtil.generateToken(userDetails, users.getUserId());
+                String jwt = jwtUtil.generateToken(userDetails, users.getId());
                 AuthenticationResponse authenticationResponse = new AuthenticationResponse();
                 authenticationResponse.setJwtToken(jwt);
                 authenticationResponse.setName(users.getDisplayName());

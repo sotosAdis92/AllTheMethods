@@ -19,7 +19,7 @@ public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long userId;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -38,16 +38,16 @@ public class Users implements UserDetails {
     public Users() {
     }
 
-    public Users(Long userId, String username, String password, String displayName, UserRole userRole) {
-        this.userId = userId;
+    public Users(Long id, String username, String password, String displayName, UserRole userRole) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.displayName = displayName;
         this.userRole = userRole;
     }
 
-    public Users(Long userId, String username, String password, String displayName, UserRole userRole, Set<UserAchievements> achievements) {
-        this.userId = userId;
+    public Users(Long id, String username, String password, String displayName, UserRole userRole, Set<UserAchievements> achievements) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.displayName = displayName;
@@ -55,8 +55,8 @@ public class Users implements UserDetails {
         this.achievements = achievements;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -104,8 +104,8 @@ public class Users implements UserDetails {
         return achievements;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long userId) {
+        this.id = userId;
     }
 
     public void setUsername(String username) {
@@ -130,7 +130,7 @@ public class Users implements UserDetails {
 
     public UsersDto getUsersDto(){
         UsersDto usersDto = new UsersDto();
-        usersDto.setUserId(userId);
+        usersDto.setId(id);
         usersDto.setDisplayName(displayName);
         usersDto.setUsername(username);
         usersDto.setUserRole(userRole);

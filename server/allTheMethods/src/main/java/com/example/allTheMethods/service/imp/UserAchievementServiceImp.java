@@ -38,13 +38,13 @@ public class UserAchievementServiceImp implements UserAchievementService {
         Users achievementOwner = userAchievements.getUser();
         Achievement achievementOwned = userAchievements.getAchievement();
 
-        if(loggedInUser != null && loggedInUser.getUserId().equals(achievementOwner.getUserId())){
+        if(loggedInUser != null && loggedInUser.getId().equals(achievementOwner.getId())){
 
         } else {
 
         }
 
-        userAchievementDto.setUserId(achievementOwner.getUserId());
+        userAchievementDto.setUserId(achievementOwner.getId());
         userAchievementDto.setAchievementId(achievementOwned.getAchievementId());
 
         return userAchievementDto;
@@ -54,7 +54,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
     public List<UserAchievementDto> getUserAchievements() {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            return userAchievementsRepository.findAllByUserId(user.getUserId()).stream().sorted(Comparator.comparing(UserAchievements::getAchievedAt).reversed())
+            return userAchievementsRepository.findAllByUserId(user.getId()).stream().sorted(Comparator.comparing(UserAchievements::getAchievedAt).reversed())
                     .map(this::getUserAchievementInService).collect(Collectors.toList());
         }
         throw new EntityNotFoundException("User not found");
