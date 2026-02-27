@@ -1,12 +1,6 @@
 import axios from "axios";
+import axiosInstance from "../enviroment/axiosinstance";
 const REST_API_BASE_URL = "http://localhost:8080/api/problems";
-export const listProblems = () => {
-  return axios.get(REST_API_BASE_URL);
-};
-
-export const createProblem = (problem) => {
-  return axios.post(REST_API_BASE_URL, problem);
-};
 
 export const getProblem = (problemId) => {
   return axios.get(REST_API_BASE_URL + "/" + problemId);
@@ -18,4 +12,14 @@ export const updateProblem = (problemId, problem) => {
 
 export const deleteProblem = (problemId) => {
   return axios.delete(REST_API_BASE_URL + "/" + problemId);
+};
+
+export const createProblem = async (problem) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL, problem);
+  return response;
+};
+
+export const listProblems = async () => {
+  const response = await axiosInstance.get(REST_API_BASE_URL);
+  return response;
 };
