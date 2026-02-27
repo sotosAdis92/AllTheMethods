@@ -3,6 +3,8 @@ package com.example.allTheMethods.entity;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,11 +18,13 @@ public class UserAchievements {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "userId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "achievementId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Achievement achievement;
 
@@ -69,6 +73,11 @@ public class UserAchievements {
     }
 
     public UserAchievementDto getUserAchievementDto(){
-
+        UserAchievementDto userAchievementDto = new UserAchievementDto();
+        userAchievementDto.setUserAchievementId(userAchievementId);
+        userAchievementDto.setUserId(user.getUserId());
+        userAchievementDto.setAchievementId(achievement.getAchievementId());
+        userAchievementDto.setAchievedAt(achievedAt);
+        return userAchievementDto;
     }
 }
