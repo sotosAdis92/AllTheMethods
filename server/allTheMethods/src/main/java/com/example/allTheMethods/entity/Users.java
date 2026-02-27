@@ -46,14 +46,6 @@ public class Users implements UserDetails {
         this.userRole = userRole;
     }
 
-    public Users(Long id, String username, String password, String displayName, UserRole userRole, Set<UserAchievements> achievements) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.displayName = displayName;
-        this.userRole = userRole;
-        this.achievements = achievements;
-    }
 
     public Long getId() {
         return id;
