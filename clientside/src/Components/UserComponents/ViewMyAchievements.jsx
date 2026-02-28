@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { getUserAchievements } from "../../services/UserAchievementService";
 const ViewMyAchievements = () => {
   const [myAchievements, setMyAchievements] = useState([]);
+  const count = myAchievements.filter(
+    (myAchievement) => myAchievement.achievementId,
+  ).length;
 
   const getAllUserAchievements = () => {
     getUserAchievements()
@@ -19,15 +22,18 @@ const ViewMyAchievements = () => {
   }, []);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
-    <div key={myAchievement.userAchievementId}>
-      {myAchievement.name}
-      {myAchievement.rank}
-    </div>
+    <div key={myAchievement.achievementId}></div>
   ));
   return (
     <>
-      <h1>View User Achievements Works</h1>
-      <ol>{listOfMyAchievements}</ol>
+      {count >= 0 ? (
+        <>
+          <h1>View User Achievements Works</h1>
+          <ol>{listOfMyAchievements}</ol>
+        </>
+      ) : (
+        <h1>No achievements Yet!</h1>
+      )}
     </>
   );
 };
