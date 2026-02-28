@@ -12,7 +12,9 @@ import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,6 +61,11 @@ public class UserAchievementServiceImp implements UserAchievementService {
                 UserAchievementDto userAchievementDto = new UserAchievementDto();
                 userAchievementDto.setAchievementId((Long) row[0]);
                 userAchievementDto.setName((String) row[1]);
+                userAchievementDto.setCategory((String) row[2]);
+                userAchievementDto.setDescription((String) row[3]);
+                userAchievementDto.setRank((String) row[4]);
+                userAchievementDto.setUserAchievementId((Long) row[5]);
+                userAchievementDto.setUserId((Long) row[6]);
                 return userAchievementDto;
             }).collect(Collectors.toList());
         }

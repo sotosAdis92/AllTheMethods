@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface UserAchievementsRepository extends JpaRepository<UserAchievements, Long> {
-    @Query("SELECT a.achievementId,a.name,a.category,a.rank,a.description FROM UserAchievements ua JOIN ua.achievement a WHERE ua.user.id = ?1")
+    @Query("SELECT a.achievementId,a.name,a.category,a.rank,a.description,ua.userAchievementId,ua.user.id,a.visibility FROM UserAchievements ua JOIN ua.achievement a WHERE ua.user.id = ?1")
     List<Object[]> findAllByUserId(Long userId);
 }
