@@ -54,8 +54,13 @@ public class UserAchievementServiceImp implements UserAchievementService {
     public List<UserAchievementDto> getUserAchievements() {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            return userAchievementsRepository.findAllByUserId(user.getId()).stream().sorted(Comparator.comparing(UserAchievements::getAchievedAt).reversed())
-                    .map(this::getUserAchievementInService).collect(Collectors.toList());
+            List<Object[]> result = userAchievementsRepository.findAllByUserId(user.getId());
+            return result.stream().map(row ->{
+                UserAchievementDto userAchievementDto = new UserAchievementDto();
+                userAchievementDto.setAchievementId((Long) row[0]);
+                userAchievementDto.setName((String) row[1]);
+                return userAchievementDto;
+            }).collect(Collectors.toList());
         }
         throw new EntityNotFoundException("User not found");
     }
