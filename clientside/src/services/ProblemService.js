@@ -1,6 +1,6 @@
 import axios from "axios";
 import axiosInstance from "../enviroment/axiosinstance";
-const REST_API_BASE_URL = "http://localhost:8080/api/problems";
+const REST_API_BASE_URL = "/api/problems";
 
 export const getProblem = (problemId) => {
   return axios.get(REST_API_BASE_URL + "/" + problemId);

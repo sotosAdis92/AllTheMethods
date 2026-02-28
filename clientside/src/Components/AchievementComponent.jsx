@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   createAchievement,
-  getAchievemet,
+  getAchievement,
   updateAchievement,
 } from "../services/AchievementService";
 const AchievementComponent = () => {
@@ -26,7 +26,7 @@ const AchievementComponent = () => {
   const { id } = useParams();
   useEffect(() => {
     if (id) {
-      getAchievemet(id)
+      getAchievement(id)
         .then((response) => {
           setName(response.data.name);
           setDescription(response.data.description);

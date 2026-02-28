@@ -1,24 +1,32 @@
-import axios from "axios";
 import axiosInstance from "../enviroment/axiosinstance";
 const REST_API_BASE_URL = "api/achievements";
 
-export const createAchievement = (achievement) => {
-  return axios.post(REST_API_BASE_URL, achievement);
-};
-
-export const getAchievemet = (achievementId) => {
-  return axios.get(REST_API_BASE_URL + "/" + achievementId);
-};
-
-export const updateAchievement = (achievementId, achievement) => {
-  return axios.put(REST_API_BASE_URL + "/" + achievementId, achievement);
-};
-
-export const deleteAchievement = (achievementId) => {
-  return axios.delete(REST_API_BASE_URL + "/" + achievementId);
+export const updateAchievement = async (achievementId, achievement) => {
+  const response = await axiosInstance.put(
+    REST_API_BASE_URL + "/" + achievementId,
+    achievement,
+  );
+  return response;
 };
 
 export const listAchievements = async () => {
   const response = await axiosInstance.get(REST_API_BASE_URL);
+  return response;
+};
+export const createAchievement = async (achievement) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL, achievement);
+  return response;
+};
+export const deleteAchievement = async (achievementId) => {
+  const response = await axiosInstance.delete(
+    REST_API_BASE_URL + "/" + achievementId,
+  );
+  return response;
+};
+
+export const getAchievement = async (achievementId) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/" + achievementId,
+  );
   return response;
 };
