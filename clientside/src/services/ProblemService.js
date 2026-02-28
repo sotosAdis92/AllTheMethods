@@ -1,17 +1,24 @@
-import axios from "axios";
 import axiosInstance from "../enviroment/axiosinstance";
 const REST_API_BASE_URL = "/api/problems";
 
-export const getProblem = (problemId) => {
-  return axios.get(REST_API_BASE_URL + "/" + problemId);
+export const getProblem = async (problemId) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/" + problemId);
+  return response;
 };
 
-export const updateProblem = (problemId, problem) => {
-  return axios.put(REST_API_BASE_URL + "/" + problemId, problem);
+export const updateProblem = async (problemId, problem) => {
+  const response = await axiosInstance.put(
+    REST_API_BASE_URL + "/" + problemId,
+    problem,
+  );
+  return response;
 };
 
-export const deleteProblem = (problemId) => {
-  return axios.delete(REST_API_BASE_URL + "/" + problemId);
+export const deleteProblem = async (problemId) => {
+  const response = await axiosInstance.delete(
+    REST_API_BASE_URL + "/" + problemId,
+  );
+  return response;
 };
 
 export const createProblem = async (problem) => {
