@@ -55,7 +55,7 @@ function App() {
             path="/viewUserProblems"
             element={<ViewMyProblems></ViewMyProblems>}
           ></Route>
-          <Route path="/profile/:id" element={<MyProfile></MyProfile>}></Route>
+          <Route path="/profile/" element={<MyProfile></MyProfile>}></Route>
           <Route
             path="/announcements"
             element={<AnnouncementsBoard></AnnouncementsBoard>}
