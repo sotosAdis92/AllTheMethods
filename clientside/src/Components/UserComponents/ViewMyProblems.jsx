@@ -1,7 +1,7 @@
 const ViewMyProblems = () => {
   return (
     <>
-      <h1>View my problems works</h1>
+      <h1>My problems</h1>
     </>
   );
 };

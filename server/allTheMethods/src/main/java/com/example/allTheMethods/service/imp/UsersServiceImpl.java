@@ -1,7 +1,10 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.UsersDto;
+import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UsersService;
+import com.example.allTheMethods.utils.JWTUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,9 +14,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
+    private final JWTUtil jwtUtil;
 
-    public UsersServiceImpl(UsersRepository usersRepository) {
+    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil) {
         this.usersRepository = usersRepository;
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
@@ -24,5 +29,16 @@ public class UsersServiceImpl implements UsersService {
                 return usersRepository.findFirstByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
             }
         };
+    }
+
+    @Override
+    public UsersDto getUserName(){
+       Users currentUser = jwtUtil.getLoggedInUser();
+       Long id = currentUser.getId();
+       UsersDto usersDto = new UsersDto();
+       usersDto.setId(id);
+       usersDto.setDisplayName(currentUser.getDisplayName());
+       usersDto.setUsername(currentUser.getUsername());
+       return usersDto;
     }
 }

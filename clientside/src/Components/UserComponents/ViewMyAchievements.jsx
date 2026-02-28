@@ -22,13 +22,17 @@ const ViewMyAchievements = () => {
   }, []);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
-    <div key={myAchievement.achievementId}></div>
+    <div key={myAchievement.achievementId}>
+      <div>{myAchievement.category}</div>
+      <div>{myAchievement.name}</div>
+      <div>{myAchievement.rank}</div>
+    </div>
   ));
   return (
     <>
       {count >= 0 ? (
         <>
-          <h1>View User Achievements Works</h1>
+          <h1>My Achievements</h1>
           <ol>{listOfMyAchievements}</ol>
         </>
       ) : (
