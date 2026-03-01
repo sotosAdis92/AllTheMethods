@@ -1,5 +1,5 @@
 import { Lock, User } from "@boxicons/react";
-import { Typography } from "@mui/material";
+import { InputAdornment, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
@@ -91,8 +91,14 @@ const Login = () => {
             error={errors.username}
             helperText={errors.username}
             onChange={handleUsername}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <User pack="filled"></User>
+                </InputAdornment>
+              ),
+            }}
           ></TextField>
-          <User pack="filled" fill="#000000"></User>
         </div>
         <div className="row">
           <TextField
@@ -108,8 +114,14 @@ const Login = () => {
             error={errors.password}
             helperText={errors.password}
             onChange={handlePassword}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Lock pack="filled"></Lock>
+                </InputAdornment>
+              ),
+            }}
           ></TextField>
-          <Lock pack="filled" fill="#000000"></Lock>
         </div>
         <div className="row">
           <Button
