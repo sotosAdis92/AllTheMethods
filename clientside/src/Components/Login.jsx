@@ -74,69 +74,77 @@ const Login = () => {
   };
   return (
     <>
-      <div className="card">
-        <Typography component="h1" variant="h5">
-          Log In
-        </Typography>
-        <div className="row">
-          <TextField
-            id="username"
-            fullWidth
-            required
-            label="Username"
-            name="username"
-            autoComplete="username"
-            autoFocus
-            value={username}
-            error={errors.username}
-            helperText={errors.username}
-            onChange={handleUsername}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <User pack="filled"></User>
-                </InputAdornment>
-              ),
-            }}
-          ></TextField>
-        </div>
-        <div className="row">
-          <TextField
-            id="password"
-            required
-            fullWidth
-            label="Password"
-            name="password"
-            autoComplete="current-password"
-            type="password"
-            autoFocus
-            value={password}
-            error={errors.password}
-            helperText={errors.password}
-            onChange={handlePassword}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Lock pack="filled"></Lock>
-                </InputAdornment>
-              ),
-            }}
-          ></TextField>
-        </div>
-        <div className="row">
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            onClick={handleSubmit}
-          >
+      <div className="login-container">
+        <div className="login-card">
+          <Typography component="h1" variant="h5" className="login-header">
             Log In
-          </Button>
-        </div>
-        <div className="row">
-          <Link variant="body2" onClick={() => navigate("/register")}>
-            {"Don't have an account? Sign Up"}
-          </Link>
+          </Typography>
+          <div className="row">
+            <TextField
+              id="username"
+              fullWidth
+              required
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              value={username}
+              error={errors.username}
+              helperText={errors.username}
+              onChange={handleUsername}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <User
+                      pack="filled"
+                      fill={errors.username ? "#ff3333" : "black"}
+                    ></User>
+                  </InputAdornment>
+                ),
+              }}
+            ></TextField>
+          </div>
+          <div className="row">
+            <TextField
+              id="password"
+              required
+              fullWidth
+              label="Password"
+              name="password"
+              autoComplete="current-password"
+              type="password"
+              autoFocus
+              value={password}
+              error={errors.password}
+              helperText={errors.password}
+              onChange={handlePassword}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Lock
+                      pack="filled"
+                      fill={errors.password ? "#ff3333" : "black"}
+                    ></Lock>
+                  </InputAdornment>
+                ),
+              }}
+            ></TextField>
+          </div>
+          <div className="row">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              Log In
+            </Button>
+          </div>
+          <div className="row">
+            <Link variant="body2" onClick={() => navigate("/register")}>
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </div>
         </div>
       </div>
     </>

@@ -613,3 +613,68 @@ body {
   box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
   transition: all 0.2s ease;
 }
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-color: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.login-card {
+  max-width: 450px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-family: "Poppins", "Montserrat", system-ui, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
