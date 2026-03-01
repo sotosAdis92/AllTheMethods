@@ -76,12 +76,13 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <Typography component="h1" variant="h5" className="login-header">
+          <Typography component="h1" variant="h5" className="loginHeader">
             Log In
           </Typography>
           <div className="row">
             <TextField
               id="username"
+              className="login-input"
               fullWidth
               required
               label="Username"
@@ -107,6 +108,7 @@ const Login = () => {
           <div className="row">
             <TextField
               id="password"
+              className="login-input"
               required
               fullWidth
               label="Password"
@@ -134,6 +136,7 @@ const Login = () => {
             <Button
               type="submit"
               fullWidth
+              className="login-button"
               variant="contained"
               onClick={handleSubmit}
             >
@@ -141,7 +144,11 @@ const Login = () => {
             </Button>
           </div>
           <div className="row">
-            <Link variant="body2" onClick={() => navigate("/register")}>
+            <Link
+              variant="body2"
+              className="singup-link"
+              onClick={() => navigate("/register")}
+            >
               {"Don't have an account? Sign Up"}
             </Link>
           </div>
