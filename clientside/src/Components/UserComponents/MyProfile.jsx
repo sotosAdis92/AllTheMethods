@@ -21,8 +21,11 @@ const MyProfile = () => {
 
   return (
     <>
-      <h1>My Name</h1>
-      <h2>{displayName}</h2>
+      <div className="containerUser">
+        <h1 className="usersName">My Name</h1>
+        <h2 className="user">{displayName}</h2>
+      </div>
+
       <ViewMyAchievements></ViewMyAchievements>
       <ViewMyProblems></ViewMyProblems>
     </>
