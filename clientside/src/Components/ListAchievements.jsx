@@ -34,12 +34,15 @@ const ListAchievements = () => {
   useEffect(() => {
     getAllAchievements();
   }, []);
+
   const addNewAchievement = () => {
     navigator("/addAchievement");
   };
+
   const updateAchievement = (id) => {
     navigator(`/updateAchievements/${id}`);
   };
+
   const removeAchievement = (id) => {
     console.log(id);
     deleteAchievement(id)
@@ -50,6 +53,16 @@ const ListAchievements = () => {
         console.error(error);
       });
   };
+
+  const listOfButtons = achievements.map((achievement) => (
+    <button
+      key={achievement.achievementId}
+      onClick={() => handleFilterButtonClick()}
+      className={`button ${selectedFilters?.includes(achievement.category) ? "active" : ""}`}
+    >
+      {achievement.category}
+    </button>
+  ));
 
   const listOfAchievements = achievements.map((achievement) => (
     <div key={achievement.achievementId} className="achievementCardWrapper">
@@ -75,19 +88,20 @@ const ListAchievements = () => {
       </Button>
     </div>
   ));
+
+  const handleFilterButtonClick = (selectedCategory) => {
+    if (selectedFilters.includes(selectedCategory)) {
+      let filters = selectedFilters.filter((el) => el !== selectedCategory);
+      setSelectedFilters(filters);
+    } else {
+      setSelectedFilters([...selectedFilters, selectedCategory]);
+    }
+  };
+
   return (
     <>
       <h2 className="achievementsTitle">List Of Achievements</h2>
-      <div className="buttons-container">
-        {achievements.map((category, i) => (
-          <button
-            onClick={() => handleFilterButtonClick(category)}
-            className={`button ${selectedFilters?.includes(category) ? "active" : ""}`}
-          >
-            {achievements.category}
-          </button>
-        ))}
-      </div>
+      <div className="buttons-container">{listOfButtons}</div>
       <Tooltip>
         <Button variant="contained" onClick={addNewAchievement}>
           <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
