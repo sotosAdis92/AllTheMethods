@@ -10,11 +10,7 @@
   z-index: 1000;
 }
 .title {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.5rem;
   font-weight: 700;
   background: black;
@@ -39,11 +35,7 @@
 .headerlink {
   display: inline-block;
   padding: 8px 16px;
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.2rem;
   font-weight: 500;
   color: #475569;

@@ -550,30 +550,21 @@ body {
 }
 
 .usersDisplay {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.2rem;
   font-weight: 600;
   color: #1e293b;
   padding: 6px 12px;
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  margin-top: 5px;
   border-radius: 30px;
-  border: 1px solid #e2e8f0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .userAndLogout .MuiButton-contained {
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: white;
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-  font-size: 0.9rem;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: none;
   padding: 6px 20px;
@@ -600,7 +591,7 @@ body {
   justify-items: center;
 }
 
-.loginHeader h1 {
+.loginHeader {
   font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 32px;
   font-weight: 600;

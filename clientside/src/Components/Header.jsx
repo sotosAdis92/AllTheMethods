@@ -88,7 +88,7 @@ const Header = () => {
             Login
           </Button>
           <Button
-            className="loginSingUp"
+            className="SingUp"
             LinkComponent={Link}
             variant="contained"
             to="/register"

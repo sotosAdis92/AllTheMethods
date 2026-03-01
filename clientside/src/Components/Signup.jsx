@@ -1,5 +1,5 @@
 import { Lock, Monitor, User } from "@boxicons/react";
-import { InputAdornment, Typography } from "@mui/material";
+import { InputAdornment } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
@@ -87,7 +87,7 @@ const Signup = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <Typography className="loginHeader">AllTheMethods</Typography>
+          <h1 className="loginHeader">AllTheMethods</h1>
           <div className="row">
             <TextField
               className="login-input"
