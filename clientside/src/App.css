@@ -528,7 +528,7 @@ body {
 
 .achDesc {
   font-family: "Inter", "Roboto", system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
@@ -538,7 +538,7 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
+  max-width: 300px;
   z-index: 10;
   position: relative;
 }
