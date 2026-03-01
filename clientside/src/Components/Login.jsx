@@ -66,7 +66,7 @@ const Login = () => {
         }
       } catch (error) {
         enqueueSnackbar("Sign in failed", {
-          variant: "error",
+          variant: error,
           autoHideDuration: 5000,
         });
       }
@@ -76,9 +76,7 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <Typography className="loginHeader">
-            <h1>Log In</h1>
-          </Typography>
+          <Typography className="loginHeader">AllTheMethods</Typography>
           <div className="row">
             <TextField
               id="username"

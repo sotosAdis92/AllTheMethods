@@ -1,4 +1,5 @@
-import { Typography } from "@mui/material";
+import { Lock, Monitor, User } from "@boxicons/react";
+import { InputAdornment, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
@@ -84,70 +85,108 @@ const Signup = () => {
   };
   return (
     <>
-      <div className="card">
-        <Typography component="h1" variant="h5">
-          Sign Up
-        </Typography>
-        <div className="row">
-          <TextField
-            id="username"
-            fullWidth
-            required
-            label="Username"
-            name="username"
-            autoComplete="username"
-            autoFocus
-            value={username}
-            error={errors.username}
-            helperText={errors.username}
-            onChange={handleUsername}
-          ></TextField>
-        </div>
-        <div className="row">
-          <TextField
-            id="password"
-            required
-            fullWidth
-            label="Password"
-            name="password"
-            autoComplete="current-password"
-            type="password"
-            autoFocus
-            value={password}
-            error={errors.password}
-            helperText={errors.password}
-            onChange={handlePassword}
-          ></TextField>
-        </div>
-        <div className="row">
-          <TextField
-            id="displayName"
-            required
-            fullWidth
-            label="Display Name"
-            name="displayName"
-            autoComplete="displayName"
-            autoFocus
-            value={displayName}
-            error={errors.displayName}
-            helperText={errors.displayName}
-            onChange={handleDisplayName}
-          ></TextField>
-        </div>
-        <div className="row">
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            onClick={handleSubmit}
-          >
-            Create Account
-          </Button>
-        </div>
-        <div className="row">
-          <Link variant="body2" onClick={() => navigate("/login")}>
-            {"Already have an account? Log In"}
-          </Link>
+      <div className="login-container">
+        <div className="login-card">
+          <Typography className="loginHeader">AllTheMethods</Typography>
+          <div className="row">
+            <TextField
+              className="login-input"
+              id="username"
+              fullWidth
+              required
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              value={username}
+              error={errors.username}
+              helperText={errors.username}
+              onChange={handleUsername}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <User
+                      pack="filled"
+                      fill={errors.username ? "#ff3333" : "black"}
+                    ></User>
+                  </InputAdornment>
+                ),
+              }}
+            ></TextField>
+          </div>
+          <div className="row">
+            <TextField
+              className="login-input"
+              id="password"
+              required
+              fullWidth
+              label="Password"
+              name="password"
+              autoComplete="current-password"
+              type="password"
+              autoFocus
+              value={password}
+              error={errors.password}
+              helperText={errors.password}
+              onChange={handlePassword}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Lock
+                      pack="filled"
+                      fill={errors.password ? "#ff3333" : "black"}
+                    ></Lock>
+                  </InputAdornment>
+                ),
+              }}
+            ></TextField>
+          </div>
+          <div className="row">
+            <TextField
+              className="login-input"
+              id="displayName"
+              required
+              fullWidth
+              label="Display Name"
+              name="displayName"
+              autoComplete="displayName"
+              autoFocus
+              value={displayName}
+              error={errors.displayName}
+              helperText={errors.displayName}
+              onChange={handleDisplayName}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Monitor
+                      pack="filled"
+                      fill={errors.username ? "#ff3333" : "black"}
+                    ></Monitor>
+                  </InputAdornment>
+                ),
+              }}
+            ></TextField>
+          </div>
+          <div className="row">
+            <Button
+              className="login-button"
+              type="submit"
+              fullWidth
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              Create Account
+            </Button>
+          </div>
+          <div className="row">
+            <Link
+              variant="body2"
+              className="singup-link"
+              onClick={() => navigate("/login")}
+            >
+              {"Already have an account? Log In"}
+            </Link>
+          </div>
         </div>
       </div>
     </>
