@@ -57,7 +57,7 @@ const ListAchievements = () => {
   const listOfButtons = achievements.map((achievement) => (
     <button
       key={achievement.achievementId}
-      onClick={() => handleFilterButtonClick()}
+      onClick={() => handleFilterButtonClick(achievement.category)}
       className={`button ${selectedFilters?.includes(achievement.category) ? "active" : ""}`}
     >
       {achievement.category}
@@ -88,15 +88,6 @@ const ListAchievements = () => {
       </Button>
     </div>
   ));
-
-  const handleFilterButtonClick = (selectedCategory) => {
-    if (selectedFilters.includes(selectedCategory)) {
-      let filters = selectedFilters.filter((el) => el !== selectedCategory);
-      setSelectedFilters(filters);
-    } else {
-      setSelectedFilters([...selectedFilters, selectedCategory]);
-    }
-  };
 
   return (
     <>
