@@ -76,8 +76,8 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <Typography component="h1" variant="h5" className="loginHeader">
-            Log In
+          <Typography className="loginHeader">
+            <h1>Log In</h1>
           </Typography>
           <div className="row">
             <TextField

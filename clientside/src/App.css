@@ -601,8 +601,8 @@ body {
 
 .loginHeader {
   font-family: "Poppins", "Montserrat", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   color: #1e3c72;
   text-align: center;
   margin-bottom: 2rem;
@@ -626,6 +626,7 @@ body {
   border-radius: 15px;
   background: #f8fafc;
   transition: all 0.3s ease;
+  font-size: 1.1rem;
 }
 
 .login-input .MuiOutlinedInput-root:hover {
@@ -638,14 +639,14 @@ body {
   box-shadow: 0 4px 15px rgba(30, 60, 114, 0.15);
 }
 .login-button {
-  padding: 12px;
-  border-radius: 12px;
-  font-family: "Poppins", "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: none;
-  color: white;
-  box-shadow: 0 8px 16px rgba(30, 60, 114, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px !important;
+  border-radius: 12px !important;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  color: white !important;
+  box-shadow: 0 8px 16px rgba(30, 60, 114, 0.3) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
