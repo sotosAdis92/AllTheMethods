@@ -543,35 +543,6 @@ body {
   position: relative;
 }
 
-.card {
-  max-width: 600px;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 45px;
-  background: rgba(255, 255, 255, 0);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.9px);
-  -webkit-backdrop-filter: blur(4.9px);
-  border: 1px solid rgba(255, 255, 255, 0.71);
-}
-
-.card:hover {
-  max-width: 600px;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 45px;
-  background: rgba(0, 184, 255, 0);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.9px);
-  -webkit-backdrop-filter: blur(4.9px);
-  border: 1px solid rgba(0, 184, 255, 0.71);
-  transition: 0.5s ease-in-out;
-}
-
 .userAndLogout {
   display: flex;
   gap: 16px;
@@ -609,4 +580,72 @@ body {
   border-radius: 30px;
   box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
   transition: all 0.2s ease;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.login-card {
+  max-width: 450px;
+  width: 90%;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.loginHeader {
+  font-family: "Poppins", "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3c72;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.row {
+  margin-bottom: 1.25rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.login-input {
+  width: 100%;
+}
+
+.login-input .MuiOutlinedInput-root {
+  border-radius: 15px;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.login-input .MuiOutlinedInput-root:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.1);
+}
+
+.login-input .MuiOutlinedInput-root.Mui-focused {
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(30, 60, 114, 0.15);
+}
+.login-button {
+  padding: 12px;
+  border-radius: 12px;
+  font-family: "Poppins", "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: none;
+  color: white;
+  box-shadow: 0 8px 16px rgba(30, 60, 114, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
