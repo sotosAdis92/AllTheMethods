@@ -1,3 +1,4 @@
+import { Lock, User } from "@boxicons/react";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
@@ -91,6 +92,7 @@ const Login = () => {
             helperText={errors.username}
             onChange={handleUsername}
           ></TextField>
+          <User pack="filled" fill="#000000"></User>
         </div>
         <div className="row">
           <TextField
@@ -107,6 +109,7 @@ const Login = () => {
             helperText={errors.password}
             onChange={handlePassword}
           ></TextField>
+          <Lock pack="filled" fill="#000000"></Lock>
         </div>
         <div className="row">
           <Button

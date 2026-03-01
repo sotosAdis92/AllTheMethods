@@ -587,7 +587,7 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #1e293b;
   padding: 6px 12px;
@@ -612,10 +612,4 @@ body {
   border-radius: 30px;
   box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
   transition: all 0.2s ease;
-}
-
-.userAndLogout .MuiButton-contained:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 12px rgba(220, 38, 38, 0.25);
 }

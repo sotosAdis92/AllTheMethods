@@ -1,15 +1,13 @@
 .container {
   display: flex;
   align-items: center;
-  padding: 12px 32px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 .title {
   font-family:
@@ -55,6 +53,11 @@
   position: relative;
 }
 .headerlink:hover {
+  color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.headerlink:active {
   color: #2563eb;
   background-color: rgba(37, 99, 235, 0.05);
 }
