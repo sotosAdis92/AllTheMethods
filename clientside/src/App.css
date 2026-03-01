@@ -650,3 +650,20 @@ body {
   transition: all 0.3s ease !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
+
+.singup-link {
+  font-family: "Inter", "Roboto", sans-serif !important;
+  font-size: 1rem !important;
+  color: #64748b !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  transition: color 0.3s ease !important;
+}
+
+.singup-link:hover {
+  color: #1e3c72 !important;
+  text-decoration: underline !important;
+}
