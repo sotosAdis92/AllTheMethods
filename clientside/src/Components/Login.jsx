@@ -1,5 +1,6 @@
-import { Lock, User } from "@boxicons/react";
-import { InputAdornment } from "@mui/material";
+import { User } from "@boxicons/react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { IconButton, InputAdornment } from "@mui/material";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
@@ -13,6 +14,11 @@ const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [errors, setErrors] = useState({
     username: "",
@@ -112,7 +118,7 @@ const Login = () => {
               label="Password"
               name="password"
               autoComplete="current-password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               autoFocus
               value={password}
               error={errors.password}
@@ -121,10 +127,13 @@ const Login = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Lock
+                    <IconButton
                       pack="filled"
                       fill={errors.password ? "#ff3333" : "black"}
-                    ></Lock>
+                      onClick={togglePassword}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
                   </InputAdornment>
                 ),
               }}
