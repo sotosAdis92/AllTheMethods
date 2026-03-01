@@ -21,7 +21,7 @@ const MyProfile = () => {
 
   return (
     <>
-      <h1>My Profile</h1>
+      <h1>My Name</h1>
       <h2>{displayName}</h2>
       <ViewMyAchievements></ViewMyAchievements>
       <ViewMyProblems></ViewMyProblems>

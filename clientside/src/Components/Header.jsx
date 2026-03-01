@@ -2,11 +2,27 @@ import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isTokenValid, removeToken } from "../enviroment/common";
+import { getUser } from "../services/UsersService";
 import "./Header.css";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [displayName, setDisplayName] = useState("");
+
+  const userDisplayName = () => {
+    getUser()
+      .then((response) => {
+        setDisplayName(response.data.displayName);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    userDisplayName();
+  }, []);
 
   const handleSignOut = () => {
     navigate("/login");
@@ -54,9 +70,12 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <Button variant="contained" onClick={handleSignOut}>
-            Logout
-          </Button>
+          <div className="userAndLogout">
+            <div className="usersDisplay">{displayName}</div>
+            <Button variant="contained" onClick={handleSignOut}>
+              Logout
+            </Button>
+          </div>
         </div>
       ) : (
         <>
