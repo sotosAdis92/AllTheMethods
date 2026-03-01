@@ -18,6 +18,8 @@ import Icon from "./Icon";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const navigator = useNavigate();
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [filteredItems, setFilteredItems] = useState();
 
   const getAllAchievements = () => {
     listAchievements()
@@ -76,6 +78,16 @@ const ListAchievements = () => {
   return (
     <>
       <h2 className="achievementsTitle">List Of Achievements</h2>
+      <div className="buttons-container">
+        {achievements.map((category, i) => (
+          <button
+            onClick={() => handleFilterButtonClick(category)}
+            className={`button ${selectedFilters?.includes(category) ? "active" : ""}`}
+          >
+            {achievements.category}
+          </button>
+        ))}
+      </div>
       <Tooltip>
         <Button variant="contained" onClick={addNewAchievement}>
           <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>

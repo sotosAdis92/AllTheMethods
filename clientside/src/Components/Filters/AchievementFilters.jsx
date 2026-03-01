@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const AchievementFilters = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const [filteredItems, setFilteredItems] = useState();
+  const [filteredItem, setFilteredItems] = useState();
   let filters = [
     "Polynomial Roots",
     "Integrals",
@@ -16,6 +16,22 @@ const AchievementFilters = () => {
       selectedCategory(filters);
     } else {
       selectedFilters([...selectedFilters, selectedCategory]);
+    }
+  };
+
+  useEffect(() => {
+    filteredItems();
+  }, [selectedFilters]);
+
+  const filteredItems = () => {
+    if (selectedFilters.length > 0) {
+      let tempItems = selectedFilters.map((selectedCategory) => {
+        let temp = items.filter((item) => item.category === selectedCategory);
+        return temp;
+      });
+      setFilteredItems(tempItems.flat());
+    } else {
+      setFilteredItems([...items]);
     }
   };
 
