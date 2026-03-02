@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface AchievementRepository extends JpaRepository<Achievement, Long> {
     List<Achievement> findAchievementByCategory(String category);
+    List<Achievement> findAchievementByRank(String rank);
 }

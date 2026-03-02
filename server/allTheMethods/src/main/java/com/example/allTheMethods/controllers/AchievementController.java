@@ -55,4 +55,10 @@ public class AchievementController {
         return ResponseEntity.ok(achievementDtos);
     }
 
+    @GetMapping("ranks/{rank}")
+    public ResponseEntity<List<AchievementDto>> getAchievementsByRank(@PathVariable("rank") String rank){
+        List<AchievementDto> achievementDtos = achievementService.getAchievementByRank(rank);
+        return ResponseEntity.ok(achievementDtos);
+    }
+
 }
