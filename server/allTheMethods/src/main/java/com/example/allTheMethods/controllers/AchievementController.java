@@ -49,4 +49,10 @@ public class AchievementController {
         return ResponseEntity.ok("Deleted problem");
     }
 
+    @GetMapping("{category}")
+    public ResponseEntity<List<AchievementDto>> getAchievementsByCategory(@PathVariable("category") String category){
+        List<AchievementDto> achievementDtos = achievementService.getAchievementByCategory(category);
+        return ResponseEntity.ok(achievementDtos);
+    }
+
 }

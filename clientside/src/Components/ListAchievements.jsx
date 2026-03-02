@@ -18,8 +18,6 @@ import Icon from "./Icon";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const navigator = useNavigate();
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const [filteredItems, setFilteredItems] = useState();
 
   const getAllAchievements = () => {
     listAchievements()
@@ -54,16 +52,6 @@ const ListAchievements = () => {
       });
   };
 
-  const listOfButtons = achievements.map((achievement) => (
-    <button
-      key={achievement.achievementId}
-      onClick={() => handleFilterButtonClick(achievement.category)}
-      className={`button ${selectedFilters?.includes(achievement.category) ? "active" : ""}`}
-    >
-      {achievement.category}
-    </button>
-  ));
-
   const listOfAchievements = achievements.map((achievement) => (
     <div key={achievement.achievementId} className="achievementCardWrapper">
       <Achievement rank={achievement.rank}>
@@ -91,14 +79,15 @@ const ListAchievements = () => {
 
   return (
     <>
-      <h2 className="achievementsTitle">List Of Achievements</h2>
-      <div className="buttons-container">{listOfButtons}</div>
-      <Tooltip>
-        <Button variant="contained" onClick={addNewAchievement}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-        </Button>
-      </Tooltip>
-      <ol>{listOfAchievements}</ol>
+      <div className="achievementsListContainer">
+        <h2 className="achievementsTitle">List Of Achievements</h2>
+        <Tooltip>
+          <Button variant="contained" onClick={addNewAchievement}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </Button>
+        </Tooltip>
+        <ol>{listOfAchievements}</ol>
+      </div>
     </>
   );
 };

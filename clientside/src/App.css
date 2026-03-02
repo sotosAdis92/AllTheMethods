@@ -659,3 +659,14 @@ body {
   color: #1e3c72 !important;
   text-decoration: underline !important;
 }
+
+.achievementsTitle {
+  font-family: "Inter", "Roboto", sans-serif !important;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.achievementsListContainer {
+  align-items: center;
+  justify-content: center;
+}

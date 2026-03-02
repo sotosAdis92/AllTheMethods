@@ -59,4 +59,10 @@ public class AchievementServiceImpl implements AchievementService {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
         achievementRepository.deleteById(id);
     }
+
+    @Override
+    public List<AchievementDto> getAchievementByCategory(String category) {
+        List<Achievement> achievements = achievementRepository.findAchievementByCategory(category);
+        return achievements.stream().map((achievement -> AchievementMapper.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+    }
 }
