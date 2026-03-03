@@ -52,13 +52,12 @@ const ListAchievements = () => {
       });
   };
 
-  const handleCategoryFilter = (e) => {
-    console.log(e.target.value);
-  };
-
-  const listOfFilters = achievements.map((achievement) => (
-    <div key={achievement.achievementId} className="Filters">
-      <button onClick={handleCategoryFilter}>{achievement.category}</button>
+  const categoryFilters = [
+    ...new Set(achievements.map((achievement) => achievement.category)),
+  ];
+  const listOfFilters = categoryFilters.map((filter, i) => (
+    <div key={i}>
+      <button>{filter}</button>
     </div>
   ));
 
