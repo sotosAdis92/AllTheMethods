@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import img1 from "../assets/223399.png";
 import {
   deleteAchievement,
+  getAchievementsByCategory,
   listAchievements,
 } from "../services/AchievementService";
 import Achievement from "./Achievement";
@@ -55,9 +56,18 @@ const ListAchievements = () => {
   const categoryFilters = [
     ...new Set(achievements.map((achievement) => achievement.category)),
   ];
+
+  const handleClickCategoryFilter = (value) => {
+    getAchievementsByCategory(value).then((response) => {
+      console.log(response);
+    });
+  };
+
   const listOfFilters = categoryFilters.map((filter, i) => (
     <div key={i}>
-      <button>{filter}</button>
+      <button onClick={() => handleClickCategoryFilter(filter)}>
+        {filter}
+      </button>
     </div>
   ));
 
