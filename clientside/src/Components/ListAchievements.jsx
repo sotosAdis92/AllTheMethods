@@ -52,6 +52,16 @@ const ListAchievements = () => {
       });
   };
 
+  const handleCategoryFilter = (e) => {
+    console.log(e.target.value);
+  };
+
+  const listOfFilters = achievements.map((achievement) => (
+    <div key={achievement.achievementId} className="Filters">
+      <button onClick={handleCategoryFilter}>{achievement.category}</button>
+    </div>
+  ));
+
   const listOfAchievements = achievements.map((achievement) => (
     <div key={achievement.achievementId} className="achievementCardWrapper">
       <Achievement rank={achievement.rank}>
@@ -81,6 +91,7 @@ const ListAchievements = () => {
     <>
       <div className="achievementsListContainer">
         <h2 className="achievementsTitle">List Of Achievements</h2>
+        {listOfFilters}
         <Tooltip>
           <Button variant="contained" onClick={addNewAchievement}>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
