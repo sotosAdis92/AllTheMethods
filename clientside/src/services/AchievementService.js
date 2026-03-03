@@ -31,9 +31,16 @@ export const getAchievement = async (achievementId) => {
   return response;
 };
 
-export const getAchievementsByCategory = async (achievementRank) => {
+export const getAchievementsByCategory = async (achievementCategory) => {
   const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/categories/" + achievementRank,
+    REST_API_BASE_URL + "/categories/" + achievementCategory,
+  );
+  return response;
+};
+
+export const getAchievementsByRank = async (achievementRank) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/ranks/" + achievementRank,
   );
   return response;
 };
