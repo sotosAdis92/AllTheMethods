@@ -30,3 +30,10 @@ export const getAchievement = async (achievementId) => {
   );
   return response;
 };
+
+export const getAchievementsByCategory = async (achievementRank) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/categories/" + achievementRank,
+  );
+  return response;
+};
