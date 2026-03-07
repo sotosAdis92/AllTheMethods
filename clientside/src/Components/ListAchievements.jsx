@@ -18,18 +18,22 @@ import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
+  const [achievementFilters, setAchievementFilters] = useState([]);
   const navigator = useNavigate();
 
   const getAllAchievements = () => {
     listAchievements()
       .then((response) => {
         setAchievements(response.data);
+        setAchievementFilters(response.data);
         console.log("Api response:", response.data);
+        console.log(achievementFilters);
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
   useEffect(() => {
     getAllAchievements();
   }, []);
@@ -54,13 +58,13 @@ const ListAchievements = () => {
   };
 
   const categoryFilters = [
-    ...new Set(achievements.map((achievement) => achievement.category)),
+    ...new Set(achievementFilters.map((achievement) => achievement.category)),
   ];
 
   const handleClickCategoryFilter = (value) => {
-    getAchievementsByCategory(value).then((response) => {
-      console.log(response);
-    });
+    getAchievementsByCategory(value).then((response) =>
+      setAchievements(response.data),
+    );
   };
 
   const listOfFilters = categoryFilters.map((filter, i) => (
