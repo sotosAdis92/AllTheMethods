@@ -104,6 +104,7 @@ const ListAchievements = () => {
     <>
       <div className="achievementsListContainer">
         <h2 className="achievementsTitle">List Of Achievements</h2>
+        <button onClick={() => getAllAchievements()}>All Achievements</button>
         {listOfFilters}
         <Tooltip>
           <Button variant="contained" onClick={addNewAchievement}>
