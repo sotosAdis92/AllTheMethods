@@ -8,6 +8,7 @@ import ListAchievements from "./Components/ListAchievements";
 import ListProblems from "./Components/ListProblems";
 import Login from "./Components/Login";
 import ProblemComponent from "./Components/ProblemComponent";
+import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
 import Signup from "./Components/Signup";
 import MyProfile from "./Components/UserComponents/MyProfile";
 import ViewMyAchievements from "./Components/UserComponents/ViewMyAchievements";
@@ -59,6 +60,10 @@ function App() {
           <Route
             path="/announcements"
             element={<AnnouncementsBoard></AnnouncementsBoard>}
+          ></Route>
+          <Route
+            path="/problems/:id"
+            element={<ProblemDescription></ProblemDescription>}
           ></Route>
         </Routes>
       </BrowserRouter>

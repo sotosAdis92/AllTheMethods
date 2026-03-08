@@ -28,7 +28,7 @@ const ListProblems = () => {
   }, []);
 
   function navigate(id) {
-    navigator("/" + id);
+    navigator("problems/" + id);
   }
 
   const listOfProblems = problems.map((problem, i) => (
