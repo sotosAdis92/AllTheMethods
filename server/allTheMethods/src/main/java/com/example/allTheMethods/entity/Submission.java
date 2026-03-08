@@ -1,5 +1,6 @@
 package com.example.allTheMethods.entity;
 
+import com.example.allTheMethods.dto.SubmissionDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -81,5 +82,11 @@ public class Submission {
 
     public void setProblem(Problem problem) {
         this.problem = problem;
+    }
+
+    public SubmissionDto getSubmissionDto(){
+        SubmissionDto submissionDto = new SubmissionDto();
+
+        return submissionDto;
     }
 }
