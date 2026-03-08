@@ -1,7 +1,7 @@
+import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
-import {}
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const { id } = useParams();
@@ -17,6 +17,7 @@ const ProblemDescription = () => {
   }, [id]);
 
   const handleSubmit = () => {};
+
   return (
     <>
       <button onClick={() => handleSubmit}>Submit</button>
