@@ -14,8 +14,11 @@ const ProblemDescription = () => {
         console.log(error);
       });
   }, [id]);
+
+  const handleSubmit = () => {};
   return (
     <>
+      <button onClick={() => handleSubmit}>Submit</button>
       <p>{description}</p>
     </>
   );
