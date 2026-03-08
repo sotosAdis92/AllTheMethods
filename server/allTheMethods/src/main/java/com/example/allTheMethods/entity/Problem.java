@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 
 @Entity
 @Table
@@ -32,6 +34,9 @@ public class Problem {
     @Column(nullable = false)
     private int points;
 
+    @OneToMany(mappedBy = "problem")
+    Set<Submission> problems;
+
     public Problem() {
     }
 
@@ -43,6 +48,25 @@ public class Problem {
         this.difficulty = difficulty;
         this.description = description;
         this.points = points;
+    }
+
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, Set<Submission> problems) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.problems = problems;
+    }
+
+    public Set<Submission> getProblems() {
+        return problems;
+    }
+
+    public void setProblems(Set<Submission> problems) {
+        this.problems = problems;
     }
 
     public Long getId() {

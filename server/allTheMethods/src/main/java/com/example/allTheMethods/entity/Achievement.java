@@ -29,6 +29,7 @@ public class Achievement {
     @OneToMany(mappedBy = "achievement")
     Set<UserAchievements> achievements;
 
+
     public Achievement() {
     }
 

@@ -35,6 +35,9 @@ public class Users implements UserDetails {
     @OneToMany(mappedBy = "user")
     Set<UserAchievements> achievements;
 
+    @OneToMany(mappedBy = "user")
+    Set<Submission> submissions;
+
     public Users() {
     }
 
@@ -46,6 +49,13 @@ public class Users implements UserDetails {
         this.userRole = userRole;
     }
 
+    public Set<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(Set<Submission> submissions) {
+        this.submissions = submissions;
+    }
 
     public Long getId() {
         return id;
