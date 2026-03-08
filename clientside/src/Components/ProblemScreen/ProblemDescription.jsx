@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
+import {}
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const { id } = useParams();
