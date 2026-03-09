@@ -8,6 +8,7 @@ public class SubmissionDto {
     private Long userId;
     private Long problemId;
     private Date submittedAt;
+    private String valid;
 
     public SubmissionDto() {
     }
@@ -17,6 +18,14 @@ public class SubmissionDto {
         this.userId = userId;
         this.problemId = problemId;
         this.submittedAt = submittedAt;
+    }
+
+    public SubmissionDto(Long submissionId, Long userId, Long problemId, Date submittedAt, String valid) {
+        this.submissionId = submissionId;
+        this.userId = userId;
+        this.problemId = problemId;
+        this.submittedAt = submittedAt;
+        this.valid = valid;
     }
 
     public Long getSubmissionId() {
@@ -35,6 +44,10 @@ public class SubmissionDto {
         return submittedAt;
     }
 
+    public String getValid() {
+        return valid;
+    }
+
     public void setSubmissionId(Long submissionId) {
         this.submissionId = submissionId;
     }
@@ -49,5 +62,9 @@ public class SubmissionDto {
 
     public void setSubmittedAt(Date submittedAt) {
         this.submittedAt = submittedAt;
+    }
+
+    public void setValid(String valid) {
+        this.valid = valid;
     }
 }

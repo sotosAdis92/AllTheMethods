@@ -90,6 +90,7 @@ public class Submission {
         submissionDto.setUserId(user.getId());
         submissionDto.setProblemId(problem.getId());
         submissionDto.setSubmittedAt(date);
+        submissionDto.setValid(valid);
         return submissionDto;
     }
 }
