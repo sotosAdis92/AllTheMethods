@@ -1,0 +1,25 @@
+package com.example.allTheMethods.controllers;
+
+import com.example.allTheMethods.dto.SubmissionDto;
+import com.example.allTheMethods.service.SubmmisionService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api/submissions")
+public class SubmissionController {
+    private SubmmisionService submmisionService;
+
+    public SubmissionController(SubmmisionService submmisionService) {
+        this.submmisionService = submmisionService;
+    }
+
+    @PostMapping
+    public ResponseEntity<SubmissionDto> createSubmission(@RequestBody SubmissionDto submissionDto){
+        SubmissionDto submission = submmisionService.createSubmission(submissionDto);
+        return new ResponseEntity<>(submission, HttpStatus.CREATED);
+    }
+
+}

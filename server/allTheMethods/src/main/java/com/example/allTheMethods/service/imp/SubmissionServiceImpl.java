@@ -13,6 +13,6 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
     @Override
     public SubmissionDto createSubmission(SubmissionDto submissionDto) {
-
+        return null;
     }
 }
