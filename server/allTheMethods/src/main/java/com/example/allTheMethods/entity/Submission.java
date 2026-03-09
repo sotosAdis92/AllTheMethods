@@ -86,7 +86,10 @@ public class Submission {
 
     public SubmissionDto getSubmissionDto(){
         SubmissionDto submissionDto = new SubmissionDto();
-
+        submissionDto.setSubmissionId(id);
+        submissionDto.setUserId(user.getId());
+        submissionDto.setProblemId(problem.getId());
+        submissionDto.setSubmittedAt(date);
         return submissionDto;
     }
 }
