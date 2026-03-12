@@ -15,12 +15,16 @@ const ProblemDescription = () => {
         console.log(error);
       });
   }, [id]);
-
-  const handleSubmit = () => {};
+  const submission = {
+    id,
+  };
+  function handleSubmit() {
+    console.log(submission);
+  }
 
   return (
     <>
-      <button onClick={() => handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
       <p>{description}</p>
     </>
   );

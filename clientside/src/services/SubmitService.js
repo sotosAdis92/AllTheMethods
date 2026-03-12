@@ -5,3 +5,8 @@ export const sendSubmission = async (submission) => {
   const response = await axiosInstance.post(REST_API_BASE_URL, submission);
   return response;
 };
+
+export const sendSubmissionData = async (data) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL, data);
+  return response;
+};
