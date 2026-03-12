@@ -13,8 +13,7 @@ public class SubmissionMapper {
                 submission.getId(),
                 submission.getUser().getId(),
                 submission.getProblem().getId(),
-                submission.getDate(),
-                submission.getValid()
+                submission.getDate()
         );
     }
     public static Submission mapToSubmission(SubmissionDto submissionDto, UsersRepository usersRepository, ProblemRepository problemRepository){
@@ -22,7 +21,6 @@ public class SubmissionMapper {
         Problem problem = problemRepository.findById(submissionDto.getProblemId()).orElseThrow();
         Submission submission = new Submission();
         submission.setDate(submissionDto.getSubmittedAt());
-        submission.setValid(submissionDto.getValid());
         submission.setUser(user);
         submission.setProblem(problem);
         return submission;

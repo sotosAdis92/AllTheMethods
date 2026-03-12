@@ -1,31 +1,26 @@
 package com.example.allTheMethods.dto;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 public class SubmissionDto {
     private Long submissionId;
     private Long userId;
     private Long problemId;
-    private Date submittedAt;
-    private String valid;
+    private String submittedAt;
 
     public SubmissionDto() {
     }
 
-    public SubmissionDto(Long submissionId, Long userId, Long problemId, Date submittedAt) {
+    public SubmissionDto(Long submissionId, Long userId, Long problemId, String submittedAt) {
         this.submissionId = submissionId;
         this.userId = userId;
         this.problemId = problemId;
         this.submittedAt = submittedAt;
     }
 
-    public SubmissionDto(Long submissionId, Long userId, Long problemId, Date submittedAt, String valid) {
+    public SubmissionDto(Long submissionId, Long userId, Long problemId, String submittedAt, String valid) {
         this.submissionId = submissionId;
         this.userId = userId;
         this.problemId = problemId;
         this.submittedAt = submittedAt;
-        this.valid = valid;
     }
 
     public Long getSubmissionId() {
@@ -40,13 +35,10 @@ public class SubmissionDto {
         return problemId;
     }
 
-    public Date getSubmittedAt() {
+    public String getSubmittedAt() {
         return submittedAt;
     }
 
-    public String getValid() {
-        return valid;
-    }
 
     public void setSubmissionId(Long submissionId) {
         this.submissionId = submissionId;
@@ -60,11 +52,8 @@ public class SubmissionDto {
         this.problemId = problemId;
     }
 
-    public void setSubmittedAt(Date submittedAt) {
+    public void setSubmittedAt(String submittedAt) {
         this.submittedAt = submittedAt;
     }
 
-    public void setValid(String valid) {
-        this.valid = valid;
-    }
 }

@@ -7,8 +7,6 @@ import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.util.Date;
-
 @Entity
 @Table
 @Data
@@ -17,9 +15,7 @@ public class Submission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date date;
-
-    private String valid;
+    private String date;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "userId", nullable = false)
@@ -36,10 +32,9 @@ public class Submission {
     public Submission() {
     }
 
-    public Submission(Long id, Date date, String valid, Users user, Problem problem) {
+    public Submission(Long id, String date, String valid, Users user, Problem problem) {
         this.id = id;
         this.date = date;
-        this.valid = valid;
         this.user = user;
         this.problem = problem;
     }
@@ -48,12 +43,8 @@ public class Submission {
         return id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
-    }
-
-    public String getValid() {
-        return valid;
     }
 
     public Users getUser() {
@@ -68,12 +59,8 @@ public class Submission {
         this.id = id;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
-    }
-
-    public void setValid(String valid) {
-        this.valid = valid;
     }
 
     public void setUser(Users user) {
@@ -90,7 +77,6 @@ public class Submission {
         submissionDto.setUserId(user.getId());
         submissionDto.setProblemId(problem.getId());
         submissionDto.setSubmittedAt(date);
-        submissionDto.setValid(valid);
         return submissionDto;
     }
 }
