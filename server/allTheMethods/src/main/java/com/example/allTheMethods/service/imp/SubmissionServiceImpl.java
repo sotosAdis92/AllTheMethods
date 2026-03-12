@@ -7,15 +7,15 @@ import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.SubmmisionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SubmissionServiceImpl implements SubmmisionService {
+    @Autowired
     private SubmissionRepository submissionRepository;
     private UsersRepository usersRepository;
     private ProblemRepository problemRepository;
-
-    public SubmissionServiceImpl(SubmissionRepository submissionRepository) {
-        this.submissionRepository = submissionRepository;
-    }
 
     public SubmissionServiceImpl(SubmissionRepository submissionRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
         this.submissionRepository = submissionRepository;
