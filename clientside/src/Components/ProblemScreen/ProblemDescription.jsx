@@ -15,8 +15,10 @@ const ProblemDescription = () => {
         console.log(error);
       });
   }, [id]);
+
   const submission = {
     id,
+    description,
   };
   function handleSubmit() {
     console.log(submission);
