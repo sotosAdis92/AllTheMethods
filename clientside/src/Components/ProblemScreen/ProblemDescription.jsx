@@ -7,7 +7,8 @@ const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
-  const [submissionDate, setSubmissionDate] = useState("");
+  const [numberIterations, setIterations] = useState(0);
+  var inputs = [];
 
   useEffect(() => {
     getProblem(id)
@@ -51,14 +52,28 @@ const ProblemDescription = () => {
     const string = description.match(/[0-9]\siterations/);
     const iterationsString = String(string);
     const iterations = iterationsString.match(/[0-9]/);
-    const numberIterations = parseInt(iterations);
+    setIterations(parseInt(iterations));
     console.log(numberIterations);
   }
 
+  for (let i = 0; i < numberIterations; i++) {
+    inputs.push(
+      <div key={i}>
+        <span>X{i}=</span>
+        <input key={i} onChange={() => handleInputs(i, event)}></input>
+      </div>,
+    );
+  }
+
+  function handleInputs(i, e) {
+    console.log(i + "input: " + e.target.value);
+  }
+
   function detectProblem(description) {
-    const string = description.match(/(d+X?|X)\^\d+\s*[-+*/]\s*\d+X?/);
-    const problemString = String(string[0]);
-    console.log(problemString);
+    const string = description.match(/[X\d]+\^?\d*\s*[-+*/]\s*\d*X?/);
+    const problemString = string;
+    const problemS = String(problemString);
+    console.log(problemS);
   }
 
   useEffect(() => {
@@ -72,8 +87,8 @@ const ProblemDescription = () => {
   return (
     <>
       <button onClick={handleSubmit}>Submit</button>
-
       <p>{description}</p>
+      <ol>{inputs}</ol>
     </>
   );
 };
