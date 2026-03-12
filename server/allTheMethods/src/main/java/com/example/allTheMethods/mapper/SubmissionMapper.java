@@ -13,4 +13,5 @@ public class SubmissionMapper {
                 submission.getValid()
         );
     }
+
 }
