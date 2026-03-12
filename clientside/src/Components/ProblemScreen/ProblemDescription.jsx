@@ -46,6 +46,25 @@ const ProblemDescription = () => {
     userId,
     wholeDate,
   };
+
+  function detectIterations(description) {
+    const string = description.match(/[0-9]\siterations/);
+    const iterationsString = String(string);
+    const iterations = iterationsString.match(/[0-9]/);
+    const numberIterations = parseInt(iterations);
+    console.log(numberIterations);
+  }
+
+  function detectProblem(description) {
+    const string = description.match(/(d+X?|X)\^\d+\s*[-+*/]\s*\d+X?/);
+    const problemString = String(string[0]);
+    console.log(problemString);
+  }
+
+  useEffect(() => {
+    detectIterations(description);
+    detectProblem(description);
+  });
   function handleSubmit() {
     console.log(submission);
   }
@@ -53,6 +72,7 @@ const ProblemDescription = () => {
   return (
     <>
       <button onClick={handleSubmit}>Submit</button>
+
       <p>{description}</p>
     </>
   );
