@@ -48,6 +48,13 @@ const ProblemDescription = () => {
     wholeDate,
   };
 
+  function detectSpace(description) {
+    const match = description?.match(/\[(\d+),(\d+)\]/);
+    const a = match?.[1] ?? null;
+    const b = match?.[2] ?? null;
+    console.log(a, b);
+  }
+
   function detectIterations(description) {
     const string = description.match(/[0-9]\siterations/);
     const iterationsString = String(string);
@@ -79,6 +86,7 @@ const ProblemDescription = () => {
   useEffect(() => {
     detectIterations(description);
     detectProblem(description);
+    detectSpace(description);
   });
   function handleSubmit() {
     console.log(submission);
