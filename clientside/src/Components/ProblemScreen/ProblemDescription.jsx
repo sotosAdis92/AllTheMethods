@@ -8,6 +8,7 @@ const ProblemDescription = () => {
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [numberIterations, setIterations] = useState(0);
+  const [input, setInput] = useState([]);
   var inputs = [];
 
   useEffect(() => {
@@ -48,6 +49,8 @@ const ProblemDescription = () => {
     wholeDate,
   };
 
+  const submissionData = {};
+
   function detectSpace(description) {
     const match = description?.match(/\[(\d+),(\d+)\]/);
     const a = match?.[1] ?? null;
@@ -73,7 +76,8 @@ const ProblemDescription = () => {
   }
 
   function handleInputs(i, e) {
-    console.log(i + "input: " + e.target.value);
+    input.push([i, e.target.value]);
+    console.log(input);
   }
 
   function detectProblem(description) {
