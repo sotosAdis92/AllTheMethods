@@ -42,24 +42,20 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int i=0;
         int count = 0;
 
-        List<Object> input = submissionDataDto.getInputs();
+        List<Double> input = submissionDataDto.getInputs();
         int length = submissionDataDto.getIterations();
         int Inta = submissionDataDto.getProblemSpaceA();
         int Intb = submissionDataDto.getProblemSpaceB();
         String problem = submissionDataDto.getProblemString();
 
-        System.out.println(Inta);
-        System.out.println(Intb);
-        System.out.println(problem);
+        List<Double> list = new ArrayList<>();
 
-        List<Float> list = new ArrayList<>();
+        double a = (int)Inta;
+        double b = (int)Intb;
 
-        float a = (int)Inta;
-        float b = (int)Intb;
-
-        float x = 0;
-        float resultX = 0;
-        float resultA = 0;
+        double x = 0;
+        double resultX = 0;
+        double resultA = 0;
 
         for(i=0;i<length;i++){
             x = (a+b)/2;
@@ -71,24 +67,31 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
+            list.add(x);
+            System.out.println(x);
         }
 
         for(i=0;i<length;i++){
-            System.out.println(input.get(i));
+            if(Double.compare(list.get(i),input.get(i)) == 0){
+                count++;
+            }
+        }
+        if(count==length){
+            flag = true;
         }
 
         return flag;
     }
 
 
-    public static float fx(float x, String problem){
+    public static double fx(double x, String problem){
         Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",x);
         double result = expression.evaluate();
-        return (float) result;
+        return result;
     }
-    public static float fa(float a, String problem){
+    public static double fa(double a, String problem){
         Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",a);
         double result = expression.evaluate();
-        return (float) result;
+        return result;
     }
 }
