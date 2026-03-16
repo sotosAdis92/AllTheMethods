@@ -25,7 +25,7 @@ public class SubmissionController {
 
     @PostMapping("/data")
     public boolean checkData(@RequestBody SubmissionDataDto submissionDataDto){
-        boolean flag = false;
+        boolean flag;
         flag =  submmisionService.checkData(submissionDataDto);
         return flag;
     }

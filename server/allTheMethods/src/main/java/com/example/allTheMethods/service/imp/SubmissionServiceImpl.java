@@ -42,11 +42,15 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int i=0;
         int count = 0;
 
-        List<Float> input = submissionDataDto.getInputs();
+        List<Object> input = submissionDataDto.getInputs();
         int length = submissionDataDto.getIterations();
         int Inta = submissionDataDto.getProblemSpaceA();
         int Intb = submissionDataDto.getProblemSpaceB();
         String problem = submissionDataDto.getProblemString();
+
+        System.out.println(Inta);
+        System.out.println(Intb);
+        System.out.println(problem);
 
         List<Float> list = new ArrayList<>();
 
@@ -67,16 +71,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
-            list.add(x);
         }
 
-        for(i=0;i<input.size();i++){
-           System.out.println(input.get(i));
+        for(i=0;i<length;i++){
+            System.out.println(input.get(i));
         }
 
-        if(count == length){
-            flag = true;
-        }
         return flag;
     }
 
