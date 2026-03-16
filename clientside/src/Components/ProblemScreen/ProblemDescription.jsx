@@ -13,6 +13,7 @@ const ProblemDescription = () => {
   const [problemSpaceA, setProblemSpaceA] = useState(0);
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [input, setInput] = useState([]);
+  var inp = [];
   var inputs = [];
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const ProblemDescription = () => {
     problemSpaceA,
     problemSpaceB,
     numberIterations,
-    input,
+    inp,
   };
 
   function detectSpace(description) {
@@ -93,13 +94,16 @@ const ProblemDescription = () => {
 
   function handleInputs(i, e) {
     const exists = input.findIndex((item) => item[0] === i);
+
     if (exists !== -1) {
-      input[exists] = [i, e.target.value];
+      input[exists] = [i, Number(e.target.value)];
     } else {
-      input.push([i, e.target.value]);
+      input.push([i, Number(e.target.value)]);
     }
+    inp = input.map((pair) => pair[1]);
     setInput(input);
     console.log(input);
+    console.log(inp);
   }
 
   function detectProblem(description) {
