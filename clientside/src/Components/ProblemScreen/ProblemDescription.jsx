@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { getUser } from "../../services/UsersService";
+
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [numberIterations, setIterations] = useState(0);
-  const [input, setInput] = useState([]);
+  const input = [[]];
   var inputs = [];
 
   useEffect(() => {
@@ -76,7 +77,7 @@ const ProblemDescription = () => {
   }
 
   function handleInputs(i, e) {
-    input.push([i, e.target.value]);
+    input.push(i, e.target.value);
     console.log(input);
   }
 
@@ -94,6 +95,7 @@ const ProblemDescription = () => {
   });
   function handleSubmit() {
     console.log(submission);
+    //sendSubmission(submission);
   }
 
   return (
