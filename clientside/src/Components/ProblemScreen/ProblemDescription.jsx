@@ -9,9 +9,11 @@ const ProblemDescription = () => {
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [numberIterations, setIterations] = useState(0);
-  const input = [];
+  const [problemString, setProblemString] = useState("");
+  const [problemSpaceA, setProblemSpaceA] = useState(0);
+  const [problemSpaceB, setProblemSpaceB] = useState(0);
+  const [input, setInput] = useState([]);
   var inputs = [];
-  var uniq = [];
 
   useEffect(() => {
     getProblem(id)
@@ -51,13 +53,21 @@ const ProblemDescription = () => {
     wholeDate,
   };
 
-  const submissionData = {};
+  const submissionData = {
+    problemString,
+    problemSpaceA,
+    problemSpaceB,
+    numberIterations,
+    input,
+  };
 
   function detectSpace(description) {
     const match = description?.match(/\[(\d+),(\d+)\]/);
-    const a = match?.[1] ?? null;
-    const b = match?.[2] ?? null;
-    console.log(a, b);
+    const problemSpaceA = match?.[1] ?? null;
+    const problemSpaceB = match?.[2] ?? null;
+    setProblemSpaceA(parseInt(problemSpaceA));
+    setProblemSpaceB(parseInt(problemSpaceB));
+    console.log(problemSpaceA, problemSpaceB);
   }
 
   function detectIterations(description) {
@@ -72,7 +82,11 @@ const ProblemDescription = () => {
     inputs.push(
       <div key={i}>
         <span>X{i}=</span>
-        <input key={i} onChange={(e) => handleInputs(i, e)}></input>
+        <input
+          key={i}
+          maxlength="4"
+          onChange={(e) => handleInputs(i, e)}
+        ></input>
       </div>,
     );
   }
@@ -84,13 +98,16 @@ const ProblemDescription = () => {
     } else {
       input.push([i, e.target.value]);
     }
+    setInput(input);
+    console.log(input);
   }
 
   function detectProblem(description) {
     const string = description.match(/[X\d]+\^?\d*\s*[-+*/]\s*\d*X?/);
-    const problemString = string;
-    const problemS = String(problemString);
-    console.log(problemS);
+    const problemStrings = string;
+    const problemString = String(problemStrings);
+    setProblemString(problemString);
+    console.log(problemString);
   }
 
   useEffect(() => {
@@ -100,7 +117,9 @@ const ProblemDescription = () => {
   });
   function handleSubmit() {
     console.log(submission);
+    console.log(submissionData);
     //sendSubmission(submission);
+    //sendSubmissionData(submissionData);
   }
 
   return (
