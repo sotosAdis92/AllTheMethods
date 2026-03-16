@@ -8,6 +8,8 @@ import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.SubmmisionService;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     public boolean checkData(SubmissionDataDto submissionDataDto) {
         boolean flag = false;
         int i=0;
+        int count = 0;
 
         List<Float> input = submissionDataDto.getInputs();
         int length = submissionDataDto.getIterations();
@@ -56,8 +59,8 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
         for(i=0;i<length;i++){
             x = (a+b)/2;
-            resultX = fx(x);
-            resultA = fa(a);
+            resultX = fx(x, problem);
+            resultA = fa(a, problem);
             if(resultX * resultA < 0){
                 b = x;
             }
@@ -66,12 +69,26 @@ public class SubmissionServiceImpl implements SubmmisionService {
             }
             list.add(x);
         }
+        for(i=0;i<list.size();i++){
+            if(list.get(i) == input.get(i)){
+                count++;
+            }
+        }
+        if(count == length){
+            flag = true;
+        }
+        return flag;
     }
 
-    public static float fx(float x){
 
+    public static float fx(float x, String problem){
+        Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",x);
+        double result = expression.evaluate();
+        return (float) result;
     }
-    public static float fa(float a){
-
+    public static float fa(float a, String problem){
+        Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",a);
+        double result = expression.evaluate();
+        return (float) result;
     }
 }
