@@ -3,7 +3,6 @@ package com.example.allTheMethods.dto;
 import java.util.List;
 
 public class SubmissionDataDto {
-    private String problemCategory;
     private List<Float> Inputs;
     private int iterations;
     private int problemSpaceA;
@@ -13,8 +12,8 @@ public class SubmissionDataDto {
     public SubmissionDataDto() {
     }
 
-    public SubmissionDataDto(String problemCategory, List<Float> inputs, int iterations, int problemSpaceA, int problemSpaceB, String problemString) {
-        this.problemCategory = problemCategory;
+    public SubmissionDataDto( List<Float> inputs, int iterations, int problemSpaceA, int problemSpaceB, String problemString) {
+
         Inputs = inputs;
         this.iterations = iterations;
         this.problemSpaceA = problemSpaceA;
@@ -60,13 +59,5 @@ public class SubmissionDataDto {
 
     public void setProblemString(String problemString) {
         this.problemString = problemString;
-    }
-
-    public void setProblemCategory(String problemCategory) {
-        this.problemCategory = problemCategory;
-    }
-
-    public String getProblemCategory() {
-        return problemCategory;
     }
 }

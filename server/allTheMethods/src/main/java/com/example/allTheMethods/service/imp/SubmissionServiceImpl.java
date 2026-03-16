@@ -69,11 +69,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
             }
             list.add(x);
         }
-        for(i=0;i<list.size();i++){
-            if(list.get(i) == input.get(i)){
-                count++;
-            }
+
+        for(i=0;i<input.size();i++){
+           System.out.println(input.get(i));
         }
+
         if(count == length){
             flag = true;
         }
