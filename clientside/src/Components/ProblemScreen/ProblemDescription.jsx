@@ -9,8 +9,9 @@ const ProblemDescription = () => {
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [numberIterations, setIterations] = useState(0);
-  const input = [[]];
+  const input = [];
   var inputs = [];
+  var uniq = [];
 
   useEffect(() => {
     getProblem(id)
@@ -71,14 +72,18 @@ const ProblemDescription = () => {
     inputs.push(
       <div key={i}>
         <span>X{i}=</span>
-        <input key={i} onChange={() => handleInputs(i, event)}></input>
+        <input key={i} onChange={(e) => handleInputs(i, e)}></input>
       </div>,
     );
   }
 
   function handleInputs(i, e) {
-    input.push(i, e.target.value);
-    console.log(input);
+    const exists = input.findIndex((item) => item[0] === i);
+    if (exists !== -1) {
+      input[exists] = [i, e.target.value];
+    } else {
+      input.push([i, e.target.value]);
+    }
   }
 
   function detectProblem(description) {
