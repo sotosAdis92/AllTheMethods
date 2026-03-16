@@ -10,4 +10,5 @@ public interface ProblemService {
     List<ProblemDto> getAllProblems();
     ProblemDto updateProblem(Long id, ProblemDto updatedProblem);
     void deleteProblem(Long id);
+
 }

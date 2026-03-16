@@ -1,5 +1,6 @@
 package com.example.allTheMethods.controllers;
 
+import com.example.allTheMethods.dto.SubmissionDataDto;
 import com.example.allTheMethods.dto.SubmissionDto;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
@@ -22,5 +23,11 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
+    @PostMapping("/data")
+    public boolean checkData(@RequestBody SubmissionDataDto submissionDataDto){
+        boolean flag;
+        flag =  submmisionService.checkData(submissionDataDto);
+        return flag;
+    }
 
 }
