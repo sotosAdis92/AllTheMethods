@@ -1,3 +1,5 @@
+import katex from "katex";
+import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
@@ -15,6 +17,7 @@ const ProblemDescription = () => {
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [input, setInput] = useState([]);
   const [inp, setInp] = useState([]);
+  var x = ``;
   var inputs = [];
 
   useEffect(() => {
@@ -82,13 +85,15 @@ const ProblemDescription = () => {
   }
 
   function detectFunction(functionString) {
-    setProblemString(functionString);
+    const string = functionString.toString();
+    setProblemString(string);
   }
 
   for (let i = 0; i < iterations; i++) {
+    x = `x${i}`;
     inputs.push(
       <div key={i}>
-        <span>X{i}=</span>
+        <span id={x}>{x}=</span>
         <input
           key={i}
           maxlength="5"
@@ -127,12 +132,17 @@ const ProblemDescription = () => {
       console.log(response.data);
     });
   }
+  useEffect(() => {
+    katex.render(functionString, document.getElementById("element"), {
+      throwOnError: false,
+    });
+  });
 
   return (
     <>
       <button onClick={handleSubmit}>Submit</button>
       <p>{description}</p>
-      <p className="katex">{functionString}</p>
+      <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
     </>
   );
