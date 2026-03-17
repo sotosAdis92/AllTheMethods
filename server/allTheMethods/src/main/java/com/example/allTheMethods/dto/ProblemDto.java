@@ -1,10 +1,5 @@
 package com.example.allTheMethods.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 public class ProblemDto {
     private Long id;
@@ -14,7 +9,7 @@ public class ProblemDto {
     private String difficulty;
     private String description;
     private int points;
-    private String function;
+    private String problemString;
     public ProblemDto() {
     }
 
@@ -28,7 +23,7 @@ public class ProblemDto {
         this.points = points;
     }
 
-    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String function) {
+    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -36,15 +31,15 @@ public class ProblemDto {
         this.difficulty = difficulty;
         this.description = description;
         this.points = points;
-        this.function = function;
+        this.problemString = problemString;
     }
 
-    public String getFunction() {
-        return function;
+    public String getProblemString() {
+        return problemString;
     }
 
-    public void setFunction(String function) {
-        this.function = function;
+    public void setProblemString(String problemString) {
+        this.problemString = problemString;
     }
 
     public Long getId() {

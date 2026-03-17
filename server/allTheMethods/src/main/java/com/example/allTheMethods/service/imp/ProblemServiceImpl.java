@@ -48,6 +48,7 @@ public class ProblemServiceImpl implements ProblemService {
         problem.setTitle(updatedProblem.getTitle());
         problem.setDescription(updatedProblem.getDescription());
         problem.setPoints(updatedProblem.getPoints());
+        problem.setProblemString(updatedProblem.getProblemString());
         Problem updatedProblemObj = problemRepository.save(problem);
         return ProblemMapper.mapToProblemDto(updatedProblemObj);
     }

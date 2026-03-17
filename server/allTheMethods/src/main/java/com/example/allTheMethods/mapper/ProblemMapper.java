@@ -13,7 +13,7 @@ public class ProblemMapper {
                 problem.getDifficulty(),
                 problem.getDescription(),
                 problem.getPoints(),
-                problem.getFunctionString()
+                problem.getProblemString()
         );
     }
     public static Problem mapToProblem(ProblemDto problemDto){
@@ -25,7 +25,7 @@ public class ProblemMapper {
                 problemDto.getDifficulty(),
                 problemDto.getDescription(),
                 problemDto.getPoints(),
-                problemDto.getFunction()
+                problemDto.getProblemString()
         );
     }
 }
