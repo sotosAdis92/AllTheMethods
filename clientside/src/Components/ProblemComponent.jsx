@@ -19,13 +19,14 @@ import {
   getProblem,
   updateProblem,
 } from "../services/ProblemService";
+
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
-  const [functionString, SetfunctionString] = useState("");
+  const [problemString, setProblemString] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -35,20 +36,21 @@ const ProblemComponent = () => {
     difficulty: "",
     description: "",
     points: "",
-    function: functionString,
+    problemString: "",
   });
   const { id } = useParams();
 
   useEffect(() => {
     if (id) {
       getProblem(id).then((response) => {
+        console.log("Fetched problem data:", response.data);
         setNumber(response.data.number);
         setTitle(response.data.title);
         setCategory(response.data.category);
         setDifficulty(response.data.difficulty);
         setDescription(response.data.description);
         setPoints(response.data.points);
-        SetfunctionString(response.data.function);
+        setProblemString(response.data.problemString);
       });
     }
   }, [id]);
@@ -86,8 +88,9 @@ const ProblemComponent = () => {
     setDescription(e.target.value);
   };
 
-  const handleFunctionString = (e) => {
-    SetfunctionString(e.target.value);
+  const handleProblemString = (e) => {
+    console.log("1. Input changed to:", e.target.value);
+    setProblemString(e.target.value);
   };
   const saveOrUpdateProblem = (e) => {
     e.preventDefault();
@@ -99,8 +102,9 @@ const ProblemComponent = () => {
         difficulty,
         description,
         points,
-        function: functionString,
+        problemString,
       };
+      console.log("3. Sending problem object:", problem);
       if (id) {
         updateProblem(id, problem)
           .then((response) => {
@@ -165,12 +169,13 @@ const ProblemComponent = () => {
       valid = false;
     }
 
-    if (functionString.trim()) {
-      errorsCopy.functions = "";
+    if (problemString.trim()) {
+      errorsCopy.problemString = "";
     } else {
-      errorsCopy.functions = "Error, Function cannot be null";
+      errorsCopy.problemString = "Error, the problem cannot be empty";
       valid = false;
     }
+
     setErrors(errorsCopy);
     return valid;
   }
@@ -204,13 +209,13 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem Function"
-            name="functions"
-            value={functionString}
+            placeholder="Enter Problem"
+            name="problemString"
+            value={problemString}
             id={"outlined"}
-            error={errors.functions}
-            helperText={errors.functions}
-            onChange={handleFunctionString}
+            error={errors.problemString}
+            helperText={errors.problemString}
+            onChange={handleProblemString}
           ></TextField>
         </div>
 
@@ -271,8 +276,8 @@ const ProblemComponent = () => {
             value={description}
             onChange={handleDescription}
             id={"outlined"}
-            error={errors.title}
-            helperText={errors.title}
+            error={errors.description}
+            helperText={errors.description}
           ></TextField>
         </div>
         <Button

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { sendSubmissionData } from "../../services/SubmitService";
@@ -22,7 +21,7 @@ const ProblemDescription = () => {
     getProblem(id)
       .then((response) => {
         setDescription(response.data.description);
-        setFunction(response.data.function);
+        setFunction(response.data.problemString);
         console.log(response.data.description);
       })
       .catch((error) => {
@@ -133,6 +132,7 @@ const ProblemDescription = () => {
     <>
       <button onClick={handleSubmit}>Submit</button>
       <p>{description}</p>
+      <p className="katex">{functionString}</p>
       <ol>{inputs}</ol>
     </>
   );
