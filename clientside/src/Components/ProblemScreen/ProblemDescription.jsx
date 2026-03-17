@@ -1,6 +1,5 @@
-import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
-import { BlockMath } from "react-katex";
+
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { sendSubmissionData } from "../../services/SubmitService";
@@ -133,10 +132,7 @@ const ProblemDescription = () => {
   return (
     <>
       <button onClick={handleSubmit}>Submit</button>
-      <p>
-        {description}
-        <BlockMath math={functionString}></BlockMath>
-      </p>
+      <p>{description}</p>
       <ol>{inputs}</ol>
     </>
   );
