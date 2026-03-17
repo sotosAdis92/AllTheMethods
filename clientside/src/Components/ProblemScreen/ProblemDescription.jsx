@@ -2,25 +2,26 @@ import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
+import { sendSubmissionData } from "../../services/SubmitService";
 import { getUser } from "../../services/UsersService";
 
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
-  const [numberIterations, setIterations] = useState(0);
+  const [iterations, setIterations] = useState(0);
   const [problemString, setProblemString] = useState("");
   const [problemSpaceA, setProblemSpaceA] = useState(0);
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [input, setInput] = useState([]);
-  var inp = [];
+  const [inp, setInp] = useState([]);
   var inputs = [];
 
   useEffect(() => {
     getProblem(id)
       .then((response) => {
         setDescription(response.data.description);
-        console.log(description);
+        console.log(response.data.description);
       })
       .catch((error) => {
         console.log(error);
@@ -58,7 +59,7 @@ const ProblemDescription = () => {
     problemString,
     problemSpaceA,
     problemSpaceB,
-    numberIterations,
+    iterations,
     inp,
   };
 
@@ -76,10 +77,10 @@ const ProblemDescription = () => {
     const iterationsString = String(string);
     const iterations = iterationsString.match(/[0-9]/);
     setIterations(parseInt(iterations));
-    console.log(numberIterations);
+    console.log(iterations);
   }
 
-  for (let i = 0; i < numberIterations; i++) {
+  for (let i = 0; i < iterations; i++) {
     inputs.push(
       <div key={i}>
         <span>X{i}=</span>
@@ -100,8 +101,9 @@ const ProblemDescription = () => {
     } else {
       input.push([i, Number(e.target.value)]);
     }
-    inp = input.map((pair) => pair[1]);
-    setInput(input);
+    const inp = input.map((pair) => pair[1]);
+    setInput([...input]);
+    setInp(inp);
     console.log(input);
     console.log(inp);
   }
@@ -118,12 +120,15 @@ const ProblemDescription = () => {
     detectIterations(description);
     detectProblem(description);
     detectSpace(description);
-  });
+  }, [description]);
+
   function handleSubmit() {
     console.log(submission);
     console.log(submissionData);
     //sendSubmission(submission);
-    //sendSubmissionData(submissionData);
+    sendSubmissionData(submissionData).then((response) => {
+      console.log(response.data);
+    });
   }
 
   return (
