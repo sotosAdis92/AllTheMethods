@@ -1,10 +1,6 @@
 package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Set;
 
@@ -34,8 +30,8 @@ public class Problem {
     @Column(nullable = false)
     private int points;
 
-    @Column(nullable = false)
-    private String function;
+    @Column()
+    private String functionString;
 
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
@@ -66,7 +62,7 @@ public class Problem {
         this.problems = problems;
     }
 
-    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String function) {
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String functionString) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -74,15 +70,15 @@ public class Problem {
         this.difficulty = difficulty;
         this.description = description;
         this.points = points;
-        this.function = function;
+        this.functionString = functionString;
     }
 
-    public String getFunction() {
-        return function;
+    public String getFunctionString() {
+        return functionString;
     }
 
-    public void setFunction(String function) {
-        this.function = function;
+    public void setFunctionString(String functionString) {
+        this.functionString = functionString;
     }
 
     public Set<Submission> getProblems() {
