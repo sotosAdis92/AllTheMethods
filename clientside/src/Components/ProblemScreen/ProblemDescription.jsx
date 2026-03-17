@@ -86,7 +86,7 @@ const ProblemDescription = () => {
         <span>X{i}=</span>
         <input
           key={i}
-          maxlength="4"
+          maxlength="5"
           onChange={(e) => handleInputs(i, e)}
         ></input>
       </div>,
@@ -109,8 +109,8 @@ const ProblemDescription = () => {
   }
 
   function detectProblem(description) {
-    const string = description.match(/[X\d]+\^?\d*\s*[-+*/]\s*\d*X?/);
-    const problemStrings = string;
+    const string = description.match(/:([^A]+)A/);
+    const problemStrings = string[1].trim();
     const problemString = String(problemStrings);
     setProblemString(problemString);
     console.log(problemString);

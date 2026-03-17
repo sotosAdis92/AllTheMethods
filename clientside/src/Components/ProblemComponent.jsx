@@ -25,6 +25,7 @@ const ProblemComponent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
+  const [functions, setFunction] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -34,6 +35,7 @@ const ProblemComponent = () => {
     difficulty: "",
     description: "",
     points: "",
+    functions: "",
   });
   const { id } = useParams();
 
@@ -46,6 +48,7 @@ const ProblemComponent = () => {
         setDifficulty(response.data.difficulty);
         setDescription(response.data.description);
         setPoints(response.data.points);
+        setFunction(response.data.functions);
       });
     }
   }, [id]);
@@ -82,6 +85,10 @@ const ProblemComponent = () => {
   const handleDescription = (e) => {
     setDescription(e.target.value);
   };
+
+  const handleFunction = (e) => {
+    setFunction(e.target.value);
+  };
   const saveOrUpdateProblem = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -92,6 +99,7 @@ const ProblemComponent = () => {
         difficulty,
         description,
         points,
+        functions,
       };
       if (id) {
         updateProblem(id, problem)
@@ -156,6 +164,13 @@ const ProblemComponent = () => {
       errorsCopy.points = "Error, points cannot be negative";
       valid = false;
     }
+
+    if (functions.trim()) {
+      errorsCopy.functions = "";
+    } else {
+      errorsCopy.functions = "Error, Function cannot be null";
+      valid = false;
+    }
     setErrors(errorsCopy);
     return valid;
   }
@@ -185,6 +200,20 @@ const ProblemComponent = () => {
             onChange={handleTitle}
           ></TextField>
         </div>
+
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Problem Function"
+            name="functions"
+            value={functions}
+            id={"outlined"}
+            error={errors.functions}
+            helperText={errors.functions}
+            onChange={handleFunction}
+          ></TextField>
+        </div>
+
         <div className="selector">
           <FormControl error={errors.category} sx={{ minWidth: 210 }}>
             <InputLabel>Category</InputLabel>
