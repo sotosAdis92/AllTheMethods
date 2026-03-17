@@ -48,6 +48,9 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int Intb = submissionDataDto.getProblemSpaceB();
         String problem = submissionDataDto.getProblemString();
 
+        System.out.println(problem);
+        System.out.println(Inta);
+        System.out.println();
         List<Double> list = new ArrayList<>();
 
         double a = (int)Inta;

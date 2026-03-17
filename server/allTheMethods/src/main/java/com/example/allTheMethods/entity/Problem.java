@@ -34,6 +34,9 @@ public class Problem {
     @Column(nullable = false)
     private int points;
 
+    @Column(nullable = false)
+    private String function;
+
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
 
@@ -50,6 +53,8 @@ public class Problem {
         this.points = points;
     }
 
+
+
     public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, Set<Submission> problems) {
         this.id = id;
         this.number = number;
@@ -59,6 +64,25 @@ public class Problem {
         this.description = description;
         this.points = points;
         this.problems = problems;
+    }
+
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String function) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.function = function;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
     }
 
     public Set<Submission> getProblems() {

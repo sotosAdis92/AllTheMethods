@@ -14,7 +14,7 @@ public class ProblemDto {
     private String difficulty;
     private String description;
     private int points;
-
+    private String function;
     public ProblemDto() {
     }
 
@@ -26,6 +26,25 @@ public class ProblemDto {
         this.difficulty = difficulty;
         this.description = description;
         this.points = points;
+    }
+
+    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String function) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.function = function;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
     }
 
     public Long getId() {
