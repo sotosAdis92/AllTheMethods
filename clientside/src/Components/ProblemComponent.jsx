@@ -99,7 +99,7 @@ const ProblemComponent = () => {
         difficulty,
         description,
         points,
-        functionString,
+        function: functionString,
       };
       if (id) {
         updateProblem(id, problem)
