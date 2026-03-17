@@ -25,7 +25,7 @@ const ProblemComponent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
-  const [functionString, setFunction] = useState("");
+  const [functionString, SetfunctionString] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -35,7 +35,7 @@ const ProblemComponent = () => {
     difficulty: "",
     description: "",
     points: "",
-    functionString: "",
+    function: functionString,
   });
   const { id } = useParams();
 
@@ -48,7 +48,7 @@ const ProblemComponent = () => {
         setDifficulty(response.data.difficulty);
         setDescription(response.data.description);
         setPoints(response.data.points);
-        setFunction(response.data.functionString);
+        SetfunctionString(response.data.function);
       });
     }
   }, [id]);
@@ -86,8 +86,8 @@ const ProblemComponent = () => {
     setDescription(e.target.value);
   };
 
-  const handleFunction = (e) => {
-    setFunction(e.target.value);
+  const handleFunctionString = (e) => {
+    SetfunctionString(e.target.value);
   };
   const saveOrUpdateProblem = (e) => {
     e.preventDefault();
@@ -210,7 +210,7 @@ const ProblemComponent = () => {
             id={"outlined"}
             error={errors.functions}
             helperText={errors.functions}
-            onChange={handleFunction}
+            onChange={handleFunctionString}
           ></TextField>
         </div>
 
