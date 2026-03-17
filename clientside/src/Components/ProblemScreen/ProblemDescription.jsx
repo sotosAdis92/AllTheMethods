@@ -7,6 +7,7 @@ import { getUser } from "../../services/UsersService";
 
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
+  const [functions, setFunction] = useState("");
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [iterations, setIterations] = useState(0);
@@ -21,6 +22,7 @@ const ProblemDescription = () => {
     getProblem(id)
       .then((response) => {
         setDescription(response.data.description);
+        setFunction(response.data.functions);
         console.log(response.data.description);
       })
       .catch((error) => {
@@ -108,17 +110,8 @@ const ProblemDescription = () => {
     console.log(inp);
   }
 
-  function detectProblem(description) {
-    const string = description.match(/:([^A]+)A/);
-    const problemStrings = string[1].trim();
-    const problemString = String(problemStrings);
-    setProblemString(problemString);
-    console.log(problemString);
-  }
-
   useEffect(() => {
     detectIterations(description);
-    detectProblem(description);
     detectSpace(description);
   }, [description]);
 
@@ -134,7 +127,10 @@ const ProblemDescription = () => {
   return (
     <>
       <button onClick={handleSubmit}>Submit</button>
-      <p>{description}</p>
+      <p>
+        {description}
+        {functions}
+      </p>
       <ol>{inputs}</ol>
     </>
   );

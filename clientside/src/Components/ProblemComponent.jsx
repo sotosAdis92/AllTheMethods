@@ -25,7 +25,7 @@ const ProblemComponent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
-  const [functions, setFunction] = useState("");
+  const [functionString, setFunction] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -35,7 +35,7 @@ const ProblemComponent = () => {
     difficulty: "",
     description: "",
     points: "",
-    functions: "",
+    functionString: "",
   });
   const { id } = useParams();
 
@@ -48,7 +48,7 @@ const ProblemComponent = () => {
         setDifficulty(response.data.difficulty);
         setDescription(response.data.description);
         setPoints(response.data.points);
-        setFunction(response.data.functions);
+        setFunction(response.data.functionString);
       });
     }
   }, [id]);
@@ -99,7 +99,7 @@ const ProblemComponent = () => {
         difficulty,
         description,
         points,
-        functions,
+        functionString,
       };
       if (id) {
         updateProblem(id, problem)
@@ -165,7 +165,7 @@ const ProblemComponent = () => {
       valid = false;
     }
 
-    if (functions.trim()) {
+    if (functionString.trim()) {
       errorsCopy.functions = "";
     } else {
       errorsCopy.functions = "Error, Function cannot be null";
@@ -206,7 +206,7 @@ const ProblemComponent = () => {
             type="text"
             placeholder="Enter Problem Function"
             name="functions"
-            value={functions}
+            value={functionString}
             id={"outlined"}
             error={errors.functions}
             helperText={errors.functions}
