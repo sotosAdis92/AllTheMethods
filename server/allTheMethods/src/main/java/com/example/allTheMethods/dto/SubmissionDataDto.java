@@ -3,7 +3,7 @@ package com.example.allTheMethods.dto;
 import java.util.List;
 
 public class SubmissionDataDto {
-    private List<Double> Inputs;
+    private List<Double> inp;
     private int iterations;
     private int problemSpaceA;
     private int problemSpaceB;
@@ -12,17 +12,17 @@ public class SubmissionDataDto {
     public SubmissionDataDto() {
     }
 
-    public SubmissionDataDto( List<Double> inputs, int iterations, int problemSpaceA, int problemSpaceB, String problemString) {
+    public SubmissionDataDto(List<Double> inp, int iterations, int problemSpaceA, int problemSpaceB, String problemString) {
 
-        Inputs = inputs;
+        this.inp = inp;
         this.iterations = iterations;
         this.problemSpaceA = problemSpaceA;
         this.problemSpaceB = problemSpaceB;
         this.problemString = problemString;
     }
 
-    public List<Double> getInputs() {
-        return Inputs;
+    public List<Double> getInp() {
+        return inp;
     }
 
     public int getIterations() {
@@ -41,8 +41,8 @@ public class SubmissionDataDto {
         return problemString;
     }
 
-    public void setInputs(List<Double> inputs) {
-        Inputs = inputs;
+    public void setInp(List<Double> inp) {
+        this.inp = inp;
     }
 
     public void setIterations(int iterations) {

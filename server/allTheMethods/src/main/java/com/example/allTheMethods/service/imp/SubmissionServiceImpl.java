@@ -42,7 +42,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int i=0;
         int count = 0;
 
-        List<Double> input = submissionDataDto.getInputs();
+        List<Double> input = submissionDataDto.getInp();
         int length = submissionDataDto.getIterations();
         int Inta = submissionDataDto.getProblemSpaceA();
         int Intb = submissionDataDto.getProblemSpaceB();
@@ -72,7 +72,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         }
 
         for(i=0;i<length;i++){
-            if(Double.compare(list.get(i),input.get(i)) == 0){
+            if(list.get(i) - input.get(i) == 0.000){
                 count++;
             }
         }
