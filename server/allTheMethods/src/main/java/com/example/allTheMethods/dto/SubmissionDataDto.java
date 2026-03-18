@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto;
 
 import java.util.List;
 
-public class SubmissionDataDto {
+public class SubmissionDataDto extends SubmissionDto{
     private List<Double> inp;
     private int iterations;
     private int problemSpaceA;
