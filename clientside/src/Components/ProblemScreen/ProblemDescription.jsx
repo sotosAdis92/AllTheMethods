@@ -9,6 +9,7 @@ import { getUser } from "../../services/UsersService";
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [functionString, setFunction] = useState("");
+  const [category, setCategory] = useState("");
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [iterations, setIterations] = useState(0);
@@ -25,6 +26,7 @@ const ProblemDescription = () => {
       .then((response) => {
         setDescription(response.data.description);
         setFunction(response.data.problemString);
+        setCategory(response.data.category);
         console.log(response.data.description);
       })
       .catch((error) => {
@@ -140,8 +142,15 @@ const ProblemDescription = () => {
 
   return (
     <>
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="submissionButton" onClick={handleSubmit}>
+        <span className="shadow"></span>
+        <span className="edge"></span>
+        <div className="font">
+          <span>Submit</span>
+        </div>
+      </button>
       <p>{description}</p>
+      <span></span>
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
     </>
