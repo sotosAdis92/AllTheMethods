@@ -7,7 +7,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class UserAchievementDto {
+public class UserAchievementDto extends AchievementDto{
     private Long userAchievementId;
     private Long userId;
     private Long achievementId;
