@@ -10,6 +10,7 @@ const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [functionString, setFunction] = useState("");
   const [category, setCategory] = useState("");
+  const [result, setResult] = useState(false);
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
   const [iterations, setIterations] = useState(0);
@@ -152,6 +153,7 @@ const ProblemDescription = () => {
     if (validateForm()) {
       sendSubmissionData(submissionData).then((response) => {
         console.log(response.data);
+        setResult(response.data);
       });
     }
   }
