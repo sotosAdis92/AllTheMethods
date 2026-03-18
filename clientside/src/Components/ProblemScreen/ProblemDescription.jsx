@@ -164,13 +164,11 @@ const ProblemDescription = () => {
   return (
     <>
       <button className="submissionButton" onClick={handleSubmit}>
-        <span className="shadow"></span>
-        <span className="edge"></span>
-        <div className="font">
-          <span>Submit</span>
-        </div>
+        <span>Submit</span>
       </button>
-      <p>{description}</p>
+      <p id="description" className="problemDesc">
+        {description}
+      </p>
       <span></span>
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
