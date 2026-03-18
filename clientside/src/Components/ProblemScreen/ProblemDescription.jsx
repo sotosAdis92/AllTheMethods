@@ -119,6 +119,7 @@ const ProblemDescription = () => {
           placeholder={`X${i}`}
           name={`X${i}`}
           value={xi}
+          error={errors.xi}
           onChange={(e) => handleInputs(i, e)}
         ></input>
       </div>,
