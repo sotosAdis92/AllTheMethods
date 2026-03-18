@@ -118,6 +118,7 @@ const ProblemDescription = () => {
           maxlength="5"
           placeholder={`X${i}`}
           name={`X${i}`}
+          value={xi}
           onChange={(e) => handleInputs(i, e)}
         ></input>
       </div>,
@@ -146,8 +147,6 @@ const ProblemDescription = () => {
   }, [description]);
 
   function handleSubmit() {
-    console.log(submission);
-    console.log(submissionData);
     //sendSubmission(submission);
     if (validateForm()) {
       sendSubmissionData(submissionData).then((response) => {
