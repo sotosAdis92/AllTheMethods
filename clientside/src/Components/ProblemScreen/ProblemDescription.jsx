@@ -179,9 +179,9 @@ const ProblemDescription = () => {
       <ol>{inputs}</ol>
       <div className="message">
         {result ? (
-          <div className="resultTrue">Success</div>
+          <div className="resultTrue">Correct Answer</div>
         ) : (
-          <div className="resultFalse">Failed</div>
+          <div className="resultFalse">Numbers Are not Correct</div>
         )}
       </div>
       <div className="problemInformationDisplay">
