@@ -155,10 +155,15 @@ const ProblemDescription = () => {
     if (validateForm()) {
       sendSubmissionData(submissionData).then((response) => {
         console.log(response.data);
-        setResult(response.data);
+        setResult(response.data).then(() => {
+          if (result) {
+          } else {
+          }
+        });
       });
     }
   }
+
   useEffect(() => {
     katex.render(functionString, document.getElementById("element"), {
       throwOnError: false,
