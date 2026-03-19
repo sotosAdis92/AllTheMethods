@@ -10,6 +10,7 @@ const ProblemDescription = () => {
   const [description, setDescription] = useState("");
   const [functionString, setFunction] = useState("");
   const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
   const [result, setResult] = useState(false);
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
@@ -45,6 +46,7 @@ const ProblemDescription = () => {
         setDescription(response.data.description);
         setFunction(response.data.problemString);
         setCategory(response.data.category);
+        setDifficulty(response.data.difficulty);
         console.log(response.data.description);
       })
       .catch((error) => {
@@ -174,6 +176,10 @@ const ProblemDescription = () => {
       <span></span>
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
+      <div className="problemInformationDisplay">
+        <p className="problemCategoryTag">{category}</p>
+        <p className="problemDifficultyTag">{difficulty}</p>
+      </div>
     </>
   );
 };
