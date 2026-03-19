@@ -155,11 +155,7 @@ const ProblemDescription = () => {
     if (validateForm()) {
       sendSubmissionData(submissionData).then((response) => {
         console.log(response.data);
-        setResult(response.data).then(() => {
-          if (result) {
-          } else {
-          }
-        });
+        setResult(response.data);
       });
     }
   }
@@ -181,6 +177,13 @@ const ProblemDescription = () => {
       <span></span>
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
+      <div className="message">
+        {result ? (
+          <div className="resultTrue">Success</div>
+        ) : (
+          <div className="resultFalse">Failed</div>
+        )}
+      </div>
       <div className="problemInformationDisplay">
         <p className="problemCategoryTag">{category}</p>
         <p className="problemDifficultyTag">{difficulty}</p>
