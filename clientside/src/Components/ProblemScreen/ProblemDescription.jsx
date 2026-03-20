@@ -102,6 +102,7 @@ const ProblemDescription = () => {
         <input
           key={i}
           maxlength="5"
+          placeholder={`X${i}`}
           name={`X${i}`}
           onChange={(e) => handleInputs(i, e)}
         ></input>
@@ -124,15 +125,13 @@ const ProblemDescription = () => {
     console.log(inp);
   }
 
-  const setResultText = () => {
-    {
-      result ? (
-        <div className="resultTrue">Correct Answer</div>
-      ) : (
-        <div className="resultFalse">Numbers Are not Correct</div>
-      );
-    }
-  };
+  function setResultText() {
+    result ? (
+      <div>Incorrect Number Inputs</div>
+    ) : (
+      <div>Successfully solved</div>
+    );
+  }
 
   useEffect(() => {
     detectIterations(description);
@@ -145,7 +144,7 @@ const ProblemDescription = () => {
     sendSubmissionData(submissionData).then((response) => {
       console.log(response.data);
       setResult(response.data);
-      setResultText();
+      console.log(result);
     });
   }
 
@@ -163,10 +162,10 @@ const ProblemDescription = () => {
       <p id="description" className="problemDesc">
         {description}
       </p>
-      <span>{setResultText()}</span>
+
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
-      <div className="message"></div>
+      <div className="message">{setResultText()}</div>
       <div className="problemInformationDisplay">
         <span className="">Problem Tags:</span>
         <p className="problemCategoryTag">{category}</p>
