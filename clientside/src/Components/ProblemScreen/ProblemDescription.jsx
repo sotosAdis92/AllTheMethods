@@ -125,14 +125,6 @@ const ProblemDescription = () => {
     console.log(inp);
   }
 
-  function setResultText() {
-    result ? (
-      <div>Incorrect Number Inputs</div>
-    ) : (
-      <div>Successfully solved</div>
-    );
-  }
-
   useEffect(() => {
     detectIterations(description);
     detectFunction(functionString);
@@ -145,7 +137,16 @@ const ProblemDescription = () => {
       console.log(response.data);
       setResult(response.data);
       console.log(result);
+      setResultText();
     });
+  }
+
+  function setResultText() {
+    if (result) {
+      return <div>1</div>;
+    } else {
+      return <div>0</div>;
+    }
   }
 
   useEffect(() => {
@@ -165,7 +166,9 @@ const ProblemDescription = () => {
 
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
-      <div className="message">{setResultText()}</div>
+      <div className="message" id="message">
+        {setResultText()}
+      </div>
       <div className="problemInformationDisplay">
         <span className="">Problem Tags:</span>
         <p className="problemCategoryTag">{category}</p>
