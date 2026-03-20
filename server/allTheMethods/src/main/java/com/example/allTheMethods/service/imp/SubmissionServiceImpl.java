@@ -88,12 +88,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
 
     public static double fx(double x, String problem){
-        Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",x);
+        Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x",x);
         double result = expression.evaluate();
         return result;
     }
     public static double fa(double a, String problem){
-        Expression expression = new ExpressionBuilder(problem).variables("X").build().setVariable("X",a);
+        Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x",a);
         double result = expression.evaluate();
         return result;
     }

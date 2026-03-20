@@ -20,25 +20,8 @@ const ProblemDescription = () => {
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [input, setInput] = useState([]);
   const [inp, setInp] = useState([]);
-  const [xi, setXi] = useState("");
-  const [errors, setErrors] = useState({
-    xi: "",
-  });
   var x = ``;
   var inputs = [];
-
-  function validateForm() {
-    let valid = true;
-    const errorsCopy = { ...errors };
-    if (xi.trim()) {
-      errorsCopy.xi = "";
-    } else {
-      errorsCopy.xi = "Error, xi cannot be empty";
-      valid = false;
-    }
-    setErrors(errorsCopy);
-    return valid;
-  }
 
   useEffect(() => {
     getProblem(id)
@@ -119,10 +102,7 @@ const ProblemDescription = () => {
         <input
           key={i}
           maxlength="5"
-          placeholder={`X${i}`}
           name={`X${i}`}
-          value={xi}
-          error={errors.xi}
           onChange={(e) => handleInputs(i, e)}
         ></input>
       </div>,
@@ -162,13 +142,11 @@ const ProblemDescription = () => {
 
   function handleSubmit() {
     //sendSubmission(submission);
-    if (validateForm()) {
-      sendSubmissionData(submissionData).then((response) => {
-        console.log(response.data);
-        setResult(response.data);
-        setResultText();
-      });
-    }
+    sendSubmissionData(submissionData).then((response) => {
+      console.log(response.data);
+      setResult(response.data);
+      setResultText();
+    });
   }
 
   useEffect(() => {
