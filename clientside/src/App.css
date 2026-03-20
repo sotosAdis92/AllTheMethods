@@ -730,6 +730,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  font-size: 16px;
 }
 
 .problemCategoryTag {
@@ -738,7 +739,6 @@ body {
   border-radius: 9999px;
   background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
   padding: 10px;
-  font-size: 19px;
   font-weight: 500;
   color: #2d3748;
   transition: all 0.2s ease;
@@ -758,7 +758,6 @@ body {
   border-radius: 9999px;
   background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
   padding: 10px;
-  font-size: 19px;
   font-weight: 500;
   color: #2d3748;
   transition: all 0.2s ease;

@@ -144,6 +144,16 @@ const ProblemDescription = () => {
     console.log(inp);
   }
 
+  const setResultText = () => {
+    {
+      result ? (
+        <div className="resultTrue">Correct Answer</div>
+      ) : (
+        <div className="resultFalse">Numbers Are not Correct</div>
+      );
+    }
+  };
+
   useEffect(() => {
     detectIterations(description);
     detectFunction(functionString);
@@ -156,6 +166,7 @@ const ProblemDescription = () => {
       sendSubmissionData(submissionData).then((response) => {
         console.log(response.data);
         setResult(response.data);
+        setResultText();
       });
     }
   }
@@ -174,17 +185,12 @@ const ProblemDescription = () => {
       <p id="description" className="problemDesc">
         {description}
       </p>
-      <span></span>
+      <span>{setResultText()}</span>
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
-      <div className="message">
-        {result ? (
-          <div className="resultTrue">Correct Answer</div>
-        ) : (
-          <div className="resultFalse">Numbers Are not Correct</div>
-        )}
-      </div>
+      <div className="message"></div>
       <div className="problemInformationDisplay">
+        <span className="">Problem Tags:</span>
         <p className="problemCategoryTag">{category}</p>
         <p className="problemDifficultyTag">{difficulty}</p>
       </div>
