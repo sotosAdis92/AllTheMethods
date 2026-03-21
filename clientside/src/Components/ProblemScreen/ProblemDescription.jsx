@@ -11,6 +11,7 @@ const ProblemDescription = () => {
   const [functionString, setFunction] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
+  const [resultText, setResultTextFunc] = useState("");
   const [result, setResult] = useState(false);
   const [userId, setUserId] = useState(0);
   const { id } = useParams();
@@ -135,17 +136,18 @@ const ProblemDescription = () => {
     //sendSubmission(submission);
     sendSubmissionData(submissionData).then((response) => {
       console.log(response.data);
-      setResult(response.data);
+      const result = response.data;
+      setResult(result);
       console.log(result);
-      setResultText();
+      setResultText(result);
     });
   }
 
-  function setResultText() {
+  function setResultText(result) {
     if (result) {
-      return <div>1</div>;
+      setResultTextFunc("Correct Numbers!");
     } else {
-      return <div>0</div>;
+      setResultTextFunc("Incorrect Numbers");
     }
   }
 
@@ -167,7 +169,7 @@ const ProblemDescription = () => {
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
       <div className="message" id="message">
-        {setResultText()}
+        {resultText}
       </div>
       <div className="problemInformationDisplay">
         <span className="">Problem Tags:</span>
