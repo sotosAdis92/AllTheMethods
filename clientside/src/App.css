@@ -770,3 +770,46 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
 }
+
+.tags {
+}
+.correctAnswerText {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background: #6fbf73;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  letter-spacing: -0.01em;
+}
+.incorrectAnswerText {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background: #e67e73;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  letter-spacing: -0.01em;
+}

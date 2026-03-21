@@ -1,6 +1,6 @@
 import katex from "katex";
 import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { sendSubmissionData } from "../../services/SubmitService";
@@ -23,6 +23,8 @@ const ProblemDescription = () => {
   const [inp, setInp] = useState([]);
   var x = ``;
   var inputs = [];
+
+  const ref = useRef();
 
   useEffect(() => {
     getProblem(id)
@@ -140,6 +142,7 @@ const ProblemDescription = () => {
       setResult(result);
       console.log(result);
       setResultText(result);
+      console.log(submissionData);
     });
   }
 
@@ -165,14 +168,13 @@ const ProblemDescription = () => {
       <p id="description" className="problemDesc">
         {description}
       </p>
-
       <p className="katex" id="element"></p>
       <ol>{inputs}</ol>
       <div className="message" id="message">
         {resultText}
       </div>
       <div className="problemInformationDisplay">
-        <span className="">Problem Tags:</span>
+        <span className="tags">Problem Tags:</span>
         <p className="problemCategoryTag">{category}</p>
         <p className="problemDifficultyTag">{difficulty}</p>
       </div>
