@@ -1,5 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.BisectionDataDto;
 import com.example.allTheMethods.dto.SubmissionDataDto;
 import com.example.allTheMethods.dto.SubmissionDto;
 import com.example.allTheMethods.entity.Submission;
@@ -37,16 +38,16 @@ public class SubmissionServiceImpl implements SubmmisionService {
     }
 
     @Override
-    public boolean checkData(SubmissionDataDto submissionDataDto) {
+    public boolean checkDataBisection(BisectionDataDto bisectionDataDto) {
         boolean flag = false;
         int i=0;
         int count = 0;
 
-        List<Double> input = submissionDataDto.getInp();
-        int length = submissionDataDto.getIterations();
-        int Inta = submissionDataDto.getProblemSpaceA();
-        int Intb = submissionDataDto.getProblemSpaceB();
-        String problem = submissionDataDto.getProblemString();
+        List<Double> input = bisectionDataDto.getInp();
+        int length = bisectionDataDto.getIterations();
+        int Inta = bisectionDataDto.getProblemSpaceA();
+        int Intb = bisectionDataDto.getProblemSpaceB();
+        String problem = bisectionDataDto.getProblemString();
 
         System.out.println(problem);
         System.out.println(Inta);

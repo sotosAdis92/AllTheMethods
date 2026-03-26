@@ -4,20 +4,28 @@ import java.util.List;
 
 public class SubmissionDataDto extends SubmissionDto{
     private List<Double> inp;
-    private int iterations;
-    private int problemSpaceA;
-    private int problemSpaceB;
+    private String problemType;
     private String problemString;
 
     public SubmissionDataDto() {
     }
 
-    public SubmissionDataDto(List<Double> inp, int iterations, int problemSpaceA, int problemSpaceB, String problemString) {
-
+    public SubmissionDataDto(Long submissionId, Long userId, Long problemId, String submittedAt, String valid, List<Double> inp, String problemType, String problemString) {
+        super(submissionId, userId, problemId, submittedAt, valid);
         this.inp = inp;
-        this.iterations = iterations;
-        this.problemSpaceA = problemSpaceA;
-        this.problemSpaceB = problemSpaceB;
+        this.problemType = problemType;
+        this.problemString = problemString;
+    }
+
+    public void setInp(List<Double> inp) {
+        this.inp = inp;
+    }
+
+    public void setProblemType(String problemType) {
+        this.problemType = problemType;
+    }
+
+    public void setProblemString(String problemString) {
         this.problemString = problemString;
     }
 
@@ -25,39 +33,11 @@ public class SubmissionDataDto extends SubmissionDto{
         return inp;
     }
 
-    public int getIterations() {
-        return iterations;
-    }
-
-    public int getProblemSpaceA() {
-        return problemSpaceA;
-    }
-
-    public int getProblemSpaceB() {
-        return problemSpaceB;
+    public String getProblemType() {
+        return problemType;
     }
 
     public String getProblemString() {
         return problemString;
-    }
-
-    public void setInp(List<Double> inp) {
-        this.inp = inp;
-    }
-
-    public void setIterations(int iterations) {
-        this.iterations = iterations;
-    }
-
-    public void setProblemSpaceA(int problemSpaceA) {
-        this.problemSpaceA = problemSpaceA;
-    }
-
-    public void setProblemSpaceB(int problemSpaceB) {
-        this.problemSpaceB = problemSpaceB;
-    }
-
-    public void setProblemString(String problemString) {
-        this.problemString = problemString;
     }
 }
