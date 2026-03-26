@@ -28,6 +28,8 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
             List<Object[]> result = userProblemsRepository.findAllByUserId(user.getId());
+
         }
+        return null;
     }
 }
