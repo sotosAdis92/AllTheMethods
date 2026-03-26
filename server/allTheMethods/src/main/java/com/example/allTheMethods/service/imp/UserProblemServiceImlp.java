@@ -7,8 +7,10 @@ import com.example.allTheMethods.repository.UserProblemsRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserProblemServiceImlp implements UserProblemService {
     private final JWTUtil jwtUtil;
@@ -28,8 +30,11 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
             List<Object[]> result = userProblemsRepository.findAllByUserId(user.getId());
-
+            return result.stream().map(row ->{
+                UserProblemDto userProblemDto = new UserProblemDto();
+                return userProblemDto;
+            }).collect(Collectors.toList());
         }
-        return null;
+        throw new EntityNotFoundException("User not found");
     }
 }
