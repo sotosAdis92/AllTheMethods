@@ -32,6 +32,14 @@ public class UserProblemServiceImlp implements UserProblemService {
             List<Object[]> result = userProblemsRepository.findAllByUserId(user.getId());
             return result.stream().map(row ->{
                 UserProblemDto userProblemDto = new UserProblemDto();
+                userProblemDto.setId((Long) row[0]);
+                userProblemDto.setNumber((Integer) row[1]);
+                userProblemDto.setTitle((String) row[2]);
+                userProblemDto.setCategory((String) row[3]);
+                userProblemDto.setDifficulty((String) row[4]);
+                userProblemDto.setDescription((String) row[5]);
+                userProblemDto.setPoints((Integer) row[6]);
+                userProblemDto.setUserId((Long) row[7]);
                 return userProblemDto;
             }).collect(Collectors.toList());
         }
