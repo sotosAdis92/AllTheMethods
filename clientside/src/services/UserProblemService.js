@@ -1,7 +1,7 @@
 import axiosInstance from "../enviroment/axiosinstance";
-const REST_API_BASE_URL = "/api/userAchievements/myAchievements";
+const REST_API_BASE_URL = "/api/userProblems/myProblems";
 
-export const getUserAchievements = async () => {
+export const getUserProblems = async () => {
   const response = await axiosInstance.get(REST_API_BASE_URL);
   return response;
 };
