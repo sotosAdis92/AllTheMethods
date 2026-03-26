@@ -8,10 +8,12 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class UserProblemServiceImlp implements UserProblemService {
     private final JWTUtil jwtUtil;
     private final UserProblemsRepository userProblemsRepository;
