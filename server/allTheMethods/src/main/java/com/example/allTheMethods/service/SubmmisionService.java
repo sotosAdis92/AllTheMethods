@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
 public interface SubmmisionService {
     SubmissionDto createSubmission(SubmissionDto submissionDto);
     boolean checkDataBisection(BisectionDataDto bisectionDataDto);
+    boolean checkDataRegulaFalsi();
 }

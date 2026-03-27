@@ -88,6 +88,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
     }
 
 
+    @Override
+    public boolean checkDataRegulaFalsi() {
+        return false;
+    }
+
+
     public static double fx(double x, String problem){
         Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x",x);
         double result = expression.evaluate();
