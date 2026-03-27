@@ -29,7 +29,7 @@ const ViewMyProblems = () => {
     <>
       {count >= 0 ? (
         <>
-          <h1>Solved Problems</h1>
+          <h1 className="userProblemsHeader">Solved Problems</h1>
           <ol>{listOfMyProblems}</ol>{" "}
         </>
       ) : (
