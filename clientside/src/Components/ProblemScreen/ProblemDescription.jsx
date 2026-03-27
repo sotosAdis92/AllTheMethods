@@ -1,6 +1,6 @@
 import katex from "katex";
 import "katex/dist/katex.min.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { sendSubmissionData } from "../../services/SubmitService";
@@ -23,8 +23,6 @@ const ProblemDescription = () => {
   const [inp, setInp] = useState([]);
   var x = ``;
   var inputs = [];
-
-  const ref = useRef();
 
   useEffect(() => {
     getProblem(id)
@@ -53,19 +51,6 @@ const ProblemDescription = () => {
   useEffect(() => {
     userIdFunction();
   }, []);
-
-  const now = new Date();
-  const date = now.getDate();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-
-  const wholeDate = date + "/" + (month + 1) + "/" + year;
-
-  const submission = {
-    id,
-    userId,
-    wholeDate,
-  };
 
   const submissionData = {
     problemString,
@@ -169,7 +154,7 @@ const ProblemDescription = () => {
         {description}
       </p>
       <p className="katex" id="element"></p>
-      <ol>{inputs}</ol>
+
       <div className="message" id="message">
         {resultText}
       </div>
