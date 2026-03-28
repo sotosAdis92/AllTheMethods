@@ -109,7 +109,26 @@ public class SubmissionServiceImpl implements SubmmisionService {
         double resultA = 0;
 
         for(i=0;i<length;i++){
-            x = b - (f())
+            x = b - ( fb(b,problem) * (b - a) / (fb(b,problem) - fa(a, problem) ));
+            resultX = fx(x, problem);
+            resultA = fa(a, problem);
+            if(resultX * resultA < 0){
+                b = x;
+            }
+            else{
+                a = x;
+            }
+            list.add(x);
+            System.out.println(x);
+        }
+
+        for(i=0;i<length;i++){
+            if(list.get(i) - input.get(i) == 0.000){
+                count++;
+            }
+        }
+        if(count==length){
+            flag = true;
         }
 
         return flag;
