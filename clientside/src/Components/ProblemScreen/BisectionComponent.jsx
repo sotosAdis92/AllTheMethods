@@ -37,7 +37,7 @@ const BisectionComponent = (props) => {
 
   return (
     <>
-      <div></div>
+      <div>{handleInputs()}</div>
     </>
   );
 };

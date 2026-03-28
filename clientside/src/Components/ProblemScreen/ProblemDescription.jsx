@@ -85,10 +85,6 @@ const ProblemDescription = () => {
   function callComponent(problemType) {
     if (problemType === "Bisection") {
       return <BisectionComponent interations={iterations}></BisectionComponent>;
-    } else if (problemType === "Regula Falsi") {
-    } else if (problemType === "Newton - Raphson") {
-    } else if (problemType === "Non-Linear Newton Method") {
-    } else if (problemType === "False Point") {
     }
   }
 
