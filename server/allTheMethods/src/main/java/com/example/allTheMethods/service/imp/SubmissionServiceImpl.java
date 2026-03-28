@@ -102,6 +102,15 @@ public class SubmissionServiceImpl implements SubmmisionService {
         String problem = regulaFalsiDataDto.getProblemString();
 
         List<Double> list = new ArrayList<>();
+        double x = 0;
+        double a = Inta;
+        double b = Intb;
+        double resultX = 0;
+        double resultA = 0;
+
+        for(i=0;i<length;i++){
+            x = b - (f())
+        }
 
         return flag;
     }
@@ -114,6 +123,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
     }
     public static double fa(double a, String problem){
         Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x",a);
+        double result = expression.evaluate();
+        return result;
+    }
+    public static double fb(double b, String problem){
+        Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x", b);
         double result = expression.evaluate();
         return result;
     }
