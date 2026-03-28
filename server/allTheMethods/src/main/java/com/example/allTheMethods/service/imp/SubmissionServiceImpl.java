@@ -91,7 +91,19 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
     @Override
     public boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
-        return false;
+        boolean flag  = false;
+        int i = 0;
+        int count = 0;
+
+        List<Double> input = regulaFalsiDataDto.getInp();
+        int length = regulaFalsiDataDto.getIterations();
+        int Inta = regulaFalsiDataDto.getProblemSpaceA();
+        int Intb = regulaFalsiDataDto.getProblemSpaceB();
+        String problem = regulaFalsiDataDto.getProblemString();
+
+        List<Double> list = new ArrayList<>();
+
+        return flag;
     }
 
 
