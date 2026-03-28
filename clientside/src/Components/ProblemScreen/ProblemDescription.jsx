@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
 import { sendSubmissionData } from "../../services/SubmitService";
 import { getUser } from "../../services/UsersService";
+import BisectionComponent from "./BisectionComponent";
 
 const ProblemDescription = () => {
   const [description, setDescription] = useState("");
@@ -83,42 +84,12 @@ const ProblemDescription = () => {
   }
   function callComponent(problemType) {
     if (problemType === "Bisection") {
+      return <BisectionComponent interations={iterations}></BisectionComponent>;
     } else if (problemType === "Regula Falsi") {
     } else if (problemType === "Newton - Raphson") {
     } else if (problemType === "Non-Linear Newton Method") {
     } else if (problemType === "False Point") {
     }
-  }
-
-  for (let i = 0; i < iterations; i++) {
-    x = `x${i}`;
-    inputs.push(
-      <div key={i}>
-        <span id={x}>{x}=</span>
-        <input
-          key={i}
-          maxlength="5"
-          placeholder={`X${i}`}
-          name={`X${i}`}
-          onChange={(e) => handleInputs(i, e)}
-        ></input>
-      </div>,
-    );
-  }
-
-  function handleInputs(i, e) {
-    const exists = input.findIndex((item) => item[0] === i);
-
-    if (exists !== -1) {
-      input[exists] = [i, Number(e.target.value)];
-    } else {
-      input.push([i, Number(e.target.value)]);
-    }
-    const inp = input.map((pair) => pair[1]);
-    setInput([...input]);
-    setInp(inp);
-    console.log(input);
-    console.log(inp);
   }
 
   useEffect(() => {
@@ -162,7 +133,7 @@ const ProblemDescription = () => {
         {description}
       </p>
       <p className="katex" id="element"></p>
-
+      {callComponent()}
       <div className="message" id="message">
         {resultText}
       </div>
