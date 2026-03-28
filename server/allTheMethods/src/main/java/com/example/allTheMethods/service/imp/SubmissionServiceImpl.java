@@ -1,6 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.BisectionDataDto;
+import com.example.allTheMethods.dto.RegulaFalsiDataDto;
 import com.example.allTheMethods.dto.SubmissionDataDto;
 import com.example.allTheMethods.dto.SubmissionDto;
 import com.example.allTheMethods.entity.Submission;
@@ -89,7 +90,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
 
     @Override
-    public boolean checkDataRegulaFalsi() {
+    public boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
         return false;
     }
 
