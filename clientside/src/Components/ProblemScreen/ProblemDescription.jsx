@@ -81,6 +81,14 @@ const ProblemDescription = () => {
     const string = functionString.toString();
     setProblemString(string);
   }
+  function callComponent(problemType) {
+    if (problemType === "Bisection") {
+    } else if (problemType === "Regula Falsi") {
+    } else if (problemType === "Newton - Raphson") {
+    } else if (problemType === "Non-Linear Newton Method") {
+    } else if (problemType === "False Point") {
+    }
+  }
 
   for (let i = 0; i < iterations; i++) {
     x = `x${i}`;
