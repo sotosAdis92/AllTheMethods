@@ -1,6 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.BisectionDataDto;
+import com.example.allTheMethods.dto.RegulaFalsiDataDto;
 import com.example.allTheMethods.dto.SubmissionDataDto;
 import com.example.allTheMethods.dto.SubmissionDto;
 import com.example.allTheMethods.service.SubmmisionService;
@@ -28,6 +29,13 @@ public class SubmissionController {
     public boolean checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
         boolean flag;
         flag =  submmisionService.checkDataBisection(bisectionDataDto);
+        return flag;
+    }
+
+    @PostMapping("/regulaFalsi")
+    public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
+        boolean flag;
+        flag = submmisionService.checkDataRegulaFalsi(regulaFalsiDataDto);
         return flag;
     }
 
