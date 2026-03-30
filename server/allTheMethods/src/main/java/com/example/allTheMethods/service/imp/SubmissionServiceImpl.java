@@ -43,6 +43,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         boolean flag = false;
         int i=0;
         int count = 0;
+        int decimalPoint = 3;
 
         List<Double> input = bisectionDataDto.getInp();
         int length = bisectionDataDto.getIterations();
@@ -72,6 +73,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
+            x = change(x,decimalPoint);
             list.add(x);
             System.out.println(x);
         }
@@ -94,6 +96,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         boolean flag  = false;
         int i = 0;
         int count = 0;
+        int decimalPoint = 3;
 
         List<Double> input = regulaFalsiDataDto.getInp();
         int length = regulaFalsiDataDto.getIterations();
@@ -118,6 +121,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
+            x = change(x,decimalPoint);
             list.add(x);
             System.out.println(x);
         }
@@ -149,5 +153,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
         Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x", b);
         double result = expression.evaluate();
         return result;
+    }
+    public static double change(double x, int decimalPoint){
+        x = x * Math.pow(10, decimalPoint);
+        x = Math.floor(x);
+        x = x / Math.pow(10, decimalPoint);
+        return x;
     }
 }
