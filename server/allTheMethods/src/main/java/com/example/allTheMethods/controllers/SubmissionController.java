@@ -1,9 +1,6 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.BisectionDataDto;
-import com.example.allTheMethods.dto.RegulaFalsiDataDto;
-import com.example.allTheMethods.dto.SubmissionDataDto;
-import com.example.allTheMethods.dto.SubmissionDto;
+import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +33,13 @@ public class SubmissionController {
     public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
         boolean flag;
         flag = submmisionService.checkDataRegulaFalsi(regulaFalsiDataDto);
+        return flag;
+    }
+
+    @PostMapping("/newtonRaphson")
+    public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto){
+        boolean flag;
+        flag = submmisionService.checkDataNewtonRaphson(newtonRaphsonDataDto);
         return flag;
     }
 

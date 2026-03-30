@@ -1,9 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.BisectionDataDto;
-import com.example.allTheMethods.dto.RegulaFalsiDataDto;
-import com.example.allTheMethods.dto.SubmissionDataDto;
-import com.example.allTheMethods.dto.SubmissionDto;
+import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.mapper.SubmissionMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
@@ -136,6 +133,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
         }
 
         return flag;
+    }
+
+    @Override
+    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
+        return false;
     }
 
 
