@@ -77,7 +77,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
-            x = change(x,decimalPoint);
+            x = truncateDecimalPlaces(x,decimalPoint);
             list.add(x);
             System.out.println(x);
         }
@@ -130,7 +130,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             else{
                 a = x;
             }
-            x = change(x,decimalPoint);
+            x = truncateDecimalPlaces(x,decimalPoint);
             list.add(x);
             System.out.println(x);
         }
@@ -189,10 +189,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
         double result = expression.evaluate();
         return result;
     }
-    public static double change(double x, int decimalPoint){
-        x = x * Math.pow(10, decimalPoint);
-        x = Math.floor(x);
-        x = x / Math.pow(10, decimalPoint);
+    public static double truncateDecimalPlaces(double x, int decimalPoint){
+        x = x * Math.pow(10, decimalPoint); //shift the decimal of the value to the given decimal 10^n
+        x = Math.floor(x); //floor the number
+        x = x / Math.pow(10, decimalPoint); //divide by 10^n
+        //this extracts the integer part while keeping the shift
         return x;
     }
     private double fprime(double x, String problem) {
