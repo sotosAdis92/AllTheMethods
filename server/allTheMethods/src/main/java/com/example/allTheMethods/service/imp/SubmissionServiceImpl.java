@@ -17,6 +17,7 @@ import java.util.List;
 
 @Service
 public class SubmissionServiceImpl implements SubmmisionService {
+    /* Dependency Injection for SubmissionServiceImpl Class */
     @Autowired
     private SubmissionRepository submissionRepository;
     private UsersRepository usersRepository;
@@ -35,6 +36,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return SubmissionMapper.mapToSubmissionDto(savedSubmission);
     }
 
+    /*
+    Method Implementation of Bisection Method, the method takes in a bisectionData object
+    and through the bisection method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+     */
     @Override
     public boolean checkDataBisection(BisectionDataDto bisectionDataDto) {
         boolean flag = false;
@@ -87,7 +94,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return flag;
     }
 
-
+    /*
+    Method Implementation of Regula-Falsi Method, the method takes in a regulaFalsiData object
+    and through the Regula-Falsi Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+     */
     @Override
     public boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
         boolean flag  = false;
@@ -135,6 +147,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return flag;
     }
 
+    /*
+    Method Implementation of Newton-Raphson Method, the method takes in a newtonRaphson object
+    and through the Newton-Raphson Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+     */
     @Override
     public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
         boolean flag;
@@ -145,10 +163,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
         List<Double> inputs = newtonRaphsonDataDto.getInp();
         String problem = newtonRaphsonDataDto.getProblemString();
         int iterations = newtonRaphsonDataDto.getIterations();
+
         double x = 0;
         List<Double> list = new ArrayList<>();
-        for(i=0;i<iterations;i++){
 
+        for(i=0;i<iterations;i++){
+            x = xo - (fx(x,problem)/fprime(x,problem));
         }
         return false;
     }
@@ -174,5 +194,9 @@ public class SubmissionServiceImpl implements SubmmisionService {
         x = Math.floor(x);
         x = x / Math.pow(10, decimalPoint);
         return x;
+    }
+    private double fprime(double x, String problem) {
+
+
     }
 }
