@@ -137,6 +137,19 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
     @Override
     public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
+        boolean flag;
+        int i = 0;
+        int count = 0;
+        int decimalPoint = 3;
+        int xo = newtonRaphsonDataDto.getXo();
+        List<Double> inputs = newtonRaphsonDataDto.getInp();
+        String problem = newtonRaphsonDataDto.getProblemString();
+        int iterations = newtonRaphsonDataDto.getIterations();
+        double x = 0;
+        List<Double> list = new ArrayList<>();
+        for(i=0;i<iterations;i++){
+
+        }
         return false;
     }
 
