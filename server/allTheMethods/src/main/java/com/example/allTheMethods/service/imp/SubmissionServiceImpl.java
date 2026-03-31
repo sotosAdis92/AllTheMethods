@@ -155,7 +155,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
      */
     @Override
     public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
-        boolean flag;
+        boolean flag = false;
         int i = 0;
         int count = 0;
         int decimalPoint = 3;
@@ -169,8 +169,19 @@ public class SubmissionServiceImpl implements SubmmisionService {
 
         for(i=0;i<iterations;i++){
             x = xo - (fx(x,problem)/fprime(x,problem));
+            x = truncateDecimalPlaces(x, decimalPoint);
+            list.add(x);
+            System.out.println(x);
         }
-        return false;
+        for(i=0;i<iterations;i++){
+            if(list.get(i) - inputs.get(i) == 0.000){
+                count++;
+            }
+        }
+        if(count==iterations){
+            flag = true;
+        }
+        return flag;
     }
 
 
