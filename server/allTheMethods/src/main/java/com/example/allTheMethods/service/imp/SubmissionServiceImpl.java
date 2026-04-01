@@ -168,7 +168,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         List<Double> list = new ArrayList<>();
 
         for(i=0;i<iterations;i++){
-            x = xo - (fx(x,problem)/fprime(x,problem));
+           // x = xo - (fx(x,problem)/fprime(x,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
             list.add(x);
             System.out.println(x);
@@ -210,8 +210,14 @@ public class SubmissionServiceImpl implements SubmmisionService {
         //this extracts the integer part while keeping the shift
         return x;
     }
+    /* Implementation of the first derivative function needed for polynomial roots functions */
+    /* This function should take in the number x and the string of the problem, although implementing an AST
+    might be a better solution considering that in the future i will have to add partial derivatives
+    */
+
+    /*
     private double fprime(double x, String problem) {
 
 
-    }
+    }*/
 }
