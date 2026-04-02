@@ -214,8 +214,6 @@ public class SubmissionServiceImpl implements SubmmisionService {
     /* This function should take in the number x and the string of the problem, although implementing an AST
     might be a better solution considering that in the future i will have to add partial derivatives
     */
-
-
     private double fprime(double x, String problem) {
         double hornerX = x;
 
