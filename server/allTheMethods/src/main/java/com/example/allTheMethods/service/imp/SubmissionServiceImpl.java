@@ -168,7 +168,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         List<Double> list = new ArrayList<>();
 
         for(i=0;i<iterations;i++){
-           // x = xo - (fx(x,problem)/fprime(x,problem));
+            x = xo - (fx(x,problem)/fprime(x,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
             list.add(x);
             System.out.println(x);
@@ -203,7 +203,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return result;
     }
     /* Implementation of the truncate to decimal points needed for polynomial roots functions */
-    public static double truncateDecimalPlaces(double x, int decimalPoint){
+    public static double truncateDecimalPlaces(double x, int decimalPoint) {
         x = x * Math.pow(10, decimalPoint); //shift the decimal of the value to the given decimal 10^n
         x = Math.floor(x); //floor the number
         x = x / Math.pow(10, decimalPoint); //divide by 10^n
@@ -215,9 +215,10 @@ public class SubmissionServiceImpl implements SubmmisionService {
     might be a better solution considering that in the future i will have to add partial derivatives
     */
 
-    /*
+
     private double fprime(double x, String problem) {
+        double hornerX = x;
 
-
-    }*/
+        return hornerX;
+    }
 }
