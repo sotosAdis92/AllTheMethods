@@ -20,8 +20,8 @@ public class AbstractTreeBuilder {
     }
 
     private void init(){
-        Expression expression = new ExpressionBuilder(f);
-        List <Token> li = Arrays.asList(expression.setVariable());
+        //Expression expression = new ExpressionBuilder(f);
+        //List <Token> li = Arrays.asList(expression.setVariable());
     }
 
 }
