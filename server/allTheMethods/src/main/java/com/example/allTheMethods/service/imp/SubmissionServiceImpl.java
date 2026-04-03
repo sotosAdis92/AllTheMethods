@@ -204,7 +204,9 @@ public class SubmissionServiceImpl implements SubmmisionService {
     */
     private double fprime(double x, String problem) {
         double hornerX = x;
+        for(int i=0;i<problem.length();i++){
 
+        }
         return hornerX;
     }
 }
