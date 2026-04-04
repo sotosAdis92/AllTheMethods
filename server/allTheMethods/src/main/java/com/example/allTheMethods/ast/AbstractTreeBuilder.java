@@ -25,8 +25,7 @@ public class AbstractTreeBuilder {
     }
 
     private void init(){
-        ExpressionBuilder expressionBuilder = new ExpressionBuilder(f);
-        List<Token> list = Arrays.asList(expressionBuilder.variable("x").build());
+
     }
 
 }
