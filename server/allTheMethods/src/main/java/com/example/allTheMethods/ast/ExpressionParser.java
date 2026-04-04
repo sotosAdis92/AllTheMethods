@@ -21,4 +21,11 @@ public class ExpressionParser {
         this.userFunctions = new HashMap<String, Function>(4);
         this.variables = new HashSet<String>(4);
     }
+
+    //function implementation to be used in the expression
+    //returns the expression builder instance
+    public ExpressionParser function(Function function){
+        this.userFunctions.put(function.getName(), function);
+        return this;
+    }
 }
