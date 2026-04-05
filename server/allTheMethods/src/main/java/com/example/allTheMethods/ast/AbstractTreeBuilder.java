@@ -33,8 +33,8 @@ public class AbstractTreeBuilder {
         it = li.iterator();
     }
 
-    private Operation getFuntion(Token token) throws TokenizerException {
-
+    private Operation getFuntion(Token token){
+        return null;
     }
 
 }
