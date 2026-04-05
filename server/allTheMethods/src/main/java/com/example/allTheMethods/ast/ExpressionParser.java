@@ -19,10 +19,10 @@ public class ExpressionParser {
         if(expression == null || expression.trim().length() == 0){
             throw new IllegalArgumentException("Expression cannot be null");
         }
-        this.expression = expression;
-        this.userOperators = new HashMap<String, Operator>(4);
-        this.userFunctions = new HashMap<String, Function>(4);
-        this.variables = new HashSet<String>(4);
+        this.expression = expression; //The expression as a String is stored in here
+        this.userOperators = new HashMap<String, Operator>(4); //Store the Operators of the expression in a HashMap of operator as a String and Operator variable
+        this.userFunctions = new HashMap<String, Function>(4); //Store the functions of the expression in a HashMap of function as a String and Function variable
+        this.variables = new HashSet<String>(4); //Variables stored in here
     }
 
     //function implementation to be used in the expression
