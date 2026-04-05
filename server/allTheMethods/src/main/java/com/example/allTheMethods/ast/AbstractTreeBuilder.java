@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Iterator;
 
+import jdk.dynalink.Operation;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.operator.Operator;
 import net.objecthunter.exp4j.tokenizer.*;
 
 
@@ -25,6 +27,13 @@ public class AbstractTreeBuilder {
     }
 
     private void init(){
+        ExpressionParser expressionParser = new ExpressionParser(f);
+        List<Token> li = Arrays.asList(expressionParser.variable("x").build());
+        Collections.reverse(li);
+        it = li.iterator();
+    }
+
+    private Operation getFuntion(Token token) throws TokenizerException {
 
     }
 
