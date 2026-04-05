@@ -64,9 +64,16 @@ public class ExpressionParser {
     }
 
     public ExpressionParser operator(Operator operator){
+        this.checkSymbolOperator(operator);
+        this.userOperators.put(operator.getSymbol(), operator);
         return this;
     }
     public void checkSymbolOperator(Operator operator){
-
+        String name = operator.getSymbol();
+        for(char c: name.toCharArray()){
+            if(!Operator.isAllowedOperatorChar(c)){
+                throw new IllegalArgumentException("The operator symbol is invalid");
+            }
+        }
     }
 }
