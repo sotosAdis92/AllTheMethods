@@ -1,6 +1,9 @@
 package com.example.allTheMethods.ast;
 import net.objecthunter.exp4j.function.Function;
+import net.objecthunter.exp4j.function.Functions;
 import net.objecthunter.exp4j.operator.Operator;
+import net.objecthunter.exp4j.shuntingyard.ShuntingYard;
+import net.objecthunter.exp4j.tokenizer.Token;
 
 import java.util.*;
 
@@ -76,4 +79,35 @@ public class ExpressionParser {
             }
         }
     }
+    public ExpressionParser operator(Operator... operators){
+        for(Operator o : operators){
+            this.operator(o);
+        }
+        return this;
+    }
+    public ExpressionParser operators(List<Operator> operators){
+        for(Operator o : operators){
+            this.operator(o);
+        }
+        return this;
+    }
+
+    public Token[] build(){
+        if(expression.length() ==0){
+            throw new IllegalArgumentException("The expression cannot be empty");
+        }
+        variables.add("pi");
+        variables.add("π");
+        variables.add("e");
+        variables.add("φ");
+
+        for(String var : variables){
+            if(Functions.getBuiltinFunction(var) != null || userFunctions.containsKey(var)){
+                throw new IllegalArgumentException("A variable can not have the same name as a function");
+            }
+        }
+        Token[] a = ShuntingYard.convertToRPN(this.expression, this.userFunctions, this.userOperators, this.variables, this.implicitMultiplication);
+        return a;
+    }
+
 }
