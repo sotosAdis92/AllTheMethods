@@ -47,4 +47,14 @@ public class ExpressionParser {
         this.variables.addAll(variables);
         return this;
     }
+
+    public ExpressionParser variables(String... variables){
+        Collections.addAll(this.variables, variables);
+        return this;
+    }
+
+    public ExpressionParser variable(String variable){
+        this.variables.add(variable);
+        return this;
+    }
 }
