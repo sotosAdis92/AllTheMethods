@@ -28,4 +28,23 @@ public class ExpressionParser {
         this.userFunctions.put(function.getName(), function);
         return this;
     }
+
+    public ExpressionParser functions(Function... functions){
+        for(Function f : functions){
+            this.userFunctions.put(f.getName(), f);
+        }
+        return this;
+    }
+
+    public ExpressionParser functions(List<Function> functions){
+        for(Function f: functions){
+            this.userFunctions.put(f.getName(), f);
+        }
+        return this;
+    }
+
+    public ExpressionParser variables(Set<String> variables){
+        this.variables.addAll(variables);
+        return this;
+    }
 }
