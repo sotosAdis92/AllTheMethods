@@ -57,4 +57,16 @@ public class ExpressionParser {
         this.variables.add(variable);
         return this;
     }
+
+    public ExpressionParser implicitMultiplication(boolean enabled){
+        this.implicitMultiplication = enabled;
+        return this;
+    }
+
+    public ExpressionParser operator(Operator operator){
+        return this;
+    }
+    public void checkSymbolOperator(Operator operator){
+
+    }
 }
