@@ -42,8 +42,8 @@ public class AbstractTreeBuilder {
             case "atan": return new Atan(getTree());
             case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
+            default: throw new TokenizerException("Function error");
         }
-        return null;
     }
 
 }
