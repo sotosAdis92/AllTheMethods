@@ -38,6 +38,10 @@ public class AbstractTreeBuilder {
         FunctionToken t = (FunctionToken) token;
         switch (t.getFunction().getName()){
             case "acos": return new Acos(getTree());
+            case "asin": return new Asin(getTree());
+            case "atan": return new Atan(getTree());
+            case "log": return new Log(getTree());
+            case "cos": return new Cos(getTree());
         }
         return null;
     }
