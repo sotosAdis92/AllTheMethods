@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import jdk.dynalink.Operation;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.function.Function;
 import net.objecthunter.exp4j.operator.Operator;
 import net.objecthunter.exp4j.tokenizer.*;
 
@@ -33,7 +34,11 @@ public class AbstractTreeBuilder {
         it = li.iterator();
     }
 
-    private Operation getFuntion(Token token){
+    private Operation getFuntion(Token token) throws TokenizerException{
+        FunctionToken t = (FunctionToken) token;
+        switch (t.getFunction().getName()){
+            case "acos": return new Acos(getTree());
+        }
         return null;
     }
 
