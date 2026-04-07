@@ -9,7 +9,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import net.objecthunter.exp4j.function.Function;
 import net.objecthunter.exp4j.operator.Operator;
 import net.objecthunter.exp4j.tokenizer.*;
-import org.apache.tomcat.util.bcel.classfile.Constant;
+
 
 
 public class AbstractTreeBuilder {
