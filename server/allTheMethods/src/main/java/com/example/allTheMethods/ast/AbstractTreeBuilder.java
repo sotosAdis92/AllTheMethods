@@ -9,7 +9,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import net.objecthunter.exp4j.function.Function;
 import net.objecthunter.exp4j.operator.Operator;
 import net.objecthunter.exp4j.tokenizer.*;
-
+import org.apache.tomcat.util.bcel.classfile.Constant;
 
 
 public class AbstractTreeBuilder {
@@ -51,7 +51,16 @@ public class AbstractTreeBuilder {
         Operation left = getTree();
     }
     private Operation getTree() throws TokenizerException{
-
+        Token t = it.next();
+        switch (t.getType()){
+            case Token.TOKEN_FUNCTION: return getFuntion(t);
+            case Token.TOKEN_NUMBER: return new Constant(""+((NumberToken)t).getValue());
+            case Token.TOKEN_OPERATOR: return getOperator(t);
+            case Token.TOKEN_PARENTHESES_OPEN: return getTree();
+            case Token.TOKEN_PARENTHESES_CLOSE: return getTree();
+            case Token.TOKEN_VARIABLE: return new SimpleVar();
+            default: throw new TokenizerException("Invalid");
+        }
     }
 
 }
