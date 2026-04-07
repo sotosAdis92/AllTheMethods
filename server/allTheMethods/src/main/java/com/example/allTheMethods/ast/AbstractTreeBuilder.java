@@ -43,6 +43,10 @@ public class AbstractTreeBuilder {
             case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
             case "sin": return new Sin(getTree());
+            case "sqrt": return new Sqrt(getTree());
+            case "tan": return new Tan(getTree());
+            case "exp": return new Exp(getTree());
+            case "abs": return new Abs(getTree());
             default: throw new TokenizerException("Function error");
         }
     }
