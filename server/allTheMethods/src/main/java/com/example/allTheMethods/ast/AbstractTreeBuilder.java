@@ -51,6 +51,11 @@ public class AbstractTreeBuilder {
         Operation left = getTree();
         switch (((OperatorToken)token).getOperator().getSymbol()){
             case "+": return new Addition(left, right);
+            case "-": return new Subtraction(left,right);
+            case "*": return new Multiplication(left,right);
+            case "/": return new Division(left,right);
+            case "^": return new Pow(left,right);
+            default: throw new TokenizerException("Function error");
         }
     }
     private Operation getTree() throws TokenizerException{
