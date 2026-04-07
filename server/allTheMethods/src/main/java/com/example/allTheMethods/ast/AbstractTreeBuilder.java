@@ -49,6 +49,9 @@ public class AbstractTreeBuilder {
     private Operation getOperator(Token token)throws TokenizerException{
         Operation right = getTree();
         Operation left = getTree();
+        switch (((OperatorToken)token).getOperator().getSymbol()){
+            case "+": return new Addition(left, right);
+        }
     }
     private Operation getTree() throws TokenizerException{
         Token t = it.next();
