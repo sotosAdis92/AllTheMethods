@@ -42,8 +42,16 @@ public class AbstractTreeBuilder {
             case "atan": return new Atan(getTree());
             case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
+            case "sin": return new Sin(getTree());
             default: throw new TokenizerException("Function error");
         }
+    }
+    private Operation getOperator(Token token)throws TokenizerException{
+        Operation right = getTree();
+        Operation left = getTree();
+    }
+    private Operation getTree() throws TokenizerException{
+
     }
 
 }
