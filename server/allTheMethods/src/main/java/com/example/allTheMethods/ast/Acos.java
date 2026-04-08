@@ -6,4 +6,12 @@ public class Acos extends UnaryOperation{
     public Acos(Operation op){
         super(op);
     }
+
+    @Override
+    public String toString() {
+        return "Acos{" +
+                "op=" + op +
+                '}';
+    }
+
 }
