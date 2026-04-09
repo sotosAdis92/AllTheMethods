@@ -11,8 +11,8 @@ public class Acos extends UnaryOperation{
         return "acos(" + op.toString() + ")";
     }
     @Override
-    public Double getNumericResut(Double val){
-        return Math.acos(op.getNumbericResult(val));
+    public Double getNumericResult(Double val){
+        return Math.acos(op.getNumericResult(val));
     }
     @Override
     public boolean equals(Object o){
