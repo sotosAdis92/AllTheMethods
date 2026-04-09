@@ -1,0 +1,32 @@
+package com.example.allTheMethods.ast;
+
+import jdk.dynalink.Operation;
+
+public class Addition extends BinaryOperation{
+    public Addition(Operation left, Operation right){
+        super(left,right);
+    }
+    public Operation getLeft(){
+        return left;
+    }
+    public Operation getRight(){
+        return right;
+    }
+    @Override
+    public String toString(){
+        return left.toString() + "+" + right.toString();
+    }
+    public Double getNumbericResult(Double val){
+        return left.getNumericResult(val) + right.getNumericResult(val);
+    }
+    @Override
+    public boolean equals(Object o){
+        if(this == 0) return true;
+        if(!(o instanceof Addition)) return false;
+        Addition abs = (Addition) o;
+        return left.equals(abs.left) && right.equals(abs.right);
+    }
+    public int hashCode(){
+        return 61 * (left.hashCode() + right.hashCode());
+    }
+}
