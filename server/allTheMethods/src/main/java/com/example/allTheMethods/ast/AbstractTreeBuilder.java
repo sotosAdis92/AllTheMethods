@@ -35,8 +35,8 @@ public class AbstractTreeBuilder {
     private Operation getFuntion(Token token) throws TokenizerException{
         FunctionToken t = (FunctionToken) token;
         switch (t.getFunction().getName()){
-            case "acos": return new Acos(getTree()); //Implementation needed
-            case "asin": return new Asin(getTree()); //Implementation needed
+            case "acos": return new Acos(getTree());
+            case "asin": return new Asin(getTree());
             case "atan": return new Atan(getTree()); //Implementation needed
             case "log": return new Log(getTree()); //Implementation needed
             case "cos": return new Cos(getTree()); //Implementation needed
@@ -44,7 +44,7 @@ public class AbstractTreeBuilder {
             case "sqrt": return new Sqrt(getTree()); //Implementation needed
             case "tan": return new Tan(getTree()); //Implementation needed
             case "exp": return new Exp(getTree()); //Implementation needed
-            case "abs": return new Abs(getTree()); //Implementation needed
+            case "abs": return new Abs(getTree());
             default: throw new TokenizerException("Function error");
         }
     }
