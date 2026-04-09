@@ -16,7 +16,7 @@ public class Addition extends BinaryOperation{
     public String toString(){
         return left.toString() + "+" + right.toString();
     }
-    public Double getNumbericResult(Double val){
+    public Double getNumericResult(Double val){
         return left.getNumericResult(val) + right.getNumericResult(val);
     }
     @Override

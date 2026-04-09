@@ -1,10 +1,7 @@
 package com.example.allTheMethods.ast;
 
-import jdk.dynalink.Operation;
 
-import java.awt.desktop.OpenFilesHandler;
-
-public class UnaryOperation implements Operation {
+public abstract class UnaryOperation implements Operation {
     final Operation op;
 
     public UnaryOperation(Operation op) {
