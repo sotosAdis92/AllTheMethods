@@ -37,7 +37,7 @@ public class AbstractTreeBuilder {
         switch (t.getFunction().getName()){
             case "acos": return new Acos(getTree());
             case "asin": return new Asin(getTree());
-            case "atan": return new Atan(getTree()); //Implementation needed
+            case "atan": return new Atan(getTree());
             case "log": return new Log(getTree()); //Implementation needed
             case "cos": return new Cos(getTree()); //Implementation needed
             case "sin": return new Sin(getTree()); //Implementation needed
