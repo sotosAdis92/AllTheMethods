@@ -79,10 +79,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         }
 
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
-        if(countMatchingInputs==length){
-            flag = true;
-        }
-
+        flag = checkExpectedListCount(countMatchingInputs, length, flag);
         return flag;
     }
 
@@ -196,6 +193,12 @@ public class SubmissionServiceImpl implements SubmmisionService {
             }
         }
         return countMatching;
+    }
+    public static boolean checkExpectedListCount(int countMatching, int length, boolean flag){
+        if(countMatching == length){
+            flag = true;
+        }
+        return flag;
     }
     /* Implementation of the first derivative function needed for polynomial roots functions */
     /* This function should take in the number x and the string of the problem, although implementing an AST
