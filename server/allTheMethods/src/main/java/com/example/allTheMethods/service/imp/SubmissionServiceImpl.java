@@ -44,6 +44,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
      */
     @Override
     public boolean checkDataBisection(BisectionDataDto bisectionDataDto) {
+        //Starting Values
         boolean flag = false;
         int i=0;
         int countMatchingInputs = 0;
@@ -59,6 +60,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         double x = 0;
         double resultX = 0;
         double resultA = 0;
+        //Until Here
 
         for(i=0;i<length;i++){
             x = (DomainA+DomainB)/2;
@@ -76,12 +78,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             listToCheck.add(x); //add it to the list to check
         }
 
-        for(i=0;i<length;i++){
-            if(listToCheck.get(i) - input.get(i) == 0.000){
-                countMatchingInputs++;
-            }
-        }
-
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         if(countMatchingInputs==length){
             flag = true;
         }
@@ -166,7 +163,6 @@ public class SubmissionServiceImpl implements SubmmisionService {
             x = xo - (fx(x,problem)/fprime(x,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
             list.add(x);
-            System.out.println(x);
         }
         for(i=0;i<iterations;i++){
             if(list.get(i) - inputs.get(i) == 0.000){
@@ -192,6 +188,14 @@ public class SubmissionServiceImpl implements SubmmisionService {
         x = x / Math.pow(10, decimalPoint); //divide by 10^n
         //this extracts the integer part while keeping the shift
         return x;
+    }
+    public static int CheckIfInputsMatch(List<Double> inputs, List<Double> listToCheck, int countMatching){
+        for(int i=0;i<inputs.size();i++){
+            if(inputs.get(i) - listToCheck.get(i) == 0.000){
+                countMatching++;
+            }
+        }
+        return countMatching;
     }
     /* Implementation of the first derivative function needed for polynomial roots functions */
     /* This function should take in the number x and the string of the problem, although implementing an AST
