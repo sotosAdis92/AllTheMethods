@@ -39,7 +39,7 @@ public class AbstractTreeBuilder {
             case "asin": return new Asin(getTree());
             case "atan": return new Atan(getTree());
             case "log": return new Log(getTree()); //Implementation needed
-            case "cos": return new Cos(getTree()); //Implementation needed
+            case "cos": return new Cos(getTree());
             case "sin": return new Sin(getTree()); //Implementation needed
             case "sqrt": return new Sqrt(getTree()); //Implementation needed
             case "tan": return new Tan(getTree()); //Implementation needed
@@ -52,10 +52,10 @@ public class AbstractTreeBuilder {
         Operation right = getTree();
         Operation left = getTree();
         switch (((OperatorToken)token).getOperator().getSymbol()){
-            case "+": return new Addition(left, right); //Implementation needed
+            case "+": return new Addition(left, right);
             case "-": return new Subtraction(left,right); //Implementation needed
             case "*": return new Multiplication(left,right); //Implementation needed
-            case "/": return new Division(left,right); //Implementation needed
+            case "/": return new Division(left,right);
             case "^": return new Pow(left,right); //Implementation needed
             default: throw new TokenizerException("Function error");
         }
@@ -64,7 +64,7 @@ public class AbstractTreeBuilder {
         Token t = it.next();
         switch (t.getType()){
             case Token.TOKEN_FUNCTION: return getFuntion(t);
-            case Token.TOKEN_NUMBER: return new Constant(""+((NumberToken)t).getValue()); //Implementation needed
+            case Token.TOKEN_NUMBER: return new Constant(""+((NumberToken)t).getValue());
             case Token.TOKEN_OPERATOR: return getOperator(t);
             case Token.TOKEN_PARENTHESES_OPEN: return getTree();
             case Token.TOKEN_PARENTHESES_CLOSE: return getTree();
