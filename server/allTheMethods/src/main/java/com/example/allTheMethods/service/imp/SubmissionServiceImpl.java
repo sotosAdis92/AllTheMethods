@@ -93,7 +93,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     public boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
         boolean flag  = false;
         int i = 0;
-        int count = 0;
+        int countMatchingInputs = 0;
         int decimalPoint = 3;
 
         List<Double> input = regulaFalsiDataDto.getInp();
@@ -102,7 +102,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int Intb = regulaFalsiDataDto.getProblemSpaceB();
         String problem = regulaFalsiDataDto.getProblemString();
 
-        List<Double> list = new ArrayList<>();
+        List<Double> listToCheck = new ArrayList<>();
         double x = 0;
         double a = Inta;
         double b = Intb;
@@ -120,18 +120,11 @@ public class SubmissionServiceImpl implements SubmmisionService {
                 a = x;
             }
             x = truncateDecimalPlaces(x,decimalPoint);
-            list.add(x);
-            System.out.println(x);
+            listToCheck.add(x);
         }
 
-        for(i=0;i<length;i++){
-            if(list.get(i) - input.get(i) == 0.000){
-                count++;
-            }
-        }
-        if(count==length){
-            flag = true;
-        }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, length, flag); //Function that checks if count is the same as length (valid inputs)
 
         return flag;
     }
@@ -146,29 +139,23 @@ public class SubmissionServiceImpl implements SubmmisionService {
     public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
         boolean flag = false;
         int i = 0;
-        int count = 0;
+        int countMatchingInputs = 0;
         int decimalPoint = 3;
         int xo = newtonRaphsonDataDto.getXo();
-        List<Double> inputs = newtonRaphsonDataDto.getInp();
+        List<Double> input = newtonRaphsonDataDto.getInp();
         String problem = newtonRaphsonDataDto.getProblemString();
         int iterations = newtonRaphsonDataDto.getIterations();
 
         double x = 0;
-        List<Double> list = new ArrayList<>();
+        List<Double> listToCheck = new ArrayList<>();
 
         for(i=0;i<iterations;i++){
             x = xo - (fx(x,problem)/fprime(x,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
-            list.add(x);
+            listToCheck.add(x);
         }
-        for(i=0;i<iterations;i++){
-            if(list.get(i) - inputs.get(i) == 0.000){
-                count++;
-            }
-        }
-        if(count==iterations){
-            flag = true;
-        }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag); //Function that checks if count is the same as length (valid inputs)
         return flag;
     }
 
