@@ -46,48 +46,43 @@ public class SubmissionServiceImpl implements SubmmisionService {
     public boolean checkDataBisection(BisectionDataDto bisectionDataDto) {
         boolean flag = false;
         int i=0;
-        int count = 0;
+        int countMatchingInputs = 0;
         int decimalPoint = 3;
-
         List<Double> input = bisectionDataDto.getInp();
         int length = bisectionDataDto.getIterations();
         int Inta = bisectionDataDto.getProblemSpaceA();
         int Intb = bisectionDataDto.getProblemSpaceB();
         String problem = bisectionDataDto.getProblemString();
-
-        System.out.println(problem);
-        System.out.println(Inta);
-        System.out.println();
-        List<Double> list = new ArrayList<>();
-
-        double a = (int)Inta;
-        double b = (int)Intb;
-
+        List<Double> listToCheck = new ArrayList<>();
+        double DomainA = (int)Inta;
+        double DomainB = (int)Intb;
         double x = 0;
         double resultX = 0;
         double resultA = 0;
 
         for(i=0;i<length;i++){
-            x = (a+b)/2;
+            x = (DomainA+DomainB)/2;
             resultX = fx(x, problem);
-            resultA = fx(a, problem);
+            resultA = fx(DomainA, problem);
+
             if(resultX * resultA < 0){
-                b = x;
+                DomainB = x;
             }
             else{
-                a = x;
+                DomainA = x;
             }
-            x = truncateDecimalPlaces(x,decimalPoint);
-            list.add(x);
-            System.out.println(x);
+
+            x = truncateDecimalPlaces(x,decimalPoint); //Turn x into a 3 decimal max double function
+            listToCheck.add(x); //add it to the list to check
         }
 
         for(i=0;i<length;i++){
-            if(list.get(i) - input.get(i) == 0.000){
-                count++;
+            if(listToCheck.get(i) - input.get(i) == 0.000){
+                countMatchingInputs++;
             }
         }
-        if(count==length){
+
+        if(countMatchingInputs==length){
             flag = true;
         }
 
