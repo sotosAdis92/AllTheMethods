@@ -38,12 +38,12 @@ public class AbstractTreeBuilder {
             case "acos": return new Acos(getTree());
             case "asin": return new Asin(getTree());
             case "atan": return new Atan(getTree());
-            case "log": return new Log(getTree()); //Implementation needed
+            case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
             case "sin": return new Sin(getTree()); //Implementation needed
             case "sqrt": return new Sqrt(getTree()); //Implementation needed
             case "tan": return new Tan(getTree()); //Implementation needed
-            case "exp": return new Exp(getTree()); //Implementation needed
+            case "exp": return new Exp(getTree());
             case "abs": return new Abs(getTree());
             default: throw new TokenizerException("Function error");
         }
