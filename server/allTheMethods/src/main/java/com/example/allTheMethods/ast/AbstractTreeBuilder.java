@@ -68,7 +68,7 @@ public class AbstractTreeBuilder {
             case Token.TOKEN_OPERATOR: return getOperator(t);
             case Token.TOKEN_PARENTHESES_OPEN: return getTree();
             case Token.TOKEN_PARENTHESES_CLOSE: return getTree();
-            case Token.TOKEN_VARIABLE: return new SimpleVar(); //Implementation needed
+            case Token.TOKEN_VARIABLE: return new SimpleVar();
             default: throw new TokenizerException("Invalid");
         }
     }
