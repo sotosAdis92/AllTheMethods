@@ -9,6 +9,12 @@ public class Constant implements Operation{
     public Double getNumericResult(Double val){
         return Double.parseDouble(value);
     }
+
+    @Override
+    public Operation getDerivative() {
+        return new Constant("0"); // h paragogos enos arithmou einai panta 0
+    }
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;

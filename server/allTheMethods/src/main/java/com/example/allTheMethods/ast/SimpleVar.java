@@ -14,7 +14,7 @@ public class SimpleVar implements Operation{
 
     @Override
     public Operation getDerivative() {
-        return new Constant("1");
+        return new Constant("1"); //h paragogos tou x einai panta 1
     }
 
     @Override
