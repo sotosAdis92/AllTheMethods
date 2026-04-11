@@ -40,7 +40,7 @@ public class AbstractTreeBuilder {
             case "atan": return new Atan(getTree());
             case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
-            case "sin": return new Sin(getTree()); //Implementation needed
+            case "sin": return new Sin(getTree());
             case "sqrt": return new Sqrt(getTree()); //Implementation needed
             case "tan": return new Tan(getTree()); //Implementation needed
             case "exp": return new Exp(getTree());
