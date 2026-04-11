@@ -17,9 +17,15 @@ public class Addition extends BinaryOperation{
     public Double getNumericResult(Double val){
         return left.getNumericResult(val) + right.getNumericResult(val);
     }
+
+    @Override
+    public Operation getDerivative() {
+        return null;
+    }
+
     @Override
     public boolean equals(Object o){
-        if(this == 0) return true;
+        if(this == o) return true;
         if(!(o instanceof Addition)) return false;
         Addition abs = (Addition) o;
         return left.equals(abs.left) && right.equals(abs.right);

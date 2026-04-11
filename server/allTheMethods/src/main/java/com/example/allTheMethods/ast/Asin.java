@@ -11,6 +11,12 @@ public class Asin extends UnaryOperation{
     public Double getNumericResult(Double val){
         return Math.asin(op.getNumericResult(val));
     }
+
+    @Override
+    public Operation getDerivative() {
+        return null;
+    }
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;

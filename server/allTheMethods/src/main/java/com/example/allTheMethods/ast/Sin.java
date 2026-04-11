@@ -14,6 +14,11 @@ public class Sin extends UnaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Multiplication(new Cos(op), op.getDerivative());
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

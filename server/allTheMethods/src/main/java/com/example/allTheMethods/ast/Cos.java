@@ -14,6 +14,11 @@ public class Cos extends UnaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return null;
+    }
+
+    @Override
     public boolean equals(Object o){
         if(this == o) return true;
         if(!(o instanceof Cos)) return false;
