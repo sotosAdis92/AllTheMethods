@@ -56,7 +56,7 @@ public class AbstractTreeBuilder {
             case "-": return new Subtraction(left,right); //Implementation needed
             case "*": return new Multiplication(left,right); //Implementation needed
             case "/": return new Division(left,right);
-            case "^": return new Pow(left,right); //Implementation needed
+            case "^": return new Pow(left,right);
             default: throw new TokenizerException("Function error");
         }
     }
