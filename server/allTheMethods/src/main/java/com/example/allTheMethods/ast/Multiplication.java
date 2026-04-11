@@ -21,6 +21,11 @@ public class Multiplication extends BinaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Addition(new Multiplication(left.getDerivative(), right), new Multiplication(left, right.getDerivative()));
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
