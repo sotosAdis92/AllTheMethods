@@ -15,7 +15,7 @@ public class Cos extends UnaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Negate(new Multiplication(new Sin(op), op.getDerivative()));
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Addition extends BinaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Addition(left.getDerivative(), right.getDerivative());
     }
 
     @Override
