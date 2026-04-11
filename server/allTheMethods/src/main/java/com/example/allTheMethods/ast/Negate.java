@@ -17,6 +17,11 @@ public class Negate extends UnaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Negate(op.getDerivative());
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
