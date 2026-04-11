@@ -159,6 +159,8 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return flag;
     }
 
+    //public boolean checkDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){}
+
     /* Implementation of the F(x) function needed for polynomial roots functions */
     public static double fx(double x, String problem){
         Expression expression = new ExpressionBuilder(problem).variables("x").build().setVariable("x",x);
