@@ -25,6 +25,11 @@ public class Subtraction extends BinaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Subtraction(left.getDerivative(), right.getDerivative()) ;
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

@@ -17,6 +17,11 @@ public class Sqrt extends UnaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Division(op.getDerivative(), new Multiplication(new Constant("2"), new Sqrt(op)));
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

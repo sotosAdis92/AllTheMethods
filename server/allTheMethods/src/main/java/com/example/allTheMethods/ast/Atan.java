@@ -14,7 +14,7 @@ public class Atan extends UnaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Division(op.getDerivative(), new Addition(new Constant("1"), new Pow(op, new Constant("2"))));
     }
 
     @Override
