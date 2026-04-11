@@ -13,6 +13,11 @@ public class SimpleVar implements Operation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Constant("1");
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
