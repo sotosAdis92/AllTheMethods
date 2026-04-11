@@ -17,6 +17,14 @@ public class Division extends BinaryOperation{
     public Double getNumericResult(Double val){
         return left.getNumericResult(val) / right.getNumericResult(val);
     }
+
+    @Override
+    public Operation getDerivative() {
+        Operation numerator = new Subtraction(new Multiplication(left.getDerivative(), right), new Multiplication(left, right.getDerivative()));
+        Operation denominator = new Pow(right, new Constant("2"));
+        return new Division(numerator, denominator);
+    }
+
     @Override
     public boolean equals(Object obj){
         if(this == obj) return true;
