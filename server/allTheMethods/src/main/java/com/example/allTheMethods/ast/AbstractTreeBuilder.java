@@ -41,8 +41,8 @@ public class AbstractTreeBuilder {
             case "log": return new Log(getTree());
             case "cos": return new Cos(getTree());
             case "sin": return new Sin(getTree());
-            case "sqrt": return new Sqrt(getTree()); //Implementation needed
-            case "tan": return new Tan(getTree()); //Implementation needed
+            case "sqrt": return new Sqrt(getTree());
+            case "tan": return new Tan(getTree());
             case "exp": return new Exp(getTree());
             case "abs": return new Abs(getTree());
             default: throw new TokenizerException("Function error");
@@ -53,7 +53,7 @@ public class AbstractTreeBuilder {
         Operation left = getTree();
         switch (((OperatorToken)token).getOperator().getSymbol()){
             case "+": return new Addition(left, right);
-            case "-": return new Subtraction(left,right); //Implementation needed
+            case "-": return new Subtraction(left,right);
             case "*": return new Multiplication(left,right);
             case "/": return new Division(left,right);
             case "^": return new Pow(left,right);
