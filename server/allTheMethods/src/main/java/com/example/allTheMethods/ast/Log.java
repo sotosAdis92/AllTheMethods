@@ -18,7 +18,7 @@ public class Log extends UnaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Division(op.getDerivative(), op);
     }
 
     @Override
