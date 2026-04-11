@@ -17,6 +17,11 @@ public class Tan extends UnaryOperation{
     }
 
     @Override
+    public Operation getDerivative() {
+        return new Division(op.getDerivative(), new Pow(new Cos(op), new Constant("2")));
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

@@ -11,6 +11,14 @@ public class Pow extends BinaryOperation{
     public Double getNumericResult(Double val){
         return Math.pow(left.getNumericResult(val), right.getNumericResult(val));
     }
+
+    @Override
+    public Operation getDerivative() {
+        Operation firstTerm = new Pow(left, right);
+        Operation secondTerm = new Addition(new Multiplication(right.getDerivative(), new Log(left)), new Division(new Multiplication(right, left.getDerivative()), left));
+        return new Multiplication(firstTerm, secondTerm);
+    }
+
     @Override
     public boolean equals(Object o){
         if(this ==o) return true;

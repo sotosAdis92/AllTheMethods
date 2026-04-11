@@ -14,7 +14,7 @@ public class Abs extends UnaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Division(new Multiplication(new Abs(op), op.getDerivative()), op);
     }
 
     @Override

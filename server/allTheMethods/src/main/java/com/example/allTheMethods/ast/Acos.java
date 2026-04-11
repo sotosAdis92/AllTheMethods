@@ -16,7 +16,7 @@ public class Acos extends UnaryOperation{
 
     @Override
     public Operation getDerivative() {
-        return null;
+        return new Division(op.getDerivative(), new Sqrt(new Subtraction(new Constant("1"),op)));
     }
 
     @Override
