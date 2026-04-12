@@ -1,5 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.ast.AbstractTreeBuilder;
+import com.example.allTheMethods.ast.Operation;
+import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.mapper.SubmissionMapper;
@@ -12,6 +15,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,7 +140,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) {
+    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto){
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -193,10 +197,16 @@ public class SubmissionServiceImpl implements SubmmisionService {
     /* This function should take in the number x and the string of the problem, although implementing an AST
     might be a better solution considering that in the future i will have to add partial derivatives
     */
-    private double fprime(double x, String problem) {
+    private double fprime(double x, String problem){
         //Implementation of the symbolic derivative, not the horner method
         //Implementation in the AST library
+        //Macking a new Tree for the String to be turned into a tree
+        AbstractTreeBuilder problemString = new AbstractTreeBuilder(problem);
+        Operation derivative = problemString.getTree().getDerivative();
+
+        System.out.println(derivative.toString()); //Print for testing
         double result = 0;
+        result = derivative.getNumericResult(x);
         return result;
     }
 }

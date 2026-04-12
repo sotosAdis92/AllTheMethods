@@ -60,7 +60,7 @@ public class AbstractTreeBuilder {
             default: throw new TokenizerException("Function error");
         }
     }
-    private Operation getTree() throws TokenizerException{
+    public Operation getTree() throws TokenizerException{
         Token t = it.next();
         switch (t.getType()){
             case Token.TOKEN_FUNCTION: return getFuntion(t);
