@@ -13,7 +13,7 @@ class SubmissionServiceImplTest {
     void xSquaredFirstSimpleDerivativeTest(){
         SubmissionServiceImpl ssi = new SubmissionServiceImpl();
         try{
-            assertEquals(2,ssi.fprime(2,"x^2"));
+            assertEquals(4,ssi.fprime(2,"x^2"));
         } catch (TokenizerException tokenizerException){
             System.out.println("Token Exception");
         }
