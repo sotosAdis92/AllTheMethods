@@ -17,7 +17,16 @@ class SubmissionServiceImplTest {
         } catch (TokenizerException tokenizerException){
             System.out.println("Token Exception");
         }
+    }
 
+    @Test
+    void firstDegreePolynomialDerivativeTest(){
+        SubmissionServiceImpl ssi = new SubmissionServiceImpl();
+        try{
+            assertEquals(1, ssi.fprime(4,"2x-x"));
+        } catch (TokenizerException tokenizerException){
+            System.out.println("Token Exception");
+        }
     }
 
 }
