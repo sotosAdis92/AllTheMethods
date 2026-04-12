@@ -140,7 +140,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto){
+    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException{
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -197,7 +197,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     /* This function should take in the number x and the string of the problem, although implementing an AST
     might be a better solution considering that in the future i will have to add partial derivatives
     */
-    private double fprime(double x, String problem){
+    public double fprime(double x, String problem) throws TokenizerException{
         //Implementation of the symbolic derivative, not the horner method
         //Implementation in the AST library
         //Macking a new Tree for the String to be turned into a tree

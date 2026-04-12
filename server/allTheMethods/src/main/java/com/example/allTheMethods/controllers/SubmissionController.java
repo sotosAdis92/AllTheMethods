@@ -1,5 +1,6 @@
 package com.example.allTheMethods.controllers;
 
+import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class SubmissionController {
     }
 
     @PostMapping("/newtonRaphson")
-    public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto){
+    public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
         boolean flag;
         flag = submmisionService.checkDataNewtonRaphson(newtonRaphsonDataDto);
         return flag;
