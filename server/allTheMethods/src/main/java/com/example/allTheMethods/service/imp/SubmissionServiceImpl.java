@@ -167,6 +167,8 @@ public class SubmissionServiceImpl implements SubmmisionService {
     }
 
     //public boolean checkDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){}
+    //public boolean checkQuasiNewtonRaphson(QuasiNewtonRaphsonDto quasiNewtonRaphsonDto){}
+    //public boolean checkSteadyPointMethod(SteadyPointMethodDto steadyPointMethodDto){}
 
     /* Implementation of the F(x) function needed for polynomial roots functions */
     public static double fx(double x, String problem){
