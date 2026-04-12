@@ -27,6 +27,9 @@ public class SubmissionServiceImpl implements SubmmisionService {
     private UsersRepository usersRepository;
     private ProblemRepository problemRepository;
 
+    public SubmissionServiceImpl() {
+    }
+
     public SubmissionServiceImpl(SubmissionRepository submissionRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
         this.submissionRepository = submissionRepository;
         this.usersRepository = usersRepository;
