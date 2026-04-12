@@ -194,6 +194,9 @@ public class SubmissionServiceImpl implements SubmmisionService {
     might be a better solution considering that in the future i will have to add partial derivatives
     */
     private double fprime(double x, String problem) {
-
+        //Implementation of the symbolic derivative, not the horner method
+        //Implementation in the AST library
+        double result = 0;
+        return result;
     }
 }
