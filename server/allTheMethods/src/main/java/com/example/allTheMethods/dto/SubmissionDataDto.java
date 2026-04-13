@@ -17,6 +17,11 @@ public class SubmissionDataDto extends SubmissionDto{
         this.problemString = problemString;
     }
 
+    public SubmissionDataDto(List<Double> inp, String problemString) {
+        this.inp = inp;
+        this.problemString = problemString;
+    }
+
     public void setInp(List<Double> inp) {
         this.inp = inp;
     }

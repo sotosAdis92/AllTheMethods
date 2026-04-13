@@ -1,8 +1,12 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
+import com.example.allTheMethods.dto.NewtonRaphsonDataDto;
 import org.junit.jupiter.api.Test;
 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +39,20 @@ class SubmissionServiceImplTest {
     public void firstDescreteFprimeTest(){
         SubmissionServiceImpl ssi = new SubmissionServiceImpl();
         assertEquals(2.100,ssi.DiakritiFprime(1,0.1,"x^2-2"));
+    }
+
+    @Test
+    public void TestingNewtonRaphsonMethod(){
+        SubmissionServiceImpl ssi = new SubmissionServiceImpl();
+        NewtonRaphsonDataDto newtonRaphsonDataDto = new NewtonRaphsonDataDto();
+
+
+        try{
+            assertEquals(true, ssi.checkDataNewtonRaphson(newtonRaphsonDataDto));
+        } catch (TokenizerException tokenizerException){
+            System.out.println("Token exception");
+        }
+
     }
 
 }
