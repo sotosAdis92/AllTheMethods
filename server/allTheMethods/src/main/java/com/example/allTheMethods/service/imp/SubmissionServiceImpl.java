@@ -184,6 +184,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         //this extracts the integer part while keeping the shift
         return x;
     }
+    //Function that checks if the inputs match the expected numbers based on the problem and counts how many match
     public static int CheckIfInputsMatch(List<Double> inputs, List<Double> listToCheck, int countMatching){
         for(int i=0;i<inputs.size();i++){
             if(inputs.get(i) - listToCheck.get(i) == 0.000){
@@ -192,6 +193,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         }
         return countMatching;
     }
+    //Funtion to check if the ammount of inputs given matches the ammount of expected inputs from the computer
     public static boolean checkExpectedListCount(int countMatching, int length, boolean flag){
         if(countMatching == length){
             flag = true;
