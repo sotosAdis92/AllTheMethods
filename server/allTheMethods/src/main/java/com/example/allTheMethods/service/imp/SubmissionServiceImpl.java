@@ -185,6 +185,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             x = xk - (fx(xk,problemString) / DiakritiFprime(xk,hParameter,problemString));
             x = truncateDecimalPlaces(x, decimalPoint);
             listToCheck.add(x);
+            System.out.println(x);
             xk = x;
         }
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs);
