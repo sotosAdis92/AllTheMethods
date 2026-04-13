@@ -148,7 +148,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int i = 0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
-        int xo = newtonRaphsonDataDto.getXo();
+        double xk = newtonRaphsonDataDto.getXo();
         List<Double> input = newtonRaphsonDataDto.getInp();
         String problem = newtonRaphsonDataDto.getProblemString();
         int iterations = newtonRaphsonDataDto.getIterations();
@@ -157,9 +157,10 @@ public class SubmissionServiceImpl implements SubmmisionService {
         List<Double> listToCheck = new ArrayList<>();
 
         for(i=0;i<iterations;i++){
-            x = xo - (fx(x,problem)/fprime(x,problem));
+            x = xk - (fx(xk,problem)/fprime(xk,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
             listToCheck.add(x);
+            xk = x;
         }
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag); //Function that checks if count is the same as length (valid inputs)
@@ -172,7 +173,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         int i = 0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
-        int xo = diakritiNewtonRaphsonDto.getXoParameter();
+        double xk = diakritiNewtonRaphsonDto.getXoParameter();
         int hParameter = diakritiNewtonRaphsonDto.gethParameter();
         List<Double> input = diakritiNewtonRaphsonDto.getInp();
         String problemString = diakritiNewtonRaphsonDto.getProblemString();
@@ -181,9 +182,10 @@ public class SubmissionServiceImpl implements SubmmisionService {
         List<Double> listToCheck = new ArrayList<>();
 
         for(i=0;i<iterations;i++){
-            x = xo - (fx(x,problemString) / DiakritiFprime(x,hParameter,problemString));
+            x = xk - (fx(xk,problemString) / DiakritiFprime(xk,hParameter,problemString));
             x = truncateDecimalPlaces(x, decimalPoint);
             listToCheck.add(x);
+            xk = x;
         }
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag);
