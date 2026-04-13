@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,8 +46,12 @@ class SubmissionServiceImplTest {
     public void TestingNewtonRaphsonMethod(){
         SubmissionServiceImpl ssi = new SubmissionServiceImpl();
         NewtonRaphsonDataDto newtonRaphsonDataDto = new NewtonRaphsonDataDto();
-
-
+        List<Double> testingInputs = new ArrayList<>();
+        testingInputs.add(1.5);
+        newtonRaphsonDataDto.setInp(testingInputs);
+        newtonRaphsonDataDto.setXo(1);
+        newtonRaphsonDataDto.setIterations(1);
+        newtonRaphsonDataDto.setProblemString("x^2-2");
         try{
             assertEquals(true, ssi.checkDataNewtonRaphson(newtonRaphsonDataDto));
         } catch (TokenizerException tokenizerException){
