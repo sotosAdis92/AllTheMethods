@@ -34,7 +34,7 @@ class SubmissionServiceImplTest {
     @Test
     public void firstDescreteFprimeTest(){
         SubmissionServiceImpl ssi = new SubmissionServiceImpl();
-        assertEquals(2.1,ssi.DiakritiFprime(1,0.1,"x^2-2"));
+        assertEquals(2.100,ssi.DiakritiFprime(1,0.1,"x^2-2"));
     }
 
 }

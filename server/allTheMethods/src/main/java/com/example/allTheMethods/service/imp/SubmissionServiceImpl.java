@@ -250,6 +250,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         numerator = fx(x + h, problem) - fx(x,problem);
         denominator = h;
         descreteFprime = numerator / denominator;
+        descreteFprime = truncateDecimalPlaces(descreteFprime,3);
         return descreteFprime;
     }
 }
