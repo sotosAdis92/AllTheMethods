@@ -166,7 +166,30 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return flag;
     }
 
-    //public boolean checkDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){}
+    @Override
+    public boolean chekcDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
+        boolean flag = false;
+        int i = 0;
+        int countMatchingInputs = 0;
+        int decimalPoint = 3;
+        int xo = diakritiNewtonRaphsonDto.getXoParameter();
+        int hParameter = diakritiNewtonRaphsonDto.gethParameter();
+        List<Double> input = diakritiNewtonRaphsonDto.getInp();
+        String problemString = diakritiNewtonRaphsonDto.getProblemString();
+        int iterations = diakritiNewtonRaphsonDto.getIterations();
+        double x = 0;
+        List<Double> listToCheck = new ArrayList<>();
+
+        for(i=0;i<iterations;i++){
+            x = xo - (fx(x,problemString) / DiakritiFprime(x,hParameter,problemString));
+            x = truncateDecimalPlaces(x, decimalPoint);
+            listToCheck.add(x);
+        }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag);
+        return flag;
+    }
+
     //public boolean checkQuasiNewtonRaphson(QuasiNewtonRaphsonDto quasiNewtonRaphsonDto){}
     //public boolean checkSteadyPointMethod(SteadyPointMethodDto steadyPointMethodDto){}
 
@@ -215,5 +238,18 @@ public class SubmissionServiceImpl implements SubmmisionService {
         double result = 0;
         result = derivative.getNumericResult(x);
         return result;
+    }
+
+    /*
+    * Diakriti Newton Raphson fprime here, it uses the fprime approximation from the limit instead of the exact fprime
+    * */
+    public double DiakritiFprime(double x,double h, String problem){
+        double descreteFprime = 0.0;
+        double numerator = 0.0;
+        double denominator = 0.0;
+        numerator = fx(x + h, problem) - fx(x,problem);
+        denominator = h;
+        descreteFprime = numerator / denominator;
+        return descreteFprime;
     }
 }

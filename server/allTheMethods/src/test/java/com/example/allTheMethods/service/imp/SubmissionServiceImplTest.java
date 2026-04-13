@@ -31,4 +31,10 @@ class SubmissionServiceImplTest {
         }
     }
 
+    @Test
+    public void firstDescreteFprimeTest(){
+        SubmissionServiceImpl ssi = new SubmissionServiceImpl();
+
+    }
+
 }
