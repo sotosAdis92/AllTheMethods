@@ -2,6 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/submissions")
 public class SubmissionController {
     private SubmmisionService submmisionService;
+    private SubmissionServiceIntegrals submissionServiceIntegrals;
 
-    public SubmissionController(SubmmisionService submmisionService) {
+    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals) {
         this.submmisionService = submmisionService;
+        this.submissionServiceIntegrals = submissionServiceIntegrals;
     }
 
     @PostMapping
