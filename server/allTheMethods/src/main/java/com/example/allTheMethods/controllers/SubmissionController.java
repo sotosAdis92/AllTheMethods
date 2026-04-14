@@ -44,4 +44,11 @@ public class SubmissionController {
         return flag;
     }
 
+    @PostMapping("/diakritiNewtonRaphson")
+    public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
+        boolean flag;
+        flag = submmisionService.chekcDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
+        return flag;
+    }
+
 }
