@@ -159,6 +159,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         for(i=0;i<iterations;i++){
             x = xk - (fx(xk,problem)/fprime(xk,problem));
             x = truncateDecimalPlaces(x, decimalPoint);
+            System.out.println(x);
             listToCheck.add(x);
             xk = x;
         }
@@ -236,8 +237,6 @@ public class SubmissionServiceImpl implements SubmmisionService {
         //Macking a new Tree for the String to be turned into a tree
         AbstractTreeBuilder problemString = new AbstractTreeBuilder(problem);
         Operation derivative = problemString.getTree().getDerivative();
-
-        System.out.println(derivative.toString()); //Print for testing
         double result = 0;
         result = derivative.getNumericResult(x);
         return result;
