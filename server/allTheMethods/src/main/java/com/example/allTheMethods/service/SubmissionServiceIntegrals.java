@@ -4,4 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface SubmissionServiceIntegrals {
+    boolean checkTrapezodialRuleData();
+    boolean checkSimpsonData();
+    boolean checkRombergData();
 }
