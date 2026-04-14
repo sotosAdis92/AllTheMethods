@@ -47,7 +47,14 @@ public class SubmissionController {
     @PostMapping("/diakritiNewtonRaphson")
     public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
         boolean flag;
-        flag = submmisionService.chekcDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
+        flag = submmisionService.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
+        return flag;
+    }
+
+    @PostMapping("/fixedPoint")
+    public boolean checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
+        boolean flag;
+        flag = submmisionService.checkDataFixedPointMethod(fixedPointDto);
         return flag;
     }
 

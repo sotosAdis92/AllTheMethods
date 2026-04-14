@@ -10,5 +10,6 @@ public interface SubmmisionService {
     boolean checkDataBisection(BisectionDataDto bisectionDataDto);
     boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto);
     boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException;
-    boolean chekcDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto);
+    boolean checkDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto);
+    boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto);
 }

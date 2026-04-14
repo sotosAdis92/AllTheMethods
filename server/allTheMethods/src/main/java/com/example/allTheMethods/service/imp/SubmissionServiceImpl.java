@@ -168,8 +168,14 @@ public class SubmissionServiceImpl implements SubmmisionService {
         return flag;
     }
 
+    /*
+    Method Implementation of Discrete Newton-Raphson Method, the method takes in a DiakritinewtonRaphson object
+    and through the Discrete Newton-Raphson Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+     */
     @Override
-    public boolean chekcDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
+    public boolean checkDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -186,14 +192,42 @@ public class SubmissionServiceImpl implements SubmmisionService {
             x = xk - (fx(xk,problemString) / DiakritiFprime(xk,hParameter,problemString));
             x = truncateDecimalPlaces(x, decimalPoint);
             listToCheck.add(x);
-            System.out.println(x);
             xk = x;
         }
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag);
         return flag;
     }
-    //public boolean checkFixedPointMethod(FixedPointMethodDto fixedPointMethodDto){}
+
+     /*
+    Method Implementation of Fixed Point Method, the method takes in a FixedPoint object
+    and through the Fixed Point Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+     */
+    @Override
+    public boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto){
+        boolean flag = false;
+        int i = 0;
+        double xk = 0.0;
+        double x = 0.0;
+        int decimalPoint = 3;
+        int countMatchingInputs = 0;
+        int iterations = fixedPointDto.getIterations();
+        List<Double> inputs = fixedPointDto.getInp();
+        List<Double> listToCheck = new ArrayList<>();
+        String problemString = fixedPointDto.getProblemString();
+        for(i=0;i<iterations;i++){
+            x = fx(xk,problemString);
+            x = truncateDecimalPlaces(x,decimalPoint);
+            listToCheck.add(x);
+            xk = x;
+        }
+        countMatchingInputs = CheckIfInputsMatch(inputs,listToCheck,countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,iterations,flag);
+        return flag;
+    }
+
 
     /* Implementation of the F(x) function needed for polynomial roots functions */
     public static double fx(double x, String problem){
