@@ -193,9 +193,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag);
         return flag;
     }
-
-    //public boolean checkQuasiNewtonRaphson(QuasiNewtonRaphsonDto quasiNewtonRaphsonDto){}
-    //public boolean checkSteadyPointMethod(SteadyPointMethodDto steadyPointMethodDto){}
+    //public boolean checkFixedPointMethod(FixedPointMethodDto fixedPointMethodDto){}
 
     /* Implementation of the F(x) function needed for polynomial roots functions */
     public static double fx(double x, String problem){
