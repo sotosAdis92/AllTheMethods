@@ -19,7 +19,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         int integrationPointA = trapezodialRuleDataDto.getIntegrationPointA();
         int integrationPointB = trapezodialRuleDataDto.getIntegrationPointB();
         String problemString = trapezodialRuleDataDto.getProblemString();
-        int hParameter = trapezodialRuleDataDto.gethParameter();
+        double hParameter = trapezodialRuleDataDto.gethParameter();
         int i = 0;
         double finalCount=0;
         List<Double> userInputs = trapezodialRuleDataDto.getInp();
