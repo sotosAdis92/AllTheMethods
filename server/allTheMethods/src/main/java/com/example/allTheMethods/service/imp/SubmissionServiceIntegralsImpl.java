@@ -41,6 +41,8 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         }
         finalCount = finalCount * (hParameter/2);
 
+        System.out.println(listToCheck);
+        System.out.println(finalCount);
 
         return flag;
     }
