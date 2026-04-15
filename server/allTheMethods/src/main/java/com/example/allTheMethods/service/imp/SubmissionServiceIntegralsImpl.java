@@ -1,5 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,12 @@ import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckI
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 @Service
 public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
-
+    /*
+   Method Implementation of Trapezodial Rule, the method takes in a TrapezodialRule object
+   and through the Trapezodial Rule creates its own list of outputs, and compares that list
+   with the list of inputs from the user, if the list matches within 3 significant digits of
+   the correct answer, for all the numbers entered by the client, then it returns true.
+    */
     @Override
     public boolean checkTrapezodialRuleData(TrapezodialRuleDataDto trapezodialRuleDataDto) {
         boolean flag = false;
@@ -55,13 +61,19 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         return flag;
     }
-
+    /*
+    Method Implementation of Simpsons Method, the method takes in a Simpson object
+    and through the Simpsons Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+    */
     @Override
-    public boolean checkSimpsonData() {
+    public boolean checkSimpsonData(SimpsonDataDto simpsonDataDto) {
         boolean flag = false;
-        int integrationSpaceA = ;
-        int integrationSpaceB = ;
-        List<Double> inputsFromUser = ;
+        int integrationSpaceA = simpsonDataDto.getIntegrationSpaceA();
+        int integrationSpaceB = simpsonDataDto.getIntegrationSpaceB();
+        double hParameter = simpsonDataDto.gethParameter();
+        List<Double> inputsFromUser = simpsonDataDto.getInp();
 
         return flag;
     }
