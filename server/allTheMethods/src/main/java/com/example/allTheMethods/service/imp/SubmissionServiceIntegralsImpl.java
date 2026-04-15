@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.fx;
-
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 @Service
 public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
 
     @Override
     public boolean checkTrapezodialRuleData(TrapezodialRuleDataDto trapezodialRuleDataDto) {
         boolean flag = false;
+        int countMatchingInputs=0;
         int integrationPointA = trapezodialRuleDataDto.getIntegrationPointA();
         int integrationPointB = trapezodialRuleDataDto.getIntegrationPointB();
         String problemString = trapezodialRuleDataDto.getProblemString();
@@ -42,7 +44,11 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         for(i=0;i<listToCheck.size();i++){
             finalCount = finalCount + listToCheck.get(i);
         }
+
         finalCount = finalCount * (hParameter/2);
+
+        countMatchingInputs = CheckIfInputsMatch(userInputs, listToCheck, countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
 
         System.out.println(listToCheck);
         System.out.println(finalCount);
