@@ -4,6 +4,8 @@ import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.fx;
 
 @Service
@@ -18,8 +20,9 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         int hParameter = trapezodialRuleDataDto.gethParameter();
         int i = 0;
         double finalCount=0;
-        ArrayList<Double> generatedList = new ArrayList<>();
-        ArrayList<Double> listToCheck = new ArrayList<>();
+        List<Double> userInputs = trapezodialRuleDataDto.getInp();
+        List<Double> generatedList = new ArrayList<>();
+        List<Double> listToCheck = new ArrayList<>();
 
 
         //Generate a list of the numbers used in the method
