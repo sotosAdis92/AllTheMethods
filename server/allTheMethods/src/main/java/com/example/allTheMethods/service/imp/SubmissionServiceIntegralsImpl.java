@@ -58,7 +58,12 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
     @Override
     public boolean checkSimpsonData() {
-        return false;
+        boolean flag = false;
+        int integrationSpaceA = ;
+        int integrationSpaceB = ;
+        List<Double> inputsFromUser = ;
+
+        return flag;
     }
 
     @Override
