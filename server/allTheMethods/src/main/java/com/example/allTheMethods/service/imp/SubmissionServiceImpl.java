@@ -207,7 +207,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
     public boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto){
         boolean flag = false;
         int i = 0;
-        double xk = 0.0;
+        double xk = fixedPointDto.getXo();
         double x = 0.0;
         int decimalPoint = 3;
         int countMatchingInputs = 0;
@@ -220,6 +220,8 @@ public class SubmissionServiceImpl implements SubmmisionService {
             x = truncateDecimalPlaces(x,decimalPoint);
             listToCheck.add(x);
             xk = x;
+
+            System.out.println(x);
         }
         countMatchingInputs = CheckIfInputsMatch(inputs,listToCheck,countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,iterations,flag);
