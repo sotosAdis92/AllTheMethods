@@ -61,6 +61,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         return flag;
     }
+
     /*
     Method Implementation of Simpsons Method, the method takes in a Simpson object
     and through the Simpsons Method creates its own list of outputs, and compares that list
@@ -73,8 +74,30 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         int integrationSpaceA = simpsonDataDto.getIntegrationSpaceA();
         int integrationSpaceB = simpsonDataDto.getIntegrationSpaceB();
         double hParameter = simpsonDataDto.gethParameter();
-        List<Double> inputsFromUser = simpsonDataDto.getInp();
+        List<Double> userInputs = simpsonDataDto.getInp();
+        List<Double> generatedList = new ArrayList<>();
+        String problemString = simpsonDataDto.getProblemString();
+        int i = 0;
+        double finalCount = 0;
+        int countMatchingInputs = 0;
+        for(i=integrationSpaceA;i<=integrationSpaceB;i++){
+            double x = i;
+            x = fx(x,problemString);
+            if(i%2==0 && i!=integrationSpaceA && i!=integrationSpaceB){
+                x = x * 2;
+            }
+            else{
+                x = x * 4;
+            }
+            generatedList.add(x);
+        }
+        for(i=0;i<generatedList.size();i++){
+            finalCount = finalCount + generatedList.get(i);
+        }
+        finalCount = finalCount * (hParameter/3);
 
+        countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,generatedList.size(),flag);
         return flag;
     }
 
