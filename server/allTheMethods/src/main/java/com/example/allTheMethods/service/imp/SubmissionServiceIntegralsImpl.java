@@ -98,6 +98,10 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,generatedList.size(),flag);
+
+        System.out.println(generatedList);
+        System.out.println(finalCount);
+
         return flag;
     }
 
