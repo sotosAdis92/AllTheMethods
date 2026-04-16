@@ -1,5 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.RombergDataDto;
 import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
@@ -106,7 +107,15 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
     }
 
     @Override
-    public boolean checkRombergData() {
-        return false;
+    public boolean checkRombergData(RombergDataDto rombergDataDto) {
+        boolean flag = false;
+        int countMatchingInputs=0;
+
+        List<Double> userInputs = rombergDataDto.getInp();
+        List<Double> generatedList = new ArrayList<>();
+
+        countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,generatedList.size(),flag);
+        return flag;
     }
 }
