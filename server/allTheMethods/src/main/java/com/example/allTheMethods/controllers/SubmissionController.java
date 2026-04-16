@@ -61,4 +61,17 @@ public class SubmissionController {
         return flag;
     }
 
+    @PostMapping("/trapezodialRule")
+    public boolean checkTrapezodialRuleData(@RequestBody TrapezodialRuleDataDto trapezodialRuleDataDto){
+        boolean flag;
+        flag = submissionServiceIntegrals.checkTrapezodialRuleData(trapezodialRuleDataDto);
+        return flag;
+    }
+
+    @PostMapping("/simpson")
+    public boolean checkSimpsonData(@RequestBody SimpsonDataDto simpsonDataDto){
+        boolean flag;
+        flag = submissionServiceIntegrals.checkSimpsonData(simpsonDataDto);
+        return flag;
+    }
 }
