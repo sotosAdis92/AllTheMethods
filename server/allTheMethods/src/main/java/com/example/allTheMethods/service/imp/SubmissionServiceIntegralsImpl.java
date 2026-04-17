@@ -106,6 +106,13 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         return flag;
     }
 
+
+    /*
+    Method Implementation of Romberg Integration Method, the method takes in a Romberg object
+    and through the Romberg Integration Method creates its own list of outputs, and compares that list
+    with the list of inputs from the user, if the list matches within 3 significant digits of
+    the correct answer, for all the numbers entered by the client, then it returns true.
+    */
     @Override
     public boolean checkRombergData(RombergDataDto rombergDataDto) {
         boolean flag = false;
