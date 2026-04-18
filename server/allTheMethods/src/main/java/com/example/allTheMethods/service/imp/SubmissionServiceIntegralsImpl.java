@@ -128,10 +128,13 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
             while(i<inputs.length){
                 System.out.println(inputs[i][j]);
                 i++;
+                inputs[i][j+1] = ((Math.pow(4,j+1))*inputs[i][j] - inputs[i-1][j])/(Math.pow(4,j+1)-1);
+
             }
             i=0;
             j++;
             i = i + j;
+
         }
 
         countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
