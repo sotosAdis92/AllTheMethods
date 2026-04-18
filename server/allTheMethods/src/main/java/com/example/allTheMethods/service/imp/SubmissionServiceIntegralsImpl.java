@@ -128,11 +128,6 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
             inputs[i] = userInputs.get(i);
         }
 
-        for(i=0;i<inputs.length;i++){
-            for(j=i+1;j<inputs.length;j++){
-                inputs[i] = inputs[i] + inputs[j];
-            }
-        }
         countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,generatedList.size(),flag);
         return flag;
