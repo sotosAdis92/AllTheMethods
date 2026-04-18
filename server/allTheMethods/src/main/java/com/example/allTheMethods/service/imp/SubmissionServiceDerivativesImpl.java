@@ -79,14 +79,14 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         System.out.println(hParameter);
         System.out.println(indexOfXoParameter);
         if(typeOfDerivative == "fprime"){
-            fprime = (-1 * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter+1,fiParameters))/(2*hParameter);
+            fprime = (1 * f(indexOfXoParameter-2,fiParameters) + (-8) * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 8 * f(indexOfXoParameter+1,fiParameters) + (-1) * f(indexOfXoParameter+2,fiParameters))/(12*hParameter);
             listToCheck.add(fprime);
             countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
             flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
 
         }
         else{
-            fsecondPrime = (1 * f(indexOfXoParameter-1,fiParameters) + (-2) * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter + 1,fiParameters))/(hParameter * hParameter);
+            fsecondPrime = ((-1) * f(indexOfXoParameter-2,fiParameters) + (16) * f(indexOfXoParameter-1,fiParameters) + (-30) * f(indexOfXoParameter,fiParameters) + 16 * f(indexOfXoParameter+1,fiParameters) + (-1) * f(indexOfXoParameter+2,fiParameters))/(12*(hParameter * hParameter));
             listToCheck.add(fsecondPrime);
             countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
             flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
