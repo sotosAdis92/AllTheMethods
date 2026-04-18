@@ -120,12 +120,18 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         List<Double> userInputs = rombergDataDto.getInp();
         List<Double> generatedList = new ArrayList<>();
+        double[][] inputs = new double[userInputs.size()][userInputs.size()];
+
         int i = 0;
         int j = 0;
-        double[] inputs = new double[userInputs.size()];
-
-        for(i=0;i<inputs.length;i++){
-            inputs[i] = userInputs.get(i);
+        while(j<inputs.length){
+            while(i<inputs.length){
+                System.out.println(inputs[i][j]);
+                i++;
+            }
+            i=0;
+            j++;
+            i = i + j;
         }
 
         countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
