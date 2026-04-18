@@ -7,6 +7,7 @@ public class ThreePointDerivativeDto extends SubmissionDataDto{
     private List<Double> xiParameters;
     private List<Integer> fiParameters;
     private double xoParameter;
+    private String typeOfDerivative;
 
     public ThreePointDerivativeDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Double> xiParameters, List<Integer> fiParameters, double xoParameter) {
         super(inp, problemString);
@@ -14,6 +15,15 @@ public class ThreePointDerivativeDto extends SubmissionDataDto{
         this.xiParameters = xiParameters;
         this.fiParameters = fiParameters;
         this.xoParameter = xoParameter;
+    }
+
+    public ThreePointDerivativeDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Double> xiParameters, List<Integer> fiParameters, double xoParameter, String typeOfDerivative) {
+        super(inp, problemString);
+        this.coutingParameters = coutingParameters;
+        this.xiParameters = xiParameters;
+        this.fiParameters = fiParameters;
+        this.xoParameter = xoParameter;
+        this.typeOfDerivative = typeOfDerivative;
     }
 
     public void setCoutingParameters(List<Integer> coutingParameters) {
@@ -46,5 +56,13 @@ public class ThreePointDerivativeDto extends SubmissionDataDto{
 
     public double getXoParameter() {
         return xoParameter;
+    }
+
+    public String getTypeOfDerivative() {
+        return typeOfDerivative;
+    }
+
+    public void setTypeOfDerivative(String typeOfDerivative) {
+        this.typeOfDerivative = typeOfDerivative;
     }
 }
