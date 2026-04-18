@@ -124,11 +124,12 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         int i = 0;
         int j = 0;
-
         while(j<inputs.length){
-            while(i<inputs[j].length){
+            while(i<inputs.length){
                 System.out.println(inputs[i][j]);
                 i++;
+                inputs[i][j+1] = ((Math.pow(4,j+1))*inputs[i][j] - inputs[i-1][j])/(Math.pow(4,j+1)-1);
+
             }
             j++;
             i = 0 + j;
