@@ -96,7 +96,8 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
 
     @Override
     public boolean checkRichardsonData(RichardsonDataDto richardsonDataDto) {
-        return false;
+        boolean flag = false;
+        return flag;
     }
 
     public int f(int indexOfXoParameter, List<Integer> fiParameters){
