@@ -5,7 +5,11 @@ import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
     @Override
@@ -15,12 +19,16 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         List<Integer> fiParameters = threePointDerivativeDto.getFiParameters();
         List<Integer> xiParameters = threePointDerivativeDto.getXiParameters();
         List<Double> userInputs = threePointDerivativeDto.getInp();
+        List<Double> listToCheck = new ArrayList<>();
         double xoParameter = threePointDerivativeDto.getXoParameter();
         double hParameter = 0.0;
         double fprime = 0.0;
         double fsecondPrime = 0.0;
+        int countMatchingInputs = 0;
         int indexOfXoParameter = 0;
         int i = 0;
+
+
         for(i = 0;i<xiParameters.size();i++){
             hParameter = xiParameters.get(i) - xiParameters.get(i-1);
             if(xiParameters.get(i) == xoParameter){
@@ -31,9 +39,16 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         System.out.println(indexOfXoParameter);
         if(typeOfDerivative == "fprime"){
             fprime = (-1 * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter+1,fiParameters))/(2*hParameter);
+            listToCheck.add(fprime);
+            countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
+            flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
+
         }
         else{
             fsecondPrime = (1 * f(indexOfXoParameter-1,fiParameters) + (-2) * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter + 1,fiParameters))/(hParameter * hParameter);
+            listToCheck.add(fsecondPrime);
+            countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
+            flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
         }
         return flag;
     }
