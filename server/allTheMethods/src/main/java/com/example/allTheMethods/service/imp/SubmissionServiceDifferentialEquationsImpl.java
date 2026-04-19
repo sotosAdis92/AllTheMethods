@@ -4,6 +4,12 @@ import com.example.allTheMethods.dto.RungeKuttaDataDto;
 import com.example.allTheMethods.dto.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
+
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
     @Override
     public boolean checkRungeKuttaData(RungeKuttaDataDto rungeKuttaDataDto) {
@@ -13,6 +19,9 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         double yZero = rungeKuttaDataDto.getyZero();
         double hParameter = rungeKuttaDataDto.gethParameter();
         String problemString = rungeKuttaDataDto.getProblemString();
+        List<Double> input = rungeKuttaDataDto.getInp();
+        List<Double> listToCheck = new ArrayList<>();
+        int countMatchingInputs = 0;
         double k1 = 0.0;
         double k2 = 0.0;
         double k3 = 0.0;
@@ -26,7 +35,10 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
             yZero = yZero + hParameter*((1.0/6.0) * k1 + (1.0/3.0) * k2 + (1.0/3.0) * k3 + (1.0/6.0) * k4);
             k1 = 0.0; k2 = 0.0; k3 = 0.0; k4 = 0.0;
             xZero = xZero + hParameter;
+            listToCheck.add(yZero);
         }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
         return flag;
     }
 
