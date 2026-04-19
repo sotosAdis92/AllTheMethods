@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.FivePointDerivativeDto;
 import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 
+@Service
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
     @Override
     public boolean checkThreePointDerivativeData(ThreePointDerivativeDto threePointDerivativeDto) {
