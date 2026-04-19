@@ -117,6 +117,13 @@ public class SubmissionController {
     }
 
     @PostMapping("/directEuler")
+    public boolean checkDirectEulerData(@RequestBody DirectEulerDto directEulerDto){
+        boolean flag;
+        flag = submissionServiceDifferentialEquations.checkDirectEulerData(directEulerDto);
+        return flag;
+    }
+
+    @PostMapping("rungeKuttaN")
     public boolean checkRungeKuttaNystromData(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
         boolean flag;
         flag = submissionServiceDifferentialEquations.checkRungeKuttaNystromData(rungeKuttaNystromDto);
