@@ -5,7 +5,7 @@ import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface SubmissionServiceDerivatives {
     boolean checkThreePointDerivativeData(ThreePointDerivativeDto threePointDerivativeDto);
     boolean checkFivePointDerivativeData(FivePointDerivativeDto fivePointDerivativeDto);

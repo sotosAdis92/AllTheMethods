@@ -4,7 +4,7 @@ import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface SubmmisionService {
     SubmissionDto createSubmission(SubmissionDto submissionDto);
     boolean checkDataBisection(BisectionDataDto bisectionDataDto);
