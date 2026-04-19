@@ -64,19 +64,23 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         double hParameter = rungeKuttaNystromDto.gethParameter();
         String problemString = rungeKuttaNystromDto.getProblemString();
         List<Double> listToCheck = new ArrayList<>();
+        List<Double> listToCheckPrime = new ArrayList<>();
         List<Double> input = rungeKuttaNystromDto.getInp();
         int countMatchingInputs = 0;
         double k1 = 0.0;
         double k2 = 0.0;
         double k3 = 0.0;
-        double k4 = 0.0;
         for(i=0;i<iterations;i++){
             k1 = f(xZero,yZero,problemString);
             k2 = f(xZero + (0.5)*hParameter,yZero + (0.5)*hParameter*yPrimeZero+(1.0/8.0)*hParameter*hParameter*k1,problemString);
             k3 = f(xZero + hParameter, yZero + hParameter*yPrimeZero + (0.5)*hParameter*hParameter*k2,problemString);
             yZero = yZero + hParameter*yPrimeZero + (hParameter*hParameter)*((1.0/6.0) * k1 + (1.0/3.0) * k2);
             yPrimeZero = yPrimeZero + hParameter*((1.0/6.0)*k1 + (2.0/3.0)*k2 + (1.0/6.0)*k3);
+            listToCheck.add(yZero);
+            listToCheckPrime.add(yPrimeZero);
         }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
         return flag;
     }
 
