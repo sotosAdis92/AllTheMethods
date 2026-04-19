@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
@@ -16,11 +17,13 @@ public class SubmissionController {
     private SubmmisionService submmisionService;
     private SubmissionServiceIntegrals submissionServiceIntegrals;
     private SubmissionServiceDerivatives submissionServiceDerivatives;
+    private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
 
-    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives) {
+    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives, SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations) {
         this.submmisionService = submmisionService;
         this.submissionServiceIntegrals = submissionServiceIntegrals;
         this.submissionServiceDerivatives = submissionServiceDerivatives;
+        this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
     }
 
     @PostMapping
@@ -96,6 +99,13 @@ public class SubmissionController {
     public boolean checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
         boolean flag;
         flag = submissionServiceDerivatives.checkRichardsonData(richardsonDataDto);
+        return flag;
+    }
+
+    @PostMapping("/rungeKutta")
+    public boolean checkRungeKuttaData(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
+        boolean flag;
+        flag = submissionServiceDifferentialEquations.checkRungeKuttaData(rungeKuttaDataDto);
         return flag;
     }
 }

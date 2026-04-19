@@ -3,6 +3,9 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.RungeKuttaDataDto;
 import com.example.allTheMethods.dto.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +13,7 @@ import java.util.List;
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 
+@Service
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
     @Override
     public boolean checkRungeKuttaData(RungeKuttaDataDto rungeKuttaDataDto) {
@@ -27,6 +31,8 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         double k3 = 0.0;
         double k4 = 0.0;
         int i = 0;
+
+
         for(i=0;i<iterations;i++){
             k1 = f(xZero + 0 * hParameter,yZero + 0 * hParameter,problemString);
             k2 = f(xZero + 0.5*hParameter,yZero + 0.5*hParameter*k1, problemString);
@@ -37,6 +43,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
             xZero = xZero + hParameter;
             listToCheck.add(yZero);
         }
+
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
         return flag;
@@ -57,7 +64,8 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         return false;
     }
     public double f(double x, double y,String problem){
-        double xParameter = 0.0;
-        return x;
+        Expression expression = new ExpressionBuilder(problem).variables("x","y").build().setVariable("x",x).setVariable("y",y);
+        double xParameter = expression.evaluate();
+        return xParameter;
     }
 }
