@@ -86,7 +86,22 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     @Override
     public boolean checkDirectEulerData(DirectEulerDto directEulerDto) {
         boolean flag = false;
-
+        int i = 0;
+        int iterations = directEulerDto.getIterations();
+        double yZero = directEulerDto.getyZero();
+        double xZero = directEulerDto.getxZero();
+        double hParameter = directEulerDto.gethParameter();
+        String problemString = directEulerDto.getProblemString();
+        List<Double> listToCheck = new ArrayList<>();
+        List<Double> input = directEulerDto.getInp();
+        int countMatchingInputs = 0;
+        for(i=0;i<iterations;i++){
+            yZero = yZero + hParameter * f(xZero,yZero,problemString);
+            listToCheck.add(yZero);
+            System.out.println(yZero);
+        }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
         return flag;
     }
     public double f(double x, double y,String problem){
