@@ -7,17 +7,16 @@ public class RichardsonDataDto extends SubmissionDataDto{
     private List<Integer> xiParameters;
     private List<Integer> fiParameters;
     private double xoParameter;
-    private int firstHParameter;
-    private int secondHParameter;
+    private int hParameter;
 
-    public RichardsonDataDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, int firstHParameter, int secondHParameter) {
+
+    public RichardsonDataDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, int hParameter, int secondHParameter) {
         super(inp, problemString);
         this.coutingParameters = coutingParameters;
         this.xiParameters = xiParameters;
         this.fiParameters = fiParameters;
         this.xoParameter = xoParameter;
-        this.firstHParameter = firstHParameter;
-        this.secondHParameter = secondHParameter;
+        this.hParameter = hParameter;
     }
 
     public List<Integer> getCoutingParameters() {
@@ -52,19 +51,12 @@ public class RichardsonDataDto extends SubmissionDataDto{
         this.xoParameter = xoParameter;
     }
 
-    public int getFirstHParameter() {
-        return firstHParameter;
+    public int gethParameter() {
+        return hParameter;
     }
 
-    public void setFirstHParameter(int firstHParameter) {
-        this.firstHParameter = firstHParameter;
+    public void sethParameter(int hParameter) {
+        this.hParameter = hParameter;
     }
 
-    public int getSecondHParameter() {
-        return secondHParameter;
-    }
-
-    public void setSecondHParameter(int secondHParameter) {
-        this.secondHParameter = secondHParameter;
-    }
 }

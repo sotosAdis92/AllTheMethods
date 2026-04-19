@@ -97,6 +97,12 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
     @Override
     public boolean checkRichardsonData(RichardsonDataDto richardsonDataDto) {
         boolean flag = false;
+        List<Integer> fiParameters = richardsonDataDto.getFiParameters();
+        List<Integer> xiParameters = richardsonDataDto.getXiParameters();
+        List<Double> userInputs = richardsonDataDto.getInp();
+        List<Double> listToCheck = new ArrayList<>();
+        double xoParameter = richardsonDataDto.getXoParameter();
+        int hParameter = richardsonDataDto.gethParameter();
         return flag;
     }
 
