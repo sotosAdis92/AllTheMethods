@@ -103,6 +103,23 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         List<Double> listToCheck = new ArrayList<>();
         double xoParameter = richardsonDataDto.getXoParameter();
         int hParameter = richardsonDataDto.gethParameter();
+        int indexOfXoParameter = 0;
+        int i;
+        double fprimeForNormalH = 0.0;
+        double fprimeForHalfH = 0.0;
+        double Dih = 0.0;
+        int countMatchingInputs = 0;
+        for(i = 0;i<xiParameters.size();i++){
+            if(xiParameters.get(i) == xoParameter){
+                indexOfXoParameter = i;
+            }
+        }
+        fprimeForHalfH = (-1 * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter+1,fiParameters))/(hParameter/2);
+        fprimeForNormalH = (-1 * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter+1,fiParameters))/(hParameter);
+        Dih = (Math.pow(4,1) * fprimeForHalfH - fprimeForNormalH)/(Math.pow(4,1) - 1) ;
+        listToCheck.add(Dih);
+        countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
         return flag;
     }
 
