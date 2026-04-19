@@ -54,7 +54,22 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
 
     @Override
     public boolean checkRungeKuttaNystromData(RungeKuttaNystromDto rungeKuttaNystromDto) {
-        return false;
+        boolean flag = false;
+        int i = 0;
+        int iterations = rungeKuttaNystromDto.getIterations();
+        double yZero = rungeKuttaNystromDto.getyZero();
+        double xZero = rungeKuttaNystromDto.getxZero();
+        double hParameter = rungeKuttaNystromDto.gethParameter();
+        String problemString = rungeKuttaNystromDto.getProblemString();
+        List<Double> listToCheck = new ArrayList<>();
+        List<Double> input = rungeKuttaNystromDto.getInp();
+        double xn = xZero;
+        double yn = yZero;
+        int countMatchingInputs = 0;
+        for(i=0;i<iterations;i++){
+
+        }
+        return flag;
     }
 
     @Override
