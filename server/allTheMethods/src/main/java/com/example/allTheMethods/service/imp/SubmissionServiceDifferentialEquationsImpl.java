@@ -1,5 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.DirectEulerDto;
 import com.example.allTheMethods.dto.ImprovedEulerDto;
 import com.example.allTheMethods.dto.RungeKuttaDataDto;
 import com.example.allTheMethods.dto.RungeKuttaNystromDto;
@@ -83,7 +84,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean checkDirectEulerData() {
+    public boolean checkDirectEulerData(DirectEulerDto directEulerDto) {
         boolean flag = false;
 
         return flag;
