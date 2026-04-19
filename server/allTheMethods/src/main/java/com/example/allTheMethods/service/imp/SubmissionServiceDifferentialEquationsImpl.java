@@ -1,5 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.ImprovedEulerDto;
 import com.example.allTheMethods.dto.RungeKuttaDataDto;
 import com.example.allTheMethods.dto.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
@@ -56,8 +57,29 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean checkImprovedEulerData() {
-        return false;
+    public boolean checkImprovedEulerData(ImprovedEulerDto improvedEulerDto) {
+        boolean flag = false;
+        int i = 0;
+        int iterations = improvedEulerDto.getIterations();
+        double yZero = improvedEulerDto.getyZero();
+        double xZero = improvedEulerDto.getxZero();
+        double hParameter = improvedEulerDto.gethParameter();
+        String problemString = improvedEulerDto.getProblemString();
+        List<Double> listToCheck = new ArrayList<>();
+        List<Double> input = improvedEulerDto.getInp();
+        double xn = xZero;
+        double yn = yZero;
+        int countMatchingInputs = 0;
+
+        for(i=0;i<iterations;i++){
+            xn = xZero + hParameter;
+            yn = yZero + (hParameter/2.0) * (f(xZero,yZero,problemString) + f(xn,yZero + hParameter * f(xZero,yZero,problemString),problemString));
+            listToCheck.add(yn);
+            System.out.println(yn);
+        }
+        countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
+        flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
+        return flag;
     }
 
     @Override
