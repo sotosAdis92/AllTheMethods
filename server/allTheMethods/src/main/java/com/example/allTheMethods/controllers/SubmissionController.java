@@ -108,4 +108,11 @@ public class SubmissionController {
         flag = submissionServiceDifferentialEquations.checkRungeKuttaData(rungeKuttaDataDto);
         return flag;
     }
+
+    @PostMapping("/improvedEuler")
+    public boolean checkImprovedEulerData(@RequestBody ImprovedEulerDto improvedEulerDto){
+        boolean flag;
+        flag = submissionServiceDifferentialEquations.checkImprovedEulerData(improvedEulerDto);
+        return flag;
+    }
 }
