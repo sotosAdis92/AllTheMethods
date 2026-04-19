@@ -2,6 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import com.example.allTheMethods.service.SubmmisionService;
 import org.springframework.http.HttpStatus;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.*;
 public class SubmissionController {
     private SubmmisionService submmisionService;
     private SubmissionServiceIntegrals submissionServiceIntegrals;
+    private SubmissionServiceDerivatives submissionServiceDerivatives;
 
-    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals) {
+    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives) {
         this.submmisionService = submmisionService;
         this.submissionServiceIntegrals = submissionServiceIntegrals;
+        this.submissionServiceDerivatives = submissionServiceDerivatives;
     }
 
     @PostMapping
@@ -72,6 +75,27 @@ public class SubmissionController {
     public boolean checkSimpsonData(@RequestBody SimpsonDataDto simpsonDataDto){
         boolean flag;
         flag = submissionServiceIntegrals.checkSimpsonData(simpsonDataDto);
+        return flag;
+    }
+
+    @PostMapping("/threePointsDer")
+    public boolean checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
+        boolean flag;
+        flag = submissionServiceDerivatives.checkThreePointDerivativeData(threePointDerivativeDto);
+        return flag;
+    }
+
+    @PostMapping("/fivePointsDer")
+    public boolean checkFivePointDerivativeData(@RequestBody FivePointDerivativeDto fivePointDerivativeDto){
+        boolean flag;
+        flag = submissionServiceDerivatives.checkFivePointDerivativeData(fivePointDerivativeDto);
+        return flag;
+    }
+
+    @PostMapping("/richardson")
+    public boolean checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
+        boolean flag;
+        flag = submissionServiceDerivatives.checkRichardsonData(richardsonDataDto);
         return flag;
     }
 }
