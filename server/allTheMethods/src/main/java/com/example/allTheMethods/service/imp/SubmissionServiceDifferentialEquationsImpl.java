@@ -84,7 +84,9 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
 
     @Override
     public boolean checkDirectEulerData() {
-        return false;
+        boolean flag = false;
+
+        return flag;
     }
     public double f(double x, double y,String problem){
         Expression expression = new ExpressionBuilder(problem).variables("x","y").build().setVariable("x",x).setVariable("y",y);
