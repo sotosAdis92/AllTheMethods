@@ -122,14 +122,14 @@ public class SubmissionController {
         return flag;
     }
 
-    @PostMapping("rungeKuttaN")
+    @PostMapping("/rungeKuttaN")
     public boolean checkRungeKuttaNystromData(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
         boolean flag;
         flag = submissionServiceDifferentialEquations.checkRungeKuttaNystromData(rungeKuttaNystromDto);
         return flag;
     }
 
-    @PostMapping
+    @PostMapping("/gerCircles")
     public boolean checkGerschgorinCircleData(@RequestBody GerschgorinCirclesDto gerschgorinCirclesDto){
         boolean flag;
         flag = submissionServiceLinearSystems.checkGerschgorinCircleData(gerschgorinCirclesDto);
