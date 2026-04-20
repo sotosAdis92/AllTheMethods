@@ -14,6 +14,8 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         int m = gerschgorinCirclesDto.getmSize();
         int[] sumOfRows = new int[n];
         int[] sumOfColumns = new int[m];
+        int[] mins = new int[n];
+        int[] diagonals = new int[n];
         int sumOfRow = 0;
         int sumOfColumn = 0;
         int i = 0;
@@ -36,6 +38,15 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
             sumOfColumns[j] = sumOfColumn;
             System.out.println(sumOfColumns[j]);
             sumOfColumn = 0;
+        }
+        for(i=0;i<sumOfRows.length;i++){
+            diagonals[i] = inputs[i][i];
+            if(sumOfRows[i]<sumOfColumns[i]){
+                mins[i] = sumOfRows[i];
+            }
+            else{
+                mins[i] = sumOfColumns[i];
+            }
         }
         return flag;
     }
