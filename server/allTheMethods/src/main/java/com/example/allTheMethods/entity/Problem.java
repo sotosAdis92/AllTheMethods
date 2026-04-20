@@ -33,6 +33,9 @@ public class Problem {
     @Column()
     private String problemString;
 
+    @Column
+    private String problemType;
+
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
 
@@ -71,6 +74,18 @@ public class Problem {
         this.description = description;
         this.points = points;
         this.problemString = problemString;
+    }
+
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.problemString = problemString;
+        this.problemType = problemType;
     }
 
     public String getProblemString() {
@@ -143,5 +158,13 @@ public class Problem {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public String getProblemType() {
+        return problemType;
+    }
+
+    public void setProblemType(String problemType) {
+        this.problemType = problemType;
     }
 }
