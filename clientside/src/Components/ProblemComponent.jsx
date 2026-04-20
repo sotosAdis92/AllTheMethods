@@ -27,6 +27,7 @@ const ProblemComponent = () => {
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
   const [problemString, setProblemString] = useState("");
+  const [problemType, setProblemType] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -37,6 +38,7 @@ const ProblemComponent = () => {
     description: "",
     points: "",
     problemString: "",
+    problemType: "",
   });
   const { id } = useParams();
 
@@ -51,6 +53,7 @@ const ProblemComponent = () => {
         setDescription(response.data.description);
         setPoints(response.data.points);
         setProblemString(response.data.problemString);
+        setProblemType(response.data.problemType);
       });
     }
   }, [id]);
@@ -87,6 +90,9 @@ const ProblemComponent = () => {
   const handleDescription = (e) => {
     setDescription(e.target.value);
   };
+  const handleProblemType = (e) => {
+    setProblemType(e.target.value);
+  };
 
   const handleProblemString = (e) => {
     console.log("1. Input changed to:", e.target.value);
@@ -103,6 +109,7 @@ const ProblemComponent = () => {
         description,
         points,
         problemString,
+        problemType,
       };
       console.log("3. Sending problem object:", problem);
       if (id) {
@@ -174,6 +181,12 @@ const ProblemComponent = () => {
     } else {
       errorsCopy.problemString = "Error, the problem cannot be empty";
       valid = false;
+    }
+
+    if (problemType.trim()) {
+      errorsCopy.problemType = "";
+    } else {
+      errorsCopy.problemType = "Error, the problem type cannot be empty";
     }
 
     setErrors(errorsCopy);
@@ -278,6 +291,19 @@ const ProblemComponent = () => {
             id={"outlined"}
             error={errors.description}
             helperText={errors.description}
+          ></TextField>
+        </div>
+
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Problem Type"
+            name="type"
+            value={problemType}
+            onChange={handleProblemType}
+            id={"outlined"}
+            error={errors.problemType}
+            helperText={errors.problemType}
           ></TextField>
         </div>
         <Button

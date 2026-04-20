@@ -84,7 +84,7 @@ const ProblemDescription = () => {
   }
   function callComponent(problemType) {
     if (problemType === "Bisection") {
-      return <BisectionComponent interations={iterations}></BisectionComponent>;
+      return <BisectionComponent iterations={iterations}></BisectionComponent>;
     }
   }
 
