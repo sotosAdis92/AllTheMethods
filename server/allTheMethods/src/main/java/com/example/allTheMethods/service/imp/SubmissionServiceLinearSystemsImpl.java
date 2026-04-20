@@ -16,6 +16,8 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         int[] sumOfColumns = new int[m];
         int[] mins = new int[n];
         int[] diagonals = new int[n];
+        int[] rs = new int[n];
+        int[] rprimes = new int[m];
         int sumOfRow = 0;
         int sumOfColumn = 0;
         int i = 0;
@@ -47,6 +49,12 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
             else{
                 mins[i] = sumOfColumns[i];
             }
+        }
+        for(i=0;i<n;i++){
+            rs[i] = diagonals[i] + mins[i];
+        }
+        for(i=0;i<m;i++){
+            rprimes[i] = diagonals[i] - mins[i];
         }
         return flag;
     }
