@@ -2,10 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
-import com.example.allTheMethods.service.SubmissionServiceDerivatives;
-import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
-import com.example.allTheMethods.service.SubmissionServiceIntegrals;
-import com.example.allTheMethods.service.SubmmisionService;
+import com.example.allTheMethods.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +15,14 @@ public class SubmissionController {
     private SubmissionServiceIntegrals submissionServiceIntegrals;
     private SubmissionServiceDerivatives submissionServiceDerivatives;
     private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
+    private SubmissionServiceLinearSystems submissionServiceLinearSystems;
 
     public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives, SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations) {
         this.submmisionService = submmisionService;
         this.submissionServiceIntegrals = submissionServiceIntegrals;
         this.submissionServiceDerivatives = submissionServiceDerivatives;
         this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
+        this.submissionServiceLinearSystems = submissionServiceLinearSystems;
     }
 
     @PostMapping
@@ -127,6 +126,13 @@ public class SubmissionController {
     public boolean checkRungeKuttaNystromData(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
         boolean flag;
         flag = submissionServiceDifferentialEquations.checkRungeKuttaNystromData(rungeKuttaNystromDto);
+        return flag;
+    }
+
+    @PostMapping
+    public boolean checkGerschgorinCircleData(@RequestBody GerschgorinCirclesDto gerschgorinCirclesDto){
+        boolean flag;
+        flag = submissionServiceLinearSystems.checkGerschgorinCircleData(gerschgorinCirclesDto);
         return flag;
     }
 }
