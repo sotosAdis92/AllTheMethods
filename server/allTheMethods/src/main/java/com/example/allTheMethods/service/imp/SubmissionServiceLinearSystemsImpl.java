@@ -4,6 +4,12 @@ import com.example.allTheMethods.dto.GerschgorinCirclesDto;
 import com.example.allTheMethods.service.SubmissionServiceLinearSystems;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
+import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
+
 @Service
 public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLinearSystems {
     @Override
@@ -12,6 +18,9 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         int[][] inputs = gerschgorinCirclesDto.getInputMatrix();
         int n = gerschgorinCirclesDto.getnSize();
         int m = gerschgorinCirclesDto.getmSize();
+        List<Double> listToCheck = new ArrayList<>();
+        List<Double> userInputs = gerschgorinCirclesDto.getInp();
+        int countMatchingInputs = 0;
         int[] sumOfRows = new int[n];
         int[] sumOfColumns = new int[m];
         int[] mins = new int[n];
@@ -22,6 +31,8 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         int sumOfColumn = 0;
         int i = 0;
         int j = 0;
+
+
         for(i=0;i<inputs.length;i++){
             for(j=0;j<inputs[i].length;j++){
                 if(i!=j){
@@ -52,10 +63,14 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         }
         for(i=0;i<n;i++){
             rs[i] = diagonals[i] + mins[i];
+            listToCheck.add((double)rs[i]);
         }
         for(i=0;i<m;i++){
             rprimes[i] = diagonals[i] - mins[i];
+            listToCheck.add((double)rprimes[i]);
         }
+        countMatchingInputs = CheckIfInputsMatch(userInputs, listToCheck, countMatchingInputs);
+        flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
         return flag;
     }
 }
