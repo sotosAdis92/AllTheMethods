@@ -1,3 +1,5 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -71,7 +73,10 @@ const Header = () => {
             </li>
           </ul>
           <div className="userAndLogout">
-            <div className="usersDisplay">{displayName}</div>
+            <div className="usersDisplay">
+              <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+              {displayName}
+            </div>
             <Button variant="contained" onClick={handleSignOut}>
               Logout
             </Button>
