@@ -6,6 +6,7 @@ const BisectionComponent = () => {
   const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
   const [problemString, setProblemString] = useState("");
+
   useEffect(() => {
     getProblem(id)
       .then((response) => {

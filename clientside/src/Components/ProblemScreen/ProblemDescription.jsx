@@ -5,10 +5,19 @@ import BisectionComponent from "./BisectionComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
+
+  const [problemTitle, setProblemTitle] = useState("");
+  const [problemNumber, setProblemNumber] = useState("");
+  const [problemDifficulty, setProblemDifficulty] = useState("");
+  const [problemCategory, setProblemCategory] = useState("");
   useEffect(() => {
     getProblem(id)
       .then((response) => {
         setProblemType(response.data.problemType);
+        setProblemTitle(response.data.title);
+        setProblemNumber(response.data.number);
+        setProblemDifficulty(response.data.difficulty);
+        setProblemCategory(response.data.category);
       })
       .catch((error) => {
         console.log(error);
@@ -23,7 +32,16 @@ const ProblemDescription = () => {
 
   return (
     <>
+      <div>
+        {problemNumber}
+        {problemTitle}
+        {problemDifficulty}
+      </div>
       <div>{renderProblem(problemType)}</div>
+      <div>
+        {problemCategory}
+        {problemType}
+      </div>
     </>
   );
 };
