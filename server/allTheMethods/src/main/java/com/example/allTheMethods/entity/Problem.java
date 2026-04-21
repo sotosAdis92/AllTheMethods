@@ -31,11 +31,22 @@ public class Problem {
     @Column(nullable = false)
     private int points;
 
-    @Column()
+    @Column(nullable = false)
     private String problemString;
 
-    @Column
+    @Column(nullable = false)
     private String problemType;
+
+    @Column(name = "problem_parameters", columnDefinition = "jsonb")
+    @ColumnTransformer(write = "?::jsonb")
+    private String problemData;
+    /*
+    ? -> the data you are trying to insert which is of type String
+    :: -> represent casting
+    jsonb -> the target data type we wish our data to be transformed to
+     */
+    @OneToMany(mappedBy = "problem")
+    Set<Submission> problems;
 
     public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
         this.id = id;
@@ -58,17 +69,9 @@ public class Problem {
         this.problemData = problemData;
     }
 
-    @Column(name = "problem_parameters", columnDefinition = "jsonb")
-    @ColumnTransformer(write = "?::jsonb")
-    private String problemData;
-    /*
-    ? -> the data you are trying to insert which is of type String
-    :: -> represent casting
-    jsonb -> the target data type we wish our data to be transformed to
-     */
 
-    @OneToMany(mappedBy = "problem")
-    Set<Submission> problems;
+
+
 
     public Problem() {
     }
