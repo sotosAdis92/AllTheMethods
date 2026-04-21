@@ -9,7 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "user_achievements")
 public class UserAchievements {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
