@@ -1,6 +1,7 @@
 package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnTransformer;
 
 import java.util.Set;
 
@@ -35,6 +36,36 @@ public class Problem {
 
     @Column
     private String problemType;
+
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.problemString = problemString;
+        this.problemType = problemType;
+        this.problemData = problemData;
+    }
+
+    public String getProblemData() {
+        return problemData;
+    }
+
+    public void setProblemData(String problemData) {
+        this.problemData = problemData;
+    }
+
+    @Column(name = "problem_parameters", columnDefinition = "jsonb")
+    @ColumnTransformer(write = "?::jsonb")
+    private String problemData;
+    /*
+    ? -> the data you are trying to insert which is of type String
+    :: -> represent casting
+    jsonb -> the target data type we wish our data to be transformed to
+     */
 
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
