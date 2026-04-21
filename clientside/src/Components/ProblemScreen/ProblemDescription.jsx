@@ -8,7 +8,7 @@ const ProblemDescription = () => {
   const [category, setCategory] = useState("");
   const [problemType, setProblemType] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [problemData, setProblemData] = useState("");
+  // const [problemData, setProblemData] = useState("");
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -17,11 +17,11 @@ const ProblemDescription = () => {
         setProblemType(response.data.problemType);
         setCategory(response.data.category);
         setDifficulty(response.data.difficulty);
-        const parsedData = JSON.parse(response.data.problemData);
-        setProblemData(parsedData);
-        console.log(parsedData.iterations);
-        console.log(parsedData.problemSpaceA);
-        console.log(parsedData.problemSpaceB);
+        // const parsedData = JSON.parse(response.data.problemData);
+        // setProblemData(parsedData);
+        // console.log(parsedData.iterations);
+        // console.log(parsedData.problemSpaceA);
+        // console.log(parsedData.problemSpaceB);
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +35,6 @@ const ProblemDescription = () => {
       <div>{category}</div>
       <div>{problemType}</div>
       <div>{difficulty}</div>
-      <div>{problemData.problemSpaceA}</div>
     </>
   );
 };
