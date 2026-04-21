@@ -6,6 +6,7 @@ const BisectionComponent = () => {
   const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
   const [problemString, setProblemString] = useState("");
+  const [problemMethod, setProblemMethod] = useState("");
 
   useEffect(() => {
     getProblem(id)
@@ -14,19 +15,23 @@ const BisectionComponent = () => {
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
         setProblemString(response.data.problemString);
+        setProblemMethod(response.data.problemType);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [id]);
-
+  //Implement input generation based on how many iterations you have
   return (
     <>
-      <div>{description}</div>
-      <div>{problemData.iterations}</div>
-      <div>{problemData.problemSpaceA}</div>
-      <div>{problemData.problemSpaceB}</div>
-      <div>{problemString}</div>
+      <div>
+        {description} {problemString} with the {problemMethod} Method
+      </div>
+      <div>For: {problemData.iterations} iterations</div>
+      <div>
+        In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
+      </div>
+      {}
     </>
   );
 };

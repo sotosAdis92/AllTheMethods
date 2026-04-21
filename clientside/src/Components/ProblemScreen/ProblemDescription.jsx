@@ -39,6 +39,7 @@ const ProblemDescription = () => {
       </div>
       <div>{renderProblem(problemType)}</div>
       <div>
+        Tags:
         {problemCategory}
         {problemType}
       </div>
