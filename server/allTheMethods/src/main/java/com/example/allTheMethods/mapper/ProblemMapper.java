@@ -14,7 +14,8 @@ public class ProblemMapper {
                 problem.getDescription(),
                 problem.getPoints(),
                 problem.getProblemString(),
-                problem.getProblemType()
+                problem.getProblemType(),
+                problem.getProblemData()
         );
     }
     public static Problem mapToProblem(ProblemDto problemDto){
@@ -27,7 +28,8 @@ public class ProblemMapper {
                 problemDto.getDescription(),
                 problemDto.getPoints(),
                 problemDto.getProblemString(),
-                problemDto.getProblemType()
+                problemDto.getProblemType(),
+                problemDto.getProblemData()
         );
     }
 }
