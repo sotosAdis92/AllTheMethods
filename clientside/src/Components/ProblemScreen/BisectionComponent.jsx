@@ -47,7 +47,22 @@ const BisectionComponent = () => {
     );
   }
 
-  function handleInput(i, e) {}
+  function handleInput(i, e) {
+    const indexOfNumber = input.findIndex(
+      (inputedNumber) => inputedNumber[0] === i,
+    );
+    if (indexOfNumber !== -1) {
+      inputs[indexOfNumber] = [i, Number(e.target.value)];
+    } else {
+      inputs.push([i, Number(e.target.value)]);
+    }
+    const inp = input.map((num) => num[1]);
+    setInput([...input]);
+    setInputI(inp);
+
+    console.log(input);
+    console.log(inp);
+  }
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inputI,
