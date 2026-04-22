@@ -13,7 +13,6 @@ const BisectionComponent = () => {
   const [problemSpaceB, setProblemSpaceB] = useState("");
   const [usersId, setUsersId] = useState("");
   var inputs = [];
-
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -33,11 +32,22 @@ const BisectionComponent = () => {
 
   useEffect(() => {
     getUser().then((response) => {
-      console.log(response.data.id);
+      //console.log(response.data.id);
       setUsersId(response.data.id);
     });
   });
   //Implement input generation based on how many iterations you have
+  for (let i = 0; i < iterations; i++) {
+    console.log(i);
+    inputs.push(
+      <div key={i}>
+        <input type="text" onChange={(e) => handleInput(i, e)}></input>
+      </div>,
+    );
+  }
+
+  //Function for putting the inputs in the correct place in the array
+  function handleInput(i, e) {}
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inputs,
@@ -69,6 +79,7 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
+      {handleInput()}
     </>
   );
 };
