@@ -55,6 +55,7 @@ const BisectionComponent = () => {
 
   const submitBisectionData = async () => {
     console.log(submissionData);
+    console.log(submission);
   };
   return (
     <>
