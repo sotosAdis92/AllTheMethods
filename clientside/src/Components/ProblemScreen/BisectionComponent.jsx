@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
+import { getUser } from "../../services/UsersService";
 const BisectionComponent = () => {
   const { id } = useParams();
   const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
   const [problemString, setProblemString] = useState("");
   const [problemMethod, setProblemMethod] = useState("");
+  const [iterations, setIterations] = useState("");
+  const [problemSpaceA, setProblemSpaceA] = useState("");
+  const [problemSpaceB, setProblemSpaceB] = useState("");
+  const [usersId, setUsersId] = useState("");
+  var inputs = [];
 
   useEffect(() => {
     getProblem(id)
@@ -16,14 +22,45 @@ const BisectionComponent = () => {
         setProblemData(problemDataConverted);
         setProblemString(response.data.problemString);
         setProblemMethod(response.data.problemType);
+        setIterations(problemDataConverted.iterations);
+        setProblemSpaceA(problemDataConverted.problemSpaceA);
+        setProblemSpaceB(problemDataConverted.problemSpaceB);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [id]);
+
+  useEffect(() => {
+    getUser().then((response) => {
+      console.log(response.data.id);
+      setUsersId(response.data.id);
+    });
+  });
   //Implement input generation based on how many iterations you have
+  //Submitting data based on what method we have rendered to reduce if checks for both client and server
+  const submissionData = {
+    inputs,
+    problemMethod,
+    problemString,
+    iterations,
+    problemSpaceA,
+    problemSpaceB,
+  };
+
+  const submission = {
+    id,
+    usersId,
+  };
+
+  const submitBisectionData = async () => {
+    console.log(submissionData);
+  };
   return (
     <>
+      <button type="button" onClick={() => submitBisectionData()}>
+        Submit
+      </button>
       <div>
         {description} {problemString} with the {problemMethod} Method
       </div>
@@ -31,7 +68,6 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      {}
     </>
   );
 };
