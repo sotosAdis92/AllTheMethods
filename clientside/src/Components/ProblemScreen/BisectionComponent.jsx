@@ -67,6 +67,11 @@ const BisectionComponent = () => {
     console.log(input);
     console.log(inputI);
   }
+  const d = new Date();
+  let date = d.toLocaleDateString();
+  let time = d.toLocaleTimeString();
+  let datetime = date + " " + time;
+
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inputI,
@@ -80,6 +85,7 @@ const BisectionComponent = () => {
   const submission = {
     id,
     usersId,
+    datetime,
   };
 
   const submitBisectionData = async () => {
