@@ -1,7 +1,7 @@
 import axiosInstance from "../enviroment/axiosinstance";
 const REST_API_BASE_URL = "/api/submissions";
 
-export const sendSubmission = async (submission) => {
+export const saveSubmission = async (submission) => {
   const response = await axiosInstance.post(REST_API_BASE_URL, submission);
   return response;
 };
