@@ -55,7 +55,7 @@ const BisectionComponent = () => {
 
   function validateForm() {
     let valid = true;
-    if (inputI.length != iterations) {
+    if (inputI.length != iterations || text === 0) {
       valid = false;
     }
     return valid;
