@@ -47,21 +47,25 @@ const BisectionComponent = () => {
     );
   }
 
+  //function that takes in an index and the inputed value and either when the user enters a new value puts it into the array or replaces it
+  //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
+  //creates a copy and saves it
   function handleInput(i, e) {
     const indexOfNumber = input.findIndex(
       (inputedNumber) => inputedNumber[0] === i,
     );
     if (indexOfNumber !== -1) {
-      inputs[indexOfNumber] = [i, Number(e.target.value)];
+      input[indexOfNumber] = [i, Number(e.target.value)];
     } else {
-      inputs.push([i, Number(e.target.value)]);
+      input.push([i, Number(e.target.value)]);
     }
-    const inp = input.map((num) => num[1]);
+    input.sort();
+    const inputI = input.map((num) => num[1]);
     setInput([...input]);
-    setInputI(inp);
+    setInputI(inputI);
 
     console.log(input);
-    console.log(inp);
+    console.log(inputI);
   }
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
