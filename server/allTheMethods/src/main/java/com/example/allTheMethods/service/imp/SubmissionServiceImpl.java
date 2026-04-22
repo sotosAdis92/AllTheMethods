@@ -82,6 +82,7 @@ public class SubmissionServiceImpl implements SubmmisionService {
             x = truncateDecimalPlaces(x,decimalPoint); //Turn x into a 3 decimal max double function
             listToCheck.add(x); //add it to the list to check
         }
+        System.out.println(input);
 
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, length, flag); //Function that checks if count is the same as length (valid inputs)

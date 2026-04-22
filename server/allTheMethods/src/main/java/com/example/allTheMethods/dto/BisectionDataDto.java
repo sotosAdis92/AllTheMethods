@@ -16,6 +16,13 @@ public class BisectionDataDto extends SubmissionDataDto{
         this.problemSpaceB = problemSpaceB;
     }
 
+    public BisectionDataDto(List<Double> inp, String problemString, int iterations, int problemSpaceA, int problemSpaceB) {
+        super(inp, problemString);
+        this.iterations = iterations;
+        this.problemSpaceA = problemSpaceA;
+        this.problemSpaceB = problemSpaceB;
+    }
+
     public int getIterations() {
         return iterations;
     }
