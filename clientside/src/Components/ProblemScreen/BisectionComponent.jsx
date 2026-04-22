@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblem } from "../../services/ProblemService";
+import {
+  saveSubmission,
+  sendSubmissionData,
+} from "../../services/SubmitService";
 import { getUser } from "../../services/UsersService";
 const BisectionComponent = () => {
   const { id } = useParams();
@@ -13,9 +17,9 @@ const BisectionComponent = () => {
   const [problemSpaceB, setProblemSpaceB] = useState("");
   const [usersId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
-  const [inputI, setInputI] = useState([]);
+  const [inp, setInputI] = useState([]);
   let text;
-  var inputs = []; //Create the array to store the input fields
+  var inputsI = []; //Create the array to store the input fields
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -41,7 +45,7 @@ const BisectionComponent = () => {
   });
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
-    inputs.push(
+    inputsI.push(
       <div key={i}>
         <input
           type="text"
@@ -55,7 +59,7 @@ const BisectionComponent = () => {
 
   function validateForm() {
     let valid = true;
-    if (inputI.length != iterations || text === 0) {
+    if (inp.length != iterations || text === 0) {
       valid = false;
     }
     return valid;
@@ -73,12 +77,12 @@ const BisectionComponent = () => {
       input.push([i, Number(e.target.value)]);
     }
     input.sort();
-    const inputI = input.map((num) => num[1]);
+    const inp = input.map((num) => num[1]);
     setInput([...input]);
-    setInputI(inputI);
+    setInputI(inp);
 
     console.log(input);
-    console.log(inputI);
+    console.log(inp);
   }
   const d = new Date();
   let date = d.toLocaleDateString();
@@ -87,7 +91,7 @@ const BisectionComponent = () => {
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
-    inputI,
+    inp,
     problemMethod,
     problemString,
     iterations,
@@ -105,6 +109,12 @@ const BisectionComponent = () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
+      saveSubmission(submission).then((response) => {
+        console.log(response.data);
+      });
+      sendSubmissionData(submissionData).then((response) => {
+        console.log(response.data);
+      });
     }
   };
   return (
@@ -119,7 +129,7 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      {inputs}
+      {inputsI}
     </>
   );
 };
