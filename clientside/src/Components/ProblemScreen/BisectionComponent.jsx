@@ -47,20 +47,11 @@ const BisectionComponent = () => {
     );
   }
 
-  //Function for putting the inputs in the correct place in the array
   function handleInput(i, e) {
-    const index = input.findIndex((item) => item[0] === i); //search the array to find if the index is in there
-    if (index !== -1) {
-      //if the index does already exist in the array
-      input[index] = [i, Number(e.target.value)]; //overright the previous value of it
+    const indexOfElement = input.findIndex();
+    if (indexOfElement !== -1) {
     } else {
-      //if it does not exist within the array
-      input.push([i, Number(e.target.value)]); //put the new value to the correct position
     }
-    const inputI = input.map((index) => index[1]); //create a new array where only the values are, no indexes
-    setInput([...input]); //copy the indexes array
-    setInputI(inputI);
-    console.log(inputI);
   }
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
