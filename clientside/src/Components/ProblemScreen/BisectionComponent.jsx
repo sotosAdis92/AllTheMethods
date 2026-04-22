@@ -47,12 +47,7 @@ const BisectionComponent = () => {
     );
   }
 
-  function handleInput(i, e) {
-    const indexOfElement = input.findIndex();
-    if (indexOfElement !== -1) {
-    } else {
-    }
-  }
+  function handleInput(i, e) {}
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inputI,
