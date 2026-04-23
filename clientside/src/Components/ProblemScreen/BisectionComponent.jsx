@@ -51,6 +51,7 @@ const BisectionComponent = () => {
       setUsersId(response.data.id);
     });
   });
+
   for (let i = 0; i < iterations; i++) {
     entries.push({
       id: i,
@@ -58,6 +59,7 @@ const BisectionComponent = () => {
       type: "number",
       label: `x${i}`,
       name: "",
+      i: { i },
     });
   }
 
@@ -73,11 +75,12 @@ const BisectionComponent = () => {
   //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
   //creates a copy and saves it
   function handleInput(i, e) {
+    const value = Number(e.target.value);
     const indexOfNumber = input.findIndex(
       (inputedNumber) => inputedNumber[0] === i,
     );
     if (indexOfNumber !== -1) {
-      input[indexOfNumber] = [i, Number(e.target.value)];
+      input[indexOfNumber] = [i, value];
     } else {
       input.push([i, Number(e.target.value)]);
     }
@@ -142,7 +145,7 @@ const BisectionComponent = () => {
             key={entry.id}
             {...entry}
             value={values[entry.name]}
-            onChange={handleInput}
+            onChange={(e) => handleInput(entry.id, e)}
           ></FormInput>
         ))}
       </form>
