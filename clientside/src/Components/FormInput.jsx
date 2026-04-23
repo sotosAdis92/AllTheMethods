@@ -4,7 +4,7 @@ const FormInput = (props) => {
   return (
     <div className="formInput">
       <label>{label}</label>
-      <input {...inputProps} onChange={onChange}></input>
+      <input {...inputProps} onChange={onChange} maxLength={5}></input>
       <span className="errorForInputs">{errorMessage}</span>
     </div>
   );
