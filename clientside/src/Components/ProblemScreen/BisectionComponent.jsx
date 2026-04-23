@@ -126,6 +126,11 @@ const BisectionComponent = () => {
     submittedAt,
   };
 
+  const problemInfo = {
+    id,
+    userId,
+  };
+
   const submitBisectionData = (e) => {
     if (validateForm()) {
       console.log(submissionData);
@@ -138,6 +143,9 @@ const BisectionComponent = () => {
         console.log(result);
       });
       decideResultText(result);
+      //saveSolvedProblem(problemInfo).then((response) => {
+      //   console.log(response.data);
+      // });
     }
   };
   //Function for deciding what to display when a submission result is returned
