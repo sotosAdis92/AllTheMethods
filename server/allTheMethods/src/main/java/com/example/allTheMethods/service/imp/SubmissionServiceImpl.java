@@ -16,29 +16,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.example.allTheMethods.mapper.SubmissionMapper;
 @Service
 public class SubmissionServiceImpl implements SubmmisionService {
     /* Dependency Injection for SubmissionServiceImpl Class */
     @Autowired
     private SubmissionRepository submissionRepository;
+    @Autowired
     private UsersRepository usersRepository;
+    @Autowired
     private ProblemRepository problemRepository;
+    @Autowired
+    private SubmissionMapper submissionMapper;
 
     public SubmissionServiceImpl() {
     }
 
-    public SubmissionServiceImpl(SubmissionRepository submissionRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
+    public SubmissionServiceImpl(SubmissionRepository submissionRepository, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapper submissionMapper) {
         this.submissionRepository = submissionRepository;
         this.usersRepository = usersRepository;
         this.problemRepository = problemRepository;
+        this.submissionMapper = submissionMapper;
     }
 
     @Override
     public SubmissionDto createSubmission(SubmissionDto submissionDto) {
-        Submission submission = SubmissionMapper.mapToSubmission(submissionDto, usersRepository, problemRepository);
+        Submission submission = submissionMapper.mapToSubmission(submissionDto, usersRepository, problemRepository);
         Submission savedSubmission = submissionRepository.save(submission);
-        return SubmissionMapper.mapToSubmissionDto(savedSubmission);
+        return submissionMapper.mapToSubmissionDto(savedSubmission);
     }
 
     /*
