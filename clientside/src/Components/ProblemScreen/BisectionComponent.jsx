@@ -73,7 +73,7 @@ const BisectionComponent = () => {
     if (inp.length != iterations || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
-    } else if (inp.length >= 1) {
+    } else {
       setGeneralError("");
     }
     return valid;
@@ -98,6 +98,10 @@ const BisectionComponent = () => {
 
     console.log(input);
     console.log(inp);
+
+    if (inp.length >= 1) {
+      setGeneralError("");
+    }
   }
 
   const d = new Date();
