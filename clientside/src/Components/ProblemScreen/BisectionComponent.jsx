@@ -6,6 +6,7 @@ import {
   sendSubmissionData,
 } from "../../services/SubmitService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 const BisectionComponent = () => {
   const { id } = useParams();
   const [description, setDescription] = useState("");
@@ -21,6 +22,7 @@ const BisectionComponent = () => {
   const [problemId, setProblemId] = useState(0);
   let text;
   var inputsI = []; //Create the array to store the input fields
+  const [values, setValues] = useState({});
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -49,12 +51,11 @@ const BisectionComponent = () => {
   for (let i = 0; i < iterations; i++) {
     inputsI.push(
       <div key={i}>
-        <input
-          type="text"
-          maxLength={5}
-          value={text}
-          onChange={(e) => handleInput(i, e)}
-        ></input>
+        <FormInput
+          placeholder={`x${i}`}
+          handleInput={handleInput}
+          i={i}
+        ></FormInput>
       </div>,
     );
   }
@@ -86,6 +87,7 @@ const BisectionComponent = () => {
     console.log(input);
     console.log(inp);
   }
+
   const d = new Date();
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
@@ -107,7 +109,8 @@ const BisectionComponent = () => {
     submittedAt,
   };
 
-  const submitBisectionData = () => {
+  const submitBisectionData = (e) => {
+    e.preventDefault();
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
@@ -131,7 +134,7 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      {inputsI}
+      <form>{inputsI}</form>
     </>
   );
 };
