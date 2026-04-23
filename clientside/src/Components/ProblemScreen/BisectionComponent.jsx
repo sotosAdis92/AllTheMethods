@@ -21,6 +21,7 @@ const BisectionComponent = () => {
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
   const [generalError, setGeneralError] = useState("");
+  const [result, setResult] = useState("");
   let text;
   //var inputsI = []; //Create the array to store the input fields
   const [values, setValues] = useState({
@@ -48,7 +49,6 @@ const BisectionComponent = () => {
 
   useEffect(() => {
     getUser().then((response) => {
-      //console.log(response.data.id);
       setUsersId(response.data.id);
     });
   });
@@ -73,7 +73,7 @@ const BisectionComponent = () => {
     if (inp.length != iterations || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
-    } else {
+    } else if (inp.length >= 1) {
       setGeneralError("");
     }
     return valid;
