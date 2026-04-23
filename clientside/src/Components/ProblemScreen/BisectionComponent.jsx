@@ -60,6 +60,7 @@ const BisectionComponent = () => {
       label: `x${i}`,
       name: "",
       i: { i },
+      errorMessage: `Input x${i} cannot be empty`,
     });
   }
 
