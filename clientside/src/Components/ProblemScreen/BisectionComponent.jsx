@@ -62,7 +62,6 @@ const BisectionComponent = () => {
       i: { i },
       errorMessage: `Input x${i} cannot be empty`,
       required: true,
-      pattern: /^\d+(\.\d+)?$/,
     });
   }
 
