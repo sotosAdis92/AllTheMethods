@@ -21,7 +21,8 @@ const BisectionComponent = () => {
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
   const [generalError, setGeneralError] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState(false);
+  const [resultText, setResultText] = useState("");
   let text;
   //var inputsI = []; //Create the array to store the input fields
   const [values, setValues] = useState({
@@ -133,10 +134,25 @@ const BisectionComponent = () => {
         console.log(response.data);
       });
       sendSubmissionData(submissionData).then((response) => {
-        console.log(response.data);
+        setResult(response.data);
+        console.log(result);
       });
+      decideResultText(result);
     }
   };
+  //Function for deciding what to display when a submission result is returned
+  const decideResultText = (result) => {
+    if (result === false) {
+      setResultText(
+        "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
+      );
+      console.log(resultText);
+    } else {
+      setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
+      console.log(resultText);
+    }
+  };
+
   return (
     <>
       <button type="button" onClick={() => submitBisectionData()}>
@@ -160,6 +176,7 @@ const BisectionComponent = () => {
         ))}
       </form>
       <span>{generalError}</span>
+      <div>{resultText}</div>
     </>
   );
 };
