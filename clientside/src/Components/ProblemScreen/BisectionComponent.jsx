@@ -15,14 +15,16 @@ const BisectionComponent = () => {
   const [iterations, setIterations] = useState("");
   const [problemSpaceA, setProblemSpaceA] = useState("");
   const [problemSpaceB, setProblemSpaceB] = useState("");
-  const [usersId, setUsersId] = useState("");
+  const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
+  const [problemId, setProblemId] = useState(0);
   let text;
   var inputsI = []; //Create the array to store the input fields
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        setProblemId(response.data.id);
         setDescription(response.data.description);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
@@ -87,7 +89,7 @@ const BisectionComponent = () => {
   const d = new Date();
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
-  let datetime = date + " " + time;
+  let submittedAt = date + " " + time;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
@@ -100,9 +102,9 @@ const BisectionComponent = () => {
   };
 
   const submission = {
-    id,
-    usersId,
-    datetime,
+    problemId,
+    userId,
+    submittedAt,
   };
 
   const submitBisectionData = () => {
