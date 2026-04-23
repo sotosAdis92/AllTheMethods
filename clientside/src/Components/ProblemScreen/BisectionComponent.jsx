@@ -20,6 +20,7 @@ const BisectionComponent = () => {
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
+  const [generalError, setGeneralError] = useState("");
   let text;
   //var inputsI = []; //Create the array to store the input fields
   const [values, setValues] = useState({
@@ -71,6 +72,9 @@ const BisectionComponent = () => {
     let valid = true;
     if (inp.length != iterations || text === 0) {
       valid = false;
+      setGeneralError("One or more inputs are empty");
+    } else {
+      setGeneralError("");
     }
     return valid;
   }
@@ -118,7 +122,6 @@ const BisectionComponent = () => {
   };
 
   const submitBisectionData = (e) => {
-    e.preventDefault();
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
@@ -142,7 +145,7 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      <form>
+      <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}
@@ -152,6 +155,7 @@ const BisectionComponent = () => {
           ></FormInput>
         ))}
       </form>
+      <span>{generalError}</span>
     </>
   );
 };
