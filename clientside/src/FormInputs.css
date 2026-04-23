@@ -4,6 +4,10 @@
   color: red;
   display: none;
 }
-input:invalid ~ span {
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+input:invalid[focused="true"] ~ span {
   display: block;
 }

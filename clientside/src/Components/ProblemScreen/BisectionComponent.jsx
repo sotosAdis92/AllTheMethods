@@ -57,11 +57,12 @@ const BisectionComponent = () => {
       id: i,
       placeholder: `x${i}`,
       type: "number",
-      label: `x${i}`,
+      label: `x${i} = `,
       name: "",
       i: { i },
       errorMessage: `Input x${i} cannot be empty`,
       required: true,
+      pattern: /^\d+(\.\d+)*$/,
     });
   }
 
