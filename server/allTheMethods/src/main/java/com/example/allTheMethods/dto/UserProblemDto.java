@@ -13,6 +13,11 @@ public class UserProblemDto extends ProblemDto{
         this.userId = userId;
     }
 
+    public UserProblemDto(Long id, Long userId) {
+        this.id = id;
+        this.userId = userId;
+    }
+
     @Override
     public void setId(Long id) {
         this.id = id;
@@ -30,4 +35,5 @@ public class UserProblemDto extends ProblemDto{
     public Long getUserId() {
         return userId;
     }
+
 }
