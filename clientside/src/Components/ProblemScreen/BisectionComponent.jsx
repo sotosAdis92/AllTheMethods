@@ -21,8 +21,12 @@ const BisectionComponent = () => {
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
   let text;
-  var inputsI = []; //Create the array to store the input fields
-  const [values, setValues] = useState({});
+  //var inputsI = []; //Create the array to store the input fields
+  const [values, setValues] = useState({
+    entry: "",
+  });
+  var entries = [];
+
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -47,19 +51,17 @@ const BisectionComponent = () => {
       setUsersId(response.data.id);
     });
   });
-  //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
-    inputsI.push(
-      <div key={i}>
-        <FormInput
-          placeholder={`x${i}`}
-          handleInput={handleInput}
-          i={i}
-        ></FormInput>
-      </div>,
-    );
+    entries.push({
+      id: i,
+      placeholder: `x${i}`,
+      type: "number",
+      label: `x${i}`,
+      name: "",
+    });
   }
 
+  //Implement input generation based on how many iterations you have
   function validateForm() {
     let valid = true;
     if (inp.length != iterations || text === 0) {
@@ -134,7 +136,16 @@ const BisectionComponent = () => {
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      <form>{inputsI}</form>
+      <form>
+        {entries.map((entry) => (
+          <FormInput
+            key={entry.id}
+            {...entry}
+            value={values[entry.name]}
+            onChange={handleInput}
+          ></FormInput>
+        ))}
+      </form>
     </>
   );
 };

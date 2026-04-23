@@ -1,13 +1,9 @@
 const FormInput = (props) => {
+  const { label, onChange, id, ...inputProps } = props;
   return (
     <div className="formInput">
-      <label></label>
-      <input
-        placeholder={props.placeholder}
-        maxLength={5}
-        type="number"
-        onChange={(e) => props.handleInput(props.i, e)}
-      ></input>
+      <label>{label}</label>
+      <input {...inputProps} onChange={onChange}></input>
     </div>
   );
 };
