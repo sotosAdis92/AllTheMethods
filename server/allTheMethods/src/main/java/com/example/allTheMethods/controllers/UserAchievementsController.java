@@ -1,11 +1,10 @@
 package com.example.allTheMethods.controllers;
 
+import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.service.UserAchievementService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/userAchievements")
@@ -15,6 +14,12 @@ public class UserAchievementsController {
 
     public UserAchievementsController(UserAchievementService userAchievementService) {
         this.userAchievementService = userAchievementService;
+    }
+
+    @PostMapping("/saveAchievements")
+    public ResponseEntity<UserAchievementDto> saveUserAchievement(UserAchievementDto userAchievementDto){
+        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements(userAchievementDto);
+        return new ResponseEntity<>(userAchievementDto1, HttpStatus.CREATED);
     }
 
     @GetMapping("/myAchievements")
