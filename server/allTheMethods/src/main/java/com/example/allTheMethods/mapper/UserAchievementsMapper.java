@@ -12,6 +12,7 @@ public class UserAchievementsMapper {
                 userAchievements.getAchievedAt()
         );
     }
+    //Needs Testing
     public static UserAchievements mapToUserAchievement(UserAchievementDto userAchievementDto){
         UserAchievements userAchievements = new UserAchievements();
         userAchievements.setUserAchievementId(userAchievementDto.getUserAchievementId());
