@@ -19,10 +19,12 @@ const ViewMyProblems = () => {
     getAllUserProblems();
   }, []);
 
-  const listOfMyProblems = myProblems.map((myPorblem) => (
-    <div key={myPorblem.problemId}>
-      <div>{myPorblem.title}</div>
-      <div>{}</div>
+  const listOfMyProblems = myProblems.map((myProblem) => (
+    <div key={myProblem.problemId}>
+      <div>{myProblem.title}</div>
+      <div>{myProblem.category}</div>
+      <div>{myProblem.difficulty}</div>
+      <div>{myProblem.points}</div>
     </div>
   ));
   return (
@@ -30,10 +32,10 @@ const ViewMyProblems = () => {
       {count >= 0 ? (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
-          <ol>{listOfMyProblems}</ol>{" "}
+          <ol>{listOfMyProblems}</ol>
         </>
       ) : (
-        <h1>No Problems Solved</h1>
+        <h1>No Problems Solved Yet!!</h1>
       )}
     </>
   );

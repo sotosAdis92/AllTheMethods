@@ -42,6 +42,8 @@ const ViewMyAchievements = () => {
     getAllUserProblems();
   }, []);
 
+  console.log(count);
+
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId}>
       <div>{myAchievement.category}</div>
@@ -49,36 +51,16 @@ const ViewMyAchievements = () => {
       <div>{myAchievement.rank}</div>
     </div>
   ));
-  const listOfMyProblems = myProblems.map((myProblem) => (
-    <div key={myProblem.problemId}>
-      <div>{myProblem.title}</div>
-      <div>{myProblem.category}</div>
-      <div>{myProblem.difficulty}</div>
-      <div>{myProblem.points}</div>
-    </div>
-  ));
   return (
     <>
-      <div>
-        {count >= 0 ? (
-          <>
-            <h1>My Achievements</h1>
-            <ol>{listOfMyAchievements}</ol>
-          </>
-        ) : (
-          <h1>No achievements Yet!</h1>
-        )}
-      </div>
-      <div>
-        {countProblems >= 0 ? (
-          <>
-            <h1>My Solved Problems</h1>
-            <ol>{listOfMyProblems}</ol>
-          </>
-        ) : (
-          <h1>No Problems Solved Yet!</h1>
-        )}
-      </div>
+      {count >= 0 ? (
+        <>
+          <h1>My Achievements</h1>
+          <ol>{listOfMyAchievements}</ol>
+        </>
+      ) : (
+        <h1>No achievements Yet!</h1>
+      )}
     </>
   );
 };
