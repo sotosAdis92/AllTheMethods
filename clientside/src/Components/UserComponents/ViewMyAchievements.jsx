@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { getUserAchievements } from "../../services/UserAchievementService";
+import { getUserProblems } from "../../services/UserProblemService";
 const ViewMyAchievements = () => {
   const [myAchievements, setMyAchievements] = useState([]);
+  const [myProblems, setMyProblems] = useState([]);
+
+  const countProblems = myProblems.filter(
+    (myProblem) => myProblem.problemId,
+  ).length;
+
   const count = myAchievements.filter(
     (myAchievement) => myAchievement.achievementId,
   ).length;
@@ -14,6 +21,17 @@ const ViewMyAchievements = () => {
       })
       .catch((error) => {
         console.error(error);
+      });
+  };
+
+  const getAllUserProblems = () => {
+    getUserProblems()
+      .then((response) => {
+        setMyProblems(response.data);
+        console.log("Api response:", response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

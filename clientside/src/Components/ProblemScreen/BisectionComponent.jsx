@@ -144,6 +144,7 @@ const BisectionComponent = () => {
         console.log(result);
       });
       decideResultText(result);
+      decideToSaveSolvedProblem(result);
     }
   };
   //Function for deciding what to display when a submission result is returned
@@ -156,9 +157,17 @@ const BisectionComponent = () => {
     } else {
       setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
       console.log(resultText);
+    }
+  };
+
+  //Function to save or not to save the problem based on the result that is returned by the server
+  const decideToSaveSolvedProblem = (result) => {
+    if (result === true) {
       saveSolvedProblem(problemInfo).then((response) => {
         console.log(response.data);
       });
+    } else {
+      return;
     }
   };
 
