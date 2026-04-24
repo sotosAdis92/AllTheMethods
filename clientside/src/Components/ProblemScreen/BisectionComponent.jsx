@@ -5,6 +5,7 @@ import {
   saveSubmission,
   sendSubmissionData,
 } from "../../services/SubmitService";
+import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 const BisectionComponent = () => {
@@ -143,9 +144,6 @@ const BisectionComponent = () => {
         console.log(result);
       });
       decideResultText(result);
-      //saveSolvedProblem(problemInfo).then((response) => {
-      //   console.log(response.data);
-      // });
     }
   };
   //Function for deciding what to display when a submission result is returned
@@ -158,6 +156,9 @@ const BisectionComponent = () => {
     } else {
       setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
       console.log(resultText);
+      saveSolvedProblem(problemInfo).then((response) => {
+        console.log(response.data);
+      });
     }
   };
 
