@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface UserProblemsRepository extends JpaRepository<UserProblem, Long> {
-    @Query("SELECT up FROM UserProblem up JOIN FETCH up.problem p WHERE up.user.id = ?1")
+    @Query("SELECT up FROM UserProblem up JOIN up.problem p WHERE up.user.id = ?1")
     List<UserProblem> findAllByUserId(Long userId);
 }

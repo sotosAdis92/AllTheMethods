@@ -20,8 +20,8 @@ public class UserProblemMapper {
                 userProblem.getProblem().getProblemType(),
                 userProblem.getProblem().getProblemData(),
                 userProblem.getId(),
-                userProblem.getProblem().getId(),
-                userProblem.getUser().getId()
+                userProblem.getUser().getId(),
+                userProblem.getProblem().getId()
         );
     }
     public static UserProblem mapToUserProblem(UserProblemDto userProblemDto, Users user, Problem problem){
