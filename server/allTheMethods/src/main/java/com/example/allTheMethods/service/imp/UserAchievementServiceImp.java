@@ -56,7 +56,9 @@ public class UserAchievementServiceImp implements UserAchievementService {
 
     @Override
     public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto) {
-        return null;
+        UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto);
+        UserAchievements savedUserAchievement = userAchievementsRepository.save(userAchievements);
+        return UserAchievementsMapper.mapToUserAchievementDto(savedUserAchievement);
     }
 
     @Override
