@@ -32,27 +32,6 @@ public class UserAchievementServiceImp implements UserAchievementService {
         this.usersRepository = usersRepository;
         this.achievementRepository = achievementRepository;
     }
-    public UserAchievementDto getUserAchievementInService(UserAchievements userAchievements){
-        Users loggedInUser = jwtUtil.getLoggedInUser();
-        UserAchievementDto userAchievementDto = new UserAchievementDto();
-        userAchievementDto.setUserAchievementId(userAchievements.getUserAchievementId());
-        userAchievementDto.setAchievedAt(userAchievements.getAchievedAt());
-
-        Users achievementOwner = userAchievements.getUser();
-        Achievement achievementOwned = userAchievements.getAchievement();
-
-        if(loggedInUser != null && loggedInUser.getId().equals(achievementOwner.getId())){
-
-        } else {
-
-        }
-
-        userAchievementDto.setUserId(achievementOwner.getId());
-        userAchievementDto.setAchievementId(achievementOwned.getAchievementId());
-
-        return userAchievementDto;
-    }
-
 
     @Override
     public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto) {
