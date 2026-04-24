@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.repository.UserAchievementsRepository;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -56,18 +57,8 @@ public class UserAchievementServiceImp implements UserAchievementService {
     public List<UserAchievementDto> getUserAchievements() {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<Object[]> result = userAchievementsRepository.findAllByUserId(user.getId());
-            return result.stream().map(row ->{
-                UserAchievementDto userAchievementDto = new UserAchievementDto();
-                userAchievementDto.setAchievementId((Long) row[0]);
-                userAchievementDto.setName((String) row[1]);
-                userAchievementDto.setCategory((String) row[2]);
-                userAchievementDto.setDescription((String) row[3]);
-                userAchievementDto.setRank((String) row[4]);
-                userAchievementDto.setUserAchievementId((Long) row[5]);
-                userAchievementDto.setUserId((Long) row[6]);
-                return userAchievementDto;
-            }).collect(Collectors.toList());
+            List<UserAchievements> result = userAchievementsRepository.findAllByUserId(user.getId());
+            return result.stream().map(results -> UserAchievementsMapper.mapToUserAchievementDto(results)).collect(Collectors.toUnmodifiableList());
         }
         throw new EntityNotFoundException("User not found");
     }
