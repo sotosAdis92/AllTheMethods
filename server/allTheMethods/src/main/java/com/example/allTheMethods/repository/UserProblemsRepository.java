@@ -12,4 +12,5 @@ import java.util.List;
 public interface UserProblemsRepository extends JpaRepository<UserProblem, Long> {
     @Query("SELECT up FROM UserProblem up JOIN up.problem p WHERE up.user.id = ?1")
     List<UserProblem> findAllByUserId(Long userId);
+    List<UserProblem> findAllByUserIdAndCategory(Long userId, String category);
 }
