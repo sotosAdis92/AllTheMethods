@@ -9,17 +9,14 @@ public class UserAchievementsMapper {
             userAchievements.getUserAchievementId(),
                 userAchievements.getUser().getId(),
                 userAchievements.getAchievement().getAchievementId(),
-                userAchievements.getAchievedAt(),
-                userAchievements.getAchievement().getCategory(),
-                userAchievements.getAchievement().getDescription(),
-                userAchievements.getAchievement().getName(),
-                userAchievements.getAchievement().getRank(),
-                userAchievements.getAchievement().getVisibility()
+                userAchievements.getAchievedAt()
         );
     }
     public static UserAchievements mapToUserAchievement(UserAchievementDto userAchievementDto){
-        return new UserAchievements(
-
-        );
+        UserAchievements userAchievements = new UserAchievements();
+        userAchievements.setUserAchievementId(userAchievementDto.getUserAchievementId());
+        userAchievements.getUser();
+        userAchievements.getAchievement().getAchievementId();
+        return userAchievements;
     }
 }
