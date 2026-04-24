@@ -53,6 +53,12 @@ public class UserAchievementServiceImp implements UserAchievementService {
         return userAchievementDto;
     }
 
+
+    @Override
+    public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto) {
+        return null;
+    }
+
     @Override
     public List<UserAchievementDto> getUserAchievements() {
         Users user = jwtUtil.getLoggedInUser();
