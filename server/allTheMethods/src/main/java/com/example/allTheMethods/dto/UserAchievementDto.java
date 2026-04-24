@@ -15,14 +15,13 @@ public class UserAchievementDto extends AchievementDto{
 
     public UserAchievementDto() {
     }
-
-    public UserAchievementDto(Long userAchievementId, Long userId, Long achievementId, LocalDateTime achievedAt) {
+    public UserAchievementDto(String name, String description, String category, String rank, String visibility, Long userAchievementId, Long userId, Long achievementId, LocalDateTime achievedAt) {
+        super(name, description, category, rank, visibility);
         this.userAchievementId = userAchievementId;
         this.userId = userId;
         this.achievementId = achievementId;
         this.achievedAt = achievedAt;
     }
-
 
     public Long getUserAchievementId() {
         return userAchievementId;

@@ -20,6 +20,14 @@ public class AchievementDto {
         this.visibility = visibility;
     }
 
+    public AchievementDto(String name, String description, String category, String rank, String visibility) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.rank = rank;
+        this.visibility = visibility;
+    }
+
     public void setAchievementId(Long achievementId) {
         this.achievementId = achievementId;
     }
