@@ -70,13 +70,4 @@ public class UserAchievements {
     public LocalDateTime getAchievedAt() {
         return achievedAt;
     }
-
-    public UserAchievementDto getUserAchievementDto(){
-        UserAchievementDto userAchievementDto = new UserAchievementDto();
-        userAchievementDto.setUserAchievementId(userAchievementId);
-        userAchievementDto.setUserId(user.getId());
-        userAchievementDto.setAchievementId(achievement.getAchievementId());
-        userAchievementDto.setAchievedAt(achievedAt);
-        return userAchievementDto;
-    }
 }
