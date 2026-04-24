@@ -40,7 +40,7 @@ const ViewMyAchievements = () => {
   }, []);
   useEffect(() => {
     getAllUserProblems();
-  });
+  }, []);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId}>
