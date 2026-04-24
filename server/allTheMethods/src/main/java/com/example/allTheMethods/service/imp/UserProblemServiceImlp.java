@@ -32,6 +32,13 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
+    public UserProblemDto saveUserProblem(UserProblemDto userProblemDto) {
+        UserProblem userProblem = UserProblemMapper.mapToUserProblem(userProblemDto);
+        UserProblem savedUserProblem = userProblemsRepository.save(userProblem);
+        return UserProblemMapper.mapToUserProblemDto(savedUserProblem);
+    }
+
+    @Override
     public List<UserProblemDto> getUserProblems() {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){

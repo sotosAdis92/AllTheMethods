@@ -1,7 +1,9 @@
 package com.example.allTheMethods.mapper;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
+import com.example.allTheMethods.entity.Users;
 
 public class UserProblemMapper {
     public static UserProblemDto mapToUserProblemDto(UserProblem userProblem){
@@ -11,9 +13,10 @@ public class UserProblemMapper {
         );
     }
     public static UserProblem mapToUserProblem(UserProblemDto userProblemDto){
-        return new UserProblem(
-                userProblemDto.getId(),
-                userProblemDto.getUserId(),
-        );
+        UserProblem userProblem = new UserProblem();
+        userProblem.setId(userProblemDto.getId());
+        userProblem.getUser();
+        userProblem.getProblem();
+        return userProblem;
     }
 }
