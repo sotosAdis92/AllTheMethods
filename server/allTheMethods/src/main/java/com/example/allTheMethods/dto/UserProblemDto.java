@@ -15,6 +15,13 @@ public class UserProblemDto extends ProblemDto{
         this.problemId = problemId;
     }
 
+    public UserProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, Long id, Long userId, Long problemId) {
+        super(number, title, category, difficulty, description, points, problemString, problemType, problemData);
+        this.id = id;
+        this.userId = userId;
+        this.problemId = problemId;
+    }
+
     @Override
     public void setProblemId(Long problemId) {
         this.problemId = problemId;

@@ -5,9 +5,20 @@ import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 
+import java.util.Locale;
+
 public class UserProblemMapper {
     public static UserProblemDto mapToUserProblemDto(UserProblem userProblem){
         return new UserProblemDto(
+                userProblem.getProblem().getNumber(),
+                userProblem.getProblem().getTitle(),
+                userProblem.getProblem().getCategory(),
+                userProblem.getProblem().getDifficulty(),
+                userProblem.getProblem().getDescription(),
+                userProblem.getProblem().getPoints(),
+                userProblem.getProblem().getProblemString(),
+                userProblem.getProblem().getProblemType(),
+                userProblem.getProblem().getProblemData(),
                 userProblem.getId(),
                 userProblem.getProblem().getId(),
                 userProblem.getUser().getId()

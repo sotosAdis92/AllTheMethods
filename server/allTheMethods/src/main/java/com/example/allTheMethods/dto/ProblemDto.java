@@ -37,6 +37,17 @@ public class ProblemDto {
         this.problemData = problemData;
     }
 
+    public ProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.problemString = problemString;
+        this.problemType = problemType;
+        this.problemData = problemData;
+    }
 
     public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString) {
         this.id = id;
