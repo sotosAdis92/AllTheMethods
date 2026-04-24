@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUserAchievements } from "../../services/UserAchievementService";
-import { getUserProblems } from "../../services/UserProblemService";
 const ViewMyAchievements = () => {
   const [myAchievements, setMyAchievements] = useState([]);
-  const [myProblems, setMyProblems] = useState([]);
-
-  const countProblems = myProblems.filter(
-    (myProblem) => myProblem.problemId,
-  ).length;
 
   const count = myAchievements.filter(
     (myAchievement) => myAchievement.achievementId,
@@ -24,25 +18,9 @@ const ViewMyAchievements = () => {
       });
   };
 
-  const getAllUserProblems = () => {
-    getUserProblems()
-      .then((response) => {
-        setMyProblems(response.data);
-        console.log("Api response:", response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   useEffect(() => {
     getAllUserAchievements();
   }, []);
-  useEffect(() => {
-    getAllUserProblems();
-  }, []);
-
-  console.log(count);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId}>
@@ -53,13 +31,16 @@ const ViewMyAchievements = () => {
   ));
   return (
     <>
-      {count >= 0 ? (
+      {count > 0 ? (
         <>
           <h1>My Achievements</h1>
           <ol>{listOfMyAchievements}</ol>
         </>
       ) : (
-        <h1>No achievements Yet!</h1>
+        <>
+          <h1>My Achievements</h1>
+          <p>No achievements Yet!</p>
+        </>
       )}
     </>
   );

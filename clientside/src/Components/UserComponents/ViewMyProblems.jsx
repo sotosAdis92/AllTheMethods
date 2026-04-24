@@ -29,13 +29,16 @@ const ViewMyProblems = () => {
   ));
   return (
     <>
-      {count >= 0 ? (
+      {count > 0 ? (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
           <ol>{listOfMyProblems}</ol>
         </>
       ) : (
-        <h1>No Problems Solved Yet!!</h1>
+        <>
+          <h1 className="userProblemsHeader">Solved Problems</h1>
+          <h1>No Problems Solved Yet!!</h1>
+        </>
       )}
     </>
   );
