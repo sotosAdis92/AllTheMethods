@@ -20,7 +20,7 @@ public class ProblemMapper {
     }
     public static Problem mapToProblem(ProblemDto problemDto){
         return new Problem(
-                problemDto.getId(),
+                problemDto.getProblemId(),
                 problemDto.getNumber(),
                 problemDto.getTitle(),
                 problemDto.getCategory(),

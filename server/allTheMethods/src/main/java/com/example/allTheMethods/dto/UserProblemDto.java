@@ -1,26 +1,20 @@
 package com.example.allTheMethods.dto;
 
 public class UserProblemDto extends ProblemDto{
-    private Long id;
     private Long userId;
+    private Long problemId;
 
     public UserProblemDto() {
     }
 
-    public UserProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, Long id1, Long userId) {
-        super(id, number, title, category, difficulty, description, points, problemString);
-        this.id = id1;
+    public UserProblemDto(Long problemId, Long userId) {
         this.userId = userId;
-    }
-
-    public UserProblemDto(Long id, Long userId) {
-        this.id = id;
-        this.userId = userId;
+        this.problemId = problemId;
     }
 
     @Override
-    public void setId(Long id) {
-        this.id = id;
+    public void setProblemId(Long problemId) {
+        this.problemId = problemId;
     }
 
     public void setUserId(Long userId) {
@@ -28,8 +22,8 @@ public class UserProblemDto extends ProblemDto{
     }
 
     @Override
-    public Long getId() {
-        return id;
+    public Long getProblemId() {
+        return problemId;
     }
 
     public Long getUserId() {

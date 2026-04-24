@@ -57,7 +57,7 @@ public class ProblemDto {
         this.problemString = problemString;
     }
 
-    public Long getId() {
+    public Long getProblemId() {
         return id;
     }
 
@@ -85,8 +85,8 @@ public class ProblemDto {
         return points;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProblemId(Long problemId) {
+        this.id = problemId;
     }
 
     public void setNumber(int number) {
