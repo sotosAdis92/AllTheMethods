@@ -1,13 +1,16 @@
 package com.example.allTheMethods.dto;
 
 public class UserProblemDto extends ProblemDto{
+    private Long id;
     private Long userId;
     private Long problemId;
 
     public UserProblemDto() {
     }
 
-    public UserProblemDto(Long problemId, Long userId) {
+
+    public UserProblemDto(Long id, Long userId, Long problemId) {
+        this.id = id;
         this.userId = userId;
         this.problemId = problemId;
     }

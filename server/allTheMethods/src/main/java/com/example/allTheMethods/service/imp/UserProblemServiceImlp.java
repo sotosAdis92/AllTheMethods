@@ -1,6 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
@@ -33,7 +34,9 @@ public class UserProblemServiceImlp implements UserProblemService {
 
     @Override
     public UserProblemDto saveUserProblem(UserProblemDto userProblemDto) {
-        UserProblem userProblem = UserProblemMapper.mapToUserProblem(userProblemDto);
+        Users user = usersRepository.findById(userProblemDto.getUserId()).orElseThrow();
+        Problem problem = problemRepository.findById(userProblemDto.getProblemId()).orElseThrow();
+        UserProblem userProblem = UserProblemMapper.mapToUserProblem(userProblemDto,user,problem);
         UserProblem savedUserProblem = userProblemsRepository.save(userProblem);
         return UserProblemMapper.mapToUserProblemDto(savedUserProblem);
     }
