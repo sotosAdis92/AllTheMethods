@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
+import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import com.example.allTheMethods.repository.AchievementRepository;
@@ -37,6 +38,14 @@ public class UserAchievementServiceImp implements UserAchievementService {
 
     @Override
     public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto, UserProblemDto userProblemDto, AchievementDto achievementDto) {
+        Long user = userProblemDto.getUserId();
+        Long achievement = achievementDto.getAchievementId();
+        String category = achievementDto.getCategory();
+        int counter = achievementDto.getCounter();
+        String categoryToCheck = userAchievementDto.getCategory();
+        if(category.equals(categoryToCheck) && counter == 1){
+
+        }
         return null;
     }
 
