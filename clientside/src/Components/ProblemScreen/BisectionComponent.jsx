@@ -25,6 +25,10 @@ const BisectionComponent = () => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
+  const [achievementId, setAchievementId] = useState(0);
+  const [rank, setRank] = useState("");
+  const [visibility, setVisibility] = useState("");
+  const [counter, setCounter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -150,7 +154,7 @@ const BisectionComponent = () => {
     },
   };
 
-  const submitBisectionData = (e) => {
+  const submitBisectionData = () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);

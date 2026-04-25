@@ -18,6 +18,7 @@ const ListProblems = () => {
     listProblems()
       .then((response) => {
         setProblems(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -27,16 +28,16 @@ const ListProblems = () => {
     getAllProblems();
   }, []);
 
-  function navigate(id) {
-    navigator("problems/" + id);
+  function navigate(problemId) {
+    navigator("problems/" + problemId);
   }
 
   const listOfProblems = problems.map((problem, i) => (
     <div className="problemWithButtons">
       <div
-        key={problem.id}
+        key={problem.problemId}
         className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
-        onClick={() => navigate(problem.id)}
+        onClick={() => navigate(problem.problemId)}
       >
         <a className="problemLink">
           <div className="problemDetails">
@@ -48,10 +49,16 @@ const ListProblems = () => {
           </div>
         </a>
       </div>
-      <Button variant="contained" onClick={() => updateProblem(problem.id)}>
+      <Button
+        variant="contained"
+        onClick={() => updateProblem(problem.problemId)}
+      >
         <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
       </Button>
-      <Button variant="contained" onClick={() => removeProblem(problem.id)}>
+      <Button
+        variant="contained"
+        onClick={() => removeProblem(problem.problemId)}
+      >
         <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
       </Button>
     </div>
@@ -59,12 +66,12 @@ const ListProblems = () => {
   function addNewProblem() {
     navigator("/addProblem");
   }
-  function updateProblem(id) {
-    navigator(`/editProblem/${id}`);
+  function updateProblem(problemId) {
+    navigator(`/editProblem/${problemId}`);
   }
-  function removeProblem(id) {
-    console.log(id);
-    deleteProblem(id)
+  function removeProblem(problemId) {
+    console.log(problemId);
+    deleteProblem(problemId)
       .then(() => {
         getAllProblems();
       })

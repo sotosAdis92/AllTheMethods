@@ -10,9 +10,11 @@ const ProblemDescription = () => {
   const [problemNumber, setProblemNumber] = useState("");
   const [problemDifficulty, setProblemDifficulty] = useState("");
   const [problemCategory, setProblemCategory] = useState("");
+  console.log(id);
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        console.log(response.data);
         setProblemType(response.data.problemType);
         setProblemTitle(response.data.title);
         setProblemNumber(response.data.number);

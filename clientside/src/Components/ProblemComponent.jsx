@@ -41,7 +41,7 @@ const ProblemComponent = () => {
     problemType: "",
   });
   const { id } = useParams();
-
+  console.log(id);
   useEffect(() => {
     if (id) {
       getProblem(id).then((response) => {
