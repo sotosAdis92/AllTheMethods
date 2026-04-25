@@ -33,9 +33,9 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
-    public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto, UserProblemDto userProblemDto, AchievementDto achievementDto) {
+    public UserAchievementDto saveUserAchievements() {
         Long user = userProblemDto.getUserId();
-        String category = achievementDto.getCategory();
+        String category = userProblemDto.getCategory();
         int counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
         Object[] result = userAchievementsRepository.countProblemsByCategory(user);

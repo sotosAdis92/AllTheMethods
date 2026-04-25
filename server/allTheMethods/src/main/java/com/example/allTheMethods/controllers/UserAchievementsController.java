@@ -19,8 +19,8 @@ public class UserAchievementsController {
     }
 
     @PostMapping("/saveAchievements")
-    public ResponseEntity<UserAchievementDto> saveUserAchievement(UserAchievementDto userAchievementDto, UserProblemDto userProblemDto, AchievementDto achievementDto){
-        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements(userAchievementDto, userProblemDto, achievementDto);
+    public ResponseEntity<UserAchievementDto> saveUserAchievement(){
+        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements();
         return new ResponseEntity<>(userAchievementDto1, HttpStatus.CREATED);
     }
 
