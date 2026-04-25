@@ -3,9 +3,7 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
-import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
-import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import com.example.allTheMethods.repository.AchievementRepository;
@@ -15,10 +13,6 @@ import com.example.allTheMethods.service.UserAchievementService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
