@@ -1,6 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
+import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
+import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
@@ -34,10 +36,8 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
-    public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto) {
-        UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto);
-        UserAchievements savedUserAchievement = userAchievementsRepository.save(userAchievements);
-        return UserAchievementsMapper.mapToUserAchievementDto(savedUserAchievement);
+    public UserAchievementDto saveUserAchievements(UserAchievementDto userAchievementDto, UserProblemDto userProblemDto, AchievementDto achievementDto) {
+        return null;
     }
 
     @Override
