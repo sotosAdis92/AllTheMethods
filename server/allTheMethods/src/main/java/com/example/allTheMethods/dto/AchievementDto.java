@@ -7,6 +7,7 @@ public class AchievementDto {
     private String category;
     private String rank;
     private String visibility;
+    private int counter;
 
     public AchievementDto() {
     }
@@ -26,6 +27,16 @@ public class AchievementDto {
         this.category = category;
         this.rank = rank;
         this.visibility = visibility;
+    }
+
+    public AchievementDto(Long achievementId, String name, String description, String category, String rank, String visibility, int counter) {
+        this.achievementId = achievementId;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.rank = rank;
+        this.visibility = visibility;
+        this.counter = counter;
     }
 
     public void setAchievementId(Long achievementId) {
@@ -74,5 +85,13 @@ public class AchievementDto {
 
     public String getVisibility() {
         return visibility;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 }

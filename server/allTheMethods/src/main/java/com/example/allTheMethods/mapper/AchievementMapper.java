@@ -11,7 +11,8 @@ public class AchievementMapper {
                 achievement.getDescription(),
                 achievement.getCategory(),
                 achievement.getRank(),
-                achievement.getVisibility()
+                achievement.getVisibility(),
+                achievement.getCounter()
         );
     }
     public static Achievement mapToAchievement(AchievementDto achievementDto){
@@ -21,7 +22,8 @@ public class AchievementMapper {
                 achievementDto.getDescription(),
                 achievementDto.getCategory(),
                 achievementDto.getRank(),
-                achievementDto.getVisibility()
+                achievementDto.getVisibility(),
+                achievementDto.getCounter()
         );
     }
 }

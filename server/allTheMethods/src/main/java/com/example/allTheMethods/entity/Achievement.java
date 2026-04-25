@@ -26,6 +26,9 @@ public class Achievement {
     @Column(nullable = false)
     private String visibility;
 
+    @Column
+    private int counter;
+
     @OneToMany(mappedBy = "achievement")
     Set<UserAchievements> achievements;
 
@@ -51,6 +54,16 @@ public class Achievement {
         this.rank = rank;
         this.visibility = visibility;
         this.achievements = achievements;
+    }
+
+    public Achievement(Long achievementId, String name, String description, String category, String rank, String visibility, int counter) {
+        this.achievementId = achievementId;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.rank = rank;
+        this.visibility = visibility;
+        this.counter = counter;
     }
 
     public Long getAchievementId() {
@@ -107,5 +120,13 @@ public class Achievement {
 
     public Set<UserAchievements> getAchievements() {
         return achievements;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 }
