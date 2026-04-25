@@ -24,7 +24,7 @@ public class ProblemController {
        return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProblemDto> getProblemById(@PathVariable("id") Long id){
         ProblemDto problemDto = problemService.getProblemById(id);
         return ResponseEntity.ok(problemDto);
