@@ -45,15 +45,6 @@ public class UserAchievementServiceImp implements UserAchievementService {
         int counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
         Long result = userAchievementsRepository.countProblemsByCategory(user);
-
-
-
-        System.out.println(category);
-        System.out.println(counter);
-        System.out.println(result);
-        System.out.println(categoryToCheck);
-
-
         if(category.equals(categoryToCheck) && counter == result){
             System.out.println("Condition Met, entered If");
             Achievement achievement = achievementRepository.findById(achievementDto.getAchievementId()).orElse(null);
