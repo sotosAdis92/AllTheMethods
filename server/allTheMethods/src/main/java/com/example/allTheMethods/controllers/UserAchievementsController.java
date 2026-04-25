@@ -1,6 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.AchievementDto;
+import com.example.allTheMethods.dto.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.service.UserAchievementService;
@@ -19,8 +20,8 @@ public class UserAchievementsController {
     }
 
     @PostMapping("/saveAchievements")
-    public ResponseEntity<UserAchievementDto> saveUserAchievement(){
-        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements();
+    public ResponseEntity<UserAchievementDto> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
+        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements(saveUserAchievementDto);
         return new ResponseEntity<>(userAchievementDto1, HttpStatus.CREATED);
     }
 

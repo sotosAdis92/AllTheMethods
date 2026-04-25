@@ -1,6 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.AchievementDto;
+import com.example.allTheMethods.dto.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.entity.UserAchievements;
@@ -33,7 +34,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
-    public UserAchievementDto saveUserAchievements() {
+    public UserAchievementDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
         Long user = userProblemDto.getUserId();
         String category = userProblemDto.getCategory();
         int counter = achievementDto.getCounter();
