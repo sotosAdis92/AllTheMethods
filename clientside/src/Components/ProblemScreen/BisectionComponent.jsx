@@ -12,6 +12,7 @@ const BisectionComponent = () => {
   const { id } = useParams();
   const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
+  const [category, setProblemCategory] = useState("");
   const [problemString, setProblemString] = useState("");
   const [problemMethod, setProblemMethod] = useState("");
   const [iterations, setIterations] = useState("");
@@ -25,7 +26,6 @@ const BisectionComponent = () => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   let text;
-  //var inputsI = []; //Create the array to store the input fields
   const [values, setValues] = useState({
     entry: "",
   });
@@ -43,6 +43,7 @@ const BisectionComponent = () => {
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
+        setProblemCategory(response.data.category);
       })
       .catch((error) => {
         console.log(error);
@@ -128,8 +129,25 @@ const BisectionComponent = () => {
   };
 
   const problemInfo = {
-    id,
-    userId,
+    userAchievementDto: {
+      achievementId,
+      userId,
+      category,
+    },
+    userProblemDto: {
+      userId,
+      problemId,
+      category,
+    },
+    achievementDto: {
+      achievementId,
+      name,
+      description,
+      category,
+      rank,
+      visibility,
+      counter,
+    },
   };
 
   const submitBisectionData = (e) => {

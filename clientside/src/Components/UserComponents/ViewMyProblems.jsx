@@ -37,7 +37,7 @@ const ViewMyProblems = () => {
       ) : (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
-          <h1>No Problems Solved Yet!!</h1>
+          <p>No Problems Solved Yet!!</p>
         </>
       )}
     </>
