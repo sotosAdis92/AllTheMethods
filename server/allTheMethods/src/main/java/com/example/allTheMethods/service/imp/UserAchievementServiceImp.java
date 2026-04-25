@@ -22,6 +22,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.lang.Integer.parseInt;
+
 @Service
 public class UserAchievementServiceImp implements UserAchievementService {
         private final JWTUtil jwtUtil;
@@ -43,10 +45,20 @@ public class UserAchievementServiceImp implements UserAchievementService {
         String category = achievementDto.getCategory();
         int counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
-        if(category.equals(categoryToCheck) && counter == 1){
-
+        Object[] result = userAchievementsRepository.countProblemsByCategory(user);
+        int countFromResult = 0;
+        for(int i=0;i<result.length;i++){
+            String categoryFromResult = result[0].toString();
+            countFromResult = parseInt(result[1].toString());
         }
-        return null;
+        if(category.equals(categoryToCheck) && counter == countFromResult){
+            UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto);
+            UserAchievements savedAchievement = userAchievementsRepository.save(userAchievements);
+            return UserAchievementsMapper.mapToUserAchievementDto(savedAchievement);
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
