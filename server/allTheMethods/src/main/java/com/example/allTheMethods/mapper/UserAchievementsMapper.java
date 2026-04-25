@@ -1,7 +1,9 @@
 package com.example.allTheMethods.mapper;
 
 import com.example.allTheMethods.dto.UserAchievementDto;
+import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
+import com.example.allTheMethods.entity.Users;
 
 public class UserAchievementsMapper {
     public static UserAchievementDto mapToUserAchievementDto(UserAchievements userAchievements){
@@ -17,12 +19,23 @@ public class UserAchievementsMapper {
                 userAchievements.getAchievedAt()
         );
     }
-    //Needs Testing
     public static UserAchievements mapToUserAchievement(UserAchievementDto userAchievementDto){
         UserAchievements userAchievements = new UserAchievements();
-        userAchievements.setUserAchievementId(userAchievementDto.getUserAchievementId());
-        userAchievements.getUser();
-        userAchievements.getAchievement().getAchievementId();
+
+        Users user = new Users();
+        user.setId(userAchievementDto.getUserId());
+        userAchievements.setUser(user);
+
+        Achievement achievement = new Achievement();
+        achievement.setAchievementId(userAchievementDto.getAchievementId());
+        achievement.setName(userAchievementDto.getName());
+        achievement.setDescription(userAchievementDto.getDescription());
+        achievement.setCategory(userAchievementDto.getCategory());
+        achievement.setRank(userAchievementDto.getRank());
+        achievement.setVisibility(userAchievementDto.getVisibility());
+        achievement.setCounter(userAchievementDto.getCounter());
+
+        userAchievements.setAchievement(achievement);
         return userAchievements;
     }
 }

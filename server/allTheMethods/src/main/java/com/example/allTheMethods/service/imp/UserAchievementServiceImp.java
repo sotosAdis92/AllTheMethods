@@ -35,18 +35,29 @@ public class UserAchievementServiceImp implements UserAchievementService {
 
     @Override
     public UserAchievementDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
+        UserAchievementDto userAchievementDto = saveUserAchievementDto.getUserAchievementDto();
+        UserProblemDto userProblemDto = saveUserAchievementDto.getUserProblemDto();
+        AchievementDto achievementDto = saveUserAchievementDto.getAchievementDto();
+
         Long user = userProblemDto.getUserId();
         String category = userProblemDto.getCategory();
         int counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
-        Object[] result = userAchievementsRepository.countProblemsByCategory(user);
-        int countFromResult = 0;
-        for(int i=0;i<result.length;i++){
-            countFromResult = parseInt(result[1].toString());
-        }
-        if(category.equals(categoryToCheck) && counter == countFromResult){
-            UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto);
+        Long result = userAchievementsRepository.countProblemsByCategory(user);
+        if(category.equals(categoryToCheck) && counter == result){
+            UserAchievementDto userAchievementDto1 = new UserAchievementDto();
+            userAchievementDto1.setUserId(user);
+            userAchievementDto1.setCategory(achievementDto.getCategory());
+            userAchievementDto1.setName(achievementDto.getName());
+            userAchievementDto1.setDescription(achievementDto.getDescription());
+            userAchievementDto1.setRank(achievementDto.getRank());
+            userAchievementDto1.setVisibility(achievementDto.getVisibility());
+            userAchievementDto1.setCounter(achievementDto.getCounter());
+
+
+            UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto1);
             UserAchievements savedAchievement = userAchievementsRepository.save(userAchievements);
+            System.out.println("TEST SAVE SUCCESSFUL - ID: " + savedAchievement.getUserAchievementId());
             return UserAchievementsMapper.mapToUserAchievementDto(savedAchievement);
         }
         else{
