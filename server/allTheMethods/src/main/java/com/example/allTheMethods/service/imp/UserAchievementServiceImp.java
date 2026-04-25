@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserAchievementsMapper;
@@ -44,7 +45,18 @@ public class UserAchievementServiceImp implements UserAchievementService {
         int counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
         Long result = userAchievementsRepository.countProblemsByCategory(user);
+
+
+
+        System.out.println(category);
+        System.out.println(counter);
+        System.out.println(result);
+        System.out.println(categoryToCheck);
+
+
         if(category.equals(categoryToCheck) && counter == result){
+            System.out.println("Condition Met, entered If");
+            Achievement achievement = achievementRepository.findById(achievementDto.getAchievementId()).orElse(null);
             UserAchievementDto userAchievementDto1 = new UserAchievementDto();
             userAchievementDto1.setUserId(user);
             userAchievementDto1.setCategory(achievementDto.getCategory());
@@ -53,11 +65,10 @@ public class UserAchievementServiceImp implements UserAchievementService {
             userAchievementDto1.setRank(achievementDto.getRank());
             userAchievementDto1.setVisibility(achievementDto.getVisibility());
             userAchievementDto1.setCounter(achievementDto.getCounter());
-
+            userAchievementDto1.setAchievementId(achievement.getAchievementId());
 
             UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto1);
             UserAchievements savedAchievement = userAchievementsRepository.save(userAchievements);
-            System.out.println("TEST SAVE SUCCESSFUL - ID: " + savedAchievement.getUserAchievementId());
             return UserAchievementsMapper.mapToUserAchievementDto(savedAchievement);
         }
         else{
