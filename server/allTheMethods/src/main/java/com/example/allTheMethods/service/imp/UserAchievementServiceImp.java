@@ -41,18 +41,19 @@ public class UserAchievementServiceImp implements UserAchievementService {
 
         Long user = userProblemDto.getUserId();
         String category = userProblemDto.getCategory();
-        int counter = achievementDto.getCounter();
+        Integer counter = 0;
+        counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
         int result = 0;
         result = userAchievementsRepository.countProblemsByCategory(user);
         System.out.println(user);
         System.out.println(category);
-        System.out.println(counter);
+        System.out.println(counter + " counter");
         System.out.println(categoryToCheck);
         System.out.println(result);
         System.out.println(category.equals(categoryToCheck));
         System.out.println(counter == result);
-        if(category.equals(categoryToCheck) && counter == result){
+        if(category.equals(categoryToCheck) && counter.equals(result)){
             System.out.println("Condition Met, entered If");
             Achievement achievement = achievementRepository.findById(achievementDto.getAchievementId()).orElse(null);
             UserAchievementDto userAchievementDto1 = new UserAchievementDto();
