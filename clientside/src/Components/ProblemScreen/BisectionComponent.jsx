@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
@@ -25,6 +26,10 @@ const BisectionComponent = () => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
+  const [achievementId, setAchievementId] = useState(0);
+  const [rank, setRank] = useState("");
+  const [visibility, setVisibility] = useState("");
+  const [counter, setCounter] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -49,6 +54,20 @@ const BisectionComponent = () => {
         console.log(error);
       });
   }, [id]);
+
+  useEffect(() => {
+    getAchievementsByCategory(category)
+      .then((response) => {
+        console.log(response.data);
+        setAchievementId(response.data.achievementId);
+        setCounter(response.data.counter);
+        setRank(response.data.rank);
+        setVisibility(response.data.visibility);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [category]);
 
   useEffect(() => {
     getUser().then((response) => {
@@ -128,8 +147,7 @@ const BisectionComponent = () => {
     submittedAt,
   };
 
-  const problemInfo = {};
-  /*
+  const problemInfo = {
     userAchievementDto: {
       achievementId,
       userId,
@@ -148,8 +166,8 @@ const BisectionComponent = () => {
       rank,
       visibility,
       counter,
-    }
-  */
+    },
+  };
 
   const submitBisectionData = () => {
     if (validateForm()) {
