@@ -61,10 +61,13 @@ const BisectionComponent = () => {
   useEffect(() => {
     getAchievementsByCategory(category)
       .then((response) => {
-        for (let i = 0; i < response.length; i++) {
+        console.log(response.data);
+        const fetchedData = [];
+        for (let i = 0; i < response.data.length; i++) {
           const achievement = response.data[i];
-          achievements.push(achievement);
+          fetchedData.push(achievement);
         }
+        setAchievements(fetchedData);
       })
       .catch((error) => {
         console.log(error);
@@ -181,13 +184,9 @@ const BisectionComponent = () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
-      saveSubmission(submission).then((response) => {
-        console.log(response.data);
-      });
+      saveSubmission(submission).then((response) => {});
       sendSubmissionData(submissionData).then((response) => {
         setResult(response.data);
-        console.log(result);
-        console.log(problemInfo);
       });
 
       decideResultText(result);
@@ -201,10 +200,8 @@ const BisectionComponent = () => {
       setResultText(
         "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
       );
-      console.log(resultText);
     } else {
       setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
-      console.log(resultText);
     }
   };
 
@@ -246,7 +243,7 @@ const BisectionComponent = () => {
               console.log(error);
             }),
         );
-        console.log(achievements[i].achievementId);
+        console.log(achievements[i].achievementId + ": Achievement Id");
         console.log(achievements[i].description);
         console.log(achievements[i].rank);
         console.log(achievements[i].visibility);
