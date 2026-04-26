@@ -47,6 +47,4 @@ public class ProblemController {
         problemService.deleteProblem(id);
         return ResponseEntity.ok("Deleted problem");
     }
-
-
 }
