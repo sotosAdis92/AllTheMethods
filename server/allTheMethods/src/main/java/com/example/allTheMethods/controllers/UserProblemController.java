@@ -19,6 +19,7 @@ public class UserProblemController {
 
     @PostMapping("/saveProblem")
     public ResponseEntity<UserProblemDto> saveUserProblem(@RequestBody UserProblemDto userProblemDto){
+        System.out.println(userProblemDto.getProblemId());
         UserProblemDto userProblemDto1 = userProblemService.saveUserProblem(userProblemDto);
         return new ResponseEntity<>(userProblemDto1, HttpStatus.CREATED);
     }

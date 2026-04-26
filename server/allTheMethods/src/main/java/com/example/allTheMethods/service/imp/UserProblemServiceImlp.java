@@ -34,6 +34,7 @@ public class UserProblemServiceImlp implements UserProblemService {
 
     @Override
     public UserProblemDto saveUserProblem(UserProblemDto userProblemDto) {
+        System.out.println(userProblemDto.getProblemId());
         Users user = usersRepository.findById(userProblemDto.getUserId()).orElseThrow();
         Problem problem = problemRepository.findById(userProblemDto.getProblemId()).orElseThrow();
         UserProblem userProblem = UserProblemMapper.mapToUserProblem(userProblemDto,user,problem);
