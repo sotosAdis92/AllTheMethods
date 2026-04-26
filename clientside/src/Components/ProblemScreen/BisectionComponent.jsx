@@ -6,6 +6,7 @@ import {
   saveSubmission,
   sendSubmissionData,
 } from "../../services/SubmitService";
+import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
@@ -30,6 +31,7 @@ const BisectionComponent = () => {
   const [rank, setRank] = useState("");
   const [visibility, setVisibility] = useState("");
   const [counter, setCounter] = useState("");
+  const [achievements, setAchievements] = useState([]);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -59,11 +61,10 @@ const BisectionComponent = () => {
   useEffect(() => {
     getAchievementsByCategory(category)
       .then((response) => {
-        const achievement = response.data[0];
-        setAchievementId(achievement.achievementId);
-        setCounter(achievement.counter);
-        setRank(achievement.rank);
-        setVisibility(achievement.visibility);
+        for (let i = 0; i < response.length; i++) {
+          const achievement = response.data[i];
+          achievements.push(achievement);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -191,6 +192,7 @@ const BisectionComponent = () => {
 
       decideResultText(result);
       decideToSaveSolvedProblem(result);
+      saveAchievementOfUser(result);
     }
   };
   //Function for deciding what to display when a submission result is returned
@@ -212,6 +214,53 @@ const BisectionComponent = () => {
       saveSolvedProblem(savedProblem).then((response) => {
         console.log(response.data);
       });
+    } else {
+      return;
+    }
+  };
+
+  const saveAchievementOfUser = (result) => {
+    if (result === true) {
+      for (let i = 0; i < achievements.length; i++) {
+        setAchievementId(achievements[i].achievementId);
+        setCounter(achievements[i].counter);
+        setDescription(achievements[i].description);
+        setRank(achievements[i].rank);
+        setVisibility(achievements[i].visibility);
+        setProblemCategory(achievements[i].category);
+        setUsersId(
+          getUser()
+            .then((response) => {
+              setUsersId(response.data.id);
+            })
+            .catch((error) => {
+              console.log(error);
+            }),
+        );
+        setProblemId(
+          getProblem(id)
+            .then((response) => {
+              setProblemId(response.data.problemId);
+            })
+            .catch((error) => {
+              console.log(error);
+            }),
+        );
+        console.log(achievements[i].achievementId);
+        console.log(achievements[i].description);
+        console.log(achievements[i].rank);
+        console.log(achievements[i].visibility);
+        console.log(achievements[i].category);
+        console.log(userId);
+        console.log(problemId);
+        saveUserAchievement(problemInfo)
+          .then((response) => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     } else {
       return;
     }
