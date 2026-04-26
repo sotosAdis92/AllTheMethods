@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { saveToken } from "../enviroment/common";
+import { saveToken } from "../environment/common";
 import { signup } from "../services/auth";
 
 const Signup = () => {

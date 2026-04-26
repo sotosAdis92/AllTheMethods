@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { isTokenValid, removeToken } from "../enviroment/common";
+import { isTokenValid, removeToken } from "../environment/common";
 import { getUser } from "../services/UsersService";
 import "./Header.css";
 const Header = () => {
