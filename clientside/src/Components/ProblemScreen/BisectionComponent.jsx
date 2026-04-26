@@ -27,10 +27,6 @@ const BisectionComponent = () => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievementId, setAchievementId] = useState(null);
-  const [rank, setRank] = useState("");
-  const [visibility, setVisibility] = useState("");
-  const [counter, setCounter] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   let text;
@@ -89,16 +85,12 @@ const BisectionComponent = () => {
       label: `x${i} = `,
       name: "",
       i: { i },
-      errorMessage: `Input x${i} cannot be empty`,
       required: true,
     });
   }
 
   const disableButton = () => {
     setButtonDisabled(true);
-  };
-  const enableButton = () => {
-    setButtonDisabled(false);
   };
 
   //Implement input generation based on how many iterations you have
@@ -165,33 +157,13 @@ const BisectionComponent = () => {
     category,
   };
 
-  const problemInfo = {
-    userAchievementDto: {
-      achievementId,
-      userId,
-      category,
-    },
-    userProblemDto: {
-      userId,
-      problemId,
-      category,
-    },
-    achievementDto: {
-      achievementId,
-      name,
-      description,
-      category,
-      rank,
-      visibility,
-      counter,
-    },
-  };
-
   const submitBisectionData = () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
-      saveSubmission(submission).then((response) => {});
+      saveSubmission(submission).then((response) => {
+        console.log(response.data);
+      });
       sendSubmissionData(submissionData).then((response) => {
         setResult(response.data);
       });
@@ -227,12 +199,6 @@ const BisectionComponent = () => {
   const saveAchievementOfUser = (result) => {
     if (result === true) {
       for (let i = 0; i < achievements.length; i++) {
-        setAchievementId(achievements[i].achievementId);
-        setCounter(achievements[i].counter);
-        setDescription(achievements[i].description);
-        setRank(achievements[i].rank);
-        setVisibility(achievements[i].visibility);
-        setProblemCategory(achievements[i].category);
         setUsersId(
           getUser()
             .then((response) => {
@@ -251,16 +217,40 @@ const BisectionComponent = () => {
               console.log(error);
             }),
         );
+        const problemInfo = {
+          userAchievementDto: {
+            achievementId: achievements[i].achievementId,
+            userId: userId,
+            category: achievements[i].category,
+          },
+          userProblemDto: {
+            userId: userId,
+            problemId: problemId,
+            category: achievements[i].category,
+          },
+          achievementDto: {
+            achievementId: achievements[i].achievementId,
+            name: achievements[i].name,
+            description: achievements[i].description,
+            category: achievements[i].category,
+            rank: achievements[i].rank,
+            visibility: achievements[i].visibility,
+            counter: achievements[i].counter,
+          },
+        };
+
         console.log(achievements[i].achievementId + ": Achievement Id");
         console.log(achievements[i].description);
         console.log(achievements[i].rank);
         console.log(achievements[i].visibility);
         console.log(achievements[i].category);
+        console.log(achievements[i].counter);
+        console.log(achievements[i].name);
         console.log(userId);
         console.log(problemId);
         saveUserAchievement(problemInfo)
           .then((response) => {
-            console.log(response.data);
+            console.log(response.data.counter);
           })
           .catch((error) => {
             console.log(error);
@@ -273,7 +263,11 @@ const BisectionComponent = () => {
 
   return (
     <>
-      <button type="button" onClick={() => submitBisectionData()}>
+      <button
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={() => submitBisectionData()}
+      >
         Submit
       </button>
       <div>
@@ -293,7 +287,7 @@ const BisectionComponent = () => {
           ></FormInput>
         ))}
       </form>
-      <span>{generalError}</span>
+      <span className="generalError">{generalError}</span>
       <div>{resultText}</div>
     </>
   );
