@@ -1,4 +1,4 @@
-import axiosInstance from "../enviroment/axiosinstance";
+import axiosInstance from "../environment/axiosinstance";
 
 export const signup = async (signupDTO) => {
   const response = await axiosInstance.post("api/auth/signup", signupDTO);

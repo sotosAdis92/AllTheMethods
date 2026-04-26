@@ -1,4 +1,4 @@
-import axiosInstance from "../enviroment/axiosinstance";
+import axiosInstance from "../environment/axiosinstancee";
 const REST_API_BASE_URL = "/api/achievements";
 
 export const updateAchievement = async (achievementId, achievement) => {

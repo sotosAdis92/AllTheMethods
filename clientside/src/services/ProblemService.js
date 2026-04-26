@@ -1,4 +1,4 @@
-import axiosInstance from "../enviroment/axiosinstance";
+import axiosInstance from "../environment/axiosinstance";
 const REST_API_BASE_URL = "/api/problems";
 
 export const getProblem = async (problemId) => {

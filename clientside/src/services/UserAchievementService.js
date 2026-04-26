@@ -1,4 +1,4 @@
-import axiosInstance from "../enviroment/axiosinstance";
+import axiosInstance from "../environment/axiosinstance";
 const REST_API_BASE_URL = "/api/userAchievements";
 
 export const saveUserAchievement = async (problemInfo) => {

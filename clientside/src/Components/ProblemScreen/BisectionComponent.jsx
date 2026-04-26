@@ -102,13 +102,13 @@ const BisectionComponent = () => {
     }
     return valid;
   }
-  //function that takes in an index and the inputed value and either when the user enters a new value puts it into the array or replaces it
+  //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
   //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
   //creates a copy and saves it
   function handleInput(i, e) {
     const value = Number(e.target.value);
     const indexOfNumber = input.findIndex(
-      (inputedNumber) => inputedNumber[0] === i,
+      (inputtedNumber) => inputtedNumber[0] === i,
     );
     if (indexOfNumber !== -1) {
       input[indexOfNumber] = [i, value];
