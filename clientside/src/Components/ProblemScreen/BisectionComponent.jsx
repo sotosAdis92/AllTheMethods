@@ -26,7 +26,7 @@ const BisectionComponent = () => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievementId, setAchievementId] = useState(0);
+  const [achievementId, setAchievementId] = useState(null);
   const [rank, setRank] = useState("");
   const [visibility, setVisibility] = useState("");
   const [counter, setCounter] = useState("");
@@ -39,7 +39,8 @@ const BisectionComponent = () => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        setProblemId(response.data.id);
+        console.log(id);
+        setProblemId(response.data.problemId);
         setDescription(response.data.description);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
@@ -58,11 +59,11 @@ const BisectionComponent = () => {
   useEffect(() => {
     getAchievementsByCategory(category)
       .then((response) => {
-        console.log(response.data);
-        setAchievementId(response.data.achievementId);
-        setCounter(response.data.counter);
-        setRank(response.data.rank);
-        setVisibility(response.data.visibility);
+        const achievement = response.data[0];
+        setAchievementId(achievement.achievementId);
+        setCounter(achievement.counter);
+        setRank(achievement.rank);
+        setVisibility(achievement.visibility);
       })
       .catch((error) => {
         console.log(error);
@@ -147,6 +148,12 @@ const BisectionComponent = () => {
     submittedAt,
   };
 
+  const savedProblem = {
+    userId,
+    problemId,
+    category,
+  };
+
   const problemInfo = {
     userAchievementDto: {
       achievementId,
@@ -179,7 +186,9 @@ const BisectionComponent = () => {
       sendSubmissionData(submissionData).then((response) => {
         setResult(response.data);
         console.log(result);
+        console.log(problemInfo);
       });
+
       decideResultText(result);
       decideToSaveSolvedProblem(result);
     }
@@ -200,7 +209,7 @@ const BisectionComponent = () => {
   //Function to save or not to save the problem based on the result that is returned by the server
   const decideToSaveSolvedProblem = (result) => {
     if (result === true) {
-      saveSolvedProblem(problemInfo).then((response) => {
+      saveSolvedProblem(savedProblem).then((response) => {
         console.log(response.data);
       });
     } else {
