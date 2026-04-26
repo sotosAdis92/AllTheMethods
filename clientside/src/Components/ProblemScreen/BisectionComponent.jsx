@@ -32,6 +32,7 @@ const BisectionComponent = () => {
   const [visibility, setVisibility] = useState("");
   const [counter, setCounter] = useState("");
   const [achievements, setAchievements] = useState([]);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -92,6 +93,13 @@ const BisectionComponent = () => {
       required: true,
     });
   }
+
+  const disableButton = () => {
+    setButtonDisabled(true);
+  };
+  const enableButton = () => {
+    setButtonDisabled(false);
+  };
 
   //Implement input generation based on how many iterations you have
   function validateForm() {
@@ -210,6 +218,7 @@ const BisectionComponent = () => {
       saveSolvedProblem(savedProblem).then((response) => {
         console.log(response.data);
       });
+      disableButton();
     } else {
       return;
     }
