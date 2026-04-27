@@ -58,8 +58,9 @@ public class UserProblemServiceImlp implements UserProblemService {
         boolean flag = false;
         if(user!=null){
             List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
+            System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
             for(int i=0;i<usersSolvedProblems.size();i++){
-                if(usersSolvedProblems.get(i).getId() == id){
+                if(usersSolvedProblems.get(i).getProblem().getId() == id){
                     flag = true;
                 }
             }
