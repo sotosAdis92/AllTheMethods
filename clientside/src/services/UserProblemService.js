@@ -13,3 +13,11 @@ export const getUserProblems = async () => {
   const response = await axiosInstance.get(REST_API_BASE_URL + "/myProblems");
   return response;
 };
+
+export const getUserProblemById = async (problemId) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/" + problemId,
+    problemId,
+  );
+  return response;
+};

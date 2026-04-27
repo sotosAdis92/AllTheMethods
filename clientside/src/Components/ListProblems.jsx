@@ -8,7 +8,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import image from "../assets/check.png";
 import { deleteProblem, listProblems } from "../services/ProblemService";
+import { getUserProblemById } from "../services/UserProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
 
 const ListProblems = () => {
@@ -46,6 +48,14 @@ const ListProblems = () => {
               difficulty={problem.difficulty}
             ></ProblemDifficulty>
             {problem.points}pts.
+            {(() =>
+              getUserProblemById(problem.problemId) ? (
+                <div className="checkmark">
+                  <img src={image}></img>
+                </div>
+              ) : (
+                <div></div>
+              ))()}
           </div>
         </a>
       </div>

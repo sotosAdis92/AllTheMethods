@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import image from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
+import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
@@ -38,6 +40,18 @@ const ProblemDescription = () => {
         {problemTitle}
         {problemDifficulty}
       </div>
+      <div>
+        {(() =>
+          getUserProblemById(id) ? (
+            <div className="checkmark">
+              Solved
+              <img src={image}></img>
+            </div>
+          ) : (
+            <div></div>
+          ))()}
+      </div>
+
       <div>{renderProblem(problemType)}</div>
       <div>
         Tags:
