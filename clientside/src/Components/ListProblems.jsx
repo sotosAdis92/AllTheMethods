@@ -8,13 +8,13 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import image from "../assets/check.png";
+import img from "../assets/check.png";
 import { deleteProblem, listProblems } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
-
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
+  const [isSolved, setIsSolved] = useState({});
   const navigator = useNavigate();
   function getAllProblems() {
     listProblems()
@@ -34,6 +34,21 @@ const ListProblems = () => {
     navigator("problems/" + problemId);
   }
 
+  useEffect(() => {
+    for (let i = 0; i < problems.length; i++) {
+      getUserProblemById(problems[i].problemId)
+        .then((response) => {
+          setIsSolved((previous) => ({
+            ...previous,
+            [problems[i].problemId]: response.data,
+          }));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  });
+
   const listOfProblems = problems.map((problem, i) => (
     <div className="problemWithButtons">
       <div
@@ -48,14 +63,13 @@ const ListProblems = () => {
               difficulty={problem.difficulty}
             ></ProblemDifficulty>
             {problem.points}pts.
-            {(() =>
-              getUserProblemById(problem.problemId) ? (
-                <div className="checkmark">
-                  <img src={image}></img>
-                </div>
-              ) : (
-                <div></div>
-              ))()}
+            {isSolved[problem.problemId] ? (
+              <div className="checkmark">
+                <img src={img}></img>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </a>
       </div>

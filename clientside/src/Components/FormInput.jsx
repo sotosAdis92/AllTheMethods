@@ -7,6 +7,7 @@ const FormInput = (props) => {
     e.preventDefault;
     setFocused(true);
   };
+  console.log(props.isSolved);
   return (
     <div className="formInput">
       <label>{label}</label>

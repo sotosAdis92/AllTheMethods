@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import image from "../../assets/check.png";
+import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
@@ -12,6 +12,7 @@ const ProblemDescription = () => {
   const [problemNumber, setProblemNumber] = useState("");
   const [problemDifficulty, setProblemDifficulty] = useState("");
   const [problemCategory, setProblemCategory] = useState("");
+  const [isSolved, setIsSolved] = useState(false);
   console.log(id);
   useEffect(() => {
     getProblem(id)
@@ -29,9 +30,19 @@ const ProblemDescription = () => {
 
   const renderProblem = (problemType) => {
     if (problemType == "Bisection") {
-      return <BisectionComponent></BisectionComponent>;
+      return <BisectionComponent isSolved={isSolved}></BisectionComponent>;
     }
   };
+
+  useEffect(() => {
+    getUserProblemById(id)
+      .then((response) => {
+        setIsSolved(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   return (
     <>
@@ -41,17 +52,15 @@ const ProblemDescription = () => {
         {problemDifficulty}
       </div>
       <div>
-        {(() =>
-          getUserProblemById(id) ? (
-            <div className="checkmark">
-              Solved
-              <img src={image}></img>
-            </div>
-          ) : (
-            <div></div>
-          ))()}
+        {isSolved ? (
+          <div className="checkmark">
+            <p>Solved</p>
+            <img src={img}></img>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
-
       <div>{renderProblem(problemType)}</div>
       <div>
         Tags:

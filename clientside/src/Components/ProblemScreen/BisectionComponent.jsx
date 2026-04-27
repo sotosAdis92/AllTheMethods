@@ -10,7 +10,7 @@ import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
-const BisectionComponent = () => {
+const BisectionComponent = (props) => {
   const { id } = useParams();
   const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
@@ -35,6 +35,7 @@ const BisectionComponent = () => {
   });
   var entries = [];
 
+  console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -75,6 +76,12 @@ const BisectionComponent = () => {
     getUser().then((response) => {
       setUsersId(response.data.id);
     });
+  });
+
+  useEffect(() => {
+    if (props.isSolved) {
+      disableButton();
+    }
   });
 
   for (let i = 0; i < iterations; i++) {
@@ -175,7 +182,7 @@ const BisectionComponent = () => {
   };
   //Function for deciding what to display when a submission result is returned
   const decideResultText = (result) => {
-    if (result === false) {
+    if (result === false || props.isSolved === false) {
       setResultText(
         "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
       );
@@ -288,7 +295,7 @@ const BisectionComponent = () => {
         ))}
       </form>
       <span className="generalError">{generalError}</span>
-      <div>{resultText}</div>
+      <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
 };
