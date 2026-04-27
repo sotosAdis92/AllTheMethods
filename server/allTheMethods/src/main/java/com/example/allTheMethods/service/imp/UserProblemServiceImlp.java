@@ -51,4 +51,19 @@ public class UserProblemServiceImlp implements UserProblemService {
         }
         throw new EntityNotFoundException("User not found");
     }
+
+    @Override
+    public boolean checkIfUserSolvedAProblem(int id) {
+        Users user = jwtUtil.getLoggedInUser();
+        boolean flag = false;
+        if(user!=null){
+            List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
+            for(int i=0;i<usersSolvedProblems.size();i++){
+                if(usersSolvedProblems.get(i).getId() == id){
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
 }

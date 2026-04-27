@@ -28,4 +28,11 @@ public class UserProblemController {
         return ResponseEntity.ok(userProblemService.getUserProblems());
     }
 
+    @GetMapping("/{id}")
+    public boolean checkIfUserSolvedAProblem(@PathVariable int id){
+        boolean flag;
+        flag = userProblemService.checkIfUserSolvedAProblem(id);
+        return flag;
+    }
+
 }

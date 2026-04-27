@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserProblemService {
     UserProblemDto saveUserProblem(UserProblemDto userProblemDto);
     List<UserProblemDto> getUserProblems();
+    boolean checkIfUserSolvedAProblem(int id);
 }
