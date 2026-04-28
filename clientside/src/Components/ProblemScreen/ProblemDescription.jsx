@@ -4,6 +4,7 @@ import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
+import RegulaFalsiComponent from "./RegulaFalsiComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
@@ -29,8 +30,10 @@ const ProblemDescription = () => {
   }, [id]);
 
   const renderProblem = (problemType) => {
-    if (problemType == "Bisection") {
+    if (problemType === "Bisection") {
       return <BisectionComponent isSolved={isSolved}></BisectionComponent>;
+    } else if (problemType === "Regula Falsi") {
+      return <RegulaFalsiComponent isSolved={isSolved}></RegulaFalsiComponent>;
     }
   };
 
