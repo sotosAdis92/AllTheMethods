@@ -7,6 +7,7 @@ const RegulaFalsiComponent = (props) => {
   const [problemSpaceA, setProblemSpaceA] = useState(0);
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [iterations, setIterations] = useState(0);
+  const [problemDescription, setProblemDescription] = useState("");
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
