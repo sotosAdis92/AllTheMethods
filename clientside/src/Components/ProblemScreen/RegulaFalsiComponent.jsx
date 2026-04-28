@@ -4,6 +4,7 @@ import { getProblem } from "../../services/ProblemService";
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
   const [problemName, setProblemName] = useState("");
+  console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
       .then((response) => {
