@@ -1,6 +1,8 @@
 import useState, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
+import { getUser } from "../../services/UsersService";
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
   const [problemName, setProblemName] = useState("");
@@ -12,6 +14,11 @@ const RegulaFalsiComponent = (props) => {
   const [problemMethod, setProblemMethod] = useState("");
   const [problemCategory, setProblemCategory] = useState("");
   const [problemData, setProblemData] = useState("");
+  const [userId, setUserId] = useState(0);
+  var entries = [];
+  const [values, setValues] = useState({
+    entry: "",
+  });
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
@@ -32,6 +39,22 @@ const RegulaFalsiComponent = (props) => {
       .catch((error) => {
         console.log(error.data);
       });
+  });
+
+  useEffect(() => {
+    getAchievementsByCategory(problemCategory)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [problemCategory]);
+
+  useEffect(() => {
+    getUser().then((response) => {
+      setUserId(response.data.id);
+    });
   });
 };
 export default RegulaFalsiComponent;

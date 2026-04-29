@@ -83,7 +83,7 @@ const BisectionComponent = (props) => {
       disableButton();
     }
   });
-
+  //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
     entries.push({
       id: i,
@@ -100,7 +100,6 @@ const BisectionComponent = (props) => {
     setButtonDisabled(true);
   };
 
-  //Implement input generation based on how many iterations you have
   function validateForm() {
     let valid = true;
     if (inp.length != iterations || text === 0) {
