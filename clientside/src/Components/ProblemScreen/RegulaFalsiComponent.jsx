@@ -41,7 +41,7 @@ const RegulaFalsiComponent = (props) => {
         console.log(error.data);
       });
   });
-
+  //Fetching data
   useEffect(() => {
     getAchievementsByCategory(problemCategory)
       .then((response) => {
