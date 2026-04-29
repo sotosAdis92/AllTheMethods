@@ -20,7 +20,14 @@ const RegulaFalsiComponent = (props) => {
         setProblemName(response.data.name);
         setProblemMethod(response.data.problemType);
         setProblemCategory(response.data.category);
+        const parsedData = JSON.parse(response.data.problemData);
+        setProblemSpaceA(parsedData.problemSpaceA);
+        setProblemSpaceB(parsedData.problemSpaceB);
+        setIterations(parsedData.iterations);
         console.log(problemName);
+        console.log(problemMethod);
+        console.log(problemData);
+        console.log(problemCategory);
       })
       .catch((error) => {
         console.log(error.data);
