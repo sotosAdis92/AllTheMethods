@@ -79,5 +79,10 @@ const RegulaFalsiComponent = (props) => {
   const disableButton = () => {
     setButtonDisabled(true);
   };
+
+  const d = new Date();
+  let date = d.toLocaleDateString();
+  let time = d.toLocaleTimeString();
+  let submittedAt = date + " " + time;
 };
 export default RegulaFalsiComponent;
