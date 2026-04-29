@@ -8,12 +8,18 @@ const RegulaFalsiComponent = (props) => {
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [iterations, setIterations] = useState(0);
   const [problemDescription, setProblemDescription] = useState("");
+  const [problemString, setProblemString] = useState("");
+  const [problemMethod, setProblemMethod] = useState("");
+  const [problemCategory, setProblemCategory] = useState("");
+  const [problemData, setProblemData] = useState("");
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
       .then((response) => {
         console.log(response.data);
         setProblemName(response.data.name);
+        setProblemMethod(response.data.problemType);
+        setProblemCategory(response.data.category);
         console.log(problemName);
       })
       .catch((error) => {
