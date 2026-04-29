@@ -15,6 +15,7 @@ const RegulaFalsiComponent = (props) => {
   const [problemCategory, setProblemCategory] = useState("");
   const [problemData, setProblemData] = useState("");
   const [userId, setUserId] = useState(0);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
   var entries = [];
   const [values, setValues] = useState({
     entry: "",
@@ -56,5 +57,27 @@ const RegulaFalsiComponent = (props) => {
       setUserId(response.data.id);
     });
   });
+
+  useEffect(() => {
+    if (props.isSolved) {
+      disableButton();
+    }
+  });
+
+  for (let i = 0; i < iterations; i++) {
+    entries.push({
+      id: i,
+      placeholder: `x${i}`,
+      type: "number",
+      label: `x${i} = `,
+      name: "",
+      i: { i },
+      required: true,
+    });
+  }
+
+  const disableButton = () => {
+    setButtonDisabled(true);
+  };
 };
 export default RegulaFalsiComponent;
