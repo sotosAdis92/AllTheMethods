@@ -101,5 +101,93 @@ const RegulaFalsiComponent = (props) => {
     userId,
     submittedAt,
   };
+
+  //Function for deciding what to display when a submission result is returned
+  const decideResultText = (result) => {
+    if (result === false || props.isSolved === false) {
+      setResultText(
+        "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
+      );
+    } else {
+      setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
+    }
+  };
+
+  //Function to save or not to save the problem based on the result that is returned by the server
+  const decideToSaveSolvedProblem = (result) => {
+    if (result === true) {
+      saveSolvedProblem(savedProblem).then((response) => {
+        console.log(response.data);
+      });
+      disableButton();
+    } else {
+      return;
+    }
+  };
+
+  const saveAchievementOfUser = (result) => {
+    if (result === true) {
+      for (let i = 0; i < achievements.length; i++) {
+        setUsersId(
+          getUser()
+            .then((response) => {
+              setUsersId(response.data.id);
+            })
+            .catch((error) => {
+              console.log(error);
+            }),
+        );
+        setProblemId(
+          getProblem(id)
+            .then((response) => {
+              setProblemId(response.data.problemId);
+            })
+            .catch((error) => {
+              console.log(error);
+            }),
+        );
+        const problemInfo = {
+          userAchievementDto: {
+            achievementId: achievements[i].achievementId,
+            userId: userId,
+            category: achievements[i].category,
+          },
+          userProblemDto: {
+            userId: userId,
+            problemId: problemId,
+            category: achievements[i].category,
+          },
+          achievementDto: {
+            achievementId: achievements[i].achievementId,
+            name: achievements[i].name,
+            description: achievements[i].description,
+            category: achievements[i].category,
+            rank: achievements[i].rank,
+            visibility: achievements[i].visibility,
+            counter: achievements[i].counter,
+          },
+        };
+
+        console.log(achievements[i].achievementId + ": Achievement Id");
+        console.log(achievements[i].description);
+        console.log(achievements[i].rank);
+        console.log(achievements[i].visibility);
+        console.log(achievements[i].category);
+        console.log(achievements[i].counter);
+        console.log(achievements[i].name);
+        console.log(userId);
+        console.log(problemId);
+        saveUserAchievement(problemInfo)
+          .then((response) => {
+            console.log(response.data.counter);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    } else {
+      return;
+    }
+  };
 };
 export default RegulaFalsiComponent;
