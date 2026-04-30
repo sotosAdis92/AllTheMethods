@@ -16,6 +16,7 @@ const RegulaFalsiComponent = (props) => {
   const [problemData, setProblemData] = useState("");
   const [userId, setUserId] = useState(0);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [problemId, setProblemId] = useState(0);
   var entries = [];
   const [values, setValues] = useState({
     entry: "",
@@ -25,6 +26,7 @@ const RegulaFalsiComponent = (props) => {
     getProblem(id)
       .then((response) => {
         console.log(response.data);
+        setProblemId(response.data.id);
         setProblemName(response.data.name);
         setProblemMethod(response.data.problemType);
         setProblemCategory(response.data.category);
@@ -84,5 +86,20 @@ const RegulaFalsiComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
+
+  const submissionData = {
+    inp,
+    problemMethod,
+    problemString,
+    iterations,
+    problemSpaceA,
+    problemSpaceB,
+  };
+
+  const submission = {
+    problemId,
+    userId,
+    submittedAt,
+  };
 };
 export default RegulaFalsiComponent;
