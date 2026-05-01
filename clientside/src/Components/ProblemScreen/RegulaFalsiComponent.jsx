@@ -2,6 +2,10 @@ import useState, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
+import {
+  saveSubmission,
+  sendSubmissionData,
+} from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
@@ -23,6 +27,10 @@ const RegulaFalsiComponent = (props) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [usersId, setUsersId] = useState(0);
+  const [input, setInput] = useState([]);
+  const [inp, setInputI] = useState([]);
+  const [generalError, setGeneralError] = useState("");
+  let text;
   var entries = [];
   const [values, setValues] = useState({
     entry: "",
@@ -36,7 +44,10 @@ const RegulaFalsiComponent = (props) => {
         setProblemName(response.data.name);
         setProblemMethod(response.data.problemType);
         setProblemCategory(response.data.category);
+        setProblemDescription(response.data.description);
+        setProblemString(response.data.problemString);
         const parsedData = JSON.parse(response.data.problemData);
+        setProblemData(parsedData);
         setProblemSpaceA(parsedData.problemSpaceA);
         setProblemSpaceB(parsedData.problemSpaceB);
         setIterations(parsedData.iterations);
@@ -104,8 +115,14 @@ const RegulaFalsiComponent = (props) => {
 
   const submission = {
     problemId,
-    userId,
+    usersId,
     submittedAt,
+  };
+
+  const savedProblem = {
+    usersId,
+    problemId,
+    problemCategory,
   };
 
   //Function for deciding what to display when a submission result is returned
@@ -195,5 +212,90 @@ const RegulaFalsiComponent = (props) => {
       return;
     }
   };
+
+  function validateForm() {
+    let valid = true;
+    if (inp.length != iterations || text === 0) {
+      valid = false;
+      setGeneralError("One or more inputs are empty");
+    } else {
+      setGeneralError("");
+    }
+    return valid;
+  }
+
+  const submitRegulaFalsiData = () => {
+    if (validateForm()) {
+      console.log(submissionData);
+      console.log(submission);
+      saveSubmission(submission).then((response) => {
+        console.log(response.data);
+      });
+      sendSubmissionData(submissionData).then((response) => {
+        setResult(response.data);
+      });
+
+      decideResultText(result);
+      decideToSaveSolvedProblem(result);
+      saveAchievementOfUser(result);
+    }
+  };
+
+  //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
+  //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
+  //creates a copy and saves it
+  function handleInput(i, e) {
+    const value = Number(e.target.value);
+    const indexOfNumber = input.findIndex(
+      (inputtedNumber) => inputtedNumber[0] === i,
+    );
+    if (indexOfNumber !== -1) {
+      input[indexOfNumber] = [i, value];
+    } else {
+      input.push([i, Number(e.target.value)]);
+    }
+    input.sort();
+    const inp = input.map((num) => num[1]);
+    setInput([...input]);
+    setInputI(inp);
+
+    console.log(input);
+    console.log(inp);
+
+    if (inp.length >= 1) {
+      setGeneralError("");
+    }
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={() => submitRegulaFalsiData()}
+      >
+        Submit
+      </button>
+      <div>
+        {problemDescription} {problemString} with the {problemMethod} Method
+      </div>
+      <div>For: {problemData.iterations} iterations</div>
+      <div>
+        In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
+      </div>
+      <form name="inputForm">
+        {entries.map((entry) => (
+          <FormInput
+            key={entry.id}
+            {...entry}
+            value={values[entry.name]}
+            onChange={(e) => handleInput(entry.id, e)}
+          ></FormInput>
+        ))}
+      </form>
+      <span className="generalError">{generalError}</span>
+      <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
+    </>
+  );
 };
 export default RegulaFalsiComponent;
