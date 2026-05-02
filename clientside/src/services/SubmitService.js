@@ -10,3 +10,11 @@ export const sendSubmissionData = async (data) => {
   const response = await axiosInstance.post(REST_API_BASE_URL + "/data", data);
   return response;
 };
+
+export const sendRegulaFalsiData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/regulaFalsi",
+    data,
+  );
+  return response;
+};
