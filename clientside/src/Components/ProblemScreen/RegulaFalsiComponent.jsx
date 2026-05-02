@@ -65,6 +65,12 @@ const RegulaFalsiComponent = (props) => {
     getAchievementsByCategory(problemCategory)
       .then((response) => {
         console.log(response.data);
+        const fetchedData = [];
+        for (let i = 0; i < response.data.length; i++) {
+          const achievement = response.data[i];
+          fetchedData.push(achievement);
+        }
+        setAchievements(fetchedData);
       })
       .catch((error) => {
         console.log(error);
