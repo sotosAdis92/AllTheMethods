@@ -34,7 +34,13 @@ const ProblemDescription = () => {
 
   const renderProblem = (problemType) => {
     if (problemType === "Bisection") {
-      return <BisectionComponent isSolved={isSolved}></BisectionComponent>;
+      return (
+        <BisectionComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+        ></BisectionComponent>
+      );
     } else if (problemType === "Regula Falsi") {
       return <RegulaFalsiComponent isSolved={isSolved}></RegulaFalsiComponent>;
     }

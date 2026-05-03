@@ -12,11 +12,8 @@ import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 const BisectionComponent = (props) => {
   const { id } = useParams();
-  const [description, setDescription] = useState("");
   const [problemData, setProblemData] = useState("");
   const [category, setProblemCategory] = useState("");
-  const [problemString, setProblemString] = useState("");
-  const [problemMethod, setProblemMethod] = useState("");
   const [iterations, setIterations] = useState("");
   const [problemSpaceA, setProblemSpaceA] = useState("");
   const [problemSpaceB, setProblemSpaceB] = useState("");
@@ -41,11 +38,8 @@ const BisectionComponent = (props) => {
       .then((response) => {
         console.log(id);
         setProblemId(response.data.problemId);
-        setDescription(response.data.description);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
-        setProblemString(response.data.problemString);
-        setProblemMethod(response.data.problemType);
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
@@ -140,6 +134,10 @@ const BisectionComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
+
+  //Props passed in from parrent element
+  let problemMethod = props.problemMethod;
+  let problemString = props.problemString;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
@@ -276,9 +274,6 @@ const BisectionComponent = (props) => {
       >
         Submit
       </button>
-      <div>
-        {description} {problemString} with the {problemMethod} Method
-      </div>
       <div>For: {problemData.iterations} iterations</div>
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
