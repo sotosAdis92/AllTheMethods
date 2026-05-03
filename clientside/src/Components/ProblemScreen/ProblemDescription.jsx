@@ -13,6 +13,9 @@ const ProblemDescription = () => {
   const [problemNumber, setProblemNumber] = useState("");
   const [problemDifficulty, setProblemDifficulty] = useState("");
   const [problemCategory, setProblemCategory] = useState("");
+  const [problemDescription, setProblemDescription] = useState("");
+  const [problemString, setProblemString] = useState("");
+  const [problemMethod, setProblemMethod] = useState("");
   const [isSolved, setIsSolved] = useState(false);
   console.log(id);
   useEffect(() => {
@@ -53,6 +56,9 @@ const ProblemDescription = () => {
         {problemNumber}
         {problemTitle}
         {problemDifficulty}
+        {problemDescription}
+        {problemString}
+        {problemMethod}
       </div>
       <div>
         {isSolved ? (
