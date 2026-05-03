@@ -4,13 +4,12 @@ import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
-  sendNewtonRaphsonData,
+  sendDiakritiNewtonRaphsonData,
 } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
-
-const NewtonRaphsonComponent = (props) => {
+const DiakritiNewtonRaphsonComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
   const [problemXoParameter, setProblemXoParameter] = useState("");
@@ -30,7 +29,6 @@ const NewtonRaphsonComponent = (props) => {
   });
   var entries = [];
   console.log(props.isSolved);
-
   useEffect(() => {
     getProblem(id).then((response) => {
       console.log(response.data);
@@ -154,7 +152,7 @@ const NewtonRaphsonComponent = (props) => {
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendNewtonRaphsonData(submissionData).then((response) => {
+      sendDiakritiNewtonRaphsonData(submissionData).then((response) => {
         setResult(response.data);
       });
 
@@ -277,4 +275,4 @@ const NewtonRaphsonComponent = (props) => {
     </>
   );
 };
-export default NewtonRaphsonComponent;
+export default DiakritiNewtonRaphsonComponent;
