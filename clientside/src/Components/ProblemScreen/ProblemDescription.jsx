@@ -21,6 +21,9 @@ const ProblemDescription = () => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        setProblemMethod(response.data.problemType);
+        setProblemDescription(response.data.description);
+        setProblemString(response.data.problemString);
         setProblemType(response.data.problemType);
         setProblemTitle(response.data.title);
         setProblemNumber(response.data.number);
