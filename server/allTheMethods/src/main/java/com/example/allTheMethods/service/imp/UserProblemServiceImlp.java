@@ -60,7 +60,7 @@ public class UserProblemServiceImlp implements UserProblemService {
             List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
             //Need to Add Comments to this function
             //System out for testing purposes i guess i could keep it
-            System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
+            //System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
             for(int i=0;i<usersSolvedProblems.size();i++){
                 if(usersSolvedProblems.get(i).getProblem().getId() == id){
                     flag = true;
