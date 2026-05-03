@@ -43,6 +43,7 @@ const ProblemDescription = () => {
           isSolved={isSolved}
           problemString={problemString}
           problemMethod={problemMethod}
+          problemCategory={problemCategory}
         ></BisectionComponent>
       );
     } else if (problemType === "Regula Falsi") {

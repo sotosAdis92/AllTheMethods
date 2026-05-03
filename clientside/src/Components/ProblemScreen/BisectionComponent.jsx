@@ -13,7 +13,6 @@ import FormInput from "../FormInput";
 const BisectionComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [category, setProblemCategory] = useState("");
   const [iterations, setIterations] = useState("");
   const [problemSpaceA, setProblemSpaceA] = useState("");
   const [problemSpaceB, setProblemSpaceB] = useState("");
@@ -43,7 +42,6 @@ const BisectionComponent = (props) => {
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
-        setProblemCategory(response.data.category);
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +49,7 @@ const BisectionComponent = (props) => {
   }, [id]);
 
   useEffect(() => {
-    getAchievementsByCategory(category)
+    getAchievementsByCategory(props.problemCategory)
       .then((response) => {
         console.log(response.data);
         const fetchedData = [];
@@ -64,7 +62,7 @@ const BisectionComponent = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [category]);
+  }, [props.problemCategory]);
 
   useEffect(() => {
     getUser().then((response) => {
@@ -138,6 +136,7 @@ const BisectionComponent = (props) => {
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
+  let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
@@ -158,7 +157,7 @@ const BisectionComponent = (props) => {
   const savedProblem = {
     userId,
     problemId,
-    category,
+    problemCategory,
   };
 
   const submitBisectionData = () => {
