@@ -32,6 +32,8 @@ const BisectionComponent = (props) => {
   var entries = [];
 
   console.log(props.isSolved);
+
+  //Fetching the problem
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -48,6 +50,7 @@ const BisectionComponent = (props) => {
       });
   }, [id]);
 
+  //Fetching related Achievements
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
       .then((response) => {
@@ -64,17 +67,20 @@ const BisectionComponent = (props) => {
       });
   }, [props.problemCategory]);
 
+  //Fetching the users id
   useEffect(() => {
     getUser().then((response) => {
       setUsersId(response.data.id);
     });
   });
 
+  //Fetching if the problem is solved
   useEffect(() => {
     if (props.isSolved) {
       disableButton();
     }
   });
+
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
     entries.push({
@@ -88,10 +94,12 @@ const BisectionComponent = (props) => {
     });
   }
 
+  //Disable Submission button if the problem is solved
   const disableButton = () => {
     setButtonDisabled(true);
   };
 
+  //Form Validation
   function validateForm() {
     let valid = true;
     if (inp.length != iterations || text === 0) {
@@ -102,6 +110,7 @@ const BisectionComponent = (props) => {
     }
     return valid;
   }
+
   //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
   //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
   //creates a copy and saves it
@@ -128,6 +137,7 @@ const BisectionComponent = (props) => {
     }
   }
 
+  //Setting up the local time objects for the submission
   const d = new Date();
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();

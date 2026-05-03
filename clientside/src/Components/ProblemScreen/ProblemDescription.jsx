@@ -52,6 +52,14 @@ const ProblemDescription = () => {
       return (
         <NewtonRaphsonComponent isSolved={isSolved}></NewtonRaphsonComponent>
       );
+    } else if (problemType === "Diakriti Newton Raphson") {
+      return (
+        <DiakritiNewtonRaphsonComponent
+          isSolved={isSolved}
+        ></DiakritiNewtonRaphsonComponent>
+      );
+    } else if (problemType === "Fixed Point") {
+      return <FixedPointComponent isSolved={isSolved}></FixedPointComponent>;
     }
   };
 
