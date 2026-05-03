@@ -4,6 +4,7 @@ import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
+import NewtonRaphsonComponent from "./NewtonRaphsonComponent";
 import RegulaFalsiComponent from "./RegulaFalsiComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
@@ -46,6 +47,10 @@ const ProblemDescription = () => {
       );
     } else if (problemType === "Regula Falsi") {
       return <RegulaFalsiComponent isSolved={isSolved}></RegulaFalsiComponent>;
+    } else if (problemType === "Newton Raphson") {
+      return (
+        <NewtonRaphsonComponent isSolved={isSolved}></NewtonRaphsonComponent>
+      );
     }
   };
 
