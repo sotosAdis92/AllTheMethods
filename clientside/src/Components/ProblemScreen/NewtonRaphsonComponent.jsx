@@ -35,6 +35,9 @@ const NewtonRaphsonComponent = (props) => {
     getProblem(id).then((response) => {
       console.log(response.data);
       const parsedData = JSON.parse(response.data.problemData);
+      setProblemData(parsedData);
+      setIterations(parsedData.iterations);
+      setProblemXoParameter(parsedData.problemXoParameter);
       console.log(parsedData);
     });
   });
@@ -247,5 +250,31 @@ const NewtonRaphsonComponent = (props) => {
       return;
     }
   };
+
+  return (
+    <>
+      <button
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={() => submitNewtonRaphsonData()}
+      >
+        Submit
+      </button>
+      <div>For: {problemData.iterations} iterations</div>
+      <div>Starting at[{problemData.problemXoParameter}]</div>
+      <form name="inputForm">
+        {entries.map((entry) => (
+          <FormInput
+            key={entry.id}
+            {...entry}
+            value={values[entry.name]}
+            onChange={(e) => handleInput(entry.id, e)}
+          ></FormInput>
+        ))}
+      </form>
+      <span className="generalError">{generalError}</span>
+      <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
+    </>
+  );
 };
 export default NewtonRaphsonComponent;

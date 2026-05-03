@@ -18,3 +18,27 @@ export const sendRegulaFalsiData = async (data) => {
   );
   return response;
 };
+
+export const sendNewtonRaphsonData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/newtonRaphson",
+    data,
+  );
+  return response;
+};
+
+export const sendDiakritiNewtonRaphsonData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/diakritiNewtonRaphson",
+    data,
+  );
+  return response;
+};
+
+export const sendFixedPointData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/fixedPoint",
+    data,
+  );
+  return response;
+};
