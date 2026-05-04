@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
+import { getUser } from "../../services/UsersService";
 const TrapezodialRuleComponent = (props) => {
   const { id } = useParams;
   const [hParameter, setHparameter] = useState("");
@@ -9,6 +10,7 @@ const TrapezodialRuleComponent = (props) => {
   const [integrationPointB, setIntegrationPointB] = useState("");
   const [problemData, setProblemData] = useState("");
   const [achievements, setAchievements] = useState([]);
+  const [userId, setUsersId] = useState(0);
   useEffect(() => {
     getProblem(id).then((response) => {
       const problemDataParsed = JSON.parse(response.data.problemData);
