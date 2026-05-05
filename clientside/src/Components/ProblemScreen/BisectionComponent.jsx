@@ -178,7 +178,10 @@ const BisectionComponent = (props) => {
         console.log(response.data);
       });
       sendSubmissionData(submissionData).then((response) => {
-        setResult(response.data);
+        const resultOfServer = response.data;
+        setResult(resultOfServer);
+        console.log(resultOfServer);
+        console.log(result);
       });
 
       decideResultText(result);
