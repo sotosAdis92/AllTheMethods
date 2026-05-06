@@ -155,7 +155,10 @@ const NewtonRaphsonComponent = (props) => {
         console.log(response.data);
       });
       sendNewtonRaphsonData(submissionData).then((response) => {
-        setResult(response.data);
+        const resultOfServer = response.data;
+        setResult(resultOfServer);
+        console.log(resultOfServer);
+        console.log(result);
       });
 
       decideResultText(result);

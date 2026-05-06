@@ -153,7 +153,10 @@ const FixedPointComponent = (props) => {
         console.log(response.data);
       });
       sendFixedPointData(submissionData).then((response) => {
-        setResult(response.data);
+        const resultOfServer = response.data;
+        setResult(resultOfServer);
+        console.log(resultOfServer);
+        console.log(result);
       });
 
       decideResultText(result);

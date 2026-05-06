@@ -153,7 +153,9 @@ const DiakritiNewtonRaphsonComponent = (props) => {
         console.log(response.data);
       });
       sendDiakritiNewtonRaphsonData(submissionData).then((response) => {
-        setResult(response.data);
+        const resultOfFetch = response.data;
+        setResult(resultOfFetch);
+        console.log(result);
       });
 
       decideResultText(result);
