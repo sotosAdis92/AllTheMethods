@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
-import { saveSubmission } from "../../services/SubmitService";
+import {
+  saveSubmission,
+  sendTrapezodialData,
+} from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
@@ -144,7 +147,7 @@ const TrapezodialRuleComponent = (props) => {
     problemCategory,
   };
 
-  const submitBisectionData = () => {
+  const submitTrapezodialData = () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
@@ -256,7 +259,7 @@ const TrapezodialRuleComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitBisectionData()}
+        onClick={() => submitTrapezodialData()}
       >
         Submit
       </button>
