@@ -12,6 +12,12 @@ const SimpsonComponent = (props) => {
   const [achievements, setAchievements] = useState([]);
   const [userId, setUsersId] = useState(0);
   const [generalError, setGeneralError] = useState("");
+  const [problemId, setProblemId] = useState(0);
+  const [input, setInput] = useState([]);
+  const [inp, setInputI] = useState([]);
+  const [result, setResult] = useState(false);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [resultText, setResultText] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -66,7 +72,7 @@ const SimpsonComponent = (props) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != iterations || text === 0) {
+    if (inp.length != integrationPointB - integrationPointA || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -111,15 +117,15 @@ const SimpsonComponent = (props) => {
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
-
+  const differenceOfIntegration = integrationPointB - integrationPointA;
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
     problemString,
-    iterations,
-    problemSpaceA,
-    problemSpaceB,
+    differenceOfIntegration,
+    integrationPointA,
+    integrationPointB,
   };
 
   const submission = {
