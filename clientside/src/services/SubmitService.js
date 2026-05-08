@@ -50,3 +50,11 @@ export const sendTrapezodialData = async (data) => {
   );
   return response;
 };
+
+export const sendSimposonData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/simposon",
+    data,
+  );
+  return response;
+};
