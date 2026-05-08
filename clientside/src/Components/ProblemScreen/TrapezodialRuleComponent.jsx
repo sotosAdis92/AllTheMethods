@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import { saveSubmission } from "../../services/SubmitService";
+import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 const TrapezodialRuleComponent = (props) => {

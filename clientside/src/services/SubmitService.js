@@ -42,3 +42,11 @@ export const sendFixedPointData = async (data) => {
   );
   return response;
 };
+
+export const sendTrapezodialData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/trapezodialRule",
+    data,
+  );
+  return response;
+};
