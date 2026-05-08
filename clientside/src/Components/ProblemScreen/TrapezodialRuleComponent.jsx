@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
+import { saveSubmission } from "../../services/SubmitService";
+import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 const TrapezodialRuleComponent = (props) => {
   const { id } = useParams;
@@ -12,6 +14,12 @@ const TrapezodialRuleComponent = (props) => {
   const [achievements, setAchievements] = useState([]);
   const [userId, setUsersId] = useState(0);
   const [generalError, setGeneralError] = useState("");
+  const [problemId, setProblemId] = useState(0);
+  const [input, setInput] = useState([]);
+  const [inp, setInputI] = useState([]);
+  const [result, setResult] = useState(false);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [resultText, setResultText] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -66,7 +74,7 @@ const TrapezodialRuleComponent = (props) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != iterations || text === 0) {
+    if (inp.length != integrationPointB - integrationPointA || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -106,6 +114,7 @@ const TrapezodialRuleComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
+  const differenceOfIntegration = integrationPointB - integrationPointA;
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
@@ -117,9 +126,9 @@ const TrapezodialRuleComponent = (props) => {
     inp,
     problemMethod,
     problemString,
-    iterations,
-    problemSpaceA,
-    problemSpaceB,
+    differenceOfIntegration,
+    integrationPointA,
+    integrationPointB,
   };
 
   const submission = {
@@ -141,7 +150,7 @@ const TrapezodialRuleComponent = (props) => {
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendSubmissionData(submissionData).then((response) => {
+      sendTrapezodialData(submissionData).then((response) => {
         const resultOfServer = response.data;
         setResult(resultOfServer);
         console.log(resultOfServer);
