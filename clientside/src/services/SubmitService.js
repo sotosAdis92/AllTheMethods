@@ -58,3 +58,8 @@ export const sendSimposonData = async (data) => {
   );
   return response;
 };
+
+export const sendThreePointDerivativeData = async (data) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  return response;
+};
