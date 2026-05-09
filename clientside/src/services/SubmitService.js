@@ -60,16 +60,25 @@ export const sendSimposonData = async (data) => {
 };
 
 export const sendThreePointDerivativeData = async (data) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/threePointsDer",
+    data,
+  );
   return response;
 };
 
 export const sendFivePointDerivativeData = async (data) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/fivePointsDer",
+    data,
+  );
   return response;
 };
 
 export const sendRichardsonData = async (data) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/richardson",
+    data,
+  );
   return response;
 };
