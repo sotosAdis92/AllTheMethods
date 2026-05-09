@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
+import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
+import { saveUserAchievement } from "../../services/UserAchievementService";
+import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 const SimpsonComponent = (props) => {
   const { id } = useParams;
@@ -147,7 +150,7 @@ const SimpsonComponent = (props) => {
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendSubmissionData(submissionData).then((response) => {
+      sendSimposonData(submissionData).then((response) => {
         const resultOfServer = response.data;
         setResult(resultOfServer);
         console.log(resultOfServer);
