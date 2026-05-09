@@ -63,3 +63,13 @@ export const sendThreePointDerivativeData = async (data) => {
   const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
   return response;
 };
+
+export const sendFivePointDerivativeData = async (data) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  return response;
+};
+
+export const sendRichardsonData = async (data) => {
+  const response = await axiosInstance.post(REST_API_BASE_URL + "/", data);
+  return response;
+};
