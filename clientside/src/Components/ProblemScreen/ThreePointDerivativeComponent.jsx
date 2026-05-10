@@ -71,7 +71,7 @@ const ThreePointDerivativeComponent = (props) => {
   });
 
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < ; i++) {
     entries.push({
       id: i,
       placeholder: `x${i}`,
@@ -91,7 +91,7 @@ const ThreePointDerivativeComponent = (props) => {
   //Form Validation
   function validateForm() {
     let valid = true;
-    if (inp.length != iterations || text === 0) {
+    if (inp.length !=  || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
