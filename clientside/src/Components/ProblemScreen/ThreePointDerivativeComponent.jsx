@@ -23,15 +23,7 @@ const ThreePointDerivativeComponent = (props) => {
   //Fetching the problem
   useEffect(() => {
     getProblem(id)
-      .then((response) => {
-        console.log(id);
-        setProblemId(response.data.problemId);
-        const problemDataConverted = JSON.parse(response.data.problemData);
-        setProblemData(problemDataConverted);
-        setIterations(problemDataConverted.iterations);
-        setProblemSpaceA(problemDataConverted.problemSpaceA);
-        setProblemSpaceB(problemDataConverted.problemSpaceB);
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
