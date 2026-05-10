@@ -6,6 +6,8 @@ import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
 import NewtonRaphsonComponent from "./NewtonRaphsonComponent";
 import RegulaFalsiComponent from "./RegulaFalsiComponent";
+import SimpsonComponent from "./SimpsonComponent";
+import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
@@ -60,6 +62,14 @@ const ProblemDescription = () => {
       );
     } else if (problemType === "Fixed Point") {
       return <FixedPointComponent isSolved={isSolved}></FixedPointComponent>;
+    } else if (problemType === "Trapezodial Rule") {
+      return (
+        <TrapezodialRuleComponent
+          isSolved={isSolved}
+        ></TrapezodialRuleComponent>
+      );
+    } else if (problemType === "Simpson") {
+      return <SimpsonComponent isSolved={isSolved}></SimpsonComponent>;
     }
   };
 
