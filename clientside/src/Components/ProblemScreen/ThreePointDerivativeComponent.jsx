@@ -29,7 +29,7 @@ const ThreePointDerivativeComponent = (props) => {
   });
   var entries = [];
 
-  console.log(props.isSolved);
+
   //Fetching the problem
   useEffect(() => {
     getProblem(id)
