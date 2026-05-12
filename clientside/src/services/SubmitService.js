@@ -82,3 +82,11 @@ export const sendRichardsonData = async (data) => {
   );
   return response;
 };
+
+export const sendRungeKuttaData = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/rungeKutta",
+    data,
+  );
+  return response;
+};
