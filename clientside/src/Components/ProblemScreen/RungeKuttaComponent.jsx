@@ -14,8 +14,6 @@ const RungeKuttaComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
   const [iterations, setIterations] = useState("");
-  const [problemSpaceA, setProblemSpaceA] = useState("");
-  const [problemSpaceB, setProblemSpaceB] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
