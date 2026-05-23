@@ -9,16 +9,16 @@ import com.example.allTheMethods.mapper.SubmissionMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
-import com.example.allTheMethods.service.SubmmisionService;
+import com.example.allTheMethods.service.SubmissionService;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.allTheMethods.mapper.SubmissionMapper;
+
 @Service
-public class SubmissionServiceImpl implements SubmmisionService {
+public class SubmissionServiceImpl implements SubmissionService {
     /* Dependency Injection for SubmissionServiceImpl Class */
     @Autowired
     private SubmissionRepository submissionRepository;

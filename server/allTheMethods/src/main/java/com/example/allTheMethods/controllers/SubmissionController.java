@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/submissions")
 public class SubmissionController {
-    private SubmmisionService submmisionService;
+    private SubmissionService submissionService;
     private SubmissionServiceIntegrals submissionServiceIntegrals;
     private SubmissionServiceDerivatives submissionServiceDerivatives;
     private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
     private SubmissionServiceLinearSystems submissionServiceLinearSystems;
 
-    public SubmissionController(SubmmisionService submmisionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives, SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations) {
-        this.submmisionService = submmisionService;
+    public SubmissionController(SubmissionService submissionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives, SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations) {
+        this.submissionService = submissionService;
         this.submissionServiceIntegrals = submissionServiceIntegrals;
         this.submissionServiceDerivatives = submissionServiceDerivatives;
         this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
@@ -27,42 +27,42 @@ public class SubmissionController {
 
     @PostMapping
     public ResponseEntity<SubmissionDto> createSubmission(@RequestBody SubmissionDto submissionDto){
-        SubmissionDto submission = submmisionService.createSubmission(submissionDto);
+        SubmissionDto submission = submissionService.createSubmission(submissionDto);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
     @PostMapping("/data")
     public boolean checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
         boolean flag;
-        flag =  submmisionService.checkDataBisection(bisectionDataDto);
+        flag =  submissionService.checkDataBisection(bisectionDataDto);
         return flag;
     }
 
     @PostMapping("/regulaFalsi")
     public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
         boolean flag;
-        flag = submmisionService.checkDataRegulaFalsi(regulaFalsiDataDto);
+        flag = submissionService.checkDataRegulaFalsi(regulaFalsiDataDto);
         return flag;
     }
 
     @PostMapping("/newtonRaphson")
     public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
         boolean flag;
-        flag = submmisionService.checkDataNewtonRaphson(newtonRaphsonDataDto);
+        flag = submissionService.checkDataNewtonRaphson(newtonRaphsonDataDto);
         return flag;
     }
 
     @PostMapping("/diakritiNewtonRaphson")
     public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
         boolean flag;
-        flag = submmisionService.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
+        flag = submissionService.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
         return flag;
     }
 
     @PostMapping("/fixedPoint")
     public boolean checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
         boolean flag;
-        flag = submmisionService.checkDataFixedPointMethod(fixedPointDto);
+        flag = submissionService.checkDataFixedPointMethod(fixedPointDto);
         return flag;
     }
 
