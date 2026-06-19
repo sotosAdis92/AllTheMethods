@@ -22,27 +22,6 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
-    @PostMapping("/threePointsDer")
-    public boolean checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkThreePointDerivativeData(threePointDerivativeDto);
-        return flag;
-    }
-
-    @PostMapping("/fivePointsDer")
-    public boolean checkFivePointDerivativeData(@RequestBody FivePointDerivativeDto fivePointDerivativeDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkFivePointDerivativeData(fivePointDerivativeDto);
-        return flag;
-    }
-
-    @PostMapping("/richardson")
-    public boolean checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkRichardsonData(richardsonDataDto);
-        return flag;
-    }
-
     @PostMapping("/rungeKutta")
     public boolean checkRungeKuttaData(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
         boolean flag;
