@@ -22,34 +22,6 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
-    @PostMapping("/rungeKutta")
-    public boolean checkRungeKuttaData(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
-        boolean flag;
-        flag = submissionServiceDifferentialEquations.checkRungeKuttaData(rungeKuttaDataDto);
-        return flag;
-    }
-
-    @PostMapping("/improvedEuler")
-    public boolean checkImprovedEulerData(@RequestBody ImprovedEulerDto improvedEulerDto){
-        boolean flag;
-        flag = submissionServiceDifferentialEquations.checkImprovedEulerData(improvedEulerDto);
-        return flag;
-    }
-
-    @PostMapping("/directEuler")
-    public boolean checkDirectEulerData(@RequestBody DirectEulerDto directEulerDto){
-        boolean flag;
-        flag = submissionServiceDifferentialEquations.checkDirectEulerData(directEulerDto);
-        return flag;
-    }
-
-    @PostMapping("/rungeKuttaN")
-    public boolean checkRungeKuttaNystromData(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
-        boolean flag;
-        flag = submissionServiceDifferentialEquations.checkRungeKuttaNystromData(rungeKuttaNystromDto);
-        return flag;
-    }
-
     @PostMapping("/gerCircles")
     public boolean checkGerschgorinCircleData(@RequestBody GerschgorinCirclesDto gerschgorinCirclesDto){
         boolean flag;

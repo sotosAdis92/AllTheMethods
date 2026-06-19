@@ -4,9 +4,11 @@ import com.example.allTheMethods.dto.FivePointDerivativeDto;
 import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api/submissions/derivatives")
 public class DerivativeSubmissionController {
     private SubmissionServiceDerivatives submissionServiceDerivatives;
     public DerivativeSubmissionController(SubmissionServiceDerivatives submissionServiceDerivatives){
