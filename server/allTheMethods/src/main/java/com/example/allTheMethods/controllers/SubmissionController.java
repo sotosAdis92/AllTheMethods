@@ -22,20 +22,6 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
-    @PostMapping("/trapezodialRule")
-    public boolean checkTrapezodialRuleData(@RequestBody TrapezodialRuleDataDto trapezodialRuleDataDto){
-        boolean flag;
-        flag = submissionServiceIntegrals.checkTrapezodialRuleData(trapezodialRuleDataDto);
-        return flag;
-    }
-
-    @PostMapping("/simpson")
-    public boolean checkSimpsonData(@RequestBody SimpsonDataDto simpsonDataDto){
-        boolean flag;
-        flag = submissionServiceIntegrals.checkSimpsonData(simpsonDataDto);
-        return flag;
-    }
-
     @PostMapping("/threePointsDer")
     public boolean checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
         boolean flag;
