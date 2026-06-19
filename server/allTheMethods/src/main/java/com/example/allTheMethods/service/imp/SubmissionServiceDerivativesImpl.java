@@ -11,6 +11,8 @@ import java.util.List;
 
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
 import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
+import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
+import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
 @Service
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
