@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/submissions/integrals")
 public class IntegralSubmissionController {
-    @Autowired
     private SubmissionServiceIntegrals submissionServiceIntegrals;
     public IntegralSubmissionController(SubmissionServiceIntegrals submissionServiceIntegrals){
         this.submissionServiceIntegrals = submissionServiceIntegrals;
