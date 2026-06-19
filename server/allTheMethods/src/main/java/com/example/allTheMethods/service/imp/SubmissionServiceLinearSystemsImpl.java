@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
+import static com.example.allTheMethods.service.imp.SubmissionServicePolynomialsImpl.CheckIfInputsMatch;
+import static com.example.allTheMethods.service.imp.SubmissionServicePolynomialsImpl.checkExpectedListCount;
 
 @Service
 public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLinearSystems {

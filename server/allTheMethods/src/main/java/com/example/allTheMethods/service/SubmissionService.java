@@ -6,9 +6,4 @@ import com.example.allTheMethods.dto.*;
 
 public interface SubmissionService {
     SubmissionDto createSubmission(SubmissionDto submissionDto);
-    boolean checkDataBisection(BisectionDataDto bisectionDataDto);
-    boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto);
-    boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException;
-    boolean checkDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto);
-    boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto);
 }
