@@ -7,10 +7,8 @@ import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.example.allTheMethods.utils.MethodUtils.*;
 
 public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {

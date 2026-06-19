@@ -8,12 +8,10 @@ import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
+import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
+import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
 @Service
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {

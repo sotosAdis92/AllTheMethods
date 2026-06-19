@@ -5,12 +5,8 @@ import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.CheckIfInputsMatch;
-import static com.example.allTheMethods.service.imp.SubmissionServiceImpl.checkExpectedListCount;
 import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 

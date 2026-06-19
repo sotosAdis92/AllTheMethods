@@ -43,7 +43,7 @@ public class MethodUtils {
     /* This function should take in the number x and the string of the problem, although implementing an AST
     might be a better solution considering that in the future i will have to add partial derivatives
     */
-    public double fprime(double x, String problem) throws TokenizerException {
+    public static double fprime(double x, String problem) throws TokenizerException {
         //Implementation of the symbolic derivative, not the horner method
         //Implementation in the AST library
         //Macking a new Tree for the String to be turned into a tree
@@ -57,7 +57,7 @@ public class MethodUtils {
     /*
      * Diakriti Newton Raphson fprime here, it uses the fprime approximation from the limit instead of the exact fprime
      * */
-    public double DiakritiFprime(double x,double h, String problem){
+    public static double DiakritiFprime(double x,double h, String problem){
         double descreteFprime = 0.0;
         double numerator = 0.0;
         double denominator = 0.0;

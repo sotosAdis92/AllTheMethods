@@ -1,5 +1,4 @@
 package com.example.allTheMethods.service.imp;
-
 import com.example.allTheMethods.dto.RombergDataDto;
 import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
@@ -7,10 +6,10 @@ import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
+import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
+import static com.example.allTheMethods.utils.MethodUtils.fx;
 
-import static com.example.allTheMethods.service.imp.SubmissionServicePolynomialsImpl.fx;
-import static com.example.allTheMethods.service.imp.SubmissionServicePolynomialsImpl.CheckIfInputsMatch;
-import static com.example.allTheMethods.service.imp.SubmissionServicePolynomialsImpl.checkExpectedListCount;
 @Service
 public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
     /*
