@@ -7,10 +7,13 @@ import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import static com.example.allTheMethods.utils.MethodUtils.*;
 
+@Service
 public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {
 
     /*

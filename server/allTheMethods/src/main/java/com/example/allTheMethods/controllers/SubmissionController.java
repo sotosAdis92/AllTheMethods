@@ -12,17 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/submissions")
 public class SubmissionController {
     private SubmissionService submissionService;
-    private SubmissionServiceIntegrals submissionServiceIntegrals;
-    private SubmissionServiceDerivatives submissionServiceDerivatives;
-    private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
-    private SubmissionServiceLinearSystems submissionServiceLinearSystems;
-
-    public SubmissionController(SubmissionService submissionService, SubmissionServiceIntegrals submissionServiceIntegrals, SubmissionServiceDerivatives submissionServiceDerivatives, SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations) {
+    public SubmissionController(SubmissionService submissionService) {
         this.submissionService = submissionService;
-        this.submissionServiceIntegrals = submissionServiceIntegrals;
-        this.submissionServiceDerivatives = submissionServiceDerivatives;
-        this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
-        this.submissionServiceLinearSystems = submissionServiceLinearSystems;
     }
 
     @PostMapping
