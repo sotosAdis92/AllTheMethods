@@ -15,7 +15,6 @@ import static com.example.allTheMethods.utils.MethodUtils.*;
 
 @Service
 public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {
-
     /*
     Method Implementation of Bisection Method, the method takes in a bisectionData object
     and through the bisection method creates its own list of outputs, and compares that list

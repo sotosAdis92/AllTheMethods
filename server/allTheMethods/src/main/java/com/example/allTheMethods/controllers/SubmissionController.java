@@ -22,41 +22,6 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
-    @PostMapping("/data")
-    public boolean checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
-        boolean flag;
-        flag =  submissionService.checkDataBisection(bisectionDataDto);
-        return flag;
-    }
-
-    @PostMapping("/regulaFalsi")
-    public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        boolean flag;
-        flag = submissionService.checkDataRegulaFalsi(regulaFalsiDataDto);
-        return flag;
-    }
-
-    @PostMapping("/newtonRaphson")
-    public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        boolean flag;
-        flag = submissionService.checkDataNewtonRaphson(newtonRaphsonDataDto);
-        return flag;
-    }
-
-    @PostMapping("/diakritiNewtonRaphson")
-    public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        boolean flag;
-        flag = submissionService.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
-        return flag;
-    }
-
-    @PostMapping("/fixedPoint")
-    public boolean checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
-        boolean flag;
-        flag = submissionService.checkDataFixedPointMethod(fixedPointDto);
-        return flag;
-    }
-
     @PostMapping("/trapezodialRule")
     public boolean checkTrapezodialRuleData(@RequestBody TrapezodialRuleDataDto trapezodialRuleDataDto){
         boolean flag;
