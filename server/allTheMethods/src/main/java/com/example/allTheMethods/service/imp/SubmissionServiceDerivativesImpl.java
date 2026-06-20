@@ -35,8 +35,6 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
                 indexOfXoParameter = i;
             }
         }
-        System.out.println(hParameter);
-        System.out.println(indexOfXoParameter);
         if(typeOfDerivative == "fprime"){
             fprime = (-1 * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 1 * f(indexOfXoParameter+1,fiParameters))/(2*hParameter);
             listToCheck.add(fprime);
@@ -76,8 +74,6 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
                 indexOfXoParameter = i;
             }
         }
-        System.out.println(hParameter);
-        System.out.println(indexOfXoParameter);
         if(typeOfDerivative == "fprime"){
             fprime = (1 * f(indexOfXoParameter-2,fiParameters) + (-8) * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 8 * f(indexOfXoParameter+1,fiParameters) + (-1) * f(indexOfXoParameter+2,fiParameters))/(12*hParameter);
             listToCheck.add(fprime);

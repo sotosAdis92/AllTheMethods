@@ -47,7 +47,6 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
                 }
             }
             sumOfColumns[j] = sumOfColumn;
-            System.out.println(sumOfColumns[j]);
             sumOfColumn = 0;
         }
         for(i=0;i<sumOfRows.length;i++){

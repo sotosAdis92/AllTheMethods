@@ -56,8 +56,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
             x = truncateDecimalPlaces(x,decimalPoint); //Turn x into a 3 decimal max double function
             listToCheck.add(x); //add it to the list to check
         }
-        System.out.println(input);
-        System.out.println(listToCheck);
 
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, length, flag); //Function that checks if count is the same as length (valid inputs)
@@ -196,8 +194,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
             x = truncateDecimalPlaces(x,decimalPoint);
             listToCheck.add(x);
             xk = x;
-
-            System.out.println(x);
         }
         countMatchingInputs = CheckIfInputsMatch(inputs,listToCheck,countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,iterations,flag);
