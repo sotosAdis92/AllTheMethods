@@ -73,14 +73,14 @@ const BisectionComponent = (props) => {
     getUser().then((response) => {
       setUsersId(response.data.id);
     });
-  });
+  }, []);
 
   //Fetching if the problem is solved
   useEffect(() => {
     if (props.isSolved) {
       disableButton();
     }
-  });
+  }, [props.isSolved]);
 
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
@@ -187,15 +187,6 @@ const BisectionComponent = (props) => {
     }
   };
 
-  //Callback function to parent to show the image and text
-  const decideToRenderSolved = (result) => {
-    if (result === true) {
-      if (props.onProblemSolved) {
-        props.onProblemSolved();
-      }
-    }
-  };
-
   //Function for deciding what to display when a submission result is returned
   const decideResultText = (result) => {
     if (result === false) {
@@ -204,6 +195,10 @@ const BisectionComponent = (props) => {
       );
     } else {
       setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
+      if (props.onProblemSolved) {
+        props.onProblemSolved();
+        console.log("Callback called successfully");
+      }
     }
   };
 
