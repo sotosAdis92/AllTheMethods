@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/submissions/derivatives")
+@RequestMapping("/api/submissions")
 public class DerivativeSubmissionController {
     private SubmissionServiceDerivatives submissionServiceDerivatives;
     public DerivativeSubmissionController(SubmissionServiceDerivatives submissionServiceDerivatives){

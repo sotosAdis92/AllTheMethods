@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/submissions/polynomials")
+@RequestMapping("/api/submissions")
 public class PolynomialRootsSubmissionsController {
     @Autowired
     private SubmissionServicePolynomials submissionServicePolynomials;

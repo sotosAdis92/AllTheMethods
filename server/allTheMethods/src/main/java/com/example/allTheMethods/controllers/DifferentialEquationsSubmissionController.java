@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/submissions/differential")
+@RequestMapping("/api/submissions")
 public class DifferentialEquationsSubmissionController {
     private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
     public DifferentialEquationsSubmissionController(SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations){

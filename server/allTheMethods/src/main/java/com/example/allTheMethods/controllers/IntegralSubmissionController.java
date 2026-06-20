@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/submissions/integrals")
+@RequestMapping("/api/submissions")
 public class IntegralSubmissionController {
     private SubmissionServiceIntegrals submissionServiceIntegrals;
     public IntegralSubmissionController(SubmissionServiceIntegrals submissionServiceIntegrals){
