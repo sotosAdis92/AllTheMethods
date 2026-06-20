@@ -55,32 +55,18 @@ public class UserProblemServiceImlp implements UserProblemService {
     @Override
     public boolean checkIfUserSolvedAProblem(int id) {
         Users user = jwtUtil.getLoggedInUser();
-        if (user == null) {
-            System.out.println("User is null");
-            return false;
-        }
-
-        System.out.println("Checking if user " + user.getId() + " solved problem " + id);
-
-        List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
-        System.out.println("User has solved " + usersSolvedProblems.size() + " problems");
-
-        // LOG THE ACTUAL PROBLEM IDs (using Long)
-        List<Long> solvedIds = usersSolvedProblems.stream()
-                .map(up -> up.getProblem().getId())
-                .collect(Collectors.toList());
-        System.out.println("SOLVED PROBLEM IDs: " + solvedIds);
-
-        // Compare Long with Long using .equals()
-        for (UserProblem up : usersSolvedProblems) {
-            Long problemId = up.getProblem().getId();
-            if (problemId != null && problemId.equals((long) id)) {
-                System.out.println("MATCH FOUND for problem " + id);
-                return true;
+        boolean flag = false;
+        if(user!=null){
+            List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
+            //Need to Add Comments to this function
+            //System out for testing purposes i guess i could keep it
+            //System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
+            for(int i=0;i<usersSolvedProblems.size();i++){
+                if(usersSolvedProblems.get(i).getProblem().getId().equals((long) id)){
+                    flag = true;
+                }
             }
         }
-
-        System.out.println("No match found for problem " + id);
-        return false;
+        return flag;
     }
 }
