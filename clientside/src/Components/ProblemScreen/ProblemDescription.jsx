@@ -20,6 +20,7 @@ const ProblemDescription = () => {
   const [problemString, setProblemString] = useState("");
   const [problemMethod, setProblemMethod] = useState("");
   const [isSolved, setIsSolved] = useState(false);
+  const [showCheckmark, setShowCheckmark] = useState(false);
   console.log(id);
   useEffect(() => {
     getProblem(id)
@@ -38,6 +39,20 @@ const ProblemDescription = () => {
       });
   }, [id]);
 
+  //Function to callback from children elements when a problem is solved to show the animation for
+  //checkmark and solved text
+  const handleProblemSolved = () => {
+    setIsSolved(true);
+    setShowCheckmark(true);
+    getUserProblemById(id)
+      .then((response) => {
+        setIsSolved(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const renderProblem = (problemType) => {
     if (problemType === "Bisection") {
       return (
@@ -46,6 +61,7 @@ const ProblemDescription = () => {
           problemString={problemString}
           problemMethod={problemMethod}
           problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
         ></BisectionComponent>
       );
     } else if (problemType === "Regula Falsi") {
