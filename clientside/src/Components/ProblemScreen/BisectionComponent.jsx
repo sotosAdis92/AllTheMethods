@@ -284,6 +284,7 @@ const BisectionComponent = (props) => {
         {props.isSolved || result === true ? (
           <div className="checkmark">
             <img src={img}></img>
+            <p>Solved</p>
           </div>
         ) : (
           <div></div>
