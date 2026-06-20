@@ -56,7 +56,7 @@ public class UserProblemServiceImlp implements UserProblemService {
     public boolean checkIfUserSolvedAProblem(int id) {
         Users user = jwtUtil.getLoggedInUser();
         boolean flag = false;
-
+        System.out.println("=== checkIfUserSolvedAProblem CALLED with id: " + id + " ===");
         if (user != null) {
             List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
 
