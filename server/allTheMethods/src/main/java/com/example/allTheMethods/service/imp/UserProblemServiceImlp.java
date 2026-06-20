@@ -62,7 +62,7 @@ public class UserProblemServiceImlp implements UserProblemService {
             //System out for testing purposes i guess i could keep it
             //System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
             for(int i=0;i<usersSolvedProblems.size();i++){
-                if(usersSolvedProblems.get(i).getProblem().getId() == id){
+                if(usersSolvedProblems.get(i).getProblem().getId().equals(id)){
                     flag = true;
                 }
             }
