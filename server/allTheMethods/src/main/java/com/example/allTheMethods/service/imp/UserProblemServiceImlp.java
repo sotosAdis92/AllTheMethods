@@ -56,31 +56,17 @@ public class UserProblemServiceImlp implements UserProblemService {
     public boolean checkIfUserSolvedAProblem(int id) {
         Users user = jwtUtil.getLoggedInUser();
         boolean flag = false;
-        System.out.println("=== checkIfUserSolvedAProblem CALLED with id: " + id + " ===");
-        if (user != null) {
+        if(user!=null){
             List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
-
-            // Log user info
-            System.out.println("Checking if user ID " + user.getId() + " solved problem " + id);
-            System.out.println("Number of solved problems: " + usersSolvedProblems.size());
-
-            // Log each problem ID being checked
-            for (int i = 0; i < usersSolvedProblems.size(); i++) {
-                Long problemId = usersSolvedProblems.get(i).getProblem().getId();
-                System.out.println("Checking problem ID: " + problemId + " against: " + id);
-
-                if (problemId.equals((long) id)) {
+            //Need to Add Comments to this function
+            //System out for testing purposes i guess i could keep it
+            //System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
+            for(int i=0;i<usersSolvedProblems.size();i++){
+                if(usersSolvedProblems.get(i).getProblem().getId().equals((long) id)){
                     flag = true;
-                    System.out.println("Match found!");
-                    break; // Add break for efficiency
                 }
             }
-
-            System.out.println("Result: " + flag);
-        } else {
-            System.out.println("User is null - not logged in");
         }
-
         return flag;
     }
 }
