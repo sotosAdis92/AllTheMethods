@@ -179,13 +179,11 @@ const BisectionComponent = (props) => {
         console.log(response.data);
       });
 
-      await sendSubmissionData(submissionData).then((response) => {
-        const resultOfServer = response.data;
-        setResult(resultOfServer);
-        console.log(resultOfServer);
-        console.log(result);
-      });
+      const response = await sendSubmissionData(submissionData);
+      const result = response.data;
+      console.log(response.data);
 
+      setResult(result);
       decideResultText(result);
       decideToSaveSolvedProblem(result);
       saveAchievementOfUser(result);
