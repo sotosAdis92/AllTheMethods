@@ -62,6 +62,7 @@ const ProblemDescription = () => {
           problemMethod={problemMethod}
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
         ></BisectionComponent>
       );
     } else if (problemType === "Regula Falsi") {
@@ -98,6 +99,12 @@ const ProblemDescription = () => {
         console.log(error);
       });
   }, [id]);
+
+  const handleResultReceived = (result) => {
+    if (result === true) {
+      setShowCheckmark(true);
+    }
+  };
 
   return (
     <>

@@ -181,8 +181,16 @@ const BisectionComponent = (props) => {
       const result = response.data;
       setResult(result);
       decideResultText(result);
+
+      setCallback(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 
