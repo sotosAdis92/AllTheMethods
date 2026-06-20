@@ -21,11 +21,4 @@ public class SubmissionController {
         SubmissionDto submission = submissionService.createSubmission(submissionDto);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
-
-    @PostMapping("/gerCircles")
-    public boolean checkGerschgorinCircleData(@RequestBody GerschgorinCirclesDto gerschgorinCirclesDto){
-        boolean flag;
-        flag = submissionServiceLinearSystems.checkGerschgorinCircleData(gerschgorinCirclesDto);
-        return flag;
-    }
 }
