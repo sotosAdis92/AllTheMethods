@@ -194,7 +194,7 @@ const BisectionComponent = (props) => {
   };
   //Function for deciding what to display when a submission result is returned
   const decideResultText = (result) => {
-    if (result === false || props.isSolved === false) {
+    if (result === false) {
       setResultText(
         "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
       );
