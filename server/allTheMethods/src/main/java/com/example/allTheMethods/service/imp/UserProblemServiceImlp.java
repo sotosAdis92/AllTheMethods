@@ -55,17 +55,22 @@ public class UserProblemServiceImlp implements UserProblemService {
     @Override
     public boolean checkIfUserSolvedAProblem(int id) {
         Users user = jwtUtil.getLoggedInUser();
+        System.out.println("User is null");
         boolean flag = false;
         if(user!=null){
+            System.out.println("Checking if user " + user.getId() + " solved problem " + id);
             List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
+            System.out.println("User has solved " + usersSolvedProblems.size() + " problems");
             //Need to Add Comments to this function
             //System out for testing purposes i guess i could keep it
             //System.out.println(usersSolvedProblems.getFirst().getProblem().getId());
             for(int i=0;i<usersSolvedProblems.size();i++){
                 if(usersSolvedProblems.get(i).getProblem().getId().equals(id)){
+                    System.out.println("Match found for problem " + id);
                     flag = true;
                 }
             }
+            System.out.println("No match found for problem " + id);
         }
         return flag;
     }
