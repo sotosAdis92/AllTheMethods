@@ -7,7 +7,10 @@ export const saveSubmission = async (submission) => {
 };
 
 export const sendSubmissionData = async (data) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL + "/data", data);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/bisection",
+    data,
+  );
   return response;
 };
 
