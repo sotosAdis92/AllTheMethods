@@ -184,6 +184,9 @@ const BisectionComponent = (props) => {
       console.log(response.data);
 
       setResult(result);
+
+      console.log("Result is: " + result);
+      console.log("Is Sovled: " + props.isSolved);
       decideResultText(result);
       decideToSaveSolvedProblem(result);
       saveAchievementOfUser(result);
