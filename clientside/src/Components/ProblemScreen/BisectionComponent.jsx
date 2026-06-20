@@ -203,6 +203,11 @@ const BisectionComponent = (props) => {
     }
   };
 
+  const renderSolvedText = (result) => {
+    if (result === true) {
+      setSolved("Solved");
+    }
+  };
   //Function to save or not to save the problem based on the result that is returned by the server
   const decideToSaveSolvedProblem = (result) => {
     if (result === true) {

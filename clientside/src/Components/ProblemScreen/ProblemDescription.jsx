@@ -81,7 +81,7 @@ const ProblemDescription = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, [id]);
 
   return (
     <>
@@ -96,7 +96,6 @@ const ProblemDescription = () => {
       <div>
         {isSolved ? (
           <div className="checkmark">
-            <p>Solved</p>
             <img src={img}></img>
           </div>
         ) : (
