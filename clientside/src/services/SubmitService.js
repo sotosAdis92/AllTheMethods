@@ -90,3 +90,27 @@ export const sendRungeKuttaData = async (data) => {
   );
   return response;
 };
+
+export const sendImprovedEuler = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/improvedEuler",
+    data,
+  );
+  return response;
+};
+
+export const sendDirectEuler = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/directEuler",
+    data,
+  );
+  return response;
+};
+
+export const sendRungeKuttaNystrom = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/rungeKuttaN",
+    data,
+  );
+  return response;
+};
