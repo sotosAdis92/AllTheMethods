@@ -172,21 +172,13 @@ const BisectionComponent = (props) => {
 
   const submitBisectionData = async () => {
     if (validateForm()) {
-      console.log(submissionData);
-      console.log(submission);
-
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
 
       const response = await sendSubmissionData(submissionData);
       const result = response.data;
-      console.log(response.data);
-
       setResult(result);
-
-      console.log("Result is: " + result);
-      console.log("Is Sovled: " + props.isSolved);
       decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
