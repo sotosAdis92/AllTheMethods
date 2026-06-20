@@ -170,14 +170,16 @@ const BisectionComponent = (props) => {
     problemCategory,
   };
 
-  const submitBisectionData = () => {
+  const submitBisectionData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
-      saveSubmission(submission).then((response) => {
+
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendSubmissionData(submissionData).then((response) => {
+
+      await sendSubmissionData(submissionData).then((response) => {
         const resultOfServer = response.data;
         setResult(resultOfServer);
         console.log(resultOfServer);

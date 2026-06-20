@@ -23,6 +23,8 @@ const RungeKuttaComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [problemSpaceA, setProblemSpaceA] = useState(0);
+  const [problemSpaceB, setProblemSpaceB] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
