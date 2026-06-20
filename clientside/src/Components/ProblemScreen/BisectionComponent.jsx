@@ -181,7 +181,6 @@ const BisectionComponent = (props) => {
       const result = response.data;
       setResult(result);
       decideResultText(result);
-      decideToRenderSolved(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
     }
