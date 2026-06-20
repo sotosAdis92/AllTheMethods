@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import img from "../../assets/check.png";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import {
@@ -180,10 +181,21 @@ const BisectionComponent = (props) => {
       const result = response.data;
       setResult(result);
       decideResultText(result);
+      decideToRenderSolved(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
     }
   };
+
+  //Callback function to parent to show the image and text
+  const decideToRenderSolved = (result) => {
+    if (result === true) {
+      if (props.onProblemSolved) {
+        props.onProblemSolved();
+      }
+    }
+  };
+
   //Function for deciding what to display when a submission result is returned
   const decideResultText = (result) => {
     if (result === false) {
@@ -274,6 +286,15 @@ const BisectionComponent = (props) => {
 
   return (
     <>
+      <div>
+        {props.isSolved ? (
+          <div className="checkmark">
+            <img src={img}></img>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
       <button
         type="button"
         disabled={isButtonDisabled}
