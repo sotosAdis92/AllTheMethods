@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/check.png";
+
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import {
@@ -280,16 +280,6 @@ const BisectionComponent = (props) => {
 
   return (
     <>
-      <div>
-        {props.isSolved || result === true ? (
-          <div className="checkmark">
-            <img src={img}></img>
-            <p>Solved</p>
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </div>
       <button
         type="button"
         disabled={isButtonDisabled}

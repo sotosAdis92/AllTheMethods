@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
@@ -101,6 +101,16 @@ const ProblemDescription = () => {
 
   return (
     <>
+      <div>
+        {isSolved || showCheckmark === true ? (
+          <div className="checkmark">
+            <img src={img}></img>
+            <p>Solved</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
       <div>
         {problemNumber}
         {problemTitle}
