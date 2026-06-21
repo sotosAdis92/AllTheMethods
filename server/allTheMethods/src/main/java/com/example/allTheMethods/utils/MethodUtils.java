@@ -25,12 +25,12 @@ public class MethodUtils {
     }
     //Function that checks if the inputs match the expected numbers based on the problem and counts how many match
     public static int CheckIfInputsMatch(List<Double> inputs, List<Double> listToCheck, int countMatching){
-        double epsilon = 0.0001;
         for(int i=0;i<inputs.size();i++){
-            double differance = Math.abs(inputs.get(i) - listToCheck.get(i));
-            if(Math.abs(differance - 0.005) < epsilon){
+            if(inputs.get(i) - listToCheck.get(i) < 0.001){
+                System.out.println(inputs.get(i) - listToCheck.get(i));
                 countMatching++;
             }
+            System.out.println(countMatching);
         }
         return countMatching;
     }
