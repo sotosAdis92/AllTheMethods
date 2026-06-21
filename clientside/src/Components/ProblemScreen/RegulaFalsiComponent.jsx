@@ -32,20 +32,30 @@ const RegulaFalsiComponent = (props) => {
     entry: "",
   });
   useEffect(() => {
+    console.log("1. useEffect triggered, id:", id);
+
     getProblem(id)
       .then((response) => {
-        console.log(id);
+        console.log("2. THEN block executed"); // This never logs
+        console.log("2. Response:", response);
         setProblemId(response.data.problemId);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
-        console.log(response);
+        console.log("2. Response data:", response.data);
+        console.log("2. aaaaaaaaaaaaaaaaaa");
       })
       .catch((error) => {
-        console.log(error.data);
+        console.log("3. CATCH block executed");
+        console.log("3. Error:", error);
+        console.log("3. Error data:", error.data);
+        console.log("3. Error response:", error.response);
+        console.log("3. Error message:", error.message);
       });
+
+    console.log("4. After getProblem call (synchronous code)");
   }, [id]);
 
   //Fetching data of the achievmenets for the problem
