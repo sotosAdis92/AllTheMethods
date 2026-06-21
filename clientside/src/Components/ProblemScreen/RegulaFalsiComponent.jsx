@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
+import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
@@ -126,15 +127,6 @@ const RegulaFalsiComponent = (props) => {
   };
 
   //Function for deciding what to display when a submission result is returned
-  const decideResultText = (result) => {
-    if (result === false || props.isSolved === false) {
-      setResultText(
-        "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
-      );
-    } else {
-      setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
-    }
-  };
 
   //Function to save or not to save the problem based on the result that is returned by the server
   const decideToSaveSolvedProblem = (result) => {
@@ -229,14 +221,14 @@ const RegulaFalsiComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendRegulaFalsiData(submissionData);
+      const response = await sendRegulaFalsiData(submissionData);
       const result = response.data;
+      console.log(response);
       setResult(result);
-
-      decideResultText(result);
+      await decideResultText(result);
       setCallback(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      await decideToSaveSolvedProblem(result);
+      await saveAchievementOfUser(result);
     }
   };
 
@@ -245,7 +237,6 @@ const RegulaFalsiComponent = (props) => {
       props.onResultReceived(result);
     }
   };
-
   //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
   //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
   //creates a copy and saves it

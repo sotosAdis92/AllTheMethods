@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
+import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+
 const SimpsonComponent = (props) => {
   const { id } = useParams;
   const [hParameter, setHparameter] = useState("");
@@ -160,16 +162,6 @@ const SimpsonComponent = (props) => {
       decideResultText(result);
       decideToSaveSolvedProblem(result);
       saveAchievementOfUser(result);
-    }
-  };
-  //Function for deciding what to display when a submission result is returned
-  const decideResultText = (result) => {
-    if (result === false || props.isSolved === false) {
-      setResultText(
-        "Wrong Inputs For the Specific Problem, Problem Remains Unsolved",
-      );
-    } else {
-      setResultText("Correct Inputs for the Specific Problem!!!! Well Done!");
     }
   };
 
