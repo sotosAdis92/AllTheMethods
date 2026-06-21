@@ -11,15 +11,10 @@ import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
-  const [problemName, setProblemName] = useState("");
   const [problemSpaceA, setProblemSpaceA] = useState(0);
   const [problemSpaceB, setProblemSpaceB] = useState(0);
   const [iterations, setIterations] = useState(0);
-  const [problemDescription, setProblemDescription] = useState("");
   const [achievements, setAchievements] = useState([]);
-  const [problemString, setProblemString] = useState("");
-  const [problemMethod, setProblemMethod] = useState("");
-  const [problemCategory, setProblemCategory] = useState("");
   const [problemData, setProblemData] = useState("");
   const [userId, setUserId] = useState(0);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -38,27 +33,21 @@ const RegulaFalsiComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        console.log(response.data);
-        setProblemId(response.data.id);
-        setProblemName(response.data.name);
-        setProblemMethod(response.data.problemType);
-        setProblemCategory(response.data.category);
-        setProblemDescription(response.data.description);
-        setProblemString(response.data.problemString);
-        const parsedData = JSON.parse(response.data.problemData);
-        setProblemData(parsedData);
-        setProblemSpaceA(parsedData.problemSpaceA);
-        setProblemSpaceB(parsedData.problemSpaceB);
-        setIterations(parsedData.iterations);
-        console.log(iterations);
+        console.log(id);
+        setProblemId(response.data.problemId);
+        const problemDataConverted = JSON.parse(response.data.problemData);
+        setProblemData(problemDataConverted);
+        setIterations(problemDataConverted.iterations);
+        setProblemSpaceA(problemDataConverted.problemSpaceA);
+        setProblemSpaceB(problemDataConverted.problemSpaceB);
       })
       .catch((error) => {
         console.log(error.data);
       });
-  });
+  }, [id]);
   //Fetching data
   useEffect(() => {
-    getAchievementsByCategory(problemCategory)
+    getAchievementsByCategory(props.problemCategory)
       .then((response) => {
         console.log(response.data);
         const fetchedData = [];
@@ -71,7 +60,7 @@ const RegulaFalsiComponent = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [problemCategory]);
+  }, [props.problemCategory]);
 
   useEffect(() => {
     getUser().then((response) => {
@@ -105,7 +94,10 @@ const RegulaFalsiComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
-
+  //Props passed in from parrent element
+  let problemMethod = props.problemMethod;
+  let problemString = props.problemString;
+  let problemCategory = props.problemCategory;
   const submissionData = {
     inp,
     problemMethod,
@@ -273,9 +265,6 @@ const RegulaFalsiComponent = (props) => {
       >
         Submit
       </button>
-      <div>
-        {problemDescription} {problemString} with the {problemMethod} Method
-      </div>
       <div>For: {problemData.iterations} iterations</div>
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
