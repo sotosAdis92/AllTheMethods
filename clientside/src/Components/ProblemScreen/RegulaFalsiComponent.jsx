@@ -9,6 +9,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
   const [problemSpaceA, setProblemSpaceA] = useState(0);
@@ -46,7 +47,8 @@ const RegulaFalsiComponent = (props) => {
         console.log(error.data);
       });
   }, [id]);
-  //Fetching data
+
+  //Fetching data of the achievmenets for the problem
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
       .then((response) => {
