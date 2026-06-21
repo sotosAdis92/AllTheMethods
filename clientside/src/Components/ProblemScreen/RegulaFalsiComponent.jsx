@@ -102,6 +102,8 @@ const RegulaFalsiComponent = (props) => {
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
+
+  //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
@@ -113,12 +115,12 @@ const RegulaFalsiComponent = (props) => {
 
   const submission = {
     problemId,
-    usersId,
+    userId,
     submittedAt,
   };
 
   const savedProblem = {
-    usersId,
+    userId,
     problemId,
     problemCategory,
   };
