@@ -222,19 +222,25 @@ const RegulaFalsiComponent = (props) => {
     return valid;
   }
 
-  const submitRegulaFalsiData = () => {
+  const submitRegulaFalsiData = async () => {
     if (validateForm()) {
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendRegulaFalsiData(submissionData).then((response) => {
-        const resultOfServer = response.data;
-        setResult(resultOfServer);
-      });
+      const response = sendRegulaFalsiData(submissionData);
+      const result = response.data;
+      setResult(result);
 
       decideResultText(result);
+      setCallback(result);
       decideToSaveSolvedProblem(result);
       saveAchievementOfUser(result);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 
