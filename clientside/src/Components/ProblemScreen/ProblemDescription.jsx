@@ -66,7 +66,16 @@ const ProblemDescription = () => {
         ></BisectionComponent>
       );
     } else if (problemType === "Regula Falsi") {
-      return <RegulaFalsiComponent isSolved={isSolved}></RegulaFalsiComponent>;
+      return (
+        <RegulaFalsiComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></RegulaFalsiComponent>
+      );
     } else if (problemType === "Newton Raphson") {
       return (
         <NewtonRaphsonComponent isSolved={isSolved}></NewtonRaphsonComponent>

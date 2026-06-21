@@ -35,7 +35,6 @@ const RegulaFalsiComponent = (props) => {
   const [values, setValues] = useState({
     entry: "",
   });
-  console.log(props.isSolved);
   useEffect(() => {
     getProblem(id)
       .then((response) => {
@@ -51,10 +50,6 @@ const RegulaFalsiComponent = (props) => {
         setProblemSpaceA(parsedData.problemSpaceA);
         setProblemSpaceB(parsedData.problemSpaceB);
         setIterations(parsedData.iterations);
-        console.log(problemName);
-        console.log(problemMethod);
-        console.log(problemData);
-        console.log(problemCategory);
       })
       .catch((error) => {
         console.log(error.data);
@@ -232,16 +227,12 @@ const RegulaFalsiComponent = (props) => {
 
   const submitRegulaFalsiData = () => {
     if (validateForm()) {
-      console.log(submissionData);
-      console.log(submission);
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
       sendRegulaFalsiData(submissionData).then((response) => {
         const resultOfServer = response.data;
         setResult(resultOfServer);
-        console.log(resultOfServer);
-        console.log(result);
       });
 
       decideResultText(result);
@@ -267,10 +258,6 @@ const RegulaFalsiComponent = (props) => {
     const inp = input.map((num) => num[1]);
     setInput([...input]);
     setInputI(inp);
-
-    console.log(input);
-    console.log(inp);
-
     if (inp.length >= 1) {
       setGeneralError("");
     }
