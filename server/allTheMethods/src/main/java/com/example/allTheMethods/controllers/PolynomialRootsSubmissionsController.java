@@ -18,37 +18,27 @@ public class PolynomialRootsSubmissionsController {
 
     @PostMapping("/bisection")
     public boolean checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
-        boolean flag;
-        flag =  submissionServicePolynomials.checkDataBisection(bisectionDataDto);
-        return flag;
+        return submissionServicePolynomials.checkDataBisection(bisectionDataDto);
     }
 
     @PostMapping("/regulaFalsi")
     public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        boolean flag;
-        flag = submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto);
-        return flag;
+        return submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto);
     }
 
     @PostMapping("/newtonRaphson")
     public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        boolean flag;
-        flag = submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto);
-        return flag;
+        return submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
     public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        boolean flag;
-        flag = submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
-        return flag;
+        return submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
     }
 
     @PostMapping("/fixedPoint")
     public boolean checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
-        boolean flag;
-        flag = submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto);
-        return flag;
+        return submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto);
     }
 
 }
