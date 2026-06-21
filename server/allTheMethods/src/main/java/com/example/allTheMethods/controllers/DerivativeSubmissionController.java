@@ -4,6 +4,8 @@ import com.example.allTheMethods.dto.FivePointDerivativeDto;
 import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
@@ -16,23 +18,17 @@ public class DerivativeSubmissionController {
     }
 
     @PostMapping("/threePointsDer")
-    public boolean checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkThreePointDerivativeData(threePointDerivativeDto);
-        return flag;
+    public ResponseEntity<?> checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
+        return new ResponseEntity<>(submissionServiceDerivatives.checkThreePointDerivativeData(threePointDerivativeDto), HttpStatus.OK);
     }
 
     @PostMapping("/fivePointsDer")
-    public boolean checkFivePointDerivativeData(@RequestBody FivePointDerivativeDto fivePointDerivativeDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkFivePointDerivativeData(fivePointDerivativeDto);
-        return flag;
+    public ResponseEntity<?> checkFivePointDerivativeData(@RequestBody FivePointDerivativeDto fivePointDerivativeDto){
+        return new ResponseEntity<>(submissionServiceDerivatives.checkFivePointDerivativeData(fivePointDerivativeDto), HttpStatus.OK);
     }
 
     @PostMapping("/richardson")
-    public boolean checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
-        boolean flag;
-        flag = submissionServiceDerivatives.checkRichardsonData(richardsonDataDto);
-        return flag;
+    public ResponseEntity<?> checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
+        return new ResponseEntity<>(submissionServiceDerivatives.checkRichardsonData(richardsonDataDto), HttpStatus.OK);
     }
 }
