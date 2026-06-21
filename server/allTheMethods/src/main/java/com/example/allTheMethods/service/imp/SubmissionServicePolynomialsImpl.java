@@ -100,7 +100,10 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
             }
             x = truncateDecimalPlaces(x,decimalPoint);
             listToCheck.add(x);
+            System.out.println(x);
+            System.out.println(input);
         }
+
 
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, length, flag); //Function that checks if count is the same as length (valid inputs)
