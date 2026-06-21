@@ -21,27 +21,27 @@ public class PolynomialRootsSubmissionsController {
 
     @PostMapping("/bisection")
     public ResponseEntity<?> checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataBisection(bisectionDataDto), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataBisection(bisectionDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/regulaFalsi")
     public ResponseEntity<?> checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/newtonRaphson")
     public ResponseEntity<?> checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
     public ResponseEntity<?> chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.OK);
     }
 
     @PostMapping("/fixedPoint")
     public ResponseEntity<?> checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto), HttpStatus.OK);
     }
 
 }
