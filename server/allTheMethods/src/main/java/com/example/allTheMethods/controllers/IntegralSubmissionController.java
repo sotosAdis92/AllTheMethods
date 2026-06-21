@@ -5,6 +5,8 @@ import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
@@ -17,17 +19,15 @@ public class IntegralSubmissionController {
     }
 
     @PostMapping("/trapezodialRule")
-    public boolean checkTrapezodialRuleData(@RequestBody TrapezodialRuleDataDto trapezodialRuleDataDto){
-        boolean flag;
-        flag = submissionServiceIntegrals.checkTrapezodialRuleData(trapezodialRuleDataDto);
-        return flag;
+    public ResponseEntity<?> checkTrapezodialRuleData(@RequestBody TrapezodialRuleDataDto trapezodialRuleDataDto){
+        return new ResponseEntity<>(submissionServiceIntegrals.checkTrapezodialRuleData(trapezodialRuleDataDto), HttpStatus.OK);
+
     }
 
     @PostMapping("/simpson")
-    public boolean checkSimpsonData(@RequestBody SimpsonDataDto simpsonDataDto){
-        boolean flag;
-        flag = submissionServiceIntegrals.checkSimpsonData(simpsonDataDto);
-        return flag;
+    public ResponseEntity<?> checkSimpsonData(@RequestBody SimpsonDataDto simpsonDataDto){
+        return new ResponseEntity<>(submissionServiceIntegrals.checkSimpsonData(simpsonDataDto), HttpStatus.OK);
+
     }
 
 }
