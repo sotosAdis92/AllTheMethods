@@ -1,4 +1,4 @@
-import useState, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
@@ -40,6 +40,7 @@ const RegulaFalsiComponent = (props) => {
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error.data);
