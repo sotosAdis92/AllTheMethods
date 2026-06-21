@@ -4,6 +4,9 @@ import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
@@ -17,28 +20,28 @@ public class PolynomialRootsSubmissionsController {
     }
 
     @PostMapping("/bisection")
-    public boolean checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
-        return submissionServicePolynomials.checkDataBisection(bisectionDataDto);
+    public ResponseEntity<?> checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataBisection(bisectionDataDto), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/regulaFalsi")
-    public boolean checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        return submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto);
+    public ResponseEntity<?> checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/newtonRaphson")
-    public boolean checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        return submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto);
+    public ResponseEntity<?> checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
-    public boolean chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        return submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto);
+    public ResponseEntity<?> chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/fixedPoint")
-    public boolean checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
-        return submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto);
+    public ResponseEntity<?> checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
+        return new ResponseEntity<>(submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto), HttpStatus.ACCEPTED);
     }
 
 }
