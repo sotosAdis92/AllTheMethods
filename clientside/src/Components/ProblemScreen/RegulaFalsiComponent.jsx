@@ -50,6 +50,7 @@ const RegulaFalsiComponent = (props) => {
         setProblemSpaceA(parsedData.problemSpaceA);
         setProblemSpaceB(parsedData.problemSpaceB);
         setIterations(parsedData.iterations);
+        console.log(iterations);
       })
       .catch((error) => {
         console.log(error.data);
