@@ -9,6 +9,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
@@ -41,8 +42,7 @@ const RegulaFalsiComponent = (props) => {
         setIterations(problemDataConverted.iterations);
         setProblemSpaceA(problemDataConverted.problemSpaceA);
         setProblemSpaceB(problemDataConverted.problemSpaceB);
-        console.log(response.data);
-        console.log("aaaaaaaaaaaaaaaaaa");
+        console.log(response);
       })
       .catch((error) => {
         console.log(error.data);

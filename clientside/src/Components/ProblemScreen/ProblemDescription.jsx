@@ -65,7 +65,7 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
         ></BisectionComponent>
       );
-    } else if (problemType === "Regula Falsi") {
+    } else if (problemType === "Regula-Falsi") {
       return (
         <RegulaFalsiComponent
           isSolved={isSolved}
