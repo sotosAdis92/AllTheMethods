@@ -120,7 +120,7 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
         ></TrapezodialRuleComponent>
       );
-    } else if (problemType === "Simpson") {
+    } else if (problemType === "Simpson-Rule") {
       return (
         <SimpsonComponent
           isSolved={isSolved}
@@ -131,6 +131,14 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
         ></SimpsonComponent>
       );
+    } else if (problemType === "Three-Point-Derivative") {
+    } else if (problemType === "Five-Point-Derivative") {
+    } else if (problemType === "Richardson") {
+    } else if (problemType === "Runge-Kutta") {
+    } else if (problemType === "Runge-Kutta-Nystrom") {
+    } else if (problemType === "Improved-Euler") {
+    } else if (problemType === "Direct-Euler") {
+    } else if (problemType === "Gerschgorin-Circles") {
     }
   };
 
