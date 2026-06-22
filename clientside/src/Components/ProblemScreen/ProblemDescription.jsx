@@ -76,26 +76,61 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
         ></RegulaFalsiComponent>
       );
-    } else if (problemType === "Newton Raphson") {
+    } else if (problemType === "Newton-Raphson") {
       return (
-        <NewtonRaphsonComponent isSolved={isSolved}></NewtonRaphsonComponent>
+        <NewtonRaphsonComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></NewtonRaphsonComponent>
       );
-    } else if (problemType === "Diakriti Newton Raphson") {
+    } else if (problemType === "Diakriti-Newton-Raphson") {
       return (
         <DiakritiNewtonRaphsonComponent
           isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
         ></DiakritiNewtonRaphsonComponent>
       );
-    } else if (problemType === "Fixed Point") {
-      return <FixedPointComponent isSolved={isSolved}></FixedPointComponent>;
-    } else if (problemType === "Trapezodial Rule") {
+    } else if (problemType === "Fixed-Point") {
+      return (
+        <FixedPointComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></FixedPointComponent>
+      );
+    } else if (problemType === "Trapezodial-Rule") {
       return (
         <TrapezodialRuleComponent
           isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
         ></TrapezodialRuleComponent>
       );
     } else if (problemType === "Simpson") {
-      return <SimpsonComponent isSolved={isSolved}></SimpsonComponent>;
+      return (
+        <SimpsonComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></SimpsonComponent>
+      );
     }
   };
 
