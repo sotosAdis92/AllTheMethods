@@ -3,10 +3,7 @@ import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
-import {
-  saveSubmission,
-  sendDiakritiNewtonRaphsonData,
-} from "../../services/SubmitService";
+import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
@@ -147,22 +144,19 @@ const DirectEulerComponent = (props) => {
     problemCategory,
   };
 
-  const submitNewtonRaphsonData = () => {
+  const submitDirectEulerData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendDiakritiNewtonRaphsonData(submissionData).then((response) => {
-        const resultOfFetch = response.data;
-        setResult(resultOfFetch);
-        console.log(result);
-      });
-
-      decideResultText(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      const response = sendDirectEuler(submissionData);
+      const resultOfFetch = response.data;
+      await setResult(resultOfFetch);
+      await decideResultText(result);
+      await decideToSaveSolvedProblem(result);
+      await saveAchievementOfUser(result);
     }
   };
 
@@ -248,7 +242,7 @@ const DirectEulerComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitNewtonRaphsonData()}
+        onClick={() => submitDirectEulerData()}
       >
         Submit
       </button>

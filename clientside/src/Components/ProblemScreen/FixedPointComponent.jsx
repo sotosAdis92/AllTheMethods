@@ -147,7 +147,7 @@ const FixedPointComponent = (props) => {
     problemCategory,
   };
 
-  const submitNewtonRaphsonData = async () => {
+  const submitFixedPointData = async () => {
     if (validateForm()) {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
@@ -243,7 +243,7 @@ const FixedPointComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitNewtonRaphsonData()}
+        onClick={() => submitFixedPointData()}
       >
         Submit
       </button>
