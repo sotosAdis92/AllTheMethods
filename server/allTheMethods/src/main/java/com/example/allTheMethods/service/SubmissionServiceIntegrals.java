@@ -9,5 +9,4 @@ import org.springframework.stereotype.Service;
 public interface SubmissionServiceIntegrals {
     boolean checkTrapezodialRuleData(TrapezodialRuleDataDto trapezodialRuleDataDto);
     boolean checkSimpsonData(SimpsonDataDto simpsonDataDto);
-    boolean checkRombergData(RombergDataDto rombergDataDto);
 }

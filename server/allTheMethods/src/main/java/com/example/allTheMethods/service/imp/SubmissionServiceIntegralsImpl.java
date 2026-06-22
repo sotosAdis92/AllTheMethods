@@ -101,29 +101,4 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         return flag;
     }
-
-
-    /*
-    Method Implementation of Romberg Integration Method, the method takes in a Romberg object
-    and through the Romberg Integration Method creates its own list of outputs, and compares that list
-    with the list of inputs from the user, if the list matches within 3 significant digits of
-    the correct answer, for all the numbers entered by the client, then it returns true.
-    */
-    @Override
-    public boolean checkRombergData(RombergDataDto rombergDataDto) {
-        boolean flag = false;
-        int countMatchingInputs=0;
-
-        List<Double> userInputs = rombergDataDto.getInp();
-        List<Double> generatedList = new ArrayList<>();
-        double[][] inputs = new double[userInputs.size()][userInputs.size()];
-
-        int i = 0;
-        int j = 0;
-
-
-        countMatchingInputs = CheckIfInputsMatch(userInputs, generatedList, countMatchingInputs);
-        flag = checkExpectedListCount(countMatchingInputs,generatedList.size(),flag);
-        return flag;
-    }
 }
