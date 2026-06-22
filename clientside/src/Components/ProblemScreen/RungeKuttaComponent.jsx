@@ -172,23 +172,19 @@ const RungeKuttaComponent = (props) => {
     problemCategory,
   };
 
-  const submitBisectionData = () => {
+  const submitBisectionData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendRungeKuttaData(submissionData).then((response) => {
-        const resultOfServer = response.data;
-        setResult(resultOfServer);
-        console.log(resultOfServer);
-        console.log(result);
-      });
-
-      decideResultText(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      const response = sendRungeKuttaData(submissionData);
+      const resultOfServer = response.data;
+      setResult(resultOfServer);
+      await decideResultText(result);
+      await decideToSaveSolvedProblem(result);
+      await saveAchievementOfUser(result);
     }
   };
 
