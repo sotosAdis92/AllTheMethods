@@ -90,8 +90,7 @@ export const problemObjectsConfig = {
       hparameter: state.hparameter,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: ${state.iterations} iterations`,
-      labelSpace: `In the space [${state.problemSpaceA},${state.problemSpaceB}]`,
+      labelSpace: `In the space [${state.integrationPointA},${state.integrationPointB}]`,
     }),
   },
 
