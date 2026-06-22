@@ -148,23 +148,17 @@ const NewtonRaphsonComponent = (props) => {
     problemCategory,
   };
 
-  const submitNewtonRaphsonData = () => {
+  const submitNewtonRaphsonData = async () => {
     if (validateForm()) {
-      console.log(submissionData);
-      console.log(submission);
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendNewtonRaphsonData(submissionData).then((response) => {
-        const resultOfServer = response.data;
-        setResult(resultOfServer);
-        console.log(resultOfServer);
-        console.log(result);
-      });
-
-      decideResultText(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      const response = sendNewtonRaphsonData(submissionData);
+      const resultOfServer = response.data;
+      setResult(resultOfServer);
+      await decideResultText(result);
+      await decideToSaveSolvedProblem(result);
+      await saveAchievementOfUser(result);
     }
   };
 
