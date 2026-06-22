@@ -4,6 +4,7 @@ import {
   sendRegulaFalsiData,
   sendSimposonData,
   sendSubmissionData,
+  sendThreePointDerivativeData,
   sendTrapezodialData,
 } from "./SubmitService";
 
@@ -84,8 +85,8 @@ export const problemObjectsConfig = {
       problemMethod: props.problemMethod,
       problemString: props.problemString,
       iterations: state.iterations,
-      problemSpaceA: state.problemSpaceA,
-      problemSpaceB: state.problemSpaceB,
+      integrationPointA: state.integrationPointA,
+      integrationPointB: state.integrationPointB,
     }),
     displayStats: (state) => ({
       labelIterations: `For: $(state.iterations) iterations`,
@@ -111,8 +112,8 @@ export const problemObjectsConfig = {
   },
 
   "Three-Point-Derivative": {
-    type: "Polynomial-Roots",
-    submitFunction: (data) => sendSubmissionData(data),
+    type: "Derivative",
+    submitFunction: (data) => sendThreePointDerivativeData(data),
     getSubmissionData: (state, props) => ({
       inp: state.inp,
       problemMethod: props.problemMethod,
