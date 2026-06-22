@@ -4,9 +4,16 @@ import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
 import BisectionComponent from "./BisectionComponent";
+import DirectEulerComponent from "./DirectEulerComponent";
+import FivePointDerivativeComponent from "./FivePointDerivativeComponent";
+import ImprovedEulerComponent from "./ImprovedEulerComponent";
 import NewtonRaphsonComponent from "./NewtonRaphsonComponent";
 import RegulaFalsiComponent from "./RegulaFalsiComponent";
+import RichardsonComponent from "./RichardsonComponent";
+import RungeKuttaComponent from "./RungeKuttaComponent";
+import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
+import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
 const ProblemDescription = () => {
   const { id } = useParams();
@@ -132,13 +139,19 @@ const ProblemDescription = () => {
         ></SimpsonComponent>
       );
     } else if (problemType === "Three-Point-Derivative") {
+      <ThreePointDerivativeComponent></ThreePointDerivativeComponent>;
     } else if (problemType === "Five-Point-Derivative") {
+      <FivePointDerivativeComponent></FivePointDerivativeComponent>;
     } else if (problemType === "Richardson") {
+      <RichardsonComponent></RichardsonComponent>;
     } else if (problemType === "Runge-Kutta") {
+      <RungeKuttaComponent></RungeKuttaComponent>;
     } else if (problemType === "Runge-Kutta-Nystrom") {
+      <RungeKuttaNystromComponent></RungeKuttaNystromComponent>;
     } else if (problemType === "Improved-Euler") {
+      <ImprovedEulerComponent></ImprovedEulerComponent>;
     } else if (problemType === "Direct-Euler") {
-    } else if (problemType === "Gerschgorin-Circles") {
+      <DirectEulerComponent></DirectEulerComponent>;
     }
   };
 
