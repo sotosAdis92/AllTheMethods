@@ -15,10 +15,10 @@ import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
 import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
+
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
-
   const [problemTitle, setProblemTitle] = useState("");
   const [problemNumber, setProblemNumber] = useState("");
   const [problemDifficulty, setProblemDifficulty] = useState("");
@@ -28,7 +28,7 @@ const ProblemDescription = () => {
   const [problemMethod, setProblemMethod] = useState("");
   const [isSolved, setIsSolved] = useState(false);
   const [showCheckmark, setShowCheckmark] = useState(false);
-  console.log(id);
+
   useEffect(() => {
     getProblem(id)
       .then((response) => {
