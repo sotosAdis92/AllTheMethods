@@ -147,22 +147,17 @@ const DirectEulerComponent = (props) => {
     problemCategory,
   };
 
-  const submitImprovedEulerData = () => {
+  const submitImprovedEulerData = async () => {
     if (validateForm()) {
-      console.log(submissionData);
-      console.log(submission);
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendImprovedEuler(submissionData).then((response) => {
-        const resultOfFetch = response.data;
-        setResult(resultOfFetch);
-        console.log(result);
-      });
-
-      decideResultText(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      const response = sendImprovedEuler(submissionData);
+      const resultOfFetch = response.data;
+      setResult(resultOfFetch);
+      await decideResultText(result);
+      await decideToSaveSolvedProblem(result);
+      await saveAchievementOfUser(result);
     }
   };
 

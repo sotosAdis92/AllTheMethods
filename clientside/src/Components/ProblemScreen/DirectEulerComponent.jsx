@@ -153,7 +153,7 @@ const DirectEulerComponent = (props) => {
       });
       const response = sendDirectEuler(submissionData);
       const resultOfFetch = response.data;
-      await setResult(resultOfFetch);
+      setResult(resultOfFetch);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
