@@ -103,8 +103,9 @@ export const problemObjectsConfig = {
       problemMethod: props.problemMethod,
       problemString: props.problemString,
       iterations: state.iterations,
-      problemSpaceA: state.problemSpaceA,
-      problemSpaceB: state.problemSpaceB,
+      integrationPointA: state.integrationPointA,
+      integrationPointB: state.integrationPointB,
+      hparameter: state.hparameter,
     }),
     displayStats: (state) => ({
       labelIterations: `For: $(state.iterations) iterations`,
