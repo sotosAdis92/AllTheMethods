@@ -21,7 +21,7 @@ export const problemObjectsConfig = {
       problemSpaceB: state.problemSpaceB,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: $(state.iterations) iterations`,
+      labelIterations: `For: ${state.iterations} iterations`,
       labelSpace: `In the space [${state.problemSpaceA},${state.problemSpaceB}]`,
     }),
   },
@@ -38,7 +38,7 @@ export const problemObjectsConfig = {
       problemSpaceB: state.problemSpaceB,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: $(state.iterations) iterations`,
+      labelIterations: `For: ${state.iterations} iterations`,
       labelSpace: `In the space [${state.problemSpaceA},${state.problemSpaceB}]`,
     }),
   },
@@ -54,7 +54,7 @@ export const problemObjectsConfig = {
       xZero: state.xo,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: $(state.iterations) iterations`,
+      labelIterations: `For: ${state.iterations} iterations`,
       labelXo: `With an Xo=${state.xZero}`,
     }),
   },
@@ -71,7 +71,7 @@ export const problemObjectsConfig = {
       hparameter: state.hparameter,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: $(state.iterations) iterations`,
+      labelIterations: `For: ${state.iterations} iterations`,
       labelXo: `With an Xo=${state.xZero}`,
       labelHparameter: `With an H=${state.hparameter}`,
     }),
@@ -87,9 +87,10 @@ export const problemObjectsConfig = {
       iterations: state.iterations,
       integrationPointA: state.integrationPointA,
       integrationPointB: state.integrationPointB,
+      hparameter: state.hparameter,
     }),
     displayStats: (state) => ({
-      labelIterations: `For: $(state.iterations) iterations`,
+      labelIterations: `For: ${state.iterations} iterations`,
       labelSpace: `In the space [${state.problemSpaceA},${state.problemSpaceB}]`,
     }),
   },
