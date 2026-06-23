@@ -32,14 +32,12 @@ const DirectEulerComponent = (props) => {
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id).then((response) => {
-      console.log(response.data);
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
       setProblemHparameter(parsedData.hparameter);
       setProblemYoParameter(parsedData.yZero);
       setProblemXoParameter(parsedData.xZero);
-      console.log(parsedData);
     });
   });
 

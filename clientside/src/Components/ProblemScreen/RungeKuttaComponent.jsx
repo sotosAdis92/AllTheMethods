@@ -25,8 +25,9 @@ const RungeKuttaComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [problemSpaceA, setProblemSpaceA] = useState(0);
-  const [problemSpaceB, setProblemSpaceB] = useState(0);
+  const [xZero, setProblemXoParameter] = useState(0);
+  const [hparameter, setProblemHparameter] = useState(0);
+  const [yZero, setProblemYoParameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -39,13 +40,13 @@ const RungeKuttaComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        console.log(id);
         setProblemId(response.data.problemId);
-        const problemDataConverted = JSON.parse(response.data.problemData);
-        setProblemData(problemDataConverted);
-        setIterations(problemDataConverted.iterations);
-        setProblemSpaceA(problemDataConverted.problemSpaceA);
-        setProblemSpaceB(problemDataConverted.problemSpaceB);
+        const parsedData = JSON.parse(response.data.problemData);
+        setProblemData(parsedData);
+        setIterations(parsedData.iterations);
+        setProblemHparameter(parsedData.hparameter);
+        setProblemYoParameter(parsedData.yZero);
+        setProblemXoParameter(parsedData.xZero);
       })
       .catch((error) => {
         console.log(error);
@@ -156,8 +157,9 @@ const RungeKuttaComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemSpaceA,
-    problemSpaceB,
+    hparameter,
+    xZero,
+    yZero,
   };
 
   const submission = {

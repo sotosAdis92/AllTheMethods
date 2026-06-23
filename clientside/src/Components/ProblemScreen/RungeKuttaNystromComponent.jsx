@@ -13,7 +13,6 @@ import { getUser } from "../../services/UsersService";
 const RungeKuttaNystromComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -24,6 +23,11 @@ const RungeKuttaNystromComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [xZero, setProblemXoParameter] = useState(0);
+  const [yZero, setProblemYoParameter] = useState(0);
+  const [xPrimeZero, setProblemXPrimeZeroParameter] = useState(0);
+  const [yPrimeZero, setProblemYPrimeZeroParameter] = useState(0);
+  const [hparameter, setProblemHparameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -32,12 +36,15 @@ const RungeKuttaNystromComponent = (props) => {
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id).then((response) => {
-      console.log(response.data);
+      setProblemId(response.data.problemId);
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
-      console.log(parsedData);
+      setProblemHparameter(parsedData.hparameter);
+      setProblemYoParameter(parsedData.yZero);
+      setProblemXoParameter(parsedData.xZero);
+      setProblemXPrimeZeroParameter(parsedData.xPrimeZero);
+      setProblemYPrimeZeroParameter(parsedData.yPrimeZero);
     });
   });
 
@@ -131,7 +138,11 @@ const RungeKuttaNystromComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemXoParameter,
+    hparameter,
+    xZero,
+    yZero,
+    xPrimeZero,
+    yPrimeZero,
   };
 
   const submission = {
