@@ -22,6 +22,8 @@ class SubmissionServiceIntegralsImplTest {
         TrapezodialRuleDataDto trpdto = new TrapezodialRuleDataDto();
         List<Double> testingInputs = new ArrayList<>();
         testingInputs.add(1.0);
+        testingInputs.add(0.5);
+        testingInputs.add(0.33333);
         try{
         assertEquals(true, submissionServiceIntegrals.checkTrapezodialRuleData(trpdto));
         } catch (IllegalArgumentException illegalArgumentException){
