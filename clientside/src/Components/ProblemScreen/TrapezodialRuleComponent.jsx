@@ -268,10 +268,6 @@ const TrapezodialRuleComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
-      <div>
-        In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
-      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
