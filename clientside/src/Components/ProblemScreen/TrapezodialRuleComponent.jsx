@@ -35,8 +35,6 @@ const TrapezodialRuleComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        console.log(response.data);
-        console.log("aaaaaaaaaaaaaaaaa");
         const problemDataParsed = JSON.parse(response.data.problemData);
         setProblemData(problemDataParsed);
         setHparameter(problemDataParsed.hParameter);
