@@ -274,4 +274,4 @@ const RungeKuttaNystromComponent = (props) => {
     </>
   );
 };
-export default RichardsonComponent;
+export default RungeKuttaNystromComponent;
