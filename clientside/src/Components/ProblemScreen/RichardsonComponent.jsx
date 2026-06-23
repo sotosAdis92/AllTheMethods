@@ -14,7 +14,7 @@ import { getUser } from "../../services/UsersService";
 const RichardsonComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
+  const [xZero, setProblemXZeroParameter] = useState(0);
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -25,20 +25,24 @@ const RichardsonComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [countingParameters, setCoutingParameters] = useState([]);
+  const [xiParameters, setXiParameters] = useState([]);
+  const [fiParameters, setFiParameters] = useState([]);
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
-  console.log(props.isSolved);
+
   useEffect(() => {
     getProblem(id).then((response) => {
-      console.log(response.data);
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
-      console.log(parsedData);
+      setProblemXZeroParameter(parsedData.problemXoParameter);
+      setCoutingParameters(parsedData.countingParameters);
+      setXiParameters(parsedData.xiParameters);
+      setFiParameters(parsedData.fiParameters);
     });
   });
 
@@ -132,7 +136,10 @@ const RichardsonComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemXoParameter,
+    countingParameters,
+    xiParameters,
+    fiParameters,
+    xZero,
   };
 
   const submission = {
