@@ -11,7 +11,8 @@ import { getUser } from "../../services/UsersService";
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
+  const [xZero, setProblemXoParameter] = useState(0);
+  const [yZero, setProblemYoParameter] = useState(0);
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -22,6 +23,7 @@ const DirectEulerComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [hparameter, setProblemHparameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -34,7 +36,9 @@ const DirectEulerComponent = (props) => {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
+      setProblemHparameter(parsedData.hparameter);
+      setProblemYoParameter(parsedData.yZero);
+      setProblemXoParameter(parsedData.xZero);
       console.log(parsedData);
     });
   });
@@ -129,7 +133,9 @@ const DirectEulerComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemXoParameter,
+    hparameter,
+    xZero,
+    yZero,
   };
 
   const submission = {

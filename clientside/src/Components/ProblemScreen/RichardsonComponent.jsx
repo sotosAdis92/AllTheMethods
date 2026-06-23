@@ -5,7 +5,6 @@ import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
-  sendImprovedEuler,
   sendRichardsonData,
 } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
@@ -243,7 +242,7 @@ const RichardsonComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitImprovedEulerData()}
+        onClick={() => submitRichardsonData()}
       >
         Submit
       </button>
