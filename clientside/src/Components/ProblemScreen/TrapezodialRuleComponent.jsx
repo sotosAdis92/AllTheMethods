@@ -10,6 +10,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 
 const TrapezodialRuleComponent = (props) => {
   const { id } = useParams();
@@ -38,11 +39,11 @@ const TrapezodialRuleComponent = (props) => {
         const problemDataParsed = JSON.parse(response.data.problemData);
         setProblemData(problemDataParsed);
         setHparameter(problemDataParsed.hParameter);
-        setIntegrationPointA(problemDataParsed.integrationPointA);
-        setIntegrationPointB(problemDataParsed.integrationPointB);
-        console.log(hParameter);
-        console.log(integrationPointA);
-        console.log(integrationPointB);
+        setIntegrationPointA(problemDataParsed.integrationSpaceA);
+        setIntegrationPointB(problemDataParsed.integrationSpaceB);
+        console.log(problemDataParsed.hParameter);
+        console.log(problemDataParsed.integrationSpaceA);
+        console.log(problemDataParsed.integrationSpaceB);
         console.log(problemData);
       })
       .catch((error) => {
@@ -180,6 +181,19 @@ const TrapezodialRuleComponent = (props) => {
     }
   };
 
+  //Implement input generation based on how many iterations you have
+  for (let i = integrationPointA; i <= integrationPointB; i++) {
+    entries.push({
+      id: i,
+      placeholder: `x${i}`,
+      type: "number",
+      label: `x${i} = `,
+      name: "",
+      i: { i },
+      required: true,
+    });
+  }
+
   const saveAchievementOfUser = (result) => {
     if (result === true) {
       for (let i = 0; i < achievements.length; i++) {
@@ -244,7 +258,7 @@ const TrapezodialRuleComponent = (props) => {
       return;
     }
   };
-
+  console.log(entries);
   return (
     <>
       <button
