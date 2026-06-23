@@ -28,7 +28,7 @@ const FivePointDerivativeComponent = (props) => {
   const [countingParameters, setCoutingParameters] = useState([]);
   const [xiParameters, setXiParameters] = useState([]);
   const [fiParameters, setFiParameters] = useState([]);
-  const [hParameter, setHparameter] = useState(0);
+  const [typeOfDerivative, setTypeOfDerivative] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -44,7 +44,7 @@ const FivePointDerivativeComponent = (props) => {
       setCoutingParameters(parsedData.countingParameters);
       setXiParameters(parsedData.xiParameters);
       setFiParameters(parsedData.fiParameters);
-      setHparameter(parsedData.hParameter);
+      setTypeOfDerivative(parsedData.typeOfDerivative);
     });
   });
 
@@ -142,7 +142,7 @@ const FivePointDerivativeComponent = (props) => {
     xiParameters,
     fiParameters,
     xZero,
-    hParameter,
+    typeOfDerivative,
   };
 
   const submission = {
