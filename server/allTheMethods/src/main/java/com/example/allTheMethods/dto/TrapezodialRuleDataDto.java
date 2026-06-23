@@ -3,6 +3,9 @@ package com.example.allTheMethods.dto;
 import java.util.List;
 
 public class TrapezodialRuleDataDto extends SubmissionDataDto{
+    public TrapezodialRuleDataDto() {
+    }
+
     private int integrationPointA;
     private int integrationPointB;
     private double hParameter;
