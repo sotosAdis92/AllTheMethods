@@ -27,7 +27,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         String problemString = trapezodialRuleDataDto.getProblemString();
         double hParameter = trapezodialRuleDataDto.gethParameter();
         int i;
-        double finalCount=0;
+        double finalCount=0.0;
         List<Double> userInputs = trapezodialRuleDataDto.getInp();
         List<Double> generatedList = new ArrayList<>();
         List<Double> listToCheck = new ArrayList<>();
@@ -35,7 +35,6 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
 
         //Generate a list of the numbers used in the method
         for(i=integrationPointA;i<=integrationPointB;i++){
-            System.out.println(integrationPointA);
             double x = i;
             x = fx(x, problemString);
             generatedList.add(x);
@@ -51,9 +50,12 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         for(i=0;i<listToCheck.size();i++){
             finalCount = finalCount + listToCheck.get(i);
         }
-        System.out.println(listToCheck);
+        System.out.println(finalCount);
+        System.out.println(hParameter/2);
         finalCount = finalCount * (hParameter/2);
-
+        listToCheck.add(finalCount);
+        System.out.println(finalCount);
+        System.out.println(listToCheck);
         countMatchingInputs = CheckIfInputsMatch(userInputs, listToCheck, countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
 
