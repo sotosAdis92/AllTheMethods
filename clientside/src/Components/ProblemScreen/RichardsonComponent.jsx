@@ -28,6 +28,7 @@ const RichardsonComponent = (props) => {
   const [countingParameters, setCoutingParameters] = useState([]);
   const [xiParameters, setXiParameters] = useState([]);
   const [fiParameters, setFiParameters] = useState([]);
+  const [hParameter, setHparameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -43,6 +44,7 @@ const RichardsonComponent = (props) => {
       setCoutingParameters(parsedData.countingParameters);
       setXiParameters(parsedData.xiParameters);
       setFiParameters(parsedData.fiParameters);
+      setHparameter(parsedData.hParameter);
     });
   });
 
@@ -140,6 +142,7 @@ const RichardsonComponent = (props) => {
     xiParameters,
     fiParameters,
     xZero,
+    hParameter,
   };
 
   const submission = {
