@@ -12,7 +12,7 @@ import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 
 const TrapezodialRuleComponent = (props) => {
-  const { id } = useParams;
+  const { id } = useParams();
   const [hParameter, setHparameter] = useState("");
   const [integrationPointA, setIntegrationPointA] = useState("");
   const [integrationPointB, setIntegrationPointB] = useState("");
@@ -31,19 +31,26 @@ const TrapezodialRuleComponent = (props) => {
     entry: "",
   });
   var entries = [];
+
   useEffect(() => {
-    getProblem(id).then((response) => {
-      const problemDataParsed = JSON.parse(response.data.problemData);
-      setProblemData(problemDataParsed);
-      setHparameter(problemDataParsed.hParameter);
-      setIntegrationPointA(problemDataParsed.integrationPointA);
-      setIntegrationPointB(problemDataParsed.integrationPointB);
-      console.log(hParameter);
-      console.log(integrationPointA);
-      console.log(integrationPointB);
-      console.log(problemData);
-    });
-  });
+    getProblem(id)
+      .then((response) => {
+        console.log(response.data);
+        console.log("aaaaaaaaaaaaaaaaa");
+        const problemDataParsed = JSON.parse(response.data.problemData);
+        setProblemData(problemDataParsed);
+        setHparameter(problemDataParsed.hParameter);
+        setIntegrationPointA(problemDataParsed.integrationPointA);
+        setIntegrationPointB(problemDataParsed.integrationPointB);
+        console.log(hParameter);
+        console.log(integrationPointA);
+        console.log(integrationPointB);
+        console.log(problemData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
