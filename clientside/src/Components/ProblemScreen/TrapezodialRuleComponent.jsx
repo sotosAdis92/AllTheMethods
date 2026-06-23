@@ -185,9 +185,9 @@ const TrapezodialRuleComponent = (props) => {
   for (let i = integrationPointA; i <= integrationPointB; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `f(${i})`,
       type: "number",
-      label: `x${i} = `,
+      label: `f(${i}) = `,
       name: "",
       i: { i },
       required: true,
