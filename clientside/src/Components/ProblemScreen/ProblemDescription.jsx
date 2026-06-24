@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Latex from "react-latex";
 import { useParams } from "react-router-dom";
 import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
@@ -189,7 +188,7 @@ const ProblemDescription = () => {
         {problemTitle}
         {problemDifficulty}
         {problemDescription}
-        <Latex>{problemString}</Latex>
+        {problemString}
         {problemMethod}
       </div>
 
