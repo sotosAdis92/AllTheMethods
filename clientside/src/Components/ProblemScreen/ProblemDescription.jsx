@@ -140,19 +140,68 @@ const ProblemDescription = () => {
         ></SimpsonComponent>
       );
     } else if (problemType === "Three-Point-Derivative") {
-      <ThreePointDerivativeComponent></ThreePointDerivativeComponent>;
+      <ThreePointDerivativeComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></ThreePointDerivativeComponent>;
     } else if (problemType === "Five-Point-Derivative") {
-      <FivePointDerivativeComponent></FivePointDerivativeComponent>;
+      <FivePointDerivativeComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></FivePointDerivativeComponent>;
     } else if (problemType === "Richardson") {
-      <RichardsonComponent></RichardsonComponent>;
+      <RichardsonComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></RichardsonComponent>;
     } else if (problemType === "Runge-Kutta") {
-      <RungeKuttaComponent></RungeKuttaComponent>;
+      <RungeKuttaComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></RungeKuttaComponent>;
     } else if (problemType === "Runge-Kutta-Nystrom") {
-      <RungeKuttaNystromComponent></RungeKuttaNystromComponent>;
+      <RungeKuttaNystromComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></RungeKuttaNystromComponent>;
     } else if (problemType === "Improved-Euler") {
-      <ImprovedEulerComponent></ImprovedEulerComponent>;
+      <ImprovedEulerComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></ImprovedEulerComponent>;
     } else if (problemType === "Direct-Euler") {
-      <DirectEulerComponent></DirectEulerComponent>;
+      <DirectEulerComponent
+        isSolved={isSolved}
+        problemString={problemString}
+        problemMethod={problemMethod}
+        problemCategory={problemCategory}
+        onProblemSolved={handleProblemSolved}
+        onResultReceived={handleResultReceived}
+      ></DirectEulerComponent>;
     }
   };
 
