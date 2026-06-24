@@ -145,7 +145,7 @@ const SimpsonComponent = (props) => {
     problemCategory,
   };
 
-  const submitBisectionData = async () => {
+  const submitSimpsonData = async () => {
     if (validateForm()) {
       saveSubmission(submission).then((response) => {
         console.log(response.data);
@@ -242,7 +242,7 @@ const SimpsonComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitBisectionData()}
+        onClick={() => submitSimpsonData()}
       >
         Submit
       </button>
