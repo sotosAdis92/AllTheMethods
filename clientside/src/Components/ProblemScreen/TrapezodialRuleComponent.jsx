@@ -89,7 +89,7 @@ const TrapezodialRuleComponent = (props) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != integrationPointB - integrationPointA || text === 0) {
+    if (inp.length != integrationPointB + integrationPointA) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -123,6 +123,8 @@ const TrapezodialRuleComponent = (props) => {
       setGeneralError("");
     }
   }
+  console.log(userId + "userId");
+  console.log(id + "problemId");
 
   //Setting up the local time objects for the submission
   const d = new Date();
@@ -147,14 +149,14 @@ const TrapezodialRuleComponent = (props) => {
   };
 
   const submission = {
-    problemId,
+    id,
     userId,
     submittedAt,
   };
 
   const savedProblem = {
     userId,
-    problemId,
+    id,
     problemCategory,
   };
 
