@@ -133,13 +133,14 @@ const TrapezodialRuleComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
-    functionString,
+    problemString,
     differenceOfIntegration,
     integrationPointA,
     integrationPointB,
