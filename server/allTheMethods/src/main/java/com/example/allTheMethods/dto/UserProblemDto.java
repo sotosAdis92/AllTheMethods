@@ -5,28 +5,27 @@ public class UserProblemDto extends ProblemDto{
     private Long userId;
     private Long problemId;
 
-    public UserProblemDto() {
-        super();
-    }
-
-
-    public UserProblemDto(Long id, Long userId, Long problemId) {
-        super();
+    public UserProblemDto(Long id, int number, String title, String category,
+                          String difficulty, String description, int points,
+                          String problemString, String functionString,
+                          Long userId, Long problemId) {
+        super(id, number, title, category, difficulty, description, points,
+                problemString, functionString);
         this.id = id;
         this.userId = userId;
         this.problemId = problemId;
     }
 
-    public UserProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, Long id, Long userId, Long problemId) {
-        super(number, title, category, difficulty, description, points, problemString, problemType, problemData);
-        this.id = id;
-        this.userId = userId;
-        this.problemId = problemId;
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public void setProblemId(Long problemId) {
-        this.problemId = problemId;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
     }
 
     public void setUserId(Long userId) {
@@ -38,8 +37,8 @@ public class UserProblemDto extends ProblemDto{
         return problemId;
     }
 
-    public Long getUserId() {
-        return userId;
+    @Override
+    public void setProblemId(Long problemId) {
+        this.problemId = problemId;
     }
-
 }
