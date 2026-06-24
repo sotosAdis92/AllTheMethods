@@ -25,7 +25,7 @@
     "bootstrap": "^5.3.8",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
-    "katex": "^0.16.38",
+    "katex": "^0.16.47",
     "notistack": "^3.0.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
