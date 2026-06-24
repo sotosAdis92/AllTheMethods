@@ -6,10 +6,12 @@ public class UserProblemDto extends ProblemDto{
     private Long problemId;
 
     public UserProblemDto() {
+        super();
     }
 
 
     public UserProblemDto(Long id, Long userId, Long problemId) {
+        super();
         this.id = id;
         this.userId = userId;
         this.problemId = problemId;

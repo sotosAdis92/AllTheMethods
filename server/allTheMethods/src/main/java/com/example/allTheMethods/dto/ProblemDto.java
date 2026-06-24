@@ -12,6 +12,7 @@ public class ProblemDto {
     private String problemString;
     private String problemType;
     private String problemData;
+    private String functionString;
 
     public String getProblemData() {
         return problemData;
@@ -21,10 +22,11 @@ public class ProblemDto {
         this.problemData = problemData;
     }
 
-    public ProblemDto() {
+    public ProblemDto(String functionString) {
+        this.functionString = functionString;
     }
 
-    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
+    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -35,9 +37,10 @@ public class ProblemDto {
         this.problemString = problemString;
         this.problemType = problemType;
         this.problemData = problemData;
+        this.functionString = functionString;
     }
 
-    public ProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
+    public ProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
         this.number = number;
         this.title = title;
         this.category = category;
@@ -47,9 +50,10 @@ public class ProblemDto {
         this.problemString = problemString;
         this.problemType = problemType;
         this.problemData = problemData;
+        this.functionString = functionString;
     }
 
-    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString) {
+    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String functionString) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -58,6 +62,7 @@ public class ProblemDto {
         this.description = description;
         this.points = points;
         this.problemString = problemString;
+        this.functionString = functionString;
     }
 
     public String getProblemString() {
@@ -130,5 +135,13 @@ public class ProblemDto {
 
     public void setProblemType(String problemType) {
         this.problemType = problemType;
+    }
+
+    public String getFunctionString() {
+        return functionString;
+    }
+
+    public void setFunctionString(String functionString) {
+        this.functionString = functionString;
     }
 }
