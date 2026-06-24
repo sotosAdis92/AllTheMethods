@@ -268,6 +268,7 @@ const TrapezodialRuleComponent = (props) => {
       >
         Submit
       </button>
+      <div></div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

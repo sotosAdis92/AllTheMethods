@@ -188,6 +188,7 @@ const ProblemDescription = () => {
         {problemTitle}
         {problemDifficulty}
         {problemDescription}
+
         {problemString}
         {problemMethod}
       </div>
