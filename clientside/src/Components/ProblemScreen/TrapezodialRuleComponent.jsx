@@ -45,6 +45,7 @@ const TrapezodialRuleComponent = (props) => {
         console.log(problemDataParsed.integrationSpaceA);
         console.log(problemDataParsed.integrationSpaceB);
         console.log(problemData);
+        console.log(hParameter);
       })
       .catch((error) => {
         console.log(error);

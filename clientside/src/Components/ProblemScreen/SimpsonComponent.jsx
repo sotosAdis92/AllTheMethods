@@ -7,9 +7,10 @@ import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 
 const SimpsonComponent = (props) => {
-  const { id } = useParams;
+  const { id } = useParams();
   const [hParameter, setHparameter] = useState("");
   const [integrationPointA, setIntegrationPointA] = useState("");
   const [integrationPointB, setIntegrationPointB] = useState("");
@@ -29,18 +30,16 @@ const SimpsonComponent = (props) => {
   });
   var entries = [];
 
+  console.log(id);
   useEffect(() => {
     getProblem(id).then((response) => {
       const problemDataParsed = JSON.parse(response.data.problemData);
       setProblemData(problemDataParsed);
       setHparameter(problemDataParsed.hParameter);
-      setIntegrationPointA(problemDataParsed.integrationPointA);
-      setIntegrationPointB(problemDataParsed.integrationPointB);
+      setIntegrationPointA(problemDataParsed.integrationSpaceA);
+      setIntegrationPointB(problemDataParsed.integrationSpaceB);
       console.log(hParameter);
-      console.log(integrationPointA);
-      console.log(integrationPointB);
       console.log(problemData);
-      console.log("aaa");
     });
   }, [id]);
 

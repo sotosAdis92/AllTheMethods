@@ -128,7 +128,7 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
         ></TrapezodialRuleComponent>
       );
-    } else if (problemType === "Simpson-Rule") {
+    } else if (problemType === "Simpson") {
       return (
         <SimpsonComponent
           isSolved={isSolved}
