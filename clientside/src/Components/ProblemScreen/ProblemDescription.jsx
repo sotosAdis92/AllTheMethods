@@ -1,4 +1,3 @@
-import "katex/dist/kitex.min.css";
 import { useEffect, useState } from "react";
 import Latex from "react-latex";
 import { useParams } from "react-router-dom";
