@@ -258,6 +258,7 @@ const TrapezodialRuleComponent = (props) => {
       return;
     }
   };
+
   return (
     <>
       <button

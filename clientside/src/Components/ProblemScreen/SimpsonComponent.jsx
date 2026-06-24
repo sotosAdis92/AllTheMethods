@@ -28,6 +28,7 @@ const SimpsonComponent = (props) => {
     entry: "",
   });
   var entries = [];
+
   useEffect(() => {
     getProblem(id).then((response) => {
       const problemDataParsed = JSON.parse(response.data.problemData);
@@ -39,8 +40,9 @@ const SimpsonComponent = (props) => {
       console.log(integrationPointA);
       console.log(integrationPointB);
       console.log(problemData);
+      console.log("aaa");
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
