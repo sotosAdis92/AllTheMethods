@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { useRef } from "react";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
@@ -272,8 +271,6 @@ const BisectionComponent = (props) => {
       return;
     }
   };
-
-  const mathRef = useRef(null);
 
   return (
     <>
