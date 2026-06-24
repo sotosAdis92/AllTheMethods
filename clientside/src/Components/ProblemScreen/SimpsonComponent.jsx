@@ -118,6 +118,19 @@ const SimpsonComponent = (props) => {
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
 
+  //Implement input generation based on how many iterations you have
+  for (let i = integrationPointA; i <= integrationPointB; i++) {
+    entries.push({
+      id: i,
+      placeholder: `f(${i})`,
+      type: "number",
+      label: `f(${i}) = `,
+      name: "",
+      i: { i },
+      required: true,
+    });
+  }
+
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
@@ -246,11 +259,8 @@ const SimpsonComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
-      <div>
-        In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
-      </div>
-      <form name="inputForm">
+      <div></div>
+      <form name="inputForm" id="form">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}
