@@ -121,7 +121,17 @@ const SimpsonComponent = (props) => {
 
   //Implement input generation based on how many iterations you have
   for (let i = integrationPointA; i <= integrationPointB; i++) {
-    if (i === integrationPointB) {
+    if (i === integrationPointA) {
+      entries.push({
+        id: i,
+        placeholder: `f(${i})`,
+        type: "number",
+        label: `f(${i}) = `,
+        name: "",
+        i: { i },
+        required: true,
+      });
+    } else if (i === integrationPointB) {
       entries.push({
         id: i,
         placeholder: `Final Sum`,
@@ -130,28 +140,26 @@ const SimpsonComponent = (props) => {
         i: { i },
         required: true,
       });
+    } else if ((i - integrationPointA) % 2 === 1) {
+      entries.push({
+        id: i,
+        placeholder: `4f(${i})`,
+        type: "number",
+        label: `4f(${i}) = `,
+        name: "",
+        i: { i },
+        required: true,
+      });
     } else {
-      if (i != integrationPointA || i != integrationPointB) {
-        entries.push({
-          id: i,
-          placeholder: `2f(${i})`,
-          type: "number",
-          label: `2f(${i}) = `,
-          name: "",
-          i: { i },
-          required: true,
-        });
-      } else {
-        entries.push({
-          id: i,
-          placeholder: `f(${i})`,
-          type: "number",
-          label: `f(${i}) = `,
-          name: "",
-          i: { i },
-          required: true,
-        });
-      }
+      entries.push({
+        id: i,
+        placeholder: `2f(${i})`,
+        type: "number",
+        label: `2f(${i}) = `,
+        name: "",
+        i: { i },
+        required: true,
+      });
     }
   }
 
