@@ -1,9 +1,7 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.RombergDataDto;
 import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
-import org.springframework.stereotype.Service;
 
 
 public interface SubmissionServiceIntegrals {

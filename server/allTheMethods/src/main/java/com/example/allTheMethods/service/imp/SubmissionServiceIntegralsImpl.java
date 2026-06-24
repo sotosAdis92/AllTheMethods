@@ -1,5 +1,4 @@
 package com.example.allTheMethods.service.imp;
-import com.example.allTheMethods.dto.RombergDataDto;
 import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
