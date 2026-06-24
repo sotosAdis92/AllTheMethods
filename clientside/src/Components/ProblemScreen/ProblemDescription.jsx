@@ -1,6 +1,6 @@
 import katex from "katex";
 import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
@@ -172,6 +172,11 @@ const ProblemDescription = () => {
     }
   };
 
+  const mathRef = useRef(null);
+  useEffect(() => {
+    katex.render(problemString, mathRef.current, { throwOnError: false });
+  }, [problemString]);
+
   return (
     <>
       <div>
@@ -189,7 +194,7 @@ const ProblemDescription = () => {
         {problemTitle}
         {problemDifficulty}
         {problemDescription}
-        {katex.render({ problemString })}
+        <div ref={mathRef}></div>
         {problemMethod}
       </div>
 
