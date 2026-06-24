@@ -120,8 +120,8 @@ const SimpsonComponent = (props) => {
   let submittedAt = date + " " + time;
 
   //Implement input generation based on how many iterations you have
-  for (let i = integrationPointA; i <= integrationPointB; i++) {
-    if (i === integrationPointA) {
+  for (let i = integrationPointA; i <= integrationPointB + 1; i++) {
+    if (i === integrationPointA || i === integrationPointB) {
       entries.push({
         id: i,
         placeholder: `f(${i})`,
@@ -131,7 +131,7 @@ const SimpsonComponent = (props) => {
         i: { i },
         required: true,
       });
-    } else if (i === integrationPointB) {
+    } else if (i === integrationPointB + 1) {
       entries.push({
         id: i,
         placeholder: `Final Sum`,

@@ -27,6 +27,7 @@ const TrapezodialRuleComponent = (props) => {
   const [result, setResult] = useState(false);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [resultText, setResultText] = useState("");
+  const [functionString, setFunctionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -36,6 +37,7 @@ const TrapezodialRuleComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        setFunctionString(response.functionString);
         const problemDataParsed = JSON.parse(response.data.problemData);
         setProblemData(problemDataParsed);
         setHparameter(problemDataParsed.hParameter);
@@ -131,14 +133,13 @@ const TrapezodialRuleComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
-    problemString,
+    functionString,
     differenceOfIntegration,
     integrationPointA,
     integrationPointB,
