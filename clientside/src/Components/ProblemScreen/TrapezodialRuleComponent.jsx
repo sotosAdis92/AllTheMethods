@@ -45,6 +45,7 @@ const TrapezodialRuleComponent = (props) => {
         setHparameter(problemDataParsed.hParameter);
         setIntegrationPointA(problemDataParsed.integrationSpaceA);
         setIntegrationPointB(problemDataParsed.integrationSpaceB);
+        console.log(problemDataParsed.hParameter);
       })
       .catch((error) => {
         console.log(error);
@@ -137,7 +138,7 @@ const TrapezodialRuleComponent = (props) => {
     inp,
     problemMethod,
     problemString,
-    differenceOfIntegration,
+    hParameter,
     integrationPointA,
     integrationPointB,
   };
@@ -155,7 +156,7 @@ const TrapezodialRuleComponent = (props) => {
   };
   const submitTrapezodialData = async () => {
     if (validateForm()) {
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
       const response = sendTrapezodialData(submissionData);
