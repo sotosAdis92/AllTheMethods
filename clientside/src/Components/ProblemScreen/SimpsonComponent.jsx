@@ -167,13 +167,12 @@ const SimpsonComponent = (props) => {
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
-  const differenceOfIntegration = integrationPointB - integrationPointA;
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
     problemString,
-    differenceOfIntegration,
+    hParameter,
     integrationPointA,
     integrationPointB,
   };
@@ -192,16 +191,23 @@ const SimpsonComponent = (props) => {
 
   const submitSimpsonData = async () => {
     if (validateForm()) {
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendSimposonData(submissionData);
-      const resultOfServer = response.data;
-      setResult(resultOfServer);
-
+      const response = await sendSimposonData(submissionData);
+      const result = response.data;
+      setResult(result);
+      decideResultText(result);
+      setCallback(result);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 

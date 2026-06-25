@@ -126,7 +126,6 @@ const TrapezodialRuleComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
-  const differenceOfIntegration = integrationPointB - integrationPointA;
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
@@ -161,12 +160,19 @@ const TrapezodialRuleComponent = (props) => {
         console.log(response.data);
       });
       const response = await sendTrapezodialData(submissionData);
-      const resultOfServer = response.data;
-      setResult(resultOfServer);
+      const result = response.data;
+      setResult(result);
+      decideResultText(result);
+      setCallback(result);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
-      console.log(response.data);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 
