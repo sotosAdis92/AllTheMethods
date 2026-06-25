@@ -140,50 +140,60 @@ const ProblemDescription = () => {
         ></SimpsonComponent>
       );
     } else if (problemType === "Three-Point-Derivative") {
-      <ThreePointDerivativeComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></ThreePointDerivativeComponent>;
+      return (
+        <ThreePointDerivativeComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></ThreePointDerivativeComponent>
+      );
     } else if (problemType === "Five-Point-Derivative") {
-      <FivePointDerivativeComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></FivePointDerivativeComponent>;
+      return (
+        <FivePointDerivativeComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></FivePointDerivativeComponent>
+      );
     } else if (problemType === "Richardson") {
-      <RichardsonComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></RichardsonComponent>;
+      return (
+        <RichardsonComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></RichardsonComponent>
+      );
     } else if (problemType === "Runge-Kutta") {
-      <RungeKuttaComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></RungeKuttaComponent>;
+      return (
+        <RungeKuttaComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></RungeKuttaComponent>
+      );
     } else if (problemType === "Runge-Kutta-Nystrom") {
-      <RungeKuttaNystromComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></RungeKuttaNystromComponent>;
+      return (
+        <RungeKuttaNystromComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></RungeKuttaNystromComponent>
+      );
     } else if (problemType === "Improved-Euler") {
       return (
         <ImprovedEulerComponent

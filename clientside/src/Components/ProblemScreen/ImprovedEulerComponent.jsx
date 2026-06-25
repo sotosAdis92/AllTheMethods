@@ -27,16 +27,18 @@ const DirectEulerComponent = (props) => {
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [hParameter, setProblemHparameter] = useState(0);
   const [yZero, setProblemYoParameter] = useState(0);
+  const [functionString, setFuntionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
-  console.log(props.isSolved);
   useEffect(() => {
     getProblem(id).then((response) => {
       console.log(response.data.problemId);
       setProblemId(response.data.problemId);
+      setFuntionString(response.data.functionString);
+      console.log(problemId);
       const problemDataConverted = JSON.parse(response.data.problemData);
       setProblemData(problemDataConverted);
       setIterations(problemDataConverted.iterations);
@@ -79,6 +81,13 @@ const DirectEulerComponent = (props) => {
       required: true,
     });
   }
+
+  //Fetching the users id
+  useEffect(() => {
+    getUser().then((response) => {
+      setUsersId(response.data.id);
+    });
+  }, [id]);
 
   const disableButton = () => {
     setButtonDisabled(true);
@@ -127,7 +136,7 @@ const DirectEulerComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
