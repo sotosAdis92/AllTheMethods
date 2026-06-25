@@ -47,8 +47,12 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
         for(i=0;i<listToCheck.size();i++){
             finalCount = finalCount + listToCheck.get(i);
         }
+        System.out.println("final count: " + finalCount);
+        System.out.println("h: " + hParameter);
         finalCount = finalCount * (hParameter/2);
+        System.out.println(finalCount);
         listToCheck.add(finalCount);
+        System.out.println(finalCount);
         System.out.println(listToCheck);
         countMatchingInputs = CheckIfInputsMatch(userInputs, listToCheck, countMatchingInputs);
         flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
