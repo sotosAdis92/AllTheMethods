@@ -162,7 +162,7 @@ const RungeKuttaNystromComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendRungeKuttaNystrom(submissionData);
+      const response = await sendRungeKuttaNystrom(submissionData);
       const resultOfFetch = response.data;
       setResult(resultOfFetch);
       await decideResultText(result);

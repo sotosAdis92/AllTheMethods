@@ -163,7 +163,7 @@ const ThreePointDerivativeComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendRichardsonData(submissionData);
+      const response = await sendRichardsonData(submissionData);
       const resultOfFetch = response.data;
       setResult(resultOfFetch);
       await decideResultText(result);

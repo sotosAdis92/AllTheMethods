@@ -152,7 +152,7 @@ const FixedPointComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendFixedPointData(submissionData);
+      const response = await sendFixedPointData(submissionData);
       const resultOfServer = response.data;
       setResult(resultOfServer);
       await decideResultText(result);

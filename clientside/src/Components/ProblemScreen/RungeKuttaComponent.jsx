@@ -181,7 +181,7 @@ const RungeKuttaComponent = (props) => {
       saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendRungeKuttaData(submissionData);
+      const response = await sendRungeKuttaData(submissionData);
       const resultOfServer = response.data;
       setResult(resultOfServer);
       await decideResultText(result);

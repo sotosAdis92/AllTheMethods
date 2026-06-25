@@ -153,7 +153,7 @@ const NewtonRaphsonComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendNewtonRaphsonData(submissionData);
+      const response = await sendNewtonRaphsonData(submissionData);
       const resultOfServer = response.data;
       setResult(resultOfServer);
       await decideResultText(result);
