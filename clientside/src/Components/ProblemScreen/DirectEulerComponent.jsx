@@ -37,7 +37,6 @@ const DirectEulerComponent = (props) => {
     getProblem(id)
       .then((response) => {
         setProblemId(response.data.problemId);
-        console.log("aaaaa");
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
         setIterations(problemDataConverted.iterations);

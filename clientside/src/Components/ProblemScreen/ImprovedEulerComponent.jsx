@@ -36,12 +36,12 @@ const DirectEulerComponent = (props) => {
   useEffect(() => {
     getProblem(id).then((response) => {
       setProblemId(response.data.problemId);
-      const parsedData = JSON.parse(response.data.problemData);
-      setProblemData(parsedData);
-      setIterations(parsedData.iterations);
-      setProblemHparameter(parsedData.hparameter);
-      setProblemYoParameter(parsedData.yZero);
-      setProblemXoParameter(parsedData.xZero);
+      const problemDataConverted = JSON.parse(response.data.problemData);
+      setProblemData(problemDataConverted);
+      setIterations(problemDataConverted.iterations);
+      setProblemXoParameter(problemDataConverted.xZero);
+      setProblemYoParameter(problemDataConverted.yZero);
+      setProblemHparameter(problemDataConverted.hParameter);
     });
   });
 
@@ -157,12 +157,20 @@ const DirectEulerComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendImprovedEuler(submissionData);
-      const resultOfFetch = response.data;
-      setResult(resultOfFetch);
+      const response = await sendImprovedEuler(submissionData);
+      const result = response.data;
+      setResult(result);
+      decideResultText(result);
+      setCallback(result);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 
@@ -253,7 +261,7 @@ const DirectEulerComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
+      <div>and an h = {hParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
