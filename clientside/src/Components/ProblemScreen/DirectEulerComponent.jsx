@@ -7,6 +7,7 @@ import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
@@ -29,17 +30,21 @@ const DirectEulerComponent = (props) => {
     entry: "",
   });
   var entries = [];
-  console.log(props.isSolved);
+
   useEffect(() => {
-    getProblem(id).then((response) => {
-      const parsedData = JSON.parse(response.data.problemData);
-      setProblemData(parsedData);
-      setIterations(parsedData.iterations);
-      setProblemHparameter(parsedData.hparameter);
-      setProblemYoParameter(parsedData.yZero);
-      setProblemXoParameter(parsedData.xZero);
-    });
-  });
+    getProblem(id)
+      .then((response) => {
+        const parsedData = JSON.parse(response.data.problemData);
+        setProblemData(parsedData);
+        setIterations(parsedData.iterations);
+        setProblemHparameter(parsedData.hparameter);
+        setProblemYoParameter(parsedData.yZero);
+        setProblemXoParameter(parsedData.xZero);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
@@ -251,7 +256,6 @@ const DirectEulerComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

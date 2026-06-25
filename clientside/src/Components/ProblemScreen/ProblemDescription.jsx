@@ -60,7 +60,7 @@ const ProblemDescription = () => {
         console.log(error);
       });
   };
-
+  console.log(problemType);
   const renderProblem = (problemType) => {
     if (problemType === "Bisection") {
       return (

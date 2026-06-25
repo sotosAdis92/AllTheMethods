@@ -40,7 +40,6 @@ const BisectionComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        console.log(id);
         setProblemId(response.data.problemId);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
