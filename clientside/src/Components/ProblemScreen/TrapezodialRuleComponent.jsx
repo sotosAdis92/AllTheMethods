@@ -37,17 +37,12 @@ const TrapezodialRuleComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        setFunctionString(response.functionString);
+        setFunctionString(response.data.functionString);
         const problemDataParsed = JSON.parse(response.data.problemData);
         setProblemData(problemDataParsed);
         setHparameter(problemDataParsed.hParameter);
         setIntegrationPointA(problemDataParsed.integrationSpaceA);
         setIntegrationPointB(problemDataParsed.integrationSpaceB);
-        console.log(problemDataParsed.hParameter);
-        console.log(problemDataParsed.integrationSpaceA);
-        console.log(problemDataParsed.integrationSpaceB);
-        console.log(problemData);
-        console.log(hParameter);
       })
       .catch((error) => {
         console.log(error);
@@ -123,9 +118,6 @@ const TrapezodialRuleComponent = (props) => {
       setGeneralError("");
     }
   }
-  console.log(userId + "userId");
-  console.log(id + "problemId");
-
   //Setting up the local time objects for the submission
   const d = new Date();
   let date = d.toLocaleDateString();
