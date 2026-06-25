@@ -25,7 +25,6 @@ public class Problem {
     @Column(nullable = false)
     private String difficulty;
 
-    @Lob
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
