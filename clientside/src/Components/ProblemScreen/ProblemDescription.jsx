@@ -194,14 +194,16 @@ const ProblemDescription = () => {
         onResultReceived={handleResultReceived}
       ></ImprovedEulerComponent>;
     } else if (problemType === "Direct-Euler") {
-      <DirectEulerComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></DirectEulerComponent>;
+      return (
+        <DirectEulerComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></DirectEulerComponent>
+      );
     }
   };
 
