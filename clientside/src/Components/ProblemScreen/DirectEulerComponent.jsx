@@ -14,8 +14,8 @@ const DirectEulerComponent = (props) => {
   const [problemData, setProblemData] = useState("");
   const [xZero, setProblemXoParameter] = useState(0);
   const [yZero, setProblemYoParameter] = useState(0);
-  const [iterations, setIterations] = useState("");
-  const [userId, setUsersId] = useState("");
+  const [iterations, setIterations] = useState(0);
+  const [userId, setUsersId] = useState(0);
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
@@ -24,20 +24,21 @@ const DirectEulerComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [hparameter, setProblemHparameter] = useState(0);
+  const [hParameter, setProblemHparameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
-
+  console.log("aaaaaa");
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        console.log(response.data);
         const parsedData = JSON.parse(response.data.problemData);
         setProblemData(parsedData);
         setIterations(parsedData.iterations);
-        setProblemHparameter(parsedData.hparameter);
+        setProblemHparameter(parsedData.hParameter);
         setProblemYoParameter(parsedData.yZero);
         setProblemXoParameter(parsedData.xZero);
       })
@@ -136,7 +137,7 @@ const DirectEulerComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    hparameter,
+    hParameter,
     xZero,
     yZero,
   };
@@ -160,12 +161,20 @@ const DirectEulerComponent = (props) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendDirectEuler(submissionData);
-      const resultOfFetch = response.data;
-      setResult(resultOfFetch);
+      const response = await sendDirectEuler(submissionData);
+      const result = response.data;
+      setResult(result);
+      decideResultText(result);
+      setCallback(result);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
+    }
+  };
+
+  const setCallback = (result) => {
+    if (props.onResultReceived) {
+      props.onResultReceived(result);
     }
   };
 
