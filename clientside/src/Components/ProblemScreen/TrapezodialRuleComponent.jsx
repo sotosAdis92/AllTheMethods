@@ -37,6 +37,8 @@ const TrapezodialRuleComponent = (props) => {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
+        console.log(response.data.problemId);
+        setProblemId(response.data.problemId);
         setFunctionString(response.data.functionString);
         const problemDataParsed = JSON.parse(response.data.problemData);
         setProblemData(problemDataParsed);
@@ -141,17 +143,16 @@ const TrapezodialRuleComponent = (props) => {
   };
 
   const submission = {
-    id,
+    problemId,
     userId,
     submittedAt,
   };
 
   const savedProblem = {
     userId,
-    id,
+    problemId,
     problemCategory,
   };
-
   const submitTrapezodialData = async () => {
     if (validateForm()) {
       saveSubmission(submission).then((response) => {
