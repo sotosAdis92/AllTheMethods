@@ -35,6 +35,7 @@ const DirectEulerComponent = (props) => {
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id).then((response) => {
+      console.log(response.data.problemId);
       setProblemId(response.data.problemId);
       const problemDataConverted = JSON.parse(response.data.problemData);
       setProblemData(problemDataConverted);
@@ -70,9 +71,9 @@ const DirectEulerComponent = (props) => {
   for (let i = 0; i < iterations; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `y${i + 1}`,
       type: "number",
-      label: `x${i} = `,
+      label: `y${i + 1} = `,
       name: "",
       i: { i },
       required: true,
