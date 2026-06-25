@@ -154,17 +154,19 @@ const TrapezodialRuleComponent = (props) => {
     problemId,
     problemCategory,
   };
+
   const submitTrapezodialData = async () => {
     if (validateForm()) {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendTrapezodialData(submissionData);
+      const response = await sendTrapezodialData(submissionData);
       const resultOfServer = response.data;
       setResult(resultOfServer);
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
+      console.log(response.data);
     }
   };
 
