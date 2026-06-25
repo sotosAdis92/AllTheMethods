@@ -10,6 +10,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
+import FormInput from "../FormInput";
 
 const ThreePointDerivativeComponent = (props) => {
   const { id } = useParams();

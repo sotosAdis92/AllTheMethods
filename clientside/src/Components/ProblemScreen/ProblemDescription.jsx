@@ -185,14 +185,16 @@ const ProblemDescription = () => {
         onResultReceived={handleResultReceived}
       ></RungeKuttaNystromComponent>;
     } else if (problemType === "Improved-Euler") {
-      <ImprovedEulerComponent
-        isSolved={isSolved}
-        problemString={problemString}
-        problemMethod={problemMethod}
-        problemCategory={problemCategory}
-        onProblemSolved={handleProblemSolved}
-        onResultReceived={handleResultReceived}
-      ></ImprovedEulerComponent>;
+      return (
+        <ImprovedEulerComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+        ></ImprovedEulerComponent>
+      );
     } else if (problemType === "Direct-Euler") {
       return (
         <DirectEulerComponent

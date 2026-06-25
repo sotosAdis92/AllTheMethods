@@ -10,7 +10,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
-
+import FormInput from "../FormInput";
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
@@ -25,7 +25,7 @@ const DirectEulerComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [hparameter, setProblemHparameter] = useState(0);
+  const [hParameter, setProblemHparameter] = useState(0);
   const [yZero, setProblemYoParameter] = useState(0);
   let text;
   const [values, setValues] = useState({
@@ -43,7 +43,7 @@ const DirectEulerComponent = (props) => {
       setProblemYoParameter(problemDataConverted.yZero);
       setProblemHparameter(problemDataConverted.hParameter);
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
@@ -135,7 +135,7 @@ const DirectEulerComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    hparameter,
+    hParameter,
     xZero,
     yZero,
   };
