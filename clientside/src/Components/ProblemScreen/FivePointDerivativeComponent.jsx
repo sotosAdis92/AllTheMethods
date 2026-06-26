@@ -258,8 +258,7 @@ const FivePointDerivativeComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
+
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

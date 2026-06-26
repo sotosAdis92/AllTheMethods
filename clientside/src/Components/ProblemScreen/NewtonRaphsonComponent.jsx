@@ -15,7 +15,7 @@ import FormInput from "../FormInput";
 const NewtonRaphsonComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
+  const [xoParameter, setProblemXoParameter] = useState("");
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -26,6 +26,7 @@ const NewtonRaphsonComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [functionString, setFuntionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -39,7 +40,7 @@ const NewtonRaphsonComponent = (props) => {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
+      setProblemXoParameter(parsedData.xoParameter);
       console.log(parsedData);
     });
   });
@@ -125,7 +126,7 @@ const NewtonRaphsonComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
@@ -134,7 +135,7 @@ const NewtonRaphsonComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemXoParameter,
+    xoParameter,
   };
 
   const submission = {
@@ -250,7 +251,7 @@ const NewtonRaphsonComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
+      <div>With a Xo = {problemData.xoParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
