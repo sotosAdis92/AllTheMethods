@@ -40,6 +40,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
       setProblemXoParameter(parsedData.problemXoParameter);
+      setFunctionString(response.data.functionString);
       console.log(parsedData);
     });
   });
@@ -125,7 +126,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
