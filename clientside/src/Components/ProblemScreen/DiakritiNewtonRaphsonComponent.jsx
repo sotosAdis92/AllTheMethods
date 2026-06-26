@@ -39,11 +39,12 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
+      setProblemXoParameter(parsedData.xoParameter);
       setFunctionString(response.data.functionString);
       console.log(parsedData);
+      console.log(parsedData.xoParameter);
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
@@ -118,6 +119,13 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       setGeneralError("");
     }
   }
+
+  //Fetching the users id
+  useEffect(() => {
+    getUser().then((response) => {
+      setUsersId(response.data.id);
+    });
+  }, []);
 
   const d = new Date();
   let date = d.toLocaleDateString();
@@ -256,7 +264,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
+      <div>Starting at Xo={problemData.xoParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
