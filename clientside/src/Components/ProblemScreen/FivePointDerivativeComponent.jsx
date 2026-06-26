@@ -248,6 +248,9 @@ const FivePointDerivativeComponent = (props) => {
       return;
     }
   };
+  console.log(countingParameters);
+  console.log(xiParameters);
+  console.log(fiParameters);
 
   return (
     <>
