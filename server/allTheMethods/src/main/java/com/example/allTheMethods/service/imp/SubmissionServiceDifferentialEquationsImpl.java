@@ -100,7 +100,9 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
             xZero = xZero + hParameter;
             yZero = yZero + (hParameter/2.0) * (f(xZero,yZero,problemString) + f(xn,yZero + hParameter * f(xZero+hParameter,yZero,problemString),problemString));
             listToCheck.add(yZero);
+            System.out.println("Y= "+yZero);
         }
+
         countMatchingInputs = CheckIfInputsMatch(input,listToCheck,countMatchingInputs); //Function that checks if the inputs given are the expected ones
         flag = checkExpectedListCount(countMatchingInputs, iterations, flag);//Function that checks if count is the same as length (valid inputs)
         return flag;
