@@ -71,7 +71,7 @@ const FivePointDerivativeComponent = (props) => {
     }
   });
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < 5; i++) {
     entries.push({
       id: i,
       placeholder: `x${i}`,
@@ -266,6 +266,7 @@ const FivePointDerivativeComponent = (props) => {
       {parameter}
     </div>
   ));
+
   return (
     <>
       <button
@@ -275,9 +276,9 @@ const FivePointDerivativeComponent = (props) => {
       >
         Submit
       </button>
-      <div className="cParams">{listOfCountingParameters}</div>
-      <div className="xParams">{listOfXiParameters}</div>
-      <div className="fParams">{listOfFiParameters}</div>
+      <div className="cParams">i:{listOfCountingParameters}</div>
+      <div className="xParams">xi:{listOfXiParameters}</div>
+      <div className="fParams">fi:{listOfFiParameters}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
