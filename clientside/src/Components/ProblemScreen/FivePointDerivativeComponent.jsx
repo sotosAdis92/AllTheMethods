@@ -258,7 +258,9 @@ const FivePointDerivativeComponent = (props) => {
       >
         Submit
       </button>
-
+      <div>i:{countingParameters}</div>
+      <div>xi:{xiParameters}</div>
+      <div>fi:{fiParameters}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
