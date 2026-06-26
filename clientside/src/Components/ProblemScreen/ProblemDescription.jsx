@@ -9,6 +9,7 @@ import BisectionComponent from "./BisectionComponent";
 import DiakritiNewtonRaphsonComponent from "./DiakritiNewtonRaphsonComponent";
 import DirectEulerComponent from "./DirectEulerComponent";
 import FivePointDerivativeComponent from "./FivePointDerivativeComponent";
+import FixedPointComponent from "./FixedPointComponent";
 import ImprovedEulerComponent from "./ImprovedEulerComponent";
 import NewtonRaphsonComponent from "./NewtonRaphsonComponent";
 import RegulaFalsiComponent from "./RegulaFalsiComponent";
@@ -18,6 +19,7 @@ import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
 import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
+
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");

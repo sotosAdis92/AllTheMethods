@@ -15,7 +15,7 @@ import FormInput from "../FormInput";
 const FixedPointComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
+  const [xoParameter, setProblemXoParameter] = useState("");
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -31,6 +31,7 @@ const FixedPointComponent = (props) => {
     entry: "",
   });
   var entries = [];
+
   console.log(props.isSolved);
   useEffect(() => {
     getProblem(id).then((response) => {
@@ -38,10 +39,10 @@ const FixedPointComponent = (props) => {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.problemXoParameter);
+      setProblemXoParameter(parsedData.xoParameter);
       console.log(parsedData);
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
@@ -133,7 +134,7 @@ const FixedPointComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    problemXoParameter,
+    xoParameter,
   };
 
   const submission = {
@@ -249,7 +250,7 @@ const FixedPointComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>Starting at[{problemData.problemXoParameter}]</div>
+      <div>with Xo = {problemData.xoParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
