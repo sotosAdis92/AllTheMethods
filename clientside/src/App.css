@@ -827,15 +827,25 @@ body {
 
 .xParams {
   display: flex;
+}
+.xiParameters {
+  display: block;
   border: 1px solid black;
 }
 
 .fParams {
   display: flex;
-  border: 1px solid black;
 }
 
+.fiParameters {
+  display: block;
+  border: 1px solid black;
+}
 .cParams {
   display: flex;
+}
+
+.countingParameters {
+  display: block;
   border: 1px solid black;
 }
