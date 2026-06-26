@@ -26,8 +26,9 @@ const RungeKuttaComponent = (props) => {
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [xZero, setProblemXoParameter] = useState(0);
-  const [hparameter, setProblemHparameter] = useState(0);
+  const [hParameter, setProblemHparameter] = useState(0);
   const [yZero, setProblemYoParameter] = useState(0);
+  const [functionString, setFuntionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -41,10 +42,11 @@ const RungeKuttaComponent = (props) => {
     getProblem(id)
       .then((response) => {
         setProblemId(response.data.problemId);
+        setFuntionString(response.data.functionString);
         const parsedData = JSON.parse(response.data.problemData);
         setProblemData(parsedData);
         setIterations(parsedData.iterations);
-        setProblemHparameter(parsedData.hparameter);
+        setProblemHparameter(parsedData.hParameter);
         setProblemYoParameter(parsedData.yZero);
         setProblemXoParameter(parsedData.xZero);
       })
@@ -88,9 +90,9 @@ const RungeKuttaComponent = (props) => {
   for (let i = 0; i < iterations; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `y${i + 1}`,
       type: "number",
-      label: `x${i} = `,
+      label: `y${i + 1} = `,
       name: "",
       i: { i },
       required: true,
@@ -148,7 +150,7 @@ const RungeKuttaComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
@@ -157,7 +159,7 @@ const RungeKuttaComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    hparameter,
+    hParameter,
     xZero,
     yZero,
   };
@@ -277,9 +279,7 @@ const RungeKuttaComponent = (props) => {
         Submit
       </button>
       <div>For: {problemData.iterations} iterations</div>
-      <div>
-        In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
-      </div>
+      <di>with an h = {hParameter}</di>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
