@@ -29,7 +29,7 @@ const RungeKuttaNystromComponent = (props) => {
   const [yZero, setProblemYoParameter] = useState(0);
   const [xPrimeZero, setProblemXPrimeZeroParameter] = useState(0);
   const [yPrimeZero, setProblemYPrimeZeroParameter] = useState(0);
-  const [hparameter, setProblemHparameter] = useState(0);
+  const [hParameter, setProblemHparameter] = useState(0);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -42,7 +42,7 @@ const RungeKuttaNystromComponent = (props) => {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemHparameter(parsedData.hparameter);
+      setProblemHparameter(parsedData.hParameter);
       setProblemYoParameter(parsedData.yZero);
       setProblemXoParameter(parsedData.xZero);
       setProblemXPrimeZeroParameter(parsedData.xPrimeZero);
@@ -75,9 +75,9 @@ const RungeKuttaNystromComponent = (props) => {
   for (let i = 0; i < iterations; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `y${i}`,
       type: "number",
-      label: `x${i} = `,
+      label: `y${i} = `,
       name: "",
       i: { i },
       required: true,
@@ -131,7 +131,7 @@ const RungeKuttaNystromComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
@@ -140,7 +140,7 @@ const RungeKuttaNystromComponent = (props) => {
     problemMethod,
     problemString,
     iterations,
-    hparameter,
+    hParameter,
     xZero,
     yZero,
     xPrimeZero,

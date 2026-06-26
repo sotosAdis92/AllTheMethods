@@ -11,12 +11,13 @@ import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
+
 const DiakritiNewtonRaphsonComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [problemXoParameter, setProblemXoParameter] = useState("");
-  const [iterations, setIterations] = useState("");
-  const [userId, setUsersId] = useState("");
+  const [problemData, setProblemData] = useState([]);
+  const [problemXoParameter, setProblemXoParameter] = useState(0);
+  const [iterations, setIterations] = useState(0);
+  const [userId, setUsersId] = useState(0);
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [problemId, setProblemId] = useState(0);
@@ -25,6 +26,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [functionString, setFunctionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
