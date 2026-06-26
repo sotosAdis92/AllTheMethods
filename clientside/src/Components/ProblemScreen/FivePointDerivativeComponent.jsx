@@ -248,10 +248,24 @@ const FivePointDerivativeComponent = (props) => {
       return;
     }
   };
-  console.log(countingParameters);
-  console.log(xiParameters);
-  console.log(fiParameters);
 
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
   return (
     <>
       <button
@@ -261,7 +275,9 @@ const FivePointDerivativeComponent = (props) => {
       >
         Submit
       </button>
-
+      <div className="cParams">{listOfCountingParameters}</div>
+      <div className="xParams">{listOfXiParameters}</div>
+      <div className="fParams">{listOfFiParameters}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

@@ -824,3 +824,18 @@ body {
   margin-top: 2px;
   margin-left: 10px;
 }
+
+.xParams {
+  display: flex;
+  border: 1px solid black;
+}
+
+.fParams {
+  display: flex;
+  border: 1px solid black;
+}
+
+.cParams {
+  display: flex;
+  border: 1px solid black;
+}
