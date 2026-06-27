@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
@@ -15,7 +16,7 @@ import FormInput from "../FormInput";
 
 const BisectionComponent = (props) => {
   const { id } = useParams();
-  const [userId, setUsersId] = useState("");
+
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [generalError, setGeneralError] = useState("");
@@ -31,6 +32,7 @@ const BisectionComponent = (props) => {
 
   const { problemId, problemData, iterations, problemSpaceA, problemSpaceB } =
     useFetchSpaceProblems();
+  const { achievements } = useFetchRelatedAchievements(props);
 
   //Fetching the users id
   useEffect(() => {
