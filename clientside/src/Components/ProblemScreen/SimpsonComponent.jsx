@@ -135,12 +135,26 @@ const SimpsonComponent = (props) => {
         required: true,
       });
     } else {
-      if (i != integrationPointA && i != integrationPointB) {
+      if (i % 2 != 0 && i != integrationPointA && i != integrationPointB) {
         entries.push({
           id: i,
           placeholder: `2f(${i})`,
           type: "number",
           label: `2f(${i}) = `,
+          name: "",
+          i: { i },
+          required: true,
+        });
+      } else if (
+        i % 2 === 0 &&
+        i != integrationPointA &&
+        i != integrationPointB
+      ) {
+        entries.push({
+          id: i,
+          placeholder: `4f(${i})`,
+          type: "number",
+          label: `4f(${i}) = `,
           name: "",
           i: { i },
           required: true,
