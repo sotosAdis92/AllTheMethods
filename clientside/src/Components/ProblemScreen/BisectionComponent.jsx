@@ -15,14 +15,9 @@ import FormInput from "../FormInput";
 
 const BisectionComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [iterations, setIterations] = useState("");
-  const [problemSpaceA, setProblemSpaceA] = useState("");
-  const [problemSpaceB, setProblemSpaceB] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
-  const [problemId, setProblemId] = useState(0);
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -35,22 +30,6 @@ const BisectionComponent = (props) => {
   var entries = [];
 
   console.log(props.isSolved);
-
-  //Fetching the problem
-  useEffect(() => {
-    getProblem(id)
-      .then((response) => {
-        setProblemId(response.data.problemId);
-        const problemDataConverted = JSON.parse(response.data.problemData);
-        setProblemData(problemDataConverted);
-        setIterations(problemDataConverted.iterations);
-        setProblemSpaceA(problemDataConverted.problemSpaceA);
-        setProblemSpaceB(problemDataConverted.problemSpaceB);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
 
   //Fetching related Achievements
   useEffect(() => {
