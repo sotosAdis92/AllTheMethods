@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
+import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import useFetchUserId from "../../hooks/useFetchUserId";
@@ -22,7 +23,9 @@ const BisectionComponent = (props) => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
+
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -33,14 +36,7 @@ const BisectionComponent = (props) => {
     useFetchSpaceProblems();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
-
-  //Fetching if the problem is solved
-  useEffect(() => {
-    if (props.isSolved) {
-      disableButton();
-    }
-  }, [props.isSolved]);
-
+  useFetchIsSolved(props.isSolved, setButtonDisabled);
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
     entries.push({
@@ -53,11 +49,6 @@ const BisectionComponent = (props) => {
       required: true,
     });
   }
-
-  //Disable Submission button if the problem is solved
-  const disableButton = () => {
-    setButtonDisabled(true);
-  };
 
   //Form Validation
   function validateForm() {
