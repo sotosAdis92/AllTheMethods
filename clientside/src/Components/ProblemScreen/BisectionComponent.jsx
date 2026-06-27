@@ -9,6 +9,7 @@ import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
 import {
   saveSubmission,
@@ -38,7 +39,7 @@ const BisectionComponent = (props) => {
   useGenerateInputsBisection(iterations, entries);
   const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
   const { submittedAt } = useGetTimeAndDate();
-
+  const { setCallback } = useSetCallback(props);
   console.log(achievements);
   console.log(input);
   console.log(result);
@@ -93,12 +94,6 @@ const BisectionComponent = (props) => {
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result);
-    }
-  };
-
-  const setCallback = (result) => {
-    if (props.onResultReceived) {
-      props.onResultReceived(result);
     }
   };
 
