@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
+import useFetchUserId from "../../hooks/useFetchUserId";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
@@ -16,13 +17,11 @@ import FormInput from "../FormInput";
 
 const BisectionComponent = (props) => {
   const { id } = useParams();
-
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   let text;
   const [values, setValues] = useState({
@@ -33,13 +32,7 @@ const BisectionComponent = (props) => {
   const { problemId, problemData, iterations, problemSpaceA, problemSpaceB } =
     useFetchSpaceProblems();
   const { achievements } = useFetchRelatedAchievements(props);
-
-  //Fetching the users id
-  useEffect(() => {
-    getUser().then((response) => {
-      setUsersId(response.data.id);
-    });
-  }, []);
+  const { userId } = useFetchUserId();
 
   //Fetching if the problem is solved
   useEffect(() => {
