@@ -71,12 +71,12 @@ const RichardsonComponent = (props) => {
     }
   });
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 2; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `h${i + 1}`,
       type: "number",
-      label: `x${i} = `,
+      label: `h${i + 1} = `,
       name: "",
       i: { i },
       required: true,
@@ -249,6 +249,24 @@ const RichardsonComponent = (props) => {
     }
   };
 
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
+
   return (
     <>
       <button
@@ -258,7 +276,9 @@ const RichardsonComponent = (props) => {
       >
         Submit
       </button>
-
+      <div className="cParams">i:{listOfCountingParameters}</div>
+      <div className="xParams">xi:{listOfXiParameters}</div>
+      <div className="fParams">fi:{listOfFiParameters}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
