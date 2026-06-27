@@ -5,14 +5,15 @@ import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements"
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import useFetchUserId from "../../hooks/useFetchUserId";
 import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import { decideResultText } from "../../services/GeneralFunctions";
 import {
   saveSubmission,
   sendSubmissionData,
 } from "../../services/SubmitService";
-import { saveSolvedProblem } from "../../services/UserProblemService";
 import FormInput from "../FormInput";
 
 const BisectionComponent = (props) => {
@@ -35,6 +36,8 @@ const BisectionComponent = (props) => {
     useHandleInput();
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
   useGenerateInputsBisection(iterations, entries);
+  const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
+  const { submittedAt } = useGetTimeAndDate();
 
   console.log(achievements);
   console.log(input);
@@ -53,11 +56,6 @@ const BisectionComponent = (props) => {
     return valid;
   }
 
-  //Setting up the local time objects for the submission
-  const d = new Date();
-  let date = d.toLocaleDateString();
-  let time = d.toLocaleTimeString();
-  let submittedAt = date + " " + time;
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
@@ -93,7 +91,7 @@ const BisectionComponent = (props) => {
       setResult(result);
       decideResultText(result);
       setCallback(result);
-      await decideToSaveSolvedProblem(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result);
     }
   };
@@ -101,18 +99,6 @@ const BisectionComponent = (props) => {
   const setCallback = (result) => {
     if (props.onResultReceived) {
       props.onResultReceived(result);
-    }
-  };
-
-  //Function to save or not to save the problem based on the result that is returned by the server
-  const decideToSaveSolvedProblem = (result) => {
-    if (result === true) {
-      saveSolvedProblem(savedProblem).then((response) => {
-        console.log(response.data);
-      });
-      setButtonDisabled(true);
-    } else {
-      return;
     }
   };
 
