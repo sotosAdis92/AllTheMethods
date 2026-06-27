@@ -37,6 +37,7 @@ const BisectionComponent = (props) => {
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
+
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
     entries.push({
