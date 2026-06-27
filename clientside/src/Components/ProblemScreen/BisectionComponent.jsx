@@ -21,30 +21,13 @@ const BisectionComponent = (props) => {
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievements, setAchievements] = useState([]);
+
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
-
-  //Fetching related Achievements
-  useEffect(() => {
-    getAchievementsByCategory(props.problemCategory)
-      .then((response) => {
-        console.log(response.data);
-        const fetchedData = [];
-        for (let i = 0; i < response.data.length; i++) {
-          const achievement = response.data[i];
-          fetchedData.push(achievement);
-        }
-        setAchievements(fetchedData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [props.problemCategory]);
 
   //Fetching the users id
   useEffect(() => {
