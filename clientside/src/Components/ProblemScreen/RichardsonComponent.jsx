@@ -47,7 +47,7 @@ const RichardsonComponent = (props) => {
       setFiParameters(parsedData.fiParameters);
       setHparameter(parsedData.hParameter);
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
@@ -71,7 +71,7 @@ const RichardsonComponent = (props) => {
     }
   });
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < 1; i++) {
     entries.push({
       id: i,
       placeholder: `x${i}`,
