@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getProblem } from "../services/ProblemService";
+
 export default function useFetchSpaceProblems() {
+  const { id } = useParams();
   const [problemId, setProblemId] = useState(0);
   const [problemData, setProblemData] = useState("");
   const [iterations, setIterations] = useState(0);
@@ -22,4 +25,6 @@ export default function useFetchSpaceProblems() {
         console.log(error);
       });
   }, [id]);
+
+  return { problemId, problemData, iterations, problemSpaceA, problemSpaceB };
 }

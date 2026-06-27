@@ -29,8 +29,6 @@ const BisectionComponent = (props) => {
   });
   var entries = [];
 
-  console.log(props.isSolved);
-
   //Fetching related Achievements
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
