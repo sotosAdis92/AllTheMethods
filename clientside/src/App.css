@@ -20,7 +20,12 @@ body {
   margin-left: auto;
   margin-right: 5px;
 }
-
+.hardDifficulty {
+  color: #ff2d55;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: 5px;
+}
 .problemLink {
   text-decoration: none;
   color: #1b1212;
