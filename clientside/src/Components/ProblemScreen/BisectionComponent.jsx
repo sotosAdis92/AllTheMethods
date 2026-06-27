@@ -4,6 +4,7 @@ import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
 import useHandleInput from "../../hooks/useHandleInput";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import { decideResultText } from "../../services/GeneralFunctions";
@@ -33,23 +34,12 @@ const BisectionComponent = (props) => {
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
+  useGenerateInputsBisection(iterations, entries);
+
   console.log(achievements);
   console.log(input);
   console.log(result);
   console.log(id);
-
-  //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
-    entries.push({
-      id: i,
-      placeholder: `x${i}`,
-      type: "number",
-      label: `x${i} = `,
-      name: "",
-      i: { i },
-      required: true,
-    });
-  }
 
   //Form Validation
   function validateForm() {
@@ -68,12 +58,10 @@ const BisectionComponent = (props) => {
   let date = d.toLocaleDateString();
   let time = d.toLocaleTimeString();
   let submittedAt = date + " " + time;
-
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
-
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
@@ -83,13 +71,11 @@ const BisectionComponent = (props) => {
     problemSpaceA,
     problemSpaceB,
   };
-
   const submission = {
     problemId,
     userId,
     submittedAt,
   };
-
   const savedProblem = {
     userId,
     problemId,

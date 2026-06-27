@@ -1,6 +1,6 @@
-import { getProblem } from "../../services/ProblemService";
-import { saveUserAchievement } from "../../services/UserAchievementService";
-import { getUser } from "../../services/UsersService";
+import { getProblem } from "../services/ProblemService";
+import { saveUserAchievement } from "../services/UserAchievementService";
+import { getUser } from "../services/UsersService";
 export default function useSaveAchievementOfUser() {
   const saveAchievementOfUser = (
     result,
