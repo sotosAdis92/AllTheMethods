@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
@@ -125,7 +124,7 @@ const BisectionComponent = (props) => {
       saveSolvedProblem(savedProblem).then((response) => {
         console.log(response.data);
       });
-      disableButton();
+      setButtonDisabled(true);
     } else {
       return;
     }
