@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getAchievementsByCategory } from "../../services/AchievementService";
+import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
@@ -28,6 +28,9 @@ const BisectionComponent = (props) => {
     entry: "",
   });
   var entries = [];
+
+  const { problemId, problemData, iterations, problemSpaceA, problemSpaceB } =
+    useFetchSpaceProblems();
 
   //Fetching the users id
   useEffect(() => {
