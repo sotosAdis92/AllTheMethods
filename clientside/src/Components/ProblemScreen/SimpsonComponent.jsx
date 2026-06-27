@@ -264,24 +264,6 @@ const SimpsonComponent = (props) => {
     }
   };
 
-  const listOfXiParameters = xiParameters.map((parameter, i) => (
-    <div key={i} className="xiParameters">
-      {parameter}
-    </div>
-  ));
-
-  const listOfFiParameters = fiParameters.map((parameter, i) => (
-    <div key={i} className="fiParameters">
-      {parameter}
-    </div>
-  ));
-
-  const listOfCountingParameters = countingParameters.map((parameter, i) => (
-    <div key={i} className="countingParameters">
-      {parameter}
-    </div>
-  ));
-
   return (
     <>
       <button
@@ -291,9 +273,6 @@ const SimpsonComponent = (props) => {
       >
         Submit
       </button>
-      <div className="cParams">i:{listOfCountingParameters}</div>
-      <div className="xParams">xi:{listOfXiParameters}</div>
-      <div className="fParams">fi:{listOfFiParameters}</div>
       <form name="inputForm" id="form">
         {entries.map((entry) => (
           <FormInput
