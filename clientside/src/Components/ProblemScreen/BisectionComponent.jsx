@@ -5,6 +5,7 @@ import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useHandleInput from "../../hooks/useHandleInput";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
@@ -32,6 +33,8 @@ const BisectionComponent = (props) => {
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
+  const { input, inp, generalError, setGeneralError, handleInput } =
+    useHandleInput();
 
   //Implement input generation based on how many iterations you have
   for (let i = 0; i < iterations; i++) {
@@ -56,32 +59,6 @@ const BisectionComponent = (props) => {
       setGeneralError("");
     }
     return valid;
-  }
-
-  //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
-  //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
-  //creates a copy and saves it
-  function handleInput(i, e) {
-    const value = Number(e.target.value);
-    const indexOfNumber = input.findIndex(
-      (inputtedNumber) => inputtedNumber[0] === i,
-    );
-    if (indexOfNumber !== -1) {
-      input[indexOfNumber] = [i, value];
-    } else {
-      input.push([i, Number(e.target.value)]);
-    }
-    input.sort();
-    const inp = input.map((num) => num[1]);
-    setInput([...input]);
-    setInputI(inp);
-
-    console.log(input);
-    console.log(inp);
-
-    if (inp.length >= 1) {
-      setGeneralError("");
-    }
   }
 
   //Setting up the local time objects for the submission
