@@ -11,19 +11,22 @@ import FormInput from "../FormInput";
 
 const SimpsonComponent = (props) => {
   const { id } = useParams();
-  const [hParameter, setHparameter] = useState("");
-  const [integrationPointA, setIntegrationPointA] = useState("");
-  const [integrationPointB, setIntegrationPointB] = useState("");
   const [problemData, setProblemData] = useState("");
-  const [achievements, setAchievements] = useState([]);
-  const [userId, setUsersId] = useState(0);
-  const [generalError, setGeneralError] = useState("");
-  const [problemId, setProblemId] = useState(0);
+  const [xZero, setProblemXZeroParameter] = useState(0);
+  const [iterations, setIterations] = useState("");
+  const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
+  const [problemId, setProblemId] = useState(0);
+  const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
-  const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [resultText, setResultText] = useState("");
+  const [achievements, setAchievements] = useState([]);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [countingParameters, setCoutingParameters] = useState([]);
+  const [xiParameters, setXiParameters] = useState([]);
+  const [fiParameters, setFiParameters] = useState([]);
+  const [typeOfDerivative, setTypeOfDerivative] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -33,13 +36,14 @@ const SimpsonComponent = (props) => {
   console.log(id);
   useEffect(() => {
     getProblem(id).then((response) => {
-      const problemDataParsed = JSON.parse(response.data.problemData);
-      setProblemData(problemDataParsed);
-      setHparameter(problemDataParsed.hParameter);
-      setIntegrationPointA(problemDataParsed.integrationSpaceA);
-      setIntegrationPointB(problemDataParsed.integrationSpaceB);
-      console.log(hParameter);
-      console.log(problemData);
+      const parsedData = JSON.parse(response.data.problemData);
+      setProblemData(parsedData);
+      setIterations(parsedData.iterations);
+      setProblemXZeroParameter(parsedData.problemXoParameter);
+      setCoutingParameters(parsedData.countingParameters);
+      setXiParameters(parsedData.xiParameters);
+      setFiParameters(parsedData.fiParameters);
+      setTypeOfDerivative(parsedData.typeOfDerivative);
     });
   }, [id]);
 
@@ -78,7 +82,7 @@ const SimpsonComponent = (props) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != integrationPointB - integrationPointA || text === 0) {
+    if (inp.length != iterations || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -120,47 +124,16 @@ const SimpsonComponent = (props) => {
   let submittedAt = date + " " + time;
 
   //Implement input generation based on how many iterations you have
-  for (let i = integrationPointA; i <= integrationPointB + 1; i++) {
-    if (i === integrationPointA || i === integrationPointB) {
-      entries.push({
-        id: i,
-        placeholder: `f(${i})`,
-        type: "number",
-        label: `f(${i}) = `,
-        name: "",
-        i: { i },
-        required: true,
-      });
-    } else if (i === integrationPointB + 1) {
-      entries.push({
-        id: i,
-        placeholder: `Final Sum`,
-        label: `S = `,
-        name: "",
-        i: { i },
-        required: true,
-      });
-    } else if ((i - integrationPointA) % 2 === 1) {
-      entries.push({
-        id: i,
-        placeholder: `4f(${i})`,
-        type: "number",
-        label: `4f(${i}) = `,
-        name: "",
-        i: { i },
-        required: true,
-      });
-    } else {
-      entries.push({
-        id: i,
-        placeholder: `2f(${i})`,
-        type: "number",
-        label: `2f(${i}) = `,
-        name: "",
-        i: { i },
-        required: true,
-      });
-    }
+  for (let i = 0; i < 1; i++) {
+    entries.push({
+      id: i,
+      placeholder: `f`,
+      type: "number",
+      label: `f = `,
+      name: "",
+      i: { i },
+      required: true,
+    });
   }
 
   //Props passed in from parrent element
@@ -172,9 +145,12 @@ const SimpsonComponent = (props) => {
     inp,
     problemMethod,
     problemString,
-    hParameter,
-    integrationPointA,
-    integrationPointB,
+    iterations,
+    countingParameters,
+    xiParameters,
+    fiParameters,
+    xZero,
+    typeOfDerivative,
   };
 
   const submission = {
@@ -288,6 +264,24 @@ const SimpsonComponent = (props) => {
     }
   };
 
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
+
   return (
     <>
       <button
@@ -297,7 +291,9 @@ const SimpsonComponent = (props) => {
       >
         Submit
       </button>
-      <div></div>
+      <div className="cParams">i:{listOfCountingParameters}</div>
+      <div className="xParams">xi:{listOfXiParameters}</div>
+      <div className="fParams">fi:{listOfFiParameters}</div>
       <form name="inputForm" id="form">
         {entries.map((entry) => (
           <FormInput
