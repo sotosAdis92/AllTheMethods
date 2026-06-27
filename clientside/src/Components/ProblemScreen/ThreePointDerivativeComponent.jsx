@@ -5,7 +5,7 @@ import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
-  sendRichardsonData,
+  sendThreePointDerivativeData,
 } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
@@ -34,7 +34,6 @@ const ThreePointDerivativeComponent = (props) => {
   const [values, setValues] = useState({
     entry: "",
   });
-
   var entries = [];
 
   useEffect(() => {
@@ -72,12 +71,12 @@ const ThreePointDerivativeComponent = (props) => {
     }
   });
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < 1; i++) {
     entries.push({
       id: i,
-      placeholder: `x${i}`,
+      placeholder: `f`,
       type: "number",
-      label: `x${i} = `,
+      label: `f = `,
       name: "",
       i: { i },
       required: true,
@@ -159,12 +158,12 @@ const ThreePointDerivativeComponent = (props) => {
     problemCategory,
   };
 
-  const submitRichardsonData = async () => {
+  const submitThreePointData = async () => {
     if (validateForm()) {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = await sendRichardsonData(submissionData);
+      const response = sendThreePointDerivativeData(submissionData);
       const resultOfFetch = response.data;
       setResult(resultOfFetch);
       await decideResultText(result);
@@ -250,16 +249,36 @@ const ThreePointDerivativeComponent = (props) => {
     }
   };
 
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
+
   return (
     <>
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitRichardsonData()}
+        onClick={() => submitThreePointData()}
       >
         Submit
       </button>
-
+      <div className="cParams">i:{listOfCountingParameters}</div>
+      <div className="xParams">xi:{listOfXiParameters}</div>
+      <div className="fParams">fi:{listOfFiParameters}</div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
