@@ -12,8 +12,10 @@ import FormInput from "../FormInput";
 const SimpsonComponent = (props) => {
   const { id } = useParams();
   const [problemData, setProblemData] = useState("");
-  const [xZero, setProblemXZeroParameter] = useState(0);
   const [iterations, setIterations] = useState("");
+  const [hParameter, setHparameter] = useState("");
+  const [integrationPointA, setIntegrationPointA] = useState("");
+  const [integrationPointB, setIntegrationPointB] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
@@ -23,10 +25,7 @@ const SimpsonComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [countingParameters, setCoutingParameters] = useState([]);
-  const [xiParameters, setXiParameters] = useState([]);
-  const [fiParameters, setFiParameters] = useState([]);
-  const [typeOfDerivative, setTypeOfDerivative] = useState("");
+  const [functionString, setFunctionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -36,14 +35,15 @@ const SimpsonComponent = (props) => {
   console.log(id);
   useEffect(() => {
     getProblem(id).then((response) => {
-      const parsedData = JSON.parse(response.data.problemData);
-      setProblemData(parsedData);
-      setIterations(parsedData.iterations);
-      setProblemXZeroParameter(parsedData.problemXoParameter);
-      setCoutingParameters(parsedData.countingParameters);
-      setXiParameters(parsedData.xiParameters);
-      setFiParameters(parsedData.fiParameters);
-      setTypeOfDerivative(parsedData.typeOfDerivative);
+      console.log(response.data.problemId);
+      setProblemId(response.data.problemId);
+      setFunctionString(response.data.functionString);
+      const problemDataParsed = JSON.parse(response.data.problemData);
+      setProblemData(problemDataParsed);
+      setHparameter(problemDataParsed.hParameter);
+      setIntegrationPointA(problemDataParsed.integrationSpaceA);
+      setIntegrationPointB(problemDataParsed.integrationSpaceB);
+      console.log(problemDataParsed.hParameter);
     });
   }, [id]);
 
@@ -124,33 +124,53 @@ const SimpsonComponent = (props) => {
   let submittedAt = date + " " + time;
 
   //Implement input generation based on how many iterations you have
-  for (let i = 0; i < 1; i++) {
-    entries.push({
-      id: i,
-      placeholder: `f`,
-      type: "number",
-      label: `f = `,
-      name: "",
-      i: { i },
-      required: true,
-    });
+  for (let i = integrationPointA; i <= integrationPointB + 1; i++) {
+    if (i === integrationPointB + 1) {
+      entries.push({
+        id: i,
+        placeholder: `Final`,
+        label: `S = `,
+        name: "",
+        i: { i },
+        required: true,
+      });
+    } else {
+      if (i != integrationPointA && i != integrationPointB) {
+        entries.push({
+          id: i,
+          placeholder: `2f(${i})`,
+          type: "number",
+          label: `2f(${i}) = `,
+          name: "",
+          i: { i },
+          required: true,
+        });
+      } else {
+        entries.push({
+          id: i,
+          placeholder: `f(${i})`,
+          type: "number",
+          label: `f(${i}) = `,
+          name: "",
+          i: { i },
+          required: true,
+        });
+      }
+    }
   }
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
     problemString,
-    iterations,
-    countingParameters,
-    xiParameters,
-    fiParameters,
-    xZero,
-    typeOfDerivative,
+    hParameter,
+    integrationPointA,
+    integrationPointB,
   };
 
   const submission = {
