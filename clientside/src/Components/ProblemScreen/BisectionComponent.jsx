@@ -7,6 +7,7 @@ import useFetchUserId from "../../hooks/useFetchUserId";
 import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
 import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
@@ -40,6 +41,8 @@ const BisectionComponent = (props) => {
   const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
+  useResultTextHook(result);
+
   console.log(achievements);
   console.log(input);
   console.log(result);
