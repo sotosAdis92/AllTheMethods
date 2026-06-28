@@ -4,8 +4,7 @@ import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquat
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
-import useHandleInput from "../../hooks/useHandleInput";
-import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useGenerateInputsDE from "../../hooks/useGenerateInputsDE";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
 import FormInput from "../FormInput";
@@ -28,17 +27,12 @@ const DirectEulerComponent = (props) => {
   useFetchIsSolved(props.isSolved, setButtonDisabled);
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
+  useGenerateInputsDE(iterations, entries);
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
-  useGenerateInputsBisection(iterations, entries);
   const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
-
-  console.log(achievements);
-  console.log(input);
-  console.log(result);
-  console.log(id);
 
   function validateForm() {
     let valid = true;
