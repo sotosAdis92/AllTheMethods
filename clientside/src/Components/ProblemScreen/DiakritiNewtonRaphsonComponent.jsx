@@ -5,17 +5,17 @@ import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements"
 import useFetchUserId from "../../hooks/useFetchUserId";
 import useFetchXZeroProblems from "../../hooks/useFetchXZeroProblems";
 import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useResultTextHook from "../../hooks/useResultTextHook";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
-import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
   sendDiakritiNewtonRaphsonData,
 } from "../../services/SubmitService";
-import { saveUserAchievement } from "../../services/UserAchievementService";
-import { saveSolvedProblem } from "../../services/UserProblemService";
-import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 
 const DiakritiNewtonRaphsonComponent = (props) => {
