@@ -69,7 +69,6 @@ const DiakritiNewtonRaphsonComponent = (props) => {
   let problemMethod = props.problemMethod;
   let problemString = functionString;
   let problemCategory = props.problemCategory;
-
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
@@ -78,13 +77,11 @@ const DiakritiNewtonRaphsonComponent = (props) => {
     iterations,
     problemXoParameter,
   };
-
   const submission = {
     problemId,
     userId,
     submittedAt,
   };
-
   const savedProblem = {
     userId,
     problemId,
