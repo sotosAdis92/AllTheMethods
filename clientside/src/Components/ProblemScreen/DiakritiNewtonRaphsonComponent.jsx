@@ -91,22 +91,20 @@ const DiakritiNewtonRaphsonComponent = (props) => {
     problemCategory,
   };
 
-  const submitNewtonRaphsonData = () => {
+  const submitNewtonRaphsonData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
-      saveSubmission(submission).then((response) => {
+      await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      sendDiakritiNewtonRaphsonData(submissionData).then((response) => {
-        const resultOfFetch = response.data;
-        setResult(resultOfFetch);
-        console.log(result);
-      });
-
+      const response = await sendDiakritiNewtonRaphsonData(submissionData);
+      const result = response.data;
+      setResult(result);
       decideResultText(result);
-      decideToSaveSolvedProblem(result);
-      saveAchievementOfUser(result);
+      setCallback(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
+      await saveAchievementOfUser(result);
     }
   };
 
