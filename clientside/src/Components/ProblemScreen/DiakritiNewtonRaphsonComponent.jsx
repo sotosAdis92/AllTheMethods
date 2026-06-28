@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetchXZeroProblems from "../../hooks/useFetchXZeroProblems";
+import useResultTextHook from "../../hooks/useResultTextHook";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
@@ -45,6 +47,8 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       console.log(parsedData.xoParameter);
     });
   }, [id]);
+  const {} useFetchXZeroProblems;
+  useResultTextHook(result);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
