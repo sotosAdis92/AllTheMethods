@@ -9,12 +9,14 @@ export default function useFetchDifferentialEquations() {
   const [iterations, setIterations] = useState(0);
   const [hParameter, setProblemHparameter] = useState(0);
   const [problemId, setProblemId] = useState(0);
+  const [functionString, setFunctionString] = useState("");
   console.log(problemData);
   //Fetching the problem
   useEffect(() => {
     getProblem(id)
       .then((response) => {
         setProblemId(response.data.problemId);
+        setFunctionString(response.data.functionString);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
         setIterations(problemDataConverted.iterations);
@@ -27,5 +29,5 @@ export default function useFetchDifferentialEquations() {
       });
   }, [id]);
 
-  return { problemId, iterations, xZero, yZero, hParameter };
+  return { problemId, iterations, xZero, yZero, hParameter, functionString };
 }

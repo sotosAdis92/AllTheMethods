@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
+import useFetchUserId from "../../hooks/useFetchUserId";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
@@ -13,26 +16,30 @@ import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [xZero, setProblemXoParameter] = useState(0);
-  const [iterations, setIterations] = useState(0);
-  const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
-  const [problemId, setProblemId] = useState(0);
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [hParameter, setProblemHparameter] = useState(0);
-  const [yZero, setProblemYoParameter] = useState(0);
-  const [functionString, setFuntionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
+
+  const {
+    problemId,
+    problemData,
+    iterations,
+    xZero,
+    yZero,
+    hParameter,
+    functionString,
+  } = useFetchDifferentialEquations();
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
+
   useEffect(() => {
     getProblem(id).then((response) => {
       console.log(response.data.problemId);

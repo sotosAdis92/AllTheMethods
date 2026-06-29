@@ -27,8 +27,15 @@ const DirectEulerComponent = (props) => {
   var entries = [];
   console.log();
 
-  const { problemId, problemData, iterations, xZero, yZero, hParameter } =
-    useFetchDifferentialEquations();
+  const {
+    problemId,
+    problemData,
+    iterations,
+    xZero,
+    yZero,
+    hParameter,
+    functionString,
+  } = useFetchDifferentialEquations();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
@@ -59,7 +66,7 @@ const DirectEulerComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
