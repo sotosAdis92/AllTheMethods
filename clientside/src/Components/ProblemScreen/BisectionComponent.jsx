@@ -43,11 +43,6 @@ const BisectionComponent = (props) => {
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
 
-  console.log(achievements);
-  console.log(input);
-  console.log(result);
-  console.log(id);
-
   //Form Validation
   function validateForm() {
     let valid = true;
@@ -96,7 +91,7 @@ const BisectionComponent = (props) => {
       decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result);
+      await saveAchievementOfUser(result, achievements);
     }
   };
 
