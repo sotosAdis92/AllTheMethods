@@ -14,8 +14,7 @@ import FormInput from "../FormInput";
 
 const FivePointDerivativeComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [xZero, setProblemXZeroParameter] = useState(0);
+
   const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
@@ -26,6 +25,8 @@ const FivePointDerivativeComponent = (props) => {
   const [resultText, setResultText] = useState("");
   const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [problemData, setProblemData] = useState("");
+  const [xZero, setProblemXZeroParameter] = useState(0);
   const [countingParameters, setCoutingParameters] = useState([]);
   const [xiParameters, setXiParameters] = useState([]);
   const [fiParameters, setFiParameters] = useState([]);
