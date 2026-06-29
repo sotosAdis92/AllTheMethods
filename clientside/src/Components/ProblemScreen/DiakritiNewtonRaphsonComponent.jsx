@@ -101,7 +101,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result);
+      await saveAchievementOfUser(result, achievements);
     }
   };
 
