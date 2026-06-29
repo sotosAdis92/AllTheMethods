@@ -37,18 +37,7 @@ const FivePointDerivativeComponent = (props) => {
   });
   var entries = [];
 
-  useEffect(() => {
-    getProblem(id).then((response) => {
-      const parsedData = JSON.parse(response.data.problemData);
-      setProblemData(parsedData);
-      setIterations(parsedData.iterations);
-      setProblemXZeroParameter(parsedData.problemXoParameter);
-      setCoutingParameters(parsedData.countingParameters);
-      setXiParameters(parsedData.xiParameters);
-      setFiParameters(parsedData.fiParameters);
-      setTypeOfDerivative(parsedData.typeOfDerivative);
-    });
-  }, [id]);
+  const { problemId };
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
