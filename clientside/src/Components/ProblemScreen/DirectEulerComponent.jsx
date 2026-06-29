@@ -5,9 +5,16 @@ import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
 import useGenerateInputsDE from "../../hooks/useGenerateInputsDE";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
+import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
 import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
 import FormInput from "../FormInput";
+
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
@@ -33,6 +40,11 @@ const DirectEulerComponent = (props) => {
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
+
+  console.log(achievements);
+  console.log(input);
+  console.log(result);
+  console.log(id);
 
   function validateForm() {
     let valid = true;
