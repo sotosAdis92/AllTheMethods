@@ -14,7 +14,6 @@ import FormInput from "../FormInput";
 
 const FixedPointComponent = (props) => {
   const { id } = useParams();
-  const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
   const [generalError, setGeneralError] = useState("");
@@ -27,13 +26,8 @@ const FixedPointComponent = (props) => {
   });
   var entries = [];
 
-  const {
-    problemId,
-    problemData,
-    problemXoParameter,
-    iterations,
-    functionString,
-  } = useFetchXZeroProblems();
+  const { problemId, problemData, xoParameter, iterations, functionString } =
+    useFetchXZeroProblems();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
 
@@ -118,7 +112,7 @@ const FixedPointComponent = (props) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
+  let problemString = functionString;
   let problemCategory = props.problemCategory;
 
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
