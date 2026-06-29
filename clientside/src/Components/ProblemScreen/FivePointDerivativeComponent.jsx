@@ -48,7 +48,7 @@ const FivePointDerivativeComponent = (props) => {
       setFiParameters(parsedData.fiParameters);
       setTypeOfDerivative(parsedData.typeOfDerivative);
     });
-  });
+  }, [id]);
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)

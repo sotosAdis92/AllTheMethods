@@ -16,11 +16,20 @@ export default function useFetchDerivatives() {
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
-      setProblemXZeroParameter(parsedData.problemXoParameter);
+      setProblemXZeroParameter(parsedData.xZero);
       setCoutingParameters(parsedData.countingParameters);
       setXiParameters(parsedData.xiParameters);
       setFiParameters(parsedData.fiParameters);
       setTypeOfDerivative(parsedData.typeOfDerivative);
     });
   }, [id]);
+  return {
+    problemData,
+    iterations,
+    xZero,
+    countingParameters,
+    xiParameters,
+    fiParameters,
+    typeOfDerivative,
+  };
 }
