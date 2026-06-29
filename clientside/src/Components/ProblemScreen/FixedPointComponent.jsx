@@ -14,17 +14,12 @@ import FormInput from "../FormInput";
 
 const FixedPointComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [xoParameter, setProblemXoParameter] = useState("");
-  const [iterations, setIterations] = useState("");
   const [userId, setUsersId] = useState("");
   const [input, setInput] = useState([]);
   const [inp, setInputI] = useState([]);
-  const [problemId, setProblemId] = useState(0);
   const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   let text;
   const [values, setValues] = useState({
@@ -32,17 +27,15 @@ const FixedPointComponent = (props) => {
   });
   var entries = [];
 
-  console.log(props.isSolved);
-  useEffect(() => {
-    getProblem(id).then((response) => {
-      console.log(response.data);
-      const parsedData = JSON.parse(response.data.problemData);
-      setProblemData(parsedData);
-      setIterations(parsedData.iterations);
-      setProblemXoParameter(parsedData.xoParameter);
-      console.log(parsedData);
-    });
-  }, [id]);
+  const {
+    problemId,
+    problemData,
+    problemXoParameter,
+    iterations,
+    functionString,
+  } = useFetchXZeroProblems();
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
 
   useEffect(() => {
     getAchievementsByCategory(props.problemCategory)
