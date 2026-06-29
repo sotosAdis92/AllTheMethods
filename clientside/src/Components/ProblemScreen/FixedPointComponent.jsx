@@ -123,19 +123,16 @@ const FixedPointComponent = (props) => {
     iterations,
     xoParameter,
   };
-
   const submission = {
     problemId,
     userId,
     submittedAt,
   };
-
   const savedProblem = {
     userId,
     problemId,
     problemCategory,
   };
-
   const submitFixedPointData = async () => {
     if (validateForm()) {
       await saveSubmission(submission).then((response) => {
