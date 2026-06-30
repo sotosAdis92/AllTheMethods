@@ -1,5 +1,16 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetchIsSolved from "../../hooks/useFetchIsSolved";
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
+import useFetchUserId from "../../hooks/useFetchUserId";
+import useFetchXZeroProblems from "../../hooks/useFetchXZeroProblems";
+import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
+import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
 import {
   saveSubmission,
@@ -19,13 +30,8 @@ const NewtonRaphsonComponent = (props) => {
   var entries = [];
   console.log(props.isSolved);
 
-  const {
-    problemId,
-    problemData,
-    problemXoParameter,
-    iterations,
-    functionString,
-  } = useFetchXZeroProblems();
+  const { problemId, problemData, xoParameter, iterations, functionString } =
+    useFetchXZeroProblems();
   useResultTextHook(result);
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
