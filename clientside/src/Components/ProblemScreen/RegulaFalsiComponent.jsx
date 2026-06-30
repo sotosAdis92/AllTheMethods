@@ -1,105 +1,48 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAchievementsByCategory } from "../../services/AchievementService";
+import useFetchIsSolved from "../../hooks/useFetchIsSolved";
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
+import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
+import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateInputsBisection from "../../hooks/useGenerateInputsBisection";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
+import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
-import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
   sendRegulaFalsiData,
 } from "../../services/SubmitService";
-import { saveUserAchievement } from "../../services/UserAchievementService";
-import { saveSolvedProblem } from "../../services/UserProblemService";
-import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 
 const RegulaFalsiComponent = (props) => {
   const { id } = useParams();
-  const [problemSpaceA, setProblemSpaceA] = useState(0);
-  const [problemSpaceB, setProblemSpaceB] = useState(0);
-  const [iterations, setIterations] = useState(0);
-  const [achievements, setAchievements] = useState([]);
-  const [problemData, setProblemData] = useState("");
-  const [userId, setUserId] = useState(0);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [problemId, setProblemId] = useState(0);
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [usersId, setUsersId] = useState(0);
-  const [input, setInput] = useState([]);
-  const [inp, setInputI] = useState([]);
-  const [generalError, setGeneralError] = useState("");
   let text;
   var entries = [];
   const [values, setValues] = useState({
     entry: "",
   });
-  useEffect(() => {
-    getProblem(id)
-      .then((response) => {
-        console.log(id);
-        setProblemId(response.data.problemId);
-        const problemDataConverted = JSON.parse(response.data.problemData);
-        setProblemData(problemDataConverted);
-        setIterations(problemDataConverted.iterations);
-        setProblemSpaceA(problemDataConverted.problemSpaceA);
-        setProblemSpaceB(problemDataConverted.problemSpaceB);
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error.data);
-      });
-  }, [id]);
 
-  //Fetching data of the achievmenets for the problem
-  useEffect(() => {
-    getAchievementsByCategory(props.problemCategory)
-      .then((response) => {
-        console.log(response.data);
-        const fetchedData = [];
-        for (let i = 0; i < response.data.length; i++) {
-          const achievement = response.data[i];
-          fetchedData.push(achievement);
-        }
-        setAchievements(fetchedData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [props.problemCategory]);
+  const { problemId, problemData, iterations, problemSpaceA, problemSpaceB } =
+    useFetchSpaceProblems();
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
+  useFetchIsSolved(props.isSolved, setButtonDisabled);
+  const { input, inp, generalError, setGeneralError, handleInput } =
+    useHandleInput();
+  const { saveAchievementOfUser } = useSaveAchievementOfUser();
+  useGenerateInputsBisection(iterations, entries);
+  const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
+  const { submittedAt } = useGetTimeAndDate();
+  const { setCallback } = useSetCallback(props);
+  useResultTextHook(result);
 
-  useEffect(() => {
-    getUser().then((response) => {
-      setUserId(response.data.id);
-    });
-  });
-
-  useEffect(() => {
-    if (props.isSolved) {
-      disableButton();
-    }
-  });
-
-  for (let i = 0; i < iterations; i++) {
-    entries.push({
-      id: i,
-      placeholder: `x${i}`,
-      type: "number",
-      label: `x${i} = `,
-      name: "",
-      i: { i },
-      required: true,
-    });
-  }
-
-  const disableButton = () => {
-    setButtonDisabled(true);
-  };
-
-  const d = new Date();
-  let date = d.toLocaleDateString();
-  let time = d.toLocaleTimeString();
-  let submittedAt = date + " " + time;
-  //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
@@ -124,85 +67,6 @@ const RegulaFalsiComponent = (props) => {
     userId,
     problemId,
     problemCategory,
-  };
-
-  //Function for deciding what to display when a submission result is returned
-
-  //Function to save or not to save the problem based on the result that is returned by the server
-  const decideToSaveSolvedProblem = (result) => {
-    if (result === true) {
-      saveSolvedProblem(savedProblem).then((response) => {
-        console.log(response.data);
-      });
-      disableButton();
-    } else {
-      return;
-    }
-  };
-
-  const saveAchievementOfUser = (result) => {
-    if (result === true) {
-      for (let i = 0; i < achievements.length; i++) {
-        setUsersId(
-          getUser()
-            .then((response) => {
-              setUsersId(response.data.id);
-            })
-            .catch((error) => {
-              console.log(error);
-            }),
-        );
-        setProblemId(
-          getProblem(id)
-            .then((response) => {
-              setProblemId(response.data.problemId);
-            })
-            .catch((error) => {
-              console.log(error);
-            }),
-        );
-        const problemInfo = {
-          userAchievementDto: {
-            achievementId: achievements[i].achievementId,
-            userId: userId,
-            category: achievements[i].category,
-          },
-          userProblemDto: {
-            userId: userId,
-            problemId: problemId,
-            category: achievements[i].category,
-          },
-          achievementDto: {
-            achievementId: achievements[i].achievementId,
-            name: achievements[i].name,
-            description: achievements[i].description,
-            category: achievements[i].category,
-            rank: achievements[i].rank,
-            visibility: achievements[i].visibility,
-            counter: achievements[i].counter,
-          },
-        };
-
-        console.log(achievements[i].achievementId + ": Achievement Id");
-        console.log(achievements[i].description);
-        console.log(achievements[i].rank);
-        console.log(achievements[i].visibility);
-        console.log(achievements[i].category);
-        console.log(achievements[i].counter);
-        console.log(achievements[i].name);
-        console.log(userId);
-        console.log(problemId);
-        saveUserAchievement(problemInfo)
-          .then((response) => {
-            console.log(response.data.counter);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    } else {
-      return;
-    }
   };
 
   function validateForm() {
@@ -231,33 +95,6 @@ const RegulaFalsiComponent = (props) => {
       await saveAchievementOfUser(result);
     }
   };
-
-  const setCallback = (result) => {
-    if (props.onResultReceived) {
-      props.onResultReceived(result);
-    }
-  };
-  //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
-  //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
-  //creates a copy and saves it
-  function handleInput(i, e) {
-    const value = Number(e.target.value);
-    const indexOfNumber = input.findIndex(
-      (inputtedNumber) => inputtedNumber[0] === i,
-    );
-    if (indexOfNumber !== -1) {
-      input[indexOfNumber] = [i, value];
-    } else {
-      input.push([i, Number(e.target.value)]);
-    }
-    input.sort();
-    const inp = input.map((num) => num[1]);
-    setInput([...input]);
-    setInputI(inp);
-    if (inp.length >= 1) {
-      setGeneralError("");
-    }
-  }
 
   return (
     <>
