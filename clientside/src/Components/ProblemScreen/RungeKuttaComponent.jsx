@@ -97,11 +97,11 @@ const RungeKuttaComponent = (props) => {
         console.log(response.data);
       });
       const response = await sendRungeKuttaData(submissionData);
-      const resultOfServer = response.data;
-      setResult(resultOfServer);
-      await decideResultText(result);
-      await decideToSaveSolvedProblem(result);
-      await saveAchievementOfUser(result);
+      const result = response.data;
+
+      setCallback(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
+      await saveAchievementOfUser(result, achievements);
     }
   };
 
@@ -114,7 +114,7 @@ const RungeKuttaComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
+      <div>For: {iterations} iterations</div>
       <di>with an h = {hParameter}</di>
       <form name="inputForm">
         {entries.map((entry) => (
