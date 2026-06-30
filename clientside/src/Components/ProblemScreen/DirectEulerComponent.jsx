@@ -118,7 +118,7 @@ const DirectEulerComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
+      <div>For: {iterations} iterations</div>
       <div>and an h = {hParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (

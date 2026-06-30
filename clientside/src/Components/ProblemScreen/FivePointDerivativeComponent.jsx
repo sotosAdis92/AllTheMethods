@@ -109,7 +109,6 @@ const FivePointDerivativeComponent = (props) => {
       const response = sendFivePointDerivativeData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);
