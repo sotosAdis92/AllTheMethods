@@ -11,7 +11,7 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-import { decideResultText } from "../../services/GeneralFunctions";
+
 import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 

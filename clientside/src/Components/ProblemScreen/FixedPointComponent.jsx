@@ -11,7 +11,7 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-import { decideResultText } from "../../services/GeneralFunctions";
+
 import {
   saveSubmission,
   sendFixedPointData,
@@ -20,9 +20,6 @@ import FormInput from "../FormInput";
 
 const FixedPointComponent = (props) => {
   const { id } = useParams();
-  const [input, setInput] = useState([]);
-  const [inp, setInputI] = useState([]);
-  const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
-import { decideResultText } from "../../services/GeneralFunctions";
 import { getProblem } from "../../services/ProblemService";
 import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
 import { saveUserAchievement } from "../../services/UserAchievementService";
