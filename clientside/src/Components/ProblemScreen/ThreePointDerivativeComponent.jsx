@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useGenerateInputsDerivatives, {
-  default as useCreateListsForDerivatives,
   default as useFetchDerivatives,
 } from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -42,12 +41,6 @@ const ThreePointDerivativeComponent = (props) => {
     typeOfDerivative,
   } = useFetchDerivatives();
 
-  const { listOfCountingParameters, listOfFiParameters, listOfXiParameters } =
-    useCreateListsForDerivatives(
-      xiParameters,
-      fiParameters,
-      countingParameters,
-    );
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
@@ -107,12 +100,29 @@ const ThreePointDerivativeComponent = (props) => {
       const response = sendThreePointDerivativeData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);
     }
   };
+
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
 
   return (
     <>

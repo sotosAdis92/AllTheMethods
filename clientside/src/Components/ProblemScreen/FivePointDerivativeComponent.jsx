@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import useGenerateInputsDerivatives, {
-  default as useCreateListsForDerivatives,
-  default as useFetchDerivatives,
-} from "../../hooks/useFetchDerivatives";
+import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateInputsDerivatives from "../../hooks/useGenerateInputsDerivatives";
 import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useResultTextHook from "../../hooks/useResultTextHook";
@@ -42,12 +40,6 @@ const FivePointDerivativeComponent = (props) => {
     typeOfDerivative,
   } = useFetchDerivatives();
 
-  const { listOfCountingParameters, listOfFiParameters, listOfXiParameters } =
-    useCreateListsForDerivatives(
-      xiParameters,
-      fiParameters,
-      countingParameters,
-    );
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
@@ -114,6 +106,24 @@ const FivePointDerivativeComponent = (props) => {
       await saveAchievementOfUser(result, achievements);
     }
   };
+
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
 
   return (
     <>

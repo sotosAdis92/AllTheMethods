@@ -1,6 +1,5 @@
 import { useState } from "react";
 import useGenerateInputsDerivatives, {
-  default as useCreateListsForDerivatives,
   default as useFetchDerivatives,
 } from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -40,12 +39,6 @@ const RichardsonComponent = (props) => {
     typeOfDerivative,
   } = useFetchDerivatives();
 
-  const { listOfCountingParameters, listOfFiParameters, listOfXiParameters } =
-    useCreateListsForDerivatives(
-      xiParameters,
-      fiParameters,
-      countingParameters,
-    );
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
@@ -107,12 +100,29 @@ const RichardsonComponent = (props) => {
       const response = await sendRichardsonData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);
     }
   };
+
+  const listOfXiParameters = xiParameters.map((parameter, i) => (
+    <div key={i} className="xiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfFiParameters = fiParameters.map((parameter, i) => (
+    <div key={i} className="fiParameters">
+      {parameter}
+    </div>
+  ));
+
+  const listOfCountingParameters = countingParameters.map((parameter, i) => (
+    <div key={i} className="countingParameters">
+      {parameter}
+    </div>
+  ));
 
   return (
     <>

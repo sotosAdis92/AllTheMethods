@@ -20,5 +20,6 @@ export default function useCreateListsForDerivatives(
       {parameter}
     </div>
   ));
+
   return { listOfXiParameters, listOfFiParameters, listOfCountingParameters };
 }
