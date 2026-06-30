@@ -1,108 +1,54 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAchievementsByCategory } from "../../services/AchievementService";
+import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
+import useFetchIsSolved from "../../hooks/useFetchIsSolved";
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
+import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateInputsDE from "../../hooks/useGenerateInputsDE";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
+import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 import { decideResultText } from "../../services/GeneralFunctions";
-import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
   sendRungeKuttaData,
 } from "../../services/SubmitService";
-import { saveUserAchievement } from "../../services/UserAchievementService";
-import { saveSolvedProblem } from "../../services/UserProblemService";
-import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
 
 const RungeKuttaComponent = (props) => {
   const { id } = useParams();
-  const [problemData, setProblemData] = useState("");
-  const [iterations, setIterations] = useState("");
-  const [userId, setUsersId] = useState("");
-  const [input, setInput] = useState([]);
-  const [inp, setInputI] = useState([]);
-  const [problemId, setProblemId] = useState(0);
-  const [generalError, setGeneralError] = useState("");
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
-  const [achievements, setAchievements] = useState([]);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [xZero, setProblemXoParameter] = useState(0);
-  const [hParameter, setProblemHparameter] = useState(0);
-  const [yZero, setProblemYoParameter] = useState(0);
-  const [functionString, setFuntionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
   });
   var entries = [];
 
-  console.log(props.isSolved);
-
-  //Fetching the problem
-  useEffect(() => {
-    getProblem(id)
-      .then((response) => {
-        setProblemId(response.data.problemId);
-        setFuntionString(response.data.functionString);
-        const parsedData = JSON.parse(response.data.problemData);
-        setProblemData(parsedData);
-        setIterations(parsedData.iterations);
-        setProblemHparameter(parsedData.hParameter);
-        setProblemYoParameter(parsedData.yZero);
-        setProblemXoParameter(parsedData.xZero);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
-
-  //Fetching related Achievements
-  useEffect(() => {
-    getAchievementsByCategory(props.problemCategory)
-      .then((response) => {
-        console.log(response.data);
-        const fetchedData = [];
-        for (let i = 0; i < response.data.length; i++) {
-          const achievement = response.data[i];
-          fetchedData.push(achievement);
-        }
-        setAchievements(fetchedData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [props.problemCategory]);
-
-  //Fetching the users id
-  useEffect(() => {
-    getUser().then((response) => {
-      setUsersId(response.data.id);
-    });
-  });
-
-  //Fetching if the problem is solved
-  useEffect(() => {
-    if (props.isSolved) {
-      disableButton();
-    }
-  });
-
-  //Implement input generation based on how many iterations you have
-  for (let i = 0; i < iterations; i++) {
-    entries.push({
-      id: i,
-      placeholder: `y${i + 1}`,
-      type: "number",
-      label: `y${i + 1} = `,
-      name: "",
-      i: { i },
-      required: true,
-    });
-  }
-
-  //Disable Submission button if the problem is solved
-  const disableButton = () => {
-    setButtonDisabled(true);
-  };
+  const {
+    problemId,
+    problemData,
+    iterations,
+    xZero,
+    yZero,
+    hParameter,
+    functionString,
+  } = useFetchDifferentialEquations();
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
+  useFetchIsSolved(props.isSolved, setButtonDisabled);
+  const { input, inp, generalError, setGeneralError, handleInput } =
+    useHandleInput();
+  useGenerateInputsDE(iterations, entries);
+  const { saveAchievementOfUser } = useSaveAchievementOfUser();
+  const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
+  const { submittedAt } = useGetTimeAndDate();
+  const { setCallback } = useSetCallback(props);
+  useResultTextHook(result);
 
   //Form Validation
   function validateForm() {
@@ -115,38 +61,6 @@ const RungeKuttaComponent = (props) => {
     }
     return valid;
   }
-
-  //function that takes in an index and the inputted value and either when the user enters a new value puts it into the array or replaces it
-  //later it sorts it for the index value so that x0 = index 0 ... x1 = index 1 ... xn = index n
-  //creates a copy and saves it
-  function handleInput(i, e) {
-    const value = Number(e.target.value);
-    const indexOfNumber = input.findIndex(
-      (inputtedNumber) => inputtedNumber[0] === i,
-    );
-    if (indexOfNumber !== -1) {
-      input[indexOfNumber] = [i, value];
-    } else {
-      input.push([i, Number(e.target.value)]);
-    }
-    input.sort();
-    const inp = input.map((num) => num[1]);
-    setInput([...input]);
-    setInputI(inp);
-
-    console.log(input);
-    console.log(inp);
-
-    if (inp.length >= 1) {
-      setGeneralError("");
-    }
-  }
-
-  //Setting up the local time objects for the submission
-  const d = new Date();
-  let date = d.toLocaleDateString();
-  let time = d.toLocaleTimeString();
-  let submittedAt = date + " " + time;
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
@@ -189,83 +103,6 @@ const RungeKuttaComponent = (props) => {
       await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
-    }
-  };
-
-  //Function to save or not to save the problem based on the result that is returned by the server
-  const decideToSaveSolvedProblem = (result) => {
-    if (result === true) {
-      saveSolvedProblem(savedProblem).then((response) => {
-        console.log(response.data);
-      });
-      disableButton();
-    } else {
-      return;
-    }
-  };
-
-  const saveAchievementOfUser = (result) => {
-    if (result === true) {
-      for (let i = 0; i < achievements.length; i++) {
-        setUsersId(
-          getUser()
-            .then((response) => {
-              setUsersId(response.data.id);
-            })
-            .catch((error) => {
-              console.log(error);
-            }),
-        );
-        setProblemId(
-          getProblem(id)
-            .then((response) => {
-              setProblemId(response.data.problemId);
-            })
-            .catch((error) => {
-              console.log(error);
-            }),
-        );
-        const problemInfo = {
-          userAchievementDto: {
-            achievementId: achievements[i].achievementId,
-            userId: userId,
-            category: achievements[i].category,
-          },
-          userProblemDto: {
-            userId: userId,
-            problemId: problemId,
-            category: achievements[i].category,
-          },
-          achievementDto: {
-            achievementId: achievements[i].achievementId,
-            name: achievements[i].name,
-            description: achievements[i].description,
-            category: achievements[i].category,
-            rank: achievements[i].rank,
-            visibility: achievements[i].visibility,
-            counter: achievements[i].counter,
-          },
-        };
-
-        console.log(achievements[i].achievementId + ": Achievement Id");
-        console.log(achievements[i].description);
-        console.log(achievements[i].rank);
-        console.log(achievements[i].visibility);
-        console.log(achievements[i].category);
-        console.log(achievements[i].counter);
-        console.log(achievements[i].name);
-        console.log(userId);
-        console.log(problemId);
-        saveUserAchievement(problemInfo)
-          .then((response) => {
-            console.log(response.data.counter);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    } else {
-      return;
     }
   };
 
