@@ -87,12 +87,11 @@ const RegulaFalsiComponent = (props) => {
       });
       const response = await sendRegulaFalsiData(submissionData);
       const result = response.data;
-      console.log(response);
       setResult(result);
-      await decideResultText(result);
+      decideResultText(result);
       setCallback(result);
-      await decideToSaveSolvedProblem(result);
-      await saveAchievementOfUser(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
+      await saveAchievementOfUser(result, achievements);
     }
   };
 
