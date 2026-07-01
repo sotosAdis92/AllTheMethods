@@ -88,7 +88,6 @@ const RegulaFalsiComponent = (props) => {
       const response = await sendRegulaFalsiData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);

@@ -93,9 +93,8 @@ const NewtonRaphsonComponent = (props) => {
         console.log(response.data);
       });
       const response = await sendNewtonRaphsonData(submissionData);
-      const resultOfServer = response.data;
+      const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);

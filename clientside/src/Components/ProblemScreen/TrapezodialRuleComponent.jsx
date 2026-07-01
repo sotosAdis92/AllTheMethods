@@ -162,9 +162,7 @@ const TrapezodialRuleComponent = (props) => {
       const response = await sendTrapezodialData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
-      await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
     }

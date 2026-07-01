@@ -85,7 +85,6 @@ const FixedPointComponent = (props) => {
       const response = await sendFixedPointData(submissionData);
       const resultOfServer = response.data;
       setResult(resultOfServer);
-      await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
     }

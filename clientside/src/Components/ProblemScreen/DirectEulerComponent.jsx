@@ -102,7 +102,6 @@ const DirectEulerComponent = (props) => {
       const response = await sendDirectEuler(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);

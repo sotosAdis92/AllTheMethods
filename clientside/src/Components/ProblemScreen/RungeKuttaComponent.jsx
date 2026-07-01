@@ -98,7 +98,6 @@ const RungeKuttaComponent = (props) => {
       });
       const response = await sendRungeKuttaData(submissionData);
       const result = response.data;
-
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);

@@ -206,9 +206,7 @@ const SimpsonComponent = (props) => {
       const response = await sendSimposonData(submissionData);
       const result = response.data;
       setResult(result);
-      decideResultText(result);
       setCallback(result);
-      await decideResultText(result);
       await decideToSaveSolvedProblem(result);
       await saveAchievementOfUser(result);
     }
