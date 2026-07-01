@@ -65,8 +65,10 @@ const ListAchievements = () => {
     <>
       <div className="achievementsListContainer">
         <h2 className="achievementsTitle">List Of Achievements</h2>
-        <button onClick={() => getAllAchievements()}>All Achievements</button>
-        {listOfFilters}
+        <button onClick={() => getAllAchievements()} className="filterButton">
+          All Achievements
+        </button>
+        <ol className="filterAchievements">{listOfFilters}</ol>
         <ol>{listOfAchievements}</ol>
       </div>
     </>
