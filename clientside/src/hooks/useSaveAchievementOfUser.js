@@ -53,16 +53,6 @@ export default function useSaveAchievementOfUser() {
             counter: achievements[i].counter,
           },
         };
-
-        console.log(achievements[i].achievementId + ": Achievement Id");
-        console.log(achievements[i].description);
-        console.log(achievements[i].rank);
-        console.log(achievements[i].visibility);
-        console.log(achievements[i].category);
-        console.log(achievements[i].counter);
-        console.log(achievements[i].name);
-        console.log(userId);
-        console.log(problemId);
         saveUserAchievement(problemInfo)
           .then((response) => {
             console.log(response.data.counter);
