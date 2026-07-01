@@ -42,7 +42,10 @@ const ListAchievements = () => {
 
   const listOfFilters = categoryFilters.map((filter, i) => (
     <div key={i}>
-      <button onClick={() => handleClickCategoryFilter(filter)}>
+      <button
+        onClick={() => handleClickCategoryFilter(filter)}
+        className="filters"
+      >
         {filter}
       </button>
     </div>
