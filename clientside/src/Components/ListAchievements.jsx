@@ -1,10 +1,3 @@
-import {
-  faPencil,
-  faPlus,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../assets/223399.png";
@@ -85,18 +78,6 @@ const ListAchievements = () => {
         <div className="achDesc">{achievement.description}</div>
         <img src={img1}></img>
       </Achievement>
-      <Button
-        variant="contained"
-        onClick={() => updateAchievement(achievement.achievementId)}
-      >
-        <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
-      </Button>
-      <Button
-        variant="contained"
-        onClick={() => removeAchievement(achievement.achievementId)}
-      >
-        <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
-      </Button>
     </div>
   ));
 
@@ -106,11 +87,6 @@ const ListAchievements = () => {
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <button onClick={() => getAllAchievements()}>All Achievements</button>
         {listOfFilters}
-        <Tooltip>
-          <Button variant="contained" onClick={addNewAchievement}>
-            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-          </Button>
-        </Tooltip>
         <ol>{listOfAchievements}</ol>
       </div>
     </>
