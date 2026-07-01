@@ -868,6 +868,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   font-size: 25px;
+  width: auto;
 }
 .user {
   font-family:
@@ -882,14 +883,16 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-
+  width: auto;
   font-size: 25px;
 }
 
 .viewAchievements {
+  width: auto;
 }
 
 .viewProblems {
+  width: auto;
 }
 
 .achievementsHeader {
@@ -905,6 +908,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
 .achievementsCounter {
   font-family:
@@ -919,6 +923,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
 
 .userProblemsCounter {
@@ -934,6 +939,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
 .userProblemsHeader {
   font-family:
@@ -948,6 +954,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
 
 .noProblems {
@@ -963,6 +970,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
 .noAchievemets {
   font-family:
@@ -977,4 +985,5 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: auto;
 }
