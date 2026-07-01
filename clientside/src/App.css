@@ -885,12 +885,21 @@ body {
     sans-serif;
   display: flex;
   font-size: 25px;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 50%;
 }
 
 .viewAchievements {
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 50%;
 }
 
 .viewProblems {
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 50%;
 }
 
 .achievementsHeader {
