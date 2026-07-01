@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../assets/223399.png";
 import {
-  deleteAchievement,
   getAchievementsByCategory,
   listAchievements,
 } from "../services/AchievementService";
@@ -30,25 +29,6 @@ const ListAchievements = () => {
   useEffect(() => {
     getAllAchievements();
   }, []);
-
-  const addNewAchievement = () => {
-    navigator("/addAchievement");
-  };
-
-  const updateAchievement = (id) => {
-    navigator(`/updateAchievements/${id}`);
-  };
-
-  const removeAchievement = (id) => {
-    console.log(id);
-    deleteAchievement(id)
-      .then(() => {
-        getAllAchievements();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const categoryFilters = [
     ...new Set(achievementFilters.map((achievement) => achievement.category)),
