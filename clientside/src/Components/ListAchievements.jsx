@@ -18,7 +18,7 @@ const ListAchievements = () => {
       .then((response) => {
         setAchievements(response.data);
         setAchievementFilters(response.data);
-        console.log("Api response:", response.data);
+        console.log(response.data);
         console.log(achievementFilters);
       })
       .catch((error) => {
@@ -31,7 +31,18 @@ const ListAchievements = () => {
   }, []);
 
   const categoryFilters = [
-    ...new Set(achievementFilters.map((achievement) => achievement.category)),
+    ...new Set(
+      achievementFilters.map((achievement) => (
+        <div className="filterContainer">
+          <div className="filterImage">
+            <AchievementImage
+              category={achievement.category}
+            ></AchievementImage>
+          </div>
+          {achievement.category}
+        </div>
+      )),
+    ),
   ];
 
   const handleClickCategoryFilter = (value) => {

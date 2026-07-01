@@ -1136,3 +1136,10 @@ body {
     sans-serif;
   white-space: nowrap;
 }
+.filterContainer {
+  display: flex;
+}
+.filterImage img {
+  width: 25px;
+  margin-right: 8px;
+}
