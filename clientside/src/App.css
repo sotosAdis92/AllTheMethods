@@ -868,7 +868,6 @@ body {
     "Helvetica Neue",
     sans-serif;
   font-size: 25px;
-  margin-left: 5px;
 }
 .user {
   font-family:
@@ -883,23 +882,14 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  display: flex;
+
   font-size: 25px;
-  border: 2px solid black;
-  border-radius: 15px;
-  width: 50%;
 }
 
 .viewAchievements {
-  border: 2px solid black;
-  border-radius: 15px;
-  width: 35%;
 }
 
 .viewProblems {
-  border: 2px solid black;
-  border-radius: 15px;
-  width: 35%;
 }
 
 .achievementsHeader {
@@ -987,8 +977,4 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-}
-
-.content {
-  display: flex;
 }
