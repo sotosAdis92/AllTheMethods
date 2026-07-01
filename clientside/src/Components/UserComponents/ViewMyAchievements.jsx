@@ -33,13 +33,15 @@ const ViewMyAchievements = () => {
     <>
       {count > 0 ? (
         <>
-          <h1>My Achievements</h1>
+          <h1 className="achievementsHeader">My Achievements</h1>
+          <div className="achievementsCounter">{count} Achievements earned</div>
           <ol>{listOfMyAchievements}</ol>
         </>
       ) : (
         <>
-          <h1>My Achievements</h1>
-          <p>No achievements Yet!</p>
+          <h1 className="achievementsHeader">My Achievements</h1>
+          <div className="achievementsCounter">{count} Achievements earned</div>
+          <p className="noAchievemets">No achievements Yet!</p>
         </>
       )}
     </>

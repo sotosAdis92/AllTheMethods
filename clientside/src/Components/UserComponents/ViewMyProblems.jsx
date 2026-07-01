@@ -32,12 +32,14 @@ const ViewMyProblems = () => {
       {count > 0 ? (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
+          <div className="useProblemsCounter">{count} Problems solved</div>
           <ol>{listOfMyProblems}</ol>
         </>
       ) : (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
-          <p>No Problems Solved Yet!!</p>
+          <div className="userProblemsCounter">{count} Problems solved</div>
+          <p className="noProblems">No Problems Solved Yet!!</p>
         </>
       )}
     </>

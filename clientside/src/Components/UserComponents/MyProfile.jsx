@@ -22,12 +22,12 @@ const MyProfile = () => {
   return (
     <>
       <div className="containerUser">
-        <h1 className="usersName">My Name</h1>
-        <h2 className="user">{displayName}</h2>
+        <h1 className="user">
+          My Name: <div className="usersName">{displayName}</div>
+        </h1>
       </div>
-
-      <ViewMyAchievements></ViewMyAchievements>
-      <ViewMyProblems></ViewMyProblems>
+      <ViewMyAchievements className="viewAchievements"></ViewMyAchievements>
+      <ViewMyProblems className="viewProblems"></ViewMyProblems>
     </>
   );
 };
