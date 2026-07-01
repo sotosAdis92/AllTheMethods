@@ -41,37 +41,40 @@ const ListProblems = () => {
     }
   }, [problems]);
 
-  const listOfProblems = problems.map((problem, i) => (
-    <div className="problemWithButtons">
-      <div
-        key={problem.problemId}
-        className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
-        onClick={() => navigate(problem.problemId)}
-      >
-        <a className="problemLink">
-          <div className="problemDetails">
-            {problem.number}.{problem.title}
-            <ProblemDifficulty
-              difficulty={problem.difficulty}
-            ></ProblemDifficulty>
-            {problem.points}pts.
-            {isSolved[problem.problemId] ? (
-              <div className="checkmark">
-                <img src={img}></img>
-              </div>
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </a>
+  const listOfProblems = problems
+    .sort(function (a, b) {
+      return a.number - b.number;
+    })
+    .map((problem, i) => (
+      <div className="problemWithButtons">
+        <div
+          key={problem.problemId}
+          className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
+          onClick={() => navigate(problem.problemId)}
+        >
+          <a className="problemLink">
+            <div className="problemDetails">
+              {problem.number}.{problem.title}
+              <ProblemDifficulty
+                difficulty={problem.difficulty}
+              ></ProblemDifficulty>
+              {problem.points}pts.
+              {isSolved[problem.problemId] ? (
+                <div className="checkmark">
+                  <img src={img}></img>
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  ));
+    ));
 
   return (
     <>
       <h2 className="problemsTitle">List Of Problems</h2>
-
       <ol>{listOfProblems}</ol>
     </>
   );
