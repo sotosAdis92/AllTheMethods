@@ -893,13 +893,13 @@ body {
 .viewAchievements {
   border: 2px solid black;
   border-radius: 15px;
-  width: 50%;
+  width: 35%;
 }
 
 .viewProblems {
   border: 2px solid black;
   border-radius: 15px;
-  width: 50%;
+  width: 35%;
 }
 
 .achievementsHeader {
@@ -987,4 +987,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+}
+
+.content {
+  display: flex;
 }

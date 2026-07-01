@@ -23,14 +23,16 @@ const MyProfile = () => {
     <>
       <div className="containerUser">
         <h1 className="user">
-          My Name: <div className="usersName">{displayName}</div>
+          <div className="usersName">{displayName}</div>
         </h1>
       </div>
-      <div className="viewAchievements">
-        <ViewMyAchievements></ViewMyAchievements>
-      </div>
-      <div className="viewProblems">
-        <ViewMyProblems></ViewMyProblems>
+      <div className="content">
+        <div className="viewAchievements">
+          <ViewMyAchievements></ViewMyAchievements>
+        </div>
+        <div className="viewProblems">
+          <ViewMyProblems></ViewMyProblems>
+        </div>
       </div>
     </>
   );
