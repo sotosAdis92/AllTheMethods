@@ -1,15 +1,7 @@
-import {
-  faPencil,
-  faPlus,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/check.png";
-import { deleteProblem, listProblems } from "../services/ProblemService";
+import { listProblems } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
@@ -47,7 +39,7 @@ const ListProblems = () => {
           console.log(error);
         });
     }
-  });
+  }, [problems]);
 
   const listOfProblems = problems.map((problem, i) => (
     <div className="problemWithButtons">
@@ -73,45 +65,13 @@ const ListProblems = () => {
           </div>
         </a>
       </div>
-      <Button
-        variant="contained"
-        onClick={() => updateProblem(problem.problemId)}
-      >
-        <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
-      </Button>
-      <Button
-        variant="contained"
-        onClick={() => removeProblem(problem.problemId)}
-      >
-        <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
-      </Button>
     </div>
   ));
-  function addNewProblem() {
-    navigator("/addProblem");
-  }
-  function updateProblem(problemId) {
-    navigator(`/editProblem/${problemId}`);
-  }
-  function removeProblem(problemId) {
-    console.log(problemId);
-    deleteProblem(problemId)
-      .then(() => {
-        getAllProblems();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
 
   return (
     <>
       <h2 className="problemsTitle">List Of Problems</h2>
-      <Tooltip title="Add" placement="top" arrow>
-        <Button variant="contained" onClick={addNewProblem}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-        </Button>
-      </Tooltip>
+
       <ol>{listOfProblems}</ol>
     </>
   );
