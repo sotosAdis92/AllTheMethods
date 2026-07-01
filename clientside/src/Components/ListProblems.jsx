@@ -54,7 +54,7 @@ const ListProblems = () => {
         >
           <a className="problemLink">
             <div className="problemDetails">
-              {problem.number}.{problem.title}
+              {problem.number}. {problem.title}
               <ProblemDifficulty
                 difficulty={problem.difficulty}
               ></ProblemDifficulty>

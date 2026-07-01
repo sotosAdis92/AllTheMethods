@@ -1,17 +1,15 @@
 import { useState } from "react";
-import useGenerateInputsDerivatives, {
-  default as useFetchDerivatives,
-} from "../../hooks/useFetchDerivatives";
+import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateInputsDerivatives from "../../hooks/useGenerateInputsDerivatives";
 import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-
 import {
   saveSubmission,
   sendRichardsonData,
