@@ -88,7 +88,6 @@ const BisectionComponent = (props) => {
       const response = await sendSubmissionData(submissionData);
       const result = response.data;
       setResult(result);
-
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
       await saveAchievementOfUser(result, achievements);
@@ -101,6 +100,7 @@ const BisectionComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitBisectionData()}
+        className=""
       >
         Submit
       </button>

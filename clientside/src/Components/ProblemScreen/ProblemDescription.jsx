@@ -265,7 +265,7 @@ const ProblemDescription = () => {
         </div>
         <div className="problemMethodDiv">{problemMethod}</div>
         <div className="problemDescriptionDiv">{problemDescription}</div>
-        <div ref={mathRef}></div>
+        <div ref={mathRef} className="problemStringDiv"></div>
       </div>
       <div className="problemRender">{renderProblem(problemType)}</div>
       <div className="problemTags">
