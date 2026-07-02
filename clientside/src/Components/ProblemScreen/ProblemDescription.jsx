@@ -270,8 +270,8 @@ const ProblemDescription = () => {
       <div className="problemRender">{renderProblem(problemType)}</div>
       <div className="problemTags">
         Tags:
-        {problemCategory}
-        {problemType}
+        <div className="problemTagCategory">{problemCategory}</div>
+        <div className="problemTagType">{problemType}</div>
       </div>
     </>
   );
