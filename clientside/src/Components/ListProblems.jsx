@@ -7,6 +7,7 @@ import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
+
   const navigator = useNavigate();
   function getAllProblems() {
     listProblems()

@@ -256,14 +256,14 @@ const ProblemDescription = () => {
         )}
       </div>
       <div>
-        {problemNumber}
-        {problemTitle}
-        {problemDifficulty}
-        {problemDescription}
+        <div className="">
+          {problemNumber}. {problemTitle}
+        </div>
+        <div>{problemDifficulty}</div>
+        <div>{problemDescription}</div>
         <div ref={mathRef}></div>
-        {problemMethod}
+        <div>{problemMethod}</div>
       </div>
-
       <div>{renderProblem(problemType)}</div>
       <div>
         Tags:
