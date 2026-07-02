@@ -100,7 +100,7 @@ const BisectionComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitBisectionData()}
-        className=""
+        className="submitButton"
       >
         Submit
       </button>
