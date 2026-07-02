@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../assets/223399.png";
+import img2 from "../assets/5110770.png";
 import {
   getAchievementsByCategory,
   listAchievements,
@@ -80,6 +81,7 @@ const ListAchievements = () => {
       <div className="achievementsListContainer">
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <button onClick={() => getAllAchievements()} className="filterButton">
+          <img src={img2}></img>
           All Achievements
         </button>
         <ol className="filterAchievements">{listOfFilters}</ol>
