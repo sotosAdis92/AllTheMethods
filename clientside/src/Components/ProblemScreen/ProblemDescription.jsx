@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
+import ProblemDifficulty from "../ProblemDifficulty";
 import BisectionComponent from "./BisectionComponent";
 import DiakritiNewtonRaphsonComponent from "./DiakritiNewtonRaphsonComponent";
 import DirectEulerComponent from "./DirectEulerComponent";
@@ -256,16 +257,18 @@ const ProblemDescription = () => {
         )}
       </div>
       <div>
-        <div className="">
+        <div className="problemTitleAndNumber">
           {problemNumber}. {problemTitle}
         </div>
-        <div>{problemDifficulty}</div>
-        <div>{problemDescription}</div>
+        <div className="problemDifficultyDiv">
+          <ProblemDifficulty difficulty={problemDifficulty}></ProblemDifficulty>
+        </div>
+        <div className="problemDescriptionDiv">{problemDescription}</div>
         <div ref={mathRef}></div>
         <div>{problemMethod}</div>
       </div>
-      <div>{renderProblem(problemType)}</div>
-      <div>
+      <div className="problemRender">{renderProblem(problemType)}</div>
+      <div className="problemTags">
         Tags:
         {problemCategory}
         {problemType}
