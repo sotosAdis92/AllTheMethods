@@ -55,6 +55,7 @@ const ListProblems = () => {
         onClick={() => handleClickCategoryFilterProblems(filter)}
         className="filters"
       >
+        <img></img>
         {filter}
       </button>
     </div>
