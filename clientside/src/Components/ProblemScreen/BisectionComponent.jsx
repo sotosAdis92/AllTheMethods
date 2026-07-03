@@ -104,8 +104,10 @@ const BisectionComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
-      <div>
+      <div className="iterationsDiv">
+        For: {problemData.iterations} iterations
+      </div>
+      <div className="problemSpaceDiv">
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
       <form name="inputForm">
