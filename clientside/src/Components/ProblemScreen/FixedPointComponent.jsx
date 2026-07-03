@@ -103,7 +103,9 @@ const FixedPointComponent = (props) => {
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
-      <div>with Xo = {problemData.xoParameter}</div>
+      <div className="generalClassforFontFamilySystemUi">
+        with Xo = {problemData.xoParameter}
+      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

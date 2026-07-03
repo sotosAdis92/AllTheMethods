@@ -107,7 +107,7 @@ const RegulaFalsiComponent = (props) => {
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
-      <div>
+      <div className="generalClassforFontFamilySystemUi">
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
       <form name="inputForm">

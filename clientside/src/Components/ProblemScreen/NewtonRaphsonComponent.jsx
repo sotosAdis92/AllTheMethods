@@ -114,7 +114,9 @@ const NewtonRaphsonComponent = (props) => {
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
-      <div>With a Xo = {problemData.xoParameter}</div>
+      <div className="generalClassforFontFamilySystemUi">
+        With a Xo = {problemData.xoParameter}
+      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

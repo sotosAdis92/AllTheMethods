@@ -115,7 +115,9 @@ const RungeKuttaComponent = (props) => {
         Submit
       </button>
       <div className="iterationsDiv">For: {iterations} iterations</div>
-      <di>with an h = {hParameter}</di>
+      <div className="generalClassforFontFamilySystemUi">
+        with an h = {hParameter}
+      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

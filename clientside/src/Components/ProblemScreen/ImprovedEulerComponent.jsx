@@ -113,7 +113,9 @@ const DirectEulerComponent = (props) => {
         Submit
       </button>
       <div className="iterationsDiv">For: {iterations} iterations</div>
-      <div>and an h = {hParameter}</div>
+      <div className="generalClassforFontFamilySystemUi">
+        and an h = {hParameter}
+      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput

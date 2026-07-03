@@ -117,7 +117,9 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
-      <div>Starting at Xo={problemData.xoParameter}</div>
+      <div className="generalClassforFontFamilySystemUi">
+        Starting at Xo={problemData.xoParameter}
+      </div>
       <form name="inputForm">
         {entries.map((entry) => (
           <FormInput
