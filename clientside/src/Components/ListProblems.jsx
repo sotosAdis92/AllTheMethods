@@ -7,6 +7,7 @@ import {
   listProblems,
 } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
+import AchievementImage from "./AchievementImage";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
@@ -55,7 +56,9 @@ const ListProblems = () => {
         onClick={() => handleClickCategoryFilterProblems(filter)}
         className="filters"
       >
-        <img></img>
+        <div className="filterImage">
+          <AchievementImage category={filter}></AchievementImage>
+        </div>
         {filter}
       </button>
     </div>

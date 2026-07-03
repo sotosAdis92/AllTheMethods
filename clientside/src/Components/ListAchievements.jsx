@@ -47,6 +47,9 @@ const ListAchievements = () => {
         onClick={() => handleClickCategoryFilter(filter)}
         className="filters"
       >
+        <div className="filterImage">
+          <AchievementImage category={filter}></AchievementImage>
+        </div>
         {filter}
       </button>
     </div>
