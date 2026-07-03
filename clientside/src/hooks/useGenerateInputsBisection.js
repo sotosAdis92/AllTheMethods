@@ -4,7 +4,7 @@ export default function useGenerateInputsBisection(iterations, entries) {
       id: i,
       placeholder: `x${i}`,
       type: "number",
-      label: `x${i} = `,
+      label: `x_{${i}} = `,
       name: "",
       i: { i },
       required: true,

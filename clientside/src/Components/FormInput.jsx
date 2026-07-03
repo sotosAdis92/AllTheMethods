@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../FormInputs.css";
+import KatexLabel from "./ProblemScreen/KatexLabel";
 const FormInput = (props) => {
   const { label, onChange, errorMessage, ...inputProps } = props;
   const [focused, setFocused] = useState(false);
@@ -10,7 +11,7 @@ const FormInput = (props) => {
   console.log(props.isSolved);
   return (
     <div className="formInput">
-      <label>{label}</label>
+      <KatexLabel latex={label}></KatexLabel>
       <input
         {...inputProps}
         onChange={onChange}

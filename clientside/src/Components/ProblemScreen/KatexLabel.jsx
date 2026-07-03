@@ -1,6 +1,7 @@
 import katex from "katex";
+import "katex/dist/katex.min.css";
 import { useEffect, useRef } from "react";
-export default function KatexLabel({ latex }) {
+const KatexLabel = ({ latex }) => {
   const ref = useRef(null);
   useEffect(() => {
     katex.render(latex, ref.current, {
@@ -9,4 +10,5 @@ export default function KatexLabel({ latex }) {
     });
   }, [latex]);
   return <span ref={ref}></span>;
-}
+};
+export default KatexLabel;
