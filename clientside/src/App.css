@@ -1400,5 +1400,10 @@ body {
   box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.15);
 }
 
-.categoryFilters {
+.filterAchievements {
+  display: flex;
+}
+
+.filterCategories {
+  display: flex;
 }

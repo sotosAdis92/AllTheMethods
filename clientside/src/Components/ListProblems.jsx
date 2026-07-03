@@ -129,12 +129,14 @@ const ListProblems = () => {
   return (
     <>
       <h2 className="problemsTitle">List Of Problems</h2>
-      <button onClick={() => getAllProblems()} className="filterButton">
-        <img src={img2} className="allAchFilterImg"></img>
-        All Problems
-      </button>
-      <ol>{listOfCategoryFilters}</ol>
-      <ol>{listOfDifficultyFilter}</ol>
+      <div>
+        <button onClick={() => getAllProblems()} className="filterButton">
+          <img src={img2} className="allAchFilterImg"></img>
+          All Problems
+        </button>
+        <ol className="filterCategories">{listOfCategoryFilters}</ol>
+      </div>
+      <ol className="filterCategories">{listOfDifficultyFilter}</ol>
       <ol>{listOfProblems}</ol>
     </>
   );
