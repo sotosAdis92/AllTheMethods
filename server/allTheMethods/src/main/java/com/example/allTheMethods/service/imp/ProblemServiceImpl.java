@@ -64,4 +64,10 @@ public class ProblemServiceImpl implements ProblemService {
         List<Problem> problemsByCategory = problemRepository.findProblemByCategory(category);
         return problemsByCategory.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
+
+    @Override
+    public List<ProblemDto> getProblemsByDifficulty(String difficulty){
+        List<Problem> problemsByDifficulty = problemRepository.findProblemByDifficulty(difficulty);
+        return problemsByDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+    }
 }

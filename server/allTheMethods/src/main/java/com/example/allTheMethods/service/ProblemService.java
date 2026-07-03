@@ -13,5 +13,5 @@ public interface ProblemService {
     ProblemDto updateProblem(Long id, ProblemDto updatedProblem);
     void deleteProblem(Long id);
     List<ProblemDto> getProblemsByCategory(String category);
-
+    List<ProblemDto> getProblemsByDifficulty(String difficulty);
 }
