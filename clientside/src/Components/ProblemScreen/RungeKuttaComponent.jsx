@@ -112,6 +112,7 @@ const RungeKuttaComponent = (props) => {
         onClick={() => submitBisectionData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">For: {iterations} iterations</div>

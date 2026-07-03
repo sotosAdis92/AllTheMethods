@@ -1274,6 +1274,15 @@ body {
   transform: translateY(-1px);
 }
 
+.submitButton img {
+  width: 25px;
+  height: 30px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  margin-left: -12px;
+  margin-right: 20px;
+}
+
 .problemTags {
   font-family:
     system-ui,

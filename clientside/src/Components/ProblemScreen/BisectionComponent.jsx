@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import img from "../../assets/arrowup.png";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
@@ -102,6 +103,7 @@ const BisectionComponent = (props) => {
         onClick={() => submitBisectionData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">

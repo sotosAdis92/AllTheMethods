@@ -103,6 +103,7 @@ const RegulaFalsiComponent = (props) => {
         className="submitButton"
       >
         Submit
+        <img src={img}></img>
       </button>
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations

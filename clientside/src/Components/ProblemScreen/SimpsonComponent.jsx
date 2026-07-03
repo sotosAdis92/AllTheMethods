@@ -304,6 +304,7 @@ const SimpsonComponent = (props) => {
         className="submitButton"
       >
         Submit
+        <img src={img}></img>
       </button>
       <form name="inputForm" id="form">
         {entries.map((entry) => (

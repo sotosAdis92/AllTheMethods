@@ -133,6 +133,7 @@ const FivePointDerivativeComponent = (props) => {
         onClick={() => submitFivePointData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="cParams">i:{listOfCountingParameters}</div>

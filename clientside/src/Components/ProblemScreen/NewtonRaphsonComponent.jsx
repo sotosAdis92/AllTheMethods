@@ -109,6 +109,7 @@ const NewtonRaphsonComponent = (props) => {
         onClick={() => submitNewtonRaphsonData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">

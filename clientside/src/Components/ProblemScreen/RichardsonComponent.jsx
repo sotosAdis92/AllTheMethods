@@ -131,6 +131,7 @@ const RichardsonComponent = (props) => {
         className="submitButton"
       >
         Submit
+        <img src={img}></img>
       </button>
       <div className="cParams">i:{listOfCountingParameters}</div>
       <div className="xParams">xi:{listOfXiParameters}</div>

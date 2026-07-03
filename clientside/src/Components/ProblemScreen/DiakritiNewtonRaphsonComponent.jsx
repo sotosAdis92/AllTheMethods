@@ -112,6 +112,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
         onClick={() => submitDiakritiNewtonRaphsonData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">

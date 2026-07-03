@@ -116,6 +116,7 @@ const DirectEulerComponent = (props) => {
         onClick={() => submitDirectEulerData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">For: {iterations} iterations</div>

@@ -98,6 +98,7 @@ const FixedPointComponent = (props) => {
         onClick={() => submitFixedPointData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div className="iterationsDiv">
