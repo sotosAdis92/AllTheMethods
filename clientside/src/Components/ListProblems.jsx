@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
 import {
   getProblemsByCategory,
@@ -70,7 +71,7 @@ const ListProblems = () => {
         onClick={() => handleClickDifficultyFilterProblems(filter)}
         className="filters"
       >
-        {filter}
+        <ProblemDifficulty difficulty={filter}></ProblemDifficulty>
       </button>
     </div>
   ));
@@ -128,6 +129,10 @@ const ListProblems = () => {
   return (
     <>
       <h2 className="problemsTitle">List Of Problems</h2>
+      <button onClick={() => getAllProblems()} className="filterButton">
+        <img src={img2} className="allAchFilterImg"></img>
+        All Problems
+      </button>
       <ol>{listOfCategoryFilters}</ol>
       <ol>{listOfDifficultyFilter}</ol>
       <ol>{listOfProblems}</ol>
