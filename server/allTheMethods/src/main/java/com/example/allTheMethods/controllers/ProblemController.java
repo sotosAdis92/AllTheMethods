@@ -49,7 +49,7 @@ public class ProblemController {
     }
 
     @GetMapping("categories/{category}")
-    public ResponseEntity<List<ProblemDto>> getProblemsByCategory(String category){
+    public ResponseEntity<List<ProblemDto>> getProblemsByCategory(@PathVariable("category") String category){
         List<ProblemDto> problemDtos = problemService.getProblemsByCategory(category);
         return ResponseEntity.ok(problemDtos);
     }
