@@ -117,7 +117,6 @@ const BisectionComponent = (props) => {
             {...entry}
             value={values[entry.name]}
             onChange={(e) => handleInput(entry.id, e)}
-            className="inputs"
           ></FormInput>
         ))}
       </form>
