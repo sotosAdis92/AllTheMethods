@@ -30,3 +30,7 @@ export const listProblems = async () => {
   const response = await axiosInstance.get(REST_API_BASE_URL);
   return response;
 };
+
+export const getProblemsByCategory = async () => {};
+
+export const getProblemsByDifficulty = async () => {};
