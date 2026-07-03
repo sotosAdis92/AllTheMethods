@@ -88,7 +88,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
     problemCategory,
   };
 
-  const submitNewtonRaphsonData = async () => {
+  const submitDiakritiNewtonRaphsonData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
@@ -109,7 +109,8 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       <button
         type="button"
         disabled={isButtonDisabled}
-        onClick={() => submitNewtonRaphsonData()}
+        onClick={() => submitDiakritiNewtonRaphsonData()}
+        className="submitButton"
       >
         Submit
       </button>

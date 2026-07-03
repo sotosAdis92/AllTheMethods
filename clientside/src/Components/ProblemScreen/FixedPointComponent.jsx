@@ -96,6 +96,7 @@ const FixedPointComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitFixedPointData()}
+        className="submitButton"
       >
         Submit
       </button>

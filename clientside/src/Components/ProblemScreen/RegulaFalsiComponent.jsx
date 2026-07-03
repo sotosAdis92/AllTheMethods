@@ -100,6 +100,7 @@ const RegulaFalsiComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitRegulaFalsiData()}
+        className="submitButton"
       >
         Submit
       </button>

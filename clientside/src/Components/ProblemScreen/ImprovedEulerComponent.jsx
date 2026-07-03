@@ -108,6 +108,7 @@ const DirectEulerComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitImprovedEulerData()}
+        className="submitButton"
       >
         Submit
       </button>

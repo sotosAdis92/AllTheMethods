@@ -107,6 +107,7 @@ const NewtonRaphsonComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitNewtonRaphsonData()}
+        className="submitButton"
       >
         Submit
       </button>

@@ -301,6 +301,7 @@ const SimpsonComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitSimpsonData()}
+        className="submitButton"
       >
         Submit
       </button>

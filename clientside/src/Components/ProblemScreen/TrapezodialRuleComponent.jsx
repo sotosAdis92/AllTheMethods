@@ -293,6 +293,7 @@ const TrapezodialRuleComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitTrapezodialData()}
+        className="submitButton"
       >
         Submit
       </button>

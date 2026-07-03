@@ -110,6 +110,7 @@ const RungeKuttaComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitBisectionData()}
+        className="submitButton"
       >
         Submit
       </button>

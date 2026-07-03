@@ -131,6 +131,7 @@ const FivePointDerivativeComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitFivePointData()}
+        className="submitButton"
       >
         Submit
       </button>

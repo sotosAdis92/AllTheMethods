@@ -128,6 +128,7 @@ const RichardsonComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitRichardsonData()}
+        className="submitButton"
       >
         Submit
       </button>

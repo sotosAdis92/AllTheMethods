@@ -130,6 +130,7 @@ const ThreePointDerivativeComponent = (props) => {
         type="button"
         disabled={isButtonDisabled}
         onClick={() => submitThreePointData()}
+        className="submitButton"
       >
         Submit
       </button>
