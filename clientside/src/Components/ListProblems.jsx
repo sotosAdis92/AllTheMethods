@@ -1,19 +1,27 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/check.png";
-import { listProblems } from "../services/ProblemService";
+import {
+  getProblemsByCategory,
+  getProblemsByDifficulty,
+  listProblems,
+} from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
-
+  const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
+  const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
   const navigator = useNavigate();
   function getAllProblems() {
     listProblems()
       .then((response) => {
         setProblems(response.data);
+        setProblemCategoryFilters(response.data);
+        setProblemDifficultyFilters(response.data);
         console.log(response.data);
+        console.log(problemCategoryFilters);
       })
       .catch((error) => {
         console.error(error);
@@ -22,6 +30,46 @@ const ListProblems = () => {
   useEffect(() => {
     getAllProblems();
   }, []);
+
+  const categoryFilters = [
+    ...new Set(
+      problemCategoryFilters.map((problem) => <div>{problem.category}</div>),
+    ),
+  ];
+
+  const difficultyFilters = [
+    ...new Set(
+      problemDifficultyFilters.map((problem) => (
+        <div>{problem.difficulty}</div>
+      )),
+    ),
+  ];
+
+  const handleClickCategoryFilterProblems = (value) => {
+    getProblemsByCategory(value).then((response) => setProblems(response.data));
+  };
+
+  const handleClickDifficultyFilterProblems = (value) => {
+    getProblemsByDifficulty(value).then((response) =>
+      setProblems(response.data),
+    );
+  };
+
+  const listOfCategoryFilters = categoryFilters.map((filter, i) => (
+    <div key={i}>
+      <button onClick={() => handleClickCategoryFilterProblems(filter)}>
+        {filter}
+      </button>
+    </div>
+  ));
+
+  const listOfDifficultyFilter = difficultyFilters.map((filter, i) => (
+    <div key={i}>
+      <button onClick={() => handleClickDifficultyFilterProblems(filter)}>
+        {filter}
+      </button>
+    </div>
+  ));
 
   function navigate(problemId) {
     navigator("problems/" + problemId);
@@ -76,6 +124,8 @@ const ListProblems = () => {
   return (
     <>
       <h2 className="problemsTitle">List Of Problems</h2>
+      <ol>{listOfCategoryFilters}</ol>
+      <ol>{listOfDifficultyFilter}</ol>
       <ol>{listOfProblems}</ol>
     </>
   );
