@@ -31,6 +31,16 @@ export const listProblems = async () => {
   return response;
 };
 
-export const getProblemsByCategory = async () => {};
+export const getProblemsByCategory = async (problemCategory) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/" + "categories/" + problemCategory,
+  );
+  return response;
+};
 
-export const getProblemsByDifficulty = async () => {};
+export const getProblemsByDifficulty = async (problemDifficulty) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/" + "difficulty/" + problemDifficulty,
+  );
+  return response;
+};
