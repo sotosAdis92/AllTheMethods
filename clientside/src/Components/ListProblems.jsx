@@ -32,17 +32,11 @@ const ListProblems = () => {
   }, []);
 
   const categoryFilters = [
-    ...new Set(
-      problemCategoryFilters.map((problem) => <div>{problem.category}</div>),
-    ),
+    ...new Set(problemCategoryFilters.map((problem) => problem.category)),
   ];
 
   const difficultyFilters = [
-    ...new Set(
-      problemDifficultyFilters.map((problem) => (
-        <div>{problem.difficulty}</div>
-      )),
-    ),
+    ...new Set(problemDifficultyFilters.map((problem) => problem.difficulty)),
   ];
 
   const handleClickCategoryFilterProblems = (value) => {

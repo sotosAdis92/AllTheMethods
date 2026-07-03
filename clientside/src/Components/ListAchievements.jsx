@@ -32,18 +32,7 @@ const ListAchievements = () => {
   }, []);
 
   const categoryFilters = [
-    ...new Set(
-      achievementFilters.map((achievement) => (
-        <div className="filterContainer">
-          <div className="filterImage">
-            <AchievementImage
-              category={achievement.category}
-            ></AchievementImage>
-          </div>
-          {achievement.category}
-        </div>
-      )),
-    ),
+    ...new Set(achievementFilters.map((achievement) => achievement.category)),
   ];
 
   const handleClickCategoryFilter = (value) => {
