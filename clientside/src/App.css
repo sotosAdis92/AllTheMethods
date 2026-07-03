@@ -1340,8 +1340,10 @@ body {
 }
 
 .inputs {
-  width: 10%;
-  border: 1px solid black;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
   font-family:
     system-ui,
     -apple-system,
@@ -1354,5 +1356,20 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  border-radius: 17px;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+.inputs:hover {
+  border-color: #b0b0b0;
+  background-color: #ffffff;
+}
+
+.inputs:focus {
+  border-color: #4a90e2;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.15);
 }
