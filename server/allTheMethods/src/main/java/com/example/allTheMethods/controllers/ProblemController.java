@@ -47,4 +47,10 @@ public class ProblemController {
         problemService.deleteProblem(id);
         return ResponseEntity.ok("Deleted problem");
     }
+
+    @GetMapping("categories/{category}")
+    public ResponseEntity<List<ProblemDto>> getProblemsByCategory(String category){
+        List<ProblemDto> problemDtos = problemService.getProblemsByCategory(category);
+        return ResponseEntity.ok(problemDtos);
+    }
 }

@@ -58,4 +58,10 @@ public class ProblemServiceImpl implements ProblemService {
         Problem problem = problemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
         problemRepository.deleteById(id);
     }
+
+    @Override
+    public List<ProblemDto> getProblemsByCategory(String category){
+        List<Problem> problemsByCategory = problemRepository.findProblemByCategory(category);
+        return problemsByCategory.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+    }
 }
