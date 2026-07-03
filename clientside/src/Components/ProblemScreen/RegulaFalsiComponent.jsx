@@ -103,7 +103,9 @@ const RegulaFalsiComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
+      <div className="iterationsDiv">
+        For: {problemData.iterations} iterations
+      </div>
       <div>
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>

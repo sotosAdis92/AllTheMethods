@@ -113,7 +113,9 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {problemData.iterations} iterations</div>
+      <div className="iterationsDiv">
+        For: {problemData.iterations} iterations
+      </div>
       <div>Starting at Xo={problemData.xoParameter}</div>
       <form name="inputForm">
         {entries.map((entry) => (

@@ -113,7 +113,7 @@ const RungeKuttaComponent = (props) => {
       >
         Submit
       </button>
-      <div>For: {iterations} iterations</div>
+      <div className="iterationsDiv">For: {iterations} iterations</div>
       <di>with an h = {hParameter}</di>
       <form name="inputForm">
         {entries.map((entry) => (
