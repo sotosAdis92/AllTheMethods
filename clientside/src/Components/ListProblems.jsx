@@ -51,7 +51,10 @@ const ListProblems = () => {
 
   const listOfCategoryFilters = categoryFilters.map((filter, i) => (
     <div key={i}>
-      <button onClick={() => handleClickCategoryFilterProblems(filter)}>
+      <button
+        onClick={() => handleClickCategoryFilterProblems(filter)}
+        className="filters"
+      >
         {filter}
       </button>
     </div>
@@ -59,7 +62,10 @@ const ListProblems = () => {
 
   const listOfDifficultyFilter = difficultyFilters.map((filter, i) => (
     <div key={i}>
-      <button onClick={() => handleClickDifficultyFilterProblems(filter)}>
+      <button
+        onClick={() => handleClickDifficultyFilterProblems(filter)}
+        className="filters"
+      >
         {filter}
       </button>
     </div>
