@@ -1327,12 +1327,15 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-    position: fixed;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background: #fff;
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .problemTags > div {
@@ -1361,6 +1364,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-left: 10px;
 }
 .problemTags > div:hover {
   background-color: #d0d0d0;
@@ -1454,4 +1458,8 @@ body {
   display: flex;
 }
 
-.
+.problemTagsImage {
+  width: 1.6rem;
+  height: 1.6rem;
+  padding-right: 5px;
+}

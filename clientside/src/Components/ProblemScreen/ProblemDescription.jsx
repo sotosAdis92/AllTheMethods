@@ -2,6 +2,7 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import img2 from "../../assets/1374863.png";
 import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
@@ -20,7 +21,6 @@ import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
 import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
-
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
@@ -269,6 +269,7 @@ const ProblemDescription = () => {
       </div>
       <div className="problemRender">{renderProblem(problemType)}</div>
       <div className="problemTags">
+        <img src={img2} className="problemTagsImage"></img>
         Tags:
         <div className="problemTagCategory">{problemCategory}</div>
         <div className="problemTagType">{problemType}</div>
