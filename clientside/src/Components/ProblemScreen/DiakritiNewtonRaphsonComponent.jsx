@@ -121,7 +121,7 @@ const DiakritiNewtonRaphsonComponent = (props) => {
       <div className="generalClassforFontFamilySystemUi">
         Starting at Xo={problemData.xoParameter}
       </div>
-      <form name="inputForm">
+      <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}

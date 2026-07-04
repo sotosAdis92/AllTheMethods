@@ -1251,10 +1251,12 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-top: 2%;
+  margin-left: 0.8rem;
 }
 
 .problemStringDiv {
   font-size: 18px;
+  margin-left: 0.8rem;
 }
 
 .submitButton {
@@ -1385,6 +1387,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-left: 0.8rem;
 }
 
 .problemSpaceDiv {
@@ -1400,6 +1403,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-left: 0.8rem;
 }
 
 .generalClassforFontFamilySystemUi {
@@ -1415,6 +1419,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-left: 0.8rem;
 }
 
 .inputs {
@@ -1464,4 +1469,8 @@ body {
   width: 1.6rem;
   height: 1.6rem;
   padding-right: 5px;
+}
+
+.inputForm {
+  margin-left: 0.8rem;
 }
