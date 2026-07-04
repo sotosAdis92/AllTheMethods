@@ -59,4 +59,11 @@ public class ProblemController {
         List<ProblemDto> problemDtos = problemService.getProblemsByDifficulty(difficulty);
         return ResponseEntity.ok(problemDtos);
     }
+
+    @GetMapping("/{category}+{difficulty}")
+    public ResponseEntity<List<ProblemDto>> getProblemsByCategoryOrDifficulty(@PathVariable("category") String category, @PathVariable("difficulty") String difficulty){
+        List<ProblemDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(category,difficulty);
+        return ResponseEntity.ok(problemDtos);
+    }
+
 }
