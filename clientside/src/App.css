@@ -1177,6 +1177,7 @@ body {
     sans-serif;
   font-size: 27px;
   font-weight: 600;
+  padding: 0.9rem;
 }
 
 .problemDifficultyDiv {
@@ -1205,6 +1206,8 @@ body {
   white-space: nowrap;
   transition: all 0.2s ease;
   cursor: default;
+  margin-top: 0.1rem;
+  margin-left: 0.7rem;
 }
 
 .problemMethodDiv {
