@@ -1192,6 +1192,19 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 16px;
+  margin: 4px 6px 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+  width: auto;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: default;
 }
 
 .problemMethodDiv {
@@ -1207,6 +1220,19 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 16px;
+  margin: 4px 6px 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+  width: auto;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: default;
 }
 
 .problemDescriptionDiv {
