@@ -120,7 +120,7 @@ const RungeKuttaComponent = (props) => {
       <div className="generalClassforFontFamilySystemUi">
         with an h = {hParameter}
       </div>
-      <form name="inputForm">
+      <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}

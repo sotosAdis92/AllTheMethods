@@ -111,7 +111,7 @@ const RegulaFalsiComponent = (props) => {
       <div className="generalClassforFontFamilySystemUi">
         In the Space [{problemData.problemSpaceA},{problemData.problemSpaceB}]
       </div>
-      <form name="inputForm">
+      <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}

@@ -137,7 +137,7 @@ const RichardsonComponent = (props) => {
       <div className="cParams">i:{listOfCountingParameters}</div>
       <div className="xParams">xi:{listOfXiParameters}</div>
       <div className="fParams">fi:{listOfFiParameters}</div>
-      <form name="inputForm">
+      <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
           <FormInput
             key={entry.id}
