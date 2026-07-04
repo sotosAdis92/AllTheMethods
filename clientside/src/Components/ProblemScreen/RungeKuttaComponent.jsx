@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import img from "../../assets/arrowup.png";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";

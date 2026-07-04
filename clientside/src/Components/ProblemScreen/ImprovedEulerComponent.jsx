@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import img from "../../assets/arrowup.png";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -16,7 +17,6 @@ import {
   sendImprovedEuler,
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
-
 const DirectEulerComponent = (props) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);

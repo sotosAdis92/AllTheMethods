@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import img from "../../assets/arrowup.png";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
@@ -11,7 +12,6 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-
 import {
   saveSubmission,
   sendRegulaFalsiData,
@@ -102,8 +102,8 @@ const RegulaFalsiComponent = (props) => {
         onClick={() => submitRegulaFalsiData()}
         className="submitButton"
       >
-        Submit
         <img src={img}></img>
+        Submit
       </button>
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations

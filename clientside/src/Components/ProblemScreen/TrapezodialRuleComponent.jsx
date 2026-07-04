@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 
+import img from "../../assets/arrowup.png";
 import { getProblem } from "../../services/ProblemService";
 import {
   saveSubmission,
@@ -11,7 +12,6 @@ import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
 import FormInput from "../FormInput";
-
 const TrapezodialRuleComponent = (props) => {
   const { id } = useParams();
   const [hParameter, setHparameter] = useState("");
@@ -295,6 +295,7 @@ const TrapezodialRuleComponent = (props) => {
         onClick={() => submitTrapezodialData()}
         className="submitButton"
       >
+        <img src={img}></img>
         Submit
       </button>
       <div></div>

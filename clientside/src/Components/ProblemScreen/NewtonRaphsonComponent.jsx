@@ -11,8 +11,7 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-
-import {
+import img from "../../assets/arrowup.png";
   saveSubmission,
   sendNewtonRaphsonData,
 } from "../../services/SubmitService";
