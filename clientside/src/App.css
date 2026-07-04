@@ -1259,7 +1259,7 @@ body {
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-shadow: rgb(4, 234, 255) 0 1px 3px 0;
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
@@ -1293,8 +1293,8 @@ body {
 .submitButton:hover,
 .submitButton:active {
   border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: rgba(0, 0, 0, 0.65);
+  box-shadow: rgba(44, 189, 33, 0.791) 0 4px 12px;
+  color: rgba(108, 255, 98, 0.791);
 }
 .submitButton:hover {
   transform: translateY(-1px);
