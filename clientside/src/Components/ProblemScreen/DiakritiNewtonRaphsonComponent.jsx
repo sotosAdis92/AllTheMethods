@@ -52,6 +52,9 @@ const DiakritiNewtonRaphsonComponent = forwardRef((props, ref) => {
   console.log(input);
   console.log(result);
   console.log(id);
+  console.log(isButtonDisabled);
+  console.log(setValues);
+  console.log(setResultText);
 
   function validateForm() {
     let valid = true;
@@ -104,7 +107,7 @@ const DiakritiNewtonRaphsonComponent = forwardRef((props, ref) => {
   };
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitDiakritiNewtonRaphsonData,
   }));
 
   return (
