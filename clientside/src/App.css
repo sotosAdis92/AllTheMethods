@@ -1493,5 +1493,20 @@ body {
   display: flex;
 }
 
+.list {
+  display: flex;
+}
+
+.labelDerivativeParams {
+  min-width: 35px;
+  text-align: right;
+  font-weight: bold;
+  padding-right: 16px;
+  flex-shrink: 0;
+}
+
 .listOfDerivativeParams {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

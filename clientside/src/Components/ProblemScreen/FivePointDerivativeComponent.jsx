@@ -133,16 +133,22 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
     <>
       <div className="listOfDerivativeParams">
         <div className="params">
-          <KatexLabel latex={`i:`}></KatexLabel>
-          {listOfCountingParameters}
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfCountingParameters}</div>
         </div>
         <div className="params">
-          <KatexLabel latex={`x_i:`}></KatexLabel>
-          {listOfXiParameters}
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`x_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfXiParameters}</div>
         </div>
         <div className="params">
-          <KatexLabel latex={`f_i:`}></KatexLabel>
-          {listOfFiParameters}
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`f_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfFiParameters}</div>
         </div>
       </div>
       <form name="inputForm" className="inputForm">
