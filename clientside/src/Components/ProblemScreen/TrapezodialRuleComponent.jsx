@@ -16,7 +16,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const TrapezodialRuleComponent = forwardRef((props) => {
+const TrapezodialRuleComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [resultText, setResultText] = useState("");

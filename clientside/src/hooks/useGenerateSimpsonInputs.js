@@ -52,4 +52,5 @@ export default function useGenerateSimpsonInputs(
       }
     }
   }
+  return { entries };
 }
