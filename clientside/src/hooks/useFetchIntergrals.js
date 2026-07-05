@@ -6,8 +6,8 @@ export default function useFetchIntegrals() {
   const [problemId, setProblemId] = useState(0);
   const [problemData, setProblemData] = useState("");
   const [hParameter, setHparameter] = useState(0);
-  const [integrationPointA, setIntegrationPointA] = useState(0);
-  const [integrationPointB, setIntegrationPointB] = useState(0);
+  const [integrationSpaceA, setIntegrationPointA] = useState(0);
+  const [integrationSpaceB, setIntegrationPointB] = useState(0);
   const [functionString, setFunctionString] = useState("");
 
   useEffect(() => {
@@ -27,8 +27,8 @@ export default function useFetchIntegrals() {
     problemId,
     problemData,
     hParameter,
-    integrationPointA,
-    integrationPointB,
+    integrationSpaceA,
+    integrationSpaceB,
     functionString,
   };
 }
