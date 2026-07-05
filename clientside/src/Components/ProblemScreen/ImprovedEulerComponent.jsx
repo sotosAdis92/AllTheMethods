@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -16,7 +16,7 @@ import {
   sendImprovedEuler,
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
-const DirectEulerComponent = (props) => {
+const DirectEulerComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -102,7 +102,7 @@ const DirectEulerComponent = (props) => {
   };
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitImprovedEulerData,
   }));
 
   return (
@@ -125,6 +125,6 @@ const DirectEulerComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 
 export default DirectEulerComponent;
