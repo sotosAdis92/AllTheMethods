@@ -5,13 +5,14 @@ export default function useFetchIntegrals() {
   const { id } = useParams();
   const [problemId, setProblemId] = useState(0);
   const [problemData, setProblemData] = useState("");
-  const [hParameter, setHparameter] = useState("");
-  const [integrationPointA, setIntegrationPointA] = useState("");
-  const [integrationPointB, setIntegrationPointB] = useState("");
+  const [hParameter, setHparameter] = useState(0);
+  const [integrationPointA, setIntegrationPointA] = useState(0);
+  const [integrationPointB, setIntegrationPointB] = useState(0);
   const [functionString, setFunctionString] = useState("");
 
   useEffect(() => {
     getProblem(id).then((response) => {
+      console.log(problemData.integrationPointA);
       setProblemId(response.data.problemId);
       setFunctionString(response.data.functionString);
       const problemDataParsed = JSON.parse(response.data.problemData);
