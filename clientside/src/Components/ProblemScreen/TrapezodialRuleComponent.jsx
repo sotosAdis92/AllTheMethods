@@ -33,6 +33,25 @@ const TrapezodialRuleComponent = (props) => {
   });
   var entries = [];
 
+  const {
+    problemId,
+    problemData,
+    hParameter,
+    integrationSpaceA,
+    integrationSpaceB,
+  } = useFetchIntegrals();
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
+  useFetchIsSolved(props.isSolved, setButtonDisabled);
+  const { input, inp, generalError, setGeneralError, handleInput } =
+    useHandleInput();
+  const { saveAchievementOfUser } = useSaveAchievementOfUser();
+  const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
+  const { submittedAt } = useGetTimeAndDate();
+  const { setCallback } = useSetCallback(props);
+  useResultTextHook(result);
+  useGenerateTrapezodialInputs(entries, integrationSpaceA, integrationSpaceB);
+
   useEffect(() => {
     getProblem(id)
       .then((response) => {
