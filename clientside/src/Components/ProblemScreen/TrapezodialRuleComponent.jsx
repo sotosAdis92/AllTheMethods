@@ -92,8 +92,8 @@ const TrapezodialRuleComponent = (props) => {
       const result = response.data;
       setResult(result);
       setCallback(result);
-      await decideToSaveSolvedProblem(result);
-      await saveAchievementOfUser(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
+      await saveAchievementOfUser(result, achievements);
     }
   };
 
