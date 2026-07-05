@@ -860,6 +860,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-left: 0.8rem;
+  align-items: center;
 }
 
 .fiParameters {
@@ -1490,4 +1491,7 @@ body {
 
 .topRow {
   display: flex;
+}
+
+.listOfDerivativeParams {
 }
