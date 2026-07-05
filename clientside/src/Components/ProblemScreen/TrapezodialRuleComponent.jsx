@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import useFetchIntegrals from "../../hooks/useFetchIntergrals";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -16,7 +16,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const TrapezodialRuleComponent = (props) => {
+const TrapezodialRuleComponent = forwardRef((props) => {
   const [result, setResult] = useState(false);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -98,6 +98,10 @@ const TrapezodialRuleComponent = (props) => {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitTrapezodialData,
+  }));
+
   return (
     <>
       <form name="inputForm" id="form" className="inputForm">
@@ -114,5 +118,5 @@ const TrapezodialRuleComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default TrapezodialRuleComponent;
