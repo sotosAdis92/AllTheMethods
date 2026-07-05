@@ -46,6 +46,12 @@ const BisectionComponent = forwardRef((props, ref) => {
     submitData: submitBisectionData,
   }));
 
+  console.log(id);
+  console.log(isButtonDisabled);
+  console.log(input);
+  console.log(setValues);
+  console.log(setResultText);
+
   //Form Validation
   function validateForm() {
     let valid = true;
