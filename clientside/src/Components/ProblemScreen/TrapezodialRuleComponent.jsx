@@ -32,6 +32,7 @@ const TrapezodialRuleComponent = (props) => {
     hParameter,
     integrationSpaceA,
     integrationSpaceB,
+    functionString,
   } = useFetchIntegrals();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
@@ -47,7 +48,7 @@ const TrapezodialRuleComponent = (props) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != integrationPointB + integrationPointA) {
+    if (inp.length != integrationSpaceB + integrationSpaceA) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -67,8 +68,8 @@ const TrapezodialRuleComponent = (props) => {
     problemMethod,
     problemString,
     hParameter,
-    integrationPointA,
-    integrationPointB,
+    integrationSpaceA,
+    integrationSpaceB,
   };
 
   const submission = {

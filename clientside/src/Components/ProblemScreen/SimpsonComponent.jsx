@@ -17,7 +17,6 @@ const SimpsonComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [functionString, setFunctionString] = useState("");
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -30,6 +29,7 @@ const SimpsonComponent = forwardRef((props, ref) => {
     hParameter,
     integrationSpaceA,
     integrationSpaceB,
+    functionString,
   } = useFetchIntegrals();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
@@ -45,7 +45,7 @@ const SimpsonComponent = forwardRef((props, ref) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != integrationSpaceB - integrationSpaceA || text === 0) {
+    if (inp.length != integrationSpaceB + integrationSpaceA || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
