@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -110,15 +109,6 @@ const DirectEulerComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitDirectEulerData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <div className="iterationsDiv">For: {iterations} iterations</div>
       <div className="generalClassforFontFamilySystemUi">
         and an h = {hParameter}

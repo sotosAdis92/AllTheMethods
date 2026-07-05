@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import useGenerateInputsDerivatives, {
   default as useFetchDerivatives,
 } from "../../hooks/useFetchDerivatives";
@@ -126,15 +125,6 @@ const ThreePointDerivativeComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitThreePointData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <div className="cParams">i:{listOfCountingParameters}</div>
       <div className="xParams">xi:{listOfXiParameters}</div>
       <div className="fParams">fi:{listOfFiParameters}</div>

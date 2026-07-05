@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import { getAchievementsByCategory } from "../../services/AchievementService";
 import { getProblem } from "../../services/ProblemService";
 import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
@@ -297,15 +296,6 @@ const SimpsonComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitSimpsonData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <form name="inputForm" id="form" className="inputForm">
         {entries.map((entry) => (
           <FormInput

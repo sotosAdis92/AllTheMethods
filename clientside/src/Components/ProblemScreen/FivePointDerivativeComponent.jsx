@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -127,15 +126,6 @@ const FivePointDerivativeComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitFivePointData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <div className="cParams">i:{listOfCountingParameters}</div>
       <div className="xParams">xi:{listOfXiParameters}</div>
       <div className="fParams">fi:{listOfFiParameters}</div>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
@@ -103,15 +102,6 @@ const NewtonRaphsonComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitNewtonRaphsonData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
