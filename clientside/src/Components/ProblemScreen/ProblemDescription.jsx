@@ -21,6 +21,7 @@ import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
 import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
+
 const ProblemDescription = () => {
   const { id } = useParams();
   const [problemType, setProblemType] = useState("");
@@ -33,6 +34,7 @@ const ProblemDescription = () => {
   const [problemMethod, setProblemMethod] = useState("");
   const [isSolved, setIsSolved] = useState(false);
   const [showCheckmark, setShowCheckmark] = useState(false);
+  const referenceToChild = useRef(null);
 
   useEffect(() => {
     getProblem(id)
@@ -65,6 +67,10 @@ const ProblemDescription = () => {
       });
   };
 
+  const handleSumbission = () => {
+    referenceToChild.current.submitData();
+  };
+
   console.log(problemType);
   const renderProblem = (problemType) => {
     if (problemType === "Bisection") {
@@ -76,6 +82,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></BisectionComponent>
       );
     } else if (problemType === "Regula-Falsi") {
@@ -87,6 +94,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></RegulaFalsiComponent>
       );
     } else if (problemType === "Newton-Raphson") {
@@ -98,6 +106,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></NewtonRaphsonComponent>
       );
     } else if (problemType === "Diakriti-Newton-Raphson") {
@@ -109,6 +118,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></DiakritiNewtonRaphsonComponent>
       );
     } else if (problemType === "Fixed-Point") {
@@ -120,6 +130,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></FixedPointComponent>
       );
     } else if (problemType === "Trapezodial-Rule") {
@@ -131,6 +142,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></TrapezodialRuleComponent>
       );
     } else if (problemType === "Simpson") {
@@ -142,6 +154,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></SimpsonComponent>
       );
     } else if (problemType === "Three-Point-Derivative") {
@@ -153,6 +166,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></ThreePointDerivativeComponent>
       );
     } else if (problemType === "Five-Point-Derivative") {
@@ -164,6 +178,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></FivePointDerivativeComponent>
       );
     } else if (problemType === "Richardson") {
@@ -175,6 +190,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></RichardsonComponent>
       );
     } else if (problemType === "Runge-Kutta") {
@@ -186,6 +202,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></RungeKuttaComponent>
       );
     } else if (problemType === "Runge-Kutta-Nystrom") {
@@ -197,6 +214,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></RungeKuttaNystromComponent>
       );
     } else if (problemType === "Improved-Euler") {
@@ -208,6 +226,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></ImprovedEulerComponent>
       );
     } else if (problemType === "Direct-Euler") {
@@ -219,6 +238,7 @@ const ProblemDescription = () => {
           problemCategory={problemCategory}
           onProblemSolved={handleProblemSolved}
           onResultReceived={handleResultReceived}
+          ref={referenceToChild}
         ></DirectEulerComponent>
       );
     }
