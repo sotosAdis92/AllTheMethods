@@ -841,27 +841,66 @@ body {
 
 .xParams {
   display: flex;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 .xiParameters {
   display: block;
   border: 1px solid black;
+  padding: 0.5rem 2rem 0.5rem 2rem;
 }
 
 .fParams {
   display: flex;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 .fiParameters {
   display: block;
   border: 1px solid black;
+  padding: 0.5rem 2rem 0.5rem 2rem;
 }
 .cParams {
   display: flex;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 .countingParameters {
   display: block;
   border: 1px solid black;
+  padding: 0.5rem 2rem 0.5rem 2rem;
 }
 .usersName {
   font-family:
