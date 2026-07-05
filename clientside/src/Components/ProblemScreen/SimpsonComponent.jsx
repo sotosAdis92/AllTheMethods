@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import useFetchIntegrals from "../../hooks/useFetchIntergrals";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -12,7 +12,8 @@ import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
 import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
 import FormInput from "../FormInput";
-const SimpsonComponent = (props) => {
+
+const SimpsonComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -93,6 +94,10 @@ const SimpsonComponent = (props) => {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitSimpsonData,
+  }));
+
   return (
     <>
       <form name="inputForm" id="form" className="inputForm">
@@ -109,5 +114,5 @@ const SimpsonComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default SimpsonComponent;
