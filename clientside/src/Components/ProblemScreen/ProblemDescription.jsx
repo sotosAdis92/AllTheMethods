@@ -19,6 +19,7 @@ import RichardsonComponent from "./RichardsonComponent";
 import RungeKuttaComponent from "./RungeKuttaComponent";
 import RungeKuttaNystromComponent from "./RungeKuttaNystromComponent";
 import SimpsonComponent from "./SimpsonComponent";
+import SubmitButton from "./SubmitButton";
 import ThreePointDerivativeComponent from "./ThreePointDerivativeComponent";
 import TrapezodialRuleComponent from "./TrapezodialRuleComponent";
 
@@ -285,6 +286,10 @@ const ProblemDescription = () => {
           <ProblemDifficulty difficulty={problemDifficulty}></ProblemDifficulty>
         </div>
         <div className="problemMethodDiv">{problemMethod}</div>
+        <SubmitButton
+          isButtonDisabled={isSolved}
+          onClick={handleSumbission}
+        ></SubmitButton>
         <div className="problemDescriptionDiv">{problemDescription}</div>
         <div ref={mathRef} className="problemStringDiv"></div>
       </div>

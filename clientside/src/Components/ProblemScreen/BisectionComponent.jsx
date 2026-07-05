@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
-import img from "../../assets/arrowup.png";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchSpaceProblems from "../../hooks/useFetchSpaceProblems";
@@ -12,14 +11,13 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
-
 import {
   saveSubmission,
   sendSubmissionData,
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const BisectionComponent = (props) => {
+const BisectionComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -43,6 +41,10 @@ const BisectionComponent = (props) => {
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
+
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
 
   //Form Validation
   function validateForm() {
@@ -97,15 +99,6 @@ const BisectionComponent = (props) => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={() => submitBisectionData()}
-        className="submitButton"
-      >
-        <img src={img}></img>
-        Submit
-      </button>
       <div className="iterationsDiv">
         For: {problemData.iterations} iterations
       </div>
@@ -126,6 +119,6 @@ const BisectionComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 
 export default BisectionComponent;
