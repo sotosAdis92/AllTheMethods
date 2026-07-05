@@ -129,15 +129,15 @@ const ThreePointDerivativeComponent = forwardRef((props, ref) => {
 
   return (
     <>
-      <div className="cParams">
+      <div className="params">
         <KatexLabel latex={`i:`}></KatexLabel>
         {listOfCountingParameters}
       </div>
-      <div className="xParams">
+      <div className="params">
         <KatexLabel latex={`x_i:`}></KatexLabel>
         {listOfXiParameters}
       </div>
-      <div className="fParams">
+      <div className="params">
         <KatexLabel latex={`f_i:`}></KatexLabel>
         {listOfFiParameters}
       </div>
