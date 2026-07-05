@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -103,6 +103,10 @@ const RungeKuttaComponent = (props) => {
       await saveAchievementOfUser(result, achievements);
     }
   };
+
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
 
   return (
     <>

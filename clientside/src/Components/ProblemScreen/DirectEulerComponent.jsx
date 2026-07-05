@@ -107,6 +107,10 @@ const DirectEulerComponent = (props) => {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
+
   return (
     <>
       <div className="iterationsDiv">For: {iterations} iterations</div>

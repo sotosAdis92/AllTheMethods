@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useImperativeHandle, useState } from "react";
 import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -121,6 +121,10 @@ const RichardsonComponent = (props) => {
       {parameter}
     </div>
   ));
+
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
 
   return (
     <>

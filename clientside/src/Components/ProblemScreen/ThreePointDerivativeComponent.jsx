@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useGenerateInputsDerivatives, {
   default as useFetchDerivatives,
@@ -122,6 +122,10 @@ const ThreePointDerivativeComponent = (props) => {
       {parameter}
     </div>
   ));
+
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
 
   return (
     <>

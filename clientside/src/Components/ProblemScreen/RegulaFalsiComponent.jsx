@@ -93,6 +93,10 @@ const RegulaFalsiComponent = (props) => {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
+
   return (
     <>
       <div className="iterationsDiv">

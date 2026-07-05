@@ -125,6 +125,10 @@ const FivePointDerivativeComponent = (props) => {
     </div>
   ));
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
+
   return (
     <>
       <div className="cParams">

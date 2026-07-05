@@ -103,6 +103,10 @@ const DiakritiNewtonRaphsonComponent = (props) => {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitBisectionData,
+  }));
+
   return (
     <>
       <div className="iterationsDiv">
