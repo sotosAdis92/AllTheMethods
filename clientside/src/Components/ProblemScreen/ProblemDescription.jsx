@@ -279,17 +279,21 @@ const ProblemDescription = () => {
         )}
       </div>
       <div>
-        <div className="problemTitleAndNumber">
-          {problemNumber}. {problemTitle}
+        <div className="topRow">
+          <div className="problemTitleAndNumber">
+            {problemNumber}. {problemTitle}
+          </div>
+          <SubmitButton
+            isButtonDisabled={isSolved}
+            onClick={handleSumbission}
+            className="submitButton"
+          ></SubmitButton>
         </div>
         <div className="problemDifficultyDiv">
           <ProblemDifficulty difficulty={problemDifficulty}></ProblemDifficulty>
         </div>
         <div className="problemMethodDiv">{problemMethod}</div>
-        <SubmitButton
-          isButtonDisabled={isSolved}
-          onClick={handleSumbission}
-        ></SubmitButton>
+
         <div className="problemDescriptionDiv">{problemDescription}</div>
         <div ref={mathRef} className="problemStringDiv"></div>
       </div>

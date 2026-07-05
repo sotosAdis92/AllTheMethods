@@ -1294,6 +1294,8 @@ body {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  margin-left: 35%;
+  margin-top: 0.5%;
 }
 
 .submitButton:hover,
@@ -1474,4 +1476,8 @@ body {
 
 .inputForm {
   margin-left: 0.8rem;
+}
+
+.topRow {
+  display: flex;
 }
