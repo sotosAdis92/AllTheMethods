@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -17,7 +17,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const FixedPointComponent = (props) => {
+const FixedPointComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -90,7 +90,7 @@ const FixedPointComponent = (props) => {
   };
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitFixedPointData,
   }));
 
   return (
@@ -115,5 +115,5 @@ const FixedPointComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default FixedPointComponent;
