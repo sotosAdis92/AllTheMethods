@@ -124,9 +124,18 @@ const RichardsonComponent = (props) => {
 
   return (
     <>
-      <div className="cParams">i:{listOfCountingParameters}</div>
-      <div className="xParams">xi:{listOfXiParameters}</div>
-      <div className="fParams">fi:{listOfFiParameters}</div>
+      <div className="cParams">
+        <KatexLabel latex={`i:`}></KatexLabel>
+        {listOfCountingParameters}
+      </div>
+      <div className="xParams">
+        <KatexLabel latex={`x_i:`}></KatexLabel>
+        {listOfXiParameters}
+      </div>
+      <div className="fParams">
+        <KatexLabel latex={`f_i:`}></KatexLabel>
+        {listOfFiParameters}
+      </div>
       <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
           <FormInput
