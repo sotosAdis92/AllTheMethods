@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -18,7 +18,7 @@ import {
 import FormInput from "../FormInput";
 import KatexLabel from "./KatexLabel";
 
-const FivePointDerivativeComponent = (props) => {
+const FivePointDerivativeComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -126,7 +126,7 @@ const FivePointDerivativeComponent = (props) => {
   ));
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitFivePointData,
   }));
 
   return (
@@ -157,6 +157,6 @@ const FivePointDerivativeComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 
 export default FivePointDerivativeComponent;
