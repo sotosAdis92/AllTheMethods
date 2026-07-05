@@ -129,17 +129,25 @@ const ThreePointDerivativeComponent = forwardRef((props, ref) => {
 
   return (
     <>
-      <div className="params">
-        <KatexLabel latex={`i:`}></KatexLabel>
-        <div>{listOfCountingParameters}</div>
-      </div>
-      <div className="params">
-        <KatexLabel latex={`x_i:`}></KatexLabel>
-        {listOfXiParameters}
-      </div>
-      <div className="params">
-        <KatexLabel latex={`f_i:`}></KatexLabel>
-        {listOfFiParameters}
+      <div className="listOfDerivativeParams">
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfCountingParameters}</div>
+        </div>
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`x_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfXiParameters}</div>
+        </div>
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`f_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfFiParameters}</div>
+        </div>
       </div>
       <form name="inputForm" className="inputForm">
         {entries.map((entry) => (

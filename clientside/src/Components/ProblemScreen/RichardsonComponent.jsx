@@ -15,6 +15,7 @@ import {
   sendRichardsonData,
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
+import KatexLabel from "./KatexLabel";
 const RichardsonComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -128,17 +129,25 @@ const RichardsonComponent = forwardRef((props, ref) => {
 
   return (
     <>
-      <div className="cParams">
-        <KatexLabel latex={`i:`}></KatexLabel>
-        {listOfCountingParameters}
-      </div>
-      <div className="xParams">
-        <KatexLabel latex={`x_i:`}></KatexLabel>
-        {listOfXiParameters}
-      </div>
-      <div className="fParams">
-        <KatexLabel latex={`f_i:`}></KatexLabel>
-        {listOfFiParameters}
+      <div className="listOfDerivativeParams">
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfCountingParameters}</div>
+        </div>
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`x_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfXiParameters}</div>
+        </div>
+        <div className="params">
+          <div className="labelDerivativeParams">
+            <KatexLabel latex={`f_i:`}></KatexLabel>
+          </div>
+          <div className="list">{listOfFiParameters}</div>
+        </div>
       </div>
       <form name="inputForm" className="inputForm">
         {entries.map((entry) => (
