@@ -5,7 +5,7 @@ export default function useGenerateInputsDE(iterations, entries) {
       id: i,
       placeholder: `y${i + 1}`,
       type: "number",
-      label: `y${i + 1} = `,
+      label: `y_${i + 1} = `,
       name: "",
       i: { i },
       required: true,
