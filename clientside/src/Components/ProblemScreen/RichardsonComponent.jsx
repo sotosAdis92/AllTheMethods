@@ -1,4 +1,4 @@
-import { useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -15,7 +15,7 @@ import {
   sendRichardsonData,
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
-const RichardsonComponent = (props) => {
+const RichardsonComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -123,7 +123,7 @@ const RichardsonComponent = (props) => {
   ));
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitRichardsonData,
   }));
 
   return (
@@ -154,5 +154,5 @@ const RichardsonComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default RichardsonComponent;

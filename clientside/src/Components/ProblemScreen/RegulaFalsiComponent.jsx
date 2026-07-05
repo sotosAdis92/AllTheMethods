@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -17,7 +17,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const RegulaFalsiComponent = (props) => {
+const RegulaFalsiComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [result, setResult] = useState(false);
@@ -94,7 +94,7 @@ const RegulaFalsiComponent = (props) => {
   };
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitRegulaFalsiData,
   }));
 
   return (
@@ -119,5 +119,5 @@ const RegulaFalsiComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default RegulaFalsiComponent;

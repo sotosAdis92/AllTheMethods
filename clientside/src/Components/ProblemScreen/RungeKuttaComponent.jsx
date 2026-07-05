@@ -1,4 +1,4 @@
-import { useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDifferentialEquations from "../../hooks/useFetchDifferentialEquations";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
@@ -17,7 +17,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const RungeKuttaComponent = (props) => {
+const RungeKuttaComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -89,7 +89,7 @@ const RungeKuttaComponent = (props) => {
     problemCategory,
   };
 
-  const submitBisectionData = async () => {
+  const submitRungeKuttaData = async () => {
     if (validateForm()) {
       console.log(submissionData);
       console.log(submission);
@@ -105,7 +105,7 @@ const RungeKuttaComponent = (props) => {
   };
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitRungeKuttaData,
   }));
 
   return (
@@ -128,5 +128,5 @@ const RungeKuttaComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default RungeKuttaComponent;

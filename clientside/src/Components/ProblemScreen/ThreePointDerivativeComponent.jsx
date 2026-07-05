@@ -1,4 +1,4 @@
-import { useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useGenerateInputsDerivatives, {
   default as useFetchDerivatives,
@@ -18,7 +18,7 @@ import {
 } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
-const ThreePointDerivativeComponent = (props) => {
+const ThreePointDerivativeComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -124,7 +124,7 @@ const ThreePointDerivativeComponent = (props) => {
   ));
 
   useImperativeHandle(ref, () => ({
-    submitData: submitBisectionData,
+    submitData: submitThreePointData,
   }));
 
   return (
@@ -155,6 +155,6 @@ const ThreePointDerivativeComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 
 export default ThreePointDerivativeComponent;
