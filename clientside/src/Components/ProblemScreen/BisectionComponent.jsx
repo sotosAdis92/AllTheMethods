@@ -118,6 +118,7 @@ const BisectionComponent = forwardRef((props, ref) => {
             {...entry}
             value={values[entry.name]}
             onChange={(e) => handleInput(entry.id, e)}
+            generalError={generalError}
           ></FormInput>
         ))}
       </form>
