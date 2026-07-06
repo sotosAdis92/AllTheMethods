@@ -10,6 +10,7 @@ export default function useGenerateInputsBisection(iterations, entries) {
       name: "",
       i: { i },
       required: true,
+      pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
     });
   }
   return { entries };
