@@ -1554,9 +1554,10 @@ body {
 }
 
 .listOfProblems {
-  width: 100%;
+  width: 60%;
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2%;
 }
