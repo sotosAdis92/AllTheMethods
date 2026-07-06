@@ -10,9 +10,12 @@ export default function useGenerateSimpsonInputs(
         id: i,
         placeholder: `Final`,
         label: `S = `,
+        errorMessage:
+          "Input should not be empty or other than a floating point/double number",
         name: "",
         i: { i },
         required: true,
+        pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
       });
     } else {
       if (i % 2 != 0 && i != integrationPointA && i != integrationPointB) {
@@ -21,9 +24,12 @@ export default function useGenerateSimpsonInputs(
           placeholder: `2f(${i})`,
           type: "number",
           label: `2f(${i}) = `,
+          errorMessage:
+            "Input should not be empty or other than a floating point/double number",
           name: "",
           i: { i },
           required: true,
+          pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
         });
       } else if (
         i % 2 === 0 &&
@@ -35,9 +41,12 @@ export default function useGenerateSimpsonInputs(
           placeholder: `4f(${i})`,
           type: "number",
           label: `4f(${i}) = `,
+          errorMessage:
+            "Input should not be empty or other than a floating point/double number",
           name: "",
           i: { i },
           required: true,
+          pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
         });
       } else {
         entries.push({
@@ -45,9 +54,12 @@ export default function useGenerateSimpsonInputs(
           placeholder: `f(${i})`,
           type: "number",
           label: `f(${i}) = `,
+          errorMessage:
+            "Input should not be empty or other than a floating point/double number",
           name: "",
           i: { i },
           required: true,
+          pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
         });
       }
     }
