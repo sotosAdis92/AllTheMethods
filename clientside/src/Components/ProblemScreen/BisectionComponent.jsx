@@ -23,6 +23,7 @@ const BisectionComponent = forwardRef((props, ref) => {
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [errorBool, setErrorBool] = useState(false);
+
   let text;
   const [values, setValues] = useState({
     entry: "",
