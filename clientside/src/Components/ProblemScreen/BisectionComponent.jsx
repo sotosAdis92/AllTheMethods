@@ -22,6 +22,7 @@ const BisectionComponent = forwardRef((props, ref) => {
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [errorBool, setErrorBool] = useState(false);
   let text;
   const [values, setValues] = useState({
     entry: "",
@@ -58,8 +59,10 @@ const BisectionComponent = forwardRef((props, ref) => {
     if (inp.length != iterations || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
+      setErrorBool(true);
     } else {
       setGeneralError("");
+      setErrorBool(true);
     }
     return valid;
   }
@@ -118,7 +121,7 @@ const BisectionComponent = forwardRef((props, ref) => {
             {...entry}
             value={values[entry.name]}
             onChange={(e) => handleInput(entry.id, e)}
-            generalError={generalError}
+            error={errorBool}
           ></FormInput>
         ))}
       </form>
