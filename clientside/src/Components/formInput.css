@@ -19,6 +19,11 @@ span {
   display: none;
 }
 
-input:invalid ~ span {
+input:invalid[focused="true"] {
+  display: block;
+  border: 1px solid #fe6262;
+}
+
+input:invalid[focused="true"] ~ span {
   display: block;
 }
