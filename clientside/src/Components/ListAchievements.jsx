@@ -70,14 +70,16 @@ const ListAchievements = () => {
 
   return (
     <>
-      <div className="achievementsListContainer">
-        <h2 className="achievementsTitle">List Of Achievements</h2>
-        <button onClick={() => getAllAchievements()} className="filterButton">
-          <img src={img2} className="allAchFilterImg"></img>
-          All Achievements
-        </button>
-        <ol className="filterAchievements">{listOfFilters}</ol>
-        <ol>{listOfAchievements}</ol>
+      <div className="achievementScreen">
+        <div className="achievementsListContainer">
+          <h2 className="achievementsTitle">List Of Achievements</h2>
+          <button onClick={() => getAllAchievements()} className="filterButton">
+            <img src={img2} className="allAchFilterImg"></img>
+            All Achievements
+          </button>
+          <ol className="filterAchievements">{listOfFilters}</ol>
+          <ol className="listOfAchievements">{listOfAchievements}</ol>
+        </div>
       </div>
     </>
   );
