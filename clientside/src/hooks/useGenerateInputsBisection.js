@@ -6,7 +6,7 @@ export default function useGenerateInputsBisection(iterations, entries) {
       type: "number",
       label: `x_{${i}} = `,
       errorMessage:
-        "Input Should not be empty or other than a floating point/double number",
+        "Input should not be empty or other than a floating point/double number",
       name: "",
       i: { i },
       required: true,
