@@ -29,19 +29,18 @@ body {
 .problemLink {
   text-decoration: none;
   color: #1b1212;
+  width: 100%;
 }
 
 .problemItem {
   flex: 1;
   background-color: #f3f3f3;
-  max-width: 750px;
   border-radius: 12px;
   padding: 12px;
   cursor: pointer;
 }
 .problemOdd {
   flex: 1;
-  max-width: 750px;
   border-radius: 12px;
   padding: 12px;
   cursor: pointer;
@@ -117,8 +116,10 @@ body {
     sans-serif;
 }
 .problemWithButtons {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .achievementCardWrapper {
@@ -1541,4 +1542,22 @@ body {
   transition: all 0.3s ease;
   outline: none;
   box-sizing: border-box;
+}
+
+.problemScreen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.listOfProblems {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

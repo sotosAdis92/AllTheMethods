@@ -128,16 +128,18 @@ const ListProblems = () => {
 
   return (
     <>
-      <h2 className="problemsTitle">List Of Problems</h2>
-      <div>
-        <button onClick={() => getAllProblems()} className="filterButton">
-          <img src={img2} className="allAchFilterImg"></img>
-          All Problems
-        </button>
-        <ol className="filterCategories">{listOfCategoryFilters}</ol>
+      <div className="problemScreen">
+        <h2 className="problemsTitle">List Of Problems</h2>
+        <div>
+          <button onClick={() => getAllProblems()} className="filterButton">
+            <img src={img2} className="allAchFilterImg"></img>
+            All Problems
+          </button>
+          <ol className="filterCategories">{listOfCategoryFilters}</ol>
+        </div>
+        <ol className="filterCategories">{listOfDifficultyFilter}</ol>
+        <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
-      <ol className="filterCategories">{listOfDifficultyFilter}</ol>
-      <ol>{listOfProblems}</ol>
     </>
   );
 };
