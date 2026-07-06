@@ -1015,16 +1015,8 @@ body {
 }
 
 .containerUser {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e8ecf1;
-  transition: all 0.3s ease;
   max-width: 800px;
   margin: 20px auto;
-  align-items: center;
-  text-align: center;
 }
 
 .viewAchievements {
