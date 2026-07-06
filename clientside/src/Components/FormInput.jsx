@@ -21,6 +21,7 @@ const FormInput = (props) => {
         maxLength={5}
         onBlur={handleFocus}
         focused={focused.toString()}
+        onFocus={inputProps.name === ""}
         className={props.error ? "inputsError" : "inputs"}
       ></input>
       <span className="errorForInputs">{errorMessage}</span>
