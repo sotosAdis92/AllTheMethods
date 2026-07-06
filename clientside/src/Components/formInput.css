@@ -1,4 +1,4 @@
-.errorForInputs {
+span {
   font-family:
     system-ui,
     -apple-system,
@@ -11,4 +11,14 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 20px;
+  color: #fe6262;
+  margin-top: 0.8rem;
+  display: none;
+}
+
+input:invalid ~ span {
+  display: block;
 }
