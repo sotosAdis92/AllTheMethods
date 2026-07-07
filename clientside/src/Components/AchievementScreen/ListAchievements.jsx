@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import img1 from "../assets/223399.png";
-import img2 from "../assets/5110770.png";
+import img1 from "../../assets/223399.png";
+import img2 from "../../assets/5110770.png";
 import {
   getAchievementsByCategory,
   listAchievements,
-} from "../services/AchievementService";
+} from "../../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";

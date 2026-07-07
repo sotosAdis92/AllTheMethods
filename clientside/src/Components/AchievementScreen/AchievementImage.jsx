@@ -1,9 +1,9 @@
-import img3 from "../assets/def.png";
-import img6 from "../assets/deriv.png";
-import img1 from "../assets/integral.png";
-import img4 from "../assets/par.png";
-import img2 from "../assets/root.png";
-import img5 from "../assets/system.png";
+import img3 from "../../assets/def.png";
+import img6 from "../../assets/deriv.png";
+import img1 from "../../assets/integral.png";
+import img4 from "../../assets/par.png";
+import img2 from "../../assets/root.png";
+import img5 from "../../assets/system.png";
 const AchievementImage = (props) => {
   if (props.category === "Polynomial Roots") {
     return <img src={img2}></img>;

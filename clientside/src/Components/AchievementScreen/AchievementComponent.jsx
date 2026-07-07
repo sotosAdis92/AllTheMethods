@@ -15,7 +15,7 @@ import {
   createAchievement,
   getAchievement,
   updateAchievement,
-} from "../services/AchievementService";
+} from "../../services/AchievementService";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
