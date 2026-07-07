@@ -1103,7 +1103,7 @@ body {
 }
 
 .filters {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #1a1a2e;
   text-transform: none;
@@ -1133,7 +1133,7 @@ body {
 }
 
 .filters:hover {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #1a1a2e;
   text-transform: none;
@@ -1164,8 +1164,8 @@ body {
   display: flex;
 }
 .filterImage img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
 }
 
@@ -1655,6 +1655,4 @@ body {
 .filters.special-active-class {
   background-color: #c6c6c6;
   border-color: #b0b0b0;
-  color: #ffffff;
-  font-weight: 800;
 }

@@ -3,27 +3,25 @@ import { useNavigate } from "react-router-dom";
 import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
-import {
-  getProblemsByCategory,
-  getProblemsByDifficulty,
-  listProblems,
-} from "../services/ProblemService";
+import { listProblems } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementImage";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
+  const [allProblems, setAllProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
-  const [activeProblemsList, setActiveProblemsList] = useState([]);
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
+  const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
 
   const navigator = useNavigate();
   function getAllProblems() {
     listProblems()
       .then((response) => {
+        setAllProblems(response.data);
         setProblems(response.data);
         setProblemCategoryFilters(response.data);
         setProblemDifficultyFilters(response.data);
@@ -38,6 +36,26 @@ const ListProblems = () => {
     getAllProblems();
   }, []);
 
+  useEffect(() => {
+    applyFilters();
+  }, [activeCategoryFilters, activeDifficultyFilters]);
+
+  const applyFilters = () => {
+    let filtered = allProblems;
+    if (activeDifficultyFilters.length > 0) {
+      filtered = filtered.filter((problem) =>
+        activeDifficultyFilters.includes(problem.difficulty),
+      );
+    }
+
+    if (activeCategoryFilters.length > 0) {
+      filtered = filtered.filter((problem) =>
+        activeCategoryFilters.includes(problem.category),
+      );
+    }
+    setProblems(filtered);
+  };
+
   const categoryFilters = [
     ...new Set(problemCategoryFilters.map((problem) => problem.category)),
   ];
@@ -47,37 +65,44 @@ const ListProblems = () => {
   ];
 
   const handleClickCategoryFilterProblems = (value) => {
-    getProblemsByCategory(value).then((response) => setProblems(response.data));
+    setActiveCategoryFilters((prevActiveFilters) => {
+      if (prevActiveFilters.includes(value)) {
+        return prevActiveFilters.filter((item) => item !== value);
+      } else {
+        return [...prevActiveFilters, value];
+      }
+    });
   };
 
   const handleClickDifficultyFilterProblems = (value) => {
-    if (activeDifficultyFilters === value) {
-      setActiveDifficultyFilters([]);
-      getAllProblems();
-    } else {
-      setActiveDifficultyFilters(value);
-      getProblemsByDifficulty(value).then((response) =>
-        setProblems(response.data),
-      );
-    }
+    setActiveDifficultyFilters((prev) => {
+      if (prev.includes(value)) {
+        return prev.filter((item) => item !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
   };
 
-  const listOfCategoryFilters = categoryFilters.map((filter, i) => (
-    <div key={i}>
-      <button
-        onClick={() => handleClickCategoryFilterProblems(filter)}
-        className="filters"
-      >
-        <div className="filterImage">
-          <AchievementImage category={filter}></AchievementImage>
-        </div>
-        {filter}
-      </button>
-    </div>
-  ));
+  const listOfCategoryFilters = categoryFilters.map((filter, i) => {
+    const isSelected = activeCategoryFilters.includes(filter);
+    return (
+      <div key={i}>
+        <button
+          onClick={() => handleClickCategoryFilterProblems(filter)}
+          className={`filters ${isSelected ? "special-active-class" : ""}`}
+        >
+          <div className="filterImage">
+            <AchievementImage category={filter}></AchievementImage>
+          </div>
+          {filter}
+        </button>
+      </div>
+    );
+  });
 
   const listOfDifficultyFilter = difficultyFilters.map((filter, i) => {
-    const isSelected = activeDifficultyFilters === filter;
+    const isSelected = activeDifficultyFilters.includes(filter);
     return (
       <div key={i}>
         <button
