@@ -15,6 +15,8 @@ const ListProblems = () => {
   const [isSolved, setIsSolved] = useState({});
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
+  const [showFiltersBool, setShowFiltersBool] = useState(false);
+
   const navigator = useNavigate();
   function getAllProblems() {
     listProblems()
@@ -136,8 +138,8 @@ const ListProblems = () => {
             All Problems
           </button>
           <ol className="filterCategories">{listOfCategoryFilters}</ol>
+          <ol className="filterCategories">{listOfDifficultyFilter}</ol>
         </div>
-        <ol className="filterCategories">{listOfDifficultyFilter}</ol>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
     </>
