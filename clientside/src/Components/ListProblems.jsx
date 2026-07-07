@@ -15,6 +15,7 @@ const ListProblems = () => {
   const [isSolved, setIsSolved] = useState({});
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
+  const [openFilterBool, setOpenFilterBool] = useState(false);
 
   const navigator = useNavigate();
   function getAllProblems() {
@@ -131,14 +132,24 @@ const ListProblems = () => {
     <>
       <div className="problemScreen">
         <h2 className="problemsTitle">List Of Problems</h2>
-        <div>
-          <button onClick={() => getAllProblems()} className="filterButton">
-            <img src={img2} className="allAchFilterImg"></img>
-            All Problems
-          </button>
-          <ol className="filterCategories">{listOfCategoryFilters}</ol>
-          <ol className="filterCategories">{listOfDifficultyFilter}</ol>
-        </div>
+        <button
+          className="openFilterButton"
+          onClick={() => setOpenFilterBool(!openFilterBool)}
+        >
+          <img src=""></img>
+        </button>
+        {!openFilterBool ? (
+          <div></div>
+        ) : (
+          <div className="filtersDiv">
+            <button onClick={() => getAllProblems()} className="filterButton">
+              <img src={img2} className="allAchFilterImg"></img>
+              All Problems
+            </button>
+            <ol className="filterCategories">{listOfCategoryFilters}</ol>
+            <ol className="filterCategories">{listOfDifficultyFilter}</ol>
+          </div>
+        )}
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
     </>
