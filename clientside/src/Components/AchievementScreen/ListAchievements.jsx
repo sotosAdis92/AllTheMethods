@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/223399.png";
 import img2 from "../../assets/5110770.png";
-import {
-  getAchievementsByCategory,
-  listAchievements,
-} from "../../services/AchievementService";
+import img3 from "../../assets/filter.png";
+import { listAchievements } from "../../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";
@@ -56,24 +54,31 @@ const ListAchievements = () => {
   ];
 
   const handleClickCategoryFilter = (value) => {
-    getAchievementsByCategory(value).then((response) =>
-      setAchievements(response.data),
-    );
+    setActiveCategoryFilters((prev) => {
+      if (prev.includes(value)) {
+        return prev.filter((item) => item !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
   };
 
-  const listOfFilters = categoryFilters.map((filter, i) => (
-    <div key={i}>
-      <button
-        onClick={() => handleClickCategoryFilter(filter)}
-        className="filters"
-      >
-        <div className="filterImage">
-          <AchievementImage category={filter}></AchievementImage>
-        </div>
-        {filter}
-      </button>
-    </div>
-  ));
+  const listOfFilters = categoryFilters.map((filter, i) => {
+    const isSelected = activeCategoryFilters.includes(filter);
+    return (
+      <div key={i}>
+        <button
+          onClick={() => handleClickCategoryFilter(filter)}
+          className={`filters ${isSelected ? "special-active-class" : ""}`}
+        >
+          <div className="filterImage">
+            <AchievementImage category={filter}></AchievementImage>
+          </div>
+          {filter}
+        </button>
+      </div>
+    );
+  });
 
   const listOfAchievements = achievements.map((achievement) => (
     <div key={achievement.achievementId} className="achievementCardWrapper">
@@ -92,6 +97,14 @@ const ListAchievements = () => {
     <>
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
+        <div className="filterContainer">
+          <button
+            className="openFilterButton"
+            onClick={() => setOpenFilterBool(!openFilterBool)}
+          >
+            <img src={img3}></img>
+          </button>
+        </div>
         <button onClick={() => getAllAchievements()} className="filterButton">
           <img src={img2} className="allAchFilterImg"></img>
           All Achievements
