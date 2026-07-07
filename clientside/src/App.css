@@ -1162,6 +1162,7 @@ body {
 }
 .filterContainer {
   display: flex;
+  margin-bottom: 0.2rem;
 }
 .filterImage img {
   width: 20px;
@@ -1559,7 +1560,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2%;
 }
 
 .achievementScreen {
@@ -1577,7 +1577,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2%;
 }
 
 .openFilterButton {
@@ -1602,6 +1601,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-top: 1%;
 }
 
 .openFilterButton:hover {

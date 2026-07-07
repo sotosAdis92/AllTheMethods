@@ -9,6 +9,7 @@ import {
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";
+
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [achievementFilters, setAchievementFilters] = useState([]);

@@ -14,7 +14,6 @@ import MyProfile from "./Components/UserComponents/MyProfile";
 import ViewMyAchievements from "./Components/UserComponents/ViewMyAchievements";
 import ViewMyProblems from "./Components/UserComponents/ViewMyProblems";
 function App() {
-  console.log("AAAA");
   return (
     <>
       <BrowserRouter>
