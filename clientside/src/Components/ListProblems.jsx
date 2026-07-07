@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
+import img3 from "../assets/filter.png";
 import {
   getProblemsByCategory,
   getProblemsByDifficulty,
@@ -132,30 +133,32 @@ const ListProblems = () => {
     <>
       <div className="problemScreen">
         <h2 className="problemsTitle">List Of Problems</h2>
-        <button
-          className="openFilterButton"
-          onClick={() => setOpenFilterBool(!openFilterBool)}
-        >
-          <img src=""></img>
-        </button>
-        {!openFilterBool ? (
-          <div></div>
-        ) : (
-          <div className="filtersDiv">
-            <button onClick={() => getAllProblems()} className="filterButton">
-              <img src={img2} className="allAchFilterImg"></img>
-              All Problems
-            </button>
-            <div>
-              <h3 className="categoryHeading">Is of Category:</h3>
-              <ol className="filterCategories">{listOfCategoryFilters}</ol>
+        <div className="filterContainer">
+          <button
+            className="openFilterButton"
+            onClick={() => setOpenFilterBool(!openFilterBool)}
+          >
+            <img src={img3}></img>
+          </button>
+          {!openFilterBool ? (
+            <div></div>
+          ) : (
+            <div className="filtersDiv">
+              <button onClick={() => getAllProblems()} className="filterButton">
+                <img src={img2} className="allAchFilterImg"></img>
+                All Problems
+              </button>
+              <div>
+                <h3 className="categoryHeading">Is of Category:</h3>
+                <ol className="filterCategories">{listOfCategoryFilters}</ol>
+              </div>
+              <div>
+                <h3 className="categoryHeading">Is of Difficulty:</h3>
+                <ol className="filterCategories">{listOfDifficultyFilter}</ol>
+              </div>
             </div>
-            <div>
-              <h3 className="categoryHeading">Is of Difficulty:</h3>
-              <ol className="filterCategories">{listOfDifficultyFilter}</ol>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
     </>
