@@ -5,7 +5,7 @@ import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
 import { listProblems } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
-import AchievementImage from "./AchievementImage";
+import AchievementImage from "./AchievementScreen/AchievementImage";
 import ProblemDifficulty from "./ProblemDifficulty";
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
