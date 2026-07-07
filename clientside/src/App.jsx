@@ -19,11 +19,13 @@ function App() {
       <BrowserRouter>
         <Header></Header>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+          <Route path="/" element={<Dashboard></Dashboard>}></Route>
           <Route path="/register" element={<Signup></Signup>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/" element={<ListProblems></ListProblems>}></Route>
-
+          <Route
+            path="/problems"
+            element={<ListProblems></ListProblems>}
+          ></Route>
           <Route
             path="/addProblem"
             element={<ProblemComponent></ProblemComponent>}

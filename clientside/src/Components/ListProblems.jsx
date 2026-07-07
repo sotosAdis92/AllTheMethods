@@ -116,7 +116,7 @@ const ListProblems = () => {
   });
 
   function navigate(problemId) {
-    navigator("problems/" + problemId);
+    navigator("/problems/" + problemId);
   }
 
   useEffect(() => {

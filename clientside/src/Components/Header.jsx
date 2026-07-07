@@ -57,7 +57,7 @@ const Header = () => {
               </a>
             </li>
             <li className="link">
-              <a href="/" className="headerlink">
+              <a href="/problems" className="headerlink">
                 Problems
               </a>
             </li>
