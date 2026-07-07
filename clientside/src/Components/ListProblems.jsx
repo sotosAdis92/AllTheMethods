@@ -15,7 +15,6 @@ const ListProblems = () => {
   const [isSolved, setIsSolved] = useState({});
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
-  const [showFiltersBool, setShowFiltersBool] = useState(false);
 
   const navigator = useNavigate();
   function getAllProblems() {
