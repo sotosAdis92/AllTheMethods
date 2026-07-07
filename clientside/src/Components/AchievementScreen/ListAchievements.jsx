@@ -13,6 +13,10 @@ import Icon from "./Icon";
 const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [achievementFilters, setAchievementFilters] = useState([]);
+  const [allAchievements, setAllAchievements] = useState([]);
+  const [achievementCategoryFilters, setProblemCategoryFilters] = useState([]);
+  const [openFilterBool, setOpenFilterBool] = useState(false);
+  const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
   const navigator = useNavigate();
 
   const getAllAchievements = () => {
@@ -20,6 +24,7 @@ const ListAchievements = () => {
       .then((response) => {
         setAchievements(response.data);
         setAchievementFilters(response.data);
+        setAllAchievements(response.data);
         console.log(response.data);
         console.log(achievementFilters);
       })
@@ -31,6 +36,20 @@ const ListAchievements = () => {
   useEffect(() => {
     getAllAchievements();
   }, []);
+
+  useEffect(() => {
+    applyFilters();
+  }, [activeCategoryFilters]);
+
+  const applyFilters = () => {
+    let filtered = allAchievements;
+    if (activeCategoryFilters.length > 0) {
+      filtered = filtered.filter((achievement) =>
+        activeCategoryFilters.includes(achievement.category),
+      );
+    }
+    setAchievements(filtered);
+  };
 
   const categoryFilters = [
     ...new Set(achievementFilters.map((achievement) => achievement.category)),
