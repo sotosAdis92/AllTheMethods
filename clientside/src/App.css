@@ -1581,8 +1581,6 @@ body {
 }
 
 .openFilterButton {
-  width: 35px;
-  height: 35px;
   background-color: white;
   border: 1px solid #d1d5db;
   padding: 8px;
@@ -1592,6 +1590,18 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 .openFilterButton:hover {
