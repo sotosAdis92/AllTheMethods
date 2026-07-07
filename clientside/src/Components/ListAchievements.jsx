@@ -72,7 +72,6 @@ const ListAchievements = () => {
     <>
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
-
         <button onClick={() => getAllAchievements()} className="filterButton">
           <img src={img2} className="allAchFilterImg"></img>
           All Achievements
