@@ -24,6 +24,7 @@ const AchievementComponent = () => {
   const [visibility, setVisibility] = useState("");
   const navigator = useNavigate();
   const { id } = useParams();
+
   useEffect(() => {
     if (id) {
       getAchievement(id)

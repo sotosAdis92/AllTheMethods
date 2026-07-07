@@ -13,7 +13,6 @@ const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [achievementFilters, setAchievementFilters] = useState([]);
   const navigator = useNavigate();
-
   const getAllAchievements = () => {
     listAchievements()
       .then((response) => {
