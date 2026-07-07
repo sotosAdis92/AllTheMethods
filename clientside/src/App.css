@@ -1161,8 +1161,12 @@ body {
   white-space: nowrap;
 }
 .filterContainer {
+  position: relative;
   display: flex;
-  margin-bottom: 0.2rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 8px;
 }
 .filterImage img {
   width: 20px;
@@ -1552,6 +1556,8 @@ body {
   padding: 20px;
   box-sizing: border-box;
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .listOfProblems {
@@ -1601,7 +1607,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  margin-top: 1%;
+  right: 0;
+  left: 0;
 }
 
 .openFilterButton:hover {
@@ -1648,8 +1655,11 @@ body {
 
 .filterContainer {
   position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  margin-bottom: 0.5rem;
 }
 
 .filters.special-active-class {
