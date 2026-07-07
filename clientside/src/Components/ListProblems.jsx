@@ -139,7 +139,6 @@ const ListProblems = () => {
             onClick={() => setOpenFilterBool(!openFilterBool)}
           >
             <img src={img3}></img>
-            Filters
           </button>
           {!openFilterBool ? (
             <div></div>
