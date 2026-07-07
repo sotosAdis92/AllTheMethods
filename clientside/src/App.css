@@ -1651,3 +1651,10 @@ body {
   display: inline-block;
   margin-bottom: 1rem;
 }
+
+.filters.special-active-class {
+  background-color: #c6c6c6;
+  border-color: #b0b0b0;
+  color: #ffffff;
+  font-weight: 800;
+}

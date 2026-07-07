@@ -17,6 +17,8 @@ const ListProblems = () => {
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
+  const [activeProblemsList, setActiveProblemsList] = useState([]);
+  const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
 
   const navigator = useNavigate();
   function getAllProblems() {
@@ -49,9 +51,15 @@ const ListProblems = () => {
   };
 
   const handleClickDifficultyFilterProblems = (value) => {
-    getProblemsByDifficulty(value).then((response) =>
-      setProblems(response.data),
-    );
+    if (activeDifficultyFilters === value) {
+      setActiveDifficultyFilters([]);
+      getAllProblems();
+    } else {
+      setActiveDifficultyFilters(value);
+      getProblemsByDifficulty(value).then((response) =>
+        setProblems(response.data),
+      );
+    }
   };
 
   const listOfCategoryFilters = categoryFilters.map((filter, i) => (
@@ -68,16 +76,19 @@ const ListProblems = () => {
     </div>
   ));
 
-  const listOfDifficultyFilter = difficultyFilters.map((filter, i) => (
-    <div key={i}>
-      <button
-        onClick={() => handleClickDifficultyFilterProblems(filter)}
-        className="filters"
-      >
-        <ProblemDifficulty difficulty={filter}></ProblemDifficulty>
-      </button>
-    </div>
-  ));
+  const listOfDifficultyFilter = difficultyFilters.map((filter, i) => {
+    const isSelected = activeDifficultyFilters === filter;
+    return (
+      <div key={i}>
+        <button
+          onClick={() => handleClickDifficultyFilterProblems(filter)}
+          className={`filters ${isSelected ? "special-active-class" : ""}`}
+        >
+          <ProblemDifficulty difficulty={filter}></ProblemDifficulty>
+        </button>
+      </div>
+    );
+  });
 
   function navigate(problemId) {
     navigator("problems/" + problemId);
