@@ -146,8 +146,14 @@ const ListProblems = () => {
               <img src={img2} className="allAchFilterImg"></img>
               All Problems
             </button>
-            <ol className="filterCategories">{listOfCategoryFilters}</ol>
-            <ol className="filterCategories">{listOfDifficultyFilter}</ol>
+            <div>
+              <h3 className="categoryHeading">Is of Category:</h3>
+              <ol className="filterCategories">{listOfCategoryFilters}</ol>
+            </div>
+            <div>
+              <h3 className="categoryHeading">Is of Difficulty:</h3>
+              <ol className="filterCategories">{listOfDifficultyFilter}</ol>
+            </div>
           </div>
         )}
         <ol className="listOfProblems">{listOfProblems}</ol>
