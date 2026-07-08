@@ -1749,3 +1749,29 @@ body {
   transition: all 0.2s ease;
   cursor: default;
 }
+
+.viewAchievements img,
+.viewProblems img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  margin: 1.5rem auto 0.5rem auto;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.viewAchievements img:hover,
+.viewProblems img:hover {
+  opacity: 0.8;
+}
+
+.viewAchievements img {
+  width: 100px;
+  height: 100px;
+}
+
+.viewProblems img {
+  width: 100px;
+  height: 100px;
+}
