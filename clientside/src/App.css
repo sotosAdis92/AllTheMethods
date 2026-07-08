@@ -1661,7 +1661,14 @@ body {
   width: 60%;
   margin-bottom: 0.5rem;
 }
-
+.filterContainerAchievements {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
 .filters.special-active-class {
   background-color: #c6c6c6;
   border-color: #b0b0b0;

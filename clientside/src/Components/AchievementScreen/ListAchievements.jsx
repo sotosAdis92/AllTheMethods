@@ -96,7 +96,7 @@ const ListAchievements = () => {
     <>
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
-        <div className="filterContainer">
+        <div className="filterContainerAchievements">
           <button
             className="openFilterButton"
             onClick={() => setOpenFilterBool(!openFilterBool)}
