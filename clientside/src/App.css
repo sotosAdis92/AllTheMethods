@@ -1614,7 +1614,7 @@ body {
   padding: 20px;
   box-sizing: border-box;
   position: relative;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -1623,7 +1623,9 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .achievementScreen {
@@ -1719,6 +1721,8 @@ body {
   align-items: center;
   width: 60%;
   margin-bottom: 0.5rem;
+  margin-left: 0;
+  padding-left: 0;
 }
 .filterContainerAchievements {
   position: relative;
