@@ -922,6 +922,8 @@ body {
     sans-serif;
   width: auto;
   font-size: 25px;
+  align-items: center;
+  align-content: center;
 }
 
 .achievementsHeader {
@@ -1064,8 +1066,11 @@ body {
 .containerUser {
   background: #ffffff;
   padding: 2rem 0 1.5rem 0;
-  border-bottom: 1px solid #e5e7eb;
   margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
 }
 
 .viewAchievements {
