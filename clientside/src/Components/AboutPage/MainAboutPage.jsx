@@ -1,7 +1,10 @@
+import AboutTitle from "./AboutTitle";
 const MainAboutPage = () => {
   return (
     <>
-      <div></div>
+      <div>
+        <AboutTitle></AboutTitle>
+      </div>
     </>
   );
 };
