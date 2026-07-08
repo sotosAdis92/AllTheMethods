@@ -679,6 +679,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  width: 60%;
+  text-align: center;
 }
 
 .submissionButton {
@@ -1629,12 +1631,12 @@ body {
 }
 
 .achievementScreen {
-  align-items: center;
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  align-items: center;
 }
 
 .listOfAchievements {
@@ -1727,9 +1729,8 @@ body {
 .filterContainerAchievements {
   position: relative;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 50%;
+  justify-content: center;
+  width: 60%;
   margin-bottom: 0.5rem;
 }
 .filters.special-active-class {

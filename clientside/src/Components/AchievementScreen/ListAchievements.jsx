@@ -98,7 +98,7 @@ const ListAchievements = () => {
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <div className="filterContainerAchievements">
           <button
-            className="openFilterButton"
+            className="openFilterButtonAchievements"
             onClick={() => setOpenFilterBool(!openFilterBool)}
           >
             <img src={img3}></img>
