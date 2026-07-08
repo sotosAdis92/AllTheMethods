@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/UsersService";
+import UserIcon from "./UserIcon";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
 const MyProfile = () => {
@@ -23,7 +24,9 @@ const MyProfile = () => {
     <>
       <div className="containerUser">
         <h1 className="user">
-          <div className="usersName">{displayName}</div>
+          <div className="usersName" displayName={displayName}>
+            <UserIcon></UserIcon>
+          </div>
         </h1>
       </div>
       <div className="content">
