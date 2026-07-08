@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import img1 from "../../assets/trophy.png";
 import { getUserAchievements } from "../../services/UserAchievementService";
 const ViewMyAchievements = () => {
   const [myAchievements, setMyAchievements] = useState([]);
@@ -41,7 +42,7 @@ const ViewMyAchievements = () => {
         <>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
-          <img></img>
+          <img src={img1}></img>
           <p className="noAchievemets">No achievements Yet!</p>
         </>
       )}
