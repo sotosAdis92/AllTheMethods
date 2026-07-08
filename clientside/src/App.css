@@ -897,9 +897,16 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  font-size: 25px;
-  width: auto;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #262626;
+  letter-spacing: -0.5px;
 }
+
+.usersName::before {
+  font-weight: 400;
+}
+
 .user {
   font-family:
     system-ui,
@@ -931,6 +938,13 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.3px;
+  border: none;
+  padding: 0;
 }
 .achievementsCounter {
   font-family:
@@ -946,6 +960,14 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  font-size: 0.85rem;
+  color: #8b8b8b;
+  background: #f7f8fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
 }
 
 .userProblemsCounter {
@@ -962,6 +984,14 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  font-size: 0.85rem;
+  color: #8b8b8b;
+  background: #f7f8fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
 }
 .userProblemsHeader {
   font-family:
@@ -977,6 +1007,13 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.3px;
+  border: none;
+  padding: 0;
 }
 
 .noProblems {
@@ -993,6 +1030,13 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  padding: 2.5rem 1rem;
+  background: #f7f8fa;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 .noAchievemets {
   font-family:
@@ -1008,11 +1052,20 @@ body {
     "Helvetica Neue",
     sans-serif;
   width: auto;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  padding: 2.5rem 1rem;
+  background: #f7f8fa;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
 .containerUser {
-  max-width: 800px;
-  margin: 20px auto;
+  background: #ffffff;
+  padding: 2rem 0 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0;
 }
 
 .viewAchievements {
