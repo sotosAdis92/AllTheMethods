@@ -103,12 +103,25 @@ const ListAchievements = () => {
           >
             <img src={img3}></img>
           </button>
+          {!openFilterBool ? (
+            <div></div>
+          ) : (
+            <div className="filtersDiv">
+              <button
+                onClick={() => getAllAchievements()}
+                className="filterButton"
+              >
+                <img src={img2} className="allAchFilterImg"></img>
+                All Achievements
+              </button>
+              <div>
+                <h3 className="categoryHeading">Is of Category:</h3>
+                <ol className="filterCategories">{listOfFilters}</ol>
+              </div>
+            </div>
+          )}
         </div>
-        <button onClick={() => getAllAchievements()} className="filterButton">
-          <img src={img2} className="allAchFilterImg"></img>
-          All Achievements
-        </button>
-        <ol className="filterCategories">{listOfFilters}</ol>
+
         <ol className="listOfAchievements">{listOfAchievements}</ol>
       </div>
     </>
