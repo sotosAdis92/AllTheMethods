@@ -903,6 +903,7 @@ body {
   font-weight: 600;
   color: #262626;
   letter-spacing: -0.5px;
+  align-items: center;
 }
 
 .usersName::before {
@@ -1070,39 +1071,25 @@ body {
   padding: 2rem 0 1.5rem 0;
   margin-bottom: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 60%;
+  width: 100%;
 }
 
-.viewAchievements {
-  width: auto;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e8ecf1;
-  transition: all 0.3s ease;
-  max-width: 800px;
-  margin: 20px auto;
-  align-items: center;
-  text-align: center;
-}
-
+.viewAchievements,
 .viewProblems {
-  width: auto;
+  width: 100%;
   background: #ffffff;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e8ecf1;
   transition: all 0.3s ease;
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: 20px 0;
   align-items: center;
   text-align: center;
 }
-
 .filterButton {
   font-size: 1rem;
   font-weight: 500;
@@ -1131,6 +1118,12 @@ body {
     sans-serif;
   white-space: nowrap;
   display: flex;
+}
+
+.profilePageWrapper {
+  max-width: 55%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .filterButton:hover {
@@ -1828,4 +1821,13 @@ body {
 .openFilterButtonAchievements img {
   width: 18px;
   height: 18px;
+}
+
+.userDetails {
+  display: flex;
+  align-items: center;
+}
+
+.userDetails img {
+  width: 20%;
 }

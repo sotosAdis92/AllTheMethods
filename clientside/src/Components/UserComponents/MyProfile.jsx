@@ -22,19 +22,21 @@ const MyProfile = () => {
 
   return (
     <>
-      <div className="containerUser">
-        <h1 className="user">
-          <div className="usersName" displayName={displayName}>
-            <UserIcon></UserIcon>
-          </div>
-        </h1>
-      </div>
-      <div className="content">
-        <div className="viewAchievements">
-          <ViewMyAchievements></ViewMyAchievements>
+      <div className="profilePageWrapper">
+        <div className="containerUser">
+          <h1 className="user">
+            <div className="usersName">
+              <UserIcon displayName={displayName}></UserIcon>
+            </div>
+          </h1>
         </div>
-        <div className="viewProblems">
-          <ViewMyProblems></ViewMyProblems>
+        <div className="content">
+          <div className="viewAchievements">
+            <ViewMyAchievements></ViewMyAchievements>
+          </div>
+          <div className="viewProblems">
+            <ViewMyProblems></ViewMyProblems>
+          </div>
         </div>
       </div>
     </>
