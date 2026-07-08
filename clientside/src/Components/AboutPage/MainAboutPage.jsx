@@ -1,2 +1,8 @@
-const MainAboutPage = () => {};
+const MainAboutPage = () => {
+  return (
+    <>
+      <div></div>
+    </>
+  );
+};
 export default MainAboutPage;
