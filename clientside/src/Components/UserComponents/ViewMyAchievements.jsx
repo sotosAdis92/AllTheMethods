@@ -41,6 +41,7 @@ const ViewMyAchievements = () => {
         <>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
+          <img></img>
           <p className="noAchievemets">No achievements Yet!</p>
         </>
       )}

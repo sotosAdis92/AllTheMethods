@@ -39,6 +39,7 @@ const ViewMyProblems = () => {
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
           <div className="userProblemsCounter">{count} Problems solved</div>
+          <img></img>
           <p className="noProblems">No Problems Solved Yet!!</p>
         </>
       )}
