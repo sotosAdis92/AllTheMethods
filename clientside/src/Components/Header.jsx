@@ -52,8 +52,8 @@ const Header = () => {
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">
-              <a href="/announcements" className="headerlink">
-                Announcements
+              <a href="/about" className="headerlink">
+                About This App
               </a>
             </li>
             <li className="link">

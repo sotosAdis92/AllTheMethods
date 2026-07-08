@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import MainAboutPage from "./Components/AboutPage/MainAboutPage";
 import AchievementComponent from "./Components/AchievementScreen/AchievementComponent";
 import ListAchievements from "./Components/AchievementScreen/ListAchievements";
-import AnnouncementsBoard from "./Components/Announcements";
-import Dashboard from "./Components/Dashboard";
 import Header from "./Components/Header";
 import ListProblems from "./Components/ListProblems";
 import Login from "./Components/Login";
@@ -19,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Header></Header>
         <Routes>
-          <Route path="/" element={<Dashboard></Dashboard>}></Route>
+          <Route path="/" element={<MainAboutPage></MainAboutPage>}></Route>
           <Route path="/register" element={<Signup></Signup>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route
@@ -56,8 +55,8 @@ function App() {
           ></Route>
           <Route path="/profile/" element={<MyProfile></MyProfile>}></Route>
           <Route
-            path="/announcements"
-            element={<AnnouncementsBoard></AnnouncementsBoard>}
+            path="/about"
+            element={<MainAboutPage></MainAboutPage>}
           ></Route>
           <Route
             path="problems/:id"
