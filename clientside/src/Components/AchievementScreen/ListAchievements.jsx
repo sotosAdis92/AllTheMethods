@@ -12,7 +12,6 @@ const ListAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [achievementFilters, setAchievementFilters] = useState([]);
   const [allAchievements, setAllAchievements] = useState([]);
-  const [achievementCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
   const navigator = useNavigate();
