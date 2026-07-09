@@ -4,6 +4,7 @@ import img1 from "../../assets/223399.png";
 import img2 from "../../assets/5110770.png";
 import img3 from "../../assets/filter.png";
 import { listAchievements } from "../../services/AchievementService";
+import Footer from "../Footer.jsx";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";
@@ -124,6 +125,7 @@ const ListAchievements = () => {
 
         <ol className="listOfAchievements">{listOfAchievements}</ol>
       </div>
+      <Footer></Footer>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/UsersService";
+import Footer from "../Footer.jsx";
 import UserIcon from "./UserIcon";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
@@ -39,6 +40,7 @@ const MyProfile = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

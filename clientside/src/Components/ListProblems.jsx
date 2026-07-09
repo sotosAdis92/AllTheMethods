@@ -6,6 +6,7 @@ import img3 from "../assets/filter.png";
 import { listProblems } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
+import Footer from "./Footer.jsx";
 import ProblemDifficulty from "./ProblemDifficulty";
 
 const ListProblems = () => {
@@ -198,6 +199,7 @@ const ListProblems = () => {
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
+      <Footer></Footer>
     </>
   );
 };
