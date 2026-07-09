@@ -1,3 +1,4 @@
+import "./Footer.css";
 const Footer = () => {
   const date = new Date();
   let year = date.getFullYear();
@@ -8,7 +9,7 @@ const Footer = () => {
           <img></img>
           <h3>All The Methods</h3>
         </div>
-        <div class="footerDesc">
+        <div className="footerDesc">
           <p>
             Learn numerical analysis algorithms and methods through solving
             problems and earning medals in a gamified experience.
