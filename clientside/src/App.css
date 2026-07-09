@@ -9,13 +9,6 @@ body {
   margin: 0;
 }
 
-#root,
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .easyDifficulty {
   color: #28a697;
   font-weight: 600;

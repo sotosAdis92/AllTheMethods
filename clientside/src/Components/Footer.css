@@ -1,11 +1,24 @@
 .containerFooter {
-  padding: 2rem 1rem 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem 1.5rem;
   flex-shrink: 0;
   margin-top: auto;
   width: 100%;
   background: #ffffff;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
+
+.containerFooter::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+
+  opacity: 0.4;
+}
+
 .footerTop {
   max-width: 1200px;
   margin: 0 auto;
@@ -13,9 +26,11 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   gap: 2rem;
-  padding-right: 0.5rem; /* Reduced right margin */
+  padding-right: 0.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .nameOfApp {
@@ -23,28 +38,34 @@
   align-items: center;
   gap: 0.75rem;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .nameOfApp img {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  padding: 5px;
-  transition: transform 0.2s ease;
-  background: #f0f0f0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  padding: 6px;
+  transition: all 0.3s ease;
+  background: #f3f3f3;
 }
 
 .nameOfApp img:hover {
-  transform: rotate(10deg) scale(1.05);
+  transform: scale(1.05) rotate(-5deg);
+  background: #e8e8e8;
 }
 
 .nameOfApp h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  letter-spacing: -0.3px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1b1212;
   margin: 0;
   white-space: nowrap;
+  letter-spacing: -0.3px;
+}
+
+.nameOfApp h3 span {
+  color: #28a697;
 }
 
 .footerDesc {
@@ -55,37 +76,50 @@
 
 .footerDesc p {
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #6b7280;
   margin: 0;
+  font-weight: 400;
 }
 
 .reserved {
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding-top: 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding-right: 0.5rem; /* Reduced right margin */
+  padding-right: 0.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .rights {
   font-size: 0.8rem;
   color: #9ca3af;
-  letter-spacing: 0.3px;
   order: 1;
+  font-weight: 400;
 }
 
 .developerName {
   font-size: 0.8rem;
   color: #9ca3af;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
   order: 2;
+  cursor: default;
 }
 
 .developerName:hover {
-  color: #1a1a1a;
+  color: #1b1212;
+}
+
+.developerName span {
+  color: #28a697;
+  transition: color 0.3s ease;
+}
+
+.developerName:hover span {
+  color: #ffbf40;
 }
