@@ -1,8 +1,8 @@
 const ExternalLink = () => {
   return (
     <>
-      <div>
-        <a href></a>
+      <div className="externalLinkGithub">
+        <a href="https://github.com/sotosAdis92">Github</a>
       </div>
     </>
   );
