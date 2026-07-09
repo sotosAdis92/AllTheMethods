@@ -9,7 +9,10 @@ const Footer = () => {
           <h3>All The Methods</h3>
         </div>
         <div class="footerDesc">
-          <p></p>
+          <p>
+            Learn numerical analysis algorithms and methods through solving
+            problems and earning medals in a gamified experience.
+          </p>
         </div>
         <div className="reserved">
           <div className="rights">
