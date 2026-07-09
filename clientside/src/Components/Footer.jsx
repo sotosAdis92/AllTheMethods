@@ -4,7 +4,13 @@ const Footer = () => {
   return (
     <>
       <div className="containerFooter">
-        <div className="nameOfApp"></div>
+        <div className="nameOfApp">
+          <img></img>
+          <h3>All The Methods</h3>
+        </div>
+        <div class="footerDesc">
+          <p></p>
+        </div>
         <div className="reserved">
           <div className="rights">
             ©{year} AllTheMethods. All Rights Reserved
