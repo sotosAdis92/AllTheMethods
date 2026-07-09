@@ -2,9 +2,11 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: #ffffff;
   padding: 3rem 2rem 1.5rem;
-  margin-top: 4rem;
   border-top: 3px solid #e94560;
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0; /* Prevents footer from shrinking */
+  margin-top: auto; /* Pushes footer to bottom */
+  width: 100%;
 }
 
 .footerTop {
