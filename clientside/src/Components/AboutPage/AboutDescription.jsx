@@ -5,12 +5,15 @@ const AboutDescription = () => {
         <div>
           <h3 className="paragraphHeading">What is All The Methods?</h3>
           <p className="aboutDescriptionParagraph">
-            The Idea of the app was inspired by a series of notes I took for a
-            class of the same subject matter, and I named them, All The Methods.
-            All The Methods is a interactive learning experiment that has the
-            goal of teaching people some of the most popular Numerical Methods
-            for solving complex mathimatical problems in an analytical way,
-            instead of a symbolic one like we are used to. It aims to be a
+            An educational app where people can solve problems related to
+            numerical analysis, built with a tech stack of PostgreSQL for the
+            database, Spring Boot for the backend and React.js for the frontend
+            client. The Idea of the app was inspired by a series of notes I took
+            for a class of the same subject matter, and I named them, All The
+            Methods. All The Methods is a interactive learning experiment that
+            has the goal of teaching people some of the most popular Numerical
+            Methods for solving complex mathimatical problems in an analytical
+            way, instead of a symbolic one like we are used to. It aims to be a
             learning web app, focused on individual progress rather than a
             competitive one. The Web app is heavily inspired by the learning
             tool/Web app "Leetcode", where users are presented with programming
@@ -29,6 +32,10 @@ const AboutDescription = () => {
             the "Problems", where you will be presented with a list of selected
             problems to solve.
           </p>
+        </div>
+        <div>
+          <h3 className="paragraphHeading">FAQ:</h3>
+          <p className="aboutDescriptionParagraph"></p>
         </div>
       </div>
     </>
