@@ -9,6 +9,14 @@
   top: 0;
   z-index: 1000;
 }
+
+.container img {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin-right: 12px;
+}
+
 .title {
   font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.5rem;

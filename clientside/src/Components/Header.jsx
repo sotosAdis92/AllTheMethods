@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import img1 from "../assets/logo.JPG";
 import { isTokenValid, removeToken } from "../environment/common";
 import { getUser } from "../services/UsersService";
 import "./Header.css";
@@ -49,6 +50,7 @@ const Header = () => {
     <>
       {isUserLoggedIn ? (
         <div className="container">
+          <img src={img1}></img>
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">
