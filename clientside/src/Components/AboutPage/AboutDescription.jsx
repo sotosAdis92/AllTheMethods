@@ -25,9 +25,15 @@ const AboutDescription = () => {
             say, all of them...
           </p>
           <div className="techStackImages">
-            <img src={postgres}></img>
-            <img src={spring}></img>
-            <img src={react}></img>
+            <a href="https://www.postgresql.org/">
+              <img src={postgres}></img>
+            </a>
+            <a href="https://spring.io/projects/spring-framework">
+              <img src={spring}></img>
+            </a>
+            <a href="https://react.dev/">
+              <img src={react}></img>
+            </a>
           </div>
         </div>
         <div className="aboutSection">
