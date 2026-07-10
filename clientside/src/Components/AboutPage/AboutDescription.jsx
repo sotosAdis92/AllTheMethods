@@ -34,7 +34,7 @@ const AboutDescription = () => {
           </p>
         </div>
         <div>
-          <h3 className="paragraphHeading">FAQ:</h3>
+          <h3 className="paragraphHeading"></h3>
           <p className="aboutDescriptionParagraph"></p>
         </div>
       </div>
