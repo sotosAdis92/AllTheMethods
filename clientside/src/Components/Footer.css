@@ -101,14 +101,14 @@
 
 .rights {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #5c5c5c;
   font-weight: 400;
   text-align: left;
 }
 
 .developerName {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #000000;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
   text-align: right;
