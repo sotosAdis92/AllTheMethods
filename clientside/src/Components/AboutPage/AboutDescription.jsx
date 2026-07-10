@@ -1,3 +1,6 @@
+import postgres from "../../assets/progres.jpg";
+import react from "../../assets/react.jpg";
+import spring from "../../assets/spring.jpg";
 const AboutDescription = () => {
   return (
     <>
@@ -21,6 +24,11 @@ const AboutDescription = () => {
             usefull when you wish to tackle learning a new method or, you could
             say, all of them...
           </p>
+          <div className="techStackImages">
+            <img src={postgres}></img>
+            <img src={spring}></img>
+            <img src={react}></img>
+          </div>
         </div>
         <div className="aboutSection">
           <h3 className="paragraphHeading">How do i use the Website?</h3>
