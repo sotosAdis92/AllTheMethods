@@ -2,7 +2,7 @@ const AboutDescription = () => {
   return (
     <>
       <div className="aboutDescription">
-        <div>
+        <div className="aboutSection">
           <h3 className="paragraphHeading">What is All The Methods?</h3>
           <p className="aboutDescriptionParagraph">
             An educational app where people can solve problems related to
@@ -22,7 +22,7 @@ const AboutDescription = () => {
             say, all of them...
           </p>
         </div>
-        <div>
+        <div className="aboutSection">
           <h3 className="paragraphHeading">How do i use the Website?</h3>
           <p className="aboutDescriptionParagraph">
             The Website is as straight foward as it can possibly be, after you
