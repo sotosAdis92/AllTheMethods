@@ -125,7 +125,6 @@
   max-width: 72ch;
 }
 
-/* Empty state styling for the third card */
 .aboutSection:last-child {
   opacity: 0.4;
   min-height: 80px;
