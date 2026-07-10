@@ -57,3 +57,16 @@
   letter-spacing: -0.5px;
   position: relative;
 }
+
+.aboutImageWithHeading {
+  display: flex;
+  gap: 10px;
+}
+
+.aboutImageWithHeading img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #f3f3f3;
+}
