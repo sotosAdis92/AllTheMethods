@@ -1,3 +1,4 @@
+import img1 from "../assets/logo.JPG";
 import "./Footer.css";
 const Footer = () => {
   const date = new Date();
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="footerContent">
           <div className="footerTop">
             <div className="nameOfApp">
-              <img src={}></img>
+              <img src={img1}></img>
               <h3>All The Methods</h3>
             </div>
             <div className="footerDesc">
