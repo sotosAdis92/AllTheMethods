@@ -24,16 +24,18 @@ const AboutDescription = () => {
             usefull when you wish to tackle learning a new method or, you could
             say, all of them...
           </p>
-          <div className="techStackImages">
-            <a href="https://www.postgresql.org/">
-              <img src={postgres}></img>
-            </a>
-            <a href="https://spring.io/projects/spring-framework">
-              <img src={spring}></img>
-            </a>
-            <a href="https://react.dev/">
-              <img src={react}></img>
-            </a>
+          <div className="techStackContainerDiv">
+            <div className="techStackImages">
+              <a href="https://www.postgresql.org/">
+                <img src={postgres}></img>
+              </a>
+              <a href="https://spring.io/projects/spring-framework">
+                <img src={spring}></img>
+              </a>
+              <a href="https://react.dev/">
+                <img src={react}></img>
+              </a>
+            </div>
           </div>
         </div>
         <div className="aboutSection">
