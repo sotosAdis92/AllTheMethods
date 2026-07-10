@@ -140,10 +140,20 @@
   width: 45px;
   height: 45px;
 }
-
+.techStackHeading {
+  color: #8b8b8b;
+  font-size: 17px;
+  position: relative;
+}
 .techStackImages {
   display: flex;
   gap: 1.5rem;
+}
+.techStackContainerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .aboutSection:last-child {

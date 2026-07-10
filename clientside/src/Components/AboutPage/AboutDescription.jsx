@@ -25,6 +25,7 @@ const AboutDescription = () => {
             say, all of them...
           </p>
           <div className="techStackContainerDiv">
+            <h3 className="techStackHeading">Tech Stack:</h3>
             <div className="techStackImages">
               <a href="https://www.postgresql.org/">
                 <img src={postgres}></img>
