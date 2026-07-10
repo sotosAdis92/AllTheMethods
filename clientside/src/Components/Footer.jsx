@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footerContent">
           <div className="footerTop">
             <div className="nameOfApp">
-              <img></img>
+              <img src={}></img>
               <h3>All The Methods</h3>
             </div>
             <div className="footerDesc">
