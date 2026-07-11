@@ -5,6 +5,7 @@ const AboutButtons = () => {
     <>
       <div className="containerIcons">
         <div className="icons">
+          <div className="tooltip">Github</div>
           <a href="https://github.com/sotosAdis92"></a>
           <span className="spanIcon">Github</span>
           <img className="imageIcon" src={img1}></img>

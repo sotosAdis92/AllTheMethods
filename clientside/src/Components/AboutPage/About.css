@@ -181,3 +181,19 @@
   font-weight: 400;
   letter-spacing: 0.02em;
 }
+
+.containerIcons {
+  display: inline-flex;
+}
+
+.containerIcons .icon {
+  margin: 0 20px;
+}
+
+.containerIcons .icon span {
+  height: 60px;
+  width: 60px;
+  display: block;
+  background: white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
