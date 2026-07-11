@@ -188,6 +188,7 @@
 
 .containerIcons .icon {
   margin: 0 20px;
+  cursor: pointer;
 }
 
 .containerIcons .icon span {
@@ -196,4 +197,11 @@
   display: block;
   background: white;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 50%;
+}
+
+.containerIcons .icon span img {
+  width: 25px;
+  line-height: 60px;
 }
