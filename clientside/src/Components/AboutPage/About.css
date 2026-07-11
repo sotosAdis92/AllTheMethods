@@ -202,7 +202,7 @@
 
 .wrapper .icon span {
   position: relative;
-  height: 40px;
+  height: 50px;
   width: 40px;
   display: block;
   background: #fff;
@@ -216,16 +216,16 @@
 }
 
 .wrapper .icon span img {
-  width: 35px;
+  width: 50px;
   height: 35px;
 }
 
 .wrapper .icon .tooltip {
   position: absolute;
   top: 0;
-  padding: 10px 18px;
+  padding: 10px 14px;
   background: #fff;
-  font-size: 20px;
+  font-size: 50px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   opacity: 0;
