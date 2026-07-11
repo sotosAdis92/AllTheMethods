@@ -181,3 +181,13 @@
   font-weight: 400;
   letter-spacing: 0.02em;
 }
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icons {
+}
