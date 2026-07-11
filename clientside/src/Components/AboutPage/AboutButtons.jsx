@@ -5,9 +5,11 @@ const AboutButtons = () => {
       <div className="wrapper">
         <div className="icon">
           <div className="tooltip">Github</div>
-          <span className="spanIcon">
-            <img className="imageIconSpan" src={img}></img>
-          </span>
+          <a href="https://github.com/sotosAdis92/AllTheMethods">
+            <span className="spanIcon">
+              <img className="imageIconSpan" src={img}></img>
+            </span>
+          </a>
         </div>
       </div>
     </>
