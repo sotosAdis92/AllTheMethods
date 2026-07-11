@@ -3,10 +3,10 @@ import img1 from "../../assets/github.png";
 const AboutButtons = () => {
   return (
     <>
-      <div className="container">
+      <div className="containerIcons">
         <div className="icons">
           <a href="https://github.com/sotosAdis92"></a>
-          <span className="spanIcon">{}</span>
+          <span className="spanIcon">Github</span>
           <img className="imageIcon" src={img1}></img>
         </div>
       </div>
