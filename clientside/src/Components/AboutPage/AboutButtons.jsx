@@ -1,14 +1,13 @@
-import img1 from "../../assets/github.png";
-
+import img from "../../assets/github.png";
 const AboutButtons = () => {
   return (
     <>
-      <div className="containerIcons">
-        <div className="icons">
+      <div className="wrapper">
+        <div className="icon">
           <div className="tooltip">Github</div>
-          <a href="https://github.com/sotosAdis92"></a>
-          <span className="spanIcon">Github</span>
-          <img className="imageIcon" src={img1}></img>
+          <span className="spanIcon">
+            <img className="imageIconSpan" src={img}></img>
+          </span>
         </div>
       </div>
     </>
