@@ -185,6 +185,10 @@
 
 .wrapper {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2%;
 }
 
 .wrapper .icon {
@@ -212,7 +216,6 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper .icon span img {
@@ -223,7 +226,7 @@
 .wrapper .icon .tooltip {
   position: absolute;
   top: 0;
-  padding: 10px 14px;
+  padding: 6px 8px;
   background: #fff;
   font-size: 17px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -235,7 +238,7 @@
 }
 
 .wrapper .icon:hover .tooltip {
-  top: -45px;
+  top: -38px;
   opacity: 1;
   pointer-events: auto;
 }
