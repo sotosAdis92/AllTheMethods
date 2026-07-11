@@ -187,6 +187,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 100%;
   margin-bottom: 2%;
 }
