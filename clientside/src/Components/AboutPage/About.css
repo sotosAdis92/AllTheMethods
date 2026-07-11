@@ -216,13 +216,26 @@
 
 .containerIcons .icon .tooltip {
   position: absolute;
-  top: -70px;
+  top: 0px;
   background: white;
   padding: 10px 18px;
   border-radius: 25px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0265, 1.55);
 }
-
+.containerIcons .icon:hover .tooltip {
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
 .containerIcons .icon .tooltip:before {
   position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  background: white;
 }
