@@ -78,7 +78,14 @@ Vite server runs by default on http://localhost:5173
 # Project Structure
 
 # Key Features
-
+- Personalized Experience
+- Track individual progress
+- Learn through problem solving
+- Practice
+- User friendly interface
+- Json web token authentication
+- Server side computation of results
+  
 # License
 
 
