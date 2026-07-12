@@ -22,6 +22,8 @@ The app transforms that knowledge into an interactive learning experience, heavi
 
 ## Run the app without docker
 
+The pom.xml is inside /server, not at the repository root. If you open the root, it will not be detected as a Spring Boot project.
+
 # Run the Java server
 ```bash
 export DB_URL=jdbc:postgresql://localhost:5432/solverAppDB
