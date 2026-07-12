@@ -13,3 +13,8 @@ The idea for *All The Methods* was born from a series of personal notes taken du
 The app transforms that knowledge into an interactive learning experience, heavily inspired by platforms like **Leetcode**—but for math. Instead of coding problems, users solve mathematical problems using numerical techniques. The focus is on **individual progress**.
 
 ---
+
+### Prerequisites
+- Node.js 20+ & npm (for frontend)
+- Java 25 & Maven (for backend)
+- PostgreSQL 14+ (for database)
