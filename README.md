@@ -21,7 +21,8 @@ The app transforms that knowledge into an interactive learning experience, heavi
 
 
 ## Run the app without docker
-
+File → Open… → select server/pom.xml → "Open as Project"
+File → Project Structure → Project → set SDK to JDK 25 (download via SDKs →  Download JDK → 25 if needed) and Language level to 25.
 The pom.xml is inside /server, not at the repository root. If you open the root, it will not be detected as a Spring Boot project.
 
 # Run the Java server
