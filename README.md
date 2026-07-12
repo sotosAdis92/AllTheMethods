@@ -18,3 +18,19 @@ The app transforms that knowledge into an interactive learning experience, heavi
 - Node.js 20+ & npm (for frontend)
 - Java 25 & Maven (for backend)
 - PostgreSQL 14+ (for database)
+
+
+## Run the app without docker
+
+# Run the Java server
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+# Run the React.js client
+```bash
+cd frontend
+npm install
+npm start
+```
