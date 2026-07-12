@@ -43,9 +43,12 @@ cd backend
 mvn spring-boot:run
 ```
 
+# Java tomcat server runs by defautl on http://localhost:8080/
+
 # Run the React.js client
 ```bash
 cd frontend
 npm install
 npm start
 ```
+# Vite server runs by default on http://localhost:5173
