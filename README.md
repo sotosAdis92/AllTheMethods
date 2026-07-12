@@ -88,4 +88,4 @@ Vite server runs by default on http://localhost:5173
   
 # License
 
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)
