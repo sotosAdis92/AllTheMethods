@@ -24,6 +24,11 @@ The app transforms that knowledge into an interactive learning experience, heavi
 
 # Run the Java server
 ```bash
+export DB_URL=jdbc:postgresql://localhost:5432/solverAppDB
+export DB_USERNAME=your_db_username
+export DB_PASSWORD=your_db_password
+export JWT_SECRET=your_jwt_secret
+
 cd backend
 mvn spring-boot:run
 ```
