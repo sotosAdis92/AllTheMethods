@@ -76,8 +76,36 @@ Vite server runs by default on http://localhost:5173
 ## Database
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) - Database
 
-# Project Structure
-
+# Brief Project Structure
+```
+spring-react/
+├── clientside/
+│   ├── public/
+│   |   ├── Components/
+│   |   ├── assets/
+│   |   ├── enviroment/
+│   |   ├── hooks/
+│   |   ├── service/
+│   |   ├── App.css/
+│   |   ├── App.jsx/
+│   |   ├── main.jsx/
+│   ├── src/
+├── server/
+|   ├── allTheMethods/src/main/java/com.example.allTheMethods/
+│   |   ├── ast/
+│   |   ├── configs/
+│   |   ├── controllers/
+│   |   ├── dto/
+│   |   ├── entity/
+│   |   ├── enums/
+│   |   ├── exception/
+│   |   ├── mapper/
+│   |   ├── repository/
+│   |   ├── service/
+│   |   ├── utils/
+│   ├── resources/
+|   ├── test/
+```
 # Key Features
 - Personalized Experience
 - Track individual progress
