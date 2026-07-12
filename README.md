@@ -61,4 +61,8 @@ Vite server runs by default on http://localhost:5173
 
 ## Database
 
+# Project Structure
+
+# Key Features
+
 
