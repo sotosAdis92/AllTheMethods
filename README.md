@@ -24,7 +24,7 @@ The app transforms that knowledge into an interactive learning experience, heavi
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/all-the-methods.git
+   git clone https://github.com/sotosAdis92/all-the-methods.git
    cd all-the-methods
    ```
    
