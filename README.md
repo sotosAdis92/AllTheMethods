@@ -19,7 +19,7 @@ The app transforms that knowledge into an interactive learning experience, heavi
 - Java 25 & Maven (for backend)
 - PostgreSQL 14+ (for database)
 
-## Run the app through Docker (Recomended approach)
+## Run the app through Docker (Recommended approach)
 
 
 ## Run the app without docker
