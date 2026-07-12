@@ -1,4 +1,4 @@
-# All The Methods 📐
+# All The Methods 
 
 ## Learning Numerical Analysis, Gamified
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 Concept & Inspiration
+##  Concept & Inspiration
 
 The idea for *All The Methods* was born from a series of personal notes taken during a numerical analysis class. These notes captured the essence of various algorithms and their practical applications.
 
