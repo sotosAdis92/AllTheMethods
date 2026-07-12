@@ -53,12 +53,12 @@ npm start
 ```
 Vite server runs by default on http://localhost:5173
 
-## Tech Stack
+# Tech Stack
 
-# Frontend
+## Frontend
 
-# Backend
+## Backend
 
-# Database
+## Database
 
 
