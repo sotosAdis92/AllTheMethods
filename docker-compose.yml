@@ -42,7 +42,7 @@ services:
       - backend
       
 volumes:
-  - postgres_data
+  postgres_data:
 
 networks:
   backend_network:
