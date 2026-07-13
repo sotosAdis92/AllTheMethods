@@ -12,7 +12,7 @@ name: allthemethods
 		backend:
 			build: ./server/allthemethods
 			ports:
-			- "8080:8080"
+				- "8080:8080"
 			depends_on:
 			- db
 			enviroment:
