@@ -11,3 +11,6 @@ RUN addgroup app && -S -G app app
 
 #Set user to run the application
 USER app
+
+#Set the working directory to /app
+WORKDIR /app
