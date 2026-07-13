@@ -1,7 +1,7 @@
 services:
   postgresdb:
     image: postgres:16.0
-    enviroment:
+    environment:
       POSTGRES_DB: ${DB_URL}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -24,7 +24,7 @@ services:
     build: ./server
     ports:
       - "8080:8080"
-    enviroment:
+    environment:
       DB_URL: ${DB_URL}
       DB_USER: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
