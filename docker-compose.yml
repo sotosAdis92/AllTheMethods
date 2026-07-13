@@ -28,6 +28,7 @@ services:
       DB_URL: jdbc:postgresql://postgresdb:5432/solverAppDB
       DB_USER: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
     networks:
       - backend_network
     depends_on:
