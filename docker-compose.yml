@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    build: ./backend
+    build: ./server/allTheMethods
     ports:
       - "8080:8080"
     depends_on:
@@ -24,7 +24,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
 
   frontend:
-    build: ./frontend
+    build: ./clientside
     ports:
       - "80:80"
     depends_on:
