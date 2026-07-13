@@ -14,3 +14,20 @@ USER app
 
 #Set the working directory to /app
 WORKDIR /app
+
+COPY package*.json ./
+
+# The next three lines of code can be a little overkill but they are permission statements to just be safe
+USER root
+RUN chown -R app:app .
+USER app
+# end of permission statements
+
+# install dependencies
+RUN npm install
+
+# copy the rest of the files to the working directory
+COPY . .
+
+
+
