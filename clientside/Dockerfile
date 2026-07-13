@@ -29,5 +29,8 @@ RUN npm install
 # copy the rest of the files to the working directory
 COPY . .
 
+# expose the port of the client for the container to listen
+EXPOSE 5173
 
-
+# Run the app
+CMD npm run dev
