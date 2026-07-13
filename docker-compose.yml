@@ -1,1 +1,50 @@
+services:
+  postgresdb:
+    image: postgres:16.0
+    enviroment:
+      POSTGRES_DB: ${DB_URL}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend_network
+    healthcheck:
+      test: ["CMD-SHELL","postgres -h localhost -u ${DB_USERNAME} -p ${DB_PASSWORD} -e 'SELECT 1'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 45s
 
+      
+  backend:
+    build: ./server
+    ports:
+      - "8080:8080"
+    enviroment:
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - backend_network
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+        
+  frontend:
+    build: ./clientside
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+      
+volumes:
+  postgres_data
+
+networks:
+  backend_network:
+    name: backend_network
+    driver: bridge
