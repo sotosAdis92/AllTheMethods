@@ -1,1 +1,28 @@
-
+name: allthemethods
+	services:
+		db:
+			image: postgres
+			ports:
+				- "5432:5432"
+			restart: always
+			enviroment:
+				POSTGRES_PASSWORD: ${DB_PASSWORD}
+			volumes:
+			- postgres_data:/var/lib/postgresql/data
+		backend:
+			build: ./server/allthemethods
+			ports:
+			- "8080:8080"
+			depends_on:
+			- db
+			enviroment:
+				 SPRING_PROFILES_ACTIVE: docker
+      				 DB_URL: jdbc:postgresql://db:5432/${DB_URL}
+      				 DB_USER: ${DB_USERNAME}
+      				 DB_PASSWORD: ${DB_PASSWORD}
+		frontend:
+			build: ./clientside
+			ports:
+				- "5173:5173"
+			depends_on:
+				- backend
