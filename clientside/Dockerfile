@@ -10,4 +10,3 @@ COPY . .
 EXPOSE 5173
 # Run the app
 RUN npm run build
-CMD ["npm", "run", "dev"]
