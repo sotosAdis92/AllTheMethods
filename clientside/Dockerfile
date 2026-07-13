@@ -1,5 +1,5 @@
 #Set the base image for creating the react application
-FROM node:20-alpine AS build
+FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 # install dependencies
@@ -9,4 +9,4 @@ COPY . .
 # expose the port of the client for the container to listen
 EXPOSE 5173
 # Run the app
-RUN npm run build
+RUN npm run dev
