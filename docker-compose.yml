@@ -8,12 +8,12 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_URL}  
+      POSTGRES_DB: ${DB_URL}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    build: ./server/allthemethods
+    build: ./server/allTheMethods
     ports:
       - "8080:8080"
     depends_on:
