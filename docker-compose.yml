@@ -5,8 +5,8 @@ services:
       - "5432:5432"
     restart: always
     environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_URL}
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -18,9 +18,9 @@ services:
       - db
     environment:
       SPRING_PROFILES_ACTIVE: docker
-      DB_URL: jdbc:postgresql://db:5432/${DB_URL}
-      DB_USER: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
+      DB_URL: jdbc:postgresql://db:5432/mydb
+      DB_USER: postgres
+      DB_PASSWORD: password
     restart: unless-stopped
 
   frontend:
