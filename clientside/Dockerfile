@@ -1,6 +1,8 @@
-#Set the base image for creating the react application
+# Set the base image for creating the react application
 FROM node:20-alpine
+# Set working directory
 WORKDIR /app
+# Copy from the working directory
 COPY package*.json ./
 # install dependencies
 RUN npm install
