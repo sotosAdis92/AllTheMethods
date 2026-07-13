@@ -2,7 +2,7 @@ services:
   postgresdb:
     image: postgres:16.0
     environment:
-      POSTGRES_DB: jdbc:postgresql://localhost:5432/solverAppDB
+      POSTGRES_DB: solverAppDB
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
