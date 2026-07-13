@@ -1,7 +1,4 @@
-
-
 services:
-
   db:
     image: postgres
     ports:
