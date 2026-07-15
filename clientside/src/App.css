@@ -1833,3 +1833,33 @@ body {
 .userDetails img {
   width: 20%;
 }
+
+.search {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 4px 4px;
+  transition: all 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  white-space: nowrap;
+  display: flex;
+}

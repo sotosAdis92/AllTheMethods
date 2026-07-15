@@ -178,6 +178,7 @@ const ListProblems = () => {
           >
             <img src={img3}></img>
           </button>
+          <input type="text" className="search" placeholder="search"></input>
           {!openFilterBool ? (
             <div></div>
           ) : (
