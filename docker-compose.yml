@@ -4,12 +4,15 @@ services:
     image: postgres:16.0
     ports:
       - 5432:5432
+    volumes:
+      - solverAppDB:
   
   backend:
     build: ./server/allTheMethods
     ports:
       - 8080:8080
     environment:
+      - DB_URL= jdbc:postgresql://db/solverAppDB
     
   
   frontend:
