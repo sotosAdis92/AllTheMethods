@@ -21,8 +21,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      DB_HOST: db
-      DB_NAME: solverAppDB
+      DB_URL: jdbc:postgresql://db:5432/solverAppDB
       DB_USER: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
