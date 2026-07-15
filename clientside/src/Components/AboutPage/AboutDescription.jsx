@@ -40,7 +40,7 @@ const AboutDescription = () => {
           </div>
         </div>
         <div className="aboutSection">
-          <h3 className="paragraphHeading">How do i use the Website?</h3>
+          <h3 className="paragraphHeading">How do I use the Website?</h3>
           <p className="aboutDescriptionParagraph">
             The Website is as straight foward as it can possibly be, after you
             have registered with an account, you are presented with the pages of
