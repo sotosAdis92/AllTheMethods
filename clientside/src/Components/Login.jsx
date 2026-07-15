@@ -77,9 +77,7 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <h1 className="loginHeader">
-            <AboutTitle></AboutTitle>
-          </h1>
+          <AboutTitle></AboutTitle>
           <div className="row">
             <TextField
               id="username"

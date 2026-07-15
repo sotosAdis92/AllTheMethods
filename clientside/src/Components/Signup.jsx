@@ -87,9 +87,7 @@ const Signup = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <h1 className="loginHeader">
-            <AboutTitle></AboutTitle>
-          </h1>
+          <AboutTitle></AboutTitle>
           <div className="row">
             <TextField
               className="login-input"
