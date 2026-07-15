@@ -4,6 +4,10 @@ services:
     image: postgres:16.0
     ports:
       - 5432:5432
+    environment:
+      POSTGRES_DB: solverAppDB
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
   
