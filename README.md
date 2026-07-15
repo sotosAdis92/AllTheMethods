@@ -20,14 +20,19 @@ The app transforms that knowledge into an interactive learning experience, heavi
 - PostgreSQL 14+ (for database)
 
 ## Run the app through Docker (Recommended approach)
-
+```bash
+git clone https://github.com/sotosAdis92/allTheMethods.git
+cd spring-react
+cp .env #fill in the values for db url, db username, db password, jwt token secret
+docker compose up
+```
 
 ## Run the app without docker
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sotosAdis92/all-the-methods.git
-   cd all-the-methods
+   git clone https://github.com/sotosAdis92/allTheMethods.git
+   cd spring-react
    ```
    
 - File → Open… → select server/pom.xml → "Open as Project"
