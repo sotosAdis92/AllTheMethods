@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import img2 from "../assets/door.png";
 import img1 from "../assets/logo.JPG";
 import { isTokenValid, removeToken } from "../environment/common";
 import { getUser } from "../services/UsersService";
@@ -79,8 +80,13 @@ const Header = () => {
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
               {displayName}
             </div>
-            <Button variant="contained" onClick={handleSignOut}>
+            <Button
+              variant="contained"
+              className="logout"
+              onClick={handleSignOut}
+            >
               Logout
+              <img src={img2}></img>
             </Button>
           </div>
         </div>

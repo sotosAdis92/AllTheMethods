@@ -61,3 +61,19 @@
   color: #2563eb;
   background-color: rgba(37, 99, 235, 0.05);
 }
+.logout {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  padding-right: 18px !important;
+  padding-left: 30px !important;
+  gap: 6px !important;
+}
+
+.logout img {
+  height: 30px;
+  width: auto;
+  margin: 0 !important;
+  float: none !important;
+}
