@@ -8,8 +8,11 @@ import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.example.allTheMethods.utils.MethodUtils.cleanList;
 
 @Service
 public class ProblemServiceImpl implements ProblemService {
@@ -69,5 +72,19 @@ public class ProblemServiceImpl implements ProblemService {
     public List<ProblemDto> getProblemsByDifficulty(String difficulty){
         List<Problem> problemsByDifficulty = problemRepository.findProblemByDifficulty(difficulty);
         return problemsByDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+    }
+
+    @Override
+    public List<ProblemDto> getProblemsByCategoryOrDifficulty(List<String> categories, List<String> difficulties){
+        categories = cleanList(categories);
+        difficulties = cleanList(difficulties);
+        List<Problem> problemsByCategoryAndDifficulty;
+        if (categories == null && difficulties == null) {
+            problemsByCategoryAndDifficulty = problemRepository.findAll();
+        }
+        else{
+            problemsByCategoryAndDifficulty = problemRepository.findProblemsByCategoryOrDifficulty(categories,difficulties);
+        }
+        return problemsByCategoryAndDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
 }

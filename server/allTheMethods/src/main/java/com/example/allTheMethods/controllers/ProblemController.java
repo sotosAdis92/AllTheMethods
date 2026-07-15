@@ -60,4 +60,10 @@ public class ProblemController {
         return ResponseEntity.ok(problemDtos);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<ProblemDto>> getProblemsByCategoryAndDifficulty(@RequestParam List<String> categories, @RequestParam List<String> difficulties){
+        List<ProblemDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
+        return ResponseEntity.ok(problemDtos);
+    }
+
 }

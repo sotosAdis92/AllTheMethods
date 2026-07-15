@@ -7,6 +7,7 @@ import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MethodUtils {
     /* Implementation of the F(x) function needed for polynomial roots functions */
@@ -68,5 +69,13 @@ public class MethodUtils {
         descreteFprime = numerator / denominator;
         descreteFprime = truncateDecimalPlaces(descreteFprime,3);
         return descreteFprime;
+    }
+
+    public static List<String> cleanList(List <String> list){
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+        List<String> cleaned = list.stream().filter(s -> s != null && !s.trim().isEmpty()).map(String::trim).collect(Collectors.toList());
+        return cleaned.isEmpty() ? null : cleaned;
     }
 }
