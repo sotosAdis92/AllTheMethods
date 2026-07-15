@@ -21,4 +21,5 @@ services:
       - 5173:80
 
 volumes:
+  allTheMethods:
 
