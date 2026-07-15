@@ -12,7 +12,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      DB_URL: jdbc:postgresql://db/solverAppDB
+      DB_URL: jdbc:postgresql://db:5432/solverAppDB
     
   
   frontend:
