@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveToken } from "../environment/common";
 import { signup } from "../services/auth";
-
+import AboutTitle from "./AboutPage/AboutTitle";
 const Signup = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [username, setUsername] = useState("");
@@ -87,7 +87,9 @@ const Signup = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <h1 className="loginHeader">AllTheMethods</h1>
+          <h1 className="loginHeader">
+            <AboutTitle></AboutTitle>
+          </h1>
           <div className="row">
             <TextField
               className="login-input"

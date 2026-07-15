@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveToken } from "../environment/common";
 import { login } from "../services/auth";
+import AboutTitle from "./AboutPage/AboutTitle";
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -76,7 +77,9 @@ const Login = () => {
     <>
       <div className="login-container">
         <div className="login-card">
-          <h1 className="loginHeader">AllTheMethods</h1>
+          <h1 className="loginHeader">
+            <AboutTitle></AboutTitle>
+          </h1>
           <div className="row">
             <TextField
               id="username"
