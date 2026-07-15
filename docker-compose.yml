@@ -2,7 +2,6 @@
 services:
   db:
     image: postgres:16-alpine
-    container_name: postgres_cont
     ports:
       - 5432:5432
     environment:
