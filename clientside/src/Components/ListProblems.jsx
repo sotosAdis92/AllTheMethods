@@ -18,6 +18,7 @@ const ListProblems = () => {
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
+  const [query, setQuery] = useState("");
 
   const navigator = useNavigate();
   function getAllProblems() {
@@ -178,11 +179,7 @@ const ListProblems = () => {
           >
             <img src={img3}></img>
           </button>
-          <input
-            type="text"
-            className="search"
-            placeholder="search by name"
-          ></input>
+
           {!openFilterBool ? (
             <div></div>
           ) : (
