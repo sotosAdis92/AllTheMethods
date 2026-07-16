@@ -172,11 +172,15 @@ body {
       #8b5a2b 85%,
       #5d3a1e 100%
     );
-  border: 1px solid rgba(255, 225, 160, 0.7);
+  border: 2px solid rgba(205, 127, 50, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(255, 225, 160, 0.3),
+    0 4px 20px rgba(139, 90, 43, 0.3);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .bronze::before {
   content: "";
   position: absolute;
@@ -300,7 +304,10 @@ body {
       #9c9c9c 88%,
       #828282 100%
     );
-  border: 1px solid rgba(201, 199, 200, 0.8);
+  border: 2px solid rgba(169, 169, 180, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(215, 215, 225, 0.4),
+    0 4px 20px rgba(130, 130, 130, 0.25);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -400,20 +407,23 @@ body {
     ),
     linear-gradient(
       145deg,
-      #b58c45 0%,
-      #d9aa4a 8%,
-      #f2c55c 18%,
-      #ffda6a 28%,
-      #ffe57a 38%,
-      #fff08a 48%,
-      #fff7a1 52%,
-      #ffef8a 58%,
-      #ffe37a 68%,
-      #f5cf64 78%,
-      #e5b84f 88%,
-      #c99c3c 100%
+      #6b4f1a 0%,
+      #8a6628 8%,
+      #a87d35 18%,
+      #c29442 28%,
+      #d4aa4e 38%,
+      #e0bc5a 48%,
+      #e8c866 52%,
+      #e0bc5a 58%,
+      #d4aa4e 68%,
+      #c29442 78%,
+      #a87d35 88%,
+      #8a6628 100%
     );
-  border: 1px solid rgba(255, 245, 180, 1);
+  border: 2px solid rgba(218, 165, 32, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.3),
+    0 4px 25px rgba(218, 165, 32, 0.4);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1304,9 +1314,9 @@ body {
 .submitButton {
   align-items: center;
   background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   color: #2c3e50;
   cursor: pointer;
@@ -1375,7 +1385,6 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -1390,7 +1399,6 @@ body {
   display: inline-block;
   background-color: #e8e8e8;
   color: #1a1a1a;
-  border: none;
   border-radius: 20px;
   padding: 4px 16px;
   margin: 4px 6px 4px 0;
@@ -1413,6 +1421,8 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-left: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .problemTags > div:hover {
   background-color: #d0d0d0;

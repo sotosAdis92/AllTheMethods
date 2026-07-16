@@ -48,6 +48,7 @@ const ProblemDescription = () => {
         setProblemNumber(response.data.number);
         setProblemDifficulty(response.data.difficulty);
         setProblemCategory(response.data.category);
+        console.log(response.data.problemString);
       })
       .catch((error) => {
         console.log(error);
@@ -263,7 +264,7 @@ const ProblemDescription = () => {
 
   const mathRef = useRef(null);
   useEffect(() => {
-    katex.render(problemString, mathRef.current, { throwOnError: false });
+    katex.render(problemString, mathRef.current, { throwOnError: true });
   }, [problemString]);
 
   return (
@@ -295,7 +296,9 @@ const ProblemDescription = () => {
         <div className="problemMethodDiv">{problemMethod}</div>
 
         <div className="problemDescriptionDiv">{problemDescription}</div>
-        <div ref={mathRef} className="problemStringDiv"></div>
+        <div ref={mathRef} className="problemStringDiv">
+          {problemString}
+        </div>
       </div>
       <div className="problemRender">{renderProblem(problemType)}</div>
       <div className="problemTags">

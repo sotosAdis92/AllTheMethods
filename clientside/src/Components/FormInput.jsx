@@ -6,7 +6,7 @@ const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
 
   const handleFocus = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setFocused(true);
   };
 
@@ -20,7 +20,7 @@ const FormInput = (props) => {
         onChange={onChange}
         maxLength={5}
         onBlur={handleFocus}
-        focused={focused.toString()}
+        focused={focused ? "true" : "false"}
         onFocus={inputProps.name === ""}
         className={props.error ? "inputsError" : "inputs"}
       ></input>
