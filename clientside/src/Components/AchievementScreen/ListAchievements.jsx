@@ -7,7 +7,6 @@ import {
   getAchievementsByCategoryAndRank,
   listAchievements,
 } from "../../services/AchievementService";
-import Footer from "../Footer.jsx";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import Icon from "./Icon";
@@ -166,7 +165,6 @@ const ListAchievements = () => {
 
         <ol className="listOfAchievements">{listOfAchievements}</ol>
       </div>
-      <Footer></Footer>
     </>
   );
 };
