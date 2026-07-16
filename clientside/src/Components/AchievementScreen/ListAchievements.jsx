@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/223399.png";
 import img2 from "../../assets/5110770.png";
 import img3 from "../../assets/filter.png";
-import { listAchievements } from "../../services/AchievementService";
+import { getAchievementsByCategoryAndRank, listAchievements } from "../../services/AchievementService";
 import Footer from "../Footer.jsx";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
@@ -41,18 +41,12 @@ const ListAchievements = () => {
   }, [activeCategoryFilters, activeRankFilters]);
 
   const applyFilters = () => {
-    let filtered = allAchievements;
-    if (activeCategoryFilters.length > 0) {
-      filtered = filtered.filter((achievement) =>
-        activeCategoryFilters.includes(achievement.category),
-      );
+    try {
+      const response = await getAchievementsByCategoryAndRank(activeCategoryFilters, activeRankFilters);
+      setAchievements(response.data);
+    } catch (error) {
+      console.log(error);
     }
-    if (activeRankFilters.length > 0) {
-      filtered = filtered.filter((achievement) =>
-        activeRankFilters.includes(achievement.rank),
-      );
-    }
-    setAchievements(filtered);
   };
 
   const categoryFilters = [

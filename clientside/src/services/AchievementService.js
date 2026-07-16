@@ -44,3 +44,16 @@ export const getAchievementsByRank = async (achievementRank) => {
   );
   return response;
 };
+
+export const getAchievementsByCategoryAndRank = async (
+  listOfCategories,
+  listOfRanks,
+) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/search", {
+    params: {
+      categories: listOfCategories,
+      ranks: listOfRanks,
+    },
+  });
+  return response;
+};
