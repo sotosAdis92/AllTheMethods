@@ -15,6 +15,7 @@ const ListAchievements = () => {
   const [allAchievements, setAllAchievements] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
+  const [activeRankFilters, setActiveRankFilters] = useState([]);
   const navigator = useNavigate();
 
   const getAllAchievements = () => {
@@ -53,6 +54,10 @@ const ListAchievements = () => {
     ...new Set(achievementFilters.map((achievement) => achievement.category)),
   ];
 
+  const rankFilters = [
+    ...new Set(achievementFilters.map((achievement) => achievement.rank)),
+  ];
+
   const handleClickCategoryFilter = (value) => {
     setActiveCategoryFilters((prev) => {
       if (prev.includes(value)) {
@@ -63,8 +68,25 @@ const ListAchievements = () => {
     });
   };
 
-  const listOfFilters = categoryFilters.map((filter, i) => {
+  const listOfCategoryFilters = categoryFilters.map((filter, i) => {
     const isSelected = activeCategoryFilters.includes(filter);
+    return (
+      <div key={i}>
+        <button
+          onClick={() => handleClickCategoryFilter(filter)}
+          className={`filters ${isSelected ? "special-active-class" : ""}`}
+        >
+          <div className="filterImage">
+            <AchievementImage category={filter}></AchievementImage>
+          </div>
+          {filter}
+        </button>
+      </div>
+    );
+  });
+
+  const listOfRankFilters = rankFilters.map((filter, i) => {
+    const isSelected = activeRankFilters.includes(filter);
     return (
       <div key={i}>
         <button
@@ -117,7 +139,11 @@ const ListAchievements = () => {
               </button>
               <div>
                 <h3 className="categoryHeading">Is of Category:</h3>
-                <ol className="filterCategories">{listOfFilters}</ol>
+                <ol className="filterCategories">{listOfCategoryFilters}</ol>
+              </div>
+              <div>
+                <h3 className="categoryHeading">Is of Rank:</h3>
+                <ol className="filterCategories">{listOfRankFilters}</ol>
               </div>
             </div>
           )}
