@@ -61,5 +61,11 @@ public class AchievementController {
         return ResponseEntity.ok(achievementDtos);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<AchievementDto>> getAchievementsByCategoryAndRank(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> ranks){
+        List<AchievementDto> achievementDtos = achievementService.getAchievementByCategoryAndRanks(categories,ranks);
+        return ResponseEntity.ok(achievementDtos);
+    }
+
 
 }
