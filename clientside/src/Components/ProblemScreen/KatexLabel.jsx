@@ -7,7 +7,6 @@ const KatexLabel = ({ latex }) => {
   useEffect(() => {
     katex.render(latex, ref.current, {
       throwOnError: false,
-      displayMode: false,
     });
   }, [latex]);
   return <span ref={ref}></span>;

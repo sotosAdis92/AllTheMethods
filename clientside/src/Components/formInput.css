@@ -1,4 +1,4 @@
-span {
+.errorForInputs {
   font-family:
     system-ui,
     -apple-system,
@@ -24,6 +24,6 @@ input:invalid[focused="true"] {
   border: 2px solid #fe6262;
 }
 
-input:invalid[focused="true"] ~ span {
+input:invalid[focused="true"] ~ .errorForInputs {
   display: block;
 }

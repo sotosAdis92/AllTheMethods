@@ -264,7 +264,9 @@ const ProblemDescription = () => {
 
   const mathRef = useRef(null);
   useEffect(() => {
-    katex.render(problemString, mathRef.current, { throwOnError: true });
+    katex.render(problemString, mathRef.current, {
+      throwOnError: false,
+    });
   }, [problemString]);
 
   return (
@@ -296,9 +298,7 @@ const ProblemDescription = () => {
         <div className="problemMethodDiv">{problemMethod}</div>
 
         <div className="problemDescriptionDiv">{problemDescription}</div>
-        <div ref={mathRef} className="problemStringDiv">
-          {problemString}
-        </div>
+        <div ref={mathRef} className="problemStringDiv"></div>
       </div>
       <div className="problemRender">{renderProblem(problemType)}</div>
       <div className="problemTags">
