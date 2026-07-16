@@ -107,9 +107,6 @@ const ListAchievements = () => {
           onClick={() => handleClickRankFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
         >
-          <div className="filterImage">
-            <AchievementImage category={filter}></AchievementImage>
-          </div>
           {filter}
         </button>
       </div>
