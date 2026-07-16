@@ -78,7 +78,7 @@
 .aboutSection {
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
   background: #ffffff;
   display: flex;
@@ -110,7 +110,16 @@
   line-height: 1.3;
   margin: 0;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
     sans-serif;
   color: rgba(0, 0, 0, 0.9);
 }
@@ -121,7 +130,16 @@
   margin: 0;
   font-weight: 400;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
     sans-serif;
   color: rgba(0, 0, 0, 0.7);
   word-break: break-word;
@@ -136,6 +154,7 @@
   height: 45px;
 }
 .techStackHeading {
+  margin-top: 1.5rem;
   color: #8b8b8b;
   font-size: 17px;
   position: relative;

@@ -5,8 +5,8 @@ const AboutDescription = () => {
   return (
     <>
       <div className="aboutDescription">
+        <div className="paragraphHeading">What is All The Methods?</div>
         <div className="aboutSection">
-          <h3 className="paragraphHeading">What is All The Methods?</h3>
           <p className="aboutDescriptionParagraph">
             An educational app where people can solve problems related to
             numerical analysis, built with a tech stack of PostgreSQL for the
@@ -39,8 +39,8 @@ const AboutDescription = () => {
             </div>
           </div>
         </div>
+        <div className="paragraphHeading">How do I use the Website?</div>
         <div className="aboutSection">
-          <h3 className="paragraphHeading">How do I use the Website?</h3>
           <p className="aboutDescriptionParagraph">
             The Website is as straight foward as it can possibly be, after you
             have registered with an account, you are presented with the pages of
