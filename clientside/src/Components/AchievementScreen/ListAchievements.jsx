@@ -38,13 +38,18 @@ const ListAchievements = () => {
 
   useEffect(() => {
     applyFilters();
-  }, [activeCategoryFilters]);
+  }, [activeCategoryFilters, activeRankFilters]);
 
   const applyFilters = () => {
     let filtered = allAchievements;
     if (activeCategoryFilters.length > 0) {
       filtered = filtered.filter((achievement) =>
         activeCategoryFilters.includes(achievement.category),
+      );
+    }
+    if (activeRankFilters.length > 0) {
+      filtered = filtered.filter((achievement) =>
+        activeRankFilters.includes(achievement.rank),
       );
     }
     setAchievements(filtered);
@@ -62,6 +67,16 @@ const ListAchievements = () => {
     setActiveCategoryFilters((prev) => {
       if (prev.includes(value)) {
         return prev.filter((item) => item !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
+  };
+
+  const handleClickRankFilter = (value) => {
+    setActiveRankFilters((prev) => {
+      if (prev.includes(value)) {
+        return prev.filter((item) => item != value);
       } else {
         return [...prev, value];
       }
@@ -90,7 +105,7 @@ const ListAchievements = () => {
     return (
       <div key={i}>
         <button
-          onClick={() => handleClickCategoryFilter(filter)}
+          onClick={() => handleClickRankFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
         >
           <div className="filterImage">
