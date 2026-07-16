@@ -79,11 +79,18 @@ public class ProblemServiceImpl implements ProblemService {
         categories = cleanList(categories);
         difficulties = cleanList(difficulties);
         List<Problem> problemsByCategoryAndDifficulty;
-        if (categories == null && difficulties == null) {
-            problemsByCategoryAndDifficulty = problemRepository.findAll();
+
+        if (categories != null && difficulties != null) {
+            problemsByCategoryAndDifficulty = problemRepository.findProblemsByCategoryOrDifficulty(categories,difficulties);
+        }
+        else if(difficulties != null){
+            problemsByCategoryAndDifficulty = problemRepository.findProblemsByDifficultyIn(difficulties);
+        }
+        else if(categories != null){
+            problemsByCategoryAndDifficulty = problemRepository.findProblemsByCategoryIn(categories);
         }
         else{
-            problemsByCategoryAndDifficulty = problemRepository.findProblemsByCategoryOrDifficulty(categories,difficulties);
+            problemsByCategoryAndDifficulty = problemRepository.findAll();
         }
         return problemsByCategoryAndDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }

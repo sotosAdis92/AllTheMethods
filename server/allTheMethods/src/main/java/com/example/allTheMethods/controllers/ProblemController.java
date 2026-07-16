@@ -61,7 +61,7 @@ public class ProblemController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ProblemDto>> getProblemsByCategoryAndDifficulty(@RequestParam List<String> categories, @RequestParam List<String> difficulties){
+    public ResponseEntity<List<ProblemDto>> getProblemsByCategoryAndDifficulty(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> difficulties){
         List<ProblemDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
         return ResponseEntity.ok(problemDtos);
     }
