@@ -10,8 +10,6 @@ const FormInput = (props) => {
     setFocused(true);
   };
 
-  console.log(props.isSolved);
-
   return (
     <div className="formInput">
       <KatexLabel latex={label}></KatexLabel>

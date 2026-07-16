@@ -48,14 +48,6 @@ const DiakritiNewtonRaphsonComponent = forwardRef((props, ref) => {
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
 
-  console.log(achievements);
-  console.log(input);
-  console.log(result);
-  console.log(id);
-  console.log(isButtonDisabled);
-  console.log(setValues);
-  console.log(setResultText);
-
   function validateForm() {
     let valid = true;
     if (inp.length != iterations || text === 0) {
