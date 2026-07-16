@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../App.css";
 import img1 from "../../assets/223399.png";
 import img2 from "../../assets/5110770.png";
 import img3 from "../../assets/filter.png";
@@ -84,6 +85,7 @@ const ListAchievements = () => {
 
   const listOfCategoryFilters = categoryFilters.map((filter, i) => {
     const isSelected = activeCategoryFilters.includes(filter);
+
     return (
       <div key={i}>
         <button
@@ -93,7 +95,7 @@ const ListAchievements = () => {
           <div className="filterImage">
             <AchievementImage category={filter}></AchievementImage>
           </div>
-          {filter}
+          <div>{filter}</div>
         </button>
       </div>
     );
@@ -107,7 +109,7 @@ const ListAchievements = () => {
           onClick={() => handleClickRankFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
         >
-          {filter}
+          <div className={filter.toLowerCase()}>{filter}</div>
         </button>
       </div>
     );
