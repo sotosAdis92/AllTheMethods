@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
-import { listProblems } from "../services/ProblemService";
+import {
+  getProblemsByCategoryOrDifficulty,
+  listProblems,
+} from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
 import Footer from "./Footer.jsx";
@@ -43,20 +46,16 @@ const ListProblems = () => {
     applyFilters();
   }, [activeCategoryFilters, activeDifficultyFilters]);
 
-  const applyFilters = () => {
-    let filtered = allProblems;
-    if (activeDifficultyFilters.length > 0) {
-      filtered = filtered.filter((problem) =>
-        activeDifficultyFilters.includes(problem.difficulty),
+  const applyFilters = async () => {
+    try {
+      const response = await getProblemsByCategoryOrDifficulty(
+        activeCategoryFilters,
+        activeDifficultyFilters,
       );
+      setProblems(response.data);
+    } catch (error) {
+      console.log(error);
     }
-
-    if (activeCategoryFilters.length > 0) {
-      filtered = filtered.filter((problem) =>
-        activeCategoryFilters.includes(problem.category),
-      );
-    }
-    setProblems(filtered);
   };
 
   const categoryFilters = [

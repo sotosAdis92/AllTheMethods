@@ -44,3 +44,16 @@ export const getProblemsByDifficulty = async (problemDifficulty) => {
   );
   return response;
 };
+
+export const getProblemsByCategoryOrDifficulty = async (
+  listOfCategories,
+  listOfDifficulties,
+) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/search", {
+    params: {
+      categories: listOfCategories,
+      difficulties: listOfDifficulties,
+    },
+  });
+  return response;
+};
