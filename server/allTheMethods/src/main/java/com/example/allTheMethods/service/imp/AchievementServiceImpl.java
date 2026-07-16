@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.allTheMethods.utils.MethodUtils.cleanList;
+
 @Service
 public class AchievementServiceImpl implements AchievementService {
     private AchievementRepository achievementRepository;
@@ -70,5 +72,25 @@ public class AchievementServiceImpl implements AchievementService {
     public List<AchievementDto> getAchievementByRank(String rank){
         List<Achievement> achievements = achievementRepository.findAchievementByRank(rank);
         return achievements.stream().map((achievement -> AchievementMapper.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+    }
+
+    @Override
+    public List<AchievementDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks){
+        categories = cleanList(categories);
+        ranks = cleanList(ranks);
+        List<Achievement> achievementsByCategoryAndRank;
+        if(categories!=null && ranks!=null){
+            achievementsByCategoryAndRank = achievementRepository.findAchievementsByCategoryAndRank(categories, ranks);
+        }
+        else if(categories != null){
+            achievementsByCategoryAndRank = achievementRepository.findAchievementsByCategoryIn(categories);
+        }
+        else if(ranks !=null){
+            achievementsByCategoryAndRank = achievementRepository.findAchievementsByRankIn(ranks);
+        }
+        else {
+            achievementsByCategoryAndRank = achievementRepository.findAll();
+        }
+        return achievementsByCategoryAndRank.stream().map((achievement -> AchievementMapper.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
     }
 }
