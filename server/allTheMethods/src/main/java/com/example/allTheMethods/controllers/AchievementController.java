@@ -46,7 +46,7 @@ public class AchievementController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteAchievement(@PathVariable("id") Long id){
         achievementService.deleteAchievement(id);
-        return ResponseEntity.ok("Deleted problem");
+        return ResponseEntity.ok("Deleted achievement");
     }
 
     @GetMapping("categories/{category}")
