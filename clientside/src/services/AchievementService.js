@@ -3,7 +3,7 @@ const REST_API_BASE_URL = "/api/achievements";
 
 export const updateAchievement = async (achievementId, achievement) => {
   const response = await axiosInstance.put(
-    REST_API_BASE_URL + "/" + achievementId,
+    REST_API_BASE_URL + "/admin/update/" + achievementId,
     achievement,
   );
   return response;
@@ -14,12 +14,15 @@ export const listAchievements = async () => {
   return response;
 };
 export const createAchievement = async (achievement) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL, achievement);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/admin/create",
+    achievement,
+  );
   return response;
 };
 export const deleteAchievement = async (achievementId) => {
   const response = await axiosInstance.delete(
-    REST_API_BASE_URL + "/" + achievementId,
+    REST_API_BASE_URL + "/admin/delete" + achievementId,
   );
   return response;
 };
@@ -33,15 +36,13 @@ export const getAchievement = async (achievementId) => {
 
 export const getAchievementsByCategory = async (achievementCategory) => {
   const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/categories/" + achievementCategory,
+    REST_API_BASE_URL + achievementCategory,
   );
   return response;
 };
 
 export const getAchievementsByRank = async (achievementRank) => {
-  const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/ranks/" + achievementRank,
-  );
+  const response = await axiosInstance.get(REST_API_BASE_URL + achievementRank);
   return response;
 };
 
