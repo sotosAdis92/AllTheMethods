@@ -3,7 +3,7 @@ const AboutButtons = () => {
   return (
     <>
       <div className="wrapper">
-        <h3 className="paragraphHeading">Project Source Code</h3>
+        <h3 className="githubHeader">Project Source Code</h3>
         <div className="icon">
           <div className="tooltip">Github</div>
           <a href="https://github.com/sotosAdis92/AllTheMethods">
