@@ -29,11 +29,11 @@ function App() {
               element={<ListProblems></ListProblems>}
             ></Route>
             <Route
-              path="/addProblem"
+              path="/admin/createProblem"
               element={<ProblemComponent></ProblemComponent>}
             ></Route>
             <Route
-              path="/editProblem/:id"
+              path="/admin/editProblem/:id"
               element={<ProblemComponent></ProblemComponent>}
             ></Route>
             <Route
@@ -41,11 +41,11 @@ function App() {
               element={<ListAchievements></ListAchievements>}
             ></Route>
             <Route
-              path="/addAchievement"
+              path="/admin/addAchievement"
               element={<AchievementComponent></AchievementComponent>}
             ></Route>
             <Route
-              path="/updateAchievements/:id"
+              path="/admin/updateAchievements/:id"
               element={<AchievementComponent></AchievementComponent>}
             ></Route>
             <Route
