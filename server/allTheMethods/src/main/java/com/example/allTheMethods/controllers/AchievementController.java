@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//Achievements Endpoints Controller Bellow
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/achievements")
@@ -19,43 +20,43 @@ public class AchievementController {
     }
 
 
-    @PostMapping
+    @PostMapping("/admin/create")
     public ResponseEntity<AchievementDto> createAchievement(@RequestBody AchievementDto achievementDto){
         AchievementDto savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<AchievementDto> getAchievementById(@PathVariable("id") Long id){
         AchievementDto achievementDto = achievementService.getAchievementById(id);
         return ResponseEntity.ok(achievementDto);
     }
 
-    @GetMapping
+    @GetMapping("/achievements")
     public ResponseEntity<List<AchievementDto>> getAllAchievements(){
         List<AchievementDto> achievevments = achievementService.getAllAchievements();
         return ResponseEntity.ok(achievevments);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("admin/update/{id}")
     public ResponseEntity<AchievementDto> updateAchievement(@PathVariable("id") Long id, @RequestBody AchievementDto updateAchievementDto){
         AchievementDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/admin/achievements/{id}")
     public ResponseEntity<String> deleteAchievement(@PathVariable("id") Long id){
         achievementService.deleteAchievement(id);
         return ResponseEntity.ok("Deleted achievement");
     }
 
-    @GetMapping("categories/{category}")
+    @GetMapping("/{category}")
     public ResponseEntity<List<AchievementDto>> getAchievementsByCategory(@PathVariable("category") String category){
         List<AchievementDto> achievementDtos = achievementService.getAchievementByCategory(category);
         return ResponseEntity.ok(achievementDtos);
     }
 
-    @GetMapping("ranks/{rank}")
+    @GetMapping("/{rank}")
     public ResponseEntity<List<AchievementDto>> getAchievementsByRank(@PathVariable("rank") String rank){
         List<AchievementDto> achievementDtos = achievementService.getAchievementByRank(rank);
         return ResponseEntity.ok(achievementDtos);

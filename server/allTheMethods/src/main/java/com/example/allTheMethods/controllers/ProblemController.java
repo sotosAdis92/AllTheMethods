@@ -18,13 +18,13 @@ public class ProblemController {
         this.problemService = problemService;
     }
 
-    @PostMapping
+    @PostMapping("/admin/create")
     public ResponseEntity<ProblemDto> createProblem(@RequestBody ProblemDto problemDto){
        ProblemDto savedProblem =  problemService.createProblem(problemDto);
        return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProblemDto> getProblemById(@PathVariable("id") Long id){
         ProblemDto problemDto = problemService.getProblemById(id);
         return ResponseEntity.ok(problemDto);
@@ -36,25 +36,25 @@ public class ProblemController {
         return ResponseEntity.ok(problems);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/admin/update/{id}")
     public ResponseEntity<ProblemDto> updateProblem(@PathVariable("id") Long id, @RequestBody ProblemDto updateProblemDto){
         ProblemDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/admin/delete{id}")
     public ResponseEntity<String> deleteProblem(@PathVariable Long id){
         problemService.deleteProblem(id);
         return ResponseEntity.ok("Deleted problem");
     }
 
-    @GetMapping("categories/{category}")
+    @GetMapping("/{category}")
     public ResponseEntity<List<ProblemDto>> getProblemsByCategory(@PathVariable("category") String category){
         List<ProblemDto> problemDtos = problemService.getProblemsByCategory(category);
         return ResponseEntity.ok(problemDtos);
     }
 
-    @GetMapping("difficulty/{difficulty}")
+    @GetMapping("/{difficulty}")
     public ResponseEntity<List<ProblemDto>> getProblemsByDifficulty(@PathVariable("difficulty") String difficulty){
         List<ProblemDto> problemDtos = problemService.getProblemsByDifficulty(difficulty);
         return ResponseEntity.ok(problemDtos);
