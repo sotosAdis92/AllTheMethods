@@ -108,6 +108,7 @@ spring-react/
 │   |   ├── exception/
 │   |   ├── mapper/
 │   |   ├── repository/
+|   |   ├── security/
 │   |   ├── service/
 │   |   ├── utils/
 │   ├── resources/
