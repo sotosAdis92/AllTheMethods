@@ -16,6 +16,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,15 +28,15 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class AuthController {
     private final AuthService authService;
-    private final UsersService usersService;
+    private final UserDetailsService userDetailsService;
     private final JWTUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
     private final UsersRepository usersRepository;
 
 
-    public AuthController(AuthService authService, UsersService usersService, JWTUtil jwtUtil, AuthenticationManager authenticationManager, UsersRepository usersRepository) {
+    public AuthController(AuthService authService, UserDetailsService userDetailsService, JWTUtil jwtUtil, AuthenticationManager authenticationManager, UsersRepository usersRepository) {
         this.authService = authService;
-        this.usersService = usersService;
+        this.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
         this.usersRepository = usersRepository;
@@ -51,7 +52,7 @@ public class AuthController {
             if(createdUser == null){
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "User creation failed, please try again"));
             }
-            UserDetails userDetails = usersService.userDetailsService().loadUserByUsername(createdUser.getUsername());
+            UserDetails userDetails = userDetailsService.loadUserByUsername(createdUser.getUsername());
             String jwt = jwtUtil.generateToken(userDetails, createdUser.getId());
             AuthenticationResponse authenticationResponse = new AuthenticationResponse();
             authenticationResponse.setJwtToken(jwt);
@@ -69,7 +70,7 @@ public class AuthController {
               new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
 
-            UserDetails userDetails = usersService.userDetailsService().loadUserByUsername(authenticationRequest.getUsername());
+            UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
             Optional<Users> optionalUsers = usersRepository.findFirstByUsername(userDetails.getUsername());
 
             if(optionalUsers.isPresent()){
