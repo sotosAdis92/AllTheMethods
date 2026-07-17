@@ -8,6 +8,7 @@ import img1 from "../assets/logo.JPG";
 import { isTokenValid, removeToken } from "../environment/common";
 import { getUser } from "../services/UsersService";
 import "./Header.css";
+import "./LoginSignUp/LoginSignup.css";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -92,22 +93,24 @@ const Header = () => {
         </div>
       ) : (
         <>
-          <Button
-            className="loginSingUp"
-            LinkComponent={Link}
-            variant="contained"
-            to="/login"
-          >
-            Login
-          </Button>
-          <Button
-            className="SingUp"
-            LinkComponent={Link}
-            variant="contained"
-            to="/register"
-          >
-            Sign Up
-          </Button>
+          <div className="loginSingUp-container">
+            <Button
+              className="loginSingUp"
+              LinkComponent={Link}
+              variant="contained"
+              to="/login"
+            >
+              Login
+            </Button>
+            <Button
+              className="SingUp"
+              LinkComponent={Link}
+              variant="contained"
+              to="/register"
+            >
+              Sign Up
+            </Button>
+          </div>
         </>
       )}
     </>
