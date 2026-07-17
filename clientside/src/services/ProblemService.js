@@ -8,7 +8,7 @@ export const getProblem = async (problemId) => {
 
 export const updateProblem = async (problemId, problem) => {
   const response = await axiosInstance.put(
-    REST_API_BASE_URL + "/" + problemId,
+    REST_API_BASE_URL + "/admin/update/" + problemId,
     problem,
   );
   return response;
@@ -16,13 +16,16 @@ export const updateProblem = async (problemId, problem) => {
 
 export const deleteProblem = async (problemId) => {
   const response = await axiosInstance.delete(
-    REST_API_BASE_URL + "/" + problemId,
+    REST_API_BASE_URL + "/admin/delete/" + problemId,
   );
   return response;
 };
 
 export const createProblem = async (problem) => {
-  const response = await axiosInstance.post(REST_API_BASE_URL, problem);
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/admin/create",
+    problem,
+  );
   return response;
 };
 
@@ -32,15 +35,13 @@ export const listProblems = async () => {
 };
 
 export const getProblemsByCategory = async (problemCategory) => {
-  const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/categories/" + problemCategory,
-  );
+  const response = await axiosInstance.get(REST_API_BASE_URL + problemCategory);
   return response;
 };
 
 export const getProblemsByDifficulty = async (problemDifficulty) => {
   const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/difficulty/" + problemDifficulty,
+    REST_API_BASE_URL + problemDifficulty,
   );
   return response;
 };
