@@ -1,7 +1,12 @@
 package com.example.allTheMethods.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Setter
+@Getter
 public class RungeKuttaNystromDto extends SubmissionDataDto{
     private int iterations;
     private double hParameter;
@@ -17,54 +22,6 @@ public class RungeKuttaNystromDto extends SubmissionDataDto{
         this.yZero = yZero;
         this.xZero = xZero;
         this.yPrimeZero = yPrimeZero;
-        this.xPrimeZero = xPrimeZero;
-    }
-
-    public int getIterations() {
-        return iterations;
-    }
-
-    public void setIterations(int iterations) {
-        this.iterations = iterations;
-    }
-
-    public double gethParameter() {
-        return hParameter;
-    }
-
-    public void sethParameter(double hParameter) {
-        this.hParameter = hParameter;
-    }
-
-    public double getyZero() {
-        return yZero;
-    }
-
-    public void setyZero(double yZero) {
-        this.yZero = yZero;
-    }
-
-    public double getxZero() {
-        return xZero;
-    }
-
-    public void setxZero(double xZero) {
-        this.xZero = xZero;
-    }
-
-    public double getyPrimeZero() {
-        return yPrimeZero;
-    }
-
-    public void setyPrimeZero(double yPrimeZero) {
-        this.yPrimeZero = yPrimeZero;
-    }
-
-    public double getxPrimeZero() {
-        return xPrimeZero;
-    }
-
-    public void setxPrimeZero(double xPrimeZero) {
         this.xPrimeZero = xPrimeZero;
     }
 }
