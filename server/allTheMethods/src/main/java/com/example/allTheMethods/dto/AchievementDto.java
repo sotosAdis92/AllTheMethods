@@ -1,5 +1,9 @@
 package com.example.allTheMethods.dto;
 
+import lombok.*;
+
+@Setter
+@Getter
 public class AchievementDto {
     private Long achievementId;
     private String name;

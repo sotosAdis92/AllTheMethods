@@ -16,7 +16,6 @@ import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Service
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
     @Override

@@ -6,6 +6,7 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.security.AuthUser;
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +20,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-
+@AllArgsConstructor
 @Service
 public class UsersServiceImpl implements UserDetailsService {
     @Autowired
@@ -29,11 +30,6 @@ public class UsersServiceImpl implements UserDetailsService {
 
     private Collection<? extends GrantedAuthority> getAuthorities(Users user){
         return List.of(new SimpleGrantedAuthority("ROLE_" + user.getUserRole().name()));
-    }
-
-    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil) {
-        this.usersRepository = usersRepository;
-        this.jwtUtil = jwtUtil;
     }
 
     @Override

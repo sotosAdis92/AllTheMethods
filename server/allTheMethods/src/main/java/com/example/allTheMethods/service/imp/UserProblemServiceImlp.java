@@ -11,13 +11,14 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-
+@AllArgsConstructor
 @Service
 public class UserProblemServiceImlp implements UserProblemService {
     private final JWTUtil jwtUtil;
@@ -25,12 +26,6 @@ public class UserProblemServiceImlp implements UserProblemService {
     private final UsersRepository usersRepository;
     private final ProblemRepository problemRepository;
 
-    public UserProblemServiceImlp(JWTUtil jwtUtil, UserProblemsRepository userProblemsRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
-        this.jwtUtil = jwtUtil;
-        this.userProblemsRepository = userProblemsRepository;
-        this.usersRepository = usersRepository;
-        this.problemRepository = problemRepository;
-    }
 
     @Override
     public UserProblemDto saveUserProblem(UserProblemDto userProblemDto) {

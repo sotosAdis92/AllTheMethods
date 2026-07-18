@@ -16,7 +16,6 @@ import java.util.List;
 import static com.example.allTheMethods.utils.MethodUtils.*;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Service
 public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {
     /*

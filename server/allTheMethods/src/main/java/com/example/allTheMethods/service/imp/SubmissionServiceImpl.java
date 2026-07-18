@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Service
 public class SubmissionServiceImpl implements SubmissionService {
     /* Dependency Injection for SubmissionServiceImpl Class */

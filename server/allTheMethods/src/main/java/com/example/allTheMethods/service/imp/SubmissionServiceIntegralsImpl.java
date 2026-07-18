@@ -12,7 +12,6 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 import static com.example.allTheMethods.utils.MethodUtils.fx;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Service
 public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
     /*

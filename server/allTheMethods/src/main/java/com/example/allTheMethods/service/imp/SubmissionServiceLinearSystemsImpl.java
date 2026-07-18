@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Service
 public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLinearSystems {
 
