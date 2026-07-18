@@ -11,8 +11,6 @@ import Signup from "./Components/LoginSignUp/Signup";
 import ProblemComponent from "./Components/ProblemComponent";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
 import MyProfile from "./Components/UserComponents/MyProfile";
-import ViewMyAchievements from "./Components/UserComponents/ViewMyAchievements";
-import ViewMyProblems from "./Components/UserComponents/ViewMyProblems";
 
 function App() {
   return (
@@ -29,11 +27,11 @@ function App() {
               element={<ListProblems></ListProblems>}
             ></Route>
             <Route
-              path="/addProblem"
+              path="/admin/createProblem"
               element={<ProblemComponent></ProblemComponent>}
             ></Route>
             <Route
-              path="/editProblem/:id"
+              path="/admin/editProblem/:id"
               element={<ProblemComponent></ProblemComponent>}
             ></Route>
             <Route
@@ -41,20 +39,12 @@ function App() {
               element={<ListAchievements></ListAchievements>}
             ></Route>
             <Route
-              path="/addAchievement"
+              path="/admin/addAchievement"
               element={<AchievementComponent></AchievementComponent>}
             ></Route>
             <Route
-              path="/updateAchievements/:id"
+              path="/admin/updateAchievements/:id"
               element={<AchievementComponent></AchievementComponent>}
-            ></Route>
-            <Route
-              path="/viewUserAchievements"
-              element={<ViewMyAchievements></ViewMyAchievements>}
-            ></Route>
-            <Route
-              path="/viewUserProblems"
-              element={<ViewMyProblems></ViewMyProblems>}
             ></Route>
             <Route path="/profile/" element={<MyProfile></MyProfile>}></Route>
             <Route
