@@ -14,6 +14,8 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserAchievementService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;

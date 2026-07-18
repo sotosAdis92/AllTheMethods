@@ -10,6 +10,8 @@ import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.SubmissionService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class SubmissionServiceImpl implements SubmissionService {
     /* Dependency Injection for SubmissionServiceImpl Class */
@@ -28,16 +32,6 @@ public class SubmissionServiceImpl implements SubmissionService {
     private ProblemRepository problemRepository;
     @Autowired
     private SubmissionMapper submissionMapper;
-
-    public SubmissionServiceImpl() {
-    }
-
-    public SubmissionServiceImpl(SubmissionRepository submissionRepository, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapper submissionMapper) {
-        this.submissionRepository = submissionRepository;
-        this.usersRepository = usersRepository;
-        this.problemRepository = problemRepository;
-        this.submissionMapper = submissionMapper;
-    }
 
     @Override
     public SubmissionDto createSubmission(SubmissionDto submissionDto) {

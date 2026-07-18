@@ -2,6 +2,8 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.SimpsonDataDto;
 import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,8 @@ import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 import static com.example.allTheMethods.utils.MethodUtils.fx;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
     /*

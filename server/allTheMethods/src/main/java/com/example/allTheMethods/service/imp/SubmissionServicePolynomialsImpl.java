@@ -5,6 +5,8 @@ import com.example.allTheMethods.ast.Operation;
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import static com.example.allTheMethods.utils.MethodUtils.*;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {
     /*
