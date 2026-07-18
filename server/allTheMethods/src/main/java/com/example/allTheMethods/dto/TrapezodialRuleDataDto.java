@@ -1,11 +1,15 @@
 package com.example.allTheMethods.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Setter
+@Getter
 public class TrapezodialRuleDataDto extends SubmissionDataDto{
     public TrapezodialRuleDataDto() {
     }
-
     private int integrationPointA;
     private int integrationPointB;
     private double hParameter;
@@ -14,30 +18,6 @@ public class TrapezodialRuleDataDto extends SubmissionDataDto{
         super(inp, problemString);
         this.integrationPointA = integrationPointA;
         this.integrationPointB = integrationPointB;
-        this.hParameter = hParameter;
-    }
-
-    public int getIntegrationPointA() {
-        return integrationPointA;
-    }
-
-    public int getIntegrationPointB() {
-        return integrationPointB;
-    }
-
-    public double gethParameter() {
-        return hParameter;
-    }
-
-    public void setIntegrationPointA(int integrationPointA) {
-        this.integrationPointA = integrationPointA;
-    }
-
-    public void setIntegrationPointB(int integrationPointB) {
-        this.integrationPointB = integrationPointB;
-    }
-
-    public void sethParameter(double hParameter) {
         this.hParameter = hParameter;
     }
 }

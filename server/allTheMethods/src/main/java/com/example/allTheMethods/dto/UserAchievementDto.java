@@ -3,9 +3,13 @@ package com.example.allTheMethods.dto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.Users;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
 @Data
 public class UserAchievementDto extends AchievementDto{
     private Long userAchievementId;
