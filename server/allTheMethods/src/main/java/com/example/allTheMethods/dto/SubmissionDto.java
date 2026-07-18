@@ -1,5 +1,10 @@
 package com.example.allTheMethods.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class SubmissionDto {
     private Long submissionId;
     private Long userId;
@@ -22,38 +27,4 @@ public class SubmissionDto {
         this.problemId = problemId;
         this.submittedAt = submittedAt;
     }
-
-    public Long getSubmissionId() {
-        return submissionId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public Long getProblemId() {
-        return problemId;
-    }
-
-    public String getSubmittedAt() {
-        return submittedAt;
-    }
-
-
-    public void setSubmissionId(Long submissionId) {
-        this.submissionId = submissionId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public void setProblemId(Long problemId) {
-        this.problemId = problemId;
-    }
-
-    public void setSubmittedAt(String submittedAt) {
-        this.submittedAt = submittedAt;
-    }
-
 }
