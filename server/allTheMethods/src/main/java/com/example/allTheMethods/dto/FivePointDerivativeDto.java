@@ -1,7 +1,13 @@
 package com.example.allTheMethods.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Setter
+@Getter
 public class FivePointDerivativeDto extends SubmissionDataDto{
     private List<Integer> coutingParameters;
     private List<Integer> xiParameters;
@@ -15,46 +21,6 @@ public class FivePointDerivativeDto extends SubmissionDataDto{
         this.xiParameters = xiParameters;
         this.fiParameters = fiParameters;
         this.xoParameter = xoParameter;
-        this.typeOfDerivative = typeOfDerivative;
-    }
-
-    public List<Integer> getCoutingParameters() {
-        return coutingParameters;
-    }
-
-    public void setCoutingParameters(List<Integer> coutingParameters) {
-        this.coutingParameters = coutingParameters;
-    }
-
-    public List<Integer> getXiParameters() {
-        return xiParameters;
-    }
-
-    public void setXiParameters(List<Integer> xiParameters) {
-        this.xiParameters = xiParameters;
-    }
-
-    public List<Integer> getFiParameters() {
-        return fiParameters;
-    }
-
-    public void setFiParameters(List<Integer> fiParameters) {
-        this.fiParameters = fiParameters;
-    }
-
-    public double getXoParameter() {
-        return xoParameter;
-    }
-
-    public void setXoParameter(double xoParameter) {
-        this.xoParameter = xoParameter;
-    }
-
-    public String getTypeOfDerivative() {
-        return typeOfDerivative;
-    }
-
-    public void setTypeOfDerivative(String typeOfDerivative) {
         this.typeOfDerivative = typeOfDerivative;
     }
 }

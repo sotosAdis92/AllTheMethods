@@ -1,7 +1,11 @@
 package com.example.allTheMethods.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Data
 public class AuthenticationRequest {
     private String username;
@@ -10,21 +14,5 @@ public class AuthenticationRequest {
     public AuthenticationRequest(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }
