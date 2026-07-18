@@ -2,7 +2,11 @@ package com.example.allTheMethods.dto;
 
 import com.example.allTheMethods.enus.UserRole;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Data
 public class UsersDto {
     private Long id;
@@ -26,45 +30,5 @@ public class UsersDto {
         this.id = id;
         this.username = username;
         this.displayName = displayName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
     }
 }

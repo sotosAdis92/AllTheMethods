@@ -1,5 +1,11 @@
 package com.example.allTheMethods.dto;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class UserProblemDto extends ProblemDto{
     private Long id;
     private Long userId;
@@ -13,32 +19,6 @@ public class UserProblemDto extends ProblemDto{
                 problemString, functionString);
         this.id = id;
         this.userId = userId;
-        this.problemId = problemId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public Long getProblemId() {
-        return problemId;
-    }
-
-    @Override
-    public void setProblemId(Long problemId) {
         this.problemId = problemId;
     }
 }
