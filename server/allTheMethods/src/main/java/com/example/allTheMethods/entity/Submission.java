@@ -3,11 +3,15 @@ package com.example.allTheMethods.entity;
 import com.example.allTheMethods.dto.SubmissionDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+@Setter
+@Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "submission")
 @Data
 public class Submission {
@@ -29,45 +33,11 @@ public class Submission {
     @JsonIgnore
     private Problem problem;
 
-    public Submission() {
-    }
 
     public Submission(Long id, String date, String valid, Users user, Problem problem) {
         this.id = id;
         this.date = date;
         this.user = user;
-        this.problem = problem;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public Problem getProblem() {
-        return problem;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
-    }
-
-    public void setProblem(Problem problem) {
         this.problem = problem;
     }
 

@@ -3,7 +3,7 @@ package com.example.allTheMethods.entity;
 import com.example.allTheMethods.dto.UsersDto;
 import com.example.allTheMethods.enus.UserRole;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,8 +12,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+@Setter
+@Getter
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class Users {
     @Id
@@ -40,71 +44,12 @@ public class Users {
     @OneToMany(mappedBy = "user")
     Set<Submission> submissions;
 
-    public Users() {
-    }
-
     public Users(Long id, String username, String password, String displayName, UserRole userRole) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.displayName = displayName;
         this.userRole = userRole;
-    }
-
-    public Set<Submission> getSubmissions() {
-        return submissions;
-    }
-
-    public void setSubmissions(Set<Submission> submissions) {
-        this.submissions = submissions;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public Set<UserAchievements> getAchievements() {
-        return achievements;
-    }
-
-    public void setId(Long userId) {
-        this.id = userId;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public void setAchievements(Set<UserAchievements> achievements) {
-        this.achievements = achievements;
     }
 
     public UsersDto getUsersDto(){
