@@ -1,7 +1,12 @@
 package com.example.allTheMethods.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Setter
+@Getter
 public class SimpsonDataDto extends SubmissionDataDto{
     private int integrationSpaceA;
     private int integrationSpaceB;
@@ -16,29 +21,5 @@ public class SimpsonDataDto extends SubmissionDataDto{
 
     public SimpsonDataDto(List<Double> inp, String problemString) {
         super(inp, problemString);
-    }
-
-    public int getIntegrationSpaceA() {
-        return integrationSpaceA;
-    }
-
-    public int getIntegrationSpaceB() {
-        return integrationSpaceB;
-    }
-
-    public double gethParameter() {
-        return hParameter;
-    }
-
-    public void setIntegrationSpaceA(int integrationSpaceA) {
-        this.integrationSpaceA = integrationSpaceA;
-    }
-
-    public void setIntegrationSpaceB(int integrationSpaceB) {
-        this.integrationSpaceB = integrationSpaceB;
-    }
-
-    public void sethParameter(double hParameter) {
-        this.hParameter = hParameter;
     }
 }
