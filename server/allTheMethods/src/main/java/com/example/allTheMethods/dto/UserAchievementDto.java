@@ -27,36 +27,4 @@ public class UserAchievementDto extends AchievementDto{
         this.achievedAt = achievedAt;
     }
 
-    public Long getUserAchievementId() {
-        return userAchievementId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public Long getAchievementId() {
-        return achievementId;
-    }
-
-    public LocalDateTime getAchievedAt() {
-        return achievedAt;
-    }
-
-    public void setUserAchievementId(Long userAchievementId) {
-        this.userAchievementId = userAchievementId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public void setAchievementId(Long achievementId) {
-        this.achievementId = achievementId;
-    }
-
-    public void setAchievedAt(LocalDateTime achievedAt) {
-        this.achievedAt = achievedAt;
-    }
-
 }
