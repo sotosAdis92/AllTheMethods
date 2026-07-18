@@ -51,6 +51,14 @@ mvn spring-boot:run
 ```
 
 Java tomcat server runs by default on http://localhost:8080
+If you are having problems and getting errors about lombok annotations follow these instructions to run the app:
+- 1: Check if you have lombok in the pom.xml
+- 2: Check if have it properly imported
+- 3: Open intellij IDEA and go to Plugins --> Scroll Down to JVM Frameworks, check if lombok is ticked
+- 4: Open intellij IDEA and go to Settings --> Build, Execution, Deployment --> Annotation Processors --> Click on the files you want and then click on "Obtain processors from project classpath" and tick the "Enable annotaion proccessing"
+
+<img width="1081" height="739" alt="image" src="https://github.com/user-attachments/assets/d18b5a79-4808-4639-9530-e363bda9318a" />
+
 
 # Run the React.js client
 ```bash
