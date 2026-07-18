@@ -4,12 +4,16 @@ import com.example.allTheMethods.dto.FivePointDerivativeDto;
 import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
     @Override

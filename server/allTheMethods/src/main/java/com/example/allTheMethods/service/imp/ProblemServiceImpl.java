@@ -6,6 +6,8 @@ import com.example.allTheMethods.exception.ResourceNotFoundException;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,14 +16,12 @@ import java.util.stream.Collectors;
 
 import static com.example.allTheMethods.utils.MethodUtils.cleanList;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class ProblemServiceImpl implements ProblemService {
 
     private ProblemRepository problemRepository;
-
-    public ProblemServiceImpl(ProblemRepository problemRepository) {
-        this.problemRepository = problemRepository;
-    }
 
     @Override
     public ProblemDto createProblem(ProblemDto problemDto) {
