@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.ImprovedEulerDto;
 import com.example.allTheMethods.dto.RungeKuttaDataDto;
 import com.example.allTheMethods.dto.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/submissions")
+@RequiredArgsConstructor
 public class DifferentialEquationsSubmissionController {
     private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
-    public DifferentialEquationsSubmissionController(SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations){
-        this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
-    }
 
     @PostMapping("/rungeKutta")
     public ResponseEntity<?> checkRungeKuttaData(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){

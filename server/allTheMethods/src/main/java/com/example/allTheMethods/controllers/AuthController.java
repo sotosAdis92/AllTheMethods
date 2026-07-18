@@ -9,6 +9,7 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.AuthService;
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +27,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin("*")
+@RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
     private final UserDetailsService userDetailsService;
@@ -33,14 +35,6 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UsersRepository usersRepository;
 
-
-    public AuthController(AuthService authService, UserDetailsService userDetailsService, JWTUtil jwtUtil, AuthenticationManager authenticationManager, UsersRepository usersRepository) {
-        this.authService = authService;
-        this.userDetailsService = userDetailsService;
-        this.jwtUtil = jwtUtil;
-        this.authenticationManager = authenticationManager;
-        this.usersRepository = usersRepository;
-    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> signupUser(@RequestBody SignupRequest signupRequest){

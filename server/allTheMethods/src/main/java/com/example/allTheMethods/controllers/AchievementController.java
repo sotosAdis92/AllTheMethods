@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.service.AchievementService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 //Achievements Endpoints Controller Bellow
 @CrossOrigin("*")
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/achievements")
 public class AchievementController {
     private AchievementService achievementService;

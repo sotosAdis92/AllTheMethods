@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -12,12 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/submissions")
+@RequiredArgsConstructor
 public class PolynomialRootsSubmissionsController {
     @Autowired
     private SubmissionServicePolynomials submissionServicePolynomials;
-    public PolynomialRootsSubmissionsController(SubmissionServicePolynomials submissionServicePolynomials){
-        this.submissionServicePolynomials = submissionServicePolynomials;
-    }
 
     @PostMapping("/bisection")
     public ResponseEntity<?> checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){

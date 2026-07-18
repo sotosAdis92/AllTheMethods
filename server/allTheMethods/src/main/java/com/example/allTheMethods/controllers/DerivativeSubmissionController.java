@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.FivePointDerivativeDto;
 import com.example.allTheMethods.dto.RichardsonDataDto;
 import com.example.allTheMethods.dto.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/submissions")
+@RequiredArgsConstructor
 public class DerivativeSubmissionController {
     private SubmissionServiceDerivatives submissionServiceDerivatives;
-    public DerivativeSubmissionController(SubmissionServiceDerivatives submissionServiceDerivatives){
-        this.submissionServiceDerivatives = submissionServiceDerivatives;
-    }
 
     @PostMapping("/threePointsDer")
     public ResponseEntity<?> checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){

@@ -2,6 +2,8 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.service.UserProblemService;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/userProblems")
+@RequiredArgsConstructor
 public class UserProblemController {
     private final UserProblemService userProblemService;
-
-    public UserProblemController(UserProblemService userProblemService) {
-        this.userProblemService = userProblemService;
-    }
 
     @PostMapping("/saveProblem")
     public ResponseEntity<UserProblemDto> saveUserProblem(@RequestBody UserProblemDto userProblemDto){
@@ -30,9 +29,7 @@ public class UserProblemController {
 
     @GetMapping("/{id}")
     public boolean checkIfUserSolvedAProblem(@PathVariable int id){
-        boolean flag;
-        flag = userProblemService.checkIfUserSolvedAProblem(id);
-        return flag;
+        return userProblemService.checkIfUserSolvedAProblem(id);
     }
 
 }

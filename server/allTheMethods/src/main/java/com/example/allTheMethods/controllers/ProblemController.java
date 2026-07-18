@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +13,9 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/problems")
+@RequiredArgsConstructor
 public class ProblemController {
     private ProblemService problemService;
-    public ProblemController(ProblemService problemService) {
-        this.problemService = problemService;
-    }
 
     @PostMapping("/admin/create")
     public ResponseEntity<ProblemDto> createProblem(@RequestBody ProblemDto problemDto){
