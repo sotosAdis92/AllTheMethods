@@ -1,12 +1,19 @@
 package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnTransformer;
 
 import java.util.Set;
 
-
+@Setter
+@Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "problem")
 public class Problem {
     @Id
@@ -78,21 +85,6 @@ public class Problem {
         this.problemData = problemData;
     }
 
-    public String getProblemData() {
-        return problemData;
-    }
-
-    public void setProblemData(String problemData) {
-        this.problemData = problemData;
-    }
-
-
-
-
-
-    public Problem() {
-    }
-
     public Problem(Long id, int number, String title, String category, String difficulty, String description, int points) {
         this.id = id;
         this.number = number;
@@ -137,93 +129,5 @@ public class Problem {
         this.points = points;
         this.problemString = problemString;
         this.problemType = problemType;
-    }
-
-    public String getProblemString() {
-        return problemString;
-    }
-
-    public void setProblemString(String problemString) {
-        this.problemString = problemString;
-    }
-
-    public Set<Submission> getProblems() {
-        return problems;
-    }
-
-    public void setProblems(Set<Submission> problems) {
-        this.problems = problems;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public String getProblemType() {
-        return problemType;
-    }
-
-    public void setProblemType(String problemType) {
-        this.problemType = problemType;
-    }
-
-    public String getFunctionString() {
-        return functionString;
-    }
-
-    public void setFunctionString(String functionSting) {
-        this.functionString = functionSting;
     }
 }
