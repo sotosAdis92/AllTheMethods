@@ -274,8 +274,8 @@ const ProblemDescription = () => {
       <div className="checkMark">
         {isSolved || showCheckmark === true ? (
           <div className="checkmark">
-            <img src={img}></img>
-            <p>Solved</p>
+            <img src={img} className="check-icon"></img>
+            <p className="solvedTextForCheckmark">Solved</p>
           </div>
         ) : (
           <div></div>
