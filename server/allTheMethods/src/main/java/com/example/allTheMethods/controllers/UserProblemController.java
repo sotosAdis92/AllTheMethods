@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/userProblems")
+@RequestMapping("/api/user/problems")
 public class UserProblemController {
     private final UserProblemService userProblemService;
 
@@ -17,22 +17,20 @@ public class UserProblemController {
         this.userProblemService = userProblemService;
     }
 
-    @PostMapping("/saveProblem")
+    @PostMapping("/save")
     public ResponseEntity<UserProblemDto> saveUserProblem(@RequestBody UserProblemDto userProblemDto){
         UserProblemDto userProblemDto1 = userProblemService.saveUserProblem(userProblemDto);
         return new ResponseEntity<>(userProblemDto1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/myProblems")
+    @GetMapping("/myproblems/{id}")
     public ResponseEntity<?> getMyProblems(){
         return ResponseEntity.ok(userProblemService.getUserProblems());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/check/{id}")
     public boolean checkIfUserSolvedAProblem(@PathVariable int id){
-        boolean flag;
-        flag = userProblemService.checkIfUserSolvedAProblem(id);
-        return flag;
+        return userProblemService.checkIfUserSolvedAProblem(id);
     }
 
 }

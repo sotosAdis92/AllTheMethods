@@ -20,8 +20,9 @@ public class UserController {
         this.usersService = usersService;
     }
 
-    @GetMapping
+    @GetMapping("/username")
     public UsersDto getUserName(){
         return usersService.getUserName();
     }
+
 }

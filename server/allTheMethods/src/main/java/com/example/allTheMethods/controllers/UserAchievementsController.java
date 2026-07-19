@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/userAchievements")
+@RequestMapping("/api/user/achievements")
 @CrossOrigin("*")
 public class UserAchievementsController {
     private final UserAchievementService userAchievementService;
@@ -19,14 +19,14 @@ public class UserAchievementsController {
         this.userAchievementService = userAchievementService;
     }
 
-    @PostMapping("/saveAchievements")
+    @PostMapping("/save")
     public ResponseEntity<UserAchievementDto> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
         System.out.println("Hit endpoint user achievements");
         UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements(saveUserAchievementDto);
         return new ResponseEntity<>(userAchievementDto1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/myAchievements")
+    @GetMapping("/myachievements/{id}")
     public ResponseEntity<?> getMyAchievements(){
         return ResponseEntity.ok(userAchievementService.getUserAchievements());
     }
