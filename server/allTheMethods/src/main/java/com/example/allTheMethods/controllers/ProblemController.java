@@ -36,13 +36,13 @@ public class ProblemController {
         return ResponseEntity.ok(problems);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity<ProblemDto> updateProblem(@PathVariable("id") Long id, @RequestBody ProblemDto updateProblemDto){
         ProblemDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteProblem(@PathVariable Long id){
         problemService.deleteProblem(id);
         return ResponseEntity.ok("Deleted problem");

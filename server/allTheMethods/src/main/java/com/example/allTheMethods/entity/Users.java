@@ -30,6 +30,8 @@ public class Users implements UserDetails {
     @Column(nullable = true)
     private String displayName;
 
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(20)")
     private UserRole userRole;
 
     @OneToMany(mappedBy = "user")
