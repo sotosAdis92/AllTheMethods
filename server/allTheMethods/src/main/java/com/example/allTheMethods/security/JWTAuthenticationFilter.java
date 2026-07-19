@@ -1,4 +1,4 @@
-package com.example.allTheMethods.configs;
+package com.example.allTheMethods.security;
 
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
@@ -7,7 +7,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
