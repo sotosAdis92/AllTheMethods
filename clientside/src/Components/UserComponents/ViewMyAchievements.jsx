@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import img1 from "../../assets/trophy.png";
 import { getUserAchievements } from "../../services/UserAchievementService";
-const ViewMyAchievements = () => {
+const ViewMyAchievements = (props) => {
   const [myAchievements, setMyAchievements] = useState([]);
 
   const count = myAchievements.filter(
@@ -9,7 +9,7 @@ const ViewMyAchievements = () => {
   ).length;
 
   const getAllUserAchievements = () => {
-    getUserAchievements()
+    getUserAchievements(props.userId)
       .then((response) => {
         setMyAchievements(response.data);
         console.log("Api response:", response.data);

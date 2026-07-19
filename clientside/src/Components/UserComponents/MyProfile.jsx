@@ -5,6 +5,7 @@ import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
 const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
+  const [userId, setUserId] = useState("");
   const userDisplayName = () => {
     getUser()
       .then((response) => {
@@ -32,10 +33,10 @@ const MyProfile = () => {
         </div>
         <div className="content">
           <div className="viewAchievements">
-            <ViewMyAchievements></ViewMyAchievements>
+            <ViewMyAchievements props={userId}></ViewMyAchievements>
           </div>
           <div className="viewProblems">
-            <ViewMyProblems></ViewMyProblems>
+            <ViewMyProblems props={userId}></ViewMyProblems>
           </div>
         </div>
       </div>
