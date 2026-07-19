@@ -39,6 +39,10 @@ docker compose up
 - File → Project Structure → Project → set SDK to JDK 25 (download via SDKs →  Download JDK → 25 if needed) and Language level to 25.
 The pom.xml is inside /server, not at the repository root. If you open the root, it will not be detected as a Spring Boot project.
 
+If you are getting an error for the lombok annotations, follow these steps:
+- 1: Make sure lombok is in the pom.xml file
+- 2: Open Intellij IDEA
+
 # Run the Java server
 ```bash
 export DB_URL=jdbc:postgresql://localhost:5432/solverAppDB
