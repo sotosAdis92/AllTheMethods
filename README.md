@@ -105,7 +105,6 @@ spring-react/
 ├── server/
 |   ├── allTheMethods/src/main/java/com.example.allTheMethods/
 │   |   ├── ast/
-│   |   ├── configs/
 │   |   ├── controllers/
 │   |   ├── dto/
 │   |   ├── entity/
@@ -113,6 +112,7 @@ spring-react/
 │   |   ├── exception/
 │   |   ├── mapper/
 │   |   ├── repository/
+|   |   ├── security/
 │   |   ├── service/
 │   |   ├── utils/
 │   ├── resources/
