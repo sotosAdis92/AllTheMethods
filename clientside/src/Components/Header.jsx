@@ -92,22 +92,24 @@ const Header = () => {
         </div>
       ) : (
         <>
-          <Button
-            className="loginSingUp"
-            LinkComponent={Link}
-            variant="contained"
-            to="/login"
-          >
-            Login
-          </Button>
-          <Button
-            className="SingUp"
-            LinkComponent={Link}
-            variant="contained"
-            to="/register"
-          >
-            Sign Up
-          </Button>
+          <div className="loginSingUp-container">
+            <Button
+              className="loginSingUp"
+              LinkComponent={Link}
+              variant="contained"
+              to="/login"
+            >
+              Login
+            </Button>
+            <Button
+              className="SingUp"
+              LinkComponent={Link}
+              variant="contained"
+              to="/register"
+            >
+              Sign Up
+            </Button>
+          </div>
         </>
       )}
     </>
