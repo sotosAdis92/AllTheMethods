@@ -41,7 +41,8 @@ The pom.xml is inside /server, not at the repository root. If you open the root,
 
 If you are getting an error for the lombok annotations, follow these steps:
 - 1: Make sure lombok is in the pom.xml file
-- 2: Open Intellij IDEA
+- 2: Open Intellij IDEA -> Plugins -> Make sure lombok is downloaded here
+- 3: Open Intellij IDEA -> Settings -> Build, Execution Deployment -> Compiler -> Annotation Proccesor -> Select the file name of the project -> "Enable annotation processing" and "Obtain proccessors from project classpath"
 
 # Run the Java server
 ```bash
