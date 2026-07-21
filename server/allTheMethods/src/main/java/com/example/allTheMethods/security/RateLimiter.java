@@ -78,8 +78,24 @@ public class RateLimiter extends OncePerRequestFilter {
                 return;
             }
         }
+        else if(REGISTER_URI.equalsIgnoreCase(path)){
+            if(!tryConsume(registerCache,clientIp,this::registerBucket)){
+                System.out.println("Too many requests made to register");
+                String jsonResponse = """
+                        {
+                            "status": %s,
+                            "error": "Too many requests",
+                            "message": "You have exhausted the limit of calls towards the login endpoint",
+                            "retryAfterSeconds": %s
+                        }
+                        """.formatted(HttpStatus.TOO_MANY_REQUESTS.value(), 60);
 
+                response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
+                response.setContentType("application/json");
+                response.getWriter().write(jsonResponse);
+                return;
+            }
+        }
         webFilterChain.doFilter(request, response);
     }
-
 }
