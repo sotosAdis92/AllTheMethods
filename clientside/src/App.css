@@ -886,33 +886,60 @@ body {
 }
 
 .userProblemsContainer {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
-}
-
-.userProblemsHeader {
-  font-size: 24px;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 10px;
-}
-
-.userProblemsCounter {
-  font-size: 22px;
-  color: #34495e;
-  margin-bottom: 20px;
-  background-color: #ecf0f1;
-  padding: 8px 16px;
-  border-radius: 20px;
-  display: inline-block;
+  padding: 32px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .listOfUserProblems {
-  list-style-type: decimal;
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
   margin: 0;
+  border: 2px solid #e2e8f0; /* Increased border width */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.listOfUserProblems > div {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px; /* Increased padding */
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0; /* Thicker border */
+  transition: all 0.15s ease;
+  gap: 16px;
+  cursor: default;
+  position: relative;
+}
+
+.listOfUserProblems > div:nth-child(even) {
+  background: #fafbfc;
+}
+
+.listOfUserProblems > div > div {
+  font-size: 16px;
+}
+
+.listOfUserProblems > div > div:first-child {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4a4b4e;
+  min-width: 36px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-align: center;
   font-family:
     system-ui,
     -apple-system,
@@ -927,49 +954,59 @@ body {
     sans-serif;
 }
 
-.listOfUserProblems > div {
-  background-color: #f8f9fa;
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.listOfUserProblems > div > div {
-  font-size: 16px;
-}
-
-.listOfUserProblems > div > div:first-child {
-  font-weight: 600;
-  color: #2c3e50;
-  flex: 2;
-  min-width: 150px;
-}
-
 .listOfUserProblems > div > div:last-child {
+  font-size: 14px;
   font-weight: 600;
-  color: #28a745;
-  margin-left: auto;
+  min-width: 50px;
+  text-align: right;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
-
-.listOfUserProblems > div > div:nth-child(2) {
-  color: #6c757d;
-  background-color: #e9ecef;
-  padding: 3px 12px;
-  border-radius: 12px;
-  font-size: 14px;
-}
-
 .listOfUserProblems > div > div:nth-child(3) {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+.listOfUserProblems > div > div:nth-child(2) {
+  flex: 1;
+  font-size: 15px;
   font-weight: 500;
-  padding: 3px 12px;
-  border-radius: 12px;
-  font-size: 14px;
+  color: #0f172a;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 0;
 }
 
 @keyframes checkmarkDraw {

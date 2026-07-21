@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../../App.css";
 import img2 from "../../assets/problem.png";
 import { getUserProblems } from "../../services/UserProblemService";
+import ProblemDifficulty from "../ProblemDifficulty";
 const ViewMyProblems = (props) => {
   const [myProblems, setMyProblems] = useState([]);
   const count = myProblems.filter((myPorblem) => myPorblem.problemId).length;
@@ -25,7 +26,7 @@ const ViewMyProblems = (props) => {
     <div key={myProblem.problemId}>
       <div>{myProblem.title}</div>
       <div>{myProblem.category}</div>
-      <div>{myProblem.difficulty}</div>
+      <ProblemDifficulty difficulty={myProblem.difficulty}></ProblemDifficulty>
       <div>{myProblem.points}</div>
     </div>
   ));
