@@ -32,7 +32,7 @@ public class RateLimiter extends OncePerRequestFilter {
     private Cache<String, Bucket> registerCache = Caffeine.newBuilder()
             .expireAfterWrite(1, TimeUnit.MINUTES)
             .maximumSize(1_000_000)
-            .build()
+            .build();
     private Bucket loginBucket(){
         Bandwidth bandwidthLimit = Bandwidth.builder()
                 .capacity(5)
