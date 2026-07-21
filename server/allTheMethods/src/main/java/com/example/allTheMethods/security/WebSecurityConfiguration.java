@@ -26,10 +26,12 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class WebSecurityConfiguration {
     private final JWTAuthenticationFilter jwtAuthenticationFilter;
     private final UsersService usersService;
+    private final RateLimiter rateLimiter;
 
-    public WebSecurityConfiguration(JWTAuthenticationFilter jwtAuthenticationFilter, UsersService usersService) {
+    public WebSecurityConfiguration(JWTAuthenticationFilter jwtAuthenticationFilter, UsersService usersService, RateLimiter rateLimiter) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
         this.usersService = usersService;
+        this.rateLimiter = rateLimiter;
     }
 
     @Bean
@@ -42,6 +44,7 @@ public class WebSecurityConfiguration {
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider())
+                .addFilterBefore(rateLimiter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
