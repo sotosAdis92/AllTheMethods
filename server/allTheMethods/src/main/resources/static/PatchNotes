@@ -2,3 +2,4 @@ Version 0.12
 (-) Needs Testing of the ability to save the achievements of the user if the user has solved enough
 (-) Implementation of cors config
 (-) Implementation of a standard sql data source that will fill the tables upon starting the app
+(-) Implement OAuth authentication
