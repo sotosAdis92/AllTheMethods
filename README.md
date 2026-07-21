@@ -130,6 +130,7 @@ spring-react/
 - Json web token authentication
 - Server side computation of results
 - Rate Limiting to prevent against DDOS attacks
+- Stateless Authentication
   
 # License
 
