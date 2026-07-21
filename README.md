@@ -84,7 +84,7 @@ Vite server runs by default on http://localhost:5173
 - ![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white) - Database Connectivity
 - ![Apache Maven](https://img.shields.io/badge/Apache_Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white) - Build Tool
 - ![Bucket4j](https://img.shields.io/badge/Bucket4j-0052CC?style=for-the-badge&logo=java&logoColor=white)
-- [Exp4j](https://img.shields.io/badge/Exp4j-4A154B?style=for-the-badge&logo=java&logoColor=white)
+- ![Exp4j](https://img.shields.io/badge/Exp4j-4A154B?style=for-the-badge&logo=java&logoColor=white)
 - ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) - Language
 
 ## Database
