@@ -69,6 +69,8 @@ const ProblemDescription = () => {
       });
   };
 
+  console.log(isSolved);
+
   const handleSumbission = () => {
     referenceToChild.current.submitData();
   };
