@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.rmi.server.ServerCloneException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 public class RateLimiter extends OncePerRequestFilter {
     private static final String LOGIN_URI = "/api/auth/login";
@@ -31,6 +32,15 @@ public class RateLimiter extends OncePerRequestFilter {
                 .build();
         return Bucket.builder().addLimit(bandwidthLimit).build();
     }
+
+    private boolean tryConsume(Cache<String, Bucket> bucket, String ip, Supplier<Bucket> supplier){
+        return bucket.get(ip, s -> supplier.get()).tryConsume(1);
+    }
+
+    private String getClientIp(HttpServletRequest request){
+        return request.getRemoteAddr();
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain webFilterChain) throws ServletException, IOException {
 
