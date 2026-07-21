@@ -85,7 +85,7 @@ Vite server runs by default on http://localhost:5173
 - ![Apache Maven](https://img.shields.io/badge/Apache_Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white) - Build Tool
 - ![Bucket4j](https://img.shields.io/badge/Bucket4j-0052CC?style=for-the-badge&logo=java&logoColor=white) - Caching and Rate Limiting
 - ![Exp4j](https://img.shields.io/badge/Exp4j-4A154B?style=for-the-badge&logo=java&logoColor=white) - Mathematical Expression Evaluation
-- ![JUnit 5](https://maven-badges.herokuapp.com/maven-central/org.junit.jupiter/junit-jupiter-api/badge.svg) - Unit Testing
+- ![JUnit](https://img.shields.io/maven-central/v/org.junit.jupiter/junit-jupiter-api) - Unit Testing
 - ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) - Language
 
 ## Database
