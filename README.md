@@ -83,6 +83,8 @@ Vite server runs by default on http://localhost:5173
 - ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=spring-security&logoColor=white) - JWT AUTH
 - ![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white) - Database Connectivity
 - ![Apache Maven](https://img.shields.io/badge/Apache_Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white) - Build Tool
+- Bucket4j - Rate Limiting and Caching Library
+- Express4j - Mathimatical Expression Evaluation Library
 - ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) - Language
 
 ## Database
@@ -126,6 +128,7 @@ spring-react/
 - User friendly interface
 - Json web token authentication
 - Server side computation of results
+- Rate Limiting to prevent against DDOS attacks
   
 # License
 
