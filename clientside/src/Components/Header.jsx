@@ -14,29 +14,31 @@ const Header = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [displayName, setDisplayName] = useState("");
 
-  const userDisplayName = () => {
-    getUser()
-      .then((response) => {
+  const userDisplayName = async () => {
+    const isLoggedIn = isTokenValid();
+    setIsUserLoggedIn(isLoggedIn);
+    try {
+      if (isLoggedIn) {
+        const response = await getUser();
         setDisplayName(response.data.displayName);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    userDisplayName();
-  }, []);
+    try {
+      userDisplayName();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [location]);
 
   const handleSignOut = () => {
     navigate("/login");
     removeToken();
   };
-
-  useEffect(() => {
-    const isLoggedIn = isTokenValid();
-    setIsUserLoggedIn(isLoggedIn);
-  }, [location]);
 
   useEffect(() => {
     const interval = setInterval(() => {
