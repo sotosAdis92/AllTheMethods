@@ -19,6 +19,10 @@ import java.util.concurrent.TimeUnit;
 public class RateLimiter extends OncePerRequestFilter {
     private static final String LOGIN_URI = "/api/auth/login";
     private static final String SUBMIT_URI = "/api/submissions/**";
+    private Cache<String, Bucket> loginCache = Caffeine.newBuilder()
+            .expireAfterWrite(1, TimeUnit.MINUTES)
+            .maximumSize(1_000_000)
+            .build();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain webFilterChain) throws ServletException, IOException {
