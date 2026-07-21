@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getUserProblems } from "../../services/UserProblemService";
-
+import "../../App.css";
 import img2 from "../../assets/problem.png";
+import { getUserProblems } from "../../services/UserProblemService";
 const ViewMyProblems = (props) => {
   const [myProblems, setMyProblems] = useState([]);
   const count = myProblems.filter((myPorblem) => myPorblem.problemId).length;
@@ -34,8 +34,8 @@ const ViewMyProblems = (props) => {
       {count > 0 ? (
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
-          <div className="useProblemsCounter">{count} Problems solved</div>
-          <ol>{listOfMyProblems}</ol>
+          <div className="userProblemsCounter">{count} Problems solved</div>
+          <ol className="listOfUserProblems">{listOfMyProblems}</ol>
         </>
       ) : (
         <>
