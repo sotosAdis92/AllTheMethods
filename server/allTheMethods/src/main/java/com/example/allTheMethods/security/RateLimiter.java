@@ -24,6 +24,13 @@ public class RateLimiter extends OncePerRequestFilter {
             .maximumSize(1_000_000)
             .build();
 
+    private Bucket loginBucket(){
+        Bandwidth bandwidthLimit = Bandwidth.builder()
+                .capacity(8)
+                .refillIntervally(8, Duration.ofMinutes(1))
+                .build();
+        return Bucket.builder().addLimit(bandwidthLimit).build();
+    }
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain webFilterChain) throws ServletException, IOException {
 
