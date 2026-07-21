@@ -8,6 +8,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
+@Component
 public class RateLimiter extends OncePerRequestFilter {
     private static final String LOGIN_URI = "/api/auth/login";
     private static final String SUBMIT_URI = "/api/submissions/**";
@@ -43,7 +45,9 @@ public class RateLimiter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain webFilterChain) throws ServletException, IOException {
-
+        String clientIp = getClientIp(request);
+        String path = request.getRequestURI();
+        Bucket tokenBucket =
     }
 
 }
