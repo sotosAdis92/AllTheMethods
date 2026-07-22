@@ -33,34 +33,6 @@ export default function useSaveAchievementOfUser() {
           counter: achievements[i].counter,
         },
       };
-      console.log("=== PROBLEM INFO ===");
-      console.log("Full problemInfo:", JSON.stringify(problemInfo, null, 2));
-
-      console.log("\n=== USER ACHIEVEMENT DTO ===");
-      console.log(
-        "  - achievementId:",
-        problemInfo.userAchievementDto.achievementId,
-      );
-      console.log("  - userId:", problemInfo.userAchievementDto.userId);
-      console.log("  - category:", problemInfo.userAchievementDto.category);
-      console.log("  - achievedAt:", problemInfo.userAchievementDto.achievedAt);
-
-      console.log("\n=== USER PROBLEM DTO ===");
-      console.log("  - userId:", problemInfo.userProblemDto.userId);
-      console.log("  - problemId:", problemInfo.userProblemDto.problemId);
-      console.log("  - category:", problemInfo.userProblemDto.category);
-
-      console.log("\n=== ACHIEVEMENT DTO ===");
-      console.log(
-        "  - achievementId:",
-        problemInfo.achievementDto.achievementId,
-      );
-      console.log("  - name:", problemInfo.achievementDto.name);
-      console.log("  - description:", problemInfo.achievementDto.description);
-      console.log("  - category:", problemInfo.achievementDto.category);
-      console.log("  - rank:", problemInfo.achievementDto.rank);
-      console.log("  - visibility:", problemInfo.achievementDto.visibility);
-      console.log("  - counter:", problemInfo.achievementDto.counter);
       saveUserAchievement(problemInfo)
         .then((response) => {
           console.log(response.data.counter);
