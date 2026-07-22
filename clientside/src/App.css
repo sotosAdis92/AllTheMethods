@@ -833,36 +833,42 @@ body {
 }
 
 .checkmark-pure {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  cursor: default;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+  margin-left: 10px;
 }
 
 .checkmark-pure .check-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #28a697, #1e7e6e);
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #d1fae5; /* Very light green */
+  border: 2px solid #059669; /* Darker green border */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
-  margin-top: 2px;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(40, 166, 151, 0.3);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 3px; /* Inside padding */
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
 }
 
 .checkmark-pure .check-icon::after {
-  content: "";
-  display: block;
-  width: 6px;
-  height: 11px;
-  border: solid white;
-  border-width: 0 2.5px 2.5px 0;
-  transform: rotate(45deg);
-  margin-bottom: 2px;
-  animation: checkmarkDraw 0.35s ease-out forwards;
+  color: #059669;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  animation: checkmarkDraw 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .checkmark-pure .solvedTextForCheckmark {
@@ -878,11 +884,11 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #28a697;
-  margin: 0;
-  letter-spacing: 0.3px;
+  color: #047857;
+  letter-spacing: 0.2px;
+  user-select: none;
 }
 
 .userProblemsContainer {

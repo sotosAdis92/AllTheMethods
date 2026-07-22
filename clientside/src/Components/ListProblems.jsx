@@ -149,10 +149,6 @@ const ListProblems = () => {
           <a className="problemLink">
             <div className="problemDetails">
               {problem.number}. {problem.title}
-              <ProblemDifficulty
-                difficulty={problem.difficulty}
-              ></ProblemDifficulty>
-              {problem.points}pts.
               {isSolved[problem.problemId] ? (
                 <div className="checkmark">
                   <img src={img}></img>
@@ -160,6 +156,10 @@ const ListProblems = () => {
               ) : (
                 <div></div>
               )}
+              <ProblemDifficulty
+                difficulty={problem.difficulty}
+              ></ProblemDifficulty>
+              {problem.points}pts.
             </div>
           </a>
         </div>
