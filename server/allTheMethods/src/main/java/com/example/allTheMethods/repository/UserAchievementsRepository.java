@@ -18,4 +18,7 @@ public interface UserAchievementsRepository extends JpaRepository<UserAchievemen
 
     @Query("SELECT COUNT(up) FROM UserProblem up WHERE up.user.id = :userId GROUP BY up.problem.category")
     Integer countProblemsByCategory(@Param("userId") Long userId);
+
+    @Query("SELECT COUNT(ua) > 0 FROM UserAchievements ua WHERE ua.user.id = :userId AND ua.achievement.achievementId = :achievementId")
+    boolean existsByUserIdAndAchievementId(Long userId, Long achievementId);
 }
