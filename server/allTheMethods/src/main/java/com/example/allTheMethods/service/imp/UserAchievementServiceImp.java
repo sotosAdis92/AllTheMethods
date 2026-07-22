@@ -40,12 +40,18 @@ public class UserAchievementServiceImp implements UserAchievementService {
         AchievementDto achievementDto = saveUserAchievementDto.getAchievementDto();
 
         Long user = userProblemDto.getUserId();
+        System.out.println(user);
         String category = userProblemDto.getCategory();
         Integer counter = 0;
         counter = achievementDto.getCounter();
         String categoryToCheck = userAchievementDto.getCategory();
         int result = 0;
-        result = userAchievementsRepository.countProblemsByCategory(user);
+        try{
+            result = userAchievementsRepository.countProblemsByCategory(user);
+        } catch (NullPointerException exception) {
+            System.out.println("No problems solved yet, thats ok dont crash the whole axios network");
+            return null;
+        }
         System.out.println(user);
         System.out.println(category);
         System.out.println(counter + " counter");
