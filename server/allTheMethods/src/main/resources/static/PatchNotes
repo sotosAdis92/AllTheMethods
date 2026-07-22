@@ -1,4 +1,9 @@
 Version 0.12
-(-) Needs Testing of the ability to save the achievements of the user if the user has solved enough
+Need to implement:
+(-) UI CSS styling on the achievements
+(-) UI with charts showing user progress
 
+
+Implemeneted:
 (+) User problems being saved in the database + UI: Passed Testing
+(+) User Achievements being save in the database + UI: Passed Testing
