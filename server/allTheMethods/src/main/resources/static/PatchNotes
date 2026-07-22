@@ -1,3 +1,4 @@
 Version 0.12
-(-) Implementation of a standard sql data source that will fill the tables upon starting the app
 (-) Needs Testing of the ability to save the achievements of the user if the user has solved enough
+
+(+) User problems being saved in the database + UI: Passed Testing
