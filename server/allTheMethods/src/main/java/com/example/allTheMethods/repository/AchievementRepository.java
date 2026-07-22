@@ -17,4 +17,6 @@ public interface AchievementRepository extends JpaRepository<Achievement, Long> 
 
     List<Achievement> findAchievementsByCategoryIn(@Param("categories") List<String> categories);
     List<Achievement> findAchievementsByRankIn(@Param("ranks") List<String> ranks);
+
+    long count();
 }

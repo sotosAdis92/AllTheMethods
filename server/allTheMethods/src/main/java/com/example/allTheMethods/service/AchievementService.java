@@ -17,4 +17,5 @@ public interface AchievementService {
     List<AchievementDto> getAchievementByCategory(String category);
     List<AchievementDto> getAchievementByRank(String rank);
     List<AchievementDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks);
+    long countAllTheAchievements();
 }

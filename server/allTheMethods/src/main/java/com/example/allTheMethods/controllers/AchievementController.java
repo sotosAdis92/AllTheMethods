@@ -67,5 +67,11 @@ public class AchievementController {
         return ResponseEntity.ok(achievementDtos);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getAllAchievementsCount(){
+        long countOfAchievements = achievementService.countAllTheAchievements();
+        return ResponseEntity.ok(countOfAchievements);
+    }
+
 
 }

@@ -93,4 +93,9 @@ public class AchievementServiceImpl implements AchievementService {
         }
         return achievementsByCategoryAndRank.stream().map((achievement -> AchievementMapper.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
     }
+
+    public long countAllTheAchievements(){
+        long countOfAchievements = achievementRepository.count();
+        return countOfAchievements;
+    }
 }
