@@ -5,6 +5,7 @@ import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
 import {
   getProblemsByCategoryOrDifficulty,
+  getProblemsCount,
   listProblems,
 } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
@@ -21,6 +22,7 @@ const ListProblems = () => {
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
   const [query, setQuery] = useState("");
+  const [countOfAllProblems, setCountOfAllProblems] = useState("");
 
   const navigator = useNavigate();
   function getAllProblems() {
@@ -39,6 +41,16 @@ const ListProblems = () => {
   }
   useEffect(() => {
     getAllProblems();
+  }, []);
+
+  useEffect(() => {
+    getProblemsCount()
+      .then((response) => {
+        setCountOfAllProblems(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   useEffect(() => {
@@ -177,6 +189,7 @@ const ListProblems = () => {
           >
             <img src={img3}></img>
           </button>
+          <div>{countOfAllProblems}</div>
 
           {!openFilterBool ? (
             <div></div>

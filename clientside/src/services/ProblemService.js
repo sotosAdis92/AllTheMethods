@@ -57,3 +57,8 @@ export const getProblemsByCategoryOrDifficulty = async (
   });
   return response;
 };
+
+export const getProblemsCount = async () => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/count");
+  return response;
+};
