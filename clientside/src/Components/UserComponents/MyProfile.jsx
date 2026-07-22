@@ -6,6 +6,7 @@ import ViewMyProblems from "./ViewMyProblems";
 const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
+
   const userDisplayName = () => {
     getUser()
       .then((response) => {
