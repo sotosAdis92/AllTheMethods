@@ -15,4 +15,5 @@ public interface ProblemService {
     List<ProblemDto> getProblemsByCategory(String category);
     List<ProblemDto> getProblemsByDifficulty(String difficulty);
     List<ProblemDto> getProblemsByCategoryOrDifficulty(List<String> categories, List<String> difficulties);
+    long countAllTheExistingProblems();
 }

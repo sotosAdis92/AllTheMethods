@@ -66,4 +66,10 @@ public class ProblemController {
         return ResponseEntity.ok(problemDtos);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> countAllTheExistingProblems(){
+        long count = problemService.countAllTheExistingProblems();
+        return ResponseEntity.ok(count);
+    }
+
 }

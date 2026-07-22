@@ -94,4 +94,8 @@ public class ProblemServiceImpl implements ProblemService {
         }
         return problemsByCategoryAndDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
+
+    public long countAllTheExistingProblems(){
+        return problemRepository.count();
+    }
 }

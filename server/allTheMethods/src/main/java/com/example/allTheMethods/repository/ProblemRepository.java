@@ -17,4 +17,6 @@ public interface ProblemRepository extends JpaRepository<Problem, Long> {
 
     List<Problem> findProblemsByCategoryIn(@Param("categories") List<String> categories);
     List<Problem> findProblemsByDifficultyIn(@Param("difficulties") List<String> difficulties);
+
+    long count();
 }
