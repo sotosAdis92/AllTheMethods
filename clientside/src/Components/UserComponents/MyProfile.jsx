@@ -12,7 +12,9 @@ const MyProfile = () => {
     getUser()
       .then((response) => {
         setDisplayName(response.data.displayName);
-        console.log("Api response:", response.data);
+        setUserId(response.data.id);
+        console.log("Api response:", response.data.displayName);
+        console.log("Api response:", response.data.id);
       })
       .catch((error) => {
         console.error(error);
@@ -41,7 +43,7 @@ const MyProfile = () => {
             <ViewMyProblems props={userId}></ViewMyProblems>
           </div>
           <div>
-            <ProgressChart></ProgressChart>
+            <ProgressChart userId={userId}></ProgressChart>
           </div>
         </div>
       </div>

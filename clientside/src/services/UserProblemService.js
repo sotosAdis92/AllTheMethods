@@ -11,7 +11,7 @@ export const saveSolvedProblem = async (problemInfo) => {
 
 export const getUserProblems = async (userId) => {
   const response = await axiosInstance.get(
-    REST_API_BASE_URL + `/myproblems/${userId}`,
+    REST_API_BASE_URL + "/myproblems/" + userId,
   );
   return response;
 };
@@ -21,5 +21,13 @@ export const getUserProblemById = async (problemId) => {
     REST_API_BASE_URL + "/check/" + problemId,
     problemId,
   );
+  return response;
+};
+
+export const getCountProblems = async (id) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/difficulty/" + id,
+  );
+  console.log(response);
   return response;
 };
