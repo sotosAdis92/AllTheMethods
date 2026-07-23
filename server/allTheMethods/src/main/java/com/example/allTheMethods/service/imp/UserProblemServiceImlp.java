@@ -11,8 +11,11 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.Tuple;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,5 +68,15 @@ public class UserProblemServiceImlp implements UserProblemService {
             }
         }
         return flag;
+    }
+
+    @Override
+    public List<Object[]> countAllByUserAndProblemDifficulty(int id){
+        Users user = jwtUtil.getLoggedInUser();
+        List<Object[]> countProblemsByDifficulty = new ArrayList<>();
+        if(user!=null){
+            countProblemsByDifficulty = userProblemsRepository.countAllByUserAndProblemDifficulty(user.getId());
+        }
+        return countProblemsByDifficulty;
     }
 }

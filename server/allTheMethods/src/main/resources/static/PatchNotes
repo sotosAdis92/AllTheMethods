@@ -1,9 +1,12 @@
 Version 0.12
+
 Need to implement:
-(-) UI with charts showing user progress
+(-) UI images in the list of problems and achievements
+
 
 
 Implemeneted:
+(-) UI with charts showing user progress
 (+) User problems being saved in the database + UI: Passed Testing
 (+) User Achievements being save in the database + UI: Passed Testing
 (+) User Achievements UI CSS Styling

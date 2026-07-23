@@ -2,10 +2,14 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.service.UserProblemService;
+import jakarta.persistence.Tuple;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")
@@ -31,6 +35,12 @@ public class UserProblemController {
     @GetMapping("/check/{id}")
     public boolean checkIfUserSolvedAProblem(@PathVariable int id){
         return userProblemService.checkIfUserSolvedAProblem(id);
+    }
+
+    @GetMapping("/count/{id}")
+    public ResponseEntity<List<Object[]>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
+        List<Object[]> count = userProblemService.countAllByUserAndProblemDifficulty(id);
+        return ResponseEntity.ok(count);
     }
 
 }
