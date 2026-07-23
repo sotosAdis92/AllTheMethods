@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/UsersService";
+import ProgressChart from "./ProgressChart";
 import UserIcon from "./UserIcon";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
@@ -38,6 +39,9 @@ const MyProfile = () => {
           </div>
           <div className="viewProblems">
             <ViewMyProblems props={userId}></ViewMyProblems>
+          </div>
+          <div>
+            <ProgressChart></ProgressChart>
           </div>
         </div>
       </div>
