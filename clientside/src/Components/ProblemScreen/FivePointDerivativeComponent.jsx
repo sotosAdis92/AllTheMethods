@@ -95,8 +95,9 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
       });
-      const response = sendFivePointDerivativeData(submissionData);
+      const response = await sendFivePointDerivativeData(submissionData);
       const result = response.data;
+      console.log(result);
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);

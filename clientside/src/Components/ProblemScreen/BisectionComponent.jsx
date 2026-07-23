@@ -94,6 +94,7 @@ const BisectionComponent = forwardRef((props, ref) => {
 
       const response = await sendSubmissionData(submissionData);
       const result = response.data;
+      console.log(result);
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
