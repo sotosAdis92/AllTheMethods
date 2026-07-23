@@ -33,12 +33,14 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
     problemId,
     problemData,
     iterations,
-    xZero,
+    xoParameter,
     countingParameters,
     xiParameters,
     fiParameters,
     typeOfDerivative,
   } = useFetchDerivatives();
+
+  console.log(problemData.xoParameter);
 
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
@@ -77,7 +79,7 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
     countingParameters,
     xiParameters,
     fiParameters,
-    xZero,
+    xoParameter,
     typeOfDerivative,
   };
 
@@ -132,6 +134,7 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
   return (
     <>
       <div className="listOfDerivativeParams">
+        <div>Xo={problemData.xoParameter}</div>
         <div className="params">
           <div className="labelDerivativeParams">
             <KatexLabel latex={`i:`}></KatexLabel>
