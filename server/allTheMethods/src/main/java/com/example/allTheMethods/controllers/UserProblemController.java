@@ -37,9 +37,9 @@ public class UserProblemController {
         return userProblemService.checkIfUserSolvedAProblem(id);
     }
 
-    @GetMapping("/count/{id}")
-    public ResponseEntity<List<Object[]>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
-        List<Object[]> count = userProblemService.countAllByUserAndProblemDifficulty(id);
+    @GetMapping("/difficulty/{id}")
+    public ResponseEntity<List<Object>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
+        List<Object> count = userProblemService.countAllByUserAndProblemDifficulty(id);
         return ResponseEntity.ok(count);
     }
 

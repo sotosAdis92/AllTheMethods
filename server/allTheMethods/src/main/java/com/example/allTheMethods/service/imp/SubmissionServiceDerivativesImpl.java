@@ -66,17 +66,17 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         int countMatchingInputs = 0;
         int indexOfXoParameter = 0;
         int i = 0;
-
+        hParameter = xiParameters.get(1) - xiParameters.get(0);
 
         for(i = 0;i<xiParameters.size();i++){
-            hParameter = xiParameters.get(i) - xiParameters.get(i-1);
             if(xiParameters.get(i) == xoParameter){
                 indexOfXoParameter = i;
             }
         }
-        if(typeOfDerivative == "fprime"){
+        if(typeOfDerivative.equals("fprime")){
             fprime = (1 * f(indexOfXoParameter-2,fiParameters) + (-8) * f(indexOfXoParameter-1,fiParameters) + 0 * f(indexOfXoParameter,fiParameters) + 8 * f(indexOfXoParameter+1,fiParameters) + (-1) * f(indexOfXoParameter+2,fiParameters))/(12*hParameter);
             listToCheck.add(fprime);
+            System.out.println("result "+fprime);
             countMatchingInputs = CheckIfInputsMatch(userInputs,listToCheck, countMatchingInputs);
             flag = checkExpectedListCount(countMatchingInputs,listToCheck.size(),flag);
 

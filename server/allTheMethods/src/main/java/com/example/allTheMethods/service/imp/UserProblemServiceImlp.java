@@ -71,9 +71,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<Object[]> countAllByUserAndProblemDifficulty(int id){
+    public List<Object> countAllByUserAndProblemDifficulty(int id){
         Users user = jwtUtil.getLoggedInUser();
-        List<Object[]> countProblemsByDifficulty = new ArrayList<>();
+        List<Object> countProblemsByDifficulty = new ArrayList<>();
         if(user!=null){
             countProblemsByDifficulty = userProblemsRepository.countAllByUserAndProblemDifficulty(user.getId());
         }

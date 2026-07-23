@@ -17,5 +17,5 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     List<UserProblem> findAllByUserId(Long userId);
 
     @Query("SELECT p.difficulty,COUNT(up) FROM UserProblem up JOIN up.problem p WHERE up.user.id = ?1 GROUP BY p.difficulty")
-    List<Object[]> countAllByUserAndProblemDifficulty(@Param("userId") Long userId);
+    List<Object> countAllByUserAndProblemDifficulty(@Param("userId") Long userId);
 }
