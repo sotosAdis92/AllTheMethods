@@ -902,39 +902,43 @@ body {
     0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+.listOfMyAchievements,
 .listOfUserProblems {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 2px solid #e2e8f0; /* Increased border width */
+  border: 2px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.listOfMyAchievements > div,
 .listOfUserProblems > div {
   display: flex;
   align-items: center;
-  padding: 16px 20px; /* Increased padding */
-  background: #ffffff;
-  border-bottom: 2px solid #e2e8f0; /* Thicker border */
+  padding: 16px 20px;
+  border-bottom: 2px solid #e2e8f0;
   transition: all 0.15s ease;
   gap: 16px;
   cursor: default;
   position: relative;
 }
 
+.listOfMyAchievements > div:nth-child(even),
 .listOfUserProblems > div:nth-child(even) {
-  background: #fafbfc;
+  background: transparent;
 }
 
-.listOfUserProblems > div > div {
-  font-size: 16px;
+.listOfMyAchievements > div:last-child,
+.listOfUserProblems > div:last-child {
+  border-bottom: none;
 }
 
+.listOfMyAchievements > div > div:first-child,
 .listOfUserProblems > div > div:first-child {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #4a4b4e;
   min-width: 36px;
@@ -942,24 +946,12 @@ body {
   font-variant-numeric: tabular-nums;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f1f5f9;
   padding: 2px 8px;
   border-radius: 6px;
   text-align: center;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
 }
 
+.listOfMyAchievements > div > div:last-child,
 .listOfUserProblems > div > div:last-child {
   font-size: 14px;
   font-weight: 600;
@@ -978,6 +970,8 @@ body {
     "Helvetica Neue",
     sans-serif;
 }
+
+.listOfMyAchievements > div > div:nth-child(3),
 .listOfUserProblems > div > div:nth-child(3) {
   font-family:
     system-ui,
@@ -992,6 +986,8 @@ body {
     "Helvetica Neue",
     sans-serif;
 }
+
+.listOfMyAchievements > div > div:nth-child(2),
 .listOfUserProblems > div > div:nth-child(2) {
   flex: 1;
   font-size: 15px;
@@ -1937,7 +1933,6 @@ body {
 }
 
 .viewAchievements ol > div {
-  background: #f7f8fa;
   padding: 0.75rem 1rem;
   border-radius: 8px;
   display: grid;

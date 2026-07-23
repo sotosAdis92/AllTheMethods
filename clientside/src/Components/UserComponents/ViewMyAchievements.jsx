@@ -36,7 +36,7 @@ const ViewMyAchievements = (props) => {
         <>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
-          <ol className="listOfUserProblems">{listOfMyAchievements}</ol>
+          <ol className="listOfMyAchievements">{listOfMyAchievements}</ol>
         </>
       ) : (
         <>
