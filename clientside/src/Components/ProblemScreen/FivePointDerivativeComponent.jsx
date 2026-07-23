@@ -40,8 +40,6 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
     typeOfDerivative,
   } = useFetchDerivatives();
 
-  console.log(problemData.xoParameter);
-
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);
@@ -53,7 +51,7 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
 
   function validateForm() {
     let valid = true;
-    if (inp.length != iterations || text === 0) {
+    if (text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
     } else {
@@ -67,19 +65,16 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
 
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
   let problemCategory = props.problemCategory;
-
+  let xZero = problemData.xoParameter;
   //Submitting data based on what method we have rendered to reduce if checks for both client and server
   const submissionData = {
     inp,
     problemMethod,
-    problemString,
-    iterations,
     countingParameters,
     xiParameters,
     fiParameters,
-    xoParameter,
+    xZero,
     typeOfDerivative,
   };
 
@@ -105,7 +100,7 @@ const FivePointDerivativeComponent = forwardRef((props, ref) => {
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result, achievements);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 

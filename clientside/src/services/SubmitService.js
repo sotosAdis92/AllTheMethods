@@ -71,6 +71,7 @@ export const sendThreePointDerivativeData = async (data) => {
 };
 
 export const sendFivePointDerivativeData = async (data) => {
+  console.log(data);
   const response = await axiosInstance.post(
     REST_API_BASE_URL + "/fivePointsDer",
     data,
