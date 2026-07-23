@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetchIntegrals from "../../hooks/useFetchIntergrals";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -17,6 +18,7 @@ import {
 import FormInput from "../FormInput";
 
 const TrapezodialRuleComponent = forwardRef((props, ref) => {
+  const { id } = useParams();
   const [result, setResult] = useState(false);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -94,7 +96,7 @@ const TrapezodialRuleComponent = forwardRef((props, ref) => {
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result, achievements);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 

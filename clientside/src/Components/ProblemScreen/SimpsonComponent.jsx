@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetchIntegrals from "../../hooks/useFetchIntergrals";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -14,6 +15,7 @@ import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
 import FormInput from "../FormInput";
 
 const SimpsonComponent = forwardRef((props, ref) => {
+  const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -90,7 +92,7 @@ const SimpsonComponent = forwardRef((props, ref) => {
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result, achievements);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 

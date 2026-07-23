@@ -85,7 +85,7 @@ const FixedPointComponent = forwardRef((props, ref) => {
       const resultOfServer = response.data;
       setResult(resultOfServer);
       await decideToSaveSolvedProblem(result);
-      await saveAchievementOfUser(result);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 

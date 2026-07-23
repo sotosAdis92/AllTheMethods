@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetchDerivatives from "../../hooks/useFetchDerivatives";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
@@ -17,6 +18,7 @@ import {
 import FormInput from "../FormInput";
 import KatexLabel from "./KatexLabel";
 const RichardsonComponent = forwardRef((props, ref) => {
+  const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -101,7 +103,7 @@ const RichardsonComponent = forwardRef((props, ref) => {
       setResult(result);
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result, achievements);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 

@@ -100,7 +100,7 @@ const RungeKuttaComponent = forwardRef((props, ref) => {
       const result = response.data;
       setCallback(result);
       await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
-      await saveAchievementOfUser(result, achievements);
+      await saveAchievementOfUser(id, result, achievements);
     }
   };
 
