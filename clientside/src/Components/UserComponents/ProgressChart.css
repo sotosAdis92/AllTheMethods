@@ -35,6 +35,8 @@
 }
 
 .containerOfListOfUser {
+  font-size: 14px;
+  font-weight: 600;
   list-style: none;
   padding: 20px;
   margin: 0;
@@ -67,8 +69,10 @@
 
 .listOfUserData {
   display: flex;
-  width: 50%;
+  width: 60%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
 }
