@@ -5,6 +5,7 @@ import {
   getCountDistinctProblems,
   getCountProblems,
 } from "../../services/UserProblemService";
+import ProblemDifficulty from "../ProblemDifficulty";
 import "./ProgressChart.css";
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
@@ -44,7 +45,16 @@ const ProgressChart = (props) => {
   const distinctLabels = countDistinct.map((item) => item[0]);
   const distinctGeneralData = countDistinct.map((item) => item[1]);
   const distinctUserData = countDistinct.map((item) => item[2]);
-
+  const listOfUserData = countDistinct.map((item, i) => {
+    return (
+      <div key={i} className="containerOfListOfUser">
+        <ProblemDifficulty difficulty={item[0]}></ProblemDifficulty>
+        <div>
+          {item[2]}/{item[1]}
+        </div>
+      </div>
+    );
+  });
   console.log(distinctGeneralData);
   const centerStatisticsPlugin = {
     id: "centerStatisticsPlugin",
@@ -53,20 +63,6 @@ const ProgressChart = (props) => {
   ChartJS.register(centerStatisticsPlugin);
   return (
     <div className="doughnutContainerDiv">
-      <div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
       <div className="doughnut" style={{}}>
         <Doughnut
           data={{
@@ -96,7 +92,7 @@ const ProgressChart = (props) => {
                 },
               },
               legend: {
-                display: true,
+                display: false,
                 labels: {
                   font: {
                     family: "'system-ui','-apple-system'",
@@ -114,6 +110,7 @@ const ProgressChart = (props) => {
           }}
         ></Doughnut>
       </div>
+      <div>{listOfUserData}</div>
     </div>
   );
 };
