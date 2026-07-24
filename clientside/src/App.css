@@ -846,13 +846,13 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: #d1fae5; /* Very light green */
-  border: 2px solid #059669; /* Darker green border */
+  background: #d1fae5;
+  border: 2px solid #059669;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 3px; /* Inside padding */
+  padding: 3px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
 }
