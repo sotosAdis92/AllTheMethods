@@ -31,3 +31,9 @@ export const getCountProblems = async (id) => {
   console.log(response);
   return response;
 };
+
+export const getCountDistinctProblems = async (id) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/count/" + id);
+  console.log(response);
+  return response;
+};

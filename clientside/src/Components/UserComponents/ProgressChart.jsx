@@ -1,14 +1,28 @@
 import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from "chart.js";
 import { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { getCountProblems } from "../../services/UserProblemService";
+import {
+  getCountDistinctProblems,
+  getCountProblems,
+} from "../../services/UserProblemService";
 import "./ProgressChart.css";
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
 const ProgressChart = (props) => {
   const [count, setCount] = useState([]);
+  const [countDistinct, setCountDistinct] = useState([]);
   const userId = props.userId;
   console.log(userId);
+  const getCountDistinct = () => {
+    getCountDistinctProblems(userId)
+      .then((response) => {
+        setCountDistinct(response.data);
+        console.log("get distinct ", response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const getCount = () => {
     getCountProblems(userId)
       .then((response) => {
@@ -22,12 +36,16 @@ const ProgressChart = (props) => {
 
   useEffect(() => {
     if (userId) {
+      getCountDistinct();
       getCount();
     }
   }, [userId]);
 
-  const labels = count.map((item) => item[0]);
-  const dataValues = count.map((item) => item[1]);
+  const distinctLabels = countDistinct.map((item) => item[0]);
+  const distinctGeneralData = countDistinct.map((item) => item[1]);
+  const distinctUserData = countDistinct.map((item) => item[2]);
+
+  console.log(distinctGeneralData);
   const centerStatisticsPlugin = {
     id: "centerStatisticsPlugin",
   };
@@ -52,11 +70,11 @@ const ProgressChart = (props) => {
       <div className="doughnut" style={{}}>
         <Doughnut
           data={{
-            labels: labels,
+            labels: distinctLabels,
             datasets: [
               {
                 label: "Problems Solved",
-                data: dataValues,
+                data: distinctUserData,
                 backgroundColor: ["#28a697", "#ffbf40", "#ff2d55"],
               },
             ],
