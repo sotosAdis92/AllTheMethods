@@ -48,8 +48,11 @@ const ProgressChart = (props) => {
   const listOfUserData = countDistinct.map((item, i) => {
     return (
       <div key={i} className="containerOfListOfUser">
-        <ProblemDifficulty difficulty={item[0]}></ProblemDifficulty>
-        <div>
+        <ProblemDifficulty
+          difficulty={item[0]}
+          className="problemDiff"
+        ></ProblemDifficulty>
+        <div className="numbers">
           {item[2]}/{item[1]}
         </div>
       </div>

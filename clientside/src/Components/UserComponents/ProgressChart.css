@@ -38,7 +38,6 @@
   font-size: 14px;
   font-weight: 600;
   list-style: none;
-  padding: 20px;
   margin: 0;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
@@ -50,8 +49,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0px 0px;
-  gap: 12px;
+  padding: 10px;
+  gap: 0px;
   position: relative;
   border-radius: 6px;
   transition: background-color 0.2s;
@@ -59,6 +58,7 @@
 }
 
 .containerOfListOfUser > :first-child {
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,8 +66,11 @@
   width: 100%;
   text-align: center;
 }
-
+.problemDiff {
+  font-weight: 600;
+}
 .listOfUserData {
+  font-weight: 600;
   display: flex;
   width: 60%;
   align-items: center;
@@ -75,4 +78,8 @@
   flex-direction: column;
   gap: 12px;
   font-size: 15px;
+}
+
+.numbers {
+  font-size: 16px;
 }
