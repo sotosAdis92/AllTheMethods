@@ -1,0 +1,13 @@
+.doughnutContainerDiv {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  width: 50%;
+  height: auto;
+  position: "relative";
+}

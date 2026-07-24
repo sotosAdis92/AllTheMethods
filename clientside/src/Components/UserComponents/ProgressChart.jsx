@@ -1,8 +1,9 @@
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
+import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from "chart.js";
 import { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { getCountProblems } from "../../services/UserProblemService";
-ChartJS.register(Tooltip, Legend, ArcElement);
+import "./ProgressChart.css";
+ChartJS.register(Tooltip, Legend, ArcElement, Title);
 
 const ProgressChart = (props) => {
   const [count, setCount] = useState([]);
@@ -27,8 +28,13 @@ const ProgressChart = (props) => {
 
   const labels = count.map((item) => item[0]);
   const dataValues = count.map((item) => item[1]);
+  const centerStatisticsPlugin = {
+    id: "centerStatisticsPlugin",
+  };
+
+  ChartJS.register(centerStatisticsPlugin);
   return (
-    <div>
+    <div className="doughnutContainerDiv" style={{}}>
       <Doughnut
         data={{
           labels: labels,
@@ -40,7 +46,39 @@ const ProgressChart = (props) => {
             },
           ],
         }}
-        options={{ cutout: 420 }}
+        options={{
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 1,
+          cutout: "88%",
+          plugins: {
+            title: {
+              display: true,
+              text: `${props.displayName} Progress`,
+              align: "center",
+              position: "top",
+              font: {
+                size: 22,
+                weight: "bolder",
+              },
+            },
+            legend: {
+              display: true,
+              labels: {
+                font: {
+                  family: "'system-ui','-apple-system'",
+                  size: 20,
+                  style: "initial",
+                  weight: "bolder",
+                },
+                boxWidth: 20,
+                boxHeight: 20,
+                useBorderRadius: true,
+                borderRadius: 4,
+              },
+            },
+          },
+        }}
       ></Doughnut>
     </div>
   );

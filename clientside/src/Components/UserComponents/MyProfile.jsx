@@ -36,14 +36,17 @@ const MyProfile = () => {
           </h1>
         </div>
         <div className="content">
-          <div className="viewAchievements">
-            <ViewMyAchievements props={userId}></ViewMyAchievements>
+          <div>
+            <ProgressChart
+              userId={userId}
+              displayName={displayName}
+            ></ProgressChart>
           </div>
           <div className="viewProblems">
             <ViewMyProblems props={userId}></ViewMyProblems>
           </div>
-          <div>
-            <ProgressChart userId={userId}></ProgressChart>
+          <div className="viewAchievements">
+            <ViewMyAchievements props={userId}></ViewMyAchievements>
           </div>
         </div>
       </div>
