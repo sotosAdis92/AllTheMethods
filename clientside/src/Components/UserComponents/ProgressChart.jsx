@@ -86,7 +86,7 @@ const ProgressChart = (props) => {
             plugins: {
               title: {
                 display: true,
-                text: `${props.displayName} Progress`,
+                text: `${props.displayName} progress`,
                 align: "center",
                 position: "top",
                 font: {
