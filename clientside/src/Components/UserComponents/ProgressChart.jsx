@@ -34,52 +34,68 @@ const ProgressChart = (props) => {
 
   ChartJS.register(centerStatisticsPlugin);
   return (
-    <div className="doughnutContainerDiv" style={{}}>
-      <Doughnut
-        data={{
-          labels: labels,
-          datasets: [
-            {
-              label: "Problems Solved",
-              data: dataValues,
-              backgroundColor: ["#28a697", "#ffbf40", "#ff2d55"],
-            },
-          ],
-        }}
-        options={{
-          responsive: true,
-          maintainAspectRatio: true,
-          aspectRatio: 1,
-          cutout: "88%",
-          plugins: {
-            title: {
-              display: true,
-              text: `${props.displayName} Progress`,
-              align: "center",
-              position: "top",
-              font: {
-                size: 22,
-                weight: "bolder",
+    <div className="doughnutContainerDiv">
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div className="doughnut" style={{}}>
+        <Doughnut
+          data={{
+            labels: labels,
+            datasets: [
+              {
+                label: "Problems Solved",
+                data: dataValues,
+                backgroundColor: ["#28a697", "#ffbf40", "#ff2d55"],
               },
-            },
-            legend: {
-              display: true,
-              labels: {
+            ],
+          }}
+          options={{
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 1,
+            cutout: "85%",
+            plugins: {
+              title: {
+                display: true,
+                text: `${props.displayName} Progress`,
+                align: "center",
+                position: "top",
                 font: {
-                  family: "'system-ui','-apple-system'",
-                  size: 20,
-                  style: "initial",
+                  size: 22,
                   weight: "bolder",
                 },
-                boxWidth: 20,
-                boxHeight: 20,
-                useBorderRadius: true,
-                borderRadius: 4,
+              },
+              legend: {
+                display: true,
+                labels: {
+                  font: {
+                    family: "'system-ui','-apple-system'",
+                    size: 20,
+                    style: "initial",
+                    weight: "bolder",
+                  },
+                  boxWidth: 20,
+                  boxHeight: 20,
+                  useBorderRadius: true,
+                  borderRadius: 4,
+                },
               },
             },
-          },
-        }}
-      ></Doughnut>
+          }}
+        ></Doughnut>
+      </div>
     </div>
   );
 };
