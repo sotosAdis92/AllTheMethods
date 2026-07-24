@@ -2,13 +2,9 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.service.UserProblemService;
-import jakarta.persistence.Tuple;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -41,6 +37,12 @@ public class UserProblemController {
     public ResponseEntity<List<Object>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
         List<Object> count = userProblemService.countAllByUserAndProblemDifficulty(id);
         return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/count/{id}")
+    public ResponseEntity<List<Object>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
+        List<Object> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
+        return ResponseEntity.ok(countDistinct);
     }
 
 }

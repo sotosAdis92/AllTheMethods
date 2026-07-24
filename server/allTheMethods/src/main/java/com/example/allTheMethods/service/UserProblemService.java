@@ -14,4 +14,5 @@ public interface UserProblemService {
     List<UserProblemDto> getUserProblems();
     boolean checkIfUserSolvedAProblem(int id);
     List<Object> countAllByUserAndProblemDifficulty(int id);
+    List<Object> countDistinctSolvedProblemsByDifficultyForUser(int id);
 }
