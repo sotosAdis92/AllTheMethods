@@ -35,20 +35,40 @@
 }
 
 .containerOfListOfUser {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  padding: 8px 12px;
-  gap: 20px;
+  padding: 0px 0px;
+  gap: 12px;
+  position: relative;
   border-radius: 6px;
   transition: background-color 0.2s;
+  text-align: center;
+}
+
+.containerOfListOfUser > :first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
 
 .listOfUserData {
   display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
-  flex: 1;
-  max-width: 300px;
 }
