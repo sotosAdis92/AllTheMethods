@@ -110,7 +110,7 @@ const ProgressChart = (props) => {
           }}
         ></Doughnut>
       </div>
-      <div>{listOfUserData}</div>
+      <div className="listOfUserData">{listOfUserData}</div>
     </div>
   );
 };

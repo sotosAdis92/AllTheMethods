@@ -1,6 +1,6 @@
 .doughnutContainerDiv {
   list-style: none;
-  padding: 0;
+  padding: 20px;
   margin: 0;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
@@ -10,7 +10,11 @@
   width: 50%;
   height: auto;
   display: flex;
-  position: "relative";
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
 }
 
 .doughnut {
@@ -19,5 +23,20 @@
 }
 
 .containerOfListOfUser {
-  margin-top: 50%;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  gap: 20px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.listOfUserData {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  flex: 1;
+  max-width: 300px;
 }
