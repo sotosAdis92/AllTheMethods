@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import "../../App.css";
 import { getCountDistinctProblemsByCategory } from "../../services/UserProblemService";
-
 const UserSkills = (props) => {
   const [countCategories, setCountCategories] = useState([]);
   const userId = props.userId;
