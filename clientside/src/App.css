@@ -924,6 +924,8 @@ body {
   gap: 16px;
   cursor: default;
   position: relative;
+  idth: 100%;
+  box-sizing: border-box;
 }
 
 .listOfMyAchievements > div:nth-child(even),

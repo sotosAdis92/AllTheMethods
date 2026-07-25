@@ -1,0 +1,8 @@
+.achievementContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.achievementDiv {
+  text-align: center;
+}

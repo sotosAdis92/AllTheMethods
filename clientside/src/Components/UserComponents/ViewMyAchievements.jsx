@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import "../../App.css";
 import img1 from "../../assets/trophy.png";
 import { getUserAchievements } from "../../services/UserAchievementService";
+import "./ViewMyAchievements.css";
 const ViewMyAchievements = (props) => {
   const [myAchievements, setMyAchievements] = useState([]);
 
@@ -24,8 +26,8 @@ const ViewMyAchievements = (props) => {
   }, []);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
-    <div key={myAchievement.achievementId}>
-      <div>{myAchievement.category}</div>
+    <div key={myAchievement.achievementId} className="achievementContainer">
+      <div className="achievementDiv">{myAchievement.category}</div>
       <div>{myAchievement.name}</div>
       <div>{myAchievement.rank}</div>
     </div>
