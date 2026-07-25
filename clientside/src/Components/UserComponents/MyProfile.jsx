@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getUser } from "../../services/UsersService";
 import ProgressChart from "./ProgressChart";
 import UserIcon from "./UserIcon";
+import UserSkills from "./UserSkills";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
 const MyProfile = () => {
@@ -41,6 +42,9 @@ const MyProfile = () => {
               userId={userId}
               displayName={displayName}
             ></ProgressChart>
+          </div>
+          <div>
+            <UserSkills userId={userId}></UserSkills>
           </div>
           <div className="viewProblems">
             <ViewMyProblems props={userId}></ViewMyProblems>
