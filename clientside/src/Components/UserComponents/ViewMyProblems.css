@@ -1,0 +1,8 @@
+.problemContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.problemDiv {
+  text-align: center;
+}

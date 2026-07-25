@@ -4,7 +4,7 @@ import img2 from "../../assets/problem.png";
 import { getProblemsCount } from "../../services/ProblemService";
 import { getUserProblems } from "../../services/UserProblemService";
 import ProblemDifficulty from "../ProblemDifficulty";
-
+import "./ViewMyProblems.css";
 const ViewMyProblems = (props) => {
   const [myProblems, setMyProblems] = useState([]);
   const count = myProblems.filter((myPorblem) => myPorblem.problemId).length;
@@ -37,11 +37,10 @@ const ViewMyProblems = (props) => {
   }, []);
 
   const listOfMyProblems = myProblems.map((myProblem) => (
-    <div key={myProblem.problemId}>
-      <div>{myProblem.title}</div>
-      <div>{myProblem.category}</div>
+    <div key={myProblem.problemId} className="problemContainer">
+      <div className="problemDiv">{myProblem.title}</div>
+      <div className="problemDiv">{myProblem.category}</div>
       <ProblemDifficulty difficulty={myProblem.difficulty}></ProblemDifficulty>
-      <div>{myProblem.points}</div>
     </div>
   ));
   return (

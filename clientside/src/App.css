@@ -1147,6 +1147,7 @@ body {
   display: inline-block;
   margin-bottom: 1.25rem;
   font-weight: 500;
+  font-size: 17px;
 }
 
 .userProblemsCounter {
@@ -1171,6 +1172,7 @@ body {
   display: inline-block;
   margin-bottom: 1.25rem;
   font-weight: 500;
+  font-size: 17px;
 }
 .userProblemsHeader {
   font-family:
