@@ -37,3 +37,11 @@ export const getCountDistinctProblems = async (id) => {
   console.log(response);
   return response;
 };
+
+export const getCountDistinctProblemsByCategory = async (id) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/category/" + id,
+  );
+  console.log(response);
+  return response;
+};
