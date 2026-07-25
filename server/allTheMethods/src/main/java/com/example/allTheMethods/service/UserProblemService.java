@@ -15,4 +15,5 @@ public interface UserProblemService {
     boolean checkIfUserSolvedAProblem(int id);
     List<Object> countAllByUserAndProblemDifficulty(int id);
     List<Object> countDistinctSolvedProblemsByDifficultyForUser(int id);
+    List<Object> countDistinctSolvedProblemsByCategoryForUser(int id);
 }

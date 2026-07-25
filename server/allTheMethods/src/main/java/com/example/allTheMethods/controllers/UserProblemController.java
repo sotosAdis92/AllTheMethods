@@ -45,4 +45,10 @@ public class UserProblemController {
         return ResponseEntity.ok(countDistinct);
     }
 
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<Object>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
+        List<Object> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);
+        return ResponseEntity.ok(countDistinct);
+    }
+
 }

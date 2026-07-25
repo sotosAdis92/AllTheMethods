@@ -89,4 +89,16 @@ public class UserProblemServiceImlp implements UserProblemService {
         }
         return countDistinctSolved;
     }
+
+    @Override
+    public List<Object> countDistinctSolvedProblemsByCategoryForUser(int id) {
+        Users user = jwtUtil.getLoggedInUser();
+        List<Object> countDistinctSolved = new ArrayList<>();
+        if(user!=null){
+            countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory(user.getId());
+        }
+        return countDistinctSolved;
+    }
+
+
 }

@@ -21,4 +21,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 GROUP BY p.difficulty")
     List<Object> countDistinctSolvedByDifficultyFromUser(@Param("userId") Long userId);
+
+    @Query("SELECT p.category,COUNT(p.category) FROM Problem p FULL JOIN UserProblem up ON p.id = up.problem.id WHERE up.user.id = ?1 GROUP BY p.category")
+    List<Object> countDistinctByIdAndCategory(@Param("userId") Long userId);
 }
