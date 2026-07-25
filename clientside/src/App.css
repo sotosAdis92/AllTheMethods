@@ -2076,7 +2076,34 @@ body {
   margin: 20px 0;
 }
 
+.userSkillsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 30px;
+  max-width: 400px;
+}
+
 .userSkillsHeading {
   font-size: 18px;
   font-weight: 500;
+}
+
+.skillsItems {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.skillsItemName {
+  background-color: #e0e0e0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.skillsItemCount {
+  color: #655;
+  font-size: 0.85em;
 }
