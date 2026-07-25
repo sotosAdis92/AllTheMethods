@@ -60,7 +60,7 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         boolean flag = false;
         if(user!=null){
-            List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId(user.getId());
+            List<UserProblem> usersSolvedProblems = userProblemsRepository.findAllByUserId((long) id);
             for(int i=0;i<usersSolvedProblems.size();i++){
                 if(usersSolvedProblems.get(i).getProblem().getId().equals((long) id)){
                     flag = true;
@@ -75,7 +75,7 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         List<Object> countProblemsByDifficulty = new ArrayList<>();
         if(user!=null){
-            countProblemsByDifficulty = userProblemsRepository.countAllByUserAndProblemDifficulty(user.getId());
+            countProblemsByDifficulty = userProblemsRepository.countAllByUserAndProblemDifficulty((long) id);
         }
         return countProblemsByDifficulty;
     }
@@ -85,7 +85,7 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         List<Object> countDistinctSolved = new ArrayList<>();
         if(user!=null){
-            countDistinctSolved = userProblemsRepository.countDistinctSolvedByDifficultyFromUser(user.getId());
+            countDistinctSolved = userProblemsRepository.countDistinctSolvedByDifficultyFromUser((long) id);
         }
         return countDistinctSolved;
     }
@@ -95,7 +95,7 @@ public class UserProblemServiceImlp implements UserProblemService {
         Users user = jwtUtil.getLoggedInUser();
         List<Object> countDistinctSolved = new ArrayList<>();
         if(user!=null){
-            countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory(user.getId());
+            countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory((long) id);
         }
         return countDistinctSolved;
     }
