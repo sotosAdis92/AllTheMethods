@@ -2079,19 +2079,20 @@ body {
 .userSkillsDiv {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 30px;
+  gap: 4px 25px;
   max-width: 400px;
 }
 
 .userSkillsHeading {
   font-size: 18px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 
 .skillsItems {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   box-sizing: border-box;
 }
 
@@ -2101,9 +2102,10 @@ body {
   border-radius: 20px;
   font-weight: 500;
   transition: background-color 0.2s;
+  font-size: 0.85em;
 }
 
 .skillsItemCount {
   color: #655;
-  font-size: 0.85em;
+  font-size: 0.8em;
 }
