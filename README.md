@@ -132,6 +132,7 @@ spring-react/
 - Server side computation of results
 - Rate Limiting to prevent against DDOS attacks
 - Stateless Authentication
+- Statistics and Charts
   
 # License
 
