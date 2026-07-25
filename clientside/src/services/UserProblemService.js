@@ -39,9 +39,10 @@ export const getCountDistinctProblems = async (id) => {
 };
 
 export const getCountDistinctProblemsByCategory = async (id) => {
+  console.log("function called");
   const response = await axiosInstance.get(
     REST_API_BASE_URL + "/category/" + id,
   );
-  console.log(response);
+  console.log("s", response);
   return response;
 };
