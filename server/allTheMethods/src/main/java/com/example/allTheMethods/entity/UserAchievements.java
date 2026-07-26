@@ -1,6 +1,5 @@
 package com.example.allTheMethods.entity;
 
-import com.example.allTheMethods.dto.UserAchievementDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
