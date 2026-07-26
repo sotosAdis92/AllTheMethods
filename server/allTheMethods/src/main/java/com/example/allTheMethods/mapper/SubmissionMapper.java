@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SubmissionMapper {
-    public SubmissionDto mapToSubmissionDto(Submission submission){
+    public static SubmissionDto mapToSubmissionDto(Submission submission){
         return new SubmissionDto(
                 submission.getId(),
                 submission.getUser().getId(),
@@ -18,7 +18,7 @@ public class SubmissionMapper {
                 submission.getDate()
         );
     }
-    public Submission mapToSubmission(SubmissionDto submissionDto, UsersRepository usersRepository, ProblemRepository problemRepository){
+    public static Submission mapToSubmission(SubmissionDto submissionDto, UsersRepository usersRepository, ProblemRepository problemRepository){
         Users user =  usersRepository.findById(submissionDto.getUserId()).orElseThrow();
         Problem problem = problemRepository.findById(submissionDto.getProblemId()).orElseThrow();
         Submission submission = new Submission();
