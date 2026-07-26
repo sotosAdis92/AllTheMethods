@@ -5,6 +5,8 @@ import UserIcon from "./UserIcon";
 import UserSkills from "./UserSkills";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
+import ViewMySumbissionsHistory from "./ViewMySubmissionsHistory";
+
 const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
@@ -48,6 +50,11 @@ const MyProfile = () => {
           </div>
           <div className="viewProblems">
             <ViewMyProblems props={userId}></ViewMyProblems>
+          </div>
+          <div>
+            <ViewMySumbissionsHistory
+              userId={userId}
+            ></ViewMySumbissionsHistory>
           </div>
           <div className="viewAchievements">
             <ViewMyAchievements props={userId}></ViewMyAchievements>
