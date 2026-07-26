@@ -36,6 +36,7 @@ const ViewMyAchievements = (props) => {
     <>
       {count > 0 ? (
         <>
+          <img src={img1} className="topleftImageAch"></img>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
           <ol className="listOfMyAchievements">{listOfMyAchievements}</ol>

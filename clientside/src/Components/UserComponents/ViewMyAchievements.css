@@ -7,8 +7,8 @@
   text-align: center;
 }
 
-.topleftImage {
-  width: 50px;
+.topleftImageAch {
+  width: 60px;
   height: 50px !important;
   object-fit: contain;
   display: block;

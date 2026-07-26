@@ -53,7 +53,6 @@ const ViewMyProblems = (props) => {
             <div className="userProblemsCounter">
               {count}/{countOfAllProblems} Problems solved
             </div>
-
             <ol className="listOfUserProblems">{listOfMyProblems}</ol>
           </div>
         </>
