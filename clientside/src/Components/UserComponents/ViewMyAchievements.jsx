@@ -28,8 +28,8 @@ const ViewMyAchievements = (props) => {
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId} className="achievementContainer">
       <div className="achievementDiv">{myAchievement.category}</div>
-      <div>{myAchievement.name}</div>
-      <div>{myAchievement.rank}</div>
+      <div className="achievementDiv">{myAchievement.name}</div>
+      <div className="achievementDiv">{myAchievement.rank}</div>
     </div>
   ));
   return (

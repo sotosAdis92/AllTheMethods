@@ -47,12 +47,15 @@ const ViewMyProblems = (props) => {
     <>
       {count > 0 ? (
         <>
-          <h1 className="userProblemsHeader">Solved Problems</h1>
-          <div className="userProblemsCounter">
-            {count}/{countOfAllProblems} Problems solved
-          </div>
+          <div className="problemsContainer">
+            <img src={img2} className="topleftImage"></img>
+            <h1 className="userProblemsHeader">Solved Problems</h1>
+            <div className="userProblemsCounter">
+              {count}/{countOfAllProblems} Problems solved
+            </div>
 
-          <ol className="listOfUserProblems">{listOfMyProblems}</ol>
+            <ol className="listOfUserProblems">{listOfMyProblems}</ol>
+          </div>
         </>
       ) : (
         <>
