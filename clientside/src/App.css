@@ -902,6 +902,7 @@ body {
     0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+.listOfUserSubmissions,
 .listOfMyAchievements,
 .listOfUserProblems {
   list-style: none;
@@ -943,11 +944,13 @@ body {
   border-radius: 0 !important;
 }
 
+.listOfUserSubmissions > div:nth-child(even),
 .listOfMyAchievements > div:nth-child(even),
 .listOfUserProblems > div:nth-child(even) {
   background: transparent;
 }
 
+.listOfUserSubmissions > div:last-child,
 .listOfMyAchievements > div:last-child,
 .listOfUserProblems > div:last-child {
   border-bottom: none;
@@ -968,6 +971,7 @@ body {
   text-align: center;
 }
 
+.listOfUserSubmissions > div > div:last-child,
 .listOfMyAchievements > div > div:last-child,
 .listOfUserProblems > div > div:last-child {
   font-size: 16px;
@@ -988,6 +992,7 @@ body {
     sans-serif;
 }
 
+.listOfUserSubmissions > div > div:nth-child(3),
 .listOfMyAchievements > div > div:nth-child(3),
 .listOfUserProblems > div > div:nth-child(3) {
   font-family:
@@ -1004,6 +1009,7 @@ body {
     sans-serif;
 }
 
+.listOfUserSubmissions > div > div:nth-child(2),
 .listOfMyAchievements > div > div:nth-child(2),
 .listOfUserProblems > div > div:nth-child(2) {
   flex: 1;
@@ -1837,6 +1843,17 @@ body {
 }
 
 .listOfAchievements {
+  width: 60%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.listOfUserSubmissions {
   width: 60%;
   list-style: none;
   display: flex;

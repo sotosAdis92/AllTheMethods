@@ -1,0 +1,15 @@
+.submissionsContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.submissionItem {
+  text-align: center;
+}
+
+.topleftImage {
+  width: 50px;
+  height: 40px !important;
+  object-fit: contain;
+  display: block;
+}

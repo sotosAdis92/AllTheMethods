@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../../App.css";
 import { getAllUserSubmissions } from "../../services/SubmitService";
 import ProblemDifficulty from "../ProblemDifficulty";
+import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
   const userId = props.userId;
