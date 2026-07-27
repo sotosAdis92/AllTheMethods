@@ -20,6 +20,7 @@ public class UserProblemMapperImpl implements UserProblemMapper {
         return new UserProblemResponse(
                 userProblem.getId(),
                 userProblem.getUser().getId(),
+                userProblem.getProblem().getId(),
                 userProblem.getProblem().getNumber(),
                 userProblem.getProblem().getTitle(),
                 userProblem.getProblem().getCategory(),
