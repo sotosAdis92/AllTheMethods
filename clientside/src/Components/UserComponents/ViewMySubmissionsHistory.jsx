@@ -5,7 +5,7 @@ import ProblemDifficulty from "../ProblemDifficulty";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
   const userId = props.userId;
-  const count = mySubmissions.filter((mySubmission) => mySubmission[0]).length;
+  const count = mySubmissions.filter((mySubmission) => mySubmission.id).length;
   const getAllSubmissions = () => {
     getAllUserSubmissions(userId)
       .then((response) => {
@@ -25,9 +25,11 @@ const ViewMySumbissionsHistory = (props) => {
   const listOfMySubmissions = mySubmissions.map((submission, i) => (
     <div key={i} className="submissionItem">
       <div>
-        {submission[1]}. {submission[2]}
-        <ProblemDifficulty difficulty={submission[3]}></ProblemDifficulty>
-        {submission[0]}
+        {submission.number}. {submission.title}
+        <ProblemDifficulty
+          difficulty={submission.difficulty}
+        ></ProblemDifficulty>
+        {submission.date}
       </div>
     </div>
   ));

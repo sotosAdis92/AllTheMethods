@@ -9,9 +9,10 @@ const ViewMyProblems = (props) => {
   const [myProblems, setMyProblems] = useState([]);
   const count = myProblems.filter((myPorblem) => myPorblem.problemId).length;
   const [countOfAllProblems, setCountOfAllProblems] = useState("");
-
+  const userId = props.userId;
+  console.log(userId);
   const getAllUserProblems = () => {
-    getUserProblems(props.userId)
+    getUserProblems(userId)
       .then((response) => {
         setMyProblems(response.data);
         console.log("Api response:", response.data);
@@ -22,8 +23,10 @@ const ViewMyProblems = (props) => {
   };
 
   useEffect(() => {
-    getAllUserProblems();
-  }, []);
+    if (userId) {
+      getAllUserProblems();
+    }
+  }, [userId]);
 
   useEffect(() => {
     getProblemsCount()

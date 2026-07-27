@@ -49,7 +49,7 @@ const MyProfile = () => {
             <UserSkills userId={userId}></UserSkills>
           </div>
           <div className="viewProblems">
-            <ViewMyProblems props={userId}></ViewMyProblems>
+            <ViewMyProblems userId={userId}></ViewMyProblems>
           </div>
           <div>
             <ViewMySumbissionsHistory
