@@ -1,6 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.service.UserProblemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class UserProblemController {
     }
 
     @GetMapping("/myproblems/{id}")
-    public ResponseEntity<?> getMyProblems(@PathVariable("id") int id){
+    public ResponseEntity<List<UserProblemResponse>> getMyProblems(@PathVariable("id") int id){
         return ResponseEntity.ok(userProblemService.getUserProblemsByUserId(id));
     }
 
