@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class UserProblemMapperImpl implements UserProblemMapper {
+
     public UserProblemResponse toDto(UserProblem userProblem){
         if(userProblem == null){
             return null;
