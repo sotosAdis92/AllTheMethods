@@ -2,6 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class SubmissionController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<List<SubmissionDto>> getSubmissionsByUserId(@PathVariable("id") int id){
-        List<SubmissionDto> submissions = submissionService.getSubmissionsByUserId(id);
+    public ResponseEntity<List<SubmissionResponse>> getSubmissionsByUserId(@PathVariable("id") int id){
+        List<SubmissionResponse> submissions = submissionService.getSubmissionsByUserId(id);
         return new ResponseEntity<>(submissions, HttpStatus.OK);
     }
 }

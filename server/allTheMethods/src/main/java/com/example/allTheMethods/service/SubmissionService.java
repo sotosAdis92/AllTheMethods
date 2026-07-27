@@ -1,11 +1,12 @@
 package com.example.allTheMethods.service;
 
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.response.SubmissionResponse;
 
 import java.util.List;
 
 
 public interface SubmissionService {
     SubmissionDto createSubmission(SubmissionDto submissionDto);
-    List<SubmissionDto> getSubmissionsByUserId(int id);
+    List<SubmissionResponse> getSubmissionsByUserId(int id);
 }

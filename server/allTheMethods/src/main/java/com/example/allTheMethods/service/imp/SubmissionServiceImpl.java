@@ -4,8 +4,8 @@ import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.entity.Users;
-import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.mapper.SubmissionMapper;
+import com.example.allTheMethods.mapper.imp.SubmissionMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -14,7 +14,6 @@ import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -23,30 +22,32 @@ public class SubmissionServiceImpl implements SubmissionService {
     private SubmissionRepository submissionRepository;
     private UsersRepository usersRepository;
     private ProblemRepository problemRepository;
+    private SubmissionMapperImpl submissionMapperImpl;
     private SubmissionMapper submissionMapper;
     private final JWTUtil jwtUtil;
 
-    public SubmissionServiceImpl(SubmissionRepository submissionRepository,JWTUtil jwtUtil, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapper submissionMapper) {
+    public SubmissionServiceImpl(SubmissionRepository submissionRepository,JWTUtil jwtUtil, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapperImpl submissionMapperImpl, SubmissionMapper submissionMapper) {
         this.submissionRepository = submissionRepository;
         this.jwtUtil = jwtUtil;
         this.usersRepository = usersRepository;
         this.problemRepository = problemRepository;
+        this.submissionMapperImpl = submissionMapperImpl;
         this.submissionMapper = submissionMapper;
     }
 
     @Override
     public SubmissionDto createSubmission(SubmissionDto submissionDto) {
-        Submission submission = submissionMapper.mapToSubmission(submissionDto, usersRepository, problemRepository);
+        Submission submission = submissionMapperImpl.mapToSubmission(submissionDto, usersRepository, problemRepository);
         Submission savedSubmission = submissionRepository.save(submission);
-        return submissionMapper.mapToSubmissionDto(savedSubmission);
+        return submissionMapperImpl.mapToSubmissionDto(savedSubmission);
     }
 
     @Override
-    public List<SubmissionDto> getSubmissionsByUserId(int id) {
+    public List<SubmissionResponse> getSubmissionsByUserId(int id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
             List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id);
-            return userSubmissions.stream().map(submission -> SubmissionMapper.mapToSubmissionDto(submission)).collect(Collectors.toUnmodifiableList());
+            return submissionMapper.toDto(userSubmissions);
         }
         throw new EntityNotFoundException("User not found");
     }
