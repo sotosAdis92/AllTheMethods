@@ -40,11 +40,11 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public List<SubmissionDto> getSubmissionsByUserId(int id) {
+    public List<Object> getSubmissionsByUserId(int id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id);
-            return userSubmissions.stream().map(userSubmission -> SubmissionMapper.mapToSubmissionDto(userSubmission)).collect(Collectors.toUnmodifiableList());
+            List<Object> userSubmissions = submissionRepository.findAllByUserId((long) id);
+            return userSubmissions;
         }
         throw new EntityNotFoundException("User not found");
     }

@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
 
-    @Query("SELECT s FROM Submission s WHERE s.user.id = ?1")
-    List<Submission> findAllByUserId(@Param("userId") Long id);
+    @Query("SELECT s.date,p.number,p.title,p.difficulty FROM Submission s JOIN Problem p ON p.id = s.problem.id WHERE s.user.id = ?1")
+    List<Object> findAllByUserId(@Param("userId") Long id);
 }

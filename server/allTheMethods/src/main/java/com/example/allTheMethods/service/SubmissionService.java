@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface SubmissionService {
     SubmissionDto createSubmission(SubmissionDto submissionDto);
-    List<SubmissionDto> getSubmissionsByUserId(int id);
+    List<Object> getSubmissionsByUserId(int id);
 }
