@@ -1,24 +1,22 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
+import com.example.allTheMethods.mapper.imp.UserProblemMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.UserProblemsRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.Tuple;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 
 @Service
@@ -27,9 +25,11 @@ public class UserProblemServiceImlp implements UserProblemService {
     private final UserProblemsRepository userProblemsRepository;
     private final UsersRepository usersRepository;
     private final ProblemRepository problemRepository;
+    private final UserProblemMapper userProblemMapper;
 
-    public UserProblemServiceImlp(JWTUtil jwtUtil, UserProblemsRepository userProblemsRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
+    public UserProblemServiceImlp(JWTUtil jwtUtil, UserProblemMapper userProblemMapper, UserProblemsRepository userProblemsRepository, UsersRepository usersRepository, ProblemRepository problemRepository) {
         this.jwtUtil = jwtUtil;
+        this.userProblemMapper = userProblemMapper;
         this.userProblemsRepository = userProblemsRepository;
         this.usersRepository = usersRepository;
         this.problemRepository = problemRepository;
@@ -40,17 +40,17 @@ public class UserProblemServiceImlp implements UserProblemService {
         System.out.println(userProblemDto.getProblemId());
         Users user = usersRepository.findById(userProblemDto.getUserId()).orElseThrow();
         Problem problem = problemRepository.findById(userProblemDto.getProblemId()).orElseThrow();
-        UserProblem userProblem = UserProblemMapper.mapToUserProblem(userProblemDto,user,problem);
+        UserProblem userProblem = UserProblemMapperImpl.mapToUserProblem(userProblemDto,user,problem);
         UserProblem savedUserProblem = userProblemsRepository.save(userProblem);
-        return UserProblemMapper.mapToUserProblemDto(savedUserProblem);
+        return UserProblemMapperImpl.mapToUserProblemDto(savedUserProblem);
     }
 
     @Override
-    public List<UserProblemDto> getUserProblems() {
+    public List<UserProblemResponse> getUserProblemsByUserId(int id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<UserProblem> userProblems = userProblemsRepository.findAllByUserId(user.getId());
-            return userProblems.stream().map(userProblem -> UserProblemMapper.mapToUserProblemDto(userProblem)).collect(Collectors.toUnmodifiableList());
+            List<UserProblem> userProblems = userProblemsRepository.findAllByUserId((long) id);
+            return userProblemMapper.toDto(userProblems);
         }
         throw new EntityNotFoundException("User not found");
     }

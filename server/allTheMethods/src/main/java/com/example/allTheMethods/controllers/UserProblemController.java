@@ -24,12 +24,12 @@ public class UserProblemController {
     }
 
     @GetMapping("/myproblems/{id}")
-    public ResponseEntity<?> getMyProblems(){
-        return ResponseEntity.ok(userProblemService.getUserProblems());
+    public ResponseEntity<?> getMyProblems(@PathVariable("id") int id){
+        return ResponseEntity.ok(userProblemService.getUserProblemsByUserId(id));
     }
 
     @GetMapping("/check/{id}")
-    public boolean checkIfUserSolvedAProblem(@PathVariable int id){
+    public boolean checkIfUserSolvedAProblem(@PathVariable("id") int id){
         return userProblemService.checkIfUserSolvedAProblem(id);
     }
 
