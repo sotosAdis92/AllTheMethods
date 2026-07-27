@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
 
-    @Query("SELECT s FROM Submission s JOIN FETCH Problem p ON p.id = s.problem.id WHERE s.user.id = ?1")
+    @Query("SELECT s FROM Submission s JOIN FETCH s.problem p WHERE s.user.id = ?1")
     List<Submission> findAllByUserId(@Param("userId") Long id);
 }
