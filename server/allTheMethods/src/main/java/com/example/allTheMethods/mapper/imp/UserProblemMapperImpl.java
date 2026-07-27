@@ -22,7 +22,10 @@ public class UserProblemMapperImpl implements UserProblemMapper {
                 userProblem.getUser().getId(),
                 userProblem.getProblem().getNumber(),
                 userProblem.getProblem().getTitle(),
-
+                userProblem.getProblem().getCategory(),
+                userProblem.getProblem().getDifficulty(),
+                userProblem.getProblem().getDescription(),
+                userProblem.getProblem().getPoints()
         );
     }
 
