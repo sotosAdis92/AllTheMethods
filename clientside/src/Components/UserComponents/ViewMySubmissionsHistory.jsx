@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllUserSubmissions } from "../../services/SubmitService";
+import ProblemDifficulty from "../ProblemDifficulty";
 
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
@@ -22,9 +23,11 @@ const ViewMySumbissionsHistory = (props) => {
 
   const listOfMySubmissions = mySubmissions.map((submission, i) => (
     <div key={i} className="submissionItem">
-      <div>{submission.submissionId}</div>
-      <div>{submission.problemId}</div>
-      <div>{submission.submittedAt}</div>
+      <div>
+        {submission[1]}. {submission[2]}
+        <ProblemDifficulty difficulty={submission[3]}></ProblemDifficulty>
+        {submission[0]}
+      </div>
     </div>
   ));
 
