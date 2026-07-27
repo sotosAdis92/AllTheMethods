@@ -17,7 +17,13 @@ public class UserProblemMapperImpl implements UserProblemMapper {
         if(userProblem == null){
             return null;
         }
-        return new UserProblemResponse();
+        return new UserProblemResponse(
+                userProblem.getId(),
+                userProblem.getUser().getId(),
+                userProblem.getProblem().getNumber(),
+                userProblem.getProblem().getTitle(),
+
+        );
     }
 
     public List<UserProblemResponse> toDto(List<UserProblem> userProblems) {
