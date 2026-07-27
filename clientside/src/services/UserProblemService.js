@@ -10,7 +10,6 @@ export const saveSolvedProblem = async (problemInfo) => {
 };
 
 export const getUserProblems = async (userId) => {
-  console.log(userId);
   const response = await axiosInstance.get(
     REST_API_BASE_URL + "/myproblems/" + userId,
   );
