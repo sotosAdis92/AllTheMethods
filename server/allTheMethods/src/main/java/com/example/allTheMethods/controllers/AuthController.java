@@ -1,7 +1,7 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.AuthenticationRequest;
-import com.example.allTheMethods.dto.AuthenticationResponse;
+import com.example.allTheMethods.dto.request.AuthenticationRequest;
+import com.example.allTheMethods.dto.response.AuthenticationResponse;
 import com.example.allTheMethods.dto.SignupRequest;
 import com.example.allTheMethods.dto.UsersDto;
 import com.example.allTheMethods.entity.Users;

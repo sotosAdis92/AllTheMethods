@@ -1,4 +1,4 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
 
 import lombok.Data;
 
