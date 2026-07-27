@@ -24,14 +24,12 @@ const ViewMySumbissionsHistory = (props) => {
   }, [userId]);
 
   const listOfMySubmissions = mySubmissions.map((submission, i) => (
-    <div key={i} className="submissionItem">
-      <div>
+    <div key={submission.id} className="submissionItem">
+      <div className="submissionDiv">
         {submission.number}. {submission.title}
-        <ProblemDifficulty
-          difficulty={submission.difficulty}
-        ></ProblemDifficulty>
-        {submission.date}
       </div>
+      <div className="submissionDiv">{submission.date}</div>
+      <ProblemDifficulty difficulty={submission.difficulty}></ProblemDifficulty>
     </div>
   ));
 

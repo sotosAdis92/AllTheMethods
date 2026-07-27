@@ -1,9 +1,166 @@
 .submissionsContainer {
-  display: flex;
-  align-items: baseline;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.submissionItem {
+.submissionsHeader {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  width: auto;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.3px;
+  border: none;
+  padding: 0;
+}
+
+.submissionsCounter {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  width: auto;
+  font-size: 0.85rem;
+  color: #8b8b8b;
+  background: #f7f8fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.listOfUserSubmissions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+.listOfUserSubmissions > div {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 2px solid #e2e8f0;
+  transition: all 0.15s ease;
+  gap: 0px;
+  cursor: default;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+.listOfUserSubmissions > div:nth-child(even) {
+  background: transparent;
+}
+
+.listOfUserSubmissions > div:last-child {
+  border-bottom: none;
+}
+
+.listOfUserSubmissions > div > div:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a4b4e;
+  min-width: 36px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.listOfUserSubmissions > div > div:last-child {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: right;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+.listOfUserSubmissions > div > div:nth-child(2) {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0f172a;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.countZeroImage {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  margin: 1.5rem auto 0.5rem auto;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.countZeroImage:hover {
+  opacity: 0.8;
+}
+
+.submissionDiv {
   text-align: center;
 }
 
