@@ -25,8 +25,8 @@ public class SubmissionController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<List<Object>> getSubmissionsByUserId(@PathVariable("id") int id){
-        List<Object> submissions = submissionService.getSubmissionsByUserId(id);
+    public ResponseEntity<List<SubmissionDto>> getSubmissionsByUserId(@PathVariable("id") int id){
+        List<SubmissionDto> submissions = submissionService.getSubmissionsByUserId(id);
         return new ResponseEntity<>(submissions, HttpStatus.OK);
     }
 }

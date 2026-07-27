@@ -11,5 +11,5 @@ import java.util.List;
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
 
     @Query("SELECT s.date,p.number,p.title,p.difficulty FROM Submission s JOIN Problem p ON p.id = s.problem.id WHERE s.user.id = ?1")
-    List<Object> findAllByUserId(@Param("userId") Long id);
+    List<Submission> findAllByUserId(@Param("userId") Long id);
 }

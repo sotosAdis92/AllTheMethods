@@ -1,8 +1,10 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.mapper.SubmissionMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
@@ -40,11 +42,11 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public List<Object> getSubmissionsByUserId(int id) {
+    public List<SubmissionDto> getSubmissionsByUserId(int id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<Object> userSubmissions = submissionRepository.findAllByUserId((long) id);
-            return userSubmissions;
+            List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id);
+            return userSubmissions.stream().map(submission -> SubmissionMapper.mapToSubmissionDto(submission)).collect(Collectors.toUnmodifiableList());
         }
         throw new EntityNotFoundException("User not found");
     }
