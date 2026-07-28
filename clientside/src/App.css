@@ -1622,16 +1622,6 @@ body {
   margin-left: 0;
 }
 
-.listOfUserSubmissions {
-  width: 60%;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  padding-left: 0;
-  margin-left: 0;
-}
 .achievementCardWrapper {
   width: 100%;
 }
