@@ -51,7 +51,7 @@ const MyProfile = () => {
           <div className="viewProblems">
             <ViewMyProblems userId={userId}></ViewMyProblems>
           </div>
-          <div>
+          <div className="viewSubmissions">
             <ViewMySumbissionsHistory
               userId={userId}
             ></ViewMySumbissionsHistory>

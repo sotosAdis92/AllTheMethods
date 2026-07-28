@@ -891,17 +891,6 @@ body {
   user-select: none;
 }
 
-.userProblemsContainer {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-}
-
 .listOfMyAchievements,
 .listOfUserProblems {
   list-style: none;
@@ -1285,18 +1274,18 @@ body {
 .viewAchievements,
 .viewProblems {
   width: 100%;
-  background: #ffffff;
   border-radius: 16px;
   padding: 24px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
-  background: #ffffff;
   transition: all 0.3s ease;
   max-width: 100%;
   margin: 20px 0;
   align-items: center;
   text-align: center;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 2px solid #e2e8f0;
 }
 
 .filterButton {
