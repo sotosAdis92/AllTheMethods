@@ -39,19 +39,6 @@
   align-items: center;
   min-height: 2rem;
 }
-.userProblem > div:nth-child(1) {
-  flex: 1;
-  text-align: left;
-}
-.userProblem > div:nth-child(2) {
-  flex: 1;
-  text-align: left;
-}
-
-.userProblem > div:nth-child(3) {
-  flex: 1;
-  text-align: left;
-}
 
 .userProblemsCounter {
   font-family:
