@@ -59,7 +59,7 @@ const ViewMyProblems = (props) => {
               <div className="plainText">
                 <h1 className="userProblemsHeader">Solved Problems</h1>
                 <div className="userProblemsCounter">
-                  {count}/{countOfAllProblems} Problems solved
+                  Problems solved: {count}/{countOfAllProblems}
                 </div>
               </div>
             </div>
