@@ -922,7 +922,6 @@ body {
 
 .listOfUserProblems > div {
   display: flex;
-  align-items: center;
   padding: 16px 20px;
   border-bottom: 2px solid #e2e8f0;
   transition: all 0.15s ease;
@@ -936,12 +935,6 @@ body {
   height: 60px;
 }
 
-.listOfUserSubmissions > div:nth-child(even),
-.listOfMyAchievements > div:nth-child(even),
-.listOfUserProblems > div:nth-child(even) {
-  background: transparent;
-}
-
 .listOfUserSubmissions > div:last-child,
 .listOfMyAchievements > div:last-child,
 .listOfUserProblems > div:last-child {
@@ -953,14 +946,13 @@ body {
   font-size: 16px;
   font-weight: 600;
   color: #4a4b4e;
-  min-width: 36px;
+  min-width: 2px;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  padding: 2px 8px;
+  padding: 0px 0px;
   border-radius: 6px;
-  text-align: center;
 }
 
 .listOfUserSubmissions > div > div:last-child,
@@ -1023,7 +1015,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 4px 0;
+  padding: 0px 0;
 }
 
 @keyframes checkmarkDraw {
