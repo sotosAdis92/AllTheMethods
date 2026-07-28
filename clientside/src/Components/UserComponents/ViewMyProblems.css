@@ -1,25 +1,3 @@
-.problemContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.problemDiv {
-  flex: 1;
-  text-align: left;
-}
-
-.topleftImage {
-  width: 50px !important;
-  height: 50px !important;
-  object-fit: contain;
-}
-
-.imageAndText {
-  display: flex;
-  align-items: center;
-}
-
 .userProblemsCounter {
   font-family:
     system-ui,

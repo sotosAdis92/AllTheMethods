@@ -51,13 +51,13 @@ const MyProfile = () => {
           <div className="viewProblems">
             <ViewMyProblems userId={userId}></ViewMyProblems>
           </div>
+          <div className="viewAchievements">
+            <ViewMyAchievements props={userId}></ViewMyAchievements>
+          </div>
           <div className="viewSubmissions">
             <ViewMySumbissionsHistory
               userId={userId}
             ></ViewMySumbissionsHistory>
-          </div>
-          <div className="viewAchievements">
-            <ViewMyAchievements props={userId}></ViewMyAchievements>
           </div>
         </div>
       </div>
