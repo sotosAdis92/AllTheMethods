@@ -36,8 +36,16 @@ const ViewMyAchievements = (props) => {
     <>
       {count > 0 ? (
         <>
-          <h1 className="achievementsHeader">My Achievements</h1>
-          <div className="achievementsCounter">{count} Achievements earned</div>
+          <div className="achievementsContainer">
+            <div className="imageAndText">
+              <div className="plainText">
+                <h1 className="achievementsHeader">My Achievements</h1>
+                <div className="achievementsCounter">
+                  {count} Achievements earned
+                </div>
+              </div>
+            </div>
+          </div>
           <ol className="listOfMyAchievements">{listOfMyAchievements}</ol>
         </>
       ) : (
