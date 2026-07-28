@@ -41,6 +41,7 @@ body {
   padding: 12px;
   cursor: pointer;
 }
+
 .problemOdd {
   flex: 1;
   border-radius: 12px;

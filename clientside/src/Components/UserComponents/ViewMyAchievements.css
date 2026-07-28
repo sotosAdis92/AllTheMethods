@@ -1,3 +1,6 @@
+.userAchievement {
+  display: flex;
+}
 .achievementsHeader {
   font-family:
     system-ui,

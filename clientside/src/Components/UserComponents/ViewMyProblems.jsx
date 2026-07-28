@@ -40,10 +40,14 @@ const ViewMyProblems = (props) => {
   }, []);
 
   const listOfMyProblems = myProblems.map((myProblem) => (
-    <div key={myProblem.problemId} className="problemContainer">
+    <div key={myProblem.problemId} className="userProblem">
       <div>{myProblem.title}</div>
       <div>{myProblem.category}</div>
-      <ProblemDifficulty difficulty={myProblem.difficulty}></ProblemDifficulty>
+      <div>
+        <ProblemDifficulty
+          difficulty={myProblem.difficulty}
+        ></ProblemDifficulty>
+      </div>
     </div>
   ));
   return (

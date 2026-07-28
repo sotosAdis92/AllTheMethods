@@ -1,3 +1,7 @@
+.userProblem {
+  display: flex;
+}
+
 .userProblemsCounter {
   font-family:
     system-ui,
