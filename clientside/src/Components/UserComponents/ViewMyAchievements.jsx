@@ -39,9 +39,13 @@ const ViewMyAchievements = (props) => {
           <div className="achievementsContainer">
             <div className="imageAndText">
               <div className="plainText">
-                <h1 className="achievementsHeader">My Achievements</h1>
+                <h1 className="achievementsHeader">Achievements</h1>
                 <div className="achievementsCounter">
-                  Achievements earned: {count}
+                  Achievements earned:
+                  <div className="earnedCounter">
+                    {count}
+                    <div className="achievementSupperText">Achievements</div>
+                  </div>
                 </div>
               </div>
             </div>

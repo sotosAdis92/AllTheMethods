@@ -143,6 +143,8 @@
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e6e6e6;
 }
 .achievementsCounter {
   font-family:
@@ -160,9 +162,21 @@
   width: auto;
   font-size: 0.85rem;
   color: #8b8b8b;
-  background: #f7f8fa;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1.25rem;
   font-weight: 500;
+  margin-top: 1rem;
+}
+
+.earnedCounter {
+  color: #10b981;
+  font-size: 25px;
+  display: flex;
+}
+
+.achievementSupperText {
+  font-size: 14px;
+  margin-top: 5%;
+  margin-left: 5%;
 }

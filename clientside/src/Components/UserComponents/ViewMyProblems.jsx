@@ -60,7 +60,11 @@ const ViewMyProblems = (props) => {
               <div className="plainText">
                 <h1 className="userProblemsHeader">Solved Problems</h1>
                 <div className="userProblemsCounter">
-                  Problems solved: {count}/{countOfAllProblems}
+                  Total Solved:
+                  <div className="solvedCounter">
+                    {count}/{countOfAllProblems}
+                    <div className="problemsSupperText">Problems</div>
+                  </div>
                 </div>
               </div>
             </div>

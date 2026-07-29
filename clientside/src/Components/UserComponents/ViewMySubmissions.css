@@ -35,6 +35,8 @@
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .submissionsCounter {
@@ -58,6 +60,7 @@
   display: inline-block;
   margin-bottom: 1.25rem;
   font-weight: 500;
+  margin-top: 1rem;
 }
 
 .listOfUserSubmissions {
