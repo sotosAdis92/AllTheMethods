@@ -9,6 +9,7 @@ import {
 } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
+import "./ListProblems.css";
 import ProblemDifficulty from "./ProblemDifficulty";
 
 const ListProblems = () => {
@@ -147,7 +148,9 @@ const ListProblems = () => {
         >
           <a className="problemLink">
             <div className="problemDetails">
-              {problem.number}. {problem.title}
+              <div className="numberAndTitle">
+                {problem.number}. {problem.title}
+              </div>
               {isSolved[problem.problemId] ? (
                 <div className="checkmark">
                   <img src={img}></img>
@@ -158,7 +161,7 @@ const ListProblems = () => {
               <ProblemDifficulty
                 difficulty={problem.difficulty}
               ></ProblemDifficulty>
-              {problem.points}pts.
+              <div className="pointsOfProblem">{problem.points}pts.</div>
             </div>
           </a>
         </div>
