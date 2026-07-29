@@ -75,7 +75,7 @@
 .listOfMyAchievements > div > div:first-child {
   font-size: 16px;
   font-weight: 600;
-  color: #4a4b4e;
+  color: #262626;
   min-width: 36px;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
@@ -87,9 +87,9 @@
 
 .listOfMyAchievements > div > div:last-child {
   font-size: 16px;
-  font-weight: 600;
   min-width: 50px;
   text-align: right;
+  font-weight: 400;
   font-family:
     system-ui,
     -apple-system,
@@ -106,9 +106,8 @@
 
 .listOfMyAchievements > div > div:nth-child(2) {
   flex: 1;
-  font-size: 15px;
-  font-weight: 500;
-  color: #0f172a;
+  font-size: 14px;
+  color: #777a81;
   font-family:
     system-ui,
     -apple-system,

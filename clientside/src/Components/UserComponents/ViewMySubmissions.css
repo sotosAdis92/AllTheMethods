@@ -96,7 +96,7 @@
 .listOfUserSubmissions > div > div:first-child {
   font-size: 16px;
   font-weight: 600;
-  color: #4a4b4e;
+  color: #262626;
   min-width: 36px;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
@@ -128,8 +128,8 @@
 .listOfUserSubmissions > div > div:nth-child(2) {
   flex: 1;
   font-size: 15px;
-  font-weight: 500;
-  color: #0f172a;
+  font-weight: 400;
+  color: #6b7280;
   font-family:
     system-ui,
     -apple-system,
