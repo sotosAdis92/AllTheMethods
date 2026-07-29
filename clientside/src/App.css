@@ -222,13 +222,16 @@ body {
   z-index: 1;
 }
 .bronzeRank {
-  color: #cd7f32;
+  color: #d56e06;
+  font-weight: 400;
 }
 .silverRank {
-  color: #9a9a9a;
+  font-weight: 400;
+  color: #797979;
 }
 .goldRank {
-  color: #d4af37;
+  font-weight: 400;
+  color: #ffc815;
 }
 
 @keyframes sweepBeam {
