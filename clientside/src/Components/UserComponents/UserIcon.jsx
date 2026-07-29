@@ -4,7 +4,10 @@ const UserIcon = (props) => {
     <>
       <div className="userDetails">
         <img src={img1} alt="User Avatar"></img>
-        <div>{props.displayName}</div>
+        <div className="displayAndUsername">
+          <div className="displayName">{props.displayName}</div>
+          <div className="username">{props.username}</div>
+        </div>
       </div>
     </>
   );

@@ -10,14 +10,17 @@ import ViewMySumbissionsHistory from "./ViewMySubmissionsHistory";
 const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
+  const [username, setUsername] = useState("");
 
   const userDisplayName = () => {
     getUser()
       .then((response) => {
         setDisplayName(response.data.displayName);
         setUserId(response.data.id);
+        setUsername(response.data.username);
         console.log("Api response:", response.data.displayName);
         console.log("Api response:", response.data.id);
+        console.log(response.data.username);
       })
       .catch((error) => {
         console.error(error);
@@ -34,7 +37,10 @@ const MyProfile = () => {
         <div className="containerUser">
           <h1 className="user">
             <div className="usersName">
-              <UserIcon displayName={displayName}></UserIcon>
+              <UserIcon
+                displayName={displayName}
+                username={username}
+              ></UserIcon>
             </div>
           </h1>
         </div>

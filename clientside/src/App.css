@@ -1843,3 +1843,13 @@ body {
   color: rgb(127, 127, 127);
   font-size: 0.8em;
 }
+
+.username {
+  font-size: 15px;
+  font-weight: 600;
+  color: #a6a6a6;
+}
+
+.displayName {
+  font-size: 20px;
+}
