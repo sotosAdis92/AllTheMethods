@@ -82,6 +82,8 @@
   margin-left: 5%;
 }
 .userProblemsHeader {
+  align-items: center;
+  display: flex;
   font-family:
     system-ui,
     -apple-system,
@@ -103,4 +105,12 @@
   padding: 0;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid #e6e6e6;
+}
+
+.image {
+  width: 3%;
+}
+
+.headerText {
+  margin-left: 0.7%;
 }

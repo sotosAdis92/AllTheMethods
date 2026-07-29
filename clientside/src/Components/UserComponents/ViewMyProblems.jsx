@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
-import img2 from "../../assets/problem.png";
+import img2 from "../../assets/list.png";
+
 import { getProblemsCount } from "../../services/ProblemService";
 import { getUserProblems } from "../../services/UserProblemService";
 import ProblemDifficulty from "../ProblemDifficulty";
@@ -58,7 +59,10 @@ const ViewMyProblems = (props) => {
           <div className="problemsContainer">
             <div className="imageAndText">
               <div className="plainText">
-                <h1 className="userProblemsHeader">Solved Problems</h1>
+                <h1 className="userProblemsHeader">
+                  <img src={img2} className="image"></img>
+                  <div className="headerText">Solved Problems</div>
+                </h1>
                 <div className="userProblemsCounter">
                   Total Solved:
                   <div className="solvedCounter">
