@@ -198,6 +198,7 @@ const ListProblems = () => {
               </div>
             </div>
           )}
+          <div className="solvedOutOfTotal"></div>
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
