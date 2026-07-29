@@ -68,16 +68,16 @@ const ProgressChart = (props) => {
         chartArea: { top, bottom, left, right, width, height },
       } = chart;
       ctx.save();
-      ctx.font = "2rem system-ui";
+      ctx.font = "2.5rem system-ui";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("3", width / 2 - 9, height / 2);
+      ctx.fillText("3", width / 2 - 11, height / 2);
 
       ctx.save();
-      ctx.font = "1rem system-ui";
+      ctx.font = "1.2rem system-ui";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("/17", width / 2 + 9, height / 2);
+      ctx.fillText("/17", width / 2 + 11, height / 2);
 
       ctx.save();
       ctx.font = "0.9rem system-ui";
