@@ -28,7 +28,7 @@ const ViewMyAchievements = (props) => {
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId} className="userAchievement">
       <div>{myAchievement.name}</div>
-      <div>{myAchievement.rank}</div>
+      <div>{myAchievement.category}</div>
     </div>
   ));
 

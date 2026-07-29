@@ -171,3 +171,14 @@
   object-fit: contain;
   display: block;
 }
+
+.submissionsCount {
+  color: #4f46e5;
+  font-size: 25px;
+  display: flex;
+}
+.submissionsSupperText {
+  font-size: 14px;
+  margin-top: 5%;
+  margin-left: 5%;
+}

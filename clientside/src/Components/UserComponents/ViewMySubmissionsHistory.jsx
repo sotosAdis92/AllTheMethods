@@ -36,8 +36,19 @@ const ViewMySumbissionsHistory = (props) => {
       {count > 0 ? (
         <>
           <div className="submissionsContainer">
-            <h1 className="submissionsHeader">Submission History</h1>
-            <div className="submissionsCounter">Total Submissions: {count}</div>
+            <div className="imageAndText">
+              <div className="plainText">
+                <h1 className="submissionsHeader">Submission History</h1>
+                <div className="submissionsCounter">
+                  Submissions Sent:
+                  <div className="submissionsCount">
+                    {count}
+                    <div className="submissionsSupperText">Submissions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <ol className="listOfUserSubmissions">{listOfMySubmissions}</ol>
           </div>
         </>
