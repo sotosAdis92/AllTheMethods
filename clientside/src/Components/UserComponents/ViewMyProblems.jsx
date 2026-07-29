@@ -41,7 +41,9 @@ const ViewMyProblems = (props) => {
 
   const listOfMyProblems = myProblems.map((myProblem) => (
     <div key={myProblem.problemId} className="userProblem">
-      <div>{myProblem.title}</div>
+      <div>
+        {myProblem.number}. {myProblem.title}
+      </div>
       <div>
         <ProblemDifficulty
           difficulty={myProblem.difficulty}

@@ -32,6 +32,10 @@
   font-weight: 500;
 }
 
+.userProblem > div:last-child {
+  font-weight: 400;
+}
+
 .userProblem > div {
   flex: 1;
   text-align: center;
