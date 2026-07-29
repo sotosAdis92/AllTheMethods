@@ -74,7 +74,7 @@ const ProgressChart = (props) => {
               {
                 label: "Problems Solved",
                 data: distinctUserData,
-                backgroundColor: ["#28a697", "#ffbf40", "#ff2d55"],
+                backgroundColor: ["#00b8a3", "#ffbf40", "#FF375F"],
               },
             ],
           }}

@@ -10,21 +10,18 @@ body {
 }
 
 .easyDifficulty {
-  color: #28a697;
-  font-weight: 600;
+  color: #00b8a3;
   margin-left: auto;
   margin-right: 5px;
 }
 
 .mediumDifficulty {
-  color: #ffbf40;
-  font-weight: 600;
+  color: #ffa116;
   margin-left: auto;
   margin-right: 5px;
 }
 .hardDifficulty {
-  color: #ff2d55;
-  font-weight: 600;
+  color: #ff375f;
   margin-left: auto;
   margin-right: 5px;
 }
@@ -64,7 +61,6 @@ body {
     "Helvetica Neue",
     sans-serif;
   font-size: 17px;
-  font-weight: 600;
 }
 
 .problemsTitle {
