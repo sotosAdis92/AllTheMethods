@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
+import img from "../../assets/arrows.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
 import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
@@ -38,7 +39,10 @@ const ViewMySumbissionsHistory = (props) => {
           <div className="submissionsContainer">
             <div className="imageAndText">
               <div className="plainText">
-                <h1 className="submissionsHeader">Submission History</h1>
+                <h1 className="submissionsHeader">
+                  <img src={img} className="image"></img>
+                  <div className="headerText">Submission History</div>
+                </h1>
                 <div className="submissionsCounter">
                   Submissions Sent:
                   <div className="submissionsCount">
