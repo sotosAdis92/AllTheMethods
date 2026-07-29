@@ -82,10 +82,10 @@ const ProgressChart = (props) => {
             responsive: true,
             maintainAspectRatio: true,
             aspectRatio: 1,
-            cutout: "85%",
+            cutout: "90%",
             plugins: {
               title: {
-                display: true,
+                display: false,
                 text: `${props.displayName} progress`,
                 align: "center",
                 position: "top",

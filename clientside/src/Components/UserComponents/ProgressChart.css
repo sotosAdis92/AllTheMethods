@@ -30,8 +30,8 @@
 }
 
 .doughnut {
-  width: 65%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
 }
 
 .containerOfListOfUser {
@@ -39,11 +39,10 @@
   font-weight: 600;
   list-style: none;
   margin: 0;
-  border: 2px solid #e2e8f0;
+  border: none;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   align-items: center;
