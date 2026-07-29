@@ -59,11 +59,35 @@ const ProgressChart = (props) => {
     );
   });
   console.log(distinctGeneralData);
-  const centerStatisticsPlugin = {
-    id: "centerStatisticsPlugin",
+
+  const stackedText = {
+    id: "stackedText",
+    afterDatasetsDraw(chart, args, options) {
+      const {
+        ctx,
+        chartArea: { top, bottom, left, right, width, height },
+      } = chart;
+      ctx.save();
+      ctx.font = "2rem system-ui";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("3", width / 2 - 9, height / 2);
+
+      ctx.save();
+      ctx.font = "1rem system-ui";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("/17", width / 2 + 9, height / 2);
+
+      ctx.save();
+      ctx.font = "0.9rem system-ui";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("Solved", width / 2, height / 2 + 25);
+    },
   };
 
-  ChartJS.register(centerStatisticsPlugin);
+  ChartJS.register(stackedText);
   return (
     <div className="doughnutContainerDiv">
       <div className="doughnut" style={{}}>
@@ -111,6 +135,7 @@ const ProgressChart = (props) => {
               },
             },
           }}
+          plugins={[stackedText]}
         ></Doughnut>
       </div>
       <div className="listOfUserData">{listOfUserData}</div>
