@@ -221,6 +221,15 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+.bronzeRank {
+  color: #cd7f32;
+}
+.silverRank {
+  color: #9a9a9a;
+}
+.goldRank {
+  color: #d4af37;
+}
 
 @keyframes sweepBeam {
   0% {
