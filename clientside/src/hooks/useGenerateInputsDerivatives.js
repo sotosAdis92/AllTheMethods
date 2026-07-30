@@ -3,14 +3,14 @@ export default function useGenerateInputDerivatives(entries) {
     entries.push({
       id: i,
       placeholder: `f`,
-      type: "number",
+      type: "text",
       label: `f = `,
       name: "",
       errorMessage:
         "Input should not be empty or other than a floating point/double number",
       i: { i },
       required: true,
-      pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
+      pattern: /^[+-]?\d+(\.\d+)?$/,
     });
   }
 }

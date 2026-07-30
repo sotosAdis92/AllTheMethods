@@ -15,34 +15,34 @@ export default function useGenerateTrapezodialInputs(
         name: "",
         i: { i },
         required: true,
-        pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
+        pattern: /^[+-]?\d+(\.\d+)?$/,
       });
     } else {
       if (i != integrationPointA && i != integrationPointB) {
         entries.push({
           id: i,
           placeholder: `2f(${i})`,
-          type: "number",
+          type: "text",
           label: `2f(${i}) = `,
           errorMessage:
             "Input should not be empty or other than a floating point/double number",
           name: "",
           i: { i },
           required: true,
-          pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
+          pattern: /^[+-]?\d+(\.\d+)?$/,
         });
       } else {
         entries.push({
           id: i,
           placeholder: `f(${i})`,
-          type: "number",
+          type: "text",
           label: `f(${i}) = `,
           errorMessage:
             "Input should not be empty or other than a floating point/double number",
           name: "",
           i: { i },
           required: true,
-          pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
+          pattern: /^[+-]?\d+(\.\d+)?$/,
         });
       }
     }

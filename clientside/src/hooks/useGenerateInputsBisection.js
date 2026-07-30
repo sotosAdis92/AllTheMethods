@@ -3,14 +3,14 @@ export default function useGenerateInputsBisection(iterations, entries) {
     entries.push({
       id: i,
       placeholder: `x${i}`,
-      type: "number",
+      type: "text",
       label: `x_{${i}} = `,
       errorMessage:
         "Input should not be empty or other than a floating point/double number",
       name: "",
       i: { i },
       required: true,
-      pattern: "^([0-9]{1,}.[0-9])|([0-9],[0-9])$",
+      pattern: /^[+-]?\d+(\.\d+)?$/,
     });
   }
   return { entries };
