@@ -1,12 +1,15 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.SignupRequest;
+import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
 import com.example.allTheMethods.dto.UsersDto;
+import com.example.allTheMethods.dto.response.CreateUserAccountResponse;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.enus.UserRole;
 import com.example.allTheMethods.exception.UsernameAlreadyExistsException;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.AuthService;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +22,23 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public UsersDto createUser(SignupRequest signupRequest) {
-        if(hasUserWithUsername(signupRequest.getUsername())){
-            throw new UsernameAlreadyExistsException("Username already exists: " + signupRequest.getUsername());
+    @Transactional
+    public CreateUserAccountResponse createUser(CreateUserAccountRequest createUserAccountRequest) {
+        if(hasUserWithUsername(createUserAccountRequest.getUsername())){
+            throw new UsernameAlreadyExistsException("Username already exists: " + createUserAccountRequest.getUsername());
         }
         Users user = new Users();
-        user.setUsername(signupRequest.getUsername());
-        user.setDisplayName(signupRequest.getDisplayName());
+        user.setUsername(createUserAccountRequest.getUsername().toLowerCase());
+        user.setDisplayName(createUserAccountRequest.getDisplayName());
         user.setUserRole(UserRole.USER);
-        user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
+        user.setPassword(new BCryptPasswordEncoder().encode(createUserAccountRequest.getPassword()));
         Users createduser = usersRepository.save(user);
-        return createduser.getUsersDto();
+        return new CreateUserAccountResponse(
+                createduser.getId(),
+                createduser.getUsername(),
+                createduser.getDisplayName(),
+                createduser.getUserRole()
+        );
     }
 
     @Override

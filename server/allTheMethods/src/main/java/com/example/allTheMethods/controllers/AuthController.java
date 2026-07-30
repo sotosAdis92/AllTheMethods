@@ -2,7 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.AuthenticationRequest;
 import com.example.allTheMethods.dto.response.AuthenticationResponse;
-import com.example.allTheMethods.dto.request.SignupRequest;
+import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
 import com.example.allTheMethods.dto.UsersDto;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -42,12 +42,12 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signupUser(@RequestBody SignupRequest signupRequest){
+    public ResponseEntity<?> signupUser(@RequestBody CreateUserAccountRequest createUserAccountRequest){
         try{
-            if(authService.hasUserWithUsername(signupRequest.getUsername())){
+            if(authService.hasUserWithUsername(createUserAccountRequest.getUsername())){
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonMap("message", "Username already exists"));
             }
-            UsersDto createdUser = authService.createUser(signupRequest);
+            UsersDto createdUser = authService.createUser(createUserAccountRequest);
             if(createdUser == null){
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "User creation failed, please try again"));
             }
