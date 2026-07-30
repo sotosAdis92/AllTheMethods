@@ -1,6 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.SubmissionDto;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Submission;
@@ -15,6 +16,13 @@ import java.util.stream.Collectors;
 
 @Component
 public class SubmissionMapperImpl implements SubmissionMapper {
+    private final UsersRepository usersRepository;
+    private final ProblemRepository problemRepository;
+
+    public SubmissionMapperImpl(UsersRepository usersRepository, ProblemRepository problemRepository) {
+        this.usersRepository = usersRepository;
+        this.problemRepository = problemRepository;
+    }
 
     public SubmissionResponse toDto(Submission submission){
         if(submission == null){
@@ -34,6 +42,17 @@ public class SubmissionMapperImpl implements SubmissionMapper {
             return null;
         }
         return submissions.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public Submission toEntity(CreateSubmissionRequestDto createSubmissionRequestDto){
+        Users user = usersRepository.findById(createSubmissionRequestDto.userId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequestDto.userId()));
+        Problem problem = problemRepository.findById(createSubmissionRequestDto.problemId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequestDto.problemId()));
+        Submission submission = new Submission();
+        submission.setDate(createSubmissionRequestDto.submittedAt());
+        submission.setUser(user);
+        submission.setProblem(problem);
+        return submission;
     }
 
     public static SubmissionDto mapToSubmissionDto(Submission submission){

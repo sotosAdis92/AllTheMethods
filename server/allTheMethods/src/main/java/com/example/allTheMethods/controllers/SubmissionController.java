@@ -1,7 +1,6 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.service.*;
 import org.springframework.http.HttpStatus;
@@ -14,14 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/submissions")
 public class SubmissionController {
-    private SubmissionService submissionService;
+    private final SubmissionService submissionService;
     public SubmissionController(SubmissionService submissionService) {
         this.submissionService = submissionService;
     }
 
     @PostMapping
-    public ResponseEntity<SubmissionDto> createSubmission(@RequestBody SubmissionDto submissionDto){
-        SubmissionDto submission = submissionService.createSubmission(submissionDto);
+    public ResponseEntity<SubmissionResponse> createSubmission(@RequestBody CreateSubmissionRequestDto submissionDto){
+        SubmissionResponse submission = submissionService.createSubmission(submissionDto);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 

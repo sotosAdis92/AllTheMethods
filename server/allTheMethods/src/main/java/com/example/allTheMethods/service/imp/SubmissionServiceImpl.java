@@ -1,6 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.entity.Users;
@@ -22,24 +23,22 @@ public class SubmissionServiceImpl implements SubmissionService {
     private SubmissionRepository submissionRepository;
     private UsersRepository usersRepository;
     private ProblemRepository problemRepository;
-    private SubmissionMapperImpl submissionMapperImpl;
     private SubmissionMapper submissionMapper;
     private final JWTUtil jwtUtil;
 
-    public SubmissionServiceImpl(SubmissionRepository submissionRepository,JWTUtil jwtUtil, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapperImpl submissionMapperImpl, SubmissionMapper submissionMapper) {
+    public SubmissionServiceImpl(SubmissionRepository submissionRepository,JWTUtil jwtUtil, UsersRepository usersRepository, ProblemRepository problemRepository, SubmissionMapper submissionMapper) {
         this.submissionRepository = submissionRepository;
         this.jwtUtil = jwtUtil;
         this.usersRepository = usersRepository;
         this.problemRepository = problemRepository;
-        this.submissionMapperImpl = submissionMapperImpl;
         this.submissionMapper = submissionMapper;
     }
 
     @Override
-    public SubmissionDto createSubmission(SubmissionDto submissionDto) {
-        Submission submission = submissionMapperImpl.mapToSubmission(submissionDto, usersRepository, problemRepository);
+    public SubmissionResponse createSubmission(CreateSubmissionRequestDto submissionDto) {
+        Submission submission = submissionMapper.toEntity(submissionDto);
         Submission savedSubmission = submissionRepository.save(submission);
-        return submissionMapperImpl.mapToSubmissionDto(savedSubmission);
+        return submissionMapper.toDto(savedSubmission);
     }
 
     @Override
