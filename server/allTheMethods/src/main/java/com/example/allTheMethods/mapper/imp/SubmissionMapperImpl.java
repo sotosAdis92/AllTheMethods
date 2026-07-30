@@ -54,22 +54,4 @@ public class SubmissionMapperImpl implements SubmissionMapper {
         submission.setProblem(problem);
         return submission;
     }
-
-    public static SubmissionDto mapToSubmissionDto(Submission submission){
-        return new SubmissionDto(
-                submission.getId(),
-                submission.getUser().getId(),
-                submission.getProblem().getId(),
-                submission.getDate()
-        );
-    }
-    public static Submission mapToSubmission(SubmissionDto submissionDto, UsersRepository usersRepository, ProblemRepository problemRepository){
-        Users user =  usersRepository.findById(submissionDto.getUserId()).orElseThrow();
-        Problem problem = problemRepository.findById(submissionDto.getProblemId()).orElseThrow();
-        Submission submission = new Submission();
-        submission.setDate(submissionDto.getSubmittedAt());
-        submission.setUser(user);
-        submission.setProblem(problem);
-        return submission;
-    }
 }
