@@ -47,9 +47,9 @@ public class UserAchievementServiceImp implements UserAchievementService {
         String categoryToCheck = userAchievementDto.getCategory();
         int result = 0;
         try{
-            result = userAchievementsRepository.countProblemsByCategory(user);
+            result = userAchievementsRepository.countProblemsByCategory(user, category);
         } catch (NullPointerException exception) {
-            System.out.println("No problems solved yet, thats ok dont crash the whole axios network");
+            System.out.println("No problems solved yet, that's ok dont crash the whole axios network");
             return null;
         }
         System.out.println(user);
@@ -63,7 +63,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
             Long achievementId = achievementDto.getAchievementId();
             boolean achievementAlreadySaved = userAchievementsRepository.existsByUserIdAndAchievementId(user,achievementId);
             if(achievementAlreadySaved){
-                System.out.println("Null");
+                System.out.println("Achievement already earned");
                 return null;
             }
             System.out.println("Condition Met, entered If");
