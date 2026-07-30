@@ -3,8 +3,9 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.AuthenticationRequest;
 import com.example.allTheMethods.dto.response.AuthenticationResponse;
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
-import com.example.allTheMethods.dto.UsersDto;
+import com.example.allTheMethods.dto.response.CreateUserAccountResponse;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.exception.NullUserException;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.AuthService;
 import com.example.allTheMethods.service.UsersService;
@@ -42,20 +43,26 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signupUser(@RequestBody CreateUserAccountRequest createUserAccountRequest){
+    public ResponseEntity<?> signupUser(@RequestBody CreateUserAccountRequest createUserAccountRequest) throws NullUserException {
         try{
             if(authService.hasUserWithUsername(createUserAccountRequest.getUsername())){
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonMap("message", "Username already exists"));
             }
-            UsersDto createdUser = authService.createUser(createUserAccountRequest);
+            CreateUserAccountResponse createdUser = authService.createUser(createUserAccountRequest);
             if(createdUser == null){
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "User creation failed, please try again"));
+                throw new NullUserException("Null user cannot be created");
             }
-            UserDetails userDetails = usersService.userDetailsService().loadUserByUsername(createdUser.getUsername());
-            String jwt = jwtUtil.generateToken(userDetails, createdUser.getId());
+
+            UserDetails userDetails = usersService.userDetailsService().loadUserByUsername(createdUser.username());
+            Optional<Users> optionalUsers = usersRepository.findFirstByUsername(createdUser.username());
+            if (optionalUsers.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "User created but not found"));
+            }
+            Users users = optionalUsers.get();
+            String jwt = jwtUtil.generateToken(userDetails, users.getId());
             AuthenticationResponse authenticationResponse = new AuthenticationResponse();
             authenticationResponse.setJwtToken(jwt);
-            authenticationResponse.setName(createdUser.getDisplayName());
+            authenticationResponse.setName(createdUser.displayName());
             return ResponseEntity.status(HttpStatus.CREATED).body(authenticationResponse);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("error", "An unexpected error occurred" + e.getMessage()));
