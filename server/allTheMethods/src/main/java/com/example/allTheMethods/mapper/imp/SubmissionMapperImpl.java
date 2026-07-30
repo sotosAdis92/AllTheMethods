@@ -1,6 +1,5 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.SubmissionDto;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Problem;
