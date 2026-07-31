@@ -1,6 +1,18 @@
 package com.example.allTheMethods.dto.response;
 
-public record ProblemResponseDto(
+import jakarta.validation.constraints.NotBlank;
 
+public record ProblemResponseDto(
+        Long id,
+        int number,
+        String title,
+        String category,
+        String difficulty,
+        String description,
+        int points,
+        String problemString,
+        String problemType,
+        String problemData,
+        String functionString
 ) {
 }
