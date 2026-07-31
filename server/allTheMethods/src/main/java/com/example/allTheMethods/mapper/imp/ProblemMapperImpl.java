@@ -1,9 +1,15 @@
 package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.ProblemDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
+import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
+import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
+import com.example.allTheMethods.mapper.ProblemMapper;
 
-public class ProblemMapperImpl {
+import java.util.List;
+
+public class ProblemMapperImpl implements ProblemMapper {
     public static ProblemDto mapToProblemDto(Problem problem){
         return new ProblemDto(
                 problem.getId(),
@@ -33,5 +39,25 @@ public class ProblemMapperImpl {
                 problemDto.getProblemData(),
                 problemDto.getFunctionString()
         );
+    }
+
+    @Override
+    public Problem toEntity(CreateProblemRequestDto createProblemRequestDto) {
+        return null;
+    }
+
+    @Override
+    public Problem toEntity(UpdateProblemRequestDto updateProblemRequestDto) {
+        return null;
+    }
+
+    @Override
+    public ProblemResponseDto toDto(Problem problem) {
+        return null;
+    }
+
+    @Override
+    public List<ProblemResponseDto> toDto(List<Problem> problemList) {
+        return List.of();
     }
 }
