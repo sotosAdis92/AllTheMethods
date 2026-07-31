@@ -1,30 +1,17 @@
 package com.example.allTheMethods.mapper;
 
-import com.example.allTheMethods.dto.AchievementDto;
+import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
+import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
+import org.springframework.stereotype.Component;
 
-public class AchievementMapper {
-    public static AchievementDto mapToAchievementDto(Achievement achievement){
-        return new AchievementDto(
-                achievement.getAchievementId(),
-                achievement.getName(),
-                achievement.getDescription(),
-                achievement.getCategory(),
-                achievement.getRank(),
-                achievement.getVisibility(),
-                achievement.getCounter()
-        );
-    }
-    public static Achievement mapToAchievement(AchievementDto achievementDto){
-        return new Achievement(
-                achievementDto.getAchievementId(),
-                achievementDto.getName(),
-                achievementDto.getDescription(),
-                achievementDto.getCategory(),
-                achievementDto.getRank(),
-                achievementDto.getVisibility(),
-                achievementDto.getCounter()
-        );
-    }
+import java.util.List;
+
+@Component
+public interface AchievementMapper {
+    Achievement toEntity(CreateAchievementRequestDto achievementRequestDto);
+    Achievement toEntity(UpdateAchievementRequestDto achievementRequestDto);
+    AchievementResponseDto toDto(Achievement achievement);
+    List<AchievementResponseDto> toDto(List<Achievement> achievementList);
 }
-

@@ -2,6 +2,8 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.ProblemDto;
+import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
+import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +22,8 @@ public class AchievementController {
 
 
     @PostMapping
-    public ResponseEntity<AchievementDto> createAchievement(@RequestBody AchievementDto achievementDto){
-        AchievementDto savedAchievement = achievementService.createAchievement(achievementDto);
+    public ResponseEntity<AchievementResponseDto> createAchievement(@RequestBody CreateAchievementRequestDto achievementDto){
+        AchievementResponseDto savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
     }
 
