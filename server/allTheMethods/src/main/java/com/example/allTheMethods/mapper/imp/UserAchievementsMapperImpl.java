@@ -4,7 +4,9 @@ import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserAchievementsMapperImpl {
     public static UserAchievementDto mapToUserAchievementDto(UserAchievements userAchievements){
         return new UserAchievementDto(

@@ -8,7 +8,10 @@ import com.example.allTheMethods.enus.UserRole;
 import com.example.allTheMethods.exception.NullUserException;
 import com.example.allTheMethods.mapper.UsersMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class UsersMapperImpl implements UsersMapper {
 
     @Override

@@ -6,9 +6,11 @@ import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.mapper.ProblemMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class ProblemMapperImpl implements ProblemMapper {
     public static ProblemDto mapToProblemDto(Problem problem){
         return new ProblemDto(

@@ -2,6 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
+import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
@@ -39,7 +40,7 @@ public class ProblemController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<ProblemResponseDto> updateProblem(@PathVariable("id") Long id, @RequestBody ProblemDto updateProblemDto){
+    public ResponseEntity<ProblemResponseDto> updateProblem(@PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
         ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }

@@ -10,6 +10,7 @@ import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.mapper.imp.ProblemMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

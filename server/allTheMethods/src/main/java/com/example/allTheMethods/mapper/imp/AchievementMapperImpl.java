@@ -6,9 +6,11 @@ import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.mapper.AchievementMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AchievementMapperImpl implements AchievementMapper {
 
 

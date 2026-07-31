@@ -7,7 +7,6 @@ import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.exception.ResourceNotFoundException;
 import com.example.allTheMethods.mapper.AchievementMapper;
-import com.example.allTheMethods.mapper.imp.AchievementMapperImpl;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.stereotype.Service;

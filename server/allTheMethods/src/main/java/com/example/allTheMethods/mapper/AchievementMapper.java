@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+
 public interface AchievementMapper {
     Achievement toEntity(CreateAchievementRequestDto achievementRequestDto);
     Achievement toEntity(UpdateAchievementRequestDto achievementRequestDto);

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+
 public interface ProblemMapper {
     Problem toEntity(CreateProblemRequestDto createProblemRequestDto);
     Problem toEntity(UpdateProblemRequestDto updateProblemRequestDto);
