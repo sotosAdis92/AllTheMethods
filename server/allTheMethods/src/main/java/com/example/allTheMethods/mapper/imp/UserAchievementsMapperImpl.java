@@ -1,13 +1,17 @@
 package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.UserAchievementDto;
+import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class UserAchievementsMapperImpl {
+public class UserAchievementsMapperImpl implements UserAchievementsMapper {
     public static UserAchievementDto mapToUserAchievementDto(UserAchievements userAchievements){
         return new UserAchievementDto(
                 userAchievements.getAchievement().getName(),
@@ -39,5 +43,15 @@ public class UserAchievementsMapperImpl {
 
         userAchievements.setAchievement(achievement);
         return userAchievements;
+    }
+
+    @Override
+    public UserAchievementResponseDto toDto(UserAchievements userAchievements) {
+        return null;
+    }
+
+    @Override
+    public List<UserAchievementResponseDto> toDto(List<UserAchievements> userAchievements) {
+        return List.of();
     }
 }
