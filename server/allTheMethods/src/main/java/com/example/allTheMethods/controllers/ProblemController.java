@@ -1,6 +1,8 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.ProblemDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
+import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
 import org.springframework.http.HttpStatus;
@@ -19,26 +21,26 @@ public class ProblemController {
     }
 
     @PostMapping
-    public ResponseEntity<ProblemDto> createProblem(@RequestBody ProblemDto problemDto){
-       ProblemDto savedProblem =  problemService.createProblem(problemDto);
-       return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
+    public ResponseEntity<ProblemResponseDto> createProblem(@RequestBody CreateProblemRequestDto problemDto){
+        ProblemResponseDto savedProblem =  problemService.createProblem(problemDto);
+        return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProblemDto> getProblemById(@PathVariable("id") Long id){
-        ProblemDto problemDto = problemService.getProblemById(id);
+    public ResponseEntity<ProblemResponseDto> getProblemById(@PathVariable("id") Long id){
+        ProblemResponseDto problemDto = problemService.getProblemById(id);
         return ResponseEntity.ok(problemDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<ProblemDto>> getAllProblems(){
-        List<ProblemDto> problems = problemService.getAllProblems();
+    public ResponseEntity<List<ProblemResponseDto>> getAllProblems(){
+        List<ProblemResponseDto> problems = problemService.getAllProblems();
         return ResponseEntity.ok(problems);
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<ProblemDto> updateProblem(@PathVariable("id") Long id, @RequestBody ProblemDto updateProblemDto){
-        ProblemDto problemDto = problemService.updateProblem(id, updateProblemDto);
+    public ResponseEntity<ProblemResponseDto> updateProblem(@PathVariable("id") Long id, @RequestBody ProblemDto updateProblemDto){
+        ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
 
@@ -49,20 +51,20 @@ public class ProblemController {
     }
 
     @GetMapping("categories/{category}")
-    public ResponseEntity<List<ProblemDto>> getProblemsByCategory(@PathVariable("category") String category){
-        List<ProblemDto> problemDtos = problemService.getProblemsByCategory(category);
+    public ResponseEntity<List<ProblemResponseDto>> getProblemsByCategory(@PathVariable("category") String category){
+        List<ProblemResponseDto> problemDtos = problemService.getProblemsByCategory(category);
         return ResponseEntity.ok(problemDtos);
     }
 
     @GetMapping("difficulty/{difficulty}")
-    public ResponseEntity<List<ProblemDto>> getProblemsByDifficulty(@PathVariable("difficulty") String difficulty){
-        List<ProblemDto> problemDtos = problemService.getProblemsByDifficulty(difficulty);
+    public ResponseEntity<List<ProblemResponseDto>> getProblemsByDifficulty(@PathVariable("difficulty") String difficulty){
+        List<ProblemResponseDto> problemDtos = problemService.getProblemsByDifficulty(difficulty);
         return ResponseEntity.ok(problemDtos);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ProblemDto>> getProblemsByCategoryAndDifficulty(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> difficulties){
-        List<ProblemDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
+    public ResponseEntity<List<ProblemResponseDto>> getProblemsByCategoryAndDifficulty(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> difficulties){
+        List<ProblemResponseDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
         return ResponseEntity.ok(problemDtos);
     }
 

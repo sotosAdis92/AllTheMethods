@@ -7,7 +7,7 @@ import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
-import com.example.allTheMethods.mapper.UserAchievementsMapper;
+import com.example.allTheMethods.mapper.imp.UserAchievementsMapperImpl;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.repository.UserAchievementsRepository;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -78,9 +78,9 @@ public class UserAchievementServiceImp implements UserAchievementService {
             userAchievementDto1.setCounter(achievementDto.getCounter());
             userAchievementDto1.setAchievementId(achievement.getAchievementId());
 
-            UserAchievements userAchievements = UserAchievementsMapper.mapToUserAchievement(userAchievementDto1);
+            UserAchievements userAchievements = UserAchievementsMapperImpl.mapToUserAchievement(userAchievementDto1);
             UserAchievements savedAchievement = userAchievementsRepository.save(userAchievements);
-            return UserAchievementsMapper.mapToUserAchievementDto(savedAchievement);
+            return UserAchievementsMapperImpl.mapToUserAchievementDto(savedAchievement);
         }
         else{
             return null;
@@ -92,7 +92,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
             List<UserAchievements> result = userAchievementsRepository.findAllByUserId(user.getId());
-            return result.stream().map(results -> UserAchievementsMapper.mapToUserAchievementDto(results)).collect(Collectors.toUnmodifiableList());
+            return result.stream().map(results -> UserAchievementsMapperImpl.mapToUserAchievementDto(results)).collect(Collectors.toUnmodifiableList());
         }
         throw new EntityNotFoundException("User not found");
     }

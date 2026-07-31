@@ -1,11 +1,11 @@
-package com.example.allTheMethods.mapper;
+package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
 
-public class UserAchievementsMapper {
+public class UserAchievementsMapperImpl {
     public static UserAchievementDto mapToUserAchievementDto(UserAchievements userAchievements){
         return new UserAchievementDto(
                 userAchievements.getAchievement().getName(),
