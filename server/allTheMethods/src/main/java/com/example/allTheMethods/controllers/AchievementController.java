@@ -59,14 +59,14 @@ public class AchievementController {
     }
 
     @GetMapping("ranks/{rank}")
-    public ResponseEntity<List<AchievementDto>> getAchievementsByRank(@PathVariable("rank") String rank){
-        List<AchievementDto> achievementDtos = achievementService.getAchievementByRank(rank);
+    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByRank(@PathVariable("rank") String rank){
+        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByRank(rank);
         return ResponseEntity.ok(achievementDtos);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<AchievementDto>> getAchievementsByCategoryAndRank(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> ranks){
-        List<AchievementDto> achievementDtos = achievementService.getAchievementByCategoryAndRanks(categories,ranks);
+    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByCategoryAndRank(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> ranks){
+        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByCategoryAndRanks(categories,ranks);
         return ResponseEntity.ok(achievementDtos);
     }
 

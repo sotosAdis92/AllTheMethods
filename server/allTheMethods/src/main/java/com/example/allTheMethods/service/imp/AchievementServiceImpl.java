@@ -77,7 +77,7 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public List<AchievementDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks){
+    public List<AchievementResponseDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks){
         categories = cleanList(categories);
         ranks = cleanList(ranks);
         List<Achievement> achievementsByCategoryAndRank;
@@ -93,7 +93,7 @@ public class AchievementServiceImpl implements AchievementService {
         else {
             achievementsByCategoryAndRank = achievementRepository.findAll();
         }
-        return achievementsByCategoryAndRank.stream().map((achievement -> AchievementMapperImpl.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+        return achievementMapper.toDto(achievementsByCategoryAndRank);
     }
 
     public long countAllTheAchievements(){
