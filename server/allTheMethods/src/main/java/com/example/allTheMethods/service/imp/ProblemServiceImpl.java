@@ -3,12 +3,11 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.exception.ResourceNotFoundException;
-import com.example.allTheMethods.mapper.ProblemMapper;
+import com.example.allTheMethods.mapper.imp.ProblemMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,21 +24,21 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public ProblemDto createProblem(ProblemDto problemDto) {
-        Problem problem = ProblemMapper.mapToProblem(problemDto);
+        Problem problem = ProblemMapperImpl.mapToProblem(problemDto);
         Problem savedProblem = problemRepository.save(problem);
-        return ProblemMapper.mapToProblemDto(savedProblem);
+        return ProblemMapperImpl.mapToProblemDto(savedProblem);
     }
 
     @Override
     public ProblemDto getProblemById(Long id) {
         Problem problem = problemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
-        return ProblemMapper.mapToProblemDto(problem);
+        return ProblemMapperImpl.mapToProblemDto(problem);
     }
 
     @Override
     public List<ProblemDto> getAllProblems() {
         List<Problem> problems = problemRepository.findAll();
-        return problems.stream().map((problem -> ProblemMapper.mapToProblemDto(problem))).collect(Collectors.toUnmodifiableList());
+        return problems.stream().map((problem -> ProblemMapperImpl.mapToProblemDto(problem))).collect(Collectors.toUnmodifiableList());
     }
 
     @Override
@@ -53,7 +52,7 @@ public class ProblemServiceImpl implements ProblemService {
         problem.setPoints(updatedProblem.getPoints());
         problem.setProblemString(updatedProblem.getProblemString());
         Problem updatedProblemObj = problemRepository.save(problem);
-        return ProblemMapper.mapToProblemDto(updatedProblemObj);
+        return ProblemMapperImpl.mapToProblemDto(updatedProblemObj);
     }
 
     @Override
@@ -65,13 +64,13 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public List<ProblemDto> getProblemsByCategory(String category){
         List<Problem> problemsByCategory = problemRepository.findProblemByCategory(category);
-        return problemsByCategory.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+        return problemsByCategory.stream().map(problem -> ProblemMapperImpl.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
 
     @Override
     public List<ProblemDto> getProblemsByDifficulty(String difficulty){
         List<Problem> problemsByDifficulty = problemRepository.findProblemByDifficulty(difficulty);
-        return problemsByDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+        return problemsByDifficulty.stream().map(problem -> ProblemMapperImpl.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
 
     @Override
@@ -92,7 +91,7 @@ public class ProblemServiceImpl implements ProblemService {
         else{
             problemsByCategoryAndDifficulty = problemRepository.findAll();
         }
-        return problemsByCategoryAndDifficulty.stream().map(problem -> ProblemMapper.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
+        return problemsByCategoryAndDifficulty.stream().map(problem -> ProblemMapperImpl.mapToProblemDto(problem)).collect(Collectors.toUnmodifiableList());
     }
 
     public long countAllTheExistingProblems(){
