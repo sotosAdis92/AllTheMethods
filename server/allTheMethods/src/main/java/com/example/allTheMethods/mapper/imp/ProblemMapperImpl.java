@@ -43,21 +43,60 @@ public class ProblemMapperImpl implements ProblemMapper {
 
     @Override
     public Problem toEntity(CreateProblemRequestDto createProblemRequestDto) {
-        return null;
+        Problem problem = new Problem(
+            null,
+            createProblemRequestDto.number(),
+                createProblemRequestDto.title(),
+                createProblemRequestDto.category(),
+                createProblemRequestDto.difficulty(),
+                createProblemRequestDto.description(),
+                createProblemRequestDto.points(),
+                createProblemRequestDto.problemString(),
+                createProblemRequestDto.problemType(),
+                createProblemRequestDto.problemData(),
+                createProblemRequestDto.functionString()
+
+        );
+        return problem;
     }
 
     @Override
     public Problem toEntity(UpdateProblemRequestDto updateProblemRequestDto) {
-        return null;
+        Problem problem = new Problem(
+                null,
+                updateProblemRequestDto.number(),
+                updateProblemRequestDto.title(),
+                updateProblemRequestDto.category(),
+                updateProblemRequestDto.difficulty(),
+                updateProblemRequestDto.description(),
+                updateProblemRequestDto.points(),
+                updateProblemRequestDto.problemString(),
+                updateProblemRequestDto.problemType(),
+                updateProblemRequestDto.problemData(),
+                updateProblemRequestDto.functionString()
+        );
+        return problem;
     }
 
     @Override
     public ProblemResponseDto toDto(Problem problem) {
-        return null;
+        return new ProblemResponseDto(
+                problem.getId(),
+                problem.getNumber(),
+                problem.getTitle(),
+                problem.getCategory(),
+                problem.getDifficulty(),
+                problem.getDescription(),
+                problem.getPoints(),
+                problem.getProblemString(),
+                problem.getProblemType(),
+                problem.getProblemData(),
+                problem.getFunctionString()
+        );
     }
 
     @Override
     public List<ProblemResponseDto> toDto(List<Problem> problemList) {
-        return List.of();
+        return problemList.stream().map(this::toDto).toList();
     }
 }
