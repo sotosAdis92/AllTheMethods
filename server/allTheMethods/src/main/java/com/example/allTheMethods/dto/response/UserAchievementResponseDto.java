@@ -11,6 +11,7 @@ public record UserAchievementResponseDto(
         String description,
         String category,
         String rank,
-        String visibility
+        String visibility,
+        int counter
 ) {
 }

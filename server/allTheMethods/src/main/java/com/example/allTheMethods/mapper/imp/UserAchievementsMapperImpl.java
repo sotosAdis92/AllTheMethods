@@ -9,6 +9,7 @@ import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class UserAchievementsMapperImpl implements UserAchievementsMapper {
@@ -47,11 +48,28 @@ public class UserAchievementsMapperImpl implements UserAchievementsMapper {
 
     @Override
     public UserAchievementResponseDto toDto(UserAchievements userAchievements) {
-        return null;
+        if(userAchievements == null){
+            return null;
+        }
+        return new UserAchievementResponseDto(
+                userAchievements.getUserAchievementId(),
+                userAchievements.getUser().getId(),
+                userAchievements.getAchievement().getAchievementId(),
+                userAchievements.getAchievedAt(),
+                userAchievements.getAchievement().getName(),
+                userAchievements.getAchievement().getDescription(),
+                userAchievements.getAchievement().getCategory(),
+                userAchievements.getAchievement().getRank(),
+                userAchievements.getAchievement().getVisibility(),
+                userAchievements.getAchievement().getCounter()
+        );
     }
 
     @Override
     public List<UserAchievementResponseDto> toDto(List<UserAchievements> userAchievements) {
-        return List.of();
+        if(userAchievements == null){
+            return null;
+        }
+        return userAchievements.stream().map(this::toDto).collect(Collectors.toList());
     }
 }
