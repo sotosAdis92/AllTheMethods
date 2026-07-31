@@ -90,10 +90,10 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
-    public List<UserAchievementResponseDto> getUserAchievements(Long id) {
+    public List<UserAchievementResponseDto> getUserAchievements(int id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<UserAchievements> result = userAchievementsRepository.findAllByUserId(id);
+            List<UserAchievements> result = userAchievementsRepository.findAllByUserId((long) id);
             return userAchievementsMapper.toDto(result);
         }
         throw new EntityNotFoundException("User not found");
