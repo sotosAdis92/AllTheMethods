@@ -9,7 +9,6 @@ import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserAchievementsMapper;
-import com.example.allTheMethods.mapper.imp.UserAchievementsMapperImpl;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.repository.UserAchievementsRepository;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -18,7 +17,6 @@ import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -48,7 +46,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
         String category = userProblemDto.getCategory();
         Integer counter = 0;
         counter = achievementDto.getCounter();
-        String categoryToCheck = userAchievementDto.getCategory();
+        String categoryToCheck = achievementDto.getCategory();
         int result = 0;
         try{
             result = userAchievementsRepository.countProblemsByCategory(user, category);
@@ -72,17 +70,17 @@ public class UserAchievementServiceImp implements UserAchievementService {
             }
             System.out.println("Condition Met, entered If");
             Achievement achievement = achievementRepository.findById(achievementDto.getAchievementId()).orElse(null);
-            UserAchievementDto userAchievementDto1 = new UserAchievementDto();
-            userAchievementDto1.setUserId(user);
-            userAchievementDto1.setCategory(achievementDto.getCategory());
-            userAchievementDto1.setName(achievementDto.getName());
-            userAchievementDto1.setDescription(achievementDto.getDescription());
-            userAchievementDto1.setRank(achievementDto.getRank());
-            userAchievementDto1.setVisibility(achievementDto.getVisibility());
-            userAchievementDto1.setCounter(achievementDto.getCounter());
-            userAchievementDto1.setAchievementId(achievement.getAchievementId());
+            UserAchievementDto userAchievementsDto = new UserAchievementDto();
+            userAchievementsDto.setUserId(user);
+            userAchievementsDto.setCategory(achievementDto.getCategory());
+            userAchievementsDto.setName(achievementDto.getName());
+            userAchievementsDto.setDescription(achievementDto.getDescription());
+            userAchievementsDto.setRank(achievementDto.getRank());
+            userAchievementsDto.setVisibility(achievementDto.getVisibility());
+            userAchievementsDto.setCounter(achievementDto.getCounter());
+            userAchievementsDto.setAchievementId(achievement.getAchievementId());
 
-            UserAchievements userAchievements = UserAchievementsMapperImpl.mapToUserAchievement(userAchievementDto1);
+            UserAchievements userAchievements = userAchievementsMapper.toEntity(saveUserAchievementDto);
             UserAchievements savedAchievement = userAchievementsRepository.save(userAchievements);
             return userAchievementsMapper.toDto(savedAchievement);
         }
