@@ -1,6 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
@@ -27,7 +28,11 @@ public class UserProblemMapperImpl implements UserProblemMapper {
                 userProblem.getProblem().getCategory(),
                 userProblem.getProblem().getDifficulty(),
                 userProblem.getProblem().getDescription(),
-                userProblem.getProblem().getPoints()
+                userProblem.getProblem().getPoints(),
+                userProblem.getProblem().getProblemString(),
+                userProblem.getProblem().getProblemType(),
+                userProblem.getProblem().getProblemData(),
+                userProblem.getProblem().getFunctionString()
         );
     }
 
@@ -38,26 +43,12 @@ public class UserProblemMapperImpl implements UserProblemMapper {
         return userProblems.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    public static UserProblemDto mapToUserProblemDto(UserProblem userProblem){
-        return new UserProblemDto(
-                userProblem.getId(),
-                userProblem.getProblem().getNumber(),
-                userProblem.getProblem().getTitle(),
-                userProblem.getProblem().getCategory(),
-                userProblem.getProblem().getDifficulty(),
-                userProblem.getProblem().getDescription(),
-                userProblem.getProblem().getPoints(),
-                userProblem.getProblem().getProblemString(),
-                userProblem.getProblem().getProblemType(),
-                userProblem.getUser().getId(),
-                userProblem.getProblem().getId()
-        );
-    }
-
-    public static UserProblem mapToUserProblem(UserProblemDto userProblemDto, Users user, Problem problem){
+    @Override
+    public UserProblem toEntity(SaveUserProblemRequestDto saveUserProblemRequestDto) {
+        if(saveUserProblemRequestDto == null){
+            return null;
+        }
         UserProblem userProblem = new UserProblem();
-        userProblem.setUser(user);
-        userProblem.setProblem(problem);
         return userProblem;
     }
 }

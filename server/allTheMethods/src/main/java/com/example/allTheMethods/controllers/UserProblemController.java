@@ -1,6 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.service.UserProblemService;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,9 @@ public class UserProblemController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<UserProblemDto> saveUserProblem(@RequestBody UserProblemDto userProblemDto){
-        UserProblemDto userProblemDto1 = userProblemService.saveUserProblem(userProblemDto);
-        return new ResponseEntity<>(userProblemDto1, HttpStatus.CREATED);
+    public ResponseEntity<UserProblemResponse> saveUserProblem(@RequestBody SaveUserProblemRequestDto requestDto){
+        UserProblemResponse userProblemDto = userProblemService.saveUserProblem(requestDto);
+        return new ResponseEntity<>(userProblemDto, HttpStatus.CREATED);
     }
 
     @GetMapping("/myproblems/{id}")

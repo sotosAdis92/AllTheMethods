@@ -9,6 +9,10 @@ public record UserProblemResponse(
         String category,
         String difficulty,
         String description,
-        int points
+        int points,
+        String problemString,
+        String problemType,
+        String problemData,
+        String functionString
 ) {
 }
