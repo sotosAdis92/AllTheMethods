@@ -13,30 +13,6 @@ import java.util.List;
 @Component
 public class AchievementMapperImpl implements AchievementMapper {
 
-
-    public static AchievementDto mapToAchievementDto(Achievement achievement){
-        return new AchievementDto(
-                achievement.getAchievementId(),
-                achievement.getName(),
-                achievement.getDescription(),
-                achievement.getCategory(),
-                achievement.getRank(),
-                achievement.getVisibility(),
-                achievement.getCounter()
-        );
-    }
-    public static Achievement mapToAchievement(AchievementDto achievementDto){
-        return new Achievement(
-                achievementDto.getAchievementId(),
-                achievementDto.getName(),
-                achievementDto.getDescription(),
-                achievementDto.getCategory(),
-                achievementDto.getRank(),
-                achievementDto.getVisibility(),
-                achievementDto.getCounter()
-        );
-    }
-
     @Override
     public Achievement toEntity(CreateAchievementRequestDto achievementRequestDto) {
         Achievement achievement = new Achievement(
