@@ -14,8 +14,8 @@ public interface AchievementService {
     List<AchievementResponseDto> getAllAchievements();
     AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequestDto updatedAchievement);
     void deleteAchievement(Long id);
-    List<AchievementDto> getAchievementByCategory(String category);
-    List<AchievementDto> getAchievementByRank(String rank);
+    List<AchievementResponseDto> getAchievementByCategory(String category);
+    List<AchievementResponseDto> getAchievementByRank(String rank);
     List<AchievementDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks);
     long countAllTheAchievements();
 }

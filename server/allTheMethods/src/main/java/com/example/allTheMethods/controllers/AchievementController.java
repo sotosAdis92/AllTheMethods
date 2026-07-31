@@ -53,8 +53,8 @@ public class AchievementController {
     }
 
     @GetMapping("categories/{category}")
-    public ResponseEntity<List<AchievementDto>> getAchievementsByCategory(@PathVariable("category") String category){
-        List<AchievementDto> achievementDtos = achievementService.getAchievementByCategory(category);
+    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByCategory(@PathVariable("category") String category){
+        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByCategory(category);
         return ResponseEntity.ok(achievementDtos);
     }
 

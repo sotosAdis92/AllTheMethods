@@ -65,15 +65,15 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public List<AchievementDto> getAchievementByCategory(String category) {
+    public List<AchievementResponseDto> getAchievementByCategory(String category) {
         List<Achievement> achievements = achievementRepository.findAchievementByCategory(category);
-        return achievements.stream().map((achievement -> AchievementMapperImpl.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+        return achievementMapper.toDto(achievements);
     }
 
     @Override
-    public List<AchievementDto> getAchievementByRank(String rank){
+    public List<AchievementResponseDto> getAchievementByRank(String rank){
         List<Achievement> achievements = achievementRepository.findAchievementByRank(rank);
-        return achievements.stream().map((achievement -> AchievementMapperImpl.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+        return achievementMapper.toDto(achievements);
     }
 
     @Override
