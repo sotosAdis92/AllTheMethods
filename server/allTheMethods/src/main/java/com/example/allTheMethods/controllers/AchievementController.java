@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.http.HttpStatus;
@@ -28,20 +29,20 @@ public class AchievementController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AchievementDto> getAchievementById(@PathVariable("id") Long id){
-        AchievementDto achievementDto = achievementService.getAchievementById(id);
+    public ResponseEntity<AchievementResponseDto> getAchievementById(@PathVariable("id") Long id){
+        AchievementResponseDto achievementDto = achievementService.getAchievementById(id);
         return ResponseEntity.ok(achievementDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<AchievementDto>> getAllAchievements(){
-        List<AchievementDto> achievevments = achievementService.getAllAchievements();
+    public ResponseEntity<List<AchievementResponseDto>> getAllAchievements(){
+        List<AchievementResponseDto> achievevments = achievementService.getAllAchievements();
         return ResponseEntity.ok(achievevments);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<AchievementDto> updateAchievement(@PathVariable("id") Long id, @RequestBody AchievementDto updateAchievementDto){
-        AchievementDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
+    public ResponseEntity<AchievementResponseDto> updateAchievement(@PathVariable("id") Long id, @RequestBody UpdateAchievementRequestDto updateAchievementDto){
+        AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }
 

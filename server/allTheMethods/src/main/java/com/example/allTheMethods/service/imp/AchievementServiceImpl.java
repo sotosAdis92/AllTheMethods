@@ -2,6 +2,7 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.exception.ResourceNotFoundException;
@@ -33,27 +34,28 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public AchievementDto getAchievementById(Long id) {
+    public AchievementResponseDto getAchievementById(Long id) {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
-        return AchievementMapperImpl.mapToAchievementDto(achievement);
+        return achievementMapper.toDto(achievement);
     }
 
     @Override
-    public List<AchievementDto> getAllAchievements() {
-        List<Achievement> achievements = achievementRepository.findAll();
-        return achievements.stream().map((achievement -> AchievementMapperImpl.mapToAchievementDto(achievement))).collect(Collectors.toUnmodifiableList());
+    public List<AchievementResponseDto> getAllAchievements() {
+        List<Achievement> allAchievements = achievementRepository.findAll();
+        return achievementMapper.toDto(allAchievements);
     }
 
     @Override
-    public AchievementDto updateAchievement(Long id,AchievementDto updatedAchievement) {
+    public AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequestDto updatedAchievement) {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
-        achievement.setName(updatedAchievement.getName());
-        achievement.setDescription(updatedAchievement.getDescription());
-        achievement.setCategory(updatedAchievement.getCategory());
-        achievement.setRank(updatedAchievement.getRank());
-        achievement.setVisibility(updatedAchievement.getVisibility());
+        achievement.setName(updatedAchievement.name());
+        achievement.setDescription(updatedAchievement.description());
+        achievement.setCategory(updatedAchievement.category());
+        achievement.setRank(updatedAchievement.rank());
+        achievement.setVisibility(updatedAchievement.visibility());
+        achievement.setCounter(updatedAchievement.counter());
         Achievement savedAchievementObj = achievementRepository.save(achievement);
-        return AchievementMapperImpl.mapToAchievementDto(savedAchievementObj);
+        return achievementMapper.toDto(savedAchievementObj);
     }
 
     @Override
