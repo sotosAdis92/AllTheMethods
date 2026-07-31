@@ -1,8 +1,8 @@
 package com.example.allTheMethods.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
-
 import org.hibernate.validator.constraints.Length;
+
 public record CreateAchievementRequestDto(
         @NotBlank(message = "Name cannot be blank")
         @Length(max = 510, message = "Name cannot be too long")
