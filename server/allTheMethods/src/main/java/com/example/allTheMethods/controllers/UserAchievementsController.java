@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.UserAchievementDto;
 import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
 import com.example.allTheMethods.service.UserAchievementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +21,14 @@ public class UserAchievementsController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<UserAchievementDto> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
+    public ResponseEntity<UserAchievementResponseDto> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
         System.out.println("Hit endpoint user achievements");
-        UserAchievementDto userAchievementDto1 = userAchievementService.saveUserAchievements(saveUserAchievementDto);
-        return new ResponseEntity<>(userAchievementDto1, HttpStatus.CREATED);
+        UserAchievementResponseDto userAchievementDto = userAchievementService.saveUserAchievements(saveUserAchievementDto);
+        return new ResponseEntity<>(userAchievementDto, HttpStatus.CREATED);
     }
 
     @GetMapping("/myachievements/{id}")
-    public ResponseEntity<?> getMyAchievements(){
-        return ResponseEntity.ok(userAchievementService.getUserAchievements());
+    public ResponseEntity<?> getMyAchievements(@RequestParam("id") Long id){
+        return ResponseEntity.ok(userAchievementService.getUserAchievements(id));
     }
 }
