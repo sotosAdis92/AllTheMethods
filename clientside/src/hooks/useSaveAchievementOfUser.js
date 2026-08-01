@@ -13,7 +13,7 @@ export default function useSaveAchievementOfUser() {
 
       const problemInfo = {
         userAchievementDto: {
-          achievementId: achievements[i].achievementId,
+          achievementId: achievements[i].id,
           userId: userId,
           category: achievements[i].category,
           achievedAt: achievedAt,
@@ -24,7 +24,7 @@ export default function useSaveAchievementOfUser() {
           category: achievements[i].category,
         },
         achievementDto: {
-          achievementId: achievements[i].achievementId,
+          achievementId: achievements[i].id,
           name: achievements[i].name,
           description: achievements[i].description,
           category: achievements[i].category,

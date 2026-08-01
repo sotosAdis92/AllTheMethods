@@ -17,7 +17,7 @@ export const getUserProblems = async (userId) => {
   return response;
 };
 
-export const getUserProblemById = async (problemId) => {
+export const getUserProblemById = async (problemId, userId) => {
   const response = await axiosInstance.get(
     REST_API_BASE_URL + "/check/" + problemId,
     problemId,

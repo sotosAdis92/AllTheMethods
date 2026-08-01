@@ -14,7 +14,7 @@ export default function useFetchSpaceProblems() {
   useEffect(() => {
     getProblem(id)
       .then((response) => {
-        setProblemId(response.data.problemId);
+        setProblemId(response.data.id);
         const problemDataConverted = JSON.parse(response.data.problemData);
         setProblemData(problemDataConverted);
         setIterations(problemDataConverted.iterations);

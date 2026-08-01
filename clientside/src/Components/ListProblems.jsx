@@ -121,18 +121,18 @@ const ListProblems = () => {
   }
 
   useEffect(() => {
-    for (let i = 0; i < problems.length; i++) {
-      getUserProblemById(problems[i].id)
+    problems.forEach((problem) => {
+      getUserProblemById(problem.id)
         .then((response) => {
           setIsSolved((previous) => ({
             ...previous,
-            [problems[i].id]: response.data,
+            [problem.id]: response.data,
           }));
         })
         .catch((error) => {
           console.log(error);
         });
-    }
+    });
   }, [problems]);
 
   const listOfProblems = problems

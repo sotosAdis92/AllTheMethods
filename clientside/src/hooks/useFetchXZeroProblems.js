@@ -11,7 +11,7 @@ export default function useFetchXZeroProblems() {
 
   useEffect(() => {
     getProblem(id).then((response) => {
-      setProblemId(response.data.problemId);
+      setProblemId(response.data.id);
       const parsedData = JSON.parse(response.data.problemData);
       setProblemData(parsedData);
       setIterations(parsedData.iterations);
