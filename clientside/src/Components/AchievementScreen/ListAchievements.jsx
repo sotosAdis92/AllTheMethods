@@ -10,6 +10,7 @@ import {
 } from "../../services/AchievementService";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
+import AchievementRank from "./AchievementRankComponent";
 import Icon from "./Icon";
 
 const ListAchievements = () => {
@@ -109,7 +110,7 @@ const ListAchievements = () => {
           onClick={() => handleClickRankFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
         >
-          <div className={filter.toLowerCase()}>{filter}</div>
+          <AchievementRank rank={filter}></AchievementRank>
         </button>
       </div>
     );

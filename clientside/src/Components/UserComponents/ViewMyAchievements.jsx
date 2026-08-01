@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../../App.css";
 import img2 from "../../assets/223399.png";
 import { getUserAchievements } from "../../services/UserAchievementService";
-import AchievementRank from "./AchievementRankComponent";
+import AchievementRank from "../AchievementScreen/AchievementRankComponent";
 import "./ViewMyAchievements.css";
 const ViewMyAchievements = (props) => {
   const [myAchievements, setMyAchievements] = useState([]);
