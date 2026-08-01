@@ -1,13 +1,11 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
-import com.example.allTheMethods.mapper.imp.UserProblemMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.UserProblemsRepository;
 import com.example.allTheMethods.repository.UsersRepository;

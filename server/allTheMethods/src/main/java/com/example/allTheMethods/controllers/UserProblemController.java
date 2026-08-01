@@ -1,6 +1,5 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.service.UserProblemService;

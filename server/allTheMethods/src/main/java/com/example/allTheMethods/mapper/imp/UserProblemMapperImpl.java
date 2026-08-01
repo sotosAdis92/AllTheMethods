@@ -1,11 +1,8 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.UserProblemDto;
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
-import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
-import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
 import org.springframework.stereotype.Component;
 
