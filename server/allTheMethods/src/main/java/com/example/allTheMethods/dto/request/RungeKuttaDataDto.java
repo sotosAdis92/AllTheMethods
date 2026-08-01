@@ -1,14 +1,16 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
+
+import com.example.allTheMethods.dto.SubmissionDataDto;
 
 import java.util.List;
 
-public class ImprovedEulerDto extends SubmissionDataDto{
+public class RungeKuttaDataDto extends SubmissionDataDto {
     private int iterations;
     private double hParameter;
     private double yZero;
     private double xZero;
 
-    public ImprovedEulerDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
+    public RungeKuttaDataDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
         super(inp, problemString);
         this.iterations = iterations;
         this.hParameter = hParameter;
@@ -32,19 +34,19 @@ public class ImprovedEulerDto extends SubmissionDataDto{
         this.hParameter = hParameter;
     }
 
-    public double getxZero() {
-        return xZero;
-    }
-
-    public void setxZero(double xZero) {
-        this.xZero = xZero;
-    }
-
     public double getyZero() {
         return yZero;
     }
 
     public void setyZero(double yZero) {
         this.yZero = yZero;
+    }
+
+    public double getxZero() {
+        return xZero;
+    }
+
+    public void setxZero(double xZero) {
+        this.xZero = xZero;
     }
 }

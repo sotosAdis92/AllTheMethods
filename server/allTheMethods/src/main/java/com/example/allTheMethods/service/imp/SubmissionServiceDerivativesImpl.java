@@ -1,8 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.FivePointDerivativeDto;
-import com.example.allTheMethods.dto.RichardsonDataDto;
-import com.example.allTheMethods.dto.ThreePointDerivativeDto;
+import com.example.allTheMethods.dto.request.FivePointDerivativeDto;
+import com.example.allTheMethods.dto.request.RichardsonDataDto;
+import com.example.allTheMethods.dto.request.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

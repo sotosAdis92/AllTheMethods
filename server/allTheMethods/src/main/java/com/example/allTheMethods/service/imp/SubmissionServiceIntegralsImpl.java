@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
-import com.example.allTheMethods.dto.SimpsonDataDto;
-import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataDto;
+import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

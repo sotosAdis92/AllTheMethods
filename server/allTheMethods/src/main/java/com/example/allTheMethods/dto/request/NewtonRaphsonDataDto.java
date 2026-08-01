@@ -1,8 +1,10 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
+
+import com.example.allTheMethods.dto.SubmissionDataDto;
 
 import java.util.List;
 
-public class NewtonRaphsonDataDto extends SubmissionDataDto{
+public class NewtonRaphsonDataDto extends SubmissionDataDto {
     private int iterations;
     private int xo;
 

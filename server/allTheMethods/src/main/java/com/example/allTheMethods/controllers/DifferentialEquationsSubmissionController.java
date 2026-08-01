@@ -1,11 +1,10 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.DirectEulerDto;
-import com.example.allTheMethods.dto.ImprovedEulerDto;
-import com.example.allTheMethods.dto.RungeKuttaDataDto;
-import com.example.allTheMethods.dto.RungeKuttaNystromDto;
+import com.example.allTheMethods.dto.request.DirectEulerDto;
+import com.example.allTheMethods.dto.request.ImprovedEulerDto;
+import com.example.allTheMethods.dto.request.RungeKuttaDataDto;
+import com.example.allTheMethods.dto.request.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

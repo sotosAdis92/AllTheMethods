@@ -1,9 +1,9 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.DirectEulerDto;
-import com.example.allTheMethods.dto.ImprovedEulerDto;
-import com.example.allTheMethods.dto.RungeKuttaDataDto;
-import com.example.allTheMethods.dto.RungeKuttaNystromDto;
+import com.example.allTheMethods.dto.request.DirectEulerDto;
+import com.example.allTheMethods.dto.request.ImprovedEulerDto;
+import com.example.allTheMethods.dto.request.RungeKuttaDataDto;
+import com.example.allTheMethods.dto.request.RungeKuttaNystromDto;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;

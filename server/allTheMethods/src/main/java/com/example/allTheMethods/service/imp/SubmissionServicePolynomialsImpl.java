@@ -1,12 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.ast.AbstractTreeBuilder;
-import com.example.allTheMethods.ast.Operation;
 import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.request.*;
 import com.example.allTheMethods.service.SubmissionServicePolynomials;
-import net.objecthunter.exp4j.Expression;
-import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

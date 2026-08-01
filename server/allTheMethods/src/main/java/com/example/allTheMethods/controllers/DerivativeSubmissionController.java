@@ -1,8 +1,8 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.FivePointDerivativeDto;
-import com.example.allTheMethods.dto.RichardsonDataDto;
-import com.example.allTheMethods.dto.ThreePointDerivativeDto;
+import com.example.allTheMethods.dto.request.FivePointDerivativeDto;
+import com.example.allTheMethods.dto.request.RichardsonDataDto;
+import com.example.allTheMethods.dto.request.ThreePointDerivativeDto;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,14 +1,16 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
+
+import com.example.allTheMethods.dto.SubmissionDataDto;
 
 import java.util.List;
 
-public class RungeKuttaDataDto extends SubmissionDataDto{
+public class DirectEulerDto extends SubmissionDataDto {
     private int iterations;
     private double hParameter;
     private double yZero;
     private double xZero;
 
-    public RungeKuttaDataDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
+    public DirectEulerDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
         super(inp, problemString);
         this.iterations = iterations;
         this.hParameter = hParameter;

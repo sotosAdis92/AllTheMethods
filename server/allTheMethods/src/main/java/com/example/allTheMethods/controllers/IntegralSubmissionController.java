@@ -1,10 +1,9 @@
 package com.example.allTheMethods.controllers;
 
 
-import com.example.allTheMethods.dto.SimpsonDataDto;
-import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataDto;
+import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

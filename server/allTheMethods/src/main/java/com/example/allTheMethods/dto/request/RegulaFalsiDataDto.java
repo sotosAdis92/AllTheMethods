@@ -1,6 +1,8 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
 
-public class RegulaFalsiDataDto extends SubmissionDataDto{
+import com.example.allTheMethods.dto.SubmissionDataDto;
+
+public class RegulaFalsiDataDto extends SubmissionDataDto {
     private int iterations;
     private int problemSpaceA;
     private int problemSpaceB;

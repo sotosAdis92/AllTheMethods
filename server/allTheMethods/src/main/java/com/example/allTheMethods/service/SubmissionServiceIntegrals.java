@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.SimpsonDataDto;
-import com.example.allTheMethods.dto.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataDto;
+import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 
 
 public interface SubmissionServiceIntegrals {

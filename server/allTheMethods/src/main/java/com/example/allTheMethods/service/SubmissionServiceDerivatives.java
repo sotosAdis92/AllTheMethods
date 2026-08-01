@@ -1,8 +1,8 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.FivePointDerivativeDto;
-import com.example.allTheMethods.dto.RichardsonDataDto;
-import com.example.allTheMethods.dto.ThreePointDerivativeDto;
+import com.example.allTheMethods.dto.request.FivePointDerivativeDto;
+import com.example.allTheMethods.dto.request.RichardsonDataDto;
+import com.example.allTheMethods.dto.request.ThreePointDerivativeDto;
 
 
 public interface SubmissionServiceDerivatives {

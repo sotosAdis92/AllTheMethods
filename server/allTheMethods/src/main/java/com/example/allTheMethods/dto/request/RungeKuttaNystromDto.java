@@ -1,8 +1,10 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
+
+import com.example.allTheMethods.dto.SubmissionDataDto;
 
 import java.util.List;
 
-public class RungeKuttaNystromDto extends SubmissionDataDto{
+public class RungeKuttaNystromDto extends SubmissionDataDto {
     private int iterations;
     private double hParameter;
     private double yZero;

@@ -1,14 +1,12 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.NewtonRaphsonDataDto;
-import com.example.allTheMethods.service.SubmissionServicePolynomials;
+import com.example.allTheMethods.dto.request.NewtonRaphsonDataDto;
 import com.example.allTheMethods.utils.MethodUtils;
 import org.junit.jupiter.api.Test;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

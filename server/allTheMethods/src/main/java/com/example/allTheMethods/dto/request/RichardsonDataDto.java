@@ -1,8 +1,10 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
+
+import com.example.allTheMethods.dto.SubmissionDataDto;
 
 import java.util.List;
 
-public class RichardsonDataDto extends SubmissionDataDto{
+public class RichardsonDataDto extends SubmissionDataDto {
     private List<Integer> coutingParameters;
     private List<Integer> xiParameters;
     private List<Integer> fiParameters;

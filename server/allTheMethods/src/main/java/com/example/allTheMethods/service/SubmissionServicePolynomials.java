@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service;
 import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.*;
+import com.example.allTheMethods.dto.request.*;
 
 public interface SubmissionServicePolynomials {
     boolean checkDataBisection(BisectionDataDto bisectionDataDto);

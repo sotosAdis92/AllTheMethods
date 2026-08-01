@@ -1,6 +1,8 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
 
-public class DiakritiNewtonRaphsonDto extends SubmissionDataDto{
+import com.example.allTheMethods.dto.SubmissionDataDto;
+
+public class DiakritiNewtonRaphsonDto extends SubmissionDataDto {
     private int iterations;
     private int hParameter;
     private int xoParameter;
