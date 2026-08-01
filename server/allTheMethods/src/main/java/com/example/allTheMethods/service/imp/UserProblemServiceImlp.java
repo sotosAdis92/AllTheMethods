@@ -36,6 +36,9 @@ public class UserProblemServiceImlp implements UserProblemService {
 
     @Override
     public UserProblemResponse saveUserProblem(SaveUserProblemRequestDto userProblemRequest) {
+        if(checkIfUserSolvedAProblem(userProblemRequest.problemId().intValue())){
+            throw new RuntimeException("User has already solved the problem");
+        }
         Users user = usersRepository.findById(userProblemRequest.userId()).orElseThrow();
         Problem problem = problemRepository.findById(userProblemRequest.problemId()).orElseThrow();
         UserProblem userProblem = userProblemMapper.toEntity(userProblemRequest);
