@@ -1842,13 +1842,13 @@ body {
 }
 
 .skillsItemName {
-  background-color: #f1f2f4;
+  background-color: #edeef1;
   padding: 5px 12px;
   border-radius: 20px;
   font-weight: 400;
   transition: background-color 0.2s;
   font-size: 0.85em;
-  color: #374151;
+  color: rgb(127, 127, 127);
 }
 
 .skillsItemCount {
