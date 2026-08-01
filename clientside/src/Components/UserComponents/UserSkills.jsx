@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
 import { getCountDistinctProblemsByCategory } from "../../services/UserProblemService";
+
 const UserSkills = (props) => {
   const [countCategories, setCountCategories] = useState([]);
+  const count = countCategories.filter((category) => category.id).length;
   const userId = props.userId;
-  console.log(userId);
+
   const getCountDistinctCategories = () => {
     getCountDistinctProblemsByCategory(userId)
       .then((response) => {
@@ -34,7 +36,11 @@ const UserSkills = (props) => {
   return (
     <div className="userSkills">
       <div className="userSkillsHeading">Skills</div>
-      <div className="userSkillsDiv">{listOfSkills}</div>
+      {count > 0 ? (
+        <div className="userSkillsDiv">{listOfSkills}</div>
+      ) : (
+        <div className="noSkillsYet">0 Skills Acquired</div>
+      )}
     </div>
   );
 };

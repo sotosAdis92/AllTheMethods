@@ -1865,3 +1865,8 @@ body {
 .displayName {
   font-size: 20px;
 }
+
+.noSkillsYet {
+  color: rgb(127, 127, 127);
+  font-size: 0.85em;
+}
