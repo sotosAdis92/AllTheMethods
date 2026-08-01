@@ -1,16 +1,10 @@
 .submissionsContainer {
   margin: 0 auto;
-  padding: 32px 24px;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   width: 100%;
   margin-bottom: 2.5rem;
 }

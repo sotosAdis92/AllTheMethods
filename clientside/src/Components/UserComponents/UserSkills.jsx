@@ -4,7 +4,7 @@ import { getCountDistinctProblemsByCategory } from "../../services/UserProblemSe
 
 const UserSkills = (props) => {
   const [countCategories, setCountCategories] = useState([]);
-  const count = countCategories.filter((category) => category.id).length;
+  const count = countCategories.length;
   const userId = props.userId;
 
   const getCountDistinctCategories = () => {
