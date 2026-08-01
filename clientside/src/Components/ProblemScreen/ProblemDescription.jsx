@@ -38,6 +38,9 @@ const ProblemDescription = () => {
   const referenceToChild = useRef(null);
 
   useEffect(() => {
+    if (!id) {
+      return;
+    }
     getProblem(id)
       .then((response) => {
         setProblemMethod(response.data.problemType);

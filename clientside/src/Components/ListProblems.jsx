@@ -116,17 +116,17 @@ const ListProblems = () => {
     );
   });
 
-  function navigate(problemId) {
-    navigator("/problems/" + problemId);
+  function navigate(id) {
+    navigator("/problems/" + id);
   }
 
   useEffect(() => {
     for (let i = 0; i < problems.length; i++) {
-      getUserProblemById(problems[i].problemId)
+      getUserProblemById(problems[i].id)
         .then((response) => {
           setIsSolved((previous) => ({
             ...previous,
-            [problems[i].problemId]: response.data,
+            [problems[i].id]: response.data,
           }));
         })
         .catch((error) => {
@@ -142,16 +142,16 @@ const ListProblems = () => {
     .map((problem, i) => (
       <div className="problemWithButtons">
         <div
-          key={problem.problemId}
+          key={problem.id}
           className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
-          onClick={() => navigate(problem.problemId)}
+          onClick={() => navigate(problem.id)}
         >
           <a className="problemLink">
             <div className="problemDetails">
               <div className="numberAndTitle">
                 {problem.number}. {problem.title}
               </div>
-              {isSolved[problem.problemId] ? (
+              {isSolved[problem.id] ? (
                 <div className="checkmark">
                   <img src={img}></img>
                 </div>

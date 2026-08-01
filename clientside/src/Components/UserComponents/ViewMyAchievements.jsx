@@ -7,16 +7,17 @@ import AchievementRank from "./AchievementRankComponent";
 import "./ViewMyAchievements.css";
 const ViewMyAchievements = (props) => {
   const [myAchievements, setMyAchievements] = useState([]);
-
+  const userId = props.userId;
+  console.log("AAAAAAAAA", userId);
   const count = myAchievements.filter(
     (myAchievement) => myAchievement.achievementId,
   ).length;
 
   const getAllUserAchievements = () => {
-    getUserAchievements(props.userId)
+    getUserAchievements(userId)
       .then((response) => {
         setMyAchievements(response.data);
-        console.log("Api response:", response.data);
+        console.log("AAAAAAAAAAA", userId);
       })
       .catch((error) => {
         console.error(error);
@@ -24,8 +25,10 @@ const ViewMyAchievements = (props) => {
   };
 
   useEffect(() => {
-    getAllUserAchievements();
-  }, []);
+    if (userId) {
+      getAllUserAchievements();
+    }
+  }, [userId]);
 
   const listOfMyAchievements = myAchievements.map((myAchievement) => (
     <div key={myAchievement.achievementId} className="userAchievement">

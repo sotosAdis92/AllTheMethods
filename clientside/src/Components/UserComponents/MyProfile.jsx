@@ -58,7 +58,7 @@ const MyProfile = () => {
             <ViewMyProblems userId={userId}></ViewMyProblems>
           </div>
           <div className="viewAchievements">
-            <ViewMyAchievements props={userId}></ViewMyAchievements>
+            <ViewMyAchievements userId={userId}></ViewMyAchievements>
           </div>
           <div className="viewSubmissions">
             <ViewMySumbissionsHistory
