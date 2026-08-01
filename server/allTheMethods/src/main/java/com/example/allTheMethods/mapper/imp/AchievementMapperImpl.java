@@ -1,6 +1,5 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;

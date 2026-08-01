@@ -1,6 +1,5 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.AchievementDto;
 import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
@@ -10,9 +9,8 @@ import com.example.allTheMethods.mapper.AchievementMapper;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static com.example.allTheMethods.utils.MethodUtils.cleanList;
 
