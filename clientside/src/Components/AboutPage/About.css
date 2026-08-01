@@ -82,6 +82,7 @@
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  margin-top: 12px;
   height: 100%;
   transition: all 0.2s ease-in-out;
   font-family:
