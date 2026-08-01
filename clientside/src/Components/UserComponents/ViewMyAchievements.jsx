@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
 import img2 from "../../assets/223399.png";
-import img1 from "../../assets/trophy.png";
 import { getUserAchievements } from "../../services/UserAchievementService";
 import AchievementRank from "./AchievementRankComponent";
 import "./ViewMyAchievements.css";
@@ -66,7 +65,7 @@ const ViewMyAchievements = (props) => {
         <>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
-          <img src={img1} className="countZeroImage"></img>
+          <img src={img2} className="countZeroImage"></img>
           <p className="noAchievemets">No achievements Yet!</p>
         </>
       )}
