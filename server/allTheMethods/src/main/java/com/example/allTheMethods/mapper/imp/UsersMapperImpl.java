@@ -2,6 +2,7 @@ package com.example.allTheMethods.mapper.imp;
 
 
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
+import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.enus.UserRole;
@@ -41,4 +42,19 @@ public class UsersMapperImpl implements UsersMapper {
                 user.getUserRole()
         );
     }
+
+    @Override
+    public Users toEntity(UpdateUserRequestDto requestDto) throws NullUserException {
+        if(requestDto == null){
+            System.out.println("Null Request sent by the user, abort all operations");
+            throw new NullPointerException("Null Request sent by the user, abort all operations");
+        }
+        Users user = new Users();
+        user.setUsername(requestDto.username().toLowerCase());
+        user.setDisplayName(requestDto.displayName());
+        user.setUserRole(UserRole.USER);
+        return user;
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.mapper.UsersMapper;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
@@ -17,10 +18,12 @@ public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
     @Autowired
     private final JWTUtil jwtUtil;
+    private final UsersMapper usersMapper;
 
-    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil) {
+    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil, UsersMapper usersMapper) {
         this.usersRepository = usersRepository;
         this.jwtUtil = jwtUtil;
+        this.usersMapper = usersMapper;
     }
 
     @Override
@@ -36,11 +39,6 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UserResponseDto getUserName(){
        Users currentUser = jwtUtil.getLoggedInUser();
-       Long id = currentUser.getId();
-       return new UserResponseDto(
-         id,
-         currentUser.getUsername(),
-         currentUser.getDisplayName()
-       );
+       return usersMapper.toDto(currentUser);
     }
 }
