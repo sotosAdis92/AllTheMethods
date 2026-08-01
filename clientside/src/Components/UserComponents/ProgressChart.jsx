@@ -1,9 +1,11 @@
 import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from "chart.js";
 import { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
+import { getProblemsCount } from "../../services/ProblemService";
 import {
   getCountDistinctProblems,
   getCountProblems,
+  getUserProblems,
 } from "../../services/UserProblemService";
 import ProblemDifficulty from "../ProblemDifficulty";
 import "./ProgressChart.css";
@@ -12,6 +14,8 @@ ChartJS.register(Tooltip, Legend, ArcElement, Title);
 const ProgressChart = (props) => {
   const [count, setCount] = useState([]);
   const [countDistinct, setCountDistinct] = useState([]);
+  const [countAllProblems, setCountAllProblems] = useState(0);
+  const [userCount, setUserCount] = useState(0);
   const userId = props.userId;
   console.log(userId);
   const getCountDistinct = () => {
@@ -24,6 +28,28 @@ const ProgressChart = (props) => {
         console.log(error);
       });
   };
+
+  const getUserProblemsCount = () => {
+    getUserProblems(userId)
+      .then((response) => {
+        setUserCount(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getAllProblemsCount = () => {
+    getProblemsCount()
+      .then((response) => {
+        setCountAllProblems(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const getCount = () => {
     getCountProblems(userId)
       .then((response) => {
@@ -39,6 +65,8 @@ const ProgressChart = (props) => {
     if (userId) {
       getCountDistinct();
       getCount();
+      getUserProblemsCount();
+      getAllProblemsCount();
     }
   }, [userId]);
 
@@ -67,17 +95,19 @@ const ProgressChart = (props) => {
         ctx,
         chartArea: { top, bottom, left, right, width, height },
       } = chart;
+      const allCount = chart.options.allCount;
+      const userCount = chart.options.userCount;
       ctx.save();
       ctx.font = "2.5rem system-ui";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("3", width / 2 - 11, height / 2);
+      ctx.fillText(userCount, width / 2 - 11, height / 2);
 
       ctx.save();
       ctx.font = "1.2rem system-ui";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
-      ctx.fillText("/17", width / 2 + 11, height / 2);
+      ctx.fillText(`/${allCount}`, width / 2 + 11, height / 2);
 
       ctx.save();
       ctx.font = "0.9rem system-ui";
@@ -107,6 +137,8 @@ const ProgressChart = (props) => {
             maintainAspectRatio: true,
             aspectRatio: 1,
             cutout: "93%",
+            userCount: userCount.length,
+            allCount: countAllProblems,
             plugins: {
               title: {
                 display: false,
