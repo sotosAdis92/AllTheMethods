@@ -49,6 +49,16 @@ const AboutDescription = () => {
             the "Problems", where you will be presented with a list of selected
             problems to solve.
           </p>
+          <p className="aboutDescriptionParagraph">
+            The Problems page is where you will find all the problems (haha all
+            the problems) to solve, these range from 3 difficulties, titled
+            Easy, Med. (Short for Calculator and Medium), and Hard. These were
+            based on my personal opinion so if you feel like some easy problems
+            are harder than some Medium or Harder problems, do not be angry, it
+            might happen. You can navigate the problems by clicking on them, you
+            will be directed to the problems page. Submissions are infinite but
+            they are tracked and calculated.
+          </p>
         </div>
         <div>
           <h3 className="paragraphHeading"></h3>
