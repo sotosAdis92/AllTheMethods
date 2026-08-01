@@ -1,6 +1,5 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;

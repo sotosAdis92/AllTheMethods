@@ -1,20 +1,17 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.exception.ResourceNotFoundException;
 import com.example.allTheMethods.mapper.ProblemMapper;
-import com.example.allTheMethods.mapper.imp.ProblemMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static com.example.allTheMethods.utils.MethodUtils.cleanList;
 

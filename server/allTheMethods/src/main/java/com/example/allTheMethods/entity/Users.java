@@ -131,13 +131,4 @@ public class Users implements UserDetails {
     public void setAchievements(Set<UserAchievements> achievements) {
         this.achievements = achievements;
     }
-
-    public UsersDto getUsersDto(){
-        UsersDto usersDto = new UsersDto();
-        usersDto.setId(id);
-        usersDto.setDisplayName(displayName);
-        usersDto.setUsername(username);
-        usersDto.setUserRole(userRole);
-        return usersDto;
-    }
 }

@@ -1,6 +1,4 @@
 package com.example.allTheMethods.mapper.imp;
-
-import com.example.allTheMethods.dto.ProblemDto;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
