@@ -1,6 +1,6 @@
 package com.example.allTheMethods.entity;
 
-import com.example.allTheMethods.dto.UsersDto;
+
 import com.example.allTheMethods.enus.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;

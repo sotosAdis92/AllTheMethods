@@ -1,10 +1,9 @@
 package com.example.allTheMethods.service;
 
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
-import com.example.allTheMethods.dto.UsersDto;
-import com.example.allTheMethods.dto.response.CreateUserAccountResponse;
+import com.example.allTheMethods.dto.response.UserResponseDto;
 
 public interface AuthService {
-    CreateUserAccountResponse createUser(CreateUserAccountRequest createUserAccountRequest);
+    UserResponseDto createUser(CreateUserAccountRequest createUserAccountRequest);
     Boolean hasUserWithUsername(String username);
 }

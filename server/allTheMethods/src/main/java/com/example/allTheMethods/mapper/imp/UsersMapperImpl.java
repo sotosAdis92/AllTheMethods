@@ -1,8 +1,8 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.UsersDto;
+
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
-import com.example.allTheMethods.dto.response.CreateUserAccountResponse;
+import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.enus.UserRole;
 import com.example.allTheMethods.exception.NullUserException;
@@ -29,12 +29,12 @@ public class UsersMapperImpl implements UsersMapper {
     }
 
     @Override
-    public CreateUserAccountResponse toDto(Users user) throws NullUserException {
+    public UserResponseDto toDto(Users user) throws NullUserException {
         if(user == null){
             System.out.println("no user returned");
             throw new NullUserException("no user returned");
         }
-        return new CreateUserAccountResponse(
+        return new UserResponseDto(
                 user.getId(),
                 user.getUsername(),
                 user.getDisplayName(),
