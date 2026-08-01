@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserAchievementService {
     UserAchievementResponseDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto);
-    List<UserAchievementResponseDto> getUserAchievements(int id);
+    List<UserAchievementResponseDto> getUserAchievements(Long id);
 }

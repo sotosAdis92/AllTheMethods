@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ProblemService {
     ProblemResponseDto createProblem(CreateProblemRequestDto problemDto);
-    ProblemResponseDto getProblemById(Long id);
+    ProblemResponseDto getProblemById(int id);
     List<ProblemResponseDto> getAllProblems();
     ProblemResponseDto updateProblem(Long id, UpdateProblemRequestDto updatedProblem);
     void deleteProblem(Long id);

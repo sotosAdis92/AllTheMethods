@@ -9,6 +9,9 @@ public class AchievementDto {
     private String visibility;
     private int counter;
 
+    public AchievementDto() {
+    }
+
     public AchievementDto(Long achievementId, String name, String description, String category, String rank, String visibility) {
         this.achievementId = achievementId;
         this.name = name;

@@ -36,8 +36,8 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public ProblemResponseDto getProblemById(Long id) {
-        Problem problem = problemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
+    public ProblemResponseDto getProblemById(int id) {
+        Problem problem = problemRepository.findById((long) id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
         return problemMapper.toDto(problem);
     }
 

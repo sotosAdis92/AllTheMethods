@@ -28,7 +28,7 @@ public class UserAchievementsController {
     }
 
     @GetMapping("/myachievements/{id}")
-    public ResponseEntity<?> getMyAchievements(@RequestParam("id") int id){
+    public ResponseEntity<?> getMyAchievements(@PathVariable("id") Long id){
         return ResponseEntity.ok(userAchievementService.getUserAchievements(id));
     }
 }
