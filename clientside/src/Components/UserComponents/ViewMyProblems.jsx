@@ -80,7 +80,7 @@ const ViewMyProblems = (props) => {
           <h1 className="userProblemsHeader">Solved Problems</h1>
           <div className="userProblemsCounter">{count} Problems solved</div>
           <img src={img2} className="countZeroImage"></img>
-          <p className="noProblems">No Problems Solved Yet!!</p>
+          <p className="noProblems">No Problems Solved Yet</p>
         </>
       )}
     </>

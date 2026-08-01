@@ -61,7 +61,7 @@ const ViewMySumbissionsHistory = (props) => {
           <h1 className="userProblemsHeader">Submission History</h1>
           <div className="userProblemsCounter">Total Submissions: {count}</div>
           <img src={img} className="countZeroImage"></img>
-          <p className="noProblems">No Submissions Yet!!</p>
+          <p className="noProblems">No Submissions Yet</p>
         </>
       )}
     </>
