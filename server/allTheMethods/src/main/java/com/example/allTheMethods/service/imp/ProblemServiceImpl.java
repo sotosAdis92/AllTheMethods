@@ -107,7 +107,7 @@ public class ProblemServiceImpl implements ProblemService {
         return problemRepository.count();
     }
 
-    public List<ProblemResponseDto> getAllProblemsPaged(Pageable pageable, String search){
+    public List<ProblemResponseDto> getAllProblemsPaged(Pageable pageable){
 
         return problemMapper.toDto(problemRepository.findAll(pageable).getContent());
     }
