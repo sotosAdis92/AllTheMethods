@@ -74,4 +74,9 @@ public class ProblemController {
         return ResponseEntity.ok(count);
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<List<ProblemResponseDto>> getProblems(@RequestParam() int pageNo, @RequestParam() int pageSize){
+        return problemService.getAllProblemsPaged();
+    }
+
 }

@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 
@@ -17,4 +18,5 @@ public interface ProblemService {
     List<ProblemResponseDto> getProblemsByDifficulty(String difficulty);
     List<ProblemResponseDto> getProblemsByCategoryOrDifficulty(List<String> categories, List<String> difficulties);
     long countAllTheExistingProblems();
+    List<ProblemResponseDto> getAllProblemsPaged(Pageable pageable);
 }
