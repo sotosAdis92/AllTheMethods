@@ -49,6 +49,10 @@ const Header = () => {
     }, 1000000);
     return () => clearInterval(interval);
   }, [handleSignOut]);
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
   return (
     <>
       {isUserLoggedIn ? (
@@ -57,23 +61,35 @@ const Header = () => {
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">
-              <a href="/about" className="headerlink">
-                About This App
+              <a
+                href="/about"
+                className={`headerlink ${isActive("/about") ? "active" : ""}`}
+              >
+                About
               </a>
             </li>
             <li className="link">
-              <a href="/problems" className="headerlink">
+              <a
+                href="/problems"
+                className={`headerlink ${isActive("/problems") ? "active" : ""}`}
+              >
                 Problems
               </a>
             </li>
             <li className="link">
-              <a href="/achievements" className="headerlink">
+              <a
+                href="/achievements"
+                className={`headerlink ${isActive("/achievements") ? "active" : ""}`}
+              >
                 Achievements
               </a>
             </li>
             <li className="link">
-              <a href="/profile" className="headerlink">
-                My Profile
+              <a
+                href="/profile"
+                className={`headerlink ${isActive("/profile") ? "active" : ""}`}
+              >
+                Profile
               </a>
             </li>
           </ul>

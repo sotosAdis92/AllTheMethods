@@ -35,32 +35,45 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: 2rem;
 }
 .link {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 18px;
+  margin-left: 1rem;
 }
 .headerlink {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 0.5rem 0.2rem;
   font-family: "Poppins", "Montserrat", sans-serif !important;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #475569;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #a0a0a0;
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease;
   position: relative;
 }
 .headerlink:hover {
-  color: #2563eb;
-  background-color: rgba(37, 99, 235, 0.05);
+  color: #050505;
+}
+
+.headerlink:not(.active):hover {
+  color: #000000;
 }
 
 .headerlink:active {
-  color: #2563eb;
+  color: #000000;
   background-color: rgba(37, 99, 235, 0.05);
 }
+
+.headerlink.active {
+  color: #1e293b !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #000000;
+}
+
 .logout {
   position: relative !important;
   display: inline-flex !important;

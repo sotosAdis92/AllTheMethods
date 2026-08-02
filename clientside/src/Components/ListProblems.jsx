@@ -189,11 +189,11 @@ const ListProblems = () => {
                 All Problems
               </button>
               <div>
-                <h3 className="categoryHeading">Is of Category:</h3>
+                <h4 className="categoryHeading">Is of Category:</h4>
                 <ol className="filterCategories">{listOfCategoryFilters}</ol>
               </div>
               <div>
-                <h3 className="categoryHeading">Is of Difficulty:</h3>
+                <h4 className="categoryHeading">Is of Difficulty:</h4>
                 <ol className="filterCategories">{listOfDifficultyFilter}</ol>
               </div>
             </div>
