@@ -4,6 +4,8 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 
+import com.example.allTheMethods.entity.Problem;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.List;
 
@@ -18,5 +20,5 @@ public interface ProblemService {
     List<ProblemResponseDto> getProblemsByDifficulty(String difficulty);
     List<ProblemResponseDto> getProblemsByCategoryOrDifficulty(List<String> categories, List<String> difficulties);
     long countAllTheExistingProblems();
-    List<ProblemResponseDto> getAllProblemsPaged(Pageable pageable);
+    Page<Problem> getAllProblemsPaged(Pageable pageable);
 }

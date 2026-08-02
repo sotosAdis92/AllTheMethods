@@ -4,7 +4,9 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
+import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -77,7 +79,7 @@ public class ProblemController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<ProblemResponseDto>> getProblems(
+    public ResponseEntity<Page<Problem>> getProblems(
             @RequestParam(required = false, defaultValue = "1") int pageNo,
             @RequestParam(required = false, defaultValue = "5") int pageSize,
             @RequestParam(required = false, defaultValue = "id") String sortBy,
@@ -89,7 +91,7 @@ public class ProblemController {
         }else{
             sort = Sort.by(sortBy).descending();
         }
-        List<ProblemResponseDto> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo-1,pageSize,sort));
+        Page<Problem> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo-1,pageSize,sort));
         return ResponseEntity.ok(responseDtos);
     }
 
