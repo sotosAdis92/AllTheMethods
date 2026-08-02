@@ -1086,15 +1086,15 @@ body {
 }
 
 .filterButton {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: #1a1a2e;
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
-  padding: 9px 15px;
+  padding: 5px 10px;
   border-radius: 20px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
+  border: none;
+  background-color: #f4f4f5;
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1124,15 +1124,15 @@ body {
 }
 
 .filterButton:hover {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: #1a1a2e;
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
-  padding: 9px 15px;
+  padding: 5px 10px;
   border-radius: 20px;
-  border: 1px solid #d1d5db;
-  background: #e4e4e4;
+  border: none;
+  background-color: #e7e7e7;
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1150,18 +1150,19 @@ body {
     "Helvetica Neue",
     sans-serif;
   white-space: nowrap;
+  display: flex;
 }
 
 .filters {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #1a1a2e;
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
-  padding: 9px 15px;
+  padding: 5px 10px;
   border-radius: 20px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
+  border: none;
+  background-color: #f4f4f5;
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1185,13 +1186,13 @@ body {
 .filters:hover {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #1a1a2e;
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
-  padding: 9px 15px;
+  padding: 5px 10px;
   border-radius: 20px;
-  border: 1px solid #d1d5db;
-  background: #d9d9d9;
+  border: none;
+  background-color: #e7e7e7;
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1209,6 +1210,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   white-space: nowrap;
+  display: flex;
 }
 .filterContainer {
   position: relative;
@@ -1219,14 +1221,14 @@ body {
   gap: 8px;
 }
 .filterImage img {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 8px;
 }
 
 .allAchFilterImg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
 }
 
