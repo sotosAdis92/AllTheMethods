@@ -1,12 +1,14 @@
 Version 0.12
 
 Need to implement:
-(-) Get the count of every problem difficulty that the user solved and display it out of the total number of problems for that difficulty
-(-) UI images in the list of problems and achievements
+Record Dtos for getting the statistics of the user
+UI Changes to the client
 
 
 
 Implemeneted:
+(+) Get the count of every problem difficulty that the user solved and display it out of the total number of problems for that difficulty
+(+) UI images in the list of problems and achievements
 (-) UI with charts showing user progress
 (+) User problems being saved in the database + UI: Passed Testing
 (+) User Achievements being save in the database + UI: Passed Testing
