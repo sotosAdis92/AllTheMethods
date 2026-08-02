@@ -7,6 +7,7 @@ UI Changes to the client
 
 
 Implemeneted:
+(+) Working basic pagination api in spring boot with pageNo and pageSize
 (+) Get the count of every problem difficulty that the user solved and display it out of the total number of problems for that difficulty
 (+) UI images in the list of problems and achievements
 (-) UI with charts showing user progress
