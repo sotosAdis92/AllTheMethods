@@ -77,7 +77,7 @@ public class ProblemController {
 
     @GetMapping("/list")
     public ResponseEntity<List<ProblemResponseDto>> getProblems(@RequestParam() int pageNo, @RequestParam() int pageSize){
-        List<ProblemResponseDto> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo,pageSize));
+        List<ProblemResponseDto> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo-1,pageSize));
         return ResponseEntity.ok(responseDtos);
     }
 
