@@ -57,7 +57,7 @@ const Header = () => {
     <>
       {isUserLoggedIn ? (
         <div className="container">
-          <img src={img1}></img>
+          <img src={img1} alt={""}></img>
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">
@@ -104,7 +104,7 @@ const Header = () => {
               onClick={handleSignOut}
             >
               Logout
-              <img src={img2}></img>
+              <img src={img2} alt={""}></img>
             </Button>
           </div>
         </div>
