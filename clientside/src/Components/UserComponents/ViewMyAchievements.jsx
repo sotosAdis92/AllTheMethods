@@ -46,7 +46,7 @@ const ViewMyAchievements = (props) => {
             <div className="imageAndText">
               <div className="plainText">
                 <h1 className="achievementsHeader">
-                  <img src={img2} className="image"></img>
+                  <img src={img2} alt={img2} className="image"></img>
                   <div className="headerText">Achievements</div>
                 </h1>
                 <div className="achievementsCounter">
@@ -65,7 +65,7 @@ const ViewMyAchievements = (props) => {
         <>
           <h1 className="achievementsHeader">My Achievements</h1>
           <div className="achievementsCounter">{count} Achievements earned</div>
-          <img src={img2} className="countZeroImage"></img>
+          <img src={img2} alt={img2} className="countZeroImage"></img>
           <p className="noAchievemets">No achievements Yet</p>
         </>
       )}
