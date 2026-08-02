@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.service.ProblemService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -76,7 +77,8 @@ public class ProblemController {
 
     @GetMapping("/list")
     public ResponseEntity<List<ProblemResponseDto>> getProblems(@RequestParam() int pageNo, @RequestParam() int pageSize){
-        return problemService.getAllProblemsPaged();
+        List<ProblemResponseDto> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo,pageSize));
+        return ResponseEntity.ok(responseDtos);
     }
 
 }

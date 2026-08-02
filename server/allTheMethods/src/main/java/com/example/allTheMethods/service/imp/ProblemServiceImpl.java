@@ -10,6 +10,7 @@ import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 
@@ -102,5 +103,9 @@ public class ProblemServiceImpl implements ProblemService {
 
     public long countAllTheExistingProblems(){
         return problemRepository.count();
+    }
+
+    public List<ProblemResponseDto> getAllProblemsPaged(Pageable pageable){
+        return problemMapper.toDto(problemRepository.findAll(pageable).getContent());
     }
 }
