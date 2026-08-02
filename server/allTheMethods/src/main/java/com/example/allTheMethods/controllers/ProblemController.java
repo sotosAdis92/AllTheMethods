@@ -81,7 +81,8 @@ public class ProblemController {
             @RequestParam(required = false, defaultValue = "1") int pageNo,
             @RequestParam(required = false, defaultValue = "5") int pageSize,
             @RequestParam(required = false, defaultValue = "id") String sortBy,
-            @RequestParam(required = false, defaultValue = "ASC") String sortDir
+            @RequestParam(required = false, defaultValue = "ASC") String sortDir,
+            @RequestParam(required = false) String search
     ){
         Sort sort = null;
         if(sortDir.equalsIgnoreCase("ASC")){
