@@ -180,10 +180,10 @@
 
 .pageButton {
   background-image: ("../../assets/arrowfront_10.png");
-  background-color: #ececec;
+  background-color: #e8e7e7;
   border: none;
   width: auto;
-  padding: 10px;
+  padding: 9px;
   border-radius: 5px;
 }
 .pageButton img {
@@ -197,7 +197,7 @@
   margin-top: 20px;
 }
 .buttonNumberPage {
-  background-color: #ececec;
+  background-color: #e8e7e7;
   border: none;
   width: auto;
   padding: 10px 15px;
@@ -218,16 +218,15 @@
 }
 
 .pageButton:hover {
-  background-color: #ececec;
   border: none;
   width: auto;
-  padding: 10px;
-  background-color: #d4d4d4;
+  padding: 9px;
+  background-color: #bdbdbd;
   border-radius: 5px;
 }
 
 .buttonNumberPage:hover {
-  background-color: #d4d4d4;
+  background-color: #bdbdbd;
   border: none;
   width: auto;
   padding: 10px 15px;
@@ -248,7 +247,7 @@
 }
 
 .buttonNumberPage.active {
-  background-color: #f5f5f5;
+  background-color: #deecfc;
   border: none;
   width: auto;
   padding: 10px 15px;
