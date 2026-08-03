@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
+import arrowback from "../../assets/arrowback_2_10.png";
+import arrowfront from "../../assets/arrowfront_10.png";
 import img from "../../assets/arrows.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
 import "./ViewMySubmissions.css";
@@ -85,8 +87,7 @@ const ViewMySumbissionsHistory = (props) => {
               onClick={() => setPageNumber((page) => Math.max(page - 1, 0))}
               disabled={pageNumber === 1}
             >
-              Back
-              <img src="" alt=""></img>
+              <img src={arrowback} alt={arrowback}></img>
             </button>
             {pageNumberButtons}
             <button
@@ -96,8 +97,7 @@ const ViewMySumbissionsHistory = (props) => {
               }
               disabled={pageNumber === totalPages}
             >
-              Front
-              <img src="" alt=""></img>
+              <img src={arrowfront} alt={arrowfront}></img>
             </button>
           </div>
         </>

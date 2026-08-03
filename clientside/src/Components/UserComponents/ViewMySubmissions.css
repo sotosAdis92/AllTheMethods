@@ -179,11 +179,15 @@
 }
 
 .pageButton {
+  background-image: ("../../assets/arrowfront_10.png");
   background-color: #ececec;
   border: none;
   width: auto;
   padding: 10px;
   border-radius: 5px;
+}
+.pageButton img {
+  width: 20px;
 }
 .pageButtonsContainer {
   display: flex;
