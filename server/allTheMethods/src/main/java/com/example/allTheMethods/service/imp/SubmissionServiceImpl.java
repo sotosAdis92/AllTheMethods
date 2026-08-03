@@ -1,18 +1,17 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.*;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.SubmissionMapper;
-import com.example.allTheMethods.mapper.imp.SubmissionMapperImpl;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.SubmissionRepository;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.SubmissionService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -42,10 +41,10 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public List<SubmissionResponse> getSubmissionsByUserId(int id) {
+    public List<SubmissionResponse> getSubmissionsByUserId(int id, Pageable pageable) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id);
+            List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id, pageable);
             return submissionMapper.toDto(userSubmissions);
         }
         throw new EntityNotFoundException("User not found");
