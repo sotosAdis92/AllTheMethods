@@ -60,7 +60,7 @@ const ViewMyProblems = (props) => {
             <div className="imageAndText">
               <div className="plainText">
                 <h1 className="userProblemsHeader">
-                  <img src={img2} className="image"></img>
+                  <img src={img2} alt={img2} className="image"></img>
                   <div className="headerText">Solved Problems</div>
                 </h1>
                 <div className="userProblemsCounter">
@@ -79,7 +79,7 @@ const ViewMyProblems = (props) => {
         <>
           <h1 className="userProblemsHeader">Solved Problems</h1>
           <div className="userProblemsCounter">{count} Problems solved</div>
-          <img src={img2} className="countZeroImage"></img>
+          <img src={img2} alt={img2} className="countZeroImage"></img>
           <p className="noProblems">No Problems Solved Yet</p>
         </>
       )}

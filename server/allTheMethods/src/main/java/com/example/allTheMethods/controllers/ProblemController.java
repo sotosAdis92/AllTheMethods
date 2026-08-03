@@ -4,7 +4,11 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
+import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +76,23 @@ public class ProblemController {
     public ResponseEntity<Long> countAllTheExistingProblems(){
         long count = problemService.countAllTheExistingProblems();
         return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<Page<Problem>> getProblems(
+            @RequestParam(required = false, defaultValue = "1") int pageNo,
+            @RequestParam(required = false, defaultValue = "10") int pageSize,
+            @RequestParam(required = false, defaultValue = "id") String sortBy,
+            @RequestParam(required = false, defaultValue = "ASC") String sortDir
+    ){
+        Sort sort = null;
+        if(sortDir.equalsIgnoreCase("ASC")){
+            sort = Sort.by(sortBy).ascending();
+        }else{
+            sort = Sort.by(sortBy).descending();
+        }
+        Page<Problem> responseDtos = problemService.getAllProblemsPaged(PageRequest.of(pageNo-1,pageSize,sort));
+        return ResponseEntity.ok(responseDtos);
     }
 
 }

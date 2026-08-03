@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footerContent">
           <div className="footerTop">
             <div className="nameOfApp">
-              <img src={img1}></img>
+              <img src={img1} alt={img1}></img>
               <h3>All The Methods</h3>
             </div>
             <div className="footerDesc">

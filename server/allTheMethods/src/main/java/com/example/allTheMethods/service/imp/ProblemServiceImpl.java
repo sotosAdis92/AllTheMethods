@@ -8,8 +8,12 @@ import com.example.allTheMethods.exception.ResourceNotFoundException;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+//Poly shmantiko na ginei auto to import kai oxi auto pou kanei autocomplete to intellij me aws, to springframework tha kaneis
+//import panta
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 
@@ -102,5 +106,9 @@ public class ProblemServiceImpl implements ProblemService {
 
     public long countAllTheExistingProblems(){
         return problemRepository.count();
+    }
+
+    public Page<Problem> getAllProblemsPaged(Pageable pageable){
+        return problemRepository.findAll(pageable);
     }
 }

@@ -8,6 +8,7 @@ import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.SubmissionMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.repository.UsersRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -41,6 +42,11 @@ public class SubmissionMapperImpl implements SubmissionMapper {
             return null;
         }
         return submissions.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public Page<SubmissionResponse> toDto(Page<Submission> submissionPage) {
+        return submissionPage.map(this::toDto);
     }
 
     @Override
