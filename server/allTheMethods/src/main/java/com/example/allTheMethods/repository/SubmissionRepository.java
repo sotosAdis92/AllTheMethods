@@ -1,6 +1,7 @@
 package com.example.allTheMethods.repository;
 
 import com.example.allTheMethods.entity.Submission;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,5 +13,5 @@ import java.util.List;
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
 
     @Query("SELECT s FROM Submission s JOIN FETCH s.problem p WHERE s.user.id = ?1")
-    List<Submission> findAllByUserId(@Param("userId") Long id, Pageable pageable);
+    Page<Submission> findAllByUserId(@Param("userId") Long id, Pageable pageable);
 }

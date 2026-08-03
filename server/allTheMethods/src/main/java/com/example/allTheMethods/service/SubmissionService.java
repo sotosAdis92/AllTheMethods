@@ -1,14 +1,13 @@
 package com.example.allTheMethods.service;
 
+import com.example.allTheMethods.entity.Submission;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 
 
-import java.util.List;
-
-
 public interface SubmissionService {
     SubmissionResponse createSubmission(CreateSubmissionRequestDto submissionDto);
-    List<SubmissionResponse> getSubmissionsByUserId(int id, Pageable pageable);
+    Page<Submission> getSubmissionsByUserId(int id, Pageable pageable);
 }

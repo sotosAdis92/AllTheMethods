@@ -11,6 +11,7 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.SubmissionService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -41,11 +42,10 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public List<SubmissionResponse> getSubmissionsByUserId(int id, Pageable pageable) {
+    public Page<Submission> getSubmissionsByUserId(int id, Pageable pageable) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<Submission> userSubmissions = submissionRepository.findAllByUserId((long) id, pageable);
-            return submissionMapper.toDto(userSubmissions);
+            return submissionRepository.findAllByUserId((long) id, pageable);
         }
         throw new EntityNotFoundException("User not found");
     }
