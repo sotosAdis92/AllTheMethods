@@ -6,12 +6,19 @@ import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
   const userId = props.userId;
-  const count = mySubmissions.filter((mySubmission) => mySubmission.id).length;
+  const [count, setCount] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
   const getAllSubmissions = () => {
-    getAllUserSubmissions(userId)
+    getAllUserSubmissions(userId, pageNumber, pageSize)
       .then((response) => {
-        setMySubmissions(response.data);
-        console.log("console log from submission history", response.data);
+        setMySubmissions(response.data.content);
+        setCount(response.data.totalElements);
+        console.log(
+          "console log from submission history",
+          response.data.content,
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -23,7 +30,7 @@ const ViewMySumbissionsHistory = (props) => {
     }
   }, [userId]);
 
-  const listOfMySubmissions = mySubmissions.map((submission, i) => (
+  const listOfMySubmissions = mySubmissions.map((submission) => (
     <div key={submission.id} className="submissionItem">
       <div>
         {submission.number}. {submission.title}

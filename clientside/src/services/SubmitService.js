@@ -119,7 +119,12 @@ export const sendRungeKuttaNystrom = async (data) => {
   return response;
 };
 
-export const getAllUserSubmissions = async (id) => {
-  const response = await axiosInstance.get(REST_API_BASE_URL + "/user/" + id);
+export const getAllUserSubmissions = async (id, pageNo, pageSize) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/user/" + id, {
+    params: {
+      pageNo: pageNo,
+      pageSize: pageSize,
+    },
+  });
   return response;
 };
