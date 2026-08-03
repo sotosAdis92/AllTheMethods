@@ -180,7 +180,7 @@
 
 .pageButton {
   background-image: ("../../assets/arrowfront_10.png");
-  background-color: #e8e7e7;
+  background-color: #eeeeee;
   border: none;
   width: auto;
   padding: 9px;
@@ -197,7 +197,7 @@
   margin-top: 20px;
 }
 .buttonNumberPage {
-  background-color: #e8e7e7;
+  background-color: #eeeeee;
   border: none;
   width: auto;
   padding: 10px 15px;
