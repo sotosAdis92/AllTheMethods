@@ -12,13 +12,13 @@ const ViewMySumbissionsHistory = (props) => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [sortBy, setSortBy] = useState("");
-  const [sortDir, setSortDir] = useState("");
+  const [sortDir, setSortDir] = useState("DESC");
 
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
   const getAllSubmissions = () => {
     console.log(pageNumber);
-    getAllUserSubmissions(userId, pageNumber, pageSize)
+    getAllUserSubmissions(userId, pageNumber, pageSize, sortDir)
       .then((response) => {
         setMySubmissions(response.data.content);
         setCount(response.data.totalElements);
@@ -36,7 +36,7 @@ const ViewMySumbissionsHistory = (props) => {
     if (userId) {
       getAllSubmissions();
     }
-  }, [userId, pageNumber, pageSize]);
+  }, [userId, pageNumber, pageSize, sortDir]);
 
   const listOfMySubmissions = mySubmissions.map((submission) => (
     <div key={submission.id} className="submissionItem">
@@ -79,7 +79,18 @@ const ViewMySumbissionsHistory = (props) => {
                     {count}
                     <div className="submissionsSupperText">Submissions</div>
                   </div>
-                  <div className="filter"></div>
+                  <div>
+                    <button
+                      className="sortBy"
+                      onClick={() =>
+                        sortDir === "DESC"
+                          ? setSortDir("ASC") + console.log("sortDir", sortDir)
+                          : setSortDir("DESC") + console.log("sortDir", sortDir)
+                      }
+                    >
+                      Sort
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

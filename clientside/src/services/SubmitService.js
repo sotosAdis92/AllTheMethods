@@ -119,11 +119,12 @@ export const sendRungeKuttaNystrom = async (data) => {
   return response;
 };
 
-export const getAllUserSubmissions = async (id, pageNo, pageSize) => {
+export const getAllUserSubmissions = async (id, pageNo, pageSize, sortDir) => {
   const response = await axiosInstance.get(REST_API_BASE_URL + "/user/" + id, {
     params: {
       pageNo: pageNo,
       pageSize: pageSize,
+      sortDir: sortDir,
     },
   });
   return response;
