@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
 import arrowback from "../../assets/arrowback_2_10.png";
+import arrowDown from "../../assets/arrowDown.png";
 import arrowfront from "../../assets/arrowfront_10.png";
 import img from "../../assets/arrows.png";
+import arrowUp from "../../assets/arrowUpS.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
+
 import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
@@ -84,11 +87,19 @@ const ViewMySumbissionsHistory = (props) => {
                       className="sortBy"
                       onClick={() =>
                         sortDir === "DESC"
-                          ? setSortDir("ASC") + console.log("sortDir", sortDir)
-                          : setSortDir("DESC") + console.log("sortDir", sortDir)
+                          ? setSortDir("ASC") +
+                            console.log("sortDir", sortDir) +
+                            console.log({ arrowUp })
+                          : setSortDir("DESC") +
+                            console.log("sortDir", sortDir) +
+                            console.log({ arrowDown })
                       }
                     >
-                      Sort
+                      <img
+                        className="arrowSortImg"
+                        src={sortDir === "DESC" ? arrowDown : arrowUp}
+                        alt={arrowDown}
+                      />
                     </button>
                   </div>
                 </div>
