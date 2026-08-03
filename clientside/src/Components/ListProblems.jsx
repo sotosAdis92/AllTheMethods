@@ -11,7 +11,6 @@ import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
 import "./ListProblems.css";
 import ProblemDifficulty from "./ProblemDifficulty";
-
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const [allProblems, setAllProblems] = useState([]);
@@ -21,8 +20,8 @@ const ListProblems = () => {
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
-
   const navigator = useNavigate();
+
   function getAllProblems() {
     listProblems()
       .then((response) => {
@@ -40,6 +39,7 @@ const ListProblems = () => {
   useEffect(() => {
     getAllProblems();
   }, []);
+  console.log(allProblems);
 
   useEffect(() => {
     applyFilters();
