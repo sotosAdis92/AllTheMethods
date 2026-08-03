@@ -9,5 +9,5 @@ import com.example.allTheMethods.dto.response.SubmissionResponse;
 
 public interface SubmissionService {
     SubmissionResponse createSubmission(CreateSubmissionRequestDto submissionDto);
-    Page<Submission> getSubmissionsByUserId(int id, Pageable pageable);
+    Page<SubmissionResponse> getSubmissionsByUserId(int id, Pageable pageable);
 }

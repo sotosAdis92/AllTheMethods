@@ -42,10 +42,11 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public Page<Submission> getSubmissionsByUserId(int id, Pageable pageable) {
+    public Page<SubmissionResponse> getSubmissionsByUserId(int id, Pageable pageable) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            return submissionRepository.findAllByUserId((long) id, pageable);
+            Page<SubmissionResponse> submissionResponses = submissionMapper.toDto(submissionRepository.findAllByUserId((long) id, pageable));
+            return submissionResponses;
         }
         throw new EntityNotFoundException("User not found");
     }
