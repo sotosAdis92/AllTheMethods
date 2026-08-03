@@ -11,6 +11,9 @@ const ViewMySumbissionsHistory = (props) => {
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [sortBy, setSortBy] = useState("");
+  const [sortDir, setSortDir] = useState("");
+
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
   const getAllSubmissions = () => {
@@ -69,12 +72,14 @@ const ViewMySumbissionsHistory = (props) => {
                   <img src={img} alt={img} className="image"></img>
                   <div className="headerText">Submission History</div>
                 </h1>
+
                 <div className="submissionsCounter">
                   Submissions Sent:
                   <div className="submissionsCount">
                     {count}
                     <div className="submissionsSupperText">Submissions</div>
                   </div>
+                  <div className="filter"></div>
                 </div>
               </div>
             </div>
