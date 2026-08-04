@@ -133,7 +133,8 @@ spring-react/
 - Rate Limiting to prevent against DDOS attacks
 - Stateless Authentication
 - Statistics and Charts
-  
+- Query Optimization with Spring Data JPA
+
 # License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE)
