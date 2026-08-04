@@ -25,7 +25,9 @@ public class UserProblemController {
     }
 
     @GetMapping("/myproblems/{id}")
-    public ResponseEntity<List<UserProblemResponse>> getMyProblems(@PathVariable("id") int id){
+    public ResponseEntity<List<UserProblemResponse>> getMyProblems(
+            @PathVariable("id") int id
+    ){
         return ResponseEntity.ok(userProblemService.getUserProblemsByUserId(id));
     }
 

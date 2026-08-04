@@ -16,7 +16,6 @@ const ViewMySumbissionsHistory = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [sortBy, setSortBy] = useState("");
   const [sortDir, setSortDir] = useState("DESC");
-  const [booleanOpenFilterDiv, setBooleanOpenFilterDiv] = useState(false);
 
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
