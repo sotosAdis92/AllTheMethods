@@ -15,6 +15,10 @@ import java.util.List;
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
 
     @Query("SELECT s FROM Submission s JOIN FETCH s.problem p WHERE s.user.id = ?1")
-    @QueryHints({@QueryHint(name="org.hibernate.readOnly",value = "true"),@QueryHint(name = "org.hibernate.cacheable",value = "true")})
+    @QueryHints(
+            {
+                    @QueryHint(name="org.hibernate.readOnly",value = "true"),
+                    @QueryHint(name = "org.hibernate.cacheable",value = "true")
+            })
     Page<Submission> findAllByUserId(@Param("userId") Long id, Pageable pageable);
 }
