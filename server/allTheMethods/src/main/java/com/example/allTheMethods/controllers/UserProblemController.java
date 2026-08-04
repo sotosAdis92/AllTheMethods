@@ -3,9 +3,6 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.service.UserProblemService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,17 +25,10 @@ public class UserProblemController {
     }
 
     @GetMapping("/myproblems/{id}")
-    public ResponseEntity<Page<UserProblemResponse>> getMyProblems(
-            @PathVariable("id") int id,
-            @RequestParam(value = "pageNo", defaultValue = "1", required = false) int pageNo,
-            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
-            @RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
-            @RequestParam(value = "sortDir", defaultValue = "ASC", required = false) String sortDir
+    public ResponseEntity<List<UserProblemResponse>> getMyProblems(
+            @PathVariable("id") int id
     ){
-        Sort sort = null;
-        sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-        Page<UserProblemResponse> userProblemResponses = userProblemService.getUserProblemsByUserId(id, PageRequest.of(pageNo-1,pageSize,sort));
-        return new ResponseEntity<>(userProblemResponses, HttpStatus.OK);
+        return ResponseEntity.ok(userProblemService.getUserProblemsByUserId(id));
     }
 
     @GetMapping("/check/{id}")
