@@ -70,18 +70,18 @@ const ProgressChart = (props) => {
     }
   }, [userId]);
 
-  const distinctLabels = countDistinct.map((item) => item[0]);
-  const distinctGeneralData = countDistinct.map((item) => item[1]);
-  const distinctUserData = countDistinct.map((item) => item[2]);
+  const distinctLabels = countDistinct.map((item) => item.difficulty);
+  const distinctGeneralData = countDistinct.map((item) => item.countDifficulty);
+  const distinctUserData = countDistinct.map((item) => item.countDistinct);
   const listOfUserData = countDistinct.map((item, i) => {
     return (
       <div key={i} className="containerOfListOfUser">
         <ProblemDifficulty
-          difficulty={item[0]}
+          difficulty={item.difficulty}
           className="problemDiff"
         ></ProblemDifficulty>
         <div className="numbers">
-          {item[2]}/{item[1]}
+          {item.countDistinct}/{item.countDifficulty}
         </div>
       </div>
     );

@@ -27,8 +27,8 @@ const UserSkills = (props) => {
   const listOfSkills = countCategories.map((item, i) => {
     return (
       <div key={i} className="skillsItems">
-        <div className="skillsItemName">{item[0]}</div>
-        <div className="skillsItemCount">x{item[1]}</div>
+        <div className="skillsItemName">{item.problemType}</div>
+        <div className="skillsItemCount">x{item.countProblemType}</div>
       </div>
     );
   });
