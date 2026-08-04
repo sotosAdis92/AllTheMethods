@@ -14,12 +14,10 @@ const ViewMySumbissionsHistory = (props) => {
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [sortBy, setSortBy] = useState("");
   const [sortDir, setSortDir] = useState("DESC");
-  const [booleanOpenFilterDiv, setBooleanOpenFilterDiv] = useState(false);
-
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
+
   const getAllSubmissions = () => {
     console.log(pageNumber);
     getAllUserSubmissions(userId, pageNumber, pageSize, sortDir)
