@@ -1,8 +1,8 @@
 package com.example.allTheMethods.repository;
 
-import com.example.allTheMethods.dto.response.UserProblemStatsResponse;
+import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
 import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.CategoryStatsResponse;
+import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.entity.UserProblem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,10 +20,10 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(@Param("userId") Long userId);
 
     @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 GROUP BY p.difficulty")
-    List<CategoryStatsResponse> countDistinctSolvedByDifficultyFromUser(@Param("userId") Long userId);
+    List<UserProblemStatsResponseDto> countDistinctSolvedByDifficultyFromUser(@Param("userId") Long userId);
 
     @Query("SELECT p.problemType,COUNT(p.problemType) FROM Problem p FULL JOIN UserProblem up ON p.id = up.problem.id WHERE up.user.id = ?1 GROUP BY p.problemType")
-    List<UserProblemStatsResponse> countDistinctByIdAndCategory(@Param("userId") Long userId);
+    List<CategoryStatsResponseDto> countDistinctByIdAndCategory(@Param("userId") Long userId);
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
 }

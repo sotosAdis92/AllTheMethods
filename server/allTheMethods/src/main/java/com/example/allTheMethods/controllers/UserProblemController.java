@@ -1,7 +1,10 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
+import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
+import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
+import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.service.UserProblemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,21 +40,21 @@ public class UserProblemController {
     }
 
     @GetMapping("/difficulty/{id}")
-    public ResponseEntity<List<Object>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
-        List<Object> count = userProblemService.countAllByUserAndProblemDifficulty(id);
+    public ResponseEntity<List<DifficultyStatsResponse>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
+        List<DifficultyStatsResponse> count = userProblemService.countAllByUserAndProblemDifficulty(id);
         return ResponseEntity.ok(count);
     }
 
     @GetMapping("/count/{id}")
-    public ResponseEntity<List<Object>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
-        List<Object> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
+    public ResponseEntity<List<UserProblemStatsResponseDto>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
+        List<UserProblemStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 
     @GetMapping("/category/{id}")
-    public ResponseEntity<List<Object>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
+    public ResponseEntity<List<CategoryStatsResponseDto>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
         System.out.println(id);
-        List<Object> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);
+        List<CategoryStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 

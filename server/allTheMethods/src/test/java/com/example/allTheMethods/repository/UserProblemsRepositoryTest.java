@@ -23,10 +23,5 @@ class UserProblemsRepositoryTest {
     @Autowired
     private UserProblemsRepository userProblemsRepository;
 
-    @Test
-    public void getUserProblemsByUserIdAndGroupByDifficulty(){
-       Long userId = 1L;
-       List<Object> count = userProblemsRepository.countAllByUserAndProblemDifficulty(userId);
-       System.out.println(count);
-    }
+
 }

@@ -1,7 +1,10 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
+import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
+import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
+import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
@@ -69,9 +72,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<Object> countAllByUserAndProblemDifficulty(int id){
+    public List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(int id){
         Users user = jwtUtil.getLoggedInUser();
-        List<Object> countProblemsByDifficulty = new ArrayList<>();
+        List<DifficultyStatsResponse> countProblemsByDifficulty = new ArrayList<>();
         if(user!=null){
             countProblemsByDifficulty = userProblemsRepository.countAllByUserAndProblemDifficulty((long) id);
         }
@@ -79,9 +82,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<Object> countDistinctSolvedProblemsByDifficultyForUser(int id){
+    public List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id){
         Users user = jwtUtil.getLoggedInUser();
-        List<Object> countDistinctSolved = new ArrayList<>();
+        List<UserProblemStatsResponseDto> countDistinctSolved = new ArrayList<>();
         if(user!=null){
             countDistinctSolved = userProblemsRepository.countDistinctSolvedByDifficultyFromUser((long) id);
         }
@@ -89,9 +92,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<Object> countDistinctSolvedProblemsByCategoryForUser(int id) {
+    public List<CategoryStatsResponseDto> countDistinctSolvedProblemsByCategoryForUser(int id) {
         Users user = jwtUtil.getLoggedInUser();
-        List<Object> countDistinctSolved = new ArrayList<>();
+        List<CategoryStatsResponseDto> countDistinctSolved = new ArrayList<>();
         if(user!=null){
             countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory((long) id);
         }

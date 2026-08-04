@@ -1,7 +1,7 @@
 package com.example.allTheMethods.dto.response;
 
-public record UserProblemStatsResponse(
+public record CategoryStatsResponseDto(
         String problemType,
-        int countProblemType
+        Long countProblemType
 ) {
 }
