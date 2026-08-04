@@ -16,6 +16,7 @@ const ViewMySumbissionsHistory = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [sortBy, setSortBy] = useState("");
   const [sortDir, setSortDir] = useState("DESC");
+  const [booleanOpenFilterDiv, setBooleanOpenFilterDiv] = useState(false);
 
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
@@ -77,22 +78,20 @@ const ViewMySumbissionsHistory = (props) => {
                 </h1>
 
                 <div className="submissionsCounter">
-                  Submissions Sent:
-                  <div className="submissionsCount">
-                    {count}
-                    <div className="submissionsSupperText">Submissions</div>
+                  <div className="textDiv">
+                    Submissions Sent:
+                    <div className="submissionsCount">
+                      {count}
+                      <div className="submissionsSupperText">Submissions</div>
+                    </div>
                   </div>
-                  <div>
+                  <div className="filtersAndSorts">
                     <button
-                      className="sortBy"
+                      className="sortDir"
                       onClick={() =>
                         sortDir === "DESC"
-                          ? setSortDir("ASC") +
-                            console.log("sortDir", sortDir) +
-                            console.log({ arrowUp })
-                          : setSortDir("DESC") +
-                            console.log("sortDir", sortDir) +
-                            console.log({ arrowDown })
+                          ? setSortDir("ASC")
+                          : setSortDir("DESC")
                       }
                     >
                       <img
