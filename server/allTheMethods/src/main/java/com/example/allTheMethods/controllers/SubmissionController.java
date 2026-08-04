@@ -6,6 +6,7 @@ import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.service.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,13 @@ public class SubmissionController {
     public ResponseEntity<Page<SubmissionResponse>> getSubmissionsByUserId(
             @PathVariable("id") int id,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
-            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize
+            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "id") String sortBy,
+            @RequestParam(value = "sortDir", required = false, defaultValue = "DESC") String sortDir
     ){
-        Page<SubmissionResponse> submissions = submissionService.getSubmissionsByUserId(id, PageRequest.of(pageNo-1,pageSize));
+        Sort sort = null;
+        sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Page<SubmissionResponse> submissions = submissionService.getSubmissionsByUserId(id, PageRequest.of(pageNo-1,pageSize, sort));
         return new ResponseEntity<>(submissions, HttpStatus.OK);
     }
 }

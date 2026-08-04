@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
 import arrowback from "../../assets/arrowback_2_10.png";
+import arrowDown from "../../assets/arrowDown.png";
 import arrowfront from "../../assets/arrowfront_10.png";
 import img from "../../assets/arrows.png";
+import arrowUp from "../../assets/arrowUpS.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
+
 import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
@@ -11,11 +14,15 @@ const ViewMySumbissionsHistory = (props) => {
   const [count, setCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [sortBy, setSortBy] = useState("");
+  const [sortDir, setSortDir] = useState("DESC");
+  const [booleanOpenFilterDiv, setBooleanOpenFilterDiv] = useState(false);
+
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
   const getAllSubmissions = () => {
     console.log(pageNumber);
-    getAllUserSubmissions(userId, pageNumber, pageSize)
+    getAllUserSubmissions(userId, pageNumber, pageSize, sortDir)
       .then((response) => {
         setMySubmissions(response.data.content);
         setCount(response.data.totalElements);
@@ -33,7 +40,7 @@ const ViewMySumbissionsHistory = (props) => {
     if (userId) {
       getAllSubmissions();
     }
-  }, [userId, pageNumber, pageSize]);
+  }, [userId, pageNumber, pageSize, sortDir]);
 
   const listOfMySubmissions = mySubmissions.map((submission) => (
     <div key={submission.id} className="submissionItem">
@@ -69,11 +76,30 @@ const ViewMySumbissionsHistory = (props) => {
                   <img src={img} alt={img} className="image"></img>
                   <div className="headerText">Submission History</div>
                 </h1>
+
                 <div className="submissionsCounter">
-                  Submissions Sent:
-                  <div className="submissionsCount">
-                    {count}
-                    <div className="submissionsSupperText">Submissions</div>
+                  <div className="textDiv">
+                    Submissions Sent:
+                    <div className="submissionsCount">
+                      {count}
+                      <div className="submissionsSupperText">Submissions</div>
+                    </div>
+                  </div>
+                  <div className="filtersAndSorts">
+                    <button
+                      className="sortDir"
+                      onClick={() =>
+                        sortDir === "DESC"
+                          ? setSortDir("ASC")
+                          : setSortDir("DESC")
+                      }
+                    >
+                      <img
+                        className="arrowSortImg"
+                        src={sortDir === "DESC" ? arrowDown : arrowUp}
+                        alt={arrowDown}
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
