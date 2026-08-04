@@ -12,8 +12,9 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,11 +50,11 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<UserProblemResponse> getUserProblemsByUserId(int id) {
+    public Page<UserProblemResponse> getUserProblemsByUserId(int id, Pageable pageable) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
-            List<UserProblem> userProblems = userProblemsRepository.findAllByUserId((long) id);
-            return userProblemMapper.toDto(userProblems);
+            Page<UserProblemResponse> userProblems = userProblemMapper.toDto(userProblemsRepository.findAllByUserId((long) id, pageable));
+            return userProblems;
         }
         throw new EntityNotFoundException("User not found");
     }

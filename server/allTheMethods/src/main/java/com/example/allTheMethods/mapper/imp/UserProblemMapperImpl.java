@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.mapper.UserProblemMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -38,6 +39,11 @@ public class UserProblemMapperImpl implements UserProblemMapper {
             return null;
         }
         return userProblems.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public Page<UserProblemResponse> toDto(Page<UserProblem> userProblems) {
+        return userProblems.map(this::toDto);
     }
 
     @Override
