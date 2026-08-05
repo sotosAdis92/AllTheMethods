@@ -1,3 +1,4 @@
+import Tooltip from "../Tooltip";
 const AboutDescription = () => {
   const arrayOfButtons = [
     {
@@ -22,16 +23,17 @@ const AboutDescription = () => {
 
   const listOfButtons = arrayOfButtons.map((button, i) => {
     return (
-      <div className="wrapper" key={i}>
-        <div className="icon">
-          <div className={`tooltip ${button.style}`}>{button.label}</div>
-          <a href={button.link}>
-            <span className="spanIcon">
-              <img className="imageIconSpan" src={button.picture}></img>
-            </span>
-          </a>
-        </div>
-      </div>
+      <Tooltip
+        content={button.label}
+        styling={`tooltip ${button.style}`}
+        key={i}
+      >
+        <a href={button.link}>
+          <span className="spanIcon">
+            <img className="imageIconSpan" src={button.picture}></img>
+          </span>
+        </a>
+      </Tooltip>
     );
   });
 

@@ -4,6 +4,7 @@ const Tooltip = (props) => {
     <div className="wrapper">
       <div className="icon">
         <div className={props.styling}>{props.content}</div>
+        {props.children}
       </div>
     </div>
   );
