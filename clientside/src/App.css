@@ -1676,7 +1676,7 @@ body {
 .openFilterButtonAchievements {
   background-color: #f5f5f5;
   border: none;
-  padding: 8px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   display: flex;
@@ -1779,8 +1779,8 @@ body {
 }
 
 .openFilterButtonAchievements img {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .userDetails {
