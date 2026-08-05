@@ -300,7 +300,7 @@
 
 .wrapper .icon:hover .tooltip,
 .wrapper .icon:hover .tooltip:before {
-  background: #333;
+  background: #050505;
   font-family:
     system-ui,
     -apple-system,

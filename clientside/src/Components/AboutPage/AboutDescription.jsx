@@ -1,7 +1,37 @@
-import postgres from "../../assets/progres.jpg";
-import react from "../../assets/react.jpg";
-import spring from "../../assets/spring.jpg";
 const AboutDescription = () => {
+  const arrayOfButtons = [
+    {
+      link: "https://www.postgresql.org/",
+      label: "Postgresql",
+      picture: "src/assets/progres.jpg",
+    },
+    {
+      link: "https://spring.io/projects/spring-boot",
+      label: "Spring",
+      picture: "src/assets/spring.jpg",
+    },
+    {
+      link: "https://react.dev/",
+      label: "React.js",
+      picture: "src/assets/react.jpg",
+    },
+  ];
+
+  const listOfButtons = arrayOfButtons.map((button, i) => {
+    return (
+      <div className="wrapper" key={i}>
+        <div className="icon">
+          <div className="tooltip">{button.label}</div>
+          <a href={button.link}>
+            <span className="spanIcon">
+              <img className="imageIconSpan" src={button.picture}></img>
+            </span>
+          </a>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <>
       <div className="aboutDescription">
@@ -26,17 +56,7 @@ const AboutDescription = () => {
           </p>
           <div className="techStackContainerDiv">
             <h3 className="techStackHeading">Tech Stack:</h3>
-            <div className="techStackImages">
-              <a href="https://www.postgresql.org/">
-                <img src={postgres}></img>
-              </a>
-              <a href="https://spring.io/projects/spring-framework">
-                <img src={spring}></img>
-              </a>
-              <a href="https://react.dev/">
-                <img src={react}></img>
-              </a>
-            </div>
+            <div className="techStackImages">{listOfButtons}</div>
           </div>
         </div>
         <div className="paragraphHeading">How do I use the Website?</div>
