@@ -15,6 +15,7 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserAchievementService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
+    @Transactional
     public UserAchievementResponseDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
         UserAchievementDto userAchievementDto = saveUserAchievementDto.getUserAchievementDto();
         UserProblemDto userProblemDto = saveUserAchievementDto.getUserProblemDto();

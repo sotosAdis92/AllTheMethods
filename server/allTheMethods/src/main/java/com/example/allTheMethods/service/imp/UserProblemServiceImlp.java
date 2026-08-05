@@ -15,7 +15,9 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UserProblemService;
 import com.example.allTheMethods.utils.JWTUtil;
 import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,7 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
+    @Transactional
     public UserProblemResponse saveUserProblem(SaveUserProblemRequestDto userProblemRequest) {
         if(checkIfUserSolvedAProblem(userProblemRequest.problemId().intValue())){
             throw new RuntimeException("User has already solved the problem");
