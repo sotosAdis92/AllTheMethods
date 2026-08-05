@@ -4,16 +4,19 @@ const AboutDescription = () => {
       link: "https://www.postgresql.org/",
       label: "Postgresql",
       picture: "src/assets/progres.jpg",
+      style: "Postgresql",
     },
     {
       link: "https://spring.io/projects/spring-boot",
       label: "Spring",
       picture: "src/assets/spring.jpg",
+      style: "Spring",
     },
     {
       link: "https://react.dev/",
       label: "React.js",
       picture: "src/assets/react.jpg",
+      style: "React",
     },
   ];
 
@@ -21,7 +24,7 @@ const AboutDescription = () => {
     return (
       <div className="wrapper" key={i}>
         <div className="icon">
-          <div className="tooltip">{button.label}</div>
+          <div className={`tooltip ${button.style}`}>{button.label}</div>
           <a href={button.link}>
             <span className="spanIcon">
               <img className="imageIconSpan" src={button.picture}></img>
