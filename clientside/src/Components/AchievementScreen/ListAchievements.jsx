@@ -133,12 +133,13 @@ const ListAchievements = () => {
     <>
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
-        <div className="filterContainerAchievements">
+        <div className="filterContainerAchievements ">
           <button
-            className="openFilterButtonAchievements"
+            className="openFilterButtonAchievements  tooltip-container"
             onClick={() => setOpenFilterBool(!openFilterBool)}
           >
             <img src={img3}></img>
+            <span className="tooltip">Filters</span>
           </button>
           {!openFilterBool ? (
             <div></div>
