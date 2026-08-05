@@ -152,11 +152,11 @@ const ListAchievements = () => {
                 All Achievements
               </button>
               <div>
-                <h3 className="categoryHeading">Is of Category:</h3>
+                <h4 className="categoryHeading">Is of Category:</h4>
                 <ol className="filterCategories">{listOfCategoryFilters}</ol>
               </div>
               <div>
-                <h3 className="categoryHeading">Is of Rank:</h3>
+                <h4 className="categoryHeading">Is of Rank:</h4>
                 <ol className="filterCategories">{listOfRankFilters}</ol>
               </div>
             </div>
