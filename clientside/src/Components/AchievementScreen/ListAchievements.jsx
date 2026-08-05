@@ -8,6 +8,7 @@ import {
   getAchievementsByCategoryAndRank,
   listAchievements,
 } from "../../services/AchievementService";
+import Tooltip from "../Tooltip";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import AchievementRank from "./AchievementRankComponent";
@@ -132,6 +133,7 @@ const ListAchievements = () => {
   return (
     <>
       <div className="achievementScreen">
+        <Tooltip></Tooltip>
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <div className="filterContainerAchievements">
           <button
