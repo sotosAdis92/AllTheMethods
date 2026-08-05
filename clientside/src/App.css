@@ -1634,14 +1634,14 @@ body {
 }
 
 .listOfAchievements {
-  width: 60%; /* Keep your 60% width */
+  width: 60%;
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Keep items left-aligned */
+  align-items: flex-start;
   gap: 2rem;
   padding-left: 0;
-  margin-left: 0; /* Remove auto margins */
+  margin-left: 0;
 }
 
 .achievementCardWrapper {

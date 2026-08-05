@@ -8,7 +8,6 @@ import {
   getAchievementsByCategoryAndRank,
   listAchievements,
 } from "../../services/AchievementService";
-import Tooltip from "../Tooltip";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import AchievementRank from "./AchievementRankComponent";
@@ -135,39 +134,33 @@ const ListAchievements = () => {
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <div className="filterContainerAchievements">
-          <Tooltip content={"Filter"} styling={`tooltip ${"achievements"}`}>
-            <div>
+          <button
+            className="openFilterButtonAchievements"
+            onClick={() => setOpenFilterBool(!openFilterBool)}
+          >
+            <img src={img3}></img>
+          </button>
+          {!openFilterBool ? (
+            <div></div>
+          ) : (
+            <div className="filtersDiv">
               <button
-                className="openFilterButtonAchievements"
-                onClick={() => setOpenFilterBool(!openFilterBool)}
+                onClick={() => getAllAchievements()}
+                className="filterButton"
               >
-                <img src={img3}></img>
+                <img src={img2} className="allAchFilterImg"></img>
+                All Achievements
               </button>
-              {!openFilterBool ? (
-                <div></div>
-              ) : (
-                <div className="filtersDiv">
-                  <button
-                    onClick={() => getAllAchievements()}
-                    className="filterButton"
-                  >
-                    <img src={img2} className="allAchFilterImg"></img>
-                    All Achievements
-                  </button>
-                  <div>
-                    <h4 className="categoryHeading">Is of Category:</h4>
-                    <ol className="filterCategories">
-                      {listOfCategoryFilters}
-                    </ol>
-                  </div>
-                  <div>
-                    <h4 className="categoryHeading">Is of Rank:</h4>
-                    <ol className="filterCategories">{listOfRankFilters}</ol>
-                  </div>
-                </div>
-              )}
+              <div>
+                <h3 className="categoryHeading">Is of Category:</h3>
+                <ol className="filterCategories">{listOfCategoryFilters}</ol>
+              </div>
+              <div>
+                <h3 className="categoryHeading">Is of Rank:</h3>
+                <ol className="filterCategories">{listOfRankFilters}</ol>
+              </div>
             </div>
-          </Tooltip>
+          )}
         </div>
 
         <ol className="listOfAchievements">{listOfAchievements}</ol>

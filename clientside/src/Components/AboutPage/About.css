@@ -335,7 +335,7 @@
 
 .wrapper .icon:hover .tooltip.achievements,
 .wrapper .icon:hover .tooltip.achievements:before {
-  background: #fbfbfb;
+  background: #eceded;
   font-family:
     system-ui,
     -apple-system,
@@ -349,8 +349,6 @@
     "Helvetica Neue",
     sans-serif;
   color: #000000;
-  text-shadow: none;
-  font-size: 14px;
 }
 
 .wrapper .icon:hover .tooltip.Spring,
