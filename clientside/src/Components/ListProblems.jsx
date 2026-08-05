@@ -174,10 +174,11 @@ const ListProblems = () => {
         <h2 className="problemsTitle">List Of Problems</h2>
         <div className="filterContainer">
           <button
-            className="openFilterButton"
+            className="openFilterButton tooltip-container"
             onClick={() => setOpenFilterBool(!openFilterBool)}
           >
             <img src={img3}></img>
+            <span className="tooltip">Filters</span>
           </button>
 
           {!openFilterBool ? (
