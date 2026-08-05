@@ -8,7 +8,6 @@ import {
   getAchievementsByCategoryAndRank,
   listAchievements,
 } from "../../services/AchievementService";
-import Tooltip from "../Tooltip";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import AchievementRank from "./AchievementRankComponent";
@@ -135,15 +134,12 @@ const ListAchievements = () => {
       <div className="achievementScreen">
         <h2 className="achievementsTitle">List Of Achievements</h2>
         <div className="filterContainerAchievements">
-          <Tooltip content={`Filter`} styling={`tooltip`}>
-            <button
-              className="openFilterButtonAchievements"
-              onClick={() => setOpenFilterBool(!openFilterBool)}
-            >
-              <img src={img3}></img>
-            </button>
-          </Tooltip>
-
+          <button
+            className="openFilterButtonAchievements"
+            onClick={() => setOpenFilterBool(!openFilterBool)}
+          >
+            <img src={img3}></img>
+          </button>
           {!openFilterBool ? (
             <div></div>
           ) : (
