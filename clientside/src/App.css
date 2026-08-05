@@ -1714,7 +1714,7 @@ body {
 
 .filtersDiv {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 7.5vh;
   left: 0;
   background-color: #ffffff;
   border: 1px solid #d1d5db;
