@@ -1901,7 +1901,7 @@ body {
 
 .openFilterButtonAchievements:hover .tooltip {
   opacity: 1;
-  bottom: calc(100% + 10px);
+  bottom: calc(100% + 16px);
   background: #f8f8f8;
   color: #000000;
 }
