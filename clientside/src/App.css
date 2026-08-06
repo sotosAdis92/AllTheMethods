@@ -131,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 10px 15px;
   width: 100%;
   background:
     radial-gradient(
@@ -265,8 +265,8 @@ body {
 }
 
 .bronze img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   z-index: 10;
   position: relative;
@@ -279,7 +279,7 @@ body {
   border-radius: 24px;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 10px 15px;
   background:
     radial-gradient(
       circle at 0% 100%,
@@ -348,9 +348,9 @@ body {
 }
 
 .achIconBronze {
-  width: 65px;
-  height: 65px;
-  min-width: 65px;
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -362,17 +362,17 @@ body {
 }
 
 .silver img {
-  height: 40px;
-  width: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   z-index: 10;
   position: relative;
 }
 
 .achIconSilver {
-  width: 65px;
-  height: 65px;
-  min-width: 65px;
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -391,7 +391,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 10px 15px;
   width: 100%;
   background:
     radial-gradient(
@@ -462,17 +462,17 @@ body {
 }
 
 .gold img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   z-index: 10;
   position: relative;
 }
 
 .achIconGold {
-  width: 65px;
-  height: 65px;
-  min-width: 65px;
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
   border-radius: 50%;
   display: flex;
   align-items: center;
