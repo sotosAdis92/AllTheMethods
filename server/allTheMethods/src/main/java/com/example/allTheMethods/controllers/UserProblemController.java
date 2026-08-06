@@ -40,7 +40,6 @@ public class UserProblemController {
     }
 
     @GetMapping("/check/{id}")
-    @PreAuthorize("#id == authentication.principal.id")
     public boolean checkIfUserSolvedAProblem(@PathVariable("id") int id){
         return userProblemService.checkIfUserSolvedAProblem(id);
     }
