@@ -3,6 +3,8 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/submissions")
 public class SubmissionController {
+    private static final Logger log = LoggerFactory.getLogger(SubmissionController.class);
     private final SubmissionService submissionService;
     public SubmissionController(SubmissionService submissionService) {
         this.submissionService = submissionService;
@@ -38,6 +41,8 @@ public class SubmissionController {
         Sort sort = null;
         sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Page<SubmissionResponse> submissions = submissionService.getSubmissionsByUserId(id, PageRequest.of(pageNo-1,pageSize, sort));
+        log.debug("Getting user submissions for user: " + id);
+        log.debug("Getting user submissions: " + submissions);
         return new ResponseEntity<>(submissions, HttpStatus.OK);
     }
 }
