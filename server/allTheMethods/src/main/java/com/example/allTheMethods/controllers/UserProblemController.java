@@ -1,11 +1,10 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
-import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
-import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.UserProblemResponse;
-import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
+import com.example.allTheMethods.dto.response.*;
 import com.example.allTheMethods.service.UserProblemService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,10 +30,13 @@ public class UserProblemController {
 
     @GetMapping("/myproblems/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<List<UserProblemResponse>> getMyProblems(
-            @PathVariable("id") int id
+    public ResponseEntity<Page<UserProblemResponse>> getMyProblems(
+            @PathVariable("id") int id,
+            @RequestParam(defaultValue = "1", required = false, name = "pageNo") int pageNo,
+            @RequestParam(defaultValue = "10", required = false, name = "pageSize") int pageSize
     ){
-        return ResponseEntity.ok(userProblemService.getUserProblemsByUserId(id));
+        Page<UserProblemResponse> userProblems = userProblemService.getUserProblemsByUserId(id, PageRequest.of(pageNo-1,pageSize));
+        return ResponseEntity.ok(userProblems);
     }
 
     @GetMapping("/check/{id}")

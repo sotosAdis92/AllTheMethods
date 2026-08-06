@@ -5,6 +5,8 @@ import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
 import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
 
 public interface UserProblemService {
     UserProblemResponse saveUserProblem(SaveUserProblemRequestDto userProblemDto);
-    List<UserProblemResponse> getUserProblemsByUserId(int id);
+    Page<UserProblemResponse> getUserProblemsByUserId(int id, Pageable pageable);
     boolean checkIfUserSolvedAProblem(int id);
     List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(int id);
     List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id);

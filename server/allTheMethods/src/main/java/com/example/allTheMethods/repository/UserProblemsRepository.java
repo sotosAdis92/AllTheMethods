@@ -5,11 +5,15 @@ import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
 import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.entity.UserProblem;
 import jakarta.persistence.QueryHint;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+
 import java.util.List;
 
 @Repository
@@ -17,7 +21,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     @Query("SELECT up FROM UserProblem up JOIN FETCH up.problem p WHERE up.user.id = ?1")
     @QueryHints({@QueryHint(name="org.hibernate.readOnly",value="true"),@QueryHint(name = "org.hibernate.cacheable",value = "true")})
-    List<UserProblem> findAllByUserId(Long userId);
+    Page<UserProblem> findAllByUserId(Long userId, Pageable pageable);
 
     @Query("SELECT p.difficulty,COUNT(up) FROM UserProblem up JOIN up.problem p WHERE up.user.id = ?1 GROUP BY p.difficulty")
     @QueryHints({@QueryHint(name="org.hibernate.readOnly",value="true"),@QueryHint(name = "org.hibernate.cacheable",value = "true")})
