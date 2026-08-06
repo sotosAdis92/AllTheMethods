@@ -6,7 +6,7 @@ import arrowfront from "../../assets/arrowfront_10.png";
 import img from "../../assets/arrows.png";
 import arrowUp from "../../assets/arrowUpS.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
-
+import ProblemDifficulty from "../ProblemDifficulty";
 import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);
@@ -43,8 +43,13 @@ const ViewMySumbissionsHistory = (props) => {
 
   const listOfMySubmissions = mySubmissions.map((submission) => (
     <div key={submission.id} className="submissionItem">
-      <div>
+      <div className="numberTitleAndDifficulty">
         {submission.number}. {submission.title}
+        <div className="difficultyDivSubmission">
+          <ProblemDifficulty
+            difficulty={submission.difficulty}
+          ></ProblemDifficulty>
+        </div>
       </div>
       <div>{submission.date}</div>
     </div>
