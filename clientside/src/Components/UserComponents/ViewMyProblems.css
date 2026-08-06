@@ -35,6 +35,15 @@
     sans-serif;
   font-weight: 500;
 }
+.pageButton:disabled {
+  opacity: 0.5;
+  background-color: #ccc;
+}
+
+.pageButton:disabled:hover {
+  opacity: 0.5;
+  background-color: #ccc;
+}
 
 .userProblem > div:last-child {
   font-weight: 500;
