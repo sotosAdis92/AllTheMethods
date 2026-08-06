@@ -36,7 +36,7 @@ public class UserProblemController {
             @RequestParam(defaultValue = "10", required = false, name = "pageSize") int pageSize
     ){
         Page<UserProblemResponse> userProblems = userProblemService.getUserProblemsByUserId(id, PageRequest.of(pageNo-1,pageSize));
-        return ResponseEntity.ok(userProblems);
+        return new ResponseEntity<>(userProblems, HttpStatus.OK);
     }
 
     @GetMapping("/check/{id}")
