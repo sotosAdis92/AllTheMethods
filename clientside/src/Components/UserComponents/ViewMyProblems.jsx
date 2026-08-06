@@ -97,25 +97,29 @@ const ViewMyProblems = (props) => {
             </div>
             <ol className="listOfUserProblems">{listOfMyProblems}</ol>
           </div>
-          <div className="pageButtonsContainer">
-            <button
-              className="pageButton"
-              onClick={() => setPageNumber((page) => Math.max(page - 1, 0))}
-              disabled={pageNumber === 1}
-            >
-              <img src={arrowback} alt={arrowback}></img>
-            </button>
-            {pageNumberButtons}
-            <button
-              className="pageButton"
-              onClick={() =>
-                setPageNumber((page) => Math.max(page, totalPages))
-              }
-              disabled={pageNumber === totalPages}
-            >
-              <img src={arrowfront} alt={arrowfront}></img>
-            </button>
-          </div>
+          {totalPages > 1 ? (
+            <div className="pageButtonsContainer">
+              <button
+                className="pageButton"
+                onClick={() => setPageNumber((page) => Math.max(page - 1, 0))}
+                disabled={pageNumber === 1}
+              >
+                <img src={arrowback} alt={arrowback}></img>
+              </button>
+              {pageNumberButtons}
+              <button
+                className="pageButton"
+                onClick={() =>
+                  setPageNumber((page) => Math.max(page, totalPages))
+                }
+                disabled={pageNumber === totalPages}
+              >
+                <img src={arrowfront} alt={arrowfront}></img>
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </>
       ) : (
         <>
