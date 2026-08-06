@@ -8,6 +8,7 @@ import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.service.UserProblemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -22,12 +23,14 @@ public class UserProblemController {
     }
 
     @PostMapping("/save")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<UserProblemResponse> saveUserProblem(@RequestBody SaveUserProblemRequestDto requestDto){
         UserProblemResponse userProblemDto = userProblemService.saveUserProblem(requestDto);
         return new ResponseEntity<>(userProblemDto, HttpStatus.CREATED);
     }
 
     @GetMapping("/myproblems/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<UserProblemResponse>> getMyProblems(
             @PathVariable("id") int id
     ){
@@ -35,23 +38,27 @@ public class UserProblemController {
     }
 
     @GetMapping("/check/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public boolean checkIfUserSolvedAProblem(@PathVariable("id") int id){
         return userProblemService.checkIfUserSolvedAProblem(id);
     }
 
     @GetMapping("/difficulty/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<DifficultyStatsResponse>> getCountAllProblemsOfUserByDifficulty(@PathVariable("id") int id){
         List<DifficultyStatsResponse> count = userProblemService.countAllByUserAndProblemDifficulty(id);
         return ResponseEntity.ok(count);
     }
 
     @GetMapping("/count/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<UserProblemStatsResponseDto>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
         List<UserProblemStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 
     @GetMapping("/category/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<CategoryStatsResponseDto>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
         System.out.println(id);
         List<CategoryStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);

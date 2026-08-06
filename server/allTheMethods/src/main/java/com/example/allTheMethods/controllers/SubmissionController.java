@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
@@ -26,6 +27,7 @@ public class SubmissionController {
     }
 
     @GetMapping("/user/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<Page<SubmissionResponse>> getSubmissionsByUserId(
             @PathVariable("id") int id,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
