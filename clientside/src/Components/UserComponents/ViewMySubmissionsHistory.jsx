@@ -16,9 +16,9 @@ const ViewMySumbissionsHistory = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [sortBy, setSortBy] = useState("");
   const [sortDir, setSortDir] = useState("DESC");
-
   const [totalPages, setTotalPages] = useState(0);
   const pageNumbers = [];
+
   const getAllSubmissions = () => {
     console.log(pageNumber);
     getAllUserSubmissions(userId, pageNumber, pageSize, sortDir)

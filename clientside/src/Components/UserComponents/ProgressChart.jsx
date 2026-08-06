@@ -32,7 +32,7 @@ const ProgressChart = (props) => {
   const getUserProblemsCount = () => {
     getUserProblems(userId)
       .then((response) => {
-        setUserCount(response.data);
+        setUserCount(response.data.content);
       })
       .catch((error) => {
         console.log(error);

@@ -9,9 +9,15 @@ export const saveSolvedProblem = async (problemInfo) => {
   return response;
 };
 
-export const getUserProblems = async (userId) => {
+export const getUserProblems = async (userId, pageNo, pageSize) => {
   const response = await axiosInstance.get(
     REST_API_BASE_URL + "/myproblems/" + userId,
+    {
+      params: {
+        pageNo: pageNo,
+        pageSize: pageSize,
+      },
+    },
   );
   console.log(response);
   return response;
