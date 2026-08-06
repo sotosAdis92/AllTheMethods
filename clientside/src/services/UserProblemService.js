@@ -23,10 +23,9 @@ export const getUserProblems = async (userId, pageNo, pageSize) => {
   return response;
 };
 
-export const getUserProblemById = async (problemId, userId) => {
+export const getUserProblemById = async (problemId) => {
   const response = await axiosInstance.get(
     REST_API_BASE_URL + "/check/" + problemId,
-    problemId,
   );
   return response;
 };
