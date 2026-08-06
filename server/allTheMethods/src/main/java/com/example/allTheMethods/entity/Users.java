@@ -1,7 +1,7 @@
 package com.example.allTheMethods.entity;
 
 
-import com.example.allTheMethods.enus.UserRole;
+import com.example.allTheMethods.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

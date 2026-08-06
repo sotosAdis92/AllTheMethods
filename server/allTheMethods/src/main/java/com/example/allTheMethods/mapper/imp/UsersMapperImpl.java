@@ -5,7 +5,7 @@ import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
 import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
-import com.example.allTheMethods.enus.UserRole;
+import com.example.allTheMethods.enums.UserRole;
 import com.example.allTheMethods.exception.NullUserException;
 import com.example.allTheMethods.mapper.UsersMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
