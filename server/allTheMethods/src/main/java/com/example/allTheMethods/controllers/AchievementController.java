@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.service.AchievementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class AchievementController {
 
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AchievementResponseDto> createAchievement(@RequestBody CreateAchievementRequestDto achievementDto){
         AchievementResponseDto savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
@@ -38,12 +40,14 @@ public class AchievementController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AchievementResponseDto> updateAchievement(@PathVariable("id") Long id, @RequestBody UpdateAchievementRequestDto updateAchievementDto){
         AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteAchievement(@PathVariable("id") Long id){
         achievementService.deleteAchievement(id);
         return ResponseEntity.ok("Deleted problem");
