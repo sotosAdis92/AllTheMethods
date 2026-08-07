@@ -22,7 +22,6 @@ public class UserProblemController {
     }
 
     @PostMapping("/save")
-    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<UserProblemResponse> saveUserProblem(@RequestBody SaveUserProblemRequestDto requestDto){
         UserProblemResponse userProblemDto = userProblemService.saveUserProblem(requestDto);
         return new ResponseEntity<>(userProblemDto, HttpStatus.CREATED);
@@ -40,6 +39,7 @@ public class UserProblemController {
     }
 
     @GetMapping("/check/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public boolean checkIfUserSolvedAProblem(@PathVariable("id") int id){
         return userProblemService.checkIfUserSolvedAProblem(id);
     }
