@@ -186,7 +186,8 @@ const Signup = () => {
               className="singup-link"
               onClick={() => navigate("/login")}
             >
-              {"Already have an account? Log In"}
+              {"Already have an account?"}
+              <div className="bolderBlueDiv">Log In</div>
             </Link>
           </div>
         </div>

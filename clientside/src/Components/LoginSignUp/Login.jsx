@@ -149,7 +149,8 @@ const Login = () => {
               className="singup-link"
               onClick={() => navigate("/register")}
             >
-              {"Don't have an account? Sign Up"}
+              {"Don't have an account?"}
+              <div className="bolderBlueDiv">Sign Up</div>
             </Link>
           </div>
         </div>
