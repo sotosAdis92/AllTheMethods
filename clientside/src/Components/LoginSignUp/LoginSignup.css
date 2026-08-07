@@ -41,8 +41,8 @@
 
 .loginSingUp:hover,
 .SingUp:hover {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
+  background: #cfdaef !important;
+  border-color: #cfdaef !important;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-1px) !important;
 }
