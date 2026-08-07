@@ -34,6 +34,9 @@
   cursor: pointer !important;
   flex-shrink: 0 !important;
   white-space: nowrap !important;
+  margin-bottom: 24px !important;
+  margin-left: 5px !important;
+  margin-top: 1vh !important;
 }
 
 .loginSingUp:hover,
@@ -65,7 +68,7 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  min-height: 70vh !important;
+  min-height: 90vh !important;
   background: #ffffff !important;
   padding: 20px !important;
 }
