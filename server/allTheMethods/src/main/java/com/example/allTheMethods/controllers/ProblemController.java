@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class ProblemController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProblemResponseDto> createProblem(@RequestBody CreateProblemRequestDto problemDto){
         ProblemResponseDto savedProblem =  problemService.createProblem(problemDto);
         return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
@@ -43,12 +45,14 @@ public class ProblemController {
     }
 
     @PutMapping("update/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProblemResponseDto> updateProblem(@PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
         ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
 
     @DeleteMapping("delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteProblem(@PathVariable Long id){
         problemService.deleteProblem(id);
         return ResponseEntity.ok("Deleted problem");
