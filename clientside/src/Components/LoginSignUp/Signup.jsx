@@ -89,6 +89,7 @@ const Signup = () => {
       <div className="login-container">
         <div className="login-card">
           <AboutTitle></AboutTitle>
+          <div className="explanationDiv">Create an account</div>
           <div className="row">
             <TextField
               className="login-input"

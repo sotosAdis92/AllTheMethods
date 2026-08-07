@@ -78,6 +78,7 @@ const Login = () => {
       <div className="login-container">
         <div className="login-card">
           <AboutTitle></AboutTitle>
+          <div className="explanationDiv">Log In to your account</div>
           <div className="row">
             <TextField
               id="username"
