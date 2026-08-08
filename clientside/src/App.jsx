@@ -11,6 +11,7 @@ import Signup from "./Components/LoginSignUp/Signup";
 import ProblemComponent from "./Components/ProblemComponent";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
 import MyProfile from "./Components/UserComponents/MyProfile";
+import ProtectedRoute from "./context/ProtectedRoute";
 
 function App() {
   return (
@@ -28,11 +29,19 @@ function App() {
             ></Route>
             <Route
               path="/problems/admin/add"
-              element={<ProblemComponent></ProblemComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <ProblemComponent></ProblemComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/problems/admin/edit/:id"
-              element={<ProblemComponent></ProblemComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <ProblemComponent></ProblemComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/achievements"
@@ -40,11 +49,19 @@ function App() {
             ></Route>
             <Route
               path="/achievements/admin/add"
-              element={<AchievementComponent></AchievementComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AchievementComponent></AchievementComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/achievements/admin/update/:id"
-              element={<AchievementComponent></AchievementComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AchievementComponent></AchievementComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route path="/profile" element={<MyProfile></MyProfile>}></Route>
             <Route
