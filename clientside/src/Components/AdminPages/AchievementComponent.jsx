@@ -16,6 +16,7 @@ import {
   getAchievement,
   updateAchievement,
 } from "../../services/AchievementService";
+
 const AchievementComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -117,7 +118,7 @@ const AchievementComponent = () => {
         updateAchievement(id, achievement)
           .then((response) => {
             console.log(response.data);
-            navigator("/achievements");
+            navigator("/");
           })
           .catch((error) => {
             console.error(error);
@@ -127,7 +128,7 @@ const AchievementComponent = () => {
         createAchievement(achievement)
           .then((response) => {
             console.log(response.data);
-            navigator("/achievements");
+            navigator("/");
           })
           .catch((error) => {
             console.error(error);

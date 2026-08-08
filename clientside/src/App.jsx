@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainAboutPage from "./Components/AboutPage/MainAboutPage";
-import AchievementComponent from "./Components/AchievementScreen/AchievementComponent";
 import ListAchievements from "./Components/AchievementScreen/ListAchievements";
+import AchievementComponent from "./Components/AdminPages/AchievementComponent";
+import ListProblems from "./Components/AdminPages/ListProblems";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import ListProblems from "./Components/ListProblems";
 import Login from "./Components/LoginSignUp/Login";
 import Signup from "./Components/LoginSignUp/Signup";
 import ProblemComponent from "./Components/ProblemComponent";

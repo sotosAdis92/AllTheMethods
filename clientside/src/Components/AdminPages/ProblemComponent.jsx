@@ -18,7 +18,7 @@ import {
   createProblem,
   getProblem,
   updateProblem,
-} from "../services/ProblemService";
+} from "../../services/ProblemService";
 
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
@@ -116,7 +116,7 @@ const ProblemComponent = () => {
         updateProblem(id, problem)
           .then((response) => {
             console.log(response.data);
-            navigator("/problems");
+            navigator("");
           })
           .catch((error) => {
             console.error(error);
@@ -126,7 +126,7 @@ const ProblemComponent = () => {
         createProblem(problem)
           .then((response) => {
             console.log(response.data);
-            navigator("/problems");
+            navigator("");
           })
           .catch((error) => {
             console.error(error);

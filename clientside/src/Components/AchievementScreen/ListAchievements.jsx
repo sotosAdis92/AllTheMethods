@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../App.css";
 import img1 from "../../assets/223399.png";
 import img2 from "../../assets/5110770.png";
@@ -20,7 +19,6 @@ const ListAchievements = () => {
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
   const [activeRankFilters, setActiveRankFilters] = useState([]);
-  const navigator = useNavigate();
 
   const getAllAchievements = () => {
     listAchievements()
