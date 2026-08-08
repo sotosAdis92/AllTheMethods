@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const AdminHome = () => {
+  const [choice, setChoice] = useState("");
   const choices = {
     0: "Problems",
     1: "Achivements",
@@ -10,10 +13,11 @@ const AdminHome = () => {
       <div>
         <ul>
           {choices.map((choice) => {
-            <li>{choice}</li>;
+            <li onChange={() => setChoice(choice)}>{choice}</li>;
           })}
         </ul>
       </div>
+      <div>{}</div>
     </div>
   );
 };
