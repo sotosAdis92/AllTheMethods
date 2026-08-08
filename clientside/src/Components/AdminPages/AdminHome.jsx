@@ -9,7 +9,7 @@ const AdminHome = () => {
     3: "Submissions",
   };
   return (
-    <div>
+    <div className="containerAdmin">
       <div>
         <ul>
           {choices.map((choice) => {
