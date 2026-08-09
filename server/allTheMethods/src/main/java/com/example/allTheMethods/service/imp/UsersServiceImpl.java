@@ -50,5 +50,10 @@ public class UsersServiceImpl implements UsersService {
         return users;
     }
 
+    @Override
+    public void deleteUser(int id) {
+        usersRepository.deleteById((long) id);
+    }
+
 
 }

@@ -10,4 +10,5 @@ public interface UsersService {
     UserDetailsService userDetailsService();
     UserResponseDto getUserName();
     Page<UserResponseDto> getAllUsers(Pageable pageable);
+    void deleteUser(int id);
 }
