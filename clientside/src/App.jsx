@@ -83,6 +83,8 @@ function App() {
               path="/admin/users"
               element={<UsersComponent></UsersComponent>}
             ></Route>
+            <Route></Route>
+            <Route></Route>
           </Routes>
         </BrowserRouter>
         <Footer></Footer>
