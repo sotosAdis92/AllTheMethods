@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllSubmissions } from "../../services/SubmitService";
+import "./SubmissionComponent.css";
 const SubmissionComponent = () => {
   const [submissions, setSubmissions] = useState([]);
   const [pageNo, setPageNo] = useState(0);
@@ -16,12 +17,12 @@ const SubmissionComponent = () => {
   }, []);
 
   const listOfSubmissions = submissions.map((submission) => (
-    <div key={submission.id}>
-      <div>Id:{submission.id}</div>
-      <div>Date:{submission.date}</div>
-      <div>Problem Title:{submission.title}</div>
-      <div>Problem Number:{submission.number}</div>
-      <div>Problem Difficulty:{submission.difficulty}</div>
+    <div className="submission-item" key={submission.id}>
+      <div>Id: {submission.id}</div>
+      <div>Date: {submission.date}</div>
+      <div>Problem Title: {submission.title}</div>
+      <div>Problem Number: {submission.number}</div>
+      <div>Problem Difficulty: {submission.difficulty}</div>
     </div>
   ));
 
