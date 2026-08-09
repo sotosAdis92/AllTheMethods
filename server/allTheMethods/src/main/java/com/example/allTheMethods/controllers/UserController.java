@@ -38,8 +38,7 @@ public class UserController {
     ){
         Sort sort = null;
         sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-        Page<UserResponseDto> users = submissionService.getAllSubmissions(PageRequest.of(pageNo-1,pageSize, sort));
-        log.debug("Getting users: " + users);
+        Page<UserResponseDto> users = usersService.getAllUsers(PageRequest.of(pageNo-1,pageSize, sort));
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 

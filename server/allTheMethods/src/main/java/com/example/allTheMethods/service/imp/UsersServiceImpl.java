@@ -7,6 +7,8 @@ import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UsersService;
 import com.example.allTheMethods.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,4 +43,12 @@ public class UsersServiceImpl implements UsersService {
        Users currentUser = jwtUtil.getLoggedInUser();
        return usersMapper.toDto(currentUser);
     }
+
+    @Override
+    public Page<UserResponseDto> getAllUsers(Pageable pageable) {
+        Page<UserResponseDto> users = usersMapper.toDto(usersRepository.findAll(pageable));
+        return users;
+    }
+
+
 }
