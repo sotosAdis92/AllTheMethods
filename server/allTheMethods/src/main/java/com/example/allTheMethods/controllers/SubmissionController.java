@@ -29,12 +29,27 @@ public class SubmissionController {
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }
 
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Page<SubmissionResponse>> getAllSubmissions(
+            @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
+            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "id") String sortBy,
+            @RequestParam(value = "sortDir", required = false, defaultValue = "DESC") String sortDir
+    ){
+        Sort sort = null;
+        sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Page<SubmissionResponse> submissions = submissionService.getAllSubmissions(PageRequest.of(pageNo-1,pageSize, sort));
+        log.debug("Getting user submissions: " + submissions);
+        return new ResponseEntity<>(submissions, HttpStatus.OK);
+    }
+
     @GetMapping("/user/{id}")
     @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<Page<SubmissionResponse>> getSubmissionsByUserId(
             @PathVariable("id") int id,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
-            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize,
+            @RequestParam(value = "pageSize", required = false, defaultValue = "30") int pageSize,
             @RequestParam(value = "sortBy", required = false, defaultValue = "id") String sortBy,
             @RequestParam(value = "sortDir", required = false, defaultValue = "DESC") String sortDir
     ){

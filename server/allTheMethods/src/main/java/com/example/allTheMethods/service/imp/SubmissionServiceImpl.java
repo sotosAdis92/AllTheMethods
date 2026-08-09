@@ -50,5 +50,11 @@ public class SubmissionServiceImpl implements SubmissionService {
         throw new EntityNotFoundException("User not found");
     }
 
+    @Override
+    public Page<SubmissionResponse> getAllSubmissions(Pageable pageable) {
+        Page<SubmissionResponse> submissionResponses = submissionMapper.toDto(submissionRepository.findAll(pageable));
+        return submissionResponses;
+    }
+
 
 }
