@@ -17,10 +17,10 @@ const UsersComponent = () => {
 
   const listOfUsers = users.map((user) => (
     <div key={user.id}>
-      <div>{user.id}</div>
-      <div>{user.username}</div>
-      <div>{user.displayName}</div>
-      <div>{user.userRole.toLowerCase()}</div>
+      <div>Id:{user.id}</div>
+      <div>Username:{user.username}</div>
+      <div>Display Name:{user.displayName}</div>
+      <div>Role:{user.userRole.toLowerCase()}</div>
     </div>
   ));
 

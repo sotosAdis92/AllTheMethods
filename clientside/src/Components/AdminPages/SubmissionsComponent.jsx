@@ -17,11 +17,11 @@ const SubmissionComponent = () => {
 
   const listOfSubmissions = submissions.map((submission) => (
     <div key={submission.id}>
-      <div>{submission.id}</div>
-      <div>{submission.date}</div>
-      <div>{submission.number}</div>
-      <div>{submission.difficulty}</div>
-      <div>{submission.title}</div>
+      <div>Id:{submission.id}</div>
+      <div>Date:{submission.date}</div>
+      <div>Problem Title:{submission.title}</div>
+      <div>Problem Number:{submission.number}</div>
+      <div>Problem Difficulty:{submission.difficulty}</div>
     </div>
   ));
 
