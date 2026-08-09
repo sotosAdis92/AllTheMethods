@@ -129,3 +129,9 @@ export const getAllUserSubmissions = async (id, pageNo, pageSize, sortDir) => {
   });
   return response;
 };
+
+export const getAllSubmissions = async () => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/admin");
+  console.log(response);
+  return response;
+};
