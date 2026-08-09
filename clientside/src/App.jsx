@@ -5,6 +5,8 @@ import ListAchievements from "./Components/AchievementScreen/ListAchievements";
 import AchievementComponent from "./Components/AdminPages/AchievementComponent";
 import AdminHome from "./Components/AdminPages/AdminHome";
 import ProblemComponent from "./Components/AdminPages/ProblemComponent";
+import SubmissionComponent from "./Components/AdminPages/SubmissionsComponent";
+import UsersComponent from "./Components/AdminPages/UsersComponent";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import ListProblems from "./Components/ListProblems";
@@ -73,6 +75,14 @@ function App() {
               element={<ProblemDescription></ProblemDescription>}
             ></Route>
             <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
+            <Route
+              path="/admin/submissions"
+              element={<SubmissionComponent></SubmissionComponent>}
+            ></Route>
+            <Route
+              path="/admin/users"
+              element={<UsersComponent></UsersComponent>}
+            ></Route>
           </Routes>
         </BrowserRouter>
         <Footer></Footer>
