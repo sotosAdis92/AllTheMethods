@@ -7,10 +7,23 @@ const SubmissionComponent = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [count, setCount] = useState(0);
   const pageNumbers = [];
+
   useEffect(() => {
     getAllSubmissions().then((response) => {
       console.log(response.data.content);
     });
   });
+
+  const listOfSubmissions = submissions.map((submission) => (
+    <div key={submission.id}>
+      <div>AAA</div>
+    </div>
+  ));
+
+  return (
+    <div>
+      <div>{listOfSubmissions}</div>
+    </div>
+  );
 };
 export default SubmissionComponent;

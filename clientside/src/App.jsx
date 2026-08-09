@@ -3,6 +3,7 @@ import "./App.css";
 import MainAboutPage from "./Components/AboutPage/MainAboutPage";
 import ListAchievements from "./Components/AchievementScreen/ListAchievements";
 import AchievementComponent from "./Components/AdminPages/AchievementComponent";
+import AdminHome from "./Components/AdminPages/AdminHome";
 import ProblemComponent from "./Components/AdminPages/ProblemComponent";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -12,7 +13,6 @@ import Signup from "./Components/LoginSignUp/Signup";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
 import MyProfile from "./Components/UserComponents/MyProfile";
 import ProtectedRoute from "./context/ProtectedRoute";
-
 function App() {
   return (
     <>
@@ -72,6 +72,7 @@ function App() {
               path="problems/:id"
               element={<ProblemDescription></ProblemDescription>}
             ></Route>
+            <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
           </Routes>
         </BrowserRouter>
         <Footer></Footer>
