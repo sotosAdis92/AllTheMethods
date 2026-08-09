@@ -3,8 +3,10 @@ import "./App.css";
 import MainAboutPage from "./Components/AboutPage/MainAboutPage";
 import ListAchievements from "./Components/AchievementScreen/ListAchievements";
 import AchievementComponent from "./Components/AdminPages/AchievementComponent";
+import AchievementListComponent from "./Components/AdminPages/AchievementListComponent";
 import AdminHome from "./Components/AdminPages/AdminHome";
 import ProblemComponent from "./Components/AdminPages/ProblemComponent";
+import ProblemListComponent from "./Components/AdminPages/ProblemListComponent";
 import SubmissionComponent from "./Components/AdminPages/SubmissionsComponent";
 import UsersComponent from "./Components/AdminPages/UsersComponent";
 import Footer from "./Components/Footer";
@@ -30,40 +32,8 @@ function App() {
               element={<ListProblems></ListProblems>}
             ></Route>
             <Route
-              path="/problems/admin/add"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <ProblemComponent></ProblemComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/problems/admin/edit/:id"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <ProblemComponent></ProblemComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
               path="/achievements"
               element={<ListAchievements></ListAchievements>}
-            ></Route>
-            <Route
-              path="/achievements/admin/add"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <AchievementComponent></AchievementComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/achievements/admin/update/:id"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <AchievementComponent></AchievementComponent>
-                </ProtectedRoute>
-              }
             ></Route>
             <Route path="/profile" element={<MyProfile></MyProfile>}></Route>
             <Route
@@ -83,8 +53,46 @@ function App() {
               path="/admin/users"
               element={<UsersComponent></UsersComponent>}
             ></Route>
-            <Route></Route>
-            <Route></Route>
+            <Route
+              path="/admin/problems"
+              element={<ProblemListComponent></ProblemListComponent>}
+            ></Route>
+            <Route
+              path="/admin/achievements"
+              element={<AchievementListComponent></AchievementListComponent>}
+            ></Route>
+            <Route
+              path="/admin/achievements/add"
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AchievementComponent></AchievementComponent>
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/achievements/update/:id"
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AchievementComponent></AchievementComponent>
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/problems/add"
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <ProblemComponent></ProblemComponent>
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/problems/edit/:id"
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <ProblemComponent></ProblemComponent>
+                </ProtectedRoute>
+              }
+            ></Route>
           </Routes>
         </BrowserRouter>
         <Footer></Footer>
