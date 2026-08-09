@@ -5,3 +5,8 @@ export const getUser = async () => {
   const response = axiosInstance.get(REST_API_BASE_URL + "/username");
   return response;
 };
+
+export const getAllUsers = async () => {
+  const response = axiosInstance.get(REST_API_BASE_URL);
+  return response;
+};
