@@ -1,5 +1,8 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { deleteUserById, getAllUsers } from "../../services/UsersService";
+import "./UsersComponent.css";
 const UsersComponent = () => {
   const [users, setUsers] = useState([]);
   const [pageNo, setPageNo] = useState(0);
@@ -20,12 +23,14 @@ const UsersComponent = () => {
   };
 
   const listOfUsers = users.map((user) => (
-    <div key={user.id}>
-      <div>Id:{user.id}</div>
-      <div>Username:{user.username}</div>
-      <div>Display Name:{user.displayName}</div>
-      <div>Role:{user.userRole.toLowerCase()}</div>
-      <button onClick={() => deleteUser(user.id)}>Delete User</button>
+    <div className="user-item-table" key={user.id}>
+      <div>Id: {user.id}</div>
+      <div>Username: {user.username}</div>
+      <div>Display Name: {user.displayName}</div>
+      <div>Role: {user.userRole.toLowerCase()}</div>
+      <button className="delete-btn-table" onClick={() => deleteUser(user.id)}>
+        <FontAwesomeIcon icon={faTrashCan} />
+      </button>
     </div>
   ));
 
