@@ -11,12 +11,17 @@ const SubmissionComponent = () => {
   useEffect(() => {
     getAllSubmissions().then((response) => {
       console.log(response.data.content);
+      setSubmissions(response.data.content);
     });
-  });
+  }, []);
 
   const listOfSubmissions = submissions.map((submission) => (
     <div key={submission.id}>
-      <div>AAA</div>
+      <div>{submission.id}</div>
+      <div>{submission.date}</div>
+      <div>{submission.number}</div>
+      <div>{submission.difficulty}</div>
+      <div>{submission.title}</div>
     </div>
   ));
 

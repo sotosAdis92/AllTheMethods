@@ -13,11 +13,14 @@ const UsersComponent = () => {
       console.log(response.data.content);
       setUsers(response.data.content);
     });
-  });
+  }, []);
 
   const listOfUsers = users.map((user) => (
-    <div>
+    <div key={user.id}>
       <div>{user.id}</div>
+      <div>{user.username}</div>
+      <div>{user.displayName}</div>
+      <div>{user.userRole.toLowerCase()}</div>
     </div>
   ));
 
