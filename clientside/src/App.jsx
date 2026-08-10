@@ -3,12 +3,8 @@ import "./App.css";
 import MainAboutPage from "./Components/AboutPage/MainAboutPage";
 import ListAchievements from "./Components/AchievementScreen/ListAchievements";
 import AchievementComponent from "./Components/AdminPages/AchievementComponent";
-import AchievementListComponent from "./Components/AdminPages/AchievementListComponent";
 import AdminHome from "./Components/AdminPages/AdminHome";
 import ProblemComponent from "./Components/AdminPages/ProblemComponent";
-import ProblemListComponent from "./Components/AdminPages/ProblemListComponent";
-import SubmissionComponent from "./Components/AdminPages/SubmissionsComponent";
-import UsersComponent from "./Components/AdminPages/UsersComponent";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import ListProblems from "./Components/ListProblems";
@@ -45,38 +41,6 @@ function App() {
               element={<ProblemDescription></ProblemDescription>}
             ></Route>
             <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
-            <Route
-              path="/admin/submissions"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <SubmissionComponent></SubmissionComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/admin/users"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <UsersComponent></UsersComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/admin/problems"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <ProblemListComponent></ProblemListComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/admin/achievements"
-              element={
-                <ProtectedRoute roles={["ADMIN"]}>
-                  <AchievementListComponent></AchievementListComponent>
-                </ProtectedRoute>
-              }
-            ></Route>
             <Route
               path="/admin/achievements/add"
               element={
