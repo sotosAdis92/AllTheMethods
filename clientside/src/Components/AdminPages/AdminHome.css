@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.navigation-button {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+}
+
+.navigation-button img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.navigation-button:hover {
+  color: #000;
+}
+
+.navigation-button:hover img {
+  opacity: 0.8;
+}
