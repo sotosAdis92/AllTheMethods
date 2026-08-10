@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { listProblems } from "../../services/ProblemService";
+import "./ProblemListComponent.css";
 const ProblemListComponent = () => {
   const navigator = useNavigate();
   const [problems, setProblems] = useState([]);
@@ -31,9 +32,16 @@ const ProblemListComponent = () => {
   };
 
   const listOfProblems = problems.map((problem) => (
-    <div key={problem.id} className="achievement-item-table">
+    <div key={problem.id} className="problem-item-table">
       <div>{problem.id}</div>
       <div>{problem.title}</div>
+      <div>{problem.number}</div>
+      <div>{problem.category}</div>
+      <div>{problem.difficulty}</div>
+      <div>{problem.functionString}</div>
+      <div>{problem.points}</div>
+      <div>{problem.problemData}</div>
+      <div>{problem.problemType}</div>
       <div>
         <button
           className="edit-btn-table"
