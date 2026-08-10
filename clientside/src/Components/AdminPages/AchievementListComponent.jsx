@@ -1,4 +1,5 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { listAchievements } from "../../services/AchievementService";
@@ -24,12 +25,20 @@ const AchievementListComponent = () => {
       <div>{achievement.description}</div>
       <div>{achievement.category}</div>
       <div>{achievement.rank}</div>
-      <button
-        className="delete-btn-table"
-        onClick={() => deleteAchievement(achievement.id)}
-      >
-        <FontAwesomeIcon icon={faTrashCan} />
-      </button>
+      <div>
+        <button
+          className="edit-btn-table"
+          onClick={() => deleteAchievement(achievement.id)}
+        >
+          <FontAwesomeIcon icon={faPencil} />
+        </button>
+        <button
+          className="delete-btn-table"
+          onClick={() => deleteAchievement(achievement.id)}
+        >
+          <FontAwesomeIcon icon={faTrashCan} />
+        </button>
+      </div>
     </div>
   ));
 
