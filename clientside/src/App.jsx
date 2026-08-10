@@ -47,19 +47,35 @@ function App() {
             <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
             <Route
               path="/admin/submissions"
-              element={<SubmissionComponent></SubmissionComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <SubmissionComponent></SubmissionComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/admin/users"
-              element={<UsersComponent></UsersComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <UsersComponent></UsersComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/admin/problems"
-              element={<ProblemListComponent></ProblemListComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <ProblemListComponent></ProblemListComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/admin/achievements"
-              element={<AchievementListComponent></AchievementListComponent>}
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AchievementListComponent></AchievementListComponent>
+                </ProtectedRoute>
+              }
             ></Route>
             <Route
               path="/admin/achievements/add"
