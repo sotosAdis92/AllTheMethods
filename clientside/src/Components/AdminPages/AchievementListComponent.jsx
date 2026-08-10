@@ -1,5 +1,5 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { listAchievements } from "../../services/AchievementService";
@@ -44,6 +44,11 @@ const AchievementListComponent = () => {
 
   return (
     <div>
+      <div>
+        <button className="add-btn-table" onClick={() => addAchievement()}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      </div>
       <div>{listOfAchievements}</div>
     </div>
   );
