@@ -3,7 +3,6 @@
   flex-direction: row;
   gap: 20px;
   background-color: white;
-  padding: 10px 20px;
   align-items: center;
   font-family:
     system-ui,
@@ -17,18 +16,20 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  margin-bottom: 10px;
 }
 
 .navigation-button {
   border: none;
   background: transparent;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
   color: #333;
+  gap: 0.5rem;
 }
 
 .navigation-button img {
