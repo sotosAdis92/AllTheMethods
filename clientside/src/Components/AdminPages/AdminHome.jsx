@@ -63,7 +63,7 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-      <div>{renderComponent()}</div>
+      <div className="renderedComponent">{renderComponent()}</div>
     </>
   );
 };

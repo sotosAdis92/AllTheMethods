@@ -16,7 +16,7 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 .navigation-button {
@@ -30,6 +30,15 @@
   font-size: 14px;
   color: #333;
   gap: 0.5rem;
+  background-color: rgb(241, 244, 250);
+  padding: 8px;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.renderedComponent {
+  margin: 50px;
+  padding: 15px;
 }
 
 .navigation-button img {
@@ -40,6 +49,7 @@
 
 .navigation-button:hover {
   color: #000;
+  background-color: rgb(219, 231, 250);
 }
 
 .navigation-button:hover img {
