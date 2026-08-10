@@ -118,7 +118,7 @@ const AchievementComponent = () => {
         updateAchievement(id, achievement)
           .then((response) => {
             console.log(response.data);
-            navigator("/");
+            navigator("/admin/achievements");
           })
           .catch((error) => {
             console.error(error);
@@ -128,7 +128,7 @@ const AchievementComponent = () => {
         createAchievement(achievement)
           .then((response) => {
             console.log(response.data);
-            navigator("/");
+            navigator("/admin/achievements");
           })
           .catch((error) => {
             console.error(error);

@@ -1,12 +1,18 @@
-import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencil,
+  faPlus,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { listAchievements } from "../../services/AchievementService";
 import "./achievementListComponent.css";
 
 const AchievementListComponent = () => {
+  const navigator = useNavigate();
   const [achievements, setAchievements] = useState([]);
+
   useEffect(() => {
     listAchievements().then((response) => {
       console.log(response.data);
@@ -16,6 +22,14 @@ const AchievementListComponent = () => {
 
   const deleteAchievement = (achievementId) => {
     deleteAchievement(achievementId);
+  };
+
+  const editAchievement = (achievementId) => {
+    navigator(`/admin/achievements/update/${achievementId}`);
+  };
+
+  const addAchievement = () => {
+    navigator("/admin/achievements/add");
   };
 
   const listOfAchievements = achievements.map((achievement) => (
@@ -28,7 +42,7 @@ const AchievementListComponent = () => {
       <div>
         <button
           className="edit-btn-table"
-          onClick={() => deleteAchievement(achievement.id)}
+          onClick={() => editAchievement(achievement.id)}
         >
           <FontAwesomeIcon icon={faPencil} />
         </button>
