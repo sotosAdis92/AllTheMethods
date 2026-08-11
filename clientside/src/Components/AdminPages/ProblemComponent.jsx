@@ -28,6 +28,8 @@ const ProblemComponent = () => {
   const [description, setDescription] = useState("");
   const [problemString, setProblemString] = useState("");
   const [problemType, setProblemType] = useState("");
+  const [functionString, setFunctionString] = useState("");
+  const [problemData, setProblemData] = useState("");
   const [points, setPoints] = useState(0);
   const navigator = useNavigate();
   const [errors, setErrors] = useState({
@@ -39,6 +41,8 @@ const ProblemComponent = () => {
     points: "",
     problemString: "",
     problemType: "",
+    functionString: "",
+    problemData: "",
   });
   const { id } = useParams();
   console.log(id);
@@ -54,6 +58,8 @@ const ProblemComponent = () => {
         setPoints(response.data.points);
         setProblemString(response.data.problemString);
         setProblemType(response.data.problemType);
+        setFunctionString(response.data.functionString);
+        setProblemData(response.data.problemData);
       });
     }
   }, [id]);
@@ -93,6 +99,12 @@ const ProblemComponent = () => {
   const handleProblemType = (e) => {
     setProblemType(e.target.value);
   };
+  const handleFunctionString = (e) => {
+    setFunctionString(e.target.value);
+  };
+  const handleProblemData = (e) => {
+    setProblemData(e.target.value);
+  };
 
   const handleProblemString = (e) => {
     console.log("1. Input changed to:", e.target.value);
@@ -110,13 +122,15 @@ const ProblemComponent = () => {
         points,
         problemString,
         problemType,
+        functionString,
+        problemData,
       };
       console.log("3. Sending problem object:", problem);
       if (id) {
         updateProblem(id, problem)
           .then((response) => {
             console.log(response.data);
-            navigator("");
+            navigator("/admin");
           })
           .catch((error) => {
             console.error(error);
@@ -126,7 +140,7 @@ const ProblemComponent = () => {
         createProblem(problem)
           .then((response) => {
             console.log(response.data);
-            navigator("");
+            navigator("/admin");
           })
           .catch((error) => {
             console.error(error);
@@ -187,6 +201,18 @@ const ProblemComponent = () => {
       errorsCopy.problemType = "";
     } else {
       errorsCopy.problemType = "Error, the problem type cannot be empty";
+    }
+
+    if (functionString.trim()) {
+      errorsCopy.functionString = "";
+    } else {
+      errorsCopy.functionString = "Error, the function string cannot be empty";
+    }
+
+    if (problemData.trim()) {
+      errorsCopy.problemData = "";
+    } else {
+      errorsCopy.problemData = "Error, the problem data cannot be empty";
     }
 
     setErrors(errorsCopy);
@@ -304,6 +330,30 @@ const ProblemComponent = () => {
             id={"outlined"}
             error={errors.problemType}
             helperText={errors.problemType}
+          ></TextField>
+        </div>
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Function String"
+            name="functionString"
+            value={functionString}
+            onChange={handleFunctionString}
+            id={"outlined"}
+            error={errors.functionString}
+            helperText={errors.functionString}
+          ></TextField>
+        </div>
+        <div className="row">
+          <TextField
+            type="text"
+            placeholder="Enter Problem Data"
+            name="problemData"
+            value={problemData}
+            onChange={handleProblemData}
+            id={"outlined"}
+            error={errors.problemData}
+            helperText={errors.problemData}
           ></TextField>
         </div>
         <Button
