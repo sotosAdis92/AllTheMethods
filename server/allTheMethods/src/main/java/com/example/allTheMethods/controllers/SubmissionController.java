@@ -30,7 +30,7 @@ public class SubmissionController {
     }
 
     @GetMapping("/admin")
-   // @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Page<SubmissionResponse>> getAllSubmissions(
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
             @RequestParam(value = "pageSize", required = false, defaultValue = "30") int pageSize,
