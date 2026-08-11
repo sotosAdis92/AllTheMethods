@@ -16,7 +16,7 @@ import {
   getAchievement,
   updateAchievement,
 } from "../../services/AchievementService";
-
+import "./AchievementComponent.css";
 const AchievementComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -145,10 +145,10 @@ const AchievementComponent = () => {
     }
   }
   return (
-    <div>
+    <div className="achievement-wrapper">
       {pageTitle()}
-      <div className="card">
-        <div className="row">
+      <div className="achievement-card">
+        <div className="achievement-row">
           <TextField
             onChange={handleName}
             value={name}
@@ -160,7 +160,7 @@ const AchievementComponent = () => {
             helperText={errors.name}
           ></TextField>
         </div>
-        <div className="row">
+        <div className="achievement-row">
           <TextField
             onChange={handleDescription}
             value={description}
@@ -172,7 +172,7 @@ const AchievementComponent = () => {
             helperText={errors.description}
           ></TextField>
         </div>
-        <div className="row">
+        <div className="achievement-row">
           <FormControl error={errors.category} sx={{ minWidth: 210 }}>
             <InputLabel>Category</InputLabel>
             <Select onChange={handleCategory} value={category}>
@@ -190,7 +190,7 @@ const AchievementComponent = () => {
             )}
           </FormControl>
         </div>
-        <div className="row">
+        <div className="achievement-row">
           <FormControl error={errors.rank} sx={{ minWidth: 210 }}>
             <InputLabel>Rank</InputLabel>
             <Select onChange={handleRank} value={rank}>
@@ -201,7 +201,7 @@ const AchievementComponent = () => {
             {errors.rank && <FormHelperText>{errors.rank}</FormHelperText>}
           </FormControl>
         </div>
-        <div className="row">
+        <div className="achievement-row">
           <FormControl error={errors.visibility} sx={{ minWidth: 210 }}>
             <InputLabel>Visibility</InputLabel>
             <Select onChange={handleVisibility} value={visibility}>
@@ -213,18 +213,20 @@ const AchievementComponent = () => {
             )}
           </FormControl>
         </div>
-        <Button
-          variant="contained"
-          color="success"
-          onClick={saveOrUpdateAchievement}
-        >
-          Submit
-          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-        </Button>
-        <Button variant="contained" color="error">
-          Cancel
-          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
-        </Button>
+        <div className="achievement-buttons">
+          <Button
+            variant="contained"
+            color="success"
+            onClick={saveOrUpdateAchievement}
+          >
+            Submit
+            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+          </Button>
+          <Button variant="contained" color="error">
+            Cancel
+            <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+          </Button>
+        </div>
       </div>
     </div>
   );

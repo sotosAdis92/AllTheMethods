@@ -1,0 +1,68 @@
+.achievement-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.achievement-title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.achievement-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 150px 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-row {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.achievement-row:last-child {
+  margin-bottom: 0;
+}
+
+.achievement-row .MuiTextField-root {
+  width: 100%;
+}
+
+.achievement-buttons {
+  align-items: center;
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.achievement-buttons .MuiButton-root {
+  min-width: 120px;
+  font-weight: 600;
+  padding: 10px 24px;
+}
+
+.achievement-buttons .MuiButton-root .MuiSvgIcon-root {
+  margin-left: 8px;
+}
+
+.achievement-row .MuiFormHelperText-root {
+  margin-left: 0 !important;
+  margin-top: 4px !important;
+}
