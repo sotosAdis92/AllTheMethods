@@ -1,20 +1,28 @@
 package com.example.allTheMethods.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class CreateUserAccountRequest {
+    @NotEmpty(message = "Username cannot be empty")
+    @NotNull(message = "Username cannot be null")
     @NotBlank(message = "Username cannot be blank")
     @Size(min = 2, max = 50, message = "Username must be between 2 and 50 characters")
     private String username;
 
     @NotBlank(message = "Password cannot be blank")
+    @NotEmpty(message = "Password cannot be empty")
+    @NotNull(message = "Password cannot be null")
     @Size(min = 6, message = "Password must be a minimum of 6 character long")
     private String password;
 
     @NotBlank(message = "Display name cannot be blank")
+    @NotEmpty(message = "Display name cannot be empty")
+    @NotNull(message = "Display name cannot be null")
     @Size(max = 20, message = "Display name cannot be longer than 20 character")
     private String displayName;
 
