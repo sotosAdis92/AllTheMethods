@@ -39,7 +39,7 @@ public record CreateAchievementRequestDto(
         @NotBlank(message = "counter cannot be blank")
         @Min(value = 2, message = "Counter should be>=2")
         @Max(value = 20, message = "Counter should be<=20")
-        @Positive(message = "Counter must be a positive integer")
+        @Positive(message = "Counter must be a positive")
         int counter
 
 ) {
