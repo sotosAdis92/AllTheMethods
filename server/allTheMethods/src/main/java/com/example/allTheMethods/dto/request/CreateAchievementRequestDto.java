@@ -1,8 +1,6 @@
 package com.example.allTheMethods.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
 
 public record CreateAchievementRequestDto(
@@ -39,6 +37,9 @@ public record CreateAchievementRequestDto(
         @NotEmpty(message = "counter cannot be empty")
         @NotNull(message = "counter cannot be null")
         @NotBlank(message = "counter cannot be blank")
+        @Min(value = 2, message = "Counter should be>=2")
+        @Max(value = 20, message = "Counter should be<=20")
+        @Positive(message = "Counter must be a positive integer")
         int counter
 
 ) {
