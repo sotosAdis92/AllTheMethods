@@ -19,7 +19,7 @@ import {
   getProblem,
   updateProblem,
 } from "../../services/ProblemService";
-
+import "./ProblemComponent.css";
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
@@ -219,10 +219,11 @@ const ProblemComponent = () => {
     return valid;
   }
   return (
-    <div>
+    <div className="problem-container">
       {pageTitle()}
       <div className="card">
         <div className="row">
+          <h4>Problem Number</h4>
           <Button type="button" variant="contained" onClick={increment}>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
           </Button>
@@ -298,6 +299,7 @@ const ProblemComponent = () => {
           </FormControl>
         </div>
         <div className="row">
+          <h4>Problem Points</h4>
           <Button type="button" variant="contained" onClick={increasePoints}>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
           </Button>
@@ -356,18 +358,20 @@ const ProblemComponent = () => {
             helperText={errors.problemData}
           ></TextField>
         </div>
-        <Button
-          variant="contained"
-          color="success"
-          onClick={saveOrUpdateProblem}
-        >
-          Submit
-          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-        </Button>
-        <Button variant="contained" color="error">
-          Cancel
-          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
-        </Button>
+        <div className="buttonsDiv">
+          <Button
+            variant="contained"
+            color="success"
+            onClick={saveOrUpdateProblem}
+          >
+            Submit
+            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+          </Button>
+          <Button variant="contained" color="error">
+            Cancel
+            <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+          </Button>
+        </div>
       </div>
     </div>
   );
