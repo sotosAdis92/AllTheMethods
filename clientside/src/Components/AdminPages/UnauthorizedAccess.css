@@ -57,3 +57,8 @@
 .unauthorized-card .return-button:active {
   transform: scale(0.98);
 }
+
+.sneaky {
+  margin-top: 10px;
+  font-size: 12px;
+}
