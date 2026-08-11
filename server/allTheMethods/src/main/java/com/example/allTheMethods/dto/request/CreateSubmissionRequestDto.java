@@ -6,18 +6,18 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateSubmissionRequestDto(
-        @NotBlank(message = "Number cannot be blank")
-        @NotEmpty(message = "Number cannot be empty")
+        @NotBlank(message = "ID cannot be blank")
+        @NotEmpty(message = "ID cannot be empty")
         @NotNull(message = "ID cannot be null")
         Long userId,
 
-        @NotBlank(message = "Number cannot be blank")
-        @NotEmpty(message = "Number cannot be empty")
+        @NotBlank(message = "Problem ID cannot be blank")
+        @NotEmpty(message = "Problem ID cannot be empty")
         @NotNull(message = "Problem ID cannot be null")
         Long problemId,
 
-        @NotBlank(message = "Number cannot be blank")
-        @NotEmpty(message = "Number cannot be empty")
+        @NotBlank(message = "Date cannot be blank")
+        @NotEmpty(message = "Date cannot be empty")
         @NotNull(message = "Date cannot be null")
         String submittedAt
 ) {
