@@ -3,35 +3,34 @@ package com.example.allTheMethods.dto.request;
 import jakarta.validation.constraints.NotBlank;
 
 public record UpdateProblemRequestDto(
-        @NotBlank(message = "")
+        @NotBlank(message = "Number cannot be empty or null")
         int number,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Title cannot be empty or null")
         String title,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Category cannot be empty or null")
         String category,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Difficulty cannot be empty")
         String difficulty,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Description cannot be empty")
         String description,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Points cannot be empty")
         int points,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Problem String cannot be empty")
         String problemString,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Problem Type cannot be empty")
         String problemType,
 
-
-        @NotBlank(message = "")
+        @NotBlank(message = "Problem Data cannot be empty")
         String problemData,
 
-        @NotBlank(message = "")
+        @NotBlank(message = "Function String cannot be empty")
         String functionString
 ) {
 }
