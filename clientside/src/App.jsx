@@ -40,7 +40,14 @@ function App() {
               path="problems/:id"
               element={<ProblemDescription></ProblemDescription>}
             ></Route>
-            <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute roles={["ADMIN"]}>
+                  <AdminHome></AdminHome>
+                </ProtectedRoute>
+              }
+            ></Route>
             <Route
               path="/admin/achievements/add"
               element={
