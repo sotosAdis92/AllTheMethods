@@ -1,10 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
-import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
-import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.UserProblemResponse;
-import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
+import com.example.allTheMethods.dto.response.*;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
@@ -105,6 +102,16 @@ public class UserProblemServiceImlp implements UserProblemService {
             countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory((long) id);
         }
         return countDistinctSolved;
+    }
+
+    @Override
+    public List<SummeryResponseDto> countSummeryOfUser(int id) {
+        Users user = jwtUtil.getLoggedInUser();
+        List<SummeryResponseDto> summeryResponseDto = new ArrayList<>();
+        if(user!=null){
+            summeryResponseDto = userProblemsRepository.countSummeryOfUser((long) id);
+        }
+        return summeryResponseDto;
     }
 
 

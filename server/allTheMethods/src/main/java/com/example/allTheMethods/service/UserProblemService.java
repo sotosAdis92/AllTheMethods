@@ -1,10 +1,7 @@
 package com.example.allTheMethods.service;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
-import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
-import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.UserProblemResponse;
-import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
+import com.example.allTheMethods.dto.response.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -19,4 +16,5 @@ public interface UserProblemService {
     List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(int id);
     List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id);
     List<CategoryStatsResponseDto> countDistinctSolvedProblemsByCategoryForUser(int id);
+    List<SummeryResponseDto> countSummeryOfUser(int id);
 }
