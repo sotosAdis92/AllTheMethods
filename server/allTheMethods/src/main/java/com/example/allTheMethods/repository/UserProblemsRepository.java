@@ -2,6 +2,7 @@ package com.example.allTheMethods.repository;
 
 import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
 import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
+import com.example.allTheMethods.dto.response.SummeryResponseDto;
 import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.entity.UserProblem;
 import jakarta.persistence.QueryHint;
@@ -36,4 +37,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     List<CategoryStatsResponseDto> countDistinctByIdAndCategory(@Param("userId") Long userId);
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
+
+    @Query("")
+    List<SummeryResponseDto> countSummeryOfUser(@Param("userId") Long userId);
 }
