@@ -4,6 +4,6 @@ public record SummeryResponseDto(
         int countTotalProblems,
         int countTotalAchievements,
         int countTotalSubmissions,
-        int userAcceptanceRate
+        float userAcceptanceRate
 ) {
 }
