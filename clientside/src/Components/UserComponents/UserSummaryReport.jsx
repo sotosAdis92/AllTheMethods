@@ -5,18 +5,35 @@ const UserSummaryReport = (props) => {
   const [acceptanceRate, setAcceptanceRate] = useState([]);
   const userId = props.userId;
 
-  useEffect(() => {
+  const getSummary = () => {
     getUserProblemSummaryReport(userId).then((response) => {
-      setCountProblems(response.data.countTotalProblems);
-      setAcceptanceRate(response.data.userAcceptanceRate);
+      setCountProblems(response.data);
+      setAcceptanceRate(response.data);
     });
-  });
+  };
+  useEffect(() => {
+    if (userId) {
+      getSummary();
+    }
+  }, [userId]);
 
+  const countUserProblems = countProblems.map(
+    (item) => item.countTotalProblems,
+  );
+  const countUserAcceptanceRate = acceptanceRate.map(
+    (item) => item.userAcceptanceRate,
+  );
   return (
     <>
       <div>
-        <div>{countProblems}</div>
-        <div>{acceptanceRate}</div>
+        <div>
+          <div>Solved:</div>
+          <div>{countUserProblems}</div>
+        </div>
+        <div>
+          <div>Acceptance Rate:</div>
+          <div>{countUserAcceptanceRate}%</div>
+        </div>
       </div>
     </>
   );

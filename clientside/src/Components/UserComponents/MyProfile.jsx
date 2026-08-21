@@ -3,6 +3,7 @@ import { getUser } from "../../services/UsersService";
 import ProgressChart from "./ProgressChart";
 import UserIcon from "./UserIcon";
 import UserSkills from "./UserSkills";
+import UserSummaryReport from "./UserSummaryReport";
 import ViewMyAchievements from "./ViewMyAchievements";
 import ViewMyProblems from "./ViewMyProblems";
 import ViewMySumbissionsHistory from "./ViewMySubmissionsHistory";
@@ -50,6 +51,9 @@ const MyProfile = () => {
               userId={userId}
               displayName={displayName}
             ></ProgressChart>
+          </div>
+          <div>
+            <UserSummaryReport userId={userId}></UserSummaryReport>
           </div>
           <div>
             <UserSkills userId={userId}></UserSkills>
