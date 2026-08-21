@@ -38,6 +38,6 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
 
-    @Query("SELECT 100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) FROM Submission s JOIN UserProblem up")
+    @Query("SELECT 100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) FROM Submission s JOIN UserProblem up ON s.user.id = up.user.id WHERE up.user.id = ?1")
     List<SummeryResponseDto> countSummeryOfUser(@Param("userId") Long userId);
 }
