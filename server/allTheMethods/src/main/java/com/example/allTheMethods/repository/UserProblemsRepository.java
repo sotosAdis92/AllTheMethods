@@ -2,7 +2,7 @@ package com.example.allTheMethods.repository;
 
 import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
 import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.SummeryResponseDto;
+import com.example.allTheMethods.dto.response.SummaryResponseDto;
 import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
 import com.example.allTheMethods.entity.UserProblem;
 import jakarta.persistence.QueryHint;
@@ -38,7 +38,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
 
-    @Query("SELECT 100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) FROM Submission s JOIN UserProblem up ON s.user.id = up.user.id WHERE up.user.id = ?1")
+    @Query("SELECT COUNT(up),100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) FROM Submission s JOIN UserProblem up ON s.user.id = up.user.id WHERE up.user.id = ?1")
     @QueryHints({@QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint( name= "org.hibernate.cacheable",value = "true")})
-    List<SummeryResponseDto> countSummeryOfUser(@Param("userId") Long userId);
+    List<SummaryResponseDto> countSummeryOfUser(@Param("userId") Long userId);
 }

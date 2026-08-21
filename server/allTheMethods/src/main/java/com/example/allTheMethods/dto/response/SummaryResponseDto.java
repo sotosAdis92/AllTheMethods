@@ -1,9 +1,7 @@
 package com.example.allTheMethods.dto.response;
 
-public record SummeryResponseDto(
+public record SummaryResponseDto(
         int countTotalProblems,
-        int countTotalAchievements,
-        int countTotalSubmissions,
         float userAcceptanceRate
 ) {
 }

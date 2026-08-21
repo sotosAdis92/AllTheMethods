@@ -16,5 +16,5 @@ public interface UserProblemService {
     List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(int id);
     List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id);
     List<CategoryStatsResponseDto> countDistinctSolvedProblemsByCategoryForUser(int id);
-    List<SummeryResponseDto> countSummeryOfUser(int id);
+    List<SummaryResponseDto> countSummeryOfUser(int id);
 }
