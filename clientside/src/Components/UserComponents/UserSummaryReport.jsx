@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserProblemSummaryReport } from "../../services/UserProblemService";
+import "./UserSummaryReport.css";
 const UserSummaryReport = (props) => {
   const [countProblems, setCountProblems] = useState([]);
   const [acceptanceRate, setAcceptanceRate] = useState([]);
@@ -25,14 +26,17 @@ const UserSummaryReport = (props) => {
   );
   return (
     <>
-      <div>
-        <div>
-          <div>Solved:</div>
-          <div>{countUserProblems}</div>
+      <div className="summaryReportContainer">
+        <h1 className="summaryReportHeading">
+          <div className="headerText">Summary</div>
+        </h1>
+        <div className="userSolvedCounter">
+          Solved
+          <div className="solvedCounterSu">{countUserProblems}</div>
         </div>
-        <div>
-          <div>Acceptance Rate:</div>
-          <div>{countUserAcceptanceRate}%</div>
+        <div className="acceptanceRate">
+          Acceptance Rate
+          <div className="acceptancePercent">{countUserAcceptanceRate}%</div>
         </div>
       </div>
     </>
