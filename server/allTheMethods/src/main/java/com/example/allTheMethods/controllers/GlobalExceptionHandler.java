@@ -2,6 +2,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.response.ErrorResponseDto;
 import com.example.allTheMethods.exception.NullUserException;
+import com.example.allTheMethods.exception.UsernameAlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -38,5 +38,13 @@ public class GlobalExceptionHandler {
     })
     public ResponseEntity<ErrorResponseDto> handleNullUserException(NullUserException ex){
         return new ResponseEntity<>(new ErrorResponseDto("Null User is not valid", LocalDateTime.now()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+        UsernameAlreadyExistsException.class
+    })
+    public ResponseEntity<ErrorResponseDto> handleUsermameAlreadyExistsException(UsernameAlreadyExistsException ex){
+        return new ResponseEntity<>(new ErrorResponseDto("The username provided already exists", LocalDateTime.now()), HttpStatus.BAD_REQUEST);
     }
 }
