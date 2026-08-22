@@ -897,13 +897,21 @@ body {
   letter-spacing: 0.2px;
   user-select: none;
 }
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .rowInContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
   width: 100%;
   padding: 0px;
   margin: 0;
   height: auto;
-  display: flex;
-  flex-direction: row;
   align-items: stretch;
   justify-content: center;
   gap: 20px;
@@ -1834,16 +1842,16 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  width: 50%;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem;
-  background: #ffffff;
-  transition: all 0.3s ease;
-  max-width: 100%;
+  flex: 1;
+  min-width: 0;
+  list-style: none;
+  padding: 20px;
   margin: 20px 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .userSkillsDiv {

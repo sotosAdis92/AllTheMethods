@@ -46,6 +46,9 @@ const MyProfile = () => {
           </h1>
         </div>
         <div className="content">
+          <div className="skillsContainer">
+            <UserSkills userId={userId}></UserSkills>
+          </div>
           <div className="rowInContent">
             <div>
               <ProgressChart
@@ -58,9 +61,6 @@ const MyProfile = () => {
             </div>
           </div>
 
-          <div>
-            <UserSkills userId={userId}></UserSkills>
-          </div>
           <div className="viewProblems">
             <ViewMyProblems userId={userId}></ViewMyProblems>
           </div>
