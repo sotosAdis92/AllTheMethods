@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/UsersService";
+import BackToTopButton from "../Util/BackToTopButton";
 import ProgressChart from "./ProgressChart";
 import UserIcon from "./UserIcon";
 import UserSkills from "./UserSkills";
@@ -74,6 +75,7 @@ const MyProfile = () => {
           </div>
         </div>
       </div>
+      <BackToTopButton></BackToTopButton>
     </>
   );
 };
