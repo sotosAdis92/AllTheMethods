@@ -4,12 +4,14 @@ import "./UserSummaryReport.css";
 const UserSummaryReport = (props) => {
   const [countProblems, setCountProblems] = useState([]);
   const [acceptanceRate, setAcceptanceRate] = useState([]);
+  const [submissionsOfUser, setSubmissionsOfUser] = useState([]);
   const userId = props.userId;
 
   const getSummary = () => {
     getUserProblemSummaryReport(userId).then((response) => {
       setCountProblems(response.data);
       setAcceptanceRate(response.data);
+      setSubmissionsOfUser(response.data);
     });
   };
   useEffect(() => {
@@ -24,6 +26,9 @@ const UserSummaryReport = (props) => {
   const countUserAcceptanceRate = acceptanceRate.map(
     (item) => item.userAcceptanceRate,
   );
+  const countSubmissions = submissionsOfUser.map(
+    (item) => item.countSubmissions,
+  );
   return (
     <>
       <div className="summaryReportContainer">
@@ -33,6 +38,10 @@ const UserSummaryReport = (props) => {
         <div className="userSolvedCounter">
           Solved
           <div className="solvedCounterSu">{countUserProblems}</div>
+        </div>
+        <div>
+          Submissions
+          <div>{countSubmissions}</div>
         </div>
         <div className="acceptanceRate">
           Acceptance Rate

@@ -914,17 +914,8 @@ body {
   height: auto;
   align-items: stretch;
   justify-content: center;
-  gap: 20px;
+  gap: 0px;
   position: relative;
-}
-
-.rowInContent > div {
-  flex: 1;
-  min-width: 0;
-}
-
-.rowInContent > div > * {
-  flex: 1;
 }
 
 @keyframes checkmarkDraw {
