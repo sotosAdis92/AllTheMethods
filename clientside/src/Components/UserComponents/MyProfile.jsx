@@ -74,8 +74,8 @@ const MyProfile = () => {
             ></ViewMySumbissionsHistory>
           </div>
         </div>
+        <BackToTopButton></BackToTopButton>
       </div>
-      <BackToTopButton></BackToTopButton>
     </>
   );
 };
