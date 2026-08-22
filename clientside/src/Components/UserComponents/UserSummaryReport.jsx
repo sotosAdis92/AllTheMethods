@@ -38,7 +38,7 @@ const UserSummaryReport = (props) => {
         </div>
         <div>
           Submissions
-          <div className="submissionsCount">{countSubmissions}</div>
+          <div className="submissionsCountSu">{countSubmissions}</div>
         </div>
         <div className="acceptanceRate">
           Acceptance Rate
