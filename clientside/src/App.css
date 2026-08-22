@@ -914,7 +914,7 @@ body {
   height: auto;
   align-items: stretch;
   justify-content: center;
-  gap: 0px;
+  gap: 20px;
   position: relative;
 }
 

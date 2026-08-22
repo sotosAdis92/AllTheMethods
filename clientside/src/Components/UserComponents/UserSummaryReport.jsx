@@ -32,16 +32,13 @@ const UserSummaryReport = (props) => {
   return (
     <>
       <div className="summaryReportContainer">
-        <h1 className="summaryReportHeading">
-          <div className="headerText">Summary</div>
-        </h1>
         <div className="userSolvedCounter">
           Solved
           <div className="solvedCounterSu">{countUserProblems}</div>
         </div>
         <div>
           Submissions
-          <div>{countSubmissions}</div>
+          <div className="submissionsCount">{countSubmissions}</div>
         </div>
         <div className="acceptanceRate">
           Acceptance Rate

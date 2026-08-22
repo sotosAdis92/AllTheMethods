@@ -1,6 +1,6 @@
 .summaryReportContainer {
   list-style: none;
-  padding: 0px;
+  padding: 20px;
   margin: 0;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
@@ -8,10 +8,10 @@
   background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 10px;
   position: relative;
   font-family:
     system-ui,
@@ -49,7 +49,7 @@
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
-  padding-bottom: 0rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid #e6e6e6;
 }
 
