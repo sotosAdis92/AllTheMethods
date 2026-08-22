@@ -10,7 +10,7 @@
   height: 45px;
   font-size: 20px;
   border-radius: 50%;
-  background: rgba(224, 224, 255, 0.85);
+  background: rgba(246, 246, 255, 0.85);
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   color: #010101;
