@@ -897,6 +897,27 @@ body {
   letter-spacing: 0.2px;
   user-select: none;
 }
+.rowInContent {
+  width: 100%;
+  padding: 0px;
+  margin: 0;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.rowInContent > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.rowInContent > div > * {
+  flex: 1;
+}
 
 @keyframes checkmarkDraw {
   0% {

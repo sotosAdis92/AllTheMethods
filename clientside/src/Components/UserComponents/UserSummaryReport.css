@@ -1,17 +1,17 @@
 .summaryReportContainer {
   list-style: none;
-  padding: 20px;
+  padding: 22px;
   margin: 0;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  width: 50%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   position: relative;
   font-family:
     system-ui,
@@ -65,7 +65,4 @@
   font-size: 25px;
   font-weight: 500;
   display: flex;
-}
-.summaryReportContainer {
-  margin-top: 1rem;
 }

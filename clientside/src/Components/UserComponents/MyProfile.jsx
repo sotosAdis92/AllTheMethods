@@ -46,15 +46,18 @@ const MyProfile = () => {
           </h1>
         </div>
         <div className="content">
-          <div>
-            <ProgressChart
-              userId={userId}
-              displayName={displayName}
-            ></ProgressChart>
+          <div className="rowInContent">
+            <div>
+              <ProgressChart
+                userId={userId}
+                displayName={displayName}
+              ></ProgressChart>
+            </div>
+            <div>
+              <UserSummaryReport userId={userId}></UserSummaryReport>
+            </div>
           </div>
-          <div>
-            <UserSummaryReport userId={userId}></UserSummaryReport>
-          </div>
+
           <div>
             <UserSkills userId={userId}></UserSkills>
           </div>
