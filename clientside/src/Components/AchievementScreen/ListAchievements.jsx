@@ -7,6 +7,7 @@ import {
   getAchievementsByCategoryAndRank,
   listAchievements,
 } from "../../services/AchievementService";
+import BackToTopButton from "../Util/BackToTopButton";
 import Achievement from "./Achievement";
 import AchievementImage from "./AchievementImage";
 import AchievementRank from "./AchievementRankComponent";

@@ -1,3 +1,4 @@
+import BackToTopButton from "../Util/BackToTopButton";
 import AboutButtons from "./AboutButtons";
 import AboutDescription from "./AboutDescription";
 import AboutTitle from "./AboutTitle";

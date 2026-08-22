@@ -11,6 +11,8 @@ import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
 import "./ListProblems.css";
 import ProblemDifficulty from "./ProblemDifficulty";
+import BackToTopButton from "./Util/BackToTopButton";
+
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const [allProblems, setAllProblems] = useState([]);
