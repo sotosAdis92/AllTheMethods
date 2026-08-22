@@ -203,6 +203,7 @@ const ListProblems = () => {
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
+      <BackToTopButton></BackToTopButton>
     </>
   );
 };

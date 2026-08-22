@@ -164,6 +164,7 @@ const ListAchievements = () => {
 
         <ol className="listOfAchievements">{listOfAchievements}</ol>
       </div>
+      <BackToTopButton></BackToTopButton>
     </>
   );
 };

@@ -9,6 +9,7 @@ const MainAboutPage = () => {
         <AboutDescription></AboutDescription>
         <AboutButtons></AboutButtons>
       </div>
+      <BackToTopButton></BackToTopButton>
     </>
   );
 };
