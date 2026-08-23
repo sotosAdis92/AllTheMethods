@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.service.*;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -24,7 +25,7 @@ public class SubmissionController {
     }
 
     @PostMapping
-    public ResponseEntity<SubmissionResponse> createSubmission(@RequestBody CreateSubmissionRequestDto submissionDto){
+    public ResponseEntity<SubmissionResponse> createSubmission(@Valid @RequestBody CreateSubmissionRequestDto submissionDto){
         SubmissionResponse submission = submissionService.createSubmission(submissionDto);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }

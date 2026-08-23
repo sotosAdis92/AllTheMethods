@@ -3,6 +3,7 @@ import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.service.AchievementService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,7 +23,7 @@ public class AchievementController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> createAchievement(@RequestBody CreateAchievementRequestDto achievementDto){
+    public ResponseEntity<AchievementResponseDto> createAchievement(@Valid @RequestBody CreateAchievementRequestDto achievementDto){
         AchievementResponseDto savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
     }
@@ -41,7 +42,7 @@ public class AchievementController {
 
     @PutMapping("{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> updateAchievement(@PathVariable("id") Long id, @RequestBody UpdateAchievementRequestDto updateAchievementDto){
+    public ResponseEntity<AchievementResponseDto> updateAchievement(@Valid @PathVariable("id") Long id, @RequestBody UpdateAchievementRequestDto updateAchievementDto){
         AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }

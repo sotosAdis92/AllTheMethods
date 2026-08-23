@@ -6,6 +6,7 @@ import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -27,7 +28,7 @@ public class ProblemController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> createProblem(@RequestBody CreateProblemRequestDto problemDto){
+    public ResponseEntity<ProblemResponseDto> createProblem(@Valid @RequestBody CreateProblemRequestDto problemDto){
         ProblemResponseDto savedProblem =  problemService.createProblem(problemDto);
         return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
@@ -46,7 +47,7 @@ public class ProblemController {
 
     @PutMapping("update/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> updateProblem(@PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
+    public ResponseEntity<ProblemResponseDto> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
         ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
