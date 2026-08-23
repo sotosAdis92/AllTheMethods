@@ -38,7 +38,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
 
-    @Query("SELECT COUNT(DISTINCT up.problem.id),COUNT(s),100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) FROM Submission s JOIN UserProblem up ON s.user.id = up.user.id WHERE up.user.id = ?1")
+    @Query("SELECT COUNT(DISTINCT up.problem.id),COUNT(s),CASE WHEN COUNT(s.user.id) = 0 THEN 0 ELSE 100.0*COUNT(DISTINCT up.user.id) / COUNT(s.user.id) END FROM Submission s JOIN UserProblem up ON s.user.id = up.user.id WHERE up.user.id = ?1")
     @QueryHints({@QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint( name= "org.hibernate.cacheable",value = "true")})
     List<SummaryResponseDto> countSummeryOfUser(@Param("userId") Long userId);
 }
