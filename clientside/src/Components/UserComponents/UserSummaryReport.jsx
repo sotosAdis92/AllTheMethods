@@ -29,11 +29,11 @@ const UserSummaryReport = (props) => {
         </div>
         <div>
           Submissions
-          <div className="submissionsCountSu">{acceptanceRate}</div>
+          <div className="submissionsCountSu">{submissionsOfUser}</div>
         </div>
         <div className="acceptanceRate">
           Acceptance Rate
-          <div className="acceptancePercent">{submissionsOfUser}%</div>
+          <div className="acceptancePercent">{acceptanceRate}%</div>
         </div>
       </div>
     </>
