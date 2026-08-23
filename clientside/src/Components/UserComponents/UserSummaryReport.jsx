@@ -9,9 +9,9 @@ const UserSummaryReport = (props) => {
 
   const getSummary = () => {
     getUserProblemSummaryReport(userId).then((response) => {
-      setCountProblems(response.data);
-      setAcceptanceRate(response.data);
-      setSubmissionsOfUser(response.data);
+      setCountProblems(response.data.countTotalProblems);
+      setAcceptanceRate(response.data.userAcceptanceRate);
+      setSubmissionsOfUser(response.data.countSubmissions);
     });
   };
   useEffect(() => {
@@ -20,29 +20,20 @@ const UserSummaryReport = (props) => {
     }
   }, [userId]);
 
-  const countUserProblems = countProblems.map(
-    (item) => item.countTotalProblems,
-  );
-  const countUserAcceptanceRate = acceptanceRate.map(
-    (item) => item.userAcceptanceRate,
-  );
-  const countSubmissions = submissionsOfUser.map(
-    (item) => item.countSubmissions,
-  );
   return (
     <>
       <div className="summaryReportContainer">
         <div className="userSolvedCounter">
           Solved
-          <div className="solvedCounterSu">{countUserProblems}</div>
+          <div className="solvedCounterSu">{countProblems}</div>
         </div>
         <div>
           Submissions
-          <div className="submissionsCountSu">{countSubmissions}</div>
+          <div className="submissionsCountSu">{acceptanceRate}</div>
         </div>
         <div className="acceptanceRate">
           Acceptance Rate
-          <div className="acceptancePercent">{countUserAcceptanceRate}%</div>
+          <div className="acceptancePercent">{submissionsOfUser}%</div>
         </div>
       </div>
     </>
