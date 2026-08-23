@@ -4,7 +4,7 @@ import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
-import com.example.allTheMethods.exception.ResourceNotFoundException;
+import com.example.allTheMethods.exception.AchievementNotFoundException;
 import com.example.allTheMethods.mapper.AchievementMapper;
 import com.example.allTheMethods.repository.AchievementRepository;
 import com.example.allTheMethods.service.AchievementService;
@@ -32,7 +32,7 @@ public class AchievementServiceImpl implements AchievementService {
 
     @Override
     public AchievementResponseDto getAchievementById(Long id) {
-        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
+        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         return achievementMapper.toDto(achievement);
     }
 
@@ -44,7 +44,7 @@ public class AchievementServiceImpl implements AchievementService {
 
     @Override
     public AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequestDto updatedAchievement) {
-        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
+        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         achievement.setName(updatedAchievement.name());
         achievement.setDescription(updatedAchievement.description());
         achievement.setCategory(updatedAchievement.category());
@@ -57,7 +57,7 @@ public class AchievementServiceImpl implements AchievementService {
 
     @Override
     public void deleteAchievement(Long id) {
-        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Achievement not found" + id));
+        Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         achievementRepository.deleteById(id);
     }
 

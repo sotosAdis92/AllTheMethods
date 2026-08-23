@@ -4,7 +4,7 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
-import com.example.allTheMethods.exception.ResourceNotFoundException;
+import com.example.allTheMethods.exception.ProblemNotFoundException;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
 import com.example.allTheMethods.service.ProblemService;
@@ -38,7 +38,7 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public ProblemResponseDto getProblemById(int id) {
-        Problem problem = problemRepository.findById((long) id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
+        Problem problem = problemRepository.findById((long) id).orElseThrow(() -> new ProblemNotFoundException("Problem not found" + id));
         return problemMapper.toDto(problem);
     }
 
@@ -50,7 +50,7 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public ProblemResponseDto updateProblem(Long id, UpdateProblemRequestDto updatedProblem) {
-        Problem problem = problemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
+        Problem problem = problemRepository.findById(id).orElseThrow(() -> new ProblemNotFoundException("Problem not found" + id));
         problem.setNumber(updatedProblem.number());
         problem.setCategory(updatedProblem.category());
         problem.setDifficulty(updatedProblem.difficulty());
@@ -67,7 +67,7 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public void deleteProblem(Long id) {
-        Problem problem = problemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problem not found" + id));
+        Problem problem = problemRepository.findById(id).orElseThrow(() -> new ProblemNotFoundException("Problem not found" + id));
         problemRepository.deleteById(id);
     }
 
