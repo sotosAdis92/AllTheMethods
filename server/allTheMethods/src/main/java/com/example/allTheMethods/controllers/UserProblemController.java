@@ -68,8 +68,8 @@ public class UserProblemController {
 
     @GetMapping("/summary/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<List<SummaryResponseDto>> getSummeryOfUser(@PathVariable("id") int id){
-        List<SummaryResponseDto> summery = userProblemService.countSummeryOfUser(id);
+    public ResponseEntity<SummaryResponseDto> getSummeryOfUser(@PathVariable("id") int id){
+        SummaryResponseDto summery = userProblemService.countSummeryOfUser(id);
         return ResponseEntity.ok(summery);
     }
 

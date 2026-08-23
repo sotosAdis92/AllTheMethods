@@ -105,9 +105,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<SummaryResponseDto> countSummeryOfUser(int id) {
+    public SummaryResponseDto countSummeryOfUser(int id) {
         Users user = jwtUtil.getLoggedInUser();
-        List<SummaryResponseDto> summaryResponseDto = new ArrayList<>();
+        SummaryResponseDto summaryResponseDto = new SummaryResponseDto(0L,0L,0.0);
         if(user!=null){
             summaryResponseDto = userProblemsRepository.countSummeryOfUser((long) id);
         }
