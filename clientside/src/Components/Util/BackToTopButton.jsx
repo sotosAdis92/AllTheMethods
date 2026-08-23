@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import arrowUp from "../../assets/arrowUpS.png";
 import "./BackToTopButton.css";
 const BackToTopButton = () => {
   const [backToTopButton, setBackToTopButton] = useState(false);
@@ -20,7 +21,13 @@ const BackToTopButton = () => {
 
   return (
     <div className="backToTopButton">
-      <div>{backToTopButton && <button onClick={scrollUp}>^</button>}</div>
+      <div>
+        {backToTopButton && (
+          <button onClick={scrollUp}>
+            <img src={arrowUp} alt={arrowUp}></img>
+          </button>
+        )}
+      </div>
     </div>
   );
 };
