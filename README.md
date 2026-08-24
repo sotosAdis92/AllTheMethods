@@ -155,7 +155,7 @@ spring-react/
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin2.JPG?raw=true)
 # Admin Panel
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin3.JPG?raw=true)
 # Admin Panel
 ![imagealt]()
 # Login
