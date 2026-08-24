@@ -145,23 +145,23 @@ spring-react/
 # Achievement List
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/achievementList.JPG?raw=true)
 # Profile
-![imagealt]
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile1.JPG?raw=true)
 # Profile
-![imagealt]
+![imagealt]()
 # Profile
-![imagealt]
+![imagealt]()
 # Admin Panel
-![imagealt]
+![imagealt]()
 # Admin Panel
-![imagealt]
+![imagealt]()
 # Admin Panel
-![imagealt]
+![imagealt]()
 # Admin Panel
-![imagealt]
+![imagealt]()
 # Login
-![imagealt]
+![imagealt]()
 # Singup
-![imagealt]
+![imagealt]()
 ---
 # License
 
