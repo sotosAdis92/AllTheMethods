@@ -147,7 +147,7 @@ spring-react/
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile1.JPG?raw=true)
 # Profile
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile2.JPG?raw=true)
 # Profile
 ![imagealt]()
 # Admin Panel
