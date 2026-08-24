@@ -25,3 +25,8 @@
 .submission-item:hover {
   background: #fafafa;
 }
+
+.submissionHeader {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}

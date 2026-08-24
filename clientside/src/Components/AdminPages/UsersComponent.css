@@ -48,3 +48,8 @@
 .delete-btn-table:hover {
   background: #fee2e2;
 }
+
+.headerUser {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}

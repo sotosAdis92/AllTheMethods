@@ -63,7 +63,16 @@ const AchievementListComponent = () => {
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <div>{listOfAchievements}</div>
+      <div>
+        <div className="headerAchievement achievement-item-table">
+          <div>Id</div>
+          <div>Name</div>
+          <div>Description</div>
+          <div>Category</div>
+          <div>Rank</div>
+        </div>
+        {listOfAchievements}
+      </div>
     </div>
   );
 };

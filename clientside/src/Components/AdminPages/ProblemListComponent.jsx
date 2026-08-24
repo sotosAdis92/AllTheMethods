@@ -66,7 +66,20 @@ const ProblemListComponent = () => {
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <div>{listOfProblems}</div>
+      <div>
+        <div className="headerProblem problem-item-table">
+          <div>Id</div>
+          <div>Title</div>
+          <div>Number</div>
+          <div>Category</div>
+          <div>Difficulty</div>
+          <div>Function String</div>
+          <div>Points</div>
+          <div>Problem Data</div>
+          <div>Problem Type</div>
+        </div>
+        {listOfProblems}
+      </div>
     </div>
   );
 };

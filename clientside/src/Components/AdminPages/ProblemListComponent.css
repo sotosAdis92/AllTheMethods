@@ -84,3 +84,8 @@
   background: #dcfce7;
   color: #16a34a;
 }
+
+.headerProblem {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}

@@ -56,7 +56,15 @@ const UsersComponent = () => {
 
   return (
     <div>
-      <div>{listOfUsers}</div>
+      <div>
+        <div className="headerUser user-item-table">
+          <div>Id</div>
+          <div>Username</div>
+          <div>Display Name</div>
+          <div>Role</div>
+        </div>
+        {listOfUsers}
+      </div>
       {totalPages > 1 ? (
         <div className="pageButtonsContainer">
           <button

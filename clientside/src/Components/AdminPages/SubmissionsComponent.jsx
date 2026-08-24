@@ -48,7 +48,16 @@ const SubmissionComponent = () => {
 
   return (
     <div>
-      <div>{listOfSubmissions}</div>
+      <div>
+        <div className="submissionHeader submission-item">
+          <div>Id</div>
+          <div>Date</div>
+          <div>Title</div>
+          <div>Number</div>
+          <div>Difficulty</div>
+        </div>
+        {listOfSubmissions}
+      </div>
       {totalPages > 1 ? (
         <div className="pageButtonsContainer">
           <button
