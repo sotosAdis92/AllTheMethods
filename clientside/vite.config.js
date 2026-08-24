@@ -11,5 +11,6 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    allowedHosts: ["handstand-precision-caption.ngrok-free.dev"],
   },
 });
