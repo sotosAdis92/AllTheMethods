@@ -141,7 +141,7 @@ spring-react/
 # About Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/aboutAllTheMethods.JPG?raw=true)
 # Problems List
-![imagealt]
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemsList.JPG?raw=true)
 # Achievement List
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/achievementList.JPG?raw=true)
 # Profile
