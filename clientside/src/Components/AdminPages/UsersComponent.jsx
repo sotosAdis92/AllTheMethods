@@ -44,10 +44,10 @@ const UsersComponent = () => {
 
   const listOfUsers = users.map((user) => (
     <div className="user-item-table" key={user.id}>
-      <div>Id: {user.id}</div>
-      <div>Username: {user.username}</div>
-      <div>Display Name: {user.displayName}</div>
-      <div>Role: {user.userRole.toLowerCase()}</div>
+      <div>{user.id}</div>
+      <div>{user.username}</div>
+      <div>{user.displayName}</div>
+      <div>{user.userRole.toLowerCase()}</div>
       <button className="delete-btn-table" onClick={() => deleteUser(user.id)}>
         <FontAwesomeIcon icon={faTrashCan} />
       </button>
