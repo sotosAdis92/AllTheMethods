@@ -12,6 +12,8 @@ The idea for *All The Methods* was born from a series of personal notes taken du
 
 The app transforms that knowledge into an interactive learning experience, heavily inspired by platforms like **Leetcode**—but for math. Instead of coding problems, users solve mathematical problems using numerical techniques. The focus is on **individual progress**.
 
+This Repository was created for the storage and versioning control of the web app AllTheMethods, its a personal project developed in my 8th Semester of Studies, in my Attempt to Learn the Spring Framework and React.js
+
 ---
 
 ### Prerequisites
