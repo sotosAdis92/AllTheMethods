@@ -13,6 +13,7 @@ const Header = () => {
   const location = useLocation();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [displayName, setDisplayName] = useState("");
+  const [roleUser, setRoleUser] = useState("");
 
   const userDisplayName = async () => {
     const isLoggedIn = isTokenValid();
@@ -21,6 +22,7 @@ const Header = () => {
       if (isLoggedIn) {
         const response = await getUser();
         setDisplayName(response.data.displayName);
+        setRoleUser(response.data.userRole);
       }
     } catch (error) {
       console.log(error);
@@ -38,6 +40,10 @@ const Header = () => {
   const handleSignOut = () => {
     navigate("/login");
     removeToken();
+  };
+
+  const roleCheck = () => {
+    return roleUser === "ADMIN";
   };
 
   useEffect(() => {
@@ -92,6 +98,16 @@ const Header = () => {
                 Profile
               </a>
             </li>
+            {roleCheck() && (
+              <li className="link">
+                <a
+                  href="/admin"
+                  className={`headerlink ${isActive("/admin") ? "active" : ""}`}
+                >
+                  Admin
+                </a>
+              </li>
+            )}
           </ul>
           <div className="userAndLogout">
             <div className="usersDisplay">
