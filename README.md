@@ -137,7 +137,7 @@ spring-react/
 
 ---
 # Screenshots of the App (Some changes may be made in later versions)
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/aboutAllTheMethods.JPG?raw=true)
 ---
 # License
 
