@@ -12,6 +12,8 @@ The idea for *All The Methods* was born from a series of personal notes taken du
 
 The app transforms that knowledge into an interactive learning experience, heavily inspired by platforms like **Leetcode**—but for math. Instead of coding problems, users solve mathematical problems using numerical techniques. The focus is on **individual progress**.
 
+This Repository was created for the storage and versioning control of the web app AllTheMethods, its a personal project developed in my 8th Semester of Studies, in my Attempt to Learn the Spring Framework and React.js
+
 ---
 
 ### Prerequisites
@@ -137,7 +139,31 @@ spring-react/
 
 ---
 # Screenshots of the App (Some changes may be made in later versions)
-![imagealt]()
+---
+# About Page
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/aboutAllTheMethods.JPG?raw=true)
+# Problems List
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemsList.JPG?raw=true)
+# Achievement List
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/achievementList.JPG?raw=true)
+# Profile
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile1.JPG?raw=true)
+# Profile
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile2.JPG?raw=true)
+# Profile
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile3.JPG?raw=true)
+# Admin Panel
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/adminProblems.JPG?raw=true)
+# Admin Panel
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin2.JPG?raw=true)
+# Admin Panel
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin3.JPG?raw=true)
+# Admin Panel
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin4.JPG?raw=true)
+# Login
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/login.JPG?raw=true)
+# Singup
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/singup.JPG?raw=true)
 ---
 # License
 
