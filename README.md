@@ -135,6 +135,10 @@ spring-react/
 - Statistics and Charts
 - Query Optimization with Spring Data JPA
 
+---
+# Screenshots of the App (Some changes may be made in later versions)
+![imagealt]()
+---
 # License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE)
