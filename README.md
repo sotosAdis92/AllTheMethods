@@ -137,7 +137,31 @@ spring-react/
 
 ---
 # Screenshots of the App (Some changes may be made in later versions)
+---
+# About Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/aboutAllTheMethods.JPG?raw=true)
+# Problems List
+![imagealt]
+# Achievement List
+![imagealt]
+# Profile
+![imagealt]
+# Profile
+![imagealt]
+# Profile
+![imagealt]
+# Admin Panel
+![imagealt]
+# Admin Panel
+![imagealt]
+# Admin Panel
+![imagealt]
+# Admin Panel
+![imagealt]
+# Login
+![imagealt]
+# Singup
+![imagealt]
 ---
 # License
 
