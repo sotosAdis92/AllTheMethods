@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUserProblemSummaryReport } from "../../services/UserProblemService";
 import "./UserSummaryReport.css";
+
 const UserSummaryReport = (props) => {
   const [countProblems, setCountProblems] = useState([]);
   const [acceptanceRate, setAcceptanceRate] = useState([]);
