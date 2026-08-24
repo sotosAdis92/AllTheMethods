@@ -161,7 +161,7 @@ spring-react/
 # Login
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/login.JPG?raw=true)
 # Singup
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/singup.JPG?raw=true)
 ---
 # License
 
