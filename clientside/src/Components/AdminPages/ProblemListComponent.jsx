@@ -20,7 +20,11 @@ const ProblemListComponent = () => {
   }, []);
 
   const deleteProblemFunc = (problemId) => {
-    deleteProblem(problemId);
+    deleteProblem(problemId).then(() => {
+      listProblems().then((response) => {
+        setProblems(response.data);
+      });
+    });
   };
 
   const editProblem = (problemId) => {
@@ -73,7 +77,7 @@ const ProblemListComponent = () => {
           <div>Number</div>
           <div>Category</div>
           <div>Difficulty</div>
-          <div>Function String</div>
+          <div></div>
           <div>Points</div>
           <div>Problem Data</div>
           <div>Problem Type</div>
