@@ -1,4 +1,9 @@
-import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faMinus,
+  faPlus,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
@@ -23,6 +28,7 @@ const AchievementComponent = () => {
   const [category, setCategory] = useState("");
   const [rank, setRank] = useState("");
   const [visibility, setVisibility] = useState("");
+  const [counter, setCounter] = useState(2);
   const navigator = useNavigate();
   const { id } = useParams();
 
@@ -35,6 +41,7 @@ const AchievementComponent = () => {
           setCategory(response.data.category);
           setRank(response.data.rank);
           setVisibility(response.data.visibility);
+          setCounter(response.data.counter);
         })
         .catch((error) => {
           console.log(error);
@@ -48,6 +55,7 @@ const AchievementComponent = () => {
     category: "",
     rank: "",
     visibility: "",
+    counter: "",
   });
 
   function validateForm() {
@@ -83,6 +91,11 @@ const AchievementComponent = () => {
       errorsCopy.visibility = "Error, visibility cannot be empty";
       valid = false;
     }
+    if (counter > 2) {
+      errorsCopy.counter = "";
+    } else {
+      errorsCopy.counter = "Error, counter cannot be negative";
+    }
 
     setErrors(errorsCopy);
     return valid;
@@ -103,6 +116,12 @@ const AchievementComponent = () => {
   const handleVisibility = (e) => {
     setVisibility(e.target.value);
   };
+  const handleCounterInc = (e) => {
+    setCounter((n) => (n > 2 ? n++ : n));
+  };
+  const handleCounterDec = (e) => {
+    setCounter((n) => (n = n - 1));
+  };
 
   function saveOrUpdateAchievement(e) {
     e.preventDefault();
@@ -113,6 +132,7 @@ const AchievementComponent = () => {
         category,
         rank,
         visibility,
+        counter,
       };
       if (id) {
         updateAchievement(id, achievement)
@@ -212,6 +232,17 @@ const AchievementComponent = () => {
               <FormHelperText>{errors.visibility}</FormHelperText>
             )}
           </FormControl>
+        </div>
+        <div className="achievement-row">
+          <h4>Achievement Counter</h4>
+          <Button type="button" variant="contained" onClick={handleCounterInc}>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+          </Button>
+          <Button type="button" variant="contained" onClick={handleCounterDec}>
+            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+          </Button>
+          <p className="numberText">{counter}</p>
+          {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
         </div>
         <div className="achievement-buttons">
           <Button
