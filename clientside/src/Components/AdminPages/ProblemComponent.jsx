@@ -93,7 +93,9 @@ const ProblemComponent = () => {
     setPoints((p) => p + 5);
   };
   const decreasePoints = () => {
-    setPoints((p) => p - 5);
+    if (points > 0) {
+      setPoints((p) => p - 5);
+    }
   };
   const handleDescription = (e) => {
     setDescription(e.target.value);
