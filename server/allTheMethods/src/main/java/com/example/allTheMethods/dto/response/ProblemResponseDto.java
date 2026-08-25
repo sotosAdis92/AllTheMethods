@@ -12,7 +12,7 @@ public record ProblemResponseDto(
         int points,
         String problemString,
         String problemType,
-        String problemData,
-        String functionString
+        String functionString,
+        String problemData
 ) {
 }
