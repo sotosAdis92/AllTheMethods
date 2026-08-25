@@ -76,7 +76,9 @@ const ProblemComponent = () => {
     setNumber((n) => n + 1);
   };
   const decrement = () => {
-    setNumber((n) => n - 1);
+    if (number > 0) {
+      setNumber((n) => (n > 0 ? n - 1 : n));
+    }
   };
   const handleTitle = (e) => {
     setTitle(e.target.value);
