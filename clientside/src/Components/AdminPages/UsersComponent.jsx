@@ -25,7 +25,11 @@ const UsersComponent = () => {
   }, []);
 
   const deleteUser = (userId) => {
-    deleteUserById(userId);
+    deleteUserById(userId).then(() => {
+      getAllUsers().then((response) => {
+        setUsers(response.data.content);
+      });
+    });
   };
 
   for (let i = 1; i <= totalPages; i++) {

@@ -6,7 +6,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { listAchievements } from "../../services/AchievementService";
+import {
+  deleteAchievement,
+  listAchievements,
+} from "../../services/AchievementService";
 import "./achievementListComponent.css";
 
 const AchievementListComponent = () => {
@@ -20,8 +23,12 @@ const AchievementListComponent = () => {
     });
   }, []);
 
-  const deleteAchievement = (achievementId) => {
-    deleteAchievement(achievementId);
+  const deleteAchievementFunc = (achievementId) => {
+    deleteAchievement(achievementId).then(() => {
+      listAchievements.then((response) => {
+        setAchievements(response.data);
+      });
+    });
   };
 
   const editAchievement = (achievementId) => {
@@ -48,7 +55,7 @@ const AchievementListComponent = () => {
         </button>
         <button
           className="delete-btn-table"
-          onClick={() => deleteAchievement(achievement.id)}
+          onClick={() => deleteAchievementFunc(achievement.id)}
         >
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
