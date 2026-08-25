@@ -10,7 +10,7 @@ import {
   deleteAchievement,
   listAchievements,
 } from "../../services/AchievementService";
-import "./achievementListComponent.css";
+import "./AchievementListComponent.css";
 
 const AchievementListComponent = () => {
   const navigator = useNavigate();
