@@ -64,7 +64,7 @@ public class Problem {
         this.problemData = problemData;
     }
 
-    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String functionSting, String problemData) {
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String functionString, String problemData) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -74,7 +74,7 @@ public class Problem {
         this.points = points;
         this.problemString = problemString;
         this.problemType = problemType;
-        this.functionString = functionSting;
+        this.functionString = functionString;
         this.problemData = problemData;
     }
 
