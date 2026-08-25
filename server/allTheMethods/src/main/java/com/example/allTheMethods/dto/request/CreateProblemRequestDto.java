@@ -7,8 +7,6 @@ import jakarta.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 
 public record CreateProblemRequestDto(
-    @NotBlank(message = "Number cannot be blank")
-    @NotEmpty(message = "Number cannot be empty")
     @NotNull(message = "Number cannot be null")
     @Positive(message = "Number must be a positive")
     int number,
@@ -33,9 +31,8 @@ public record CreateProblemRequestDto(
     @NotBlank(message = "Description cannot be blank or null")
     String description,
 
-    @NotEmpty(message = "Points cannot be empty")
+
     @NotNull(message = "Points cannot be null")
-    @NotBlank(message = "Points cannot be blank or null")
     @Positive(message = "Points must be a positive")
     int points,
 
@@ -49,14 +46,14 @@ public record CreateProblemRequestDto(
     @NotBlank(message = "Problem Type cannot be blank or null")
     String problemType,
 
-    @NotEmpty(message = "Problem Data cannot be empty")
-    @NotNull(message = "Problem Data cannot be null")
-    @NotBlank(message = "Problem Data cannot be blank or null")
-    String problemData,
-
     @NotEmpty(message = "Function String cannot be empty")
     @NotNull(message = "Function String cannot be null")
     @NotBlank(message = "Function String cannot be blank or null")
-    String functionString
+    String functionString,
+
+    @NotEmpty(message = "Problem Data cannot be empty")
+    @NotNull(message = "Problem Data cannot be null")
+    @NotBlank(message = "Problem Data cannot be blank or null")
+    String problemData
 ) {
 }

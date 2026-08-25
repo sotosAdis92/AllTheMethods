@@ -23,9 +23,8 @@ public class ProblemMapperImpl implements ProblemMapper {
                 createProblemRequestDto.points(),
                 createProblemRequestDto.problemString(),
                 createProblemRequestDto.problemType(),
-                createProblemRequestDto.problemData(),
-                createProblemRequestDto.functionString()
-
+                createProblemRequestDto.functionString(),
+                createProblemRequestDto.problemData()
         );
         return problem;
     }
@@ -42,8 +41,8 @@ public class ProblemMapperImpl implements ProblemMapper {
                 updateProblemRequestDto.points(),
                 updateProblemRequestDto.problemString(),
                 updateProblemRequestDto.problemType(),
-                updateProblemRequestDto.problemData(),
-                updateProblemRequestDto.functionString()
+                updateProblemRequestDto.functionString(),
+                updateProblemRequestDto.problemData()
         );
         return problem;
     }
@@ -60,8 +59,8 @@ public class ProblemMapperImpl implements ProblemMapper {
                 problem.getPoints(),
                 problem.getProblemString(),
                 problem.getProblemType(),
-                problem.getProblemData(),
-                problem.getFunctionString()
+                problem.getFunctionString(),
+                problem.getProblemData()
         );
     }
 
