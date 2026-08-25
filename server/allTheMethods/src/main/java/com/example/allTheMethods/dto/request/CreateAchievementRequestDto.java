@@ -34,9 +34,7 @@ public record CreateAchievementRequestDto(
         @Length(max = 510, message = "visibility cannot be too long")
         String visibility,
 
-        @NotEmpty(message = "counter cannot be empty")
         @NotNull(message = "counter cannot be null")
-        @NotBlank(message = "counter cannot be blank")
         @Min(value = 2, message = "Counter should be>=2")
         @Max(value = 20, message = "Counter should be<=20")
         @Positive(message = "Counter must be a positive")
