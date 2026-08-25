@@ -28,7 +28,7 @@ const ProblemListComponent = () => {
   };
 
   const editProblem = (problemId) => {
-    navigator(`/admin/problems/update/${problemId}`);
+    navigator(`/admin/problems/edit/${problemId}`);
   };
 
   const addProblem = () => {
