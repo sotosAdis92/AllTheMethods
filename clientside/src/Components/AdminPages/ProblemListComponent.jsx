@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { listProblems } from "../../services/ProblemService";
+import { deleteProblem, listProblems } from "../../services/ProblemService";
 import "./ProblemListComponent.css";
 const ProblemListComponent = () => {
   const navigator = useNavigate();
@@ -19,7 +19,7 @@ const ProblemListComponent = () => {
     });
   }, []);
 
-  const deleteProblem = (problemId) => {
+  const deleteProblemFunc = (problemId) => {
     deleteProblem(problemId);
   };
 
@@ -51,7 +51,7 @@ const ProblemListComponent = () => {
         </button>
         <button
           className="delete-btn-table"
-          onClick={() => deleteProblem(problem.id)}
+          onClick={() => deleteProblemFunc(problem.id)}
         >
           <FontAwesomeIcon icon={faTrashCan} />
         </button>

@@ -16,7 +16,7 @@ export const updateProblem = async (problemId, problem) => {
 
 export const deleteProblem = async (problemId) => {
   const response = await axiosInstance.delete(
-    REST_API_BASE_URL + "/" + problemId,
+    REST_API_BASE_URL + "/delete/" + problemId,
   );
   return response;
 };
