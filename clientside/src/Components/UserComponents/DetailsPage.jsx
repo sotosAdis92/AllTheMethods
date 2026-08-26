@@ -8,6 +8,7 @@ import {
   getUser,
   updateUserAccount,
 } from "../../services/UsersService";
+import { removeToken } from "../environment/common";
 const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
@@ -68,6 +69,8 @@ const DetailsPage = (props) => {
   const handleDelete = () => {
     deleteUserById(id).then((response) => {
       console.log(response.data);
+      navigator("/login");
+      removeToken();
     });
   };
   return (
