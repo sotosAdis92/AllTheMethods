@@ -1,5 +1,6 @@
 package com.example.allTheMethods.controllers;
 
+import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 
@@ -48,6 +49,12 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable int id){
         usersService.deleteUser(id);
         return ResponseEntity.ok("Deleted user");
+    }
+
+    @PutMapping("/details/{id}")
+    public ResponseEntity<String> updateUserAccount(@PathVariable int id,@RequestBody UpdateUserRequestDto updateUserRequestDto){
+        usersService.updateUserAccount(id,updateUserRequestDto);
+        return ResponseEntity.ok("User updated");
     }
 
 }
