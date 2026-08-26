@@ -9,6 +9,7 @@ import {
   getUser,
   updateUserAccount,
 } from "../../services/UsersService";
+import "./DetailsPage.css";
 
 const DetailsPage = (props) => {
   const { id } = useParams();
@@ -75,11 +76,11 @@ const DetailsPage = (props) => {
     });
   };
   return (
-    <div>
-      <div>
+    <div className="edit-profile-container">
+      <div className="profile-card">
         <div>
-          <div>Edit Profile Details</div>
-          <div>
+          <div className="section-title">Edit Profile Details</div>
+          <div className="profile-field">
             <TextField
               type="text"
               placeholder="Enter Display Name"
@@ -91,7 +92,7 @@ const DetailsPage = (props) => {
               onChange={handleDisplayName}
             ></TextField>
           </div>
-          <div className="">
+          <div className="action-buttons">
             <Button
               variant="contained"
               color="success"
@@ -106,12 +107,12 @@ const DetailsPage = (props) => {
             </Button>
           </div>
         </div>
-        <div>
-          <div>Danger Zone</div>
+        <div className="danger-zone">
+          <div className="danger-zone-title">Danger Zone</div>
           <div>
-            <button onClick={openConfirmationBox}>
+            <button onClick={openConfirmationBox} className="terminate-button">
               Terminate Account
-              <FontAwesomeIcon icon={faTrashCan} />
+              <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
         </div>
