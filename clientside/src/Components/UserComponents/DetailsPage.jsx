@@ -9,6 +9,7 @@ import {
   updateUserAccount,
 } from "../../services/UsersService";
 import { removeToken } from "../environment/common";
+
 const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
