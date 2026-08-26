@@ -10,6 +10,7 @@ const DetailsPage = (props) => {
   const [errors, setErrors] = useState({
     dsiplayName: "",
   });
+
   const handleDisplayName = (e) => {
     setDisplayName(e.target.value);
   };
