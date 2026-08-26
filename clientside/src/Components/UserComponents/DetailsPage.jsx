@@ -2,9 +2,10 @@ import { faCheck, faTrashCan, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 const DetailsPage = (props) => {
+  const { id } = useParams();
   const [username, setUsername] = useState("");
-  const [userRole, setUserRole] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [errors, setErrors] = useState({
     dsiplayName: "",
@@ -27,7 +28,10 @@ const DetailsPage = (props) => {
   const editUserDetails = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const userDetails = {};
+      const userDetails = {
+        username,
+        displayName,
+      };
     }
   };
   return (
@@ -51,7 +55,7 @@ const DetailsPage = (props) => {
             <Button
               variant="contained"
               color="success"
-              onClick={handleDisplayName}
+              onClick={editUserDetails}
             >
               Submit
               <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
