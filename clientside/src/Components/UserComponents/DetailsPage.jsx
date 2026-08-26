@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { removeToken } from "../../environment/common";
 import {
   deleteUserById,
   getUser,
   updateUserAccount,
 } from "../../services/UsersService";
-import { removeToken } from "../environment/common";
 
 const DetailsPage = (props) => {
   const { id } = useParams();
