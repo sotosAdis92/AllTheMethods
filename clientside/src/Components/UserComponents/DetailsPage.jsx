@@ -3,11 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getUser, updateUserAccount } from "../../services/UsersService";
+import {
+  deleteUserById,
+  getUser,
+  updateUserAccount,
+} from "../../services/UsersService";
 const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [openDialog, setOpenDialog] = useState(false);
   const [errors, setErrors] = useState({
     dsiplayName: "",
   });
@@ -53,6 +58,18 @@ const DetailsPage = (props) => {
       }
     }
   };
+
+  const openConfirmationBox = () => {
+    setOpenDialog(true);
+  };
+  const closeConfirmationBox = () => {
+    setOpenDialog(false);
+  };
+  const handleDelete = () => {
+    deleteUserById(id).then((response) => {
+      console.log(response.data);
+    });
+  };
   return (
     <div>
       <div>
@@ -88,7 +105,7 @@ const DetailsPage = (props) => {
         <div>
           <div>Danger Zone</div>
           <div>
-            <button>
+            <button onClick={openConfirmationBox}>
               Terminate Account
               <FontAwesomeIcon icon={faTrashCan} />
             </button>
