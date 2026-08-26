@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import updateUserAccount from "../../services/UsersService";
 const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
@@ -33,6 +34,12 @@ const DetailsPage = (props) => {
         username,
         displayName,
       };
+      if (id) {
+        updateUserAccount(id, userDetails).then((response) => {
+          console.log(response.data);
+          navigator("/profile");
+        });
+      }
     }
   };
   return (

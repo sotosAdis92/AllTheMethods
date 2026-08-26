@@ -15,3 +15,8 @@ export const deleteUserById = async (id) => {
   const response = axiosInstance.delete(REST_API_BASE_URL + `/` + id);
   return response;
 };
+
+export const updateUserAccount = async (id, userDetails) => {
+  const response = axiosInstance.delete(REST_API_BASE_URL + "/details/" + id);
+  return response;
+};
