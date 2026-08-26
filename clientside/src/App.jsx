@@ -34,7 +34,7 @@ function App() {
             ></Route>
             <Route path="/profile" element={<MyProfile></MyProfile>}></Route>
             <Route
-              path="/profile/details"
+              path="/profile/details/:id"
               element={<DetailsPage></DetailsPage>}
             ></Route>
             <Route
