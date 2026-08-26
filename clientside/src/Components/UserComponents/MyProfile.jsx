@@ -42,6 +42,7 @@ const MyProfile = () => {
               <UserIcon
                 displayName={displayName}
                 username={username}
+                userId={userId}
               ></UserIcon>
             </div>
           </h1>

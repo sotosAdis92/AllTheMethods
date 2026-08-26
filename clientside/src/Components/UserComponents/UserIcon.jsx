@@ -3,7 +3,7 @@ import img1 from "../../assets/userPicDefault.png";
 const UserIcon = (props) => {
   const navigator = useNavigate();
   const navigateToEdit = () => {
-    navigator("/profile/details");
+    navigator(`/profile/details/${props.id}`);
   };
   return (
     <>

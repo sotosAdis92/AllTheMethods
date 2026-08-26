@@ -1,9 +1,9 @@
 import { faCheck, faTrashCan, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import updateUserAccount from "../../services/UsersService";
+import { getUser, updateUserAccount } from "../../services/UsersService";
 const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
@@ -12,9 +12,19 @@ const DetailsPage = (props) => {
     dsiplayName: "",
   });
 
+  useEffect(() => {
+    if (id) {
+      getUser(id).then((response) => {
+        setDisplayName(response.data.displayName);
+        console.log(response.data);
+      });
+    }
+  });
+
   const handleDisplayName = (e) => {
     setDisplayName(e.target.value);
   };
+
   function validateForm() {
     let valid = true;
     const errorsCopy = { ...errors };
@@ -27,6 +37,7 @@ const DetailsPage = (props) => {
     setErrors(errorsCopy);
     return valid;
   }
+
   const editUserDetails = (e) => {
     e.preventDefault();
     if (validateForm()) {
