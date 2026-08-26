@@ -11,6 +11,7 @@ import ListProblems from "./Components/ListProblems";
 import Login from "./Components/LoginSignUp/Login";
 import Signup from "./Components/LoginSignUp/Signup";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
+import DetailsPage from "./Components/UserComponents/DetailsPage";
 import MyProfile from "./Components/UserComponents/MyProfile";
 import ProtectedRoute from "./context/ProtectedRoute";
 function App() {
@@ -32,6 +33,10 @@ function App() {
               element={<ListAchievements></ListAchievements>}
             ></Route>
             <Route path="/profile" element={<MyProfile></MyProfile>}></Route>
+            <Route
+              path="/profile/details"
+              element={<DetailsPage></DetailsPage>}
+            ></Route>
             <Route
               path="/about"
               element={<MainAboutPage></MainAboutPage>}
