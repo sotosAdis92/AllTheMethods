@@ -1,0 +1,21 @@
+.editAccountButton {
+  background-color: #bbf7d0;
+  color: #15803d;
+  border: 1px solid #86efac;
+  padding: 7px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.editAccountButton:hover {
+  background-color: #86efac;
+  border-color: #16a34a;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  transform: translateY(-1px);
+}

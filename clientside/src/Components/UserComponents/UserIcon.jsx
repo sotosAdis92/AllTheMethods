@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/userPicDefault.png";
+import "./UserIcon.css";
+
 const UserIcon = (props) => {
   const navigator = useNavigate();
   const navigateToEdit = () => {
