@@ -161,7 +161,7 @@ spring-react/
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin4.JPG?raw=true)
 # Add Achievement Page
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addachievement.JPG?raw=true)
 # Add Problem Page
 ![imagealt]()
 # Edit Profile Page
