@@ -1,20 +1,15 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
-import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.dto.response.UserResponseDto;
-
 import com.example.allTheMethods.service.UsersService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @CrossOrigin("*")
 @RestController
