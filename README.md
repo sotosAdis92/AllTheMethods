@@ -165,7 +165,7 @@ spring-react/
 # Add Problem Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addproblem.JPG?raw=true)
 # Edit Profile Page
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/editProfile.JPG?raw=true)
 # Login
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/login.JPG?raw=true)
 # Singup
