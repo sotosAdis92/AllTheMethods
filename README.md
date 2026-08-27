@@ -160,6 +160,12 @@ spring-react/
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin3.JPG?raw=true)
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin4.JPG?raw=true)
+# Add Achievement Page
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addachievement.JPG?raw=true)
+# Add Problem Page
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addproblem.JPG?raw=true)
+# Edit Profile Page
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/editProfile.JPG?raw=true)
 # Login
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/login.JPG?raw=true)
 # Singup
