@@ -10,6 +10,9 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
 
     @Override
     public boolean gershgorinCirclesAlgorithm(LinearSystemsDataDto linearSystemsDataDto) {
+        int[][] matrix = linearSystemsDataDto.matrix();
+        int i = 0;
+        int j = 0;
         return false;
     }
 }
