@@ -163,7 +163,7 @@ spring-react/
 # Add Achievement Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addachievement.JPG?raw=true)
 # Add Problem Page
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addproblem.JPG?raw=true)
 # Edit Profile Page
 ![imagealt]()
 # Login
