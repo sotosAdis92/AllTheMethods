@@ -1,3 +1,5 @@
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/userPicDefault.png";
 import "./UserIcon.css";
@@ -20,6 +22,7 @@ const UserIcon = (props) => {
       <div>
         <button className="editAccountButton" onClick={navigateToEdit}>
           Edit Profile
+          <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
         </button>
       </div>
     </>
