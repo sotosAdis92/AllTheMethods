@@ -80,7 +80,7 @@ const DetailsPage = (props) => {
       <div className="profile-card">
         <div>
           <div className="section-title">Edit Profile Details</div>
-          <div className="profile-field">
+          <div className="row">
             <TextField
               type="text"
               placeholder="Enter Display Name"
@@ -92,7 +92,7 @@ const DetailsPage = (props) => {
               onChange={handleDisplayName}
             ></TextField>
           </div>
-          <div className="action-buttons">
+          <div className="row">
             <Button
               variant="contained"
               color="success"
