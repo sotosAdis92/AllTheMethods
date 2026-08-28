@@ -1,8 +1,7 @@
-Version 0.12
+Version 1
 
 Need to implement:
-Record Dtos for getting the statistics of the user
-UI Changes to the client
+
 
 
 
@@ -14,3 +13,5 @@ Implemeneted:
 (+) User problems being saved in the database + UI: Passed Testing
 (+) User Achievements being save in the database + UI: Passed Testing
 (+) User Achievements UI CSS Styling
+(+) Record Dtos for getting the statistics of the user
+(+) UI Changes to the client
