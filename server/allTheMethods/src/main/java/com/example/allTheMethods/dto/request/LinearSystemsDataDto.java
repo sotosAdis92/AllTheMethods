@@ -6,6 +6,7 @@ import java.util.Optional;
 public record LinearSystemsDataDto(
         List<Double> inp,
         double[][] matrix,
-        List<Optional<String>> variables
+        List<Optional<String>> variables,
+        List<Optional<Double>> equals
 ) {
 }

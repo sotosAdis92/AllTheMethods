@@ -16,6 +16,7 @@ class SubmissionServiceLinearSystemsImplTest {
         SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
         List<Double> inputs = new ArrayList<>();
         List<Optional<String>> variables = new ArrayList<>();
+        List<Optional<Double>> equals = new ArrayList<>();
         inputs.add(-4.0);
         inputs.add(6.0);
         inputs.add(-5.0);
@@ -23,7 +24,7 @@ class SubmissionServiceLinearSystemsImplTest {
         inputs.add(0.0);
         inputs.add(18.0);
         double[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
-        LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables);
+        LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables,equals);
         try{
             assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto));
         } catch (IllegalArgumentException illegalArgumentException){
