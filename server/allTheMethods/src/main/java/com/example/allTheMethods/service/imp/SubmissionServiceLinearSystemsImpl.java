@@ -39,14 +39,8 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         }
 
         for(i=0;i<matrix.length;i++){
-            if(rowSums.get(i) < colSums.get(i)){
-                mins.add(rowSums.get(i));
-            }
-            else{
-                mins.add(colSums.get(i));
-            }
+            mins.add(Math.min(rowSums.get(i),colSums.get(i)));
         }
-
         for(i=0;i<3;i++){
             System.out.println(mins.get(i));
         }
