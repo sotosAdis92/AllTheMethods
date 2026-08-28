@@ -13,15 +13,19 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
 
     @Override
     public boolean gershgorinCirclesAlgorithm(LinearSystemsDataDto linearSystemsDataDto) {
-        int[][] matrix = linearSystemsDataDto.matrix();
+        double[][] matrix = linearSystemsDataDto.matrix();
         int i = 0;
         int j = 0;
-        List<Integer> rowSums = new ArrayList<>();
-        List<Integer> colSums = new ArrayList<>();
-        List<Integer> mins = new ArrayList<>();
-        List<Integer> diag = new ArrayList<>();
-        int sum = 0;
-        int sumCols = 0;
+        List<Double> rowSums = new ArrayList<>();
+        List<Double> colSums = new ArrayList<>();
+        List<Double> mins = new ArrayList<>();
+        List<Double> diag = new ArrayList<>();
+        List<Double> diagMinus = new ArrayList<>();
+        List<Double> diagPlus = new ArrayList<>();
+        List<Double> listToCheck = new ArrayList<>();
+
+        double sum = 0;
+        double sumCols = 0;
         for(i=0;i<matrix.length;i++){
             sum = 0;
             sumCols = 0;
@@ -42,9 +46,12 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
             mins.add(Math.min(rowSums.get(i),colSums.get(i)));
         }
 
-        for(i=0;i<3;i++){
-            System.out.println(mins.get(i));
+        for(i=0;i< matrix.length;i++){
+            diagMinus.add(diag.get(i) - mins.get(i));
+            diagPlus.add(diag.get(i) + mins.get(i));
         }
+
+
         return false;
     }
 }
