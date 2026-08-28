@@ -56,7 +56,7 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
             diagPlus.add(diag.get(i) + mins.get(i));
         }
 
-        for(i=0;i<diagMinus.size() + diagPlus.size();i++){
+        for(i=0;i<diagMinus.size();i++){
             listToCheck.add(diagMinus.get(i));
             listToCheck.add(diagPlus.get(i));
         }
