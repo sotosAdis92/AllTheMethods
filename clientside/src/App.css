@@ -1807,16 +1807,6 @@ body {
   height: 18px;
 }
 
-.userDetails {
-  display: flex;
-  align-items: center;
-  gap: 0px;
-}
-
-.userDetails img {
-  width: 20%;
-}
-
 .App {
   min-height: 100vh;
   display: flex;

@@ -43,3 +43,13 @@
 .userIconWrapper > div:last-child {
   width: 100%;
 }
+
+.userDetails {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.userDetails img {
+  width: 20%;
+}
