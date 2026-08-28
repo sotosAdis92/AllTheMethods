@@ -11,19 +11,20 @@ const UserIcon = (props) => {
   };
   return (
     <>
-      <div className="userIconWrapper"></div>
-      <div className="userDetails">
-        <img src={img1} alt="User Avatar"></img>
-        <div className="displayAndUsername">
-          <div className="displayName">{props.displayName}</div>
-          <div className="username">{props.username}</div>
+      <div className="userIconWrapper">
+        <div className="userDetails">
+          <img src={img1} alt="User Avatar"></img>
+          <div className="displayAndUsername">
+            <div className="displayName">{props.displayName}</div>
+            <div className="username">{props.username}</div>
+          </div>
         </div>
-      </div>
-      <div>
-        <button className="editAccountButton" onClick={navigateToEdit}>
-          Edit Profile
-          <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
-        </button>
+        <div>
+          <button className="editAccountButton" onClick={navigateToEdit}>
+            Edit Profile
+            <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
+          </button>
+        </div>
       </div>
     </>
   );
