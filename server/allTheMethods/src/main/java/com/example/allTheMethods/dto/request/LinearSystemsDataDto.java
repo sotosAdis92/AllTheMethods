@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public record LinearSystemsDataDto(
+        List<Double> inp,
         double[][] matrix,
         List<Optional<String>> variables
 ) {
