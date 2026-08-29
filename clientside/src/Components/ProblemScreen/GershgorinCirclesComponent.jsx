@@ -1,4 +1,10 @@
 import { useParams } from "react-router-dom";
+import useFetchIsSolved from "../../hooks/useFetchIsSolved";
+import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
+import useFetchUserId from "../../hooks/useFetchUserId";
+import useHandleInput from "../../hooks/useHandleInput";
+import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+
 const GershgorinCirclesComponent = () => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
