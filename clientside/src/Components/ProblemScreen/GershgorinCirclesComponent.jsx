@@ -11,5 +11,12 @@ const GershgorinCirclesComponent = () => {
     entry: "",
   });
   var entries = [];
+
+  const { achievements } = useFetchRelatedAchievements(props);
+  const { userId } = useFetchUserId();
+  useFetchIsSolved(props.isSolved, setButtonDisabled);
+  const { input, inp, generalError, setGeneralError, handleInput } =
+    useHandleInput();
+  const { saveAchievementOfUser } = useSaveAchievementOfUser();
 };
 export default GershgorinCirclesComponent;
