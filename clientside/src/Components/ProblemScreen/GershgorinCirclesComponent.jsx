@@ -1,3 +1,4 @@
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchLinearSystems from "../../hooks/useFetchLinearSystems";
@@ -9,8 +10,12 @@ import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
+import {
+  saveSubmission,
+  sendGershgorinCircles,
+} from "../../services/SubmitService";
 
-const GershgorinCirclesComponent = (props) => {
+const GershgorinCirclesComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);
   const [resultText, setResultText] = useState("");
@@ -48,6 +53,10 @@ const GershgorinCirclesComponent = (props) => {
     return valid;
   }
 
+  useImperativeHandle(ref, () => ({
+    submitData: submitGershgorinData,
+  }));
+
   //Props passed in from parrent element
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
@@ -70,6 +79,22 @@ const GershgorinCirclesComponent = (props) => {
     problemCategory,
   };
 
+  const submitGershgorinData = async () => {
+    if (validateForm()) {
+      await saveSubmission(submission).then((response) => {
+        console.log(response.data);
+      });
+
+      const response = await sendGershgorinCircles(submissionData);
+      const result = response.data;
+      console.log(result);
+      setResult(result);
+      setCallback(result);
+      await decideToSaveSolvedProblem(result, savedProblem, setButtonDisabled);
+      await saveAchievementOfUser(id, result, achievements);
+    }
+  };
+
   return (
     <>
       <form name="inputForm" className="inputForm">
@@ -87,5 +112,5 @@ const GershgorinCirclesComponent = (props) => {
       <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
     </>
   );
-};
+});
 export default GershgorinCirclesComponent;
