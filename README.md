@@ -36,7 +36,7 @@ docker compose up
 1. **Clone the repository**
    ```bash
    git clone https://github.com/sotosAdis92/allTheMethods.git
-   cd spring-react
+   cd allTheMethods
    ```
    
 - File → Open… → select server/pom.xml → "Open as Project"
