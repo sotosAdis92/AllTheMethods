@@ -15,6 +15,7 @@ import {
   saveSubmission,
   sendGershgorinCircles,
 } from "../../services/SubmitService";
+import FormInput from "../FormInput";
 
 const GershgorinCirclesComponent = forwardRef((props, ref) => {
   const { id } = useParams();
@@ -28,7 +29,7 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
     entry: "",
   });
   var entries = [];
-  const { problemId, problemData, matrix } = useFetchLinearSystems;
+  const { problemId, problemData, matrix } = useFetchLinearSystems();
   const { achievements } = useFetchRelatedAchievements(props);
   const { userId } = useFetchUserId();
   useFetchIsSolved(props.isSolved, setButtonDisabled);

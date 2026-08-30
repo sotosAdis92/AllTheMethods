@@ -1,5 +1,5 @@
 export default function useGenerateInputsGershgorin(matrix, entries) {
-  const matrixSize = matrix.length();
+  const matrixSize = matrix.length;
   for (let i = 0; i < matrixSize; i++) {
     entries.push({
       iid: i * 2,
