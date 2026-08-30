@@ -21,6 +21,7 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
         int i = 0;
         int j = 0;
         int countMatchingInputs = 0;
+
         boolean flag = false;
         List<Double> input = linearSystemsDataDto.inp();
         List<Double> rowSums = new ArrayList<>();
