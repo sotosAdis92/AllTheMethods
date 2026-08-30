@@ -119,6 +119,14 @@ export const sendRungeKuttaNystrom = async (data) => {
   return response;
 };
 
+export const sendGershgorinCircles = async (data) => {
+  const response = await axiosInstance.post(
+    REST_API_BASE_URL + "/gershgorin",
+    data,
+  );
+  return response;
+};
+
 export const getAllUserSubmissions = async (id, pageNo, pageSize, sortDir) => {
   const response = await axiosInstance.get(REST_API_BASE_URL + "/user/" + id, {
     params: {
