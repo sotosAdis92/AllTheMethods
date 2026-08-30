@@ -69,5 +69,23 @@ const GershgorinCirclesComponent = (props) => {
     problemId,
     problemCategory,
   };
+
+  return (
+    <>
+      <form name="inputForm" className="inputForm">
+        {entries.map((entry) => (
+          <FormInput
+            key={entry.id}
+            {...entry}
+            value={values[entry.name]}
+            onChange={(e) => handleInput(entry.id, e)}
+            error={errorBool}
+          ></FormInput>
+        ))}
+      </form>
+      <span className="generalError">{generalError}</span>
+      <div>{props.isSolved ? <div></div> : <div>{resultText}</div>}</div>
+    </>
+  );
 };
 export default GershgorinCirclesComponent;
