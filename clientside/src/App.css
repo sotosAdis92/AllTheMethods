@@ -1349,6 +1349,7 @@ body {
 .problemStringDiv {
   font-size: 18px;
   margin-left: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .submitButton {
