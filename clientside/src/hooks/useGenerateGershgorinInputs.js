@@ -2,7 +2,7 @@ export default function useGenerateInputsGershgorin(matrix, entries) {
   const matrixSize = matrix.length;
   for (let i = 0; i < matrixSize; i++) {
     entries.push({
-      iid: i * 2,
+      id: i * 2,
       placeholder: `min P${i + 1}`,
       type: "text",
       label: i === 0 ? "P1 = " : "",
