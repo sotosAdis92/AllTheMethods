@@ -12,6 +12,7 @@ import DiakritiNewtonRaphsonComponent from "./DiakritiNewtonRaphsonComponent";
 import DirectEulerComponent from "./DirectEulerComponent";
 import FivePointDerivativeComponent from "./FivePointDerivativeComponent";
 import FixedPointComponent from "./FixedPointComponent";
+import GershgorinCirclesComponent from "./GershgorinCirclesComponent";
 import ImprovedEulerComponent from "./ImprovedEulerComponent";
 import NewtonRaphsonComponent from "./NewtonRaphsonComponent";
 import RegulaFalsiComponent from "./RegulaFalsiComponent";
@@ -247,6 +248,18 @@ const ProblemDescription = () => {
           onResultReceived={handleResultReceived}
           ref={referenceToChild}
         ></DirectEulerComponent>
+      );
+    } else if (problemType === "Gershgorin-Circles") {
+      return (
+        <GershgorinCirclesComponent
+          isSolved={isSolved}
+          problemString={problemString}
+          problemMethod={problemMethod}
+          problemCategory={problemCategory}
+          onProblemSolved={handleProblemSolved}
+          onResultReceived={handleResultReceived}
+          ref={referenceToChild}
+        ></GershgorinCirclesComponent>
       );
     }
   };
