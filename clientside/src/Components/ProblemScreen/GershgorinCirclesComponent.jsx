@@ -3,8 +3,12 @@ import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchLinearSystems from "../../hooks/useFetchLinearSystems";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
+import useResultTextHook from "../../hooks/useResultTextHook";
 import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
+import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
+import useSetCallback from "../../hooks/useSetCallback";
 
 const GershgorinCirclesComponent = (props) => {
   const { id } = useParams();
@@ -25,5 +29,9 @@ const GershgorinCirclesComponent = (props) => {
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
+  const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
+  const { submittedAt } = useGetTimeAndDate();
+  const { setCallback } = useSetCallback(props);
+  useResultTextHook(result);
 };
 export default GershgorinCirclesComponent;
