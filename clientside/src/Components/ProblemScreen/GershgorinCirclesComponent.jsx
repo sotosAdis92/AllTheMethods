@@ -4,6 +4,7 @@ import useFetchIsSolved from "../../hooks/useFetchIsSolved";
 import useFetchLinearSystems from "../../hooks/useFetchLinearSystems";
 import useFetchRelatedAchievements from "../../hooks/useFetchRelatedAchivements";
 import useFetchUserId from "../../hooks/useFetchUserId";
+import useGenerateGershgorinInputs from "../../hooks/useGenerateGershgorinInputs";
 import useGetTimeAndDate from "../../hooks/useGetTimeAndDate";
 import useHandleInput from "../../hooks/useHandleInput";
 import useResultTextHook from "../../hooks/useResultTextHook";
@@ -33,6 +34,7 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   useFetchIsSolved(props.isSolved, setButtonDisabled);
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
+  useGenerateGershgorinInputs(matrix, entries);
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
   const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
   const { submittedAt } = useGetTimeAndDate();
@@ -42,7 +44,7 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   //Form Validation
   function validateForm() {
     let valid = true;
-    if (inp.length != iterations || text === 0) {
+    if (inp.length != 2 * matrix.length || text === 0) {
       valid = false;
       setGeneralError("One or more inputs are empty");
       setErrorBool(true);
