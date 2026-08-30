@@ -33,5 +33,19 @@ const GershgorinCirclesComponent = (props) => {
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
+
+  //Form Validation
+  function validateForm() {
+    let valid = true;
+    if (inp.length != iterations || text === 0) {
+      valid = false;
+      setGeneralError("One or more inputs are empty");
+      setErrorBool(true);
+    } else {
+      setGeneralError("");
+      setErrorBool(true);
+    }
+    return valid;
+  }
 };
 export default GershgorinCirclesComponent;
