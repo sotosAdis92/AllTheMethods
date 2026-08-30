@@ -47,5 +47,27 @@ const GershgorinCirclesComponent = (props) => {
     }
     return valid;
   }
+
+  //Props passed in from parrent element
+  let problemMethod = props.problemMethod;
+  let problemString = props.problemString;
+  let problemCategory = props.problemCategory;
+
+  const submissionData = {
+    inp,
+    problemMethod,
+    problemString,
+    matrix,
+  };
+  const submission = {
+    problemId,
+    userId,
+    submittedAt,
+  };
+  const savedProblem = {
+    userId,
+    problemId,
+    problemCategory,
+  };
 };
 export default GershgorinCirclesComponent;
