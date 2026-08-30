@@ -35,13 +35,14 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   useFetchIsSolved(props.isSolved, setButtonDisabled);
   const { input, inp, generalError, setGeneralError, handleInput } =
     useHandleInput();
+
   useGenerateGershgorinInputs(matrix, entries);
   const { saveAchievementOfUser } = useSaveAchievementOfUser();
   const { decideToSaveSolvedProblem } = useSaveSolvedProblem();
   const { submittedAt } = useGetTimeAndDate();
   const { setCallback } = useSetCallback(props);
   useResultTextHook(result);
-
+  console.log(matrix);
   //Form Validation
   function validateForm() {
     let valid = true;
@@ -64,12 +65,14 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   let problemMethod = props.problemMethod;
   let problemString = props.problemString;
   let problemCategory = props.problemCategory;
+  let variables = [];
+  let equals = [];
 
   const submissionData = {
     inp,
-    problemMethod,
-    problemString,
     matrix,
+    variables,
+    equals,
   };
   const submission = {
     problemId,
@@ -83,6 +86,7 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   };
 
   const submitGershgorinData = async () => {
+    console.log(submissionData);
     if (validateForm()) {
       await saveSubmission(submission).then((response) => {
         console.log(response.data);
