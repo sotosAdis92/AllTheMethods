@@ -5,7 +5,7 @@ export default function useGenerateInputsGershgorin(matrix, entries) {
       id: i * 2,
       placeholder: `min P${i + 1}`,
       type: "text",
-      label: i === 0 ? "P1 = " : "",
+      label: "",
       errorMessage: "Input should be a floating point/double number",
       name: `P${i + 1}_min`,
       required: true,
