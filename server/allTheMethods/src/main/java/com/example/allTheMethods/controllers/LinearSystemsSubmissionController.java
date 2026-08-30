@@ -17,7 +17,6 @@ public class LinearSystemsSubmissionController {
 
     @PostMapping("/gershgorin")
     public ResponseEntity<?> gershgorinCirclesAlgorithm(@RequestBody LinearSystemsDataDto linearSystemsDataDto){
-        System.out.println(linearSystemsDataDto.matrix());
         return new ResponseEntity<>(submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto), HttpStatus.OK);
     }
 

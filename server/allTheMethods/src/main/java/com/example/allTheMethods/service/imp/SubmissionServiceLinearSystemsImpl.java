@@ -17,7 +17,6 @@ public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLine
     @Override
     public boolean gershgorinCirclesAlgorithm(LinearSystemsDataDto linearSystemsDataDto) {
         List<List<Double>> matrix = linearSystemsDataDto.matrix();
-        System.out.println("MATRIX: " +" "+matrix);
         int i = 0;
         int j = 0;
         int countMatchingInputs = 0;
