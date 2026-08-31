@@ -12,7 +12,7 @@
     "Helvetica Neue",
     sans-serif;
   display: grid;
-  grid-template-columns: 1fr 2fr 3fr 1.5fr 1fr 0.8fr;
+  grid-template-columns: 1fr 1.5fr 3fr 1fr 1fr 0.5fr 0.5fr;
   gap: 16px;
   padding: 12px 20px;
   border-bottom: 1px solid #f0f0f0;

@@ -77,7 +77,7 @@ const ProblemListComponent = () => {
           <div>Number</div>
           <div>Category</div>
           <div>Difficulty</div>
-          <div></div>
+          <div>Function</div>
           <div>Points</div>
           <div>Problem Data</div>
           <div>Problem Type</div>

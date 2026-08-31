@@ -46,6 +46,7 @@ const AchievementListComponent = () => {
       <div>{achievement.description}</div>
       <div>{achievement.category}</div>
       <div>{achievement.rank}</div>
+      <div>{achievement.counter}</div>
       <div>
         <button
           className="edit-btn-table"
@@ -77,6 +78,7 @@ const AchievementListComponent = () => {
           <div>Description</div>
           <div>Category</div>
           <div>Rank</div>
+          <div>Counter</div>
         </div>
         {listOfAchievements}
       </div>
