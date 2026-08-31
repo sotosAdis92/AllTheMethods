@@ -1,7 +1,7 @@
 import { faCheck, faTrashCan, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { removeToken } from "../../environment/common";
 import {
@@ -15,10 +15,12 @@ const DetailsPage = (props) => {
   const { id } = useParams();
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [openDialog, setOpenDialog] = useState(false);
+  const [dialogContent, setDialogContent] = useState(false);
   const [errors, setErrors] = useState({
     dsiplayName: "",
   });
+
+  const dialogRef = useRef < HTMLDialogElement > null;
 
   useEffect(() => {
     if (id) {
@@ -63,11 +65,14 @@ const DetailsPage = (props) => {
   };
 
   const openConfirmationBox = () => {
-    setOpenDialog(true);
+    if (!dialogRef.current) {
+      return;
+    }
+    dialogRef.current.hasAttribute("open")
+      ? dialogRef.current.close()
+      : dialogRef.current.showModal();
   };
-  const closeConfirmationBox = () => {
-    setOpenDialog(false);
-  };
+
   const handleDelete = () => {
     deleteUserById(id).then((response) => {
       console.log(response.data);
@@ -115,6 +120,7 @@ const DetailsPage = (props) => {
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
+          <dialog ref={dialogRef}></dialog>
         </div>
       </div>
     </div>
