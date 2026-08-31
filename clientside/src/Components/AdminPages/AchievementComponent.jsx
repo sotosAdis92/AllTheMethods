@@ -117,10 +117,10 @@ const AchievementComponent = () => {
     setVisibility(e.target.value);
   };
   const handleCounterInc = (e) => {
-    setCounter((n) => (n > 2 ? n++ : n));
+    setCounter((n) => (n = n + 1));
   };
   const handleCounterDec = (e) => {
-    setCounter((n) => (n = n - 1));
+    setCounter((n) => (n > 2 ? (n = n - 1) : n));
   };
 
   function saveOrUpdateAchievement(e) {
