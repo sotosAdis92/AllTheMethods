@@ -13,7 +13,6 @@ const UserSummaryReport = (props) => {
       setCountProblems(response.data.countTotalProblems);
       setAcceptanceRate(response.data.userAcceptanceRate);
       setSubmissionsOfUser(response.data.countSubmissions);
-      console.log("User summary report", response.data);
     });
   };
   useEffect(() => {
