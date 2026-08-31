@@ -27,10 +27,10 @@ public record UpdateProblemRequestDto(
         @NotBlank(message = "Problem Type cannot be empty")
         String problemType,
 
-        @NotBlank(message = "Problem Data cannot be empty")
-        String problemData,
-
         @NotBlank(message = "Function String cannot be empty")
-        String functionString
+        String functionString,
+
+        @NotBlank(message = "Problem Data cannot be empty")
+        String problemData
 ) {
 }

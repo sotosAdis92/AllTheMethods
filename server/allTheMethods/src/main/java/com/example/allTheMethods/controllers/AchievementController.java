@@ -40,9 +40,10 @@ public class AchievementController {
         return ResponseEntity.ok(achievevments);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AchievementResponseDto> updateAchievement(@Valid @PathVariable("id") Long id, @RequestBody UpdateAchievementRequestDto updateAchievementDto){
+        System.out.println(updateAchievementDto);
         AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }

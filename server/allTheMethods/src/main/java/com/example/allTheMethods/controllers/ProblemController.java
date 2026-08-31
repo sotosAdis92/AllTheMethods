@@ -45,7 +45,7 @@ public class ProblemController {
         return ResponseEntity.ok(problems);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProblemResponseDto> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
         ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
