@@ -127,7 +127,7 @@ const DetailsPage = (props) => {
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
-          <dialog ref={dialogRef}></dialog>
+          <dialog ref={dialogRef}>{dialogContent}</dialog>
         </div>
       </div>
     </div>
