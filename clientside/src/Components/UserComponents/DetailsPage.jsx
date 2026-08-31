@@ -9,6 +9,7 @@ import {
   getUser,
   updateUserAccount,
 } from "../../services/UsersService";
+import ConfirmationDialog from "./ConfirmationDialog";
 import "./DetailsPage.css";
 
 const DetailsPage = (props) => {
@@ -115,7 +116,13 @@ const DetailsPage = (props) => {
         <div className="danger-zone">
           <div className="danger-zone-title">Danger Zone</div>
           <div>
-            <button onClick={openConfirmationBox} className="terminate-button">
+            <button
+              onClick={() => {
+                setDialogContent(<ConfirmationDialog></ConfirmationDialog>);
+                openConfirmationBox();
+              }}
+              className="terminate-button"
+            >
               Terminate Account
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
