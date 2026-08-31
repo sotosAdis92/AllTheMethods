@@ -77,6 +77,7 @@ const DetailsPage = (props) => {
   const handleDelete = () => {
     deleteUserById(id).then((response) => {
       console.log(response.data);
+      openConfirmationBox();
       navigator("/login");
       removeToken();
     });
@@ -127,7 +128,11 @@ const DetailsPage = (props) => {
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
-          <dialog ref={dialogRef}>{dialogContent}</dialog>
+          <dialog ref={dialogRef}>
+            {dialogContent}
+            <button onClick={handleDelete()}>Delete</button>
+            <buttton onClick={openConfirmationBox()}>Close</buttton>
+          </dialog>
         </div>
       </div>
     </div>
