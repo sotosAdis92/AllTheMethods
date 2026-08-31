@@ -333,7 +333,7 @@ const ProblemComponent = () => {
           <TextField
             type="text"
             placeholder="Enter Problem Type"
-            name="type"
+            name="problemType"
             value={problemType}
             onChange={handleProblemType}
             id={"outlined"}
