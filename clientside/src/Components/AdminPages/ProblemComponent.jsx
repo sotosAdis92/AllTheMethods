@@ -205,18 +205,21 @@ const ProblemComponent = () => {
       errorsCopy.problemType = "";
     } else {
       errorsCopy.problemType = "Error, the problem type cannot be empty";
+      valid = false;
     }
 
     if (functionString.trim()) {
       errorsCopy.functionString = "";
     } else {
       errorsCopy.functionString = "Error, the function string cannot be empty";
+      valid = false;
     }
 
     if (problemData.trim()) {
       errorsCopy.problemData = "";
     } else {
       errorsCopy.problemData = "Error, the problem data cannot be empty";
+      valid = false;
     }
 
     setErrors(errorsCopy);
