@@ -94,7 +94,7 @@ const AchievementComponent = () => {
     if (counter > 2) {
       errorsCopy.counter = "";
     } else {
-      errorsCopy.counter = "Error, counter cannot be negative";
+      errorsCopy.counter = "Error, counter cannot be less than 2";
     }
 
     setErrors(errorsCopy);
@@ -253,7 +253,11 @@ const AchievementComponent = () => {
             Submit
             <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
           </Button>
-          <Button variant="contained" color="error">
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => navigator("/admin")}
+          >
             Cancel
             <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
           </Button>

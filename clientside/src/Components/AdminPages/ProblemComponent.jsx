@@ -371,7 +371,11 @@ const ProblemComponent = () => {
             Submit
             <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
           </Button>
-          <Button variant="contained" color="error">
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => navigator("/admin")}
+          >
             Cancel
             <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
           </Button>
