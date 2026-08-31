@@ -9,6 +9,7 @@ import {
   getUser,
   updateUserAccount,
 } from "../../services/UsersService";
+import Dialog from "../Util/Dialog";
 import ConfirmationDialog from "./ConfirmationDialog";
 import "./DetailsPage.css";
 
@@ -128,18 +129,12 @@ const DetailsPage = (props) => {
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
-          <dialog
-            ref={dialogRef}
-            onClick={(e) => {
-              if (e.currentTarget === e.target) {
-                openConfirmationBox();
-              }
-            }}
+          <Dialog
+            openConfirmationBox={openConfirmationBox}
+            handleDelete={handleDelete}
           >
             {dialogContent}
-            <button onClick={handleDelete()}>Delete</button>
-            <buttton onClick={openConfirmationBox()}>Close</buttton>
-          </dialog>
+          </Dialog>
         </div>
       </div>
     </div>
