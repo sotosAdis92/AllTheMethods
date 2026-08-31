@@ -5,7 +5,7 @@ const Dialog = forwardRef(
     return (
       <div>
         <dialog
-          ref={dialogRef}
+          ref={ref}
           onClick={(e) => {
             if (e.currentTarget === e.target) {
               openConfirmationBox();
