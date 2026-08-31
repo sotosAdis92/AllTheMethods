@@ -62,8 +62,6 @@ const GershgorinCirclesComponent = forwardRef((props, ref) => {
   }));
 
   //Props passed in from parrent element
-  let problemMethod = props.problemMethod;
-  let problemString = props.problemString;
   let problemCategory = props.problemCategory;
   let variables = [];
   let equals = [];
