@@ -128,7 +128,14 @@ const DetailsPage = (props) => {
               <FontAwesomeIcon icon={faTrashCan} className="icon-spacing" />
             </button>
           </div>
-          <dialog ref={dialogRef}>
+          <dialog
+            ref={dialogRef}
+            onClick={(e) => {
+              if (e.currentTarget === e.target) {
+                openConfirmationBox();
+              }
+            }}
+          >
             {dialogContent}
             <button onClick={handleDelete()}>Delete</button>
             <buttton onClick={openConfirmationBox()}>Close</buttton>
