@@ -60,7 +60,7 @@ public class ProblemServiceImpl implements ProblemService {
         problem.setProblemString(updatedProblem.problemString());
         problem.setFunctionString(updatedProblem.functionString());
         problem.setProblemData(updatedProblem.problemData());
-        problem.setProblemData(updatedProblem.problemType());
+        problem.setProblemType(updatedProblem.problemType());
         Problem updatedProblemObj = problemRepository.save(problem);
         return problemMapper.toDto(updatedProblemObj);
     }
