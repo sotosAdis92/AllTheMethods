@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
-
+import "./Dialog.css";
 const Dialog = forwardRef(
-  ({ props, openConfirmationBox, handleDelete }, ref) => {
+  ({ children, openConfirmationBox, handleDelete }, ref) => {
     return (
       <div>
         <dialog
+          className="dialogContainer"
           ref={ref}
           onClick={(e) => {
             if (e.currentTarget === e.target) {
@@ -12,9 +13,13 @@ const Dialog = forwardRef(
             }
           }}
         >
-          {props}
-          <button onClick={handleDelete}>Delete</button>
-          <button onClick={openConfirmationBox}>Close</button>
+          {children}
+          <button onClick={handleDelete} className="deletionButton">
+            Delete
+          </button>
+          <button onClick={openConfirmationBox} className="cancellationButton">
+            Close
+          </button>
         </dialog>
       </div>
     );
