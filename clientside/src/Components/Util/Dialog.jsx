@@ -13,8 +13,8 @@ const Dialog = forwardRef(
           }}
         >
           {props}
-          <button onClick={handleDelete()}>Delete</button>
-          <buttton onClick={openConfirmationBox()}>Close</buttton>
+          <button onClick={handleDelete}>Delete</button>
+          <button onClick={openConfirmationBox}>Close</button>
         </dialog>
       </div>
     );
