@@ -20,7 +20,7 @@ const DetailsPage = (props) => {
   const [displayName, setDisplayName] = useState("");
   const [dialogContent, setDialogContent] = useState(false);
   const [errors, setErrors] = useState({
-    dsiplayName: "",
+    displayName: "",
   });
 
   const dialogRef = useRef(null);
@@ -84,6 +84,10 @@ const DetailsPage = (props) => {
       removeToken();
     });
   };
+
+  const handleCancel = () => {
+    navigator("/profile");
+  };
   return (
     <div className="edit-profile-container">
       <div className="profile-card">
@@ -110,7 +114,7 @@ const DetailsPage = (props) => {
               Submit
               <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
             </Button>
-            <Button variant="contained" color="error">
+            <Button variant="contained" color="error" onClick={handleCancel}>
               Cancel
               <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
             </Button>
@@ -133,6 +137,7 @@ const DetailsPage = (props) => {
           <Dialog
             openConfirmationBox={openConfirmationBox}
             handleDelete={handleDelete}
+            ref={dialogRef}
           >
             {dialogContent}
           </Dialog>
