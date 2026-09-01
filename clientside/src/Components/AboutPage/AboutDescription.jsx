@@ -85,10 +85,6 @@ const AboutDescription = () => {
             they are tracked and calculated.
           </p>
         </div>
-        <div>
-          <h3 className="paragraphHeading"></h3>
-          <p className="aboutDescriptionParagraph"></p>
-        </div>
       </div>
     </>
   );
