@@ -18,8 +18,8 @@ public class FavouritesServiceImpl implements FavouritesService {
 
     @Override
     public FavouritesResponseDto createFavourite(CreateFavouriteRequestDto createFavouriteRequestDto) {
-        Favourites favourite = favouritesMapper.
-        return null;
+        Favourites favourite = favouritesMapper.toEntity(createFavouriteRequestDto);
+        return favouritesMapper.toDto(favouritesRepository.save(favourite));
     }
 
     @Override
