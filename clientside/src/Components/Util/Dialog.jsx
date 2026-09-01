@@ -14,12 +14,17 @@ const Dialog = forwardRef(
           }}
         >
           {children}
-          <button onClick={handleDelete} className="deletionButton">
-            Delete
-          </button>
-          <button onClick={openConfirmationBox} className="cancellationButton">
-            Close
-          </button>
+          <div className="buttonsDiv">
+            <button onClick={handleDelete} className="deletionButton">
+              Delete
+            </button>
+            <button
+              onClick={openConfirmationBox}
+              className="cancellationButton"
+            >
+              Close
+            </button>
+          </div>
         </dialog>
       </div>
     );
