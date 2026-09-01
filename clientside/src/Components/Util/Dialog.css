@@ -1,0 +1,84 @@
+.dialogContainer {
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  min-width: 420px;
+  max-width: 90vw;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.05);
+  background: white;
+  animation: dialogSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.dialogContainer::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.dialogContainer > div {
+  padding: 32px 32px 24px;
+}
+
+.confirmationDialogText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  padding: 4px 0;
+}
+
+.dialogContainer > div:last-child {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 0;
+}
+
+.dialogContainer button {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.deletionButton {
+  background: #dc3545;
+  color: white;
+}
+
+.deletionButton:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.deletionButton:active {
+  transform: translateY(0);
+}
+
+.cancellationButton {
+  background: #f1f3f5;
+  color: #495057;
+}
+
+.cancellationButton:hover {
+  background: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.cancellationButton:active {
+  transform: translateY(0);
+}
+
+.dialogContainer button:focus-visible {
+  outline: 2px solid #4a6cf7;
+  outline-offset: 2px;
+}
