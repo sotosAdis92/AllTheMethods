@@ -22,4 +22,10 @@ public class FavouritesController {
         FavouritesResponseDto favouritesResponseDto = favouritesService.createFavourite(createFavouriteRequestDto);
         return new ResponseEntity<>(favouritesResponseDto, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteFromFavourites(@PathVariable Long id){
+        favouritesService.deleteFavourite(id);
+        return ResponseEntity.ok("Removed from Favourites");
+    }
 }
