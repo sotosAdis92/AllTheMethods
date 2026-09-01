@@ -6,7 +6,9 @@ import com.example.allTheMethods.entity.Favourites;
 import com.example.allTheMethods.mapper.FavouritesMapper;
 import com.example.allTheMethods.repository.FavouritesRepository;
 import com.example.allTheMethods.service.FavouritesService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FavouritesServiceImpl implements FavouritesService {
     private FavouritesRepository favouritesRepository;
     private FavouritesMapper favouritesMapper;
