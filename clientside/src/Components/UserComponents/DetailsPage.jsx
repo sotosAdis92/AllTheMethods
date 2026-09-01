@@ -2,7 +2,7 @@ import { faCheck, faTrashCan, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { removeToken } from "../../environment/common";
 import {
   deleteUserById,
@@ -14,6 +14,7 @@ import ConfirmationDialog from "./ConfirmationDialog";
 import "./DetailsPage.css";
 
 const DetailsPage = (props) => {
+  const navigator = useNavigate();
   const { id } = useParams();
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -22,7 +23,7 @@ const DetailsPage = (props) => {
     dsiplayName: "",
   });
 
-  const dialogRef = useRef < HTMLDialogElement > null;
+  const dialogRef = useRef(null);
 
   useEffect(() => {
     if (id) {
@@ -31,7 +32,7 @@ const DetailsPage = (props) => {
         console.log(response.data);
       });
     }
-  });
+  }, [id]);
 
   const handleDisplayName = (e) => {
     setDisplayName(e.target.value);
