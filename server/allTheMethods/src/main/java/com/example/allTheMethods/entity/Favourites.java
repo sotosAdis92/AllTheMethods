@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -26,7 +28,14 @@ public class Favourites {
     private Problem problem;
 
     @Column(nullable = false)
-    private Date dateAdded;
+    private LocalDateTime dateAdded;
+
+    public Favourites(Long id, Users user, Problem problem, LocalDateTime  dateAdded) {
+        this.id = id;
+        this.user = user;
+        this.problem = problem;
+        this.dateAdded = dateAdded;
+    }
 
     public Long getId() {
         return id;
@@ -52,11 +61,11 @@ public class Favourites {
         this.problem = problem;
     }
 
-    public Date getDateAdded() {
+    public LocalDateTime  getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Date dateAdded) {
+    public void setDateAdded(LocalDateTime  dateAdded) {
         this.dateAdded = dateAdded;
     }
 }

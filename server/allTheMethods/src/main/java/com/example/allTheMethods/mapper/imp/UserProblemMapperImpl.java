@@ -3,6 +3,7 @@ package com.example.allTheMethods.mapper.imp;
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.UserProblem;
+import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
@@ -52,6 +53,8 @@ public class UserProblemMapperImpl implements UserProblemMapper {
             return null;
         }
         UserProblem userProblem = new UserProblem();
+        Users user = new Users();
+        user.setId(saveUserProblemRequestDto.userId());
         return userProblem;
     }
 }

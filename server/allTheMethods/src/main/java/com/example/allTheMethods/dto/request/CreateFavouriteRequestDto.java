@@ -1,11 +1,12 @@
 package com.example.allTheMethods.dto.request;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-public record CreateFavouriteRequestDto(
+public class CreateFavouriteRequestDto(
         Long id,
         Long userId,
         Long problemId,
-        Date dateAdded
+        LocalDateTime dateAdded
 ){
 }
