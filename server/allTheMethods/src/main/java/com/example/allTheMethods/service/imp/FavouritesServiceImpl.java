@@ -36,4 +36,10 @@ public class FavouritesServiceImpl implements FavouritesService {
         List<Favourites> allFavouritesOfUser = favouritesRepository.getFavouritesByUserId(id);
         return favouritesMapper.toDto(allFavouritesOfUser);
     }
+
+    @Override
+    public List<FavouritesResponseDto> getAllFavourites() {
+        List<Favourites> allFavourites = favouritesRepository.findAll();
+        return favouritesMapper.toDto(allFavourites);
+    }
 }

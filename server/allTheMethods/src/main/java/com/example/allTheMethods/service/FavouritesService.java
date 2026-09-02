@@ -9,4 +9,5 @@ public interface FavouritesService {
     FavouritesResponseDto createFavourite(CreateFavouriteRequestDto createFavouriteRequestDto);
     void deleteFavourite(Long id);
     List<FavouritesResponseDto> getAllUserFavourites(int id);
+    List<FavouritesResponseDto> getAllFavourites();
 }

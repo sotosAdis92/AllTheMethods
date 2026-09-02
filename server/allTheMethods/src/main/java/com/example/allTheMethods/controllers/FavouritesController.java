@@ -31,6 +31,12 @@ public class FavouritesController {
         return ResponseEntity.ok("Removed from Favourites");
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<FavouritesResponseDto>> getAllFavourites(){
+        List<FavouritesResponseDto> favouritesResponseDtos = favouritesService.getAllFavourites();
+        return new ResponseEntity<>(favouritesResponseDtos, HttpStatus.OK);
+    }
+
     @GetMapping("/user/all/{id}")
     public ResponseEntity<List<FavouritesResponseDto>> getAllUserFavourites(@PathVariable int id){
         List<FavouritesResponseDto> favouritesOfUser = favouritesService.getAllUserFavourites(id);
