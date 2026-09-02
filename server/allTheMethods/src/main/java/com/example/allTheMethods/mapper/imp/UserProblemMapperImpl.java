@@ -2,6 +2,7 @@ package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
+import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserProblemMapper;
@@ -54,7 +55,12 @@ public class UserProblemMapperImpl implements UserProblemMapper {
         }
         UserProblem userProblem = new UserProblem();
         Users user = new Users();
+        Problem problem = new Problem();
         user.setId(saveUserProblemRequestDto.userId());
+        problem.setId(saveUserProblemRequestDto.problemId());
+        userProblem.setProblem(problem);
+        userProblem.setUser(user);
+        userProblem.setId(null);
         return userProblem;
     }
 }
