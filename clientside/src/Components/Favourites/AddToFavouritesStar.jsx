@@ -1,8 +1,17 @@
+import { useState } from "react";
 import "./AddToFavouritesStar.css";
+
 const AddToFavouritesStar = () => {
+  const [favourite, setFavourite] = useState(false);
+  function handleFavourite() {
+    setFavourite(!favourite);
+  }
   return (
     <div className="radio">
-      <button className="fav-btn" onClick={() => console.log("Clicked")}>
+      <button
+        className={`fav-btn ${favourite ? "faved" : ""}`}
+        onClick={() => handleFavourite}
+      >
         <svg
           fill="#000000"
           width="28"

@@ -12,4 +12,12 @@
   fill: transparent;
   stroke: #262626;
   stroke-width: 2;
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease;
+}
+
+.fav-btn.faved .star {
+  fill: #f57c00;
+  stroke: #0000;
 }
