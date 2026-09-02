@@ -1,3 +1,4 @@
+import AddToFavouritesStar from "../Favourites/AddToFavouritesStar";
 import Tooltip from "../Tooltip";
 const AboutDescription = () => {
   const arrayOfButtons = [
@@ -84,6 +85,9 @@ const AboutDescription = () => {
             will be directed to the problems page. Submissions are infinite but
             they are tracked and calculated.
           </p>
+        </div>
+        <div>
+          <AddToFavouritesStar></AddToFavouritesStar>
         </div>
       </div>
     </>
