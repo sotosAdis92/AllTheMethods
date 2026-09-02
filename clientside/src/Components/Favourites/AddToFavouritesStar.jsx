@@ -3,14 +3,21 @@ import "./AddToFavouritesStar.css";
 
 const AddToFavouritesStar = () => {
   const [favourite, setFavourite] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
   function handleFavourite() {
-    setFavourite(!favourite);
+    const nextState = !favourite;
+    setFavourite(nextState);
+    if (nextState) {
+      setAnimate(true);
+    }
   }
   return (
     <div className="radio">
       <button
-        className={`fav-btn ${favourite ? "faved" : ""}`}
+        className={`fav-btn ${favourite ? "faved" : ""} ${animate ? "animate-bounce" : ""}`}
         onClick={() => handleFavourite}
+        onAnimationEnd={() => setAnimate(false)}
       >
         <svg
           fill="#000000"
