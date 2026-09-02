@@ -86,9 +86,6 @@ const AboutDescription = () => {
             they are tracked and calculated.
           </p>
         </div>
-        <div>
-          <AddToFavouritesStar></AddToFavouritesStar>
-        </div>
       </div>
     </>
   );

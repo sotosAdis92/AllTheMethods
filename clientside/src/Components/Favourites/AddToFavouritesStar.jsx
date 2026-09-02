@@ -2,7 +2,7 @@ import "./AddToFavouritesStar.css";
 const AddToFavouritesStar = () => {
   return (
     <div className="radio">
-      <div className="star"></div>
+      <button className="star" onClick={() => console.log("Clicked")}></button>
     </div>
   );
 };
