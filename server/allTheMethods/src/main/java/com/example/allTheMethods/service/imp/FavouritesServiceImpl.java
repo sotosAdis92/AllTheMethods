@@ -8,6 +8,8 @@ import com.example.allTheMethods.repository.FavouritesRepository;
 import com.example.allTheMethods.service.FavouritesService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FavouritesServiceImpl implements FavouritesService {
     private FavouritesRepository favouritesRepository;
@@ -27,5 +29,11 @@ public class FavouritesServiceImpl implements FavouritesService {
     @Override
     public void deleteFavourite(Long id) {
         favouritesRepository.deleteById(id);
+    }
+
+    @Override
+    public List<FavouritesResponseDto> getAllUserFavourites(int id) {
+        List<Favourites> allFavouritesOfUser = favouritesRepository.getFavouritesByUserId(id);
+        return favouritesMapper.toDto(allFavouritesOfUser);
     }
 }

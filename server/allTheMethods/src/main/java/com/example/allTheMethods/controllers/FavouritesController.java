@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/favourites")
@@ -27,5 +29,11 @@ public class FavouritesController {
     public ResponseEntity<String> deleteFromFavourites(@PathVariable Long id){
         favouritesService.deleteFavourite(id);
         return ResponseEntity.ok("Removed from Favourites");
+    }
+
+    @GetMapping("/user/all/{id}")
+    public ResponseEntity<List<FavouritesResponseDto>> getAllUserFavourites(@PathVariable int id){
+        List<FavouritesResponseDto> favouritesOfUser = favouritesService.getAllUserFavourites(id);
+        return new ResponseEntity<>(favouritesOfUser, HttpStatus.OK);
     }
 }
