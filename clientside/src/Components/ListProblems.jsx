@@ -142,9 +142,8 @@ const ListProblems = () => {
       return a.number - b.number;
     })
     .map((problem, i) => (
-      <div className="problemWithButtons">
+      <div className="problemWithButtons" key={problem.id}>
         <div
-          key={problem.id}
           className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
           onClick={() => navigate(problem.id)}
         >
