@@ -1,4 +1,3 @@
-import AddToFavouritesStar from "../Favourites/AddToFavouritesStar";
 import Tooltip from "../Tooltip";
 const AboutDescription = () => {
   const arrayOfButtons = [
