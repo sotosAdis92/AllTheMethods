@@ -27,8 +27,8 @@ const FavoritesScreen = (props) => {
 
   return (
     <div className="favoritesContainerDiv">
-      <h2>Favorites</h2>
-      <div>{listOfFavorites}</div>
+      <h2 className="favoritesHeading">Favorites</h2>
+      <div className="favoritesList">{listOfFavorites}</div>
     </div>
   );
 };
