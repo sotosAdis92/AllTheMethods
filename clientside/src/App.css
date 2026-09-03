@@ -902,7 +902,7 @@ body {
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0fr;
   gap: 20px;
 }
 
@@ -916,7 +916,6 @@ body {
   height: auto;
   align-items: stretch;
   justify-content: center;
-  gap: 20px;
   position: relative;
 }
 
@@ -1815,6 +1814,7 @@ body {
 }
 
 .userSkills {
+  width: 100%;
   font-family:
     system-ui,
     -apple-system,
@@ -1843,7 +1843,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 25px;
-  max-width: 400px;
+  width: 100%;
 }
 
 .userSkillsHeading {
@@ -1976,7 +1976,7 @@ body {
 }
 
 .goToFavoritesButton {
-  width: 25%;
+  width: 100%;
   border-radius: 16px;
   padding: 1.5rem;
   margin: 20px 0;
