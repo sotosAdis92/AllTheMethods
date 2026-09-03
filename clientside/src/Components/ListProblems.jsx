@@ -9,6 +9,7 @@ import {
 } from "../services/ProblemService";
 import { getUserProblemById } from "../services/UserProblemService";
 import AchievementImage from "./AchievementScreen/AchievementImage";
+import AddToFavoritesStar from "./Favorites/AddToFavoritesStar";
 import "./ListProblems.css";
 import ProblemDifficulty from "./ProblemDifficulty";
 import BackToTopButton from "./Util/BackToTopButton";
@@ -163,6 +164,9 @@ const ListProblems = () => {
               <div className="pointsOfProblem">{problem.points}pts.</div>
             </div>
           </a>
+        </div>
+        <div>
+          <AddToFavoritesStar></AddToFavoritesStar>
         </div>
       </div>
     ));

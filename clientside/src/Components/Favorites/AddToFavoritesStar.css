@@ -19,7 +19,8 @@
 
 .fav-btn.faved .star {
   fill: #f57c00;
-  stroke: #0000;
+  stroke: #262626;
+  stroke-width: 2;
 }
 
 .animate-bounce {
