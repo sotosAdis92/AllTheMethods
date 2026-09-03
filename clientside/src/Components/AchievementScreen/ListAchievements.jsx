@@ -87,7 +87,7 @@ const ListAchievements = () => {
     const isSelected = activeCategoryFilters.includes(filter);
 
     return (
-      <div key={i}>
+      <div key={filter}>
         <button
           onClick={() => handleClickCategoryFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
@@ -104,7 +104,7 @@ const ListAchievements = () => {
   const listOfRankFilters = rankFilters.map((filter, i) => {
     const isSelected = activeRankFilters.includes(filter);
     return (
-      <div key={i}>
+      <div key={filter}>
         <button
           onClick={() => handleClickRankFilter(filter)}
           className={`filters ${isSelected ? "special-active-class" : ""}`}
