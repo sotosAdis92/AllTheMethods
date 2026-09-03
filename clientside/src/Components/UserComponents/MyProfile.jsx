@@ -52,7 +52,10 @@ const MyProfile = () => {
               <UserSkills userId={userId}></UserSkills>
             </div>
             <div className="favoritesList">
-              <button onClick={() => navigator(`/favorites/${userId}`)}>
+              <button
+                onClick={() => navigator(`/favorites/${userId}`)}
+                className="goToFavoritesButton"
+              >
                 Favorites
               </button>
             </div>
