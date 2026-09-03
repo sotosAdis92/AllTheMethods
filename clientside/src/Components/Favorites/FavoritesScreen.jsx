@@ -1,24 +1,29 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getAllUserFavorites } from "../../services/FavouritesService";
 const FavoritesScreen = (props) => {
   const [favorites, setFavorites] = useState([]);
-  const userId = props.userId;
-  console.log(userId);
+  const { id } = useParams();
   useEffect(() => {
-    getAllUserFavorites(userId)
-      .then((response) => {
-        setFavorites(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (id) {
+      getAllUserFavorites(id)
+        .then((response) => {
+          setFavorites(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
-  const listOfFavorites = favorites.map((favourite) => {
+  const listOfFavorites = favorites.map((favourite) => (
     <div>
-      <div></div>
-    </div>;
-  });
+      <div>{}</div>
+      <div>{}</div>
+      <div>{}</div>
+    </div>
+  ));
 
   return (
     <div className="favoritesContainerDiv">
