@@ -20,7 +20,7 @@ const AddToFavouritesStar = () => {
         onAnimationEnd={() => setAnimate(false)}
       >
         <svg
-          fill="#000000"
+          fill="#00000"
           width="28"
           height="28"
           viewBox="0 0 24 24"

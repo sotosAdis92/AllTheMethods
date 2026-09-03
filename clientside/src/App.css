@@ -1984,8 +1984,7 @@ body {
     0 1px 3px rgba(0, 0, 0, 0.06),
     0 4px 16px rgba(0, 0, 0, 0.04);
   border: 2px solid #e2e8f0;
-  background: transparent;
-
+  background: #f8f9fa;
   display: flex;
   font-family:
     system-ui,
@@ -2001,4 +2000,13 @@ body {
     sans-serif;
   font-weight: 500;
   font-size: 15px;
+}
+
+.goToFavoritesButton .star {
+  fill: transparent;
+  stroke: #262626;
+  stroke-width: 2;
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease;
 }
