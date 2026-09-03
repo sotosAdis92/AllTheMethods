@@ -45,8 +45,13 @@ const MyProfile = () => {
           </h1>
         </div>
         <div className="content">
-          <div className="skillsContainer">
-            <UserSkills userId={userId}></UserSkills>
+          <div className="rowInContent">
+            <div className="skillsContainer">
+              <UserSkills userId={userId}></UserSkills>
+            </div>
+            <div className="favouritesList">
+              <button></button>
+            </div>
           </div>
           <div className="rowInContent">
             <div>
