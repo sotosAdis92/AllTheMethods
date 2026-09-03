@@ -31,17 +31,15 @@ const ListProblems = () => {
         setProblems(response.data);
         setProblemCategoryFilters(response.data);
         setProblemDifficultyFilters(response.data);
-        console.log(response.data);
-        console.log(problemCategoryFilters);
       })
       .catch((error) => {
         console.error(error);
       });
   }
+
   useEffect(() => {
     getAllProblems();
   }, []);
-  console.log(allProblems);
 
   useEffect(() => {
     applyFilters();
@@ -135,7 +133,7 @@ const ListProblems = () => {
           console.log(error);
         });
     });
-  }, [problems]);
+  }, []);
 
   const listOfProblems = problems
     .sort(function (a, b) {
