@@ -7,7 +7,6 @@ import "./ViewMyAchievements.css";
 const ViewMyAchievements = (props) => {
   const [myAchievements, setMyAchievements] = useState([]);
   const userId = props.userId;
-  console.log("AAAAAAAAA", userId);
   const count = myAchievements.filter(
     (myAchievement) => myAchievement.achievementId,
   ).length;
@@ -16,7 +15,6 @@ const ViewMyAchievements = (props) => {
     getUserAchievements(userId)
       .then((response) => {
         setMyAchievements(response.data);
-        console.log("AAAAAAAAAAA", userId);
       })
       .catch((error) => {
         console.error(error);

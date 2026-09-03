@@ -60,7 +60,6 @@ const DetailsPage = (props) => {
       };
       if (id) {
         updateUserAccount(id, userDetails).then((response) => {
-          console.log(response.data);
           navigator("/profile");
         });
       }
@@ -78,7 +77,6 @@ const DetailsPage = (props) => {
 
   const handleDelete = () => {
     deleteUserById(id).then((response) => {
-      console.log(response.data);
       openConfirmationBox();
       navigator("/login");
       removeToken();

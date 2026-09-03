@@ -10,7 +10,6 @@ const UserSkills = (props) => {
   const getCountDistinctCategories = () => {
     getCountDistinctProblemsByCategory(userId)
       .then((response) => {
-        console.log("User Skills response: ", response.data);
         setCountCategories(response.data);
       })
       .catch((error) => {

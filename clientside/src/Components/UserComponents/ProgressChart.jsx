@@ -17,12 +17,11 @@ const ProgressChart = (props) => {
   const [countAllProblems, setCountAllProblems] = useState(0);
   const [userCount, setUserCount] = useState(0);
   const userId = props.userId;
-  console.log(userId);
+
   const getCountDistinct = () => {
     getCountDistinctProblems(userId)
       .then((response) => {
         setCountDistinct(response.data);
-        console.log("get distinct ", response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +42,6 @@ const ProgressChart = (props) => {
     getProblemsCount()
       .then((response) => {
         setCountAllProblems(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +52,6 @@ const ProgressChart = (props) => {
     getCountProblems(userId)
       .then((response) => {
         setCount(response.data);
-        console.log("Api response in chart:", response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -86,7 +83,6 @@ const ProgressChart = (props) => {
       </div>
     );
   });
-  console.log(distinctGeneralData);
 
   const stackedText = {
     id: "stackedText",

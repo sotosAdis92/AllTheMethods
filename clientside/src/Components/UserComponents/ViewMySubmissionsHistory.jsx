@@ -20,16 +20,11 @@ const ViewMySumbissionsHistory = (props) => {
   const pageNumbers = [];
 
   const getAllSubmissions = () => {
-    console.log(pageNumber);
     getAllUserSubmissions(userId, pageNumber, pageSize, sortDir)
       .then((response) => {
         setMySubmissions(response.data.content);
         setCount(response.data.totalElements);
         setTotalPages(response.data.totalPages);
-        console.log(
-          "console log from submission history",
-          response.data.content,
-        );
       })
       .catch((error) => {
         console.log(error);

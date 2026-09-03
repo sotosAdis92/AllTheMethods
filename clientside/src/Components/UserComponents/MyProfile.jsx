@@ -20,9 +20,6 @@ const MyProfile = () => {
         setDisplayName(response.data.displayName);
         setUserId(response.data.id);
         setUsername(response.data.username);
-        console.log("Api response:", response.data.displayName);
-        console.log("Api response:", response.data.id);
-        console.log(response.data.username);
       })
       .catch((error) => {
         console.error(error);

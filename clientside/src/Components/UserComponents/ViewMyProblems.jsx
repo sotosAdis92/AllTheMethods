@@ -17,14 +17,13 @@ const ViewMyProblems = (props) => {
   const pageNumbers = [];
 
   const userId = props.userId;
-  console.log(userId);
+
   const getAllUserProblems = () => {
     getUserProblems(userId, pageNumber, pageSize)
       .then((response) => {
         setMyProblems(response.data.content);
         setCount(response.data.totalElements);
         setTotalPages(response.data.totalPages);
-        console.log("Api response:", response.data.content);
       })
       .catch((error) => {
         console.error(error);
@@ -41,7 +40,6 @@ const ViewMyProblems = (props) => {
     getProblemsCount()
       .then((response) => {
         setCountOfAllProblems(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
