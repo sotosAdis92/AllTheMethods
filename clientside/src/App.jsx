@@ -5,6 +5,7 @@ import ListAchievements from "./Components/AchievementScreen/ListAchievements";
 import AchievementComponent from "./Components/AdminPages/AchievementComponent";
 import AdminHome from "./Components/AdminPages/AdminHome";
 import ProblemComponent from "./Components/AdminPages/ProblemComponent";
+import FavoritesScreen from "./Components/Favorites/FavoritesScreen";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import ListProblems from "./Components/ListProblems";
@@ -36,6 +37,10 @@ function App() {
             <Route
               path="/profile/details/:id"
               element={<DetailsPage></DetailsPage>}
+            ></Route>
+            <Route
+              path="/profile/favorites/:id"
+              element={<FavoritesScreen></FavoritesScreen>}
             ></Route>
             <Route
               path="/about"

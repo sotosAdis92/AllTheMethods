@@ -56,7 +56,7 @@ const MyProfile = () => {
             </div>
             <div className="favoritesList">
               <button
-                onClick={() => navigator(`/favorites/${userId}`)}
+                onClick={() => navigator(`./favorites/${userId}`)}
                 className="goToFavoritesButton"
               >
                 <svg
