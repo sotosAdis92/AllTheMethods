@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getUser } from "../../services/UsersService";
 import BackToTopButton from "../Util/BackToTopButton";
 import ProgressChart from "./ProgressChart";
@@ -13,6 +14,7 @@ const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
   const [username, setUsername] = useState("");
+  const navigator = useNavigate();
 
   const userDisplayName = () => {
     getUser()
@@ -49,8 +51,10 @@ const MyProfile = () => {
             <div className="skillsContainer">
               <UserSkills userId={userId}></UserSkills>
             </div>
-            <div className="favouritesList">
-              <button></button>
+            <div className="favoritesList">
+              <button onClick={() => navigator(`/favorites/${userId}`)}>
+                Favorites
+              </button>
             </div>
           </div>
           <div className="rowInContent">

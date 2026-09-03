@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AddToFavouritesStar.css";
+import "./AddToFavoritesStar.css";
 
 const AddToFavouritesStar = () => {
   const [favourite, setFavourite] = useState(false);
