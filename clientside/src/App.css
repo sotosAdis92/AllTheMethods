@@ -2001,12 +2001,3 @@ body {
   font-weight: 500;
   font-size: 15px;
 }
-
-.goToFavoritesButton .star {
-  fill: transparent;
-  stroke: #262626;
-  stroke-width: 2;
-  transition:
-    fill 0.2s ease,
-    stroke 0.2s ease;
-}
