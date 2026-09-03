@@ -2003,4 +2003,14 @@ body {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
+}
+
+.goToFavoritesButton:hover {
+  background: #ffffff;
+  box-shadow:
+    0 4px 12px rgba(245, 124, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  transition: 0.2s ease;
 }

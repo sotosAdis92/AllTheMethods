@@ -65,7 +65,7 @@ const MyProfile = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   style={{
-                    fill: "#262626",
+                    fill: "#f57c00",
                     stroke: "none",
                     flexShrink: 0,
                   }}
