@@ -9,9 +9,9 @@
 }
 
 .star {
-  fill: transparent;
-  stroke: #262626;
-  stroke-width: 2;
+  fill: #262626;
+  stroke: none;
+  flexshrink: 0;
   transition:
     fill 0.2s ease,
     stroke 0.2s ease;
