@@ -1,11 +1,20 @@
-.fav-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
+.radio {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.fav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .star {
