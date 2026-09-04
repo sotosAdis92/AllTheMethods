@@ -136,40 +136,52 @@ const ListProblems = () => {
     });
   }, []);
 
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDay();
+  const dateSent = year + " " + month + " " + day;
+
   const listOfProblems = problems
     .sort(function (a, b) {
       return a.number - b.number;
     })
-    .map((problem, i) => (
-      <div className="problemWithButtons" key={problem.id}>
-        <div
-          className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
-          onClick={() => navigate(problem.id)}
-        >
-          <a className="problemLink">
-            <div className="problemDetails">
-              <div className="numberAndTitle">
-                {problem.number}. {problem.title}
-              </div>
-              {isSolved[problem.id] ? (
-                <div className="checkmark">
-                  <img src={img}></img>
+    .map((problem, i) => {
+      const data = {
+        problemId: problem.id,
+        dateSent,
+      };
+      return (
+        <div className="problemWithButtons" key={problem.id}>
+          <div
+            className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
+            onClick={() => navigate(problem.id)}
+          >
+            <a className="problemLink">
+              <div className="problemDetails">
+                <div className="numberAndTitle">
+                  {problem.number}. {problem.title}
                 </div>
-              ) : (
-                <div></div>
-              )}
-              <ProblemDifficulty
-                difficulty={problem.difficulty}
-              ></ProblemDifficulty>
-              <div className="pointsOfProblem">{problem.points}pts.</div>
-            </div>
-          </a>
+                {isSolved[problem.id] ? (
+                  <div className="checkmark">
+                    <img src={img}></img>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+                <ProblemDifficulty
+                  difficulty={problem.difficulty}
+                ></ProblemDifficulty>
+                <div className="pointsOfProblem">{problem.points}pts.</div>
+              </div>
+            </a>
+          </div>
+          <div>
+            <AddToFavoritesStar {...data}></AddToFavoritesStar>
+          </div>
         </div>
-        <div>
-          <AddToFavoritesStar></AddToFavoritesStar>
-        </div>
-      </div>
-    ));
+      );
+    });
 
   return (
     <>
