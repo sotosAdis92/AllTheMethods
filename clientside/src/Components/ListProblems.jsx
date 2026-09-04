@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
+import { useAuth } from "../context/AuthContext";
 import {
   getProblemsByCategoryOrDifficulty,
   listProblems,
@@ -23,6 +24,8 @@ const ListProblems = () => {
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
+  const { user } = useAuth();
+  const userId = user?.id;
   const navigator = useNavigate();
 
   function getAllProblems() {
@@ -148,6 +151,7 @@ const ListProblems = () => {
     })
     .map((problem, i) => {
       const data = {
+        userId: userId,
         problemId: problem.id,
         dateSent,
       };
