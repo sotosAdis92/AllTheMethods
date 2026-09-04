@@ -140,10 +140,7 @@ const ListProblems = () => {
   }, []);
 
   const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDay();
-  const dateSent = year + " " + month + " " + day;
+  const dateSent = date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
   const listOfProblems = problems
     .sort(function (a, b) {
@@ -153,7 +150,7 @@ const ListProblems = () => {
       const data = {
         userId: userId,
         problemId: problem.id,
-        dateSent,
+        date: dateSent,
       };
       return (
         <div className="problemWithButtons" key={problem.id}>

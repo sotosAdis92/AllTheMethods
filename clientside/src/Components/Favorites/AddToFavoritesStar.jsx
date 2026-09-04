@@ -1,16 +1,41 @@
 import { useState } from "react";
 import "./AddToFavoritesStar.css";
 
-const AddToFavouritesStar = () => {
+const AddToFavouritesStar = (props) => {
   const [favourite, setFavourite] = useState(false);
   const [animate, setAnimate] = useState(false);
-
   function handleFavorite() {
+    const favorite = {
+      user: props.userId,
+      problem: props.problemId,
+      date: props.date,
+    };
     console.log("Clicked");
     const nextState = !favourite;
     setFavourite(nextState);
     if (nextState) {
+      console.log(favorite);
+      /*
+      saveToFavorites(favorite)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        */
       setAnimate(true);
+    } else {
+      /*
+      deleteFromFavorites(props.problemId)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        */
+      console.log(props.problemId);
     }
     console.log(nextState);
   }
