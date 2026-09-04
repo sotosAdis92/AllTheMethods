@@ -20,9 +20,9 @@ const AddToFavouritesStar = () => {
         onClick={() => handleFavorite()}
         onAnimationEnd={() => setAnimate(false)}
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" className="star">
+        <svg width="28" height="28" viewBox="0 0 28 28" className="star">
           <path
-            d="M12 2L14.8 8.2L21.5 9.1L16.8 13.6L17.9 20.3L12 17.1L6.1 20.3L7.2 13.6L2.5 9.1L9.2 8.2L12 2Z"
+            d="M14 2L16.8 8.2L23.5 9.1L18.8 13.6L19.9 20.3L14 17.1L8.1 20.3L9.2 13.6L4.5 9.1L11.2 8.2L14 2Z"
             strokeLinejoin="round"
           />
         </svg>
