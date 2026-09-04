@@ -2001,7 +2001,8 @@ body {
 }
 
 .goToFavoritesButton:hover {
-  background: #ffffff;
+  background: #fffbf5;
+  border-color: #f57c00;
   box-shadow:
     0 4px 12px rgba(245, 124, 0, 0.15),
     0 1px 3px rgba(0, 0, 0, 0.06);
