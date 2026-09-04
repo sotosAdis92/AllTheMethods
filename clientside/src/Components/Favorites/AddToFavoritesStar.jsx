@@ -12,6 +12,7 @@ const AddToFavouritesStar = () => {
     if (nextState) {
       setAnimate(true);
     }
+    console.log(nextState);
   }
   return (
     <div className="radio">
