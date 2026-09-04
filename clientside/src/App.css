@@ -902,8 +902,6 @@ body {
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: 1fr 0fr;
-  gap: 20px;
 }
 
 .rowInContent {
@@ -1976,7 +1974,7 @@ body {
 
 .goToFavoritesButton {
   width: 30%;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 1.5rem;
   margin: 20px 0px;
   border: 2px solid #e2e8f0;
