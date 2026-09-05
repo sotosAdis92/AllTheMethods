@@ -4,6 +4,7 @@ import img2 from "../assets/5110770.png";
 import img from "../assets/check.png";
 import img3 from "../assets/filter.png";
 import { useAuth } from "../context/AuthContext";
+import { getAllUserFavorites } from "../services/FavouritesService";
 import {
   getProblemsByCategoryOrDifficulty,
   listProblems,
@@ -19,6 +20,7 @@ const ListProblems = () => {
   const [problems, setProblems] = useState([]);
   const [allProblems, setAllProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
+  const [isFavorite, setIsFavorite] = useState({});
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
@@ -139,6 +141,23 @@ const ListProblems = () => {
     });
   }, []);
 
+  useEffect(() => {
+    console.log(userId);
+    getAllUserFavorites(userId)
+      .then((response) => {
+        console.log(response.data);
+        const favMap = {};
+        if (Array.isArray(response.data)) {
+          response.data.forEach((fav) => {
+            favMap[fav.problemId] = true;
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const date = new Date();
   const dateSent = date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
@@ -148,6 +167,7 @@ const ListProblems = () => {
     })
     .map((problem, i) => {
       const data = {
+        isFavorite: isFavorite[problem.id],
         userId: userId,
         problemId: problem.id,
         date: dateSent,

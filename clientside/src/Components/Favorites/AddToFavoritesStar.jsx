@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AddToFavoritesStar.css";
 
 const AddToFavouritesStar = (props) => {
-  const [favourite, setFavourite] = useState(false);
+  const [favorite, setFavorite] = useState(props.isFavorite || false);
   const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setFavorite(props.isFavorite || false);
+  }, [props.isFavorite]);
+
   function handleFavorite() {
-    const favorite = {
+    const favoriteObj = {
       user: props.userId,
       problem: props.problemId,
       date: props.date,
     };
     console.log("Clicked");
-    const nextState = !favourite;
-    setFavourite(nextState);
+    const nextState = !favorite;
+    setFavorite(nextState);
     if (nextState) {
-      console.log(favorite);
+      console.log(favoriteObj);
       /*
-      saveToFavorites(favorite)
+      saveToFavorites(favoriteObj)
         .then((response) => {
           console.log(response);
         })
@@ -42,7 +47,7 @@ const AddToFavouritesStar = (props) => {
   return (
     <div className="radio">
       <button
-        className={`fav-btn ${favourite ? "faved" : ""} ${animate ? "animate-bounce" : ""}`}
+        className={`fav-btn ${favorite ? "faved" : ""} ${animate ? "animate-bounce" : ""}`}
         onClick={() => handleFavorite()}
         onAnimationEnd={() => setAnimate(false)}
       >

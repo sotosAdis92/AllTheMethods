@@ -11,9 +11,9 @@ export const deleteFromFavorites = async (id) => {
   return response;
 };
 
-export const getAllUserFavorites = async (id) => {
+export const getAllUserFavorites = async (userId) => {
   const response = await axiosInstance.get(
-    REST_API_BASE_URL + "/user/all/" + id,
+    REST_API_BASE_URL + "/user/all/" + userId,
   );
   return response;
 };
