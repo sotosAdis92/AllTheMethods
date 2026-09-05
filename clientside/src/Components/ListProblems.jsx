@@ -21,6 +21,7 @@ const ListProblems = () => {
   const [allProblems, setAllProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
   const [isFavorite, setIsFavorite] = useState({});
+  const [favoriteId, setFavoriteId] = useState(0);
   const [problemCategoryFilters, setProblemCategoryFilters] = useState([]);
   const [problemDifficultyFilters, setProblemDifficultyFilters] = useState([]);
   const [openFilterBool, setOpenFilterBool] = useState(false);
@@ -151,6 +152,7 @@ const ListProblems = () => {
           if (Array.isArray(response.data)) {
             response.data.forEach((fav) => {
               favMap[fav.problemId] = true;
+              setFavoriteId(fav.id);
             });
           }
           setIsFavorite(favMap);
@@ -159,10 +161,10 @@ const ListProblems = () => {
           console.log(error);
         });
     }
-  }, []);
+  }, [userId]);
 
   const date = new Date();
-  const dateSent = date.toLocaleDateString() + " " + date.toLocaleTimeString();
+  const dateSent = date.toISOString();
 
   const listOfProblems = problems
     .sort(function (a, b) {
@@ -170,10 +172,11 @@ const ListProblems = () => {
     })
     .map((problem, i) => {
       const data = {
-        isFavorite: isFavorite[problem.id] || false,
-        userId: userId,
-        problemId: problem.id,
+        isFavorite: isFavorite[problem.id],
+        user: userId,
+        problem: problem.id,
         date: dateSent,
+        favoriteId: favoriteId,
       };
       return (
         <div className="problemWithButtons" key={problem.id}>

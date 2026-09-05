@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
+import {
+  deleteFromFavorites,
+  saveToFavorites,
+} from "../../services/FavouritesService";
 import "./AddToFavoritesStar.css";
-
 const AddToFavouritesStar = (props) => {
   const [favorite, setFavorite] = useState(props.isFavorite || false);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    setFavorite(props.isFavorite || false);
+    setFavorite(props.isFavorite);
   }, [props.isFavorite]);
 
   function handleFavorite() {
     const favoriteObj = {
-      user: props.userId,
-      problem: props.problemId,
+      user: props.user,
+      problem: props.problem,
       date: props.date,
     };
     console.log("Clicked");
@@ -21,28 +24,26 @@ const AddToFavouritesStar = (props) => {
     if (nextState) {
       console.log(props.isFavorite);
       console.log(favoriteObj);
-      /*
       saveToFavorites(favoriteObj)
         .then((response) => {
+          console.log("Saved to favorites", favoriteObj);
           console.log(response);
         })
         .catch((error) => {
           console.log(error);
         });
-        */
       setAnimate(true);
     } else {
       console.log(props.isFavorite);
-      /*
-      deleteFromFavorites(props.problemId)
+      deleteFromFavorites(props.favoriteId)
         .then((response) => {
+          console.log("Deleted from favorites", props.favoriteId);
           console.log(response);
         })
         .catch((error) => {
           console.log(error);
         });
-        */
-      console.log(props.problemId);
+      console.log(props.favoriteId);
     }
     console.log(nextState);
   }
