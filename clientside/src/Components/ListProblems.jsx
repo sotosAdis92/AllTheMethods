@@ -142,20 +142,22 @@ const ListProblems = () => {
   }, []);
 
   useEffect(() => {
-    console.log(userId);
-    getAllUserFavorites(userId)
-      .then((response) => {
-        console.log(response.data);
-        const favMap = {};
-        if (Array.isArray(response.data)) {
-          response.data.forEach((fav) => {
-            favMap[fav.problemId] = true;
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (userId) {
+      console.log(userId);
+      getAllUserFavorites(userId)
+        .then((response) => {
+          console.log(response.data);
+          const favMap = {};
+          if (Array.isArray(response.data)) {
+            response.data.forEach((fav) => {
+              favMap[fav.problemId] = true;
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   const date = new Date();
