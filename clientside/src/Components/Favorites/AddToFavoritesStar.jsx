@@ -19,6 +19,7 @@ const AddToFavouritesStar = (props) => {
     const nextState = !favorite;
     setFavorite(nextState);
     if (nextState) {
+      console.log(props.isFavorite);
       console.log(favoriteObj);
       /*
       saveToFavorites(favoriteObj)
@@ -31,6 +32,7 @@ const AddToFavouritesStar = (props) => {
         */
       setAnimate(true);
     } else {
+      console.log(props.isFavorite);
       /*
       deleteFromFavorites(props.problemId)
         .then((response) => {

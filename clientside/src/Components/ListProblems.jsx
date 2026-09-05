@@ -153,6 +153,7 @@ const ListProblems = () => {
               favMap[fav.problemId] = true;
             });
           }
+          setIsFavorite(favMap);
         })
         .catch((error) => {
           console.log(error);
@@ -169,7 +170,7 @@ const ListProblems = () => {
     })
     .map((problem, i) => {
       const data = {
-        isFavorite: isFavorite[problem.id],
+        isFavorite: isFavorite[problem.id] || false,
         userId: userId,
         problemId: problem.id,
         date: dateSent,
