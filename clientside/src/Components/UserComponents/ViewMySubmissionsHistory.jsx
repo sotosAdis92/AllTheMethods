@@ -103,7 +103,6 @@ const ViewMySumbissionsHistory = (props) => {
                 </div>
               </div>
             </div>
-
             <ol className="listOfUserSubmissions">{listOfMySubmissions}</ol>
           </div>
           {totalPages > 1 ? (
