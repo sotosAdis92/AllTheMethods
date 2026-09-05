@@ -7,23 +7,23 @@ import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.FavouritesMapper;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
 public class FavouritesMapperImpl implements FavouritesMapper {
     @Override
     public Favourites toEntity(CreateFavouriteRequestDto createFavouriteRequestDto) {
+        Favourites favourites = new Favourites();
         Users user = new Users();
-        user.setId(createFavouriteRequestDto.userId());
+        user.setId(createFavouriteRequestDto.user());
+        favourites.setUser(user);
         Problem problem = new Problem();
-        problem.setId(createFavouriteRequestDto.problemId());
-        Favourites favourite = new Favourites(
-                null,
-                user,
-                problem,
-                createFavouriteRequestDto.dateAdded()
-        );
-        return favourite;
+        problem.setId(createFavouriteRequestDto.problem());
+        favourites.setProblem(problem);
+        favourites.setDateAdded(LocalDateTime.now());
+        return favourites;
     }
 
     @Override

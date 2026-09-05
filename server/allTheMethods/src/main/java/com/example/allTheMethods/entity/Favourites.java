@@ -30,6 +30,9 @@ public class Favourites {
     @Column(nullable = false)
     private LocalDateTime dateAdded;
 
+    public Favourites() {
+    }
+
     public Favourites(Long id, Users user, Problem problem, LocalDateTime  dateAdded) {
         this.id = id;
         this.user = user;
