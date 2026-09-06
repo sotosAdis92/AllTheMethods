@@ -5,6 +5,7 @@ import com.example.allTheMethods.dto.response.FavouritesResponseDto;
 import com.example.allTheMethods.service.FavouritesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,12 +33,14 @@ public class FavouritesController {
     }
 
     @GetMapping("/all")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<FavouritesResponseDto>> getAllFavourites(){
         List<FavouritesResponseDto> favouritesResponseDtos = favouritesService.getAllFavourites();
         return new ResponseEntity<>(favouritesResponseDtos, HttpStatus.OK);
     }
 
     @GetMapping("/user/all/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<FavouritesResponseDto>> getAllUserFavourites(@PathVariable int id){
         List<FavouritesResponseDto> favouritesOfUser = favouritesService.getAllUserFavourites(id);
         return new ResponseEntity<>(favouritesOfUser, HttpStatus.OK);
