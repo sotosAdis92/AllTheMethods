@@ -56,10 +56,9 @@ const FavoritesScreen = (props) => {
             </h2>
             <div className="favoritesCounter">
               <div className="textDiv">
-                Total Favorites:
                 <div className="favoritesCount">
                   {}
-                  <div className="favoriteSupperText">Favorites</div>
+                  <div className="favoriteSupperText"></div>
                 </div>
               </div>
             </div>
