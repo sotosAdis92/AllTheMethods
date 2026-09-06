@@ -1,4 +1,5 @@
 .viewFavorites {
+  display: flex;
   width: 50%;
   border-radius: 16px;
   padding: 24px;
@@ -11,7 +12,11 @@
   align-items: center;
   justify-content: center;
 }
-
+.containerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .textDiv {
   display: inline-block;
 }
@@ -42,6 +47,7 @@
 .favoriteItem {
 }
 .favoritesContainerDiv {
+  width: 50%;
   margin: 0 auto;
   background: #ffffff;
   border-radius: 16px;
