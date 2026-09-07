@@ -155,7 +155,7 @@ spring-react/
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile3.JPG?raw=true)
 # Favorites Screen
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/favorites.JPG?raw=true)
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemScreen.JPG?raw=true)
 # Admin Panel
