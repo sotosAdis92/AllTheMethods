@@ -166,3 +166,14 @@
   white-space: nowrap;
   padding: 4px 0;
 }
+
+.favoritesCount {
+  color: #df6f00;
+  font-size: 25px;
+  display: flex;
+}
+.favoriteSupperText {
+  font-size: 14px;
+  margin-top: 3%;
+  margin-left: 5%;
+}
