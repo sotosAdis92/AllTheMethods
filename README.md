@@ -1,4 +1,4 @@
-<img width="1908" height="937" alt="image" src="https://github.com/user-attachments/assets/a55d2c03-6b59-48a6-b064-8e7969dc0286" /># All The Methods 
+# All The Methods 
 
 ## Learning Numerical Analysis, Gamified
 
