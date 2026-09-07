@@ -147,10 +147,10 @@ const ListProblems = () => {
       console.log(userId);
       getAllUserFavorites(userId)
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.content);
           const favMap = {};
-          if (Array.isArray(response.data)) {
-            response.data.forEach((fav) => {
+          if (Array.isArray(response.data.content)) {
+            response.data.content.forEach((fav) => {
               favMap[fav.problemId] = true;
               setFavoriteId(fav.id);
             });
