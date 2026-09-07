@@ -6,6 +6,7 @@ import com.example.allTheMethods.entity.Favourites;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.FavouritesMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -43,5 +44,10 @@ public class FavouritesMapperImpl implements FavouritesMapper {
     @Override
     public List<FavouritesResponseDto> toDto(List<Favourites> favouritesList) {
         return favouritesList.stream().map(this::toDto).toList();
+    }
+
+    @Override
+    public Page<FavouritesResponseDto> toDto(Page<Favourites> favouritesPage) {
+        return favouritesPage.map(this::toDto);
     }
 }

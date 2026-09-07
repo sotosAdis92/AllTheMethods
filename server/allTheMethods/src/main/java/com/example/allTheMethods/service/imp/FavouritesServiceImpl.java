@@ -6,6 +6,8 @@ import com.example.allTheMethods.entity.Favourites;
 import com.example.allTheMethods.mapper.FavouritesMapper;
 import com.example.allTheMethods.repository.FavouritesRepository;
 import com.example.allTheMethods.service.FavouritesService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,8 +34,8 @@ public class FavouritesServiceImpl implements FavouritesService {
     }
 
     @Override
-    public List<FavouritesResponseDto> getAllUserFavourites(int id) {
-        List<Favourites> allFavouritesOfUser = favouritesRepository.getFavouritesByUserId(id);
+    public Page<FavouritesResponseDto> getAllUserFavourites(int id, Pageable pageable) {
+        Page<Favourites> allFavouritesOfUser = favouritesRepository.getFavouritesByUserId(id, pageable);
         return favouritesMapper.toDto(allFavouritesOfUser);
     }
 

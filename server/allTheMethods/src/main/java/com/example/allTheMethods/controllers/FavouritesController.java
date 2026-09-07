@@ -3,6 +3,8 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateFavouriteRequestDto;
 import com.example.allTheMethods.dto.response.FavouritesResponseDto;
 import com.example.allTheMethods.service.FavouritesService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,8 +43,12 @@ public class FavouritesController {
 
     @GetMapping("/user/all/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<List<FavouritesResponseDto>> getAllUserFavourites(@PathVariable int id){
-        List<FavouritesResponseDto> favouritesOfUser = favouritesService.getAllUserFavourites(id);
+    public ResponseEntity<Page<FavouritesResponseDto>> getAllUserFavourites(
+            @PathVariable("id") int id,
+            @RequestParam(defaultValue = "1",name = "pageNo", required = false) int pageNo,
+            @RequestParam(defaultValue = "20",name = "pageSize",required = false) int pageSize
+    ){
+        Page<FavouritesResponseDto> favouritesOfUser = favouritesService.getAllUserFavourites(id, PageRequest.of(pageNo-1, pageSize));
         return new ResponseEntity<>(favouritesOfUser, HttpStatus.OK);
     }
 }
