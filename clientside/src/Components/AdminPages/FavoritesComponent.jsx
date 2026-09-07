@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllFavorites } from "../../services/FavouritesService";
+import "./FavoritesComponent.css";
 const FavoritesComponent = () => {
   const [allFavorites, setAllFavorites] = useState([]);
   useEffect(() => {
@@ -15,7 +16,7 @@ const FavoritesComponent = () => {
 
   const listOfAllFavorites = allFavorites.map((favorite) => {
     return (
-      <div key={favorite.id}>
+      <div key={favorite.id} className="user-item-table">
         <div>{favorite.userId}</div>
         <div>{favorite.problemId}</div>
         <div>{favorite.dateAdded}</div>
@@ -28,7 +29,7 @@ const FavoritesComponent = () => {
   return (
     <div>
       <div>
-        <div className="">
+        <div className="headerUser user-item-table">
           <div>User Id</div>
           <div>Problem Id</div>
           <div>Date Added</div>
