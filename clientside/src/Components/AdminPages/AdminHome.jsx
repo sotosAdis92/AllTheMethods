@@ -5,6 +5,7 @@ import problemsImg from "../../assets/list.png";
 import userImg from "../../assets/userPicDefault.png";
 import AchievementListComponent from "./AchievementListComponent";
 import "./AdminHome.css";
+import FavoritesComponent from "./FavoritesComponent";
 import ProblemListComponent from "./ProblemListComponent";
 import SubmissionComponent from "./SubmissionsComponent";
 import UsersComponent from "./UsersComponent";
@@ -20,6 +21,8 @@ const AdminHome = () => {
       return <SubmissionComponent></SubmissionComponent>;
     } else if (component === "users") {
       return <UsersComponent></UsersComponent>;
+    } else if (component === "favorites") {
+      return <FavoritesComponent></FavoritesComponent>;
     }
   };
   return (
@@ -60,6 +63,14 @@ const AdminHome = () => {
             >
               <img src={userImg}></img>
               Users
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={() => setComponent("favorites")}
+              className="navigation-button"
+            >
+              Favorites
             </button>
           </div>
         </div>
