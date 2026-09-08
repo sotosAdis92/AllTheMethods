@@ -1,4 +1,4 @@
-.user-item-table {
+.favorites-item-table {
   font-family:
     system-ui,
     -apple-system,
@@ -12,7 +12,7 @@
     "Helvetica Neue",
     sans-serif;
   display: grid;
-  grid-template-columns: 10rem 10rem 20rem 10rem 10rem 10rem auto;
+  grid-template-columns: 10rem 10rem 20rem 10rem 10rem 10rem;
   gap: 16px;
   padding: 12px 20px;
   border-bottom: 1px solid #f0f0f0;
@@ -22,34 +22,17 @@
   background: white;
 }
 
-.user-item-table:hover {
+.favorites-item-tabl:hover {
   background: #fafafa;
 }
 
-.user-item-table div {
+.favorites-item-tabl div {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.delete-btn-table {
-  background: none;
-  border: none;
-  color: #dc2626;
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background 0.2s ease;
-  justify-self: end;
-}
-
-.delete-btn-table:hover {
-  background: #fee2e2;
-}
-
-.headerUser {
+.favoritesHeader {
   font-weight: bold;
   border-bottom: 2px solid #ccc;
 }

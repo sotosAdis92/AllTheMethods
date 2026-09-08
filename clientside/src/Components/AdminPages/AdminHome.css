@@ -55,3 +55,7 @@
 .navigation-button:hover img {
   opacity: 0.8;
 }
+
+.starImage {
+  width: 40px;
+}
