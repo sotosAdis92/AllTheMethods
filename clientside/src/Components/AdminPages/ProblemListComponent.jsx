@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteProblem, listProblems } from "../../services/ProblemService";
+import ProblemDifficulty from "../ProblemDifficulty";
 import "./ProblemListComponent.css";
 const ProblemListComponent = () => {
   const navigator = useNavigate();
@@ -41,7 +42,9 @@ const ProblemListComponent = () => {
       <div>{problem.title}</div>
       <div>{problem.number}</div>
       <div>{problem.category}</div>
-      <div>{problem.difficulty}</div>
+      <div>
+        <ProblemDifficulty difficulty={problem.difficulty}></ProblemDifficulty>
+      </div>
       <div>{problem.functionString}</div>
       <div>{problem.points}</div>
       <div>{problem.problemData}</div>

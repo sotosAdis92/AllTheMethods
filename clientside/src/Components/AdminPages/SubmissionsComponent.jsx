@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import arrowback from "../../assets/arrowback_2_10.png";
 import arrowfront from "../../assets/arrowfront_10.png";
 import { getAllSubmissions } from "../../services/SubmitService";
+import ProblemDifficulty from "../ProblemDifficulty";
 import "./SubmissionComponent.css";
 const SubmissionComponent = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -28,7 +29,11 @@ const SubmissionComponent = () => {
       <div>{submission.date}</div>
       <div>{submission.title}</div>
       <div>{submission.number}</div>
-      <div>{submission.difficulty}</div>
+      <div>
+        <ProblemDifficulty
+          difficulty={submission.difficulty}
+        ></ProblemDifficulty>
+      </div>
     </div>
   ));
 

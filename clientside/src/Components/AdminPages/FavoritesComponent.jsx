@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllFavorites } from "../../services/FavouritesService";
+import ProblemDifficulty from "../ProblemDifficulty";
 import "./FavoritesComponent.css";
 const FavoritesComponent = () => {
   const [allFavorites, setAllFavorites] = useState([]);
@@ -22,7 +23,11 @@ const FavoritesComponent = () => {
         <div>{favorite.dateAdded}</div>
         <div>{favorite.number}</div>
         <div>{favorite.title}</div>
-        <div>{favorite.difficulty}</div>
+        <div>
+          <ProblemDifficulty
+            difficulty={favorite.difficulty}
+          ></ProblemDifficulty>
+        </div>
       </div>
     );
   });
