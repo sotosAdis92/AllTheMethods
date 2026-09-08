@@ -15,7 +15,7 @@ The app transforms that knowledge into an interactive learning experience, heavi
 ### Total Methods Implemented: 14
 
 This Repository was created for the storage and versioning control of the web app AllTheMethods, its a personal project developed in my 8th Semester of Studies, in my Attempt to Learn the Spring Framework and React.js
-
+# NEW UPDATE: YOU CAN NOW ADD FAVORITE PROBLEMS
 ---
 
 ### Prerequisites
