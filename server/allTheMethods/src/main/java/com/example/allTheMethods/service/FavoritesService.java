@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface FavouritesService {
+public interface FavoritesService {
     FavoritesResponseDto createFavourite(CreateFavoriteRequestDto createFavoriteRequestDto);
     void deleteFavourite(Long id);
     Page<FavoritesResponseDto> getAllUserFavourites(int id, Pageable pageable);

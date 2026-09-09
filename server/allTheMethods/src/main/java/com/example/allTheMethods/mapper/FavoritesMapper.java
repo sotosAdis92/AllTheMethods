@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-public interface FavouritesMapper {
+public interface FavoritesMapper {
     Favorites toEntity(CreateFavoriteRequestDto createFavoriteRequestDto);
     FavoritesResponseDto toDto(Favorites favourites);
     List<FavoritesResponseDto> toDto(List<Favorites> favouritesList);

@@ -6,9 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
-
-public interface FavouritesRepository extends JpaRepository<Favorites, Long> {
+public interface FavoritesRepository extends JpaRepository<Favorites, Long> {
     @Query("SELECT f FROM Favorites f WHERE f.user.id = ?1")
     Page<Favorites> getFavouritesByUserId(int id, Pageable pageable);
 }

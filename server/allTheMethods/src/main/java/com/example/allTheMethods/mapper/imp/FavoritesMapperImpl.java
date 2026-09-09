@@ -5,7 +5,7 @@ import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
-import com.example.allTheMethods.mapper.FavouritesMapper;
+import com.example.allTheMethods.mapper.FavoritesMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
-public class FavouritesMapperImpl implements FavouritesMapper {
+public class FavoritesMapperImpl implements FavoritesMapper {
     @Override
     public Favorites toEntity(CreateFavoriteRequestDto createFavoriteRequestDto) {
         Favorites favourites = new Favorites();
