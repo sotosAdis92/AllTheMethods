@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto.response;
 
 import java.time.LocalDateTime;
 
-public record FavouritesResponseDto(
+public record FavoritesResponseDto(
         Long id,
         Long userId,
         Long problemId,

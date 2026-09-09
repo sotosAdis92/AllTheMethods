@@ -1,7 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.CreateFavouriteRequestDto;
-import com.example.allTheMethods.dto.response.FavouritesResponseDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
@@ -15,21 +15,21 @@ import java.util.List;
 @Component
 public class FavouritesMapperImpl implements FavouritesMapper {
     @Override
-    public Favorites toEntity(CreateFavouriteRequestDto createFavouriteRequestDto) {
+    public Favorites toEntity(CreateFavoriteRequestDto createFavoriteRequestDto) {
         Favorites favourites = new Favorites();
         Users user = new Users();
-        user.setId(createFavouriteRequestDto.user());
+        user.setId(createFavoriteRequestDto.user());
         favourites.setUser(user);
         Problem problem = new Problem();
-        problem.setId(createFavouriteRequestDto.problem());
+        problem.setId(createFavoriteRequestDto.problem());
         favourites.setProblem(problem);
         favourites.setDateAdded(LocalDateTime.now());
         return favourites;
     }
 
     @Override
-    public FavouritesResponseDto toDto(Favorites favorites) {
-        return new FavouritesResponseDto(
+    public FavoritesResponseDto toDto(Favorites favorites) {
+        return new FavoritesResponseDto(
             favorites.getId(),
                 favorites.getUser().getId(),
                 favorites.getProblem().getId(),
@@ -42,12 +42,12 @@ public class FavouritesMapperImpl implements FavouritesMapper {
     }
 
     @Override
-    public List<FavouritesResponseDto> toDto(List<Favorites> favoritesList) {
+    public List<FavoritesResponseDto> toDto(List<Favorites> favoritesList) {
         return favoritesList.stream().map(this::toDto).toList();
     }
 
     @Override
-    public Page<FavouritesResponseDto> toDto(Page<Favorites> favoritesPage) {
+    public Page<FavoritesResponseDto> toDto(Page<Favorites> favoritesPage) {
         return favoritesPage.map(this::toDto);
     }
 }

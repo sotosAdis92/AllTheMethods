@@ -1,15 +1,15 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.request.CreateFavouriteRequestDto;
-import com.example.allTheMethods.dto.response.FavouritesResponseDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface FavouritesService {
-    FavouritesResponseDto createFavourite(CreateFavouriteRequestDto createFavouriteRequestDto);
+    FavoritesResponseDto createFavourite(CreateFavoriteRequestDto createFavoriteRequestDto);
     void deleteFavourite(Long id);
-    Page<FavouritesResponseDto> getAllUserFavourites(int id, Pageable pageable);
-    List<FavouritesResponseDto> getAllFavourites();
+    Page<FavoritesResponseDto> getAllUserFavourites(int id, Pageable pageable);
+    List<FavoritesResponseDto> getAllFavourites();
 }

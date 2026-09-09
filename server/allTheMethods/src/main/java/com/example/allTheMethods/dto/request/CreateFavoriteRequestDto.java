@@ -1,11 +1,8 @@
 package com.example.allTheMethods.dto.request;
 
-import com.example.allTheMethods.entity.Problem;
-import com.example.allTheMethods.entity.Users;
-
 import java.time.LocalDateTime;
 
-public record CreateFavouriteRequestDto(
+public record CreateFavoriteRequestDto(
         Long id,
         Long user,
         Long problem,

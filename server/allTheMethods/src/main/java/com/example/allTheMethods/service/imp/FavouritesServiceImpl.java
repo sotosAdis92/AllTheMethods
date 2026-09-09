@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.CreateFavouriteRequestDto;
-import com.example.allTheMethods.dto.response.FavouritesResponseDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.mapper.FavouritesMapper;
 import com.example.allTheMethods.repository.FavouritesRepository;
@@ -23,8 +23,8 @@ public class FavouritesServiceImpl implements FavouritesService {
     }
 
     @Override
-    public FavouritesResponseDto createFavourite(CreateFavouriteRequestDto createFavouriteRequestDto) {
-        Favorites favourite = favouritesMapper.toEntity(createFavouriteRequestDto);
+    public FavoritesResponseDto createFavourite(CreateFavoriteRequestDto createFavoriteRequestDto) {
+        Favorites favourite = favouritesMapper.toEntity(createFavoriteRequestDto);
         return favouritesMapper.toDto(favouritesRepository.save(favourite));
     }
 
@@ -34,13 +34,13 @@ public class FavouritesServiceImpl implements FavouritesService {
     }
 
     @Override
-    public Page<FavouritesResponseDto> getAllUserFavourites(int id, Pageable pageable) {
+    public Page<FavoritesResponseDto> getAllUserFavourites(int id, Pageable pageable) {
         Page<Favorites> allFavouritesOfUser = favouritesRepository.getFavouritesByUserId(id, pageable);
         return favouritesMapper.toDto(allFavouritesOfUser);
     }
 
     @Override
-    public List<FavouritesResponseDto> getAllFavourites() {
+    public List<FavoritesResponseDto> getAllFavourites() {
         List<Favorites> allFavourites = favouritesRepository.findAll();
         return favouritesMapper.toDto(allFavourites);
     }
