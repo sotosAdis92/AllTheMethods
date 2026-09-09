@@ -2,7 +2,7 @@ package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.CreateFavouriteRequestDto;
 import com.example.allTheMethods.dto.response.FavouritesResponseDto;
-import com.example.allTheMethods.entity.Favourites;
+import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.FavouritesMapper;
@@ -15,8 +15,8 @@ import java.util.List;
 @Component
 public class FavouritesMapperImpl implements FavouritesMapper {
     @Override
-    public Favourites toEntity(CreateFavouriteRequestDto createFavouriteRequestDto) {
-        Favourites favourites = new Favourites();
+    public Favorites toEntity(CreateFavouriteRequestDto createFavouriteRequestDto) {
+        Favorites favourites = new Favorites();
         Users user = new Users();
         user.setId(createFavouriteRequestDto.user());
         favourites.setUser(user);
@@ -28,26 +28,26 @@ public class FavouritesMapperImpl implements FavouritesMapper {
     }
 
     @Override
-    public FavouritesResponseDto toDto(Favourites favourites) {
+    public FavouritesResponseDto toDto(Favorites favorites) {
         return new FavouritesResponseDto(
-            favourites.getId(),
-                favourites.getUser().getId(),
-                favourites.getProblem().getId(),
-                favourites.getDateAdded(),
-                favourites.getProblem().getTitle(),
-                favourites.getProblem().getNumber(),
-                favourites.getProblem().getDifficulty(),
-                favourites.getProblem().getCategory()
+            favorites.getId(),
+                favorites.getUser().getId(),
+                favorites.getProblem().getId(),
+                favorites.getDateAdded(),
+                favorites.getProblem().getTitle(),
+                favorites.getProblem().getNumber(),
+                favorites.getProblem().getDifficulty(),
+                favorites.getProblem().getCategory()
         );
     }
 
     @Override
-    public List<FavouritesResponseDto> toDto(List<Favourites> favouritesList) {
-        return favouritesList.stream().map(this::toDto).toList();
+    public List<FavouritesResponseDto> toDto(List<Favorites> favoritesList) {
+        return favoritesList.stream().map(this::toDto).toList();
     }
 
     @Override
-    public Page<FavouritesResponseDto> toDto(Page<Favourites> favouritesPage) {
-        return favouritesPage.map(this::toDto);
+    public Page<FavouritesResponseDto> toDto(Page<Favorites> favoritesPage) {
+        return favoritesPage.map(this::toDto);
     }
 }

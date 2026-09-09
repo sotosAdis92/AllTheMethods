@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @Table(name = "favorites")
-public class Favourites {
+public class Favorites {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,10 +29,10 @@ public class Favourites {
     @Column(nullable = false)
     private LocalDateTime dateAdded;
 
-    public Favourites() {
+    public Favorites() {
     }
 
-    public Favourites(Long id, Users user, Problem problem, LocalDateTime  dateAdded) {
+    public Favorites(Long id, Users user, Problem problem, LocalDateTime  dateAdded) {
         this.id = id;
         this.user = user;
         this.problem = problem;
