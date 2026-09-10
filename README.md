@@ -101,11 +101,12 @@ Vite server runs by default on http://localhost:5173
 spring-react/
 ├── clientside/
 │   ├── public/
+|   |   ├── assets/
 │   |   ├── Components/
-│   |   ├── assets/
+│   |   ├── context/
 │   |   ├── enviroment/
 │   |   ├── hooks/
-│   |   ├── service/
+│   |   ├── services/
 │   |   ├── App.css/
 │   |   ├── App.jsx/
 │   |   ├── main.jsx/
