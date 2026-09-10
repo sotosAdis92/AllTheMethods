@@ -5,7 +5,6 @@ import com.example.allTheMethods.ast.Operation;
 import com.example.allTheMethods.ast.TokenizerException;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
