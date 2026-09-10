@@ -1,4 +1,4 @@
-import img1 from "../assets/logo.JPG";
+import img1 from "../../assets/logo.JPG";
 import "./Footer.css";
 const Footer = () => {
   const date = new Date();

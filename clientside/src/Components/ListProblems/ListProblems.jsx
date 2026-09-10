@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import img2 from "../assets/5110770.png";
-import img from "../assets/check.png";
-import img3 from "../assets/filter.png";
+import img2 from "../../assets/5110770.png";
+import img from "../../assets/check.png";
+import img3 from "../../assets/filter.png";
 import { useAuth } from "../../context/AuthContext";
 import { getAllUserFavorites } from "../../services/FavouritesService";
 import {
@@ -12,9 +12,9 @@ import {
 import { getUserProblemById } from "../../services/UserProblemService";
 import AchievementImage from "../AchievementScreen/AchievementImage";
 import AddToFavoritesStar from "../Favorites/AddToFavoritesStar";
-import "./ListProblems.css";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import BackToTopButton from "../Util/BackToTopButton";
+import "./ListProblems.css";
 
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);

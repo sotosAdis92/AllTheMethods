@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAllUserFavorites } from "../../services/FavouritesService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./FavoritesScreen.css";
 const FavoritesScreen = (props) => {
   const [favorites, setFavorites] = useState([]);
