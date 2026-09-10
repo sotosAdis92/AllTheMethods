@@ -1,4 +1,4 @@
-import Tooltip from "../Tooltip";
+import Tooltip from "../Tooltip/Tooltip";
 const AboutDescription = () => {
   const arrayOfButtons = [
     {

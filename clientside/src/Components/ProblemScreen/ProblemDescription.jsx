@@ -6,7 +6,7 @@ import img2 from "../../assets/1374863.png";
 import img from "../../assets/check.png";
 import { getProblem } from "../../services/ProblemService";
 import { getUserProblemById } from "../../services/UserProblemService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import BisectionComponent from "./BisectionComponent";
 import DiakritiNewtonRaphsonComponent from "./DiakritiNewtonRaphsonComponent";
 import DirectEulerComponent from "./DirectEulerComponent";
