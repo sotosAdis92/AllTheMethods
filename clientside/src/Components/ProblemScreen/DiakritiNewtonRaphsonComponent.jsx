@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendDiakritiNewtonRaphsonData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const DiakritiNewtonRaphsonComponent = forwardRef((props, ref) => {
   const { id } = useParams();

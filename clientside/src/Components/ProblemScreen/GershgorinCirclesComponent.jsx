@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendGershgorinCircles,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const GershgorinCirclesComponent = forwardRef((props, ref) => {
   const { id } = useParams();

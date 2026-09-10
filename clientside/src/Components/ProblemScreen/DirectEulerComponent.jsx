@@ -12,7 +12,7 @@ import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
 import { saveSubmission, sendDirectEuler } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const DirectEulerComponent = forwardRef((props, ref) => {
   const { id } = useParams();

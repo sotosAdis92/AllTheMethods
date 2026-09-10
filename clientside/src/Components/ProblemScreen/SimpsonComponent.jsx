@@ -12,7 +12,7 @@ import useSaveAchievementOfUser from "../../hooks/useSaveAchievementOfUser";
 import useSaveSolvedProblem from "../../hooks/useSaveSolvedProblem";
 import useSetCallback from "../../hooks/useSetCallback";
 import { saveSubmission, sendSimposonData } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const SimpsonComponent = forwardRef((props, ref) => {
   const { id } = useParams();

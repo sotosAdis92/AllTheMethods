@@ -15,7 +15,8 @@ import {
   saveSubmission,
   sendImprovedEuler,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
+
 const DirectEulerComponent = forwardRef((props, ref) => {
   const { id } = useParams();
   const [result, setResult] = useState(false);

@@ -10,7 +10,7 @@ import {
 import { saveUserAchievement } from "../../services/UserAchievementService";
 import { saveSolvedProblem } from "../../services/UserProblemService";
 import { getUser } from "../../services/UsersService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const RungeKuttaNystromComponent = (props) => {
   const { id } = useParams();

@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendTrapezodialData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const TrapezodialRuleComponent = forwardRef((props, ref) => {
   const { id } = useParams();

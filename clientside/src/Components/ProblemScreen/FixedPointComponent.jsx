@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendFixedPointData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const FixedPointComponent = forwardRef((props, ref) => {
   const { id } = useParams();

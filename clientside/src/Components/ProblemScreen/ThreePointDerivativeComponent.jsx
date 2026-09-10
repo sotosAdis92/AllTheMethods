@@ -16,7 +16,7 @@ import {
   saveSubmission,
   sendThreePointDerivativeData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const ThreePointDerivativeComponent = forwardRef((props, ref) => {
   const { id } = useParams();

@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendFivePointDerivativeData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 import KatexLabel from "./KatexLabel";
 
 const FivePointDerivativeComponent = forwardRef((props, ref) => {

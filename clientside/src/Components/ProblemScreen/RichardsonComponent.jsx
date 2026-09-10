@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendRichardsonData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 import KatexLabel from "./KatexLabel";
 const RichardsonComponent = forwardRef((props, ref) => {
   const { id } = useParams();

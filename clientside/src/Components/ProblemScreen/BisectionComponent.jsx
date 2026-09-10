@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendSubmissionData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const BisectionComponent = forwardRef((props, ref) => {
   const { id } = useParams();

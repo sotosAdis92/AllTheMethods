@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendRungeKuttaData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const RungeKuttaComponent = forwardRef((props, ref) => {
   const { id } = useParams();

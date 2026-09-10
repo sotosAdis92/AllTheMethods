@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendNewtonRaphsonData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const NewtonRaphsonComponent = forwardRef((props, ref) => {
   const { id } = useParams();

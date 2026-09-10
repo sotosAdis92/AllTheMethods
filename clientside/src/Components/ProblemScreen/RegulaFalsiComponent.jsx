@@ -15,7 +15,7 @@ import {
   saveSubmission,
   sendRegulaFalsiData,
 } from "../../services/SubmitService";
-import FormInput from "../FormInput";
+import FormInput from "../FormInputs/FormInput";
 
 const RegulaFalsiComponent = forwardRef((props, ref) => {
   const { id } = useParams();
