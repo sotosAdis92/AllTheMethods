@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img2 from "../assets/door.png";
 import img1 from "../assets/logo.JPG";
-import { isTokenValid, removeToken } from "../environment/common";
-import { getUser } from "../services/UsersService";
+import { isTokenValid, removeToken } from "../../environment/common";
+import { getUser } from "../../services/UsersService";
 import "./Header.css";
 const Header = () => {
   const navigate = useNavigate();
