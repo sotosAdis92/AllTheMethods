@@ -6,7 +6,7 @@ import arrowfront from "../../assets/arrowfront_10.png";
 import img from "../../assets/arrows.png";
 import arrowUp from "../../assets/arrowUpS.png";
 import { getAllUserSubmissions } from "../../services/SubmitService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./ViewMySubmissions.css";
 const ViewMySumbissionsHistory = (props) => {
   const [mySubmissions, setMySubmissions] = useState([]);

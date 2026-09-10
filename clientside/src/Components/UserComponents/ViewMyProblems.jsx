@@ -5,7 +5,7 @@ import arrowfront from "../../assets/arrowfront_10.png";
 import img2 from "../../assets/list.png";
 import { getProblemsCount } from "../../services/ProblemService";
 import { getUserProblems } from "../../services/UserProblemService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./ViewMyProblems.css";
 const ViewMyProblems = (props) => {
   const [myProblems, setMyProblems] = useState([]);
