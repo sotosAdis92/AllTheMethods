@@ -1,4 +1,4 @@
-import "./AboutPage/About.css";
+import "../AboutPage/About.css";
 const Tooltip = (props) => {
   return (
     <div className="wrapper">

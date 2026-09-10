@@ -1,5 +1,5 @@
 import { useState } from "react";
-import KatexLabel from "./ProblemScreen/KatexLabel";
+import KatexLabel from "../ProblemScreen/KatexLabel";
 import "./formInput.css";
 const FormInput = (props) => {
   const { label, onChange, errorMessage, ...inputProps } = props;
