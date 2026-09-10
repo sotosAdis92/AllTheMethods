@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllFavorites } from "../../services/FavouritesService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./FavoritesComponent.css";
 const FavoritesComponent = () => {
   const [allFavorites, setAllFavorites] = useState([]);

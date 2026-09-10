@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import arrowback from "../../assets/arrowback_2_10.png";
 import arrowfront from "../../assets/arrowfront_10.png";
 import { getAllSubmissions } from "../../services/SubmitService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./SubmissionComponent.css";
 const SubmissionComponent = () => {
   const [submissions, setSubmissions] = useState([]);

@@ -7,7 +7,7 @@ import {
   getCountProblems,
   getUserProblems,
 } from "../../services/UserProblemService";
-import ProblemDifficulty from "../ProblemDifficulty";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./ProgressChart.css";
 ChartJS.register(Tooltip, Legend, ArcElement, Title);
 

@@ -20,6 +20,7 @@ import {
   updateProblem,
 } from "../../services/ProblemService";
 import "./ProblemComponent.css";
+
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [title, setTitle] = useState("");
