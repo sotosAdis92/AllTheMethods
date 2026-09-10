@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Component
@@ -29,11 +30,13 @@ public class FavoritesMapperImpl implements FavoritesMapper {
 
     @Override
     public FavoritesResponseDto toDto(Favorites favorites) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String date = favorites.getDateAdded().format(formatter);
         return new FavoritesResponseDto(
             favorites.getId(),
                 favorites.getUser().getId(),
                 favorites.getProblem().getId(),
-                favorites.getDateAdded(),
+                date,
                 favorites.getProblem().getTitle(),
                 favorites.getProblem().getNumber(),
                 favorites.getProblem().getDifficulty(),
