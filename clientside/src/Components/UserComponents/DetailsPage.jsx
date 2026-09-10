@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import imagePencil from "../../assets/pencil.png";
 import { removeToken } from "../../environment/common";
 import {
   deleteUserById,
@@ -90,7 +91,14 @@ const DetailsPage = (props) => {
     <div className="edit-profile-container">
       <div className="profile-card">
         <div>
-          <div className="section-title">Edit Profile Details</div>
+          <div className="section-title">
+            <img
+              src={imagePencil}
+              alt={imagePencil}
+              className="imagePencil"
+            ></img>
+            Edit Profile Details
+          </div>
           <div className="row">
             <TextField
               type="text"

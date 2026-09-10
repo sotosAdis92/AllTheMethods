@@ -28,7 +28,21 @@
     "Helvetica Neue",
     sans-serif;
 }
-
+.imagePencil {
+  width: 25px;
+  margin-right: 10px;
+}
+.profile-card {
+  width: 50%;
+  border-radius: 16px;
+  padding: 24px;
+  padding: 1.5rem;
+  margin: 20px 0;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 2px solid #e2e8f0;
+}
 .section-title {
   align-items: center;
   display: flex;
