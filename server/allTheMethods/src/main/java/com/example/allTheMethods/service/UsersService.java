@@ -1,6 +1,5 @@
 package com.example.allTheMethods.service;
 
-
 import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import org.springframework.data.domain.Page;

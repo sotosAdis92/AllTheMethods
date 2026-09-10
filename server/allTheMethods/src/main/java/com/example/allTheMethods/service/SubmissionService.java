@@ -1,6 +1,5 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.entity.Submission;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
