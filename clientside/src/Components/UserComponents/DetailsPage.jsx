@@ -1,6 +1,6 @@
 import { faCheck, faTrashCan, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, TextField } from "@mui/material";
+import { Button, InputLabel, TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import imagePencil from "../../assets/pencil.png";
@@ -100,6 +100,7 @@ const DetailsPage = (props) => {
             Edit Profile Details
           </div>
           <div className="row">
+            <InputLabel>Display Name</InputLabel>
             <TextField
               type="text"
               placeholder="Enter Display Name"
