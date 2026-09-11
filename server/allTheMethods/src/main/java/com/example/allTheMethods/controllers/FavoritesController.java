@@ -3,6 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
 import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.service.FavoritesService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class FavoritesController {
     }
 
     @PostMapping
-    public ResponseEntity<FavoritesResponseDto> addToFavorites(@RequestBody CreateFavoriteRequestDto createFavoriteRequestDto){
+    public ResponseEntity<FavoritesResponseDto> addToFavorites(@Valid @RequestBody CreateFavoriteRequestDto createFavoriteRequestDto){
         FavoritesResponseDto favoritesResponseDto = favoritesService.createFavourite(createFavoriteRequestDto);
         return new ResponseEntity<>(favoritesResponseDto, HttpStatus.CREATED);
     }
