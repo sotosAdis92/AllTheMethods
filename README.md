@@ -158,6 +158,7 @@ spring-react/
 # Favorites Screen
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/favorites.JPG?raw=true)
 # Favorites Screen
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/favoritesWithZero.JPG?raw=true)
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemScreen.JPG?raw=true)
 # Admin Panel
