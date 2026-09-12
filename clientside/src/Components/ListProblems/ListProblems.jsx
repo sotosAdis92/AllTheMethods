@@ -9,7 +9,10 @@ import {
   getProblemsByCategoryOrDifficulty,
   listProblems,
 } from "../../services/ProblemService";
-import { getUserProblemById } from "../../services/UserProblemService";
+import {
+  getCountDistinctProblems,
+  getUserProblemById,
+} from "../../services/UserProblemService";
 import AchievementImage from "../AchievementScreen/AchievementImage";
 import AddToFavoritesStar from "../Favorites/AddToFavoritesStar";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
@@ -27,6 +30,8 @@ const ListProblems = () => {
   const [openFilterBool, setOpenFilterBool] = useState(false);
   const [activeDifficultyFilters, setActiveDifficultyFilters] = useState([]);
   const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
+  const [countAllProblemsSolved, setAllProblemsSolved] = useState(0);
+  const [countAllProblems, setCountAllProblems] = useState(0);
   const { user } = useAuth();
   const userId = user?.id;
   const navigator = useNavigate();
@@ -40,12 +45,29 @@ const ListProblems = () => {
         setProblemDifficultyFilters(response.data);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
+  }
+
+  function getUserProblemCount() {
+    if (userId) {
+      getCountDistinctProblems(userId)
+        .then((response) => {
+          setAllProblemsSolved(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   useEffect(() => {
     getAllProblems();
+  }, []);
+
+  useEffect(() => {
+    getUserProblemCount();
   }, []);
 
   useEffect(() => {
@@ -241,7 +263,9 @@ const ListProblems = () => {
               </div>
             </div>
           )}
-          <div className="solvedOutOfTotal"></div>
+          <div className="solvedOutOfTotal">
+            Solved: {countAllProblemsSolved}
+          </div>
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
