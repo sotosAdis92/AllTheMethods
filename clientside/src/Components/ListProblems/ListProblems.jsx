@@ -166,10 +166,8 @@ const ListProblems = () => {
 
   useEffect(() => {
     if (userId) {
-      console.log(userId);
       getAllUserFavorites(userId)
         .then((response) => {
-          console.log(response.data.content);
           const favMap = {};
           if (Array.isArray(response.data.content)) {
             response.data.content.forEach((fav) => {
