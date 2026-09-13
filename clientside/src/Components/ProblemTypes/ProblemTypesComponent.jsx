@@ -9,9 +9,9 @@ const ProblemCategoriesComponent = ({ problemTypes }) => {
           <div
             className="type"
             key={i}
-            onClick={() => navigator(`/${problemType}`)}
+            onClick={() => navigator(`/problems/types/${problemType}`)}
           >
-            {problemType}
+            <div>{problemType}</div>
           </div>
         ))}
       </div>

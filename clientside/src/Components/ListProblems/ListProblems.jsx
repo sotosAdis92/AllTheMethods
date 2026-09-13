@@ -45,7 +45,6 @@ const ListProblems = () => {
         setProblems(response.data);
         setProblemCategoryFilters(response.data);
         setProblemDifficultyFilters(response.data);
-        setProblemType(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -98,7 +97,7 @@ const ListProblems = () => {
   ];
 
   const problemTypes = [
-    ...new Set(problemType.map((problem) => problem.problemType)),
+    ...new Set(problems.map((problem) => problem.problemType)),
   ];
 
   const handleClickCategoryFilterProblems = (value) => {
@@ -155,11 +154,12 @@ const ListProblems = () => {
   function navigate(id) {
     navigator("/problems/" + id);
   }
-
+  var count = 0;
   useEffect(() => {
     problems.forEach((problem) => {
       getUserProblemById(problem.id)
         .then((response) => {
+          setCountAllProblems(count + 1);
           setIsSolved((previous) => ({
             ...previous,
             [problem.id]: response.data,
@@ -271,9 +271,7 @@ const ListProblems = () => {
               </div>
             </div>
           )}
-          <div className="solvedOutOfTotal">
-            Solved: {countAllProblemsSolved}
-          </div>
+          <div className="solvedOutOfTotal">Solved: {countAllProblems}</div>
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>

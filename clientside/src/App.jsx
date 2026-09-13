@@ -12,6 +12,7 @@ import ListProblems from "./Components/ListProblems/ListProblems";
 import Login from "./Components/LoginSignUp/Login";
 import Signup from "./Components/LoginSignUp/Signup";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
+import ProblemTypePage from "./Components/ProblemTypePage/ProblemTypePage";
 import DetailsPage from "./Components/UserComponents/DetailsPage";
 import MyProfile from "./Components/UserComponents/MyProfile";
 import { AuthProvider } from "./context/AuthContext";
@@ -30,6 +31,10 @@ function App() {
               <Route
                 path="/problems"
                 element={<ListProblems></ListProblems>}
+              ></Route>
+              <Route
+                path="/problems/types/:type"
+                element={<ProblemTypePage></ProblemTypePage>}
               ></Route>
               <Route
                 path="/achievements"
