@@ -5,8 +5,12 @@ const ProblemCategoriesComponent = ({ problemTypes }) => {
   return (
     <div className="problemTypeContainer">
       <div className="problemType">
-        {problemTypes.map((problemType) => (
-          <div className="type" onClick={() => navigator(`/${problemType}`)}>
+        {problemTypes.map((problemType, i) => (
+          <div
+            className="type"
+            key={i}
+            onClick={() => navigator(`/${problemType}`)}
+          >
             {problemType}
           </div>
         ))}

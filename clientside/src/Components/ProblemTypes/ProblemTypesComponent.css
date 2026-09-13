@@ -36,6 +36,11 @@
 .problemType {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
   align-items: start;
+}
+
+.problemTypeContainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
