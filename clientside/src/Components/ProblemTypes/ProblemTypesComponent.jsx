@@ -1,7 +1,7 @@
 const ProblemCategoriesComponent = ({ problemTypes }) => {
   return (
-    <div>
-      <div>{problemTypes}</div>
+    <div className="problemTypeContainer">
+      <div className="problemType">{problemTypes}</div>
     </div>
   );
 };
