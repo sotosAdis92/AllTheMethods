@@ -16,11 +16,13 @@ import {
 import AchievementImage from "../AchievementScreen/AchievementImage";
 import AddToFavoritesStar from "../Favorites/AddToFavoritesStar";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
+import ProblemTypesComponent from "../ProblemTypes/ProblemTypesComponent";
 import BackToTopButton from "../Util/BackToTopButton";
 import "./ListProblems.css";
 
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
+  const [problemType, setProblemType] = useState([]);
   const [allProblems, setAllProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
   const [isFavorite, setIsFavorite] = useState({});
@@ -43,6 +45,7 @@ const ListProblems = () => {
         setProblems(response.data);
         setProblemCategoryFilters(response.data);
         setProblemDifficultyFilters(response.data);
+        setProblemType(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -92,6 +95,10 @@ const ListProblems = () => {
 
   const difficultyFilters = [
     ...new Set(problemDifficultyFilters.map((problem) => problem.difficulty)),
+  ];
+
+  const problemTypes = [
+    ...new Set(problemType.map((problem) => problem.problemType)),
   ];
 
   const handleClickCategoryFilterProblems = (value) => {
@@ -234,6 +241,9 @@ const ListProblems = () => {
     <>
       <div className="problemScreen">
         <h2 className="problemsTitle">List Of Problems</h2>
+        <ProblemTypesComponent
+          problemTypes={problemTypes}
+        ></ProblemTypesComponent>
         <div className="filterContainer">
           <button
             className="openFilterButton tooltip-container"
