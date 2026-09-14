@@ -46,4 +46,7 @@
   width: 60%;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
 }
