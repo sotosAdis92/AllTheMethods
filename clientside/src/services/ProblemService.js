@@ -62,3 +62,10 @@ export const getProblemsCount = async () => {
   const response = await axiosInstance.get(REST_API_BASE_URL + "/count");
   return response;
 };
+
+export const getProblemsByProblemType = async (problemType) => {
+  const response = await axiosInstance.get(
+    REST_API_BASE_URL + "/types/" + problemType,
+  );
+  return response;
+};
