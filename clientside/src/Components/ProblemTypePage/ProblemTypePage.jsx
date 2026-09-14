@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getProblemsByProblemType } from "../../services/ProblemService";
-const ProblemTypePage = (props) => {
+const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
+  const { type } = useParams();
+  console.log(type);
   useEffect(() => {
-    getProblemsByProblemType(props);
+    getProblemsByProblemType(type)
+      .then((response) => {
+        setProblems(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
+
   const listOfProblems = problems.map((problem) => (
-    <div>
-      <div></div>
+    <div key={problem.id}>
+      <div>{problem.title}</div>
     </div>
   ));
 
