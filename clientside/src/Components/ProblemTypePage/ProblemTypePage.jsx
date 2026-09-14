@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-
+import { getProblemsByProblemType } from "../../services/ProblemService";
 const ProblemTypePage = (props) => {
   const [problems, setProblems] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getProblemsByProblemType(props);
+  }, []);
   const listOfProblems = problems.map((problem) => (
     <div>
       <div></div>
