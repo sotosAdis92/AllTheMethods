@@ -14,6 +14,7 @@
     sans-serif;
   cursor: pointer;
   font-size: 15px;
+  text-align: center;
 }
 
 .type:hover {
@@ -36,11 +37,13 @@
 .problemType {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
-  align-items: start;
+  justify-content: flex-start;
 }
 
 .problemTypeContainer {
+  width: 60%;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
