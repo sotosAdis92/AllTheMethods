@@ -111,4 +111,10 @@ public class ProblemServiceImpl implements ProblemService {
     public Page<Problem> getAllProblemsPaged(Pageable pageable){
         return problemRepository.findAll(pageable);
     }
+
+    @Override
+    public List<ProblemResponseDto> getProblemsByProblemType(String problemType) {
+        List<Problem> problems = problemRepository.findProblemsByProblemType(problemType);
+        return problemMapper.toDto(problems);
+    }
 }

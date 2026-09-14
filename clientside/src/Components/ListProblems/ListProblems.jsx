@@ -16,11 +16,13 @@ import {
 import AchievementImage from "../AchievementScreen/AchievementImage";
 import AddToFavoritesStar from "../Favorites/AddToFavoritesStar";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
+import ProblemTypesComponent from "../ProblemTypes/ProblemTypesComponent";
 import BackToTopButton from "../Util/BackToTopButton";
 import "./ListProblems.css";
 
 const ListProblems = () => {
   const [problems, setProblems] = useState([]);
+  const [problemType, setProblemType] = useState([]);
   const [allProblems, setAllProblems] = useState([]);
   const [isSolved, setIsSolved] = useState({});
   const [isFavorite, setIsFavorite] = useState({});
@@ -94,6 +96,10 @@ const ListProblems = () => {
     ...new Set(problemDifficultyFilters.map((problem) => problem.difficulty)),
   ];
 
+  const problemTypes = [
+    ...new Set(problems.map((problem) => problem.problemType)),
+  ];
+
   const handleClickCategoryFilterProblems = (value) => {
     setActiveCategoryFilters((prevActiveFilters) => {
       if (prevActiveFilters.includes(value)) {
@@ -148,11 +154,12 @@ const ListProblems = () => {
   function navigate(id) {
     navigator("/problems/" + id);
   }
-
+  var count = 0;
   useEffect(() => {
     problems.forEach((problem) => {
       getUserProblemById(problem.id)
         .then((response) => {
+          setCountAllProblems(count + 1);
           setIsSolved((previous) => ({
             ...previous,
             [problem.id]: response.data,
@@ -234,6 +241,9 @@ const ListProblems = () => {
     <>
       <div className="problemScreen">
         <h2 className="problemsTitle">List Of Problems</h2>
+        <ProblemTypesComponent
+          problemTypes={problemTypes}
+        ></ProblemTypesComponent>
         <div className="filterContainer">
           <button
             className="openFilterButton tooltip-container"
@@ -261,9 +271,7 @@ const ListProblems = () => {
               </div>
             </div>
           )}
-          <div className="solvedOutOfTotal">
-            Solved: {countAllProblemsSolved}
-          </div>
+          <div className="solvedOutOfTotal">Solved: {countAllProblems}</div>
         </div>
         <ol className="listOfProblems">{listOfProblems}</ol>
       </div>
