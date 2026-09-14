@@ -20,4 +20,5 @@ public interface ProblemService {
     List<ProblemResponseDto> getProblemsByCategoryOrDifficulty(List<String> categories, List<String> difficulties);
     long countAllTheExistingProblems();
     Page<Problem> getAllProblemsPaged(Pageable pageable);
+    List<ProblemResponseDto> getProblemsByProblemType(String problemType);
 }

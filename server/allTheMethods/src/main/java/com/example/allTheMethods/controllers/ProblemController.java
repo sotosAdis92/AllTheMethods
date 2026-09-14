@@ -83,6 +83,12 @@ public class ProblemController {
         return ResponseEntity.ok(count);
     }
 
+    @GetMapping("/types/{type}")
+    public ResponseEntity<List<ProblemResponseDto>> getProblemsByProblemType(@PathVariable("type") String problemType){
+        List<ProblemResponseDto> problemResponseDtos = problemService.getProblemsByProblemType(problemType);
+        return ResponseEntity.ok((problemResponseDtos));
+    }
+
     @GetMapping("/list")
     public ResponseEntity<Page<Problem>> getProblems(
             @RequestParam(required = false, defaultValue = "1") int pageNo,

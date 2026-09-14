@@ -13,7 +13,6 @@ import java.util.List;
 public interface ProblemRepository extends JpaRepository<Problem, Long> {
     List<Problem> findProblemByCategory(String category);
     List<Problem> findProblemByDifficulty(String difficulty);
-
     @Query("SELECT p FROM Problem p WHERE p.category IN (:categories) AND p.difficulty IN (:difficulties)")
     @QueryHints({
             @QueryHint(name = "org.hibernate.readOnly",value = "true"),
@@ -22,9 +21,8 @@ public interface ProblemRepository extends JpaRepository<Problem, Long> {
             @QueryHint(name = "jakarta.persistence.cache.storeMode", value = "USE")
     })
     List<Problem> findProblemsByCategoryOrDifficulty(@Param("categories") List<String> categories, @Param("difficulties") List<String> difficulties);
-
     List<Problem> findProblemsByCategoryIn(@Param("categories") List<String> categories);
     List<Problem> findProblemsByDifficultyIn(@Param("difficulties") List<String> difficulties);
-
+    List<Problem> findProblemsByProblemType(@Param("problemType") String problemType);
     long count();
 }
