@@ -23,6 +23,10 @@ const ProblemTypePage = () => {
 
   return (
     <div>
+      <div>
+        <img></img>
+        <h2>{type}</h2>
+      </div>
       <div>{listOfProblems}</div>
     </div>
   );
