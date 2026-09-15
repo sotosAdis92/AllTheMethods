@@ -42,7 +42,7 @@ const ProblemTypePage = () => {
   ));
 
   return (
-    <div>
+    <div className="typesProblemsPageContainer">
       <div className="viewTypes">
         <div className="typeTitle">
           <div className="imageContainer">
