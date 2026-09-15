@@ -30,9 +30,16 @@ const ProblemTypePage = () => {
 
   return (
     <div>
-      <div className="typeTitle">
-        <img></img>
-        <h2 className="text">{type}</h2>
+      <div className="viewTypes">
+        <div className="typeTitle">
+          <div className="imageContainer">
+            <img className="typeImage"></img>
+          </div>
+          <div className="text">{type}</div>
+        </div>
+        <div className="subtitleText">
+          AllTheMethods {} count {} favorites
+        </div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
     </div>
