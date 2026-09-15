@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProblemsByProblemType } from "../../services/ProblemService";
+import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
+import "./ProblemTypePage.css";
 const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
   const { type } = useParams();
@@ -9,6 +11,7 @@ const ProblemTypePage = () => {
     getProblemsByProblemType(type)
       .then((response) => {
         setProblems(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -16,18 +19,29 @@ const ProblemTypePage = () => {
   }, []);
 
   const listOfProblems = problems.map((problem) => (
-    <div key={problem.id}>
-      <div>{problem.title}</div>
+    <div key={problem.id} className="problemWithButtons">
+      <div>
+        {problem.number}. {problem.title}
+      </div>
+      <ProblemDifficulty difficulty={problem.difficulty}></ProblemDifficulty>
+      <div>{problem.points} pts</div>
     </div>
   ));
 
   return (
     <div>
-      <div>
-        <img></img>
-        <h2>{type}</h2>
+      <div className="viewTypes">
+        <div className="typeTitle">
+          <div className="imageContainer">
+            <img className="typeImage"></img>
+          </div>
+          <div className="text">{type}</div>
+        </div>
+        <div className="subtitleText">AllTheMethods · count · favorites</div>
+        <hr className="line"></hr>
+        <div className="progress">Progress</div>
       </div>
-      <div>{listOfProblems}</div>
+      <div className="problemsList">{listOfProblems}</div>
     </div>
   );
 };
