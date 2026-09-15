@@ -62,11 +62,19 @@
 }
 
 .problemsList {
-  width: 60%;
+  width: 40%;
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 0;
   margin-left: 0;
+}
+
+.line {
+  height: 1px;
+  background-color: #000;
+  opacity: 0.11;
+  border: none;
+  transform: scaleY(1);
 }
