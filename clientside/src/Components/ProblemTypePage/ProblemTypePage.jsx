@@ -23,7 +23,7 @@ const ProblemTypePage = () => {
     <div className="problemWithButtons" key={problem.id}>
       <div
         className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
-        onClick={() => navigate(problem.id)}
+        onClick={() => navigate("/problems/" + problem.id)}
       >
         <a className="problemLink">
           <div className="problemDetails">
