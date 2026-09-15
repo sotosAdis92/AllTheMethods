@@ -60,3 +60,13 @@
     "Helvetica Neue",
     sans-serif;
 }
+
+.problemsList {
+  width: 60%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  margin-left: 0;
+}

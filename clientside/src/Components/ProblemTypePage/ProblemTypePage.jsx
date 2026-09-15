@@ -19,7 +19,7 @@ const ProblemTypePage = () => {
   }, []);
 
   const listOfProblems = problems.map((problem) => (
-    <div key={problem.id}>
+    <div key={problem.id} className="problemWithButtons">
       <div>
         {problem.number}. {problem.title}
       </div>
