@@ -37,9 +37,8 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">
-          AllTheMethods {} count {} favorites
-        </div>
+        <div className="subtitleText">AllTheMethods · count · favorites</div>
+        <div className="progress">Progress</div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
     </div>
