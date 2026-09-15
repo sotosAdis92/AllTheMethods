@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProblemsByProblemType } from "../../services/ProblemService";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./ProblemTypePage.css";
 const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
   const { type } = useParams();
+  const navigate = useNavigate();
   console.log(type);
   useEffect(() => {
     getProblemsByProblemType(type)
@@ -18,13 +19,25 @@ const ProblemTypePage = () => {
       });
   }, []);
 
-  const listOfProblems = problems.map((problem) => (
-    <div key={problem.id} className="problemWithButtons">
-      <div>
-        {problem.number}. {problem.title}
+  const listOfProblems = problems.map((problem, i) => (
+    <div className="problemWithButtons" key={problem.id}>
+      <div
+        className={i % 2 !== 0 ? "problemOdd" : "problemItem"}
+        onClick={() => navigate(problem.id)}
+      >
+        <a className="problemLink">
+          <div className="problemDetails">
+            <div className="numberAndTitle">
+              {problem.number}. {problem.title}
+            </div>
+            <ProblemDifficulty
+              difficulty={problem.difficulty}
+            ></ProblemDifficulty>
+            <div className="pointsOfProblem">{problem.points}pts.</div>
+          </div>
+        </a>
       </div>
-      <ProblemDifficulty difficulty={problem.difficulty}></ProblemDifficulty>
-      <div>{problem.points} pts</div>
+      <div></div>
     </div>
   ));
 
