@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img2 from "../../assets/5110770.png";
 import img from "../../assets/check.png";
@@ -87,6 +87,18 @@ const ListProblems = () => {
       console.log(error);
     }
   };
+
+  const typeCount = useMemo(() => {
+    const countOfType = {};
+    for (const problem of allProblems) {
+      const type = problem.problemType;
+      if (countOfType[type] === undefined) {
+        countOfType[type] = 0;
+      }
+      countOfType[type] = countOfType[type] + 1;
+    }
+    return countOfType;
+  }, [allProblems]);
 
   const categoryFilters = [
     ...new Set(problemCategoryFilters.map((problem) => problem.category)),
@@ -243,6 +255,7 @@ const ListProblems = () => {
         <h2 className="problemsTitle">List Of Problems</h2>
         <ProblemTypesComponent
           problemTypes={problemTypes}
+          typeCount={typeCount}
         ></ProblemTypesComponent>
         <div className="filterContainer">
           <button
