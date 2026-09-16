@@ -48,7 +48,7 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">AllTheMethods ·</div>
+        <div className="subtitleText">AllTheMethods</div>
         <hr className="line"></hr>
       </div>
       <div className="problemsList">{listOfProblems}</div>
