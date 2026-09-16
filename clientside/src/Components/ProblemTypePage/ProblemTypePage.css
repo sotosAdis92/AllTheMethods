@@ -62,7 +62,7 @@
 }
 
 .problemsList {
-  width: 40%;
+  width: 35%;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -84,4 +84,5 @@
   gap: 40px;
   width: 100%;
   justify-content: center;
+  margin-top: 2rem;
 }

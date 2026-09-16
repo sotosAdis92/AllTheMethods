@@ -7,12 +7,10 @@ const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
   const { type } = useParams();
   const navigate = useNavigate();
-  console.log(type);
   useEffect(() => {
     getProblemsByProblemType(type)
       .then((response) => {
         setProblems(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -50,9 +48,8 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">AllTheMethods · count</div>
+        <div className="subtitleText">AllTheMethods ·</div>
         <hr className="line"></hr>
-        <div className="progress">Progress</div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
     </div>

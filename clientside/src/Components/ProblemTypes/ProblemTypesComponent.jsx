@@ -13,7 +13,7 @@ const ProblemCategoriesComponent = ({ problemTypes }) => {
           >
             <div className="typeText">
               <div className="typeType">{problemType}</div>
-              <div className="typeNumber">100</div>
+              <div className="typeNumber"></div>
             </div>
           </div>
         ))}
