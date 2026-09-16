@@ -16,6 +16,10 @@
   font-size: 15px;
   text-align: center;
 }
+.typeText {
+  display: flex;
+  gap: 10px;
+}
 
 .type:hover {
   display: flex;
@@ -38,8 +42,21 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 35px;
   justify-content: flex-start;
+}
+
+.typeNumber {
+  border-radius: 10px;
+  padding: 2px;
+  background-color: #f3f3f3;
+  font-size: 14px;
+  color: #707070;
+}
+
+.type:hover .typeNumber {
+  background-color: #e6f4ff;
+  color: #0095ff;
 }
 
 .problemTypeContainer {

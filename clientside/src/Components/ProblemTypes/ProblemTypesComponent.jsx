@@ -11,7 +11,10 @@ const ProblemCategoriesComponent = ({ problemTypes }) => {
             key={i}
             onClick={() => navigator(`/problems/types/${problemType}`)}
           >
-            <div>{problemType}</div>
+            <div className="typeText">
+              <div className="typeType">{problemType}</div>
+              <div className="typeNumber">100</div>
+            </div>
           </div>
         ))}
       </div>
