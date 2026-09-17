@@ -13,8 +13,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-
 import java.util.List;
 
 @Repository
@@ -41,4 +39,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     @Query("SELECT COALESCE(COUNT(DISTINCT up.problem.id), 0),COALESCE(COUNT(s), 0),COALESCE(CASE WHEN COUNT(s) = 0 OR COUNT(DISTINCT up.problem.id) = 0 THEN 0.0 ELSE 100.0 * COUNT(DISTINCT up.problem.id) / COUNT(s) END, 0.0) FROM Submission s LEFT JOIN UserProblem up ON s.user.id = up.user.id AND s.problem.id = up.problem.id WHERE s.user.id = ?1")
     @QueryHints({@QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint( name= "org.hibernate.cacheable",value = "true")})
     SummaryResponseDto countSummeryOfUser(@Param("userId") Long userId);
+
+    @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 WHERE p.problemType LIKE ?2 GROUP BY p.difficulty")
+    UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
 }

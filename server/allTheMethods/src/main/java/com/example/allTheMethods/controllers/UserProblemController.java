@@ -72,4 +72,11 @@ public class UserProblemController {
         return ResponseEntity.ok(summery);
     }
 
+    @GetMapping("/type/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
+    public ResponseEntity<UserProblemStatsResponseDto> countProblemsSolvedByUserAndType(@PathVariable("id") int id,@RequestParam(name = "type") String type){
+        System.out.println(type);
+        UserProblemStatsResponseDto userProblemStatsResponseDto = userProblemService.countProblemsByUserAndTypeAndDifficulty(id,type);
+        return ResponseEntity.ok(userProblemStatsResponseDto);
+    }
 }

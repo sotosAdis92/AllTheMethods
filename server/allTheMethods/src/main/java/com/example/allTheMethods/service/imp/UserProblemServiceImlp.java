@@ -111,5 +111,16 @@ public class UserProblemServiceImlp implements UserProblemService {
         return summaryResponseDto;
     }
 
+    @Override
+    public UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(int id, String type) {
+        Users user = jwtUtil.getLoggedInUser();
+        UserProblemStatsResponseDto difficultyStatsResponse = new UserProblemStatsResponseDto("",0L,0L);
+        if(user!=null){
+            difficultyStatsResponse = userProblemsRepository.countProblemsByUserAndTypeAndDifficulty((long) id, type);
+            System.out.println(difficultyStatsResponse);
+        }
+        return difficultyStatsResponse;
+    }
+
 
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./ProblemTypesComponent.css";
-const ProblemCategoriesComponent = ({ problemTypes }) => {
+const ProblemCategoriesComponent = ({ problemTypes, typeCount }) => {
   const navigator = useNavigate();
   return (
     <div className="problemTypeContainer">
@@ -9,9 +9,12 @@ const ProblemCategoriesComponent = ({ problemTypes }) => {
           <div
             className="type"
             key={i}
-            onClick={() => navigator(`/problems/types/${problemType}`)}
+            onClick={() => navigator(`/problems/types/${problemType}`, {})}
           >
-            <div>{problemType}</div>
+            <div className="typeText">
+              <div className="typeType">{problemType}</div>
+              <div className="typeNumber">{typeCount[problemType]}</div>
+            </div>
           </div>
         ))}
       </div>
