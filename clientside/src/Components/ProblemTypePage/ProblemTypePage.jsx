@@ -39,7 +39,7 @@ const ProblemTypePage = () => {
 
   const listOfUserData = countDistinct.map((item, i) => {
     return (
-      <div key={i} className="containerOfListOfUser">
+      <div key={i} className="containerTypesSolved">
         <ProblemDifficulty
           difficulty={item.difficulty}
           className="problemDiff"
@@ -85,7 +85,7 @@ const ProblemTypePage = () => {
         <div className="subtitleText">AllTheMethods</div>
         <hr className="line"></hr>
         <div className="progressText">Progress</div>
-        <div className="listOfUserData">{listOfUserData}</div>
+        <div className="listOfUserDataTypes">{listOfUserData}</div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
     </div>
