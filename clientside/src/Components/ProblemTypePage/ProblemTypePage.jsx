@@ -13,6 +13,7 @@ const ProblemTypePage = () => {
   const userId = user?.id;
   console.log(userId);
   const navigate = useNavigate();
+  var counter = 0;
 
   useEffect(() => {
     getProblemsByProblemType(type)
@@ -82,7 +83,7 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">AllTheMethods</div>
+        <div className="subtitleText">AllTheMethods {counter}</div>
         <hr className="line"></hr>
         <div className="progressText">Progress</div>
         <div className="listOfUserDataTypes">{listOfUserData}</div>

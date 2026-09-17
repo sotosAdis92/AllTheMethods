@@ -9,7 +9,7 @@ const ProblemCategoriesComponent = ({ problemTypes, typeCount }) => {
           <div
             className="type"
             key={i}
-            onClick={() => navigator(`/problems/types/${problemType}`)}
+            onClick={() => navigator(`/problems/types/${problemType}`, {})}
           >
             <div className="typeText">
               <div className="typeType">{problemType}</div>
