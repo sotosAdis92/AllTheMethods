@@ -40,6 +40,6 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     @QueryHints({@QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint( name= "org.hibernate.cacheable",value = "true")})
     SummaryResponseDto countSummeryOfUser(@Param("userId") Long userId);
 
-    @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 WHERE p.problemType = ?2 GROUP BY p.difficulty")
+    @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 WHERE p.problemType LIKE ?2 GROUP BY p.difficulty")
     UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
 }
