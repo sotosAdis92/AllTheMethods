@@ -7,6 +7,7 @@ const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
   const { type } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     getProblemsByProblemType(type)
       .then((response) => {

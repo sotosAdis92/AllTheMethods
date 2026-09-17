@@ -58,3 +58,12 @@ export const getUserProblemSummaryReport = async (id) => {
   );
   return response;
 };
+
+export const getUserProblemBySolvedType = async (id, type) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/type/" + id, {
+    params: {
+      type: type,
+    },
+  });
+  return response;
+};
