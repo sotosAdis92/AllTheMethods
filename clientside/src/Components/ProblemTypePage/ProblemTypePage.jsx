@@ -44,7 +44,7 @@ const ProblemTypePage = () => {
           difficulty={item.difficulty}
           className="problemDiff"
         ></ProblemDifficulty>
-        <div className="">
+        <div className="numbersTypes">
           {item.countDistinct}/{item.countDifficulty}
         </div>
       </div>
