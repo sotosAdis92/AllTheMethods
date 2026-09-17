@@ -70,6 +70,7 @@ const ProgressChart = (props) => {
   const distinctLabels = countDistinct.map((item) => item.difficulty);
   const distinctGeneralData = countDistinct.map((item) => item.countDifficulty);
   const distinctUserData = countDistinct.map((item) => item.countDistinct);
+
   const listOfUserData = countDistinct.map((item, i) => {
     return (
       <div key={i} className="containerOfListOfUser">

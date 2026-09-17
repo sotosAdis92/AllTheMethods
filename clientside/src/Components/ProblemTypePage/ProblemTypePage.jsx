@@ -17,7 +17,6 @@ const ProblemTypePage = () => {
   useEffect(() => {
     getProblemsByProblemType(type)
       .then((response) => {
-        setCountDistinct(response.data);
         setProblems(response.data);
       })
       .catch((error) => {
@@ -30,6 +29,7 @@ const ProblemTypePage = () => {
       getUserProblemBySolvedType(userId, type)
         .then((response) => {
           console.log(response.data);
+          setCountDistinct([response.data]);
         })
         .catch((error) => {
           console.log(error);
@@ -44,7 +44,7 @@ const ProblemTypePage = () => {
           difficulty={item.difficulty}
           className="problemDiff"
         ></ProblemDifficulty>
-        <div className="numbers">
+        <div className="">
           {item.countDistinct}/{item.countDifficulty}
         </div>
       </div>
@@ -84,6 +84,7 @@ const ProblemTypePage = () => {
         </div>
         <div className="subtitleText">AllTheMethods</div>
         <hr className="line"></hr>
+        <div className="progressText">Progress</div>
         <div className="listOfUserData">{listOfUserData}</div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
