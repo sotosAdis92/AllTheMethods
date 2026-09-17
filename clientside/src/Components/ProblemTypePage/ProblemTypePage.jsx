@@ -1,22 +1,55 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import { getProblemsByProblemType } from "../../services/ProblemService";
+import { getUserProblemBySolvedType } from "../../services/UserProblemService";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
 import "./ProblemTypePage.css";
 const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
+  const [countDistinct, setCountDistinct] = useState([]);
   const { type } = useParams();
+  const { user } = useAuth();
+  const userId = user?.id;
+  console.log(userId);
   const navigate = useNavigate();
 
   useEffect(() => {
     getProblemsByProblemType(type)
       .then((response) => {
+        setCountDistinct(response.data);
         setProblems(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    if (userId) {
+      getUserProblemBySolvedType(userId, type)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [userId, type]);
+
+  const listOfUserData = countDistinct.map((item, i) => {
+    return (
+      <div key={i} className="containerOfListOfUser">
+        <ProblemDifficulty
+          difficulty={item.difficulty}
+          className="problemDiff"
+        ></ProblemDifficulty>
+        <div className="numbers">
+          {item.countDistinct}/{item.countDifficulty}
+        </div>
+      </div>
+    );
+  });
 
   const listOfProblems = problems.map((problem, i) => (
     <div className="problemWithButtons" key={problem.id}>
@@ -51,6 +84,7 @@ const ProblemTypePage = () => {
         </div>
         <div className="subtitleText">AllTheMethods</div>
         <hr className="line"></hr>
+        <div className="listOfUserData">{listOfUserData}</div>
       </div>
       <div className="problemsList">{listOfProblems}</div>
     </div>
