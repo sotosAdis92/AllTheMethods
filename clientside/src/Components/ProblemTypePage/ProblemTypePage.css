@@ -71,12 +71,17 @@
   margin-left: 0;
 }
 
+.subtitleText {
+  color: #727579;
+}
+
 .line {
   height: 1px;
   background-color: #000;
   opacity: 0.11;
   border: none;
   transform: scaleY(1);
+  margin-top: 10px;
 }
 
 .typesProblemsPageContainer {
