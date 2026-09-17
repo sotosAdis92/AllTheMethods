@@ -130,14 +130,18 @@
 }
 
 .containerTypesSolved {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   background-color: #f7f7f7;
   border-radius: 5px;
   font-weight: 500;
   padding: 7px 20px;
   margin-top: 1rem;
-  align-items: center;
-  justify-content: center;
   width: 30%;
+  margin: 1rem auto 0;
 }
 
 .numbersTypes {
