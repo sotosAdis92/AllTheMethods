@@ -38,6 +38,13 @@ const ProblemTypePage = () => {
     }
   }, [userId, type]);
 
+  const setCounter = (problems, counter) => {
+    for (var i = 0; i < problems.length; i++) {
+      counter++;
+    }
+    return counter;
+  };
+
   const listOfUserData = countDistinct.map((item, i) => {
     return (
       <div key={i} className="containerTypesSolved">
@@ -83,7 +90,9 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">AllTheMethods {counter}</div>
+        <div className="subtitleText">
+          AllTheMethods · {setCounter(problems, counter)}
+        </div>
         <hr className="line"></hr>
         <div className="progressText">Progress</div>
         <div className="listOfUserDataTypes">{listOfUserData}</div>
