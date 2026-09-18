@@ -13,7 +13,6 @@ const ProblemTypePage = () => {
   const userId = user?.id;
   console.log(userId);
   const navigate = useNavigate();
-  var counter = 0;
 
   useEffect(() => {
     getProblemsByProblemType(type)
@@ -37,13 +36,6 @@ const ProblemTypePage = () => {
         });
     }
   }, [userId, type]);
-
-  const setCounter = (problems, counter) => {
-    for (var i = 0; i < problems.length; i++) {
-      counter++;
-    }
-    return counter;
-  };
 
   const listOfUserData = countDistinct.map((item, i) => {
     return (
@@ -90,9 +82,7 @@ const ProblemTypePage = () => {
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">
-          AllTheMethods · {setCounter(problems, counter)}
-        </div>
+        <div className="subtitleText">AllTheMethods · {problems.length}</div>
         <hr className="line"></hr>
         <div className="progressText">Progress</div>
         <div className="listOfUserDataTypes">{listOfUserData}</div>
