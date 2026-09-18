@@ -125,7 +125,7 @@
     sans-serif;
   font-weight: 600;
   display: flex;
-  width: 100%; /* was 60% in ProgressChart — adjust as needed */
+  width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
