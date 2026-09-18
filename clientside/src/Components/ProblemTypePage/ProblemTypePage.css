@@ -63,6 +63,13 @@
   color: #000000;
 }
 
+.imageType {
+  border-radius: 14px;
+  border: 1px solid rgb(190, 190, 190);
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
 .problemsList {
   width: 35%;
   list-style: none;
