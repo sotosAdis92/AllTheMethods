@@ -59,6 +59,15 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+
+.imageType {
+  border-radius: 14px;
+  border: 1px solid rgb(190, 190, 190);
+  width: 80px;
+  margin-bottom: 1rem;
 }
 
 .problemsList {
@@ -69,10 +78,6 @@
   align-items: flex-start;
   padding-left: 0;
   margin-left: 0;
-}
-
-.subtitleText {
-  color: #727579;
 }
 
 .line {
@@ -93,7 +98,7 @@
 }
 
 .progressText {
-  color: #606162;
+  color: #040404;
   font-weight: 500;
   margin-top: 10px;
   font-family:
@@ -125,7 +130,7 @@
     sans-serif;
   font-weight: 600;
   display: flex;
-  width: 100%; /* was 60% in ProgressChart — adjust as needed */
+  width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -142,7 +147,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 100%;
   padding: 5px 20px;
   gap: 0;
   border-radius: 6px;

@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { getProblemsByProblemType } from "../../services/ProblemService";
 import { getUserProblemBySolvedType } from "../../services/UserProblemService";
 import ProblemDifficulty from "../ProblemDifficulty/ProblemDifficulty";
+import ProblemTypeImage from "../ProblemTypeImage/ProblemTypeImage";
 import "./ProblemTypePage.css";
 const ProblemTypePage = () => {
   const [problems, setProblems] = useState([]);
@@ -13,7 +14,6 @@ const ProblemTypePage = () => {
   const userId = user?.id;
   console.log(userId);
   const navigate = useNavigate();
-  var counter = 0;
 
   useEffect(() => {
     getProblemsByProblemType(type)
@@ -79,11 +79,11 @@ const ProblemTypePage = () => {
       <div className="viewTypes">
         <div className="typeTitle">
           <div className="imageContainer">
-            <img className="typeImage"></img>
+            <ProblemTypeImage type={type}></ProblemTypeImage>
           </div>
           <div className="text">{type}</div>
         </div>
-        <div className="subtitleText">AllTheMethods {counter}</div>
+        <div className="subtitleText">AllTheMethods · {problems.length}</div>
         <hr className="line"></hr>
         <div className="progressText">Progress</div>
         <div className="listOfUserDataTypes">{listOfUserData}</div>
