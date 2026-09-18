@@ -59,6 +59,8 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  font-size: 14px;
+  color: #000000;
 }
 
 .problemsList {
@@ -69,10 +71,6 @@
   align-items: flex-start;
   padding-left: 0;
   margin-left: 0;
-}
-
-.subtitleText {
-  color: #727579;
 }
 
 .line {
