@@ -3,6 +3,7 @@ import circles from "../../assets/circles.png";
 import deuler from "../../assets/deuler.png";
 import fivepoint from "../../assets/fivepoint.png";
 import simpson from "../../assets/simpson.png";
+import threepoint from "../../assets/threepoint.png";
 import trapezodial from "../../assets/trapezodial.png";
 const ProblemTypeImage = (props) => {
   if (props.type === "Bisection") {
@@ -17,6 +18,8 @@ const ProblemTypeImage = (props) => {
     return <img src={simpson} className="imageType"></img>;
   } else if (props.type === "Five-Point-Derivative") {
     return <img src={fivepoint} className="imageType"></img>;
+  } else if (props.type === "Three-Point-Derivative") {
+    return <img src={threepoint} className="imageType"></img>;
   }
 };
 export default ProblemTypeImage;
