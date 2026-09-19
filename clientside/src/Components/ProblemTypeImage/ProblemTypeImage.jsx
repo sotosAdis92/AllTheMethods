@@ -26,6 +26,16 @@ const ProblemTypeImage = (props) => {
     return <img src={newtonraphson} className="imageType"></img>;
   } else if (props.type === "Richardson") {
     return <img src={richardson} className="imageType"></img>;
+  } else if (props.type === "Diakriti-Newton-Raphson") {
+    return <img src={richardson} className="imageType"></img>;
+  } else if (props.type === "Regula-Falsi") {
+    return <img src={richardson} className="imageType"></img>;
+  } else if (props.type === "Improved-Euler") {
+    return <img src={richardson} className="imageType"></img>;
+  } else if (props.type === "Runge-Kutta") {
+    return <img src={richardson} className="imageType"></img>;
+  } else if (props.type === "Fixed-Point") {
+    return <img src={richardson} className="imageType"></img>;
   }
 };
 export default ProblemTypeImage;
