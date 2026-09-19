@@ -242,9 +242,10 @@ const ProblemComponent = () => {
           {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
         </div>
         <div className="row">
+          <span className="rowText">Problem Title</span>
           <TextField
             type="text"
-            placeholder="Enter Problem title"
+            placeholder="i.e: Bisection I"
             name="title"
             value={title}
             id={"outlined"}
@@ -255,9 +256,10 @@ const ProblemComponent = () => {
         </div>
 
         <div className="row">
+          <span className="rowText">Problem String</span>
           <TextField
             type="text"
-            placeholder="Enter Problem"
+            placeholder="i.e: x^2 - 2"
             name="problemString"
             value={problemString}
             id={"outlined"}
@@ -318,9 +320,10 @@ const ProblemComponent = () => {
           {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
         </div>
         <div className="row">
+          <span className="rowText">Problem Description</span>
           <TextField
             type="text"
-            placeholder="Enter Problem description"
+            placeholder="Enter Problem description i.e: Given the following..."
             name="description"
             value={description}
             onChange={handleDescription}
@@ -331,9 +334,10 @@ const ProblemComponent = () => {
         </div>
 
         <div className="row">
+          <span className="rowText">Problem Type</span>
           <TextField
             type="text"
-            placeholder="Enter Problem Type"
+            placeholder="i.e Simpson"
             name="problemType"
             value={problemType}
             onChange={handleProblemType}
@@ -343,9 +347,10 @@ const ProblemComponent = () => {
           ></TextField>
         </div>
         <div className="row">
+          <span className="rowText">Function String</span>
           <TextField
             type="text"
-            placeholder="Enter Function String"
+            placeholder="i.e in Latex: x^2-2"
             name="functionString"
             value={functionString}
             onChange={handleFunctionString}
@@ -355,9 +360,10 @@ const ProblemComponent = () => {
           ></TextField>
         </div>
         <div className="row">
+          <span className="rowText">Problem Data</span>
           <TextField
             type="text"
-            placeholder="Enter Problem Data"
+            placeholder="i.e {iterations:2}"
             name="problemData"
             value={problemData}
             onChange={handleProblemData}
