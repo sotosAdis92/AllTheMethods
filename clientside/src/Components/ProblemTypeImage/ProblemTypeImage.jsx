@@ -2,6 +2,7 @@ import bisection from "../../assets/bisection.png";
 import circles from "../../assets/circles.png";
 import deuler from "../../assets/deuler.png";
 import fivepoint from "../../assets/fivepoint.png";
+import newtonraphson from "../../assets/newtonraphson.png";
 import simpson from "../../assets/simpson.png";
 import threepoint from "../../assets/threepoint.png";
 import trapezodial from "../../assets/trapezodial.png";
@@ -20,6 +21,8 @@ const ProblemTypeImage = (props) => {
     return <img src={fivepoint} className="imageType"></img>;
   } else if (props.type === "Three-Point-Derivative") {
     return <img src={threepoint} className="imageType"></img>;
+  } else if (props.type === "Newton-Raphson") {
+    return <img src={newtonraphson} className="imageType"></img>;
   }
 };
 export default ProblemTypeImage;
