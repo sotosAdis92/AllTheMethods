@@ -244,7 +244,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem title"
+            placeholder="Enter Problem title i.e: Bisection I"
             name="title"
             value={title}
             id={"outlined"}
@@ -257,7 +257,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem"
+            placeholder="Enter Problem String i.e: x^2 - 2"
             name="problemString"
             value={problemString}
             id={"outlined"}
@@ -320,7 +320,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem description"
+            placeholder="Enter Problem description i.e: Given the following..."
             name="description"
             value={description}
             onChange={handleDescription}
@@ -333,7 +333,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem Type"
+            placeholder="Enter Problem Type i.e Simpson"
             name="problemType"
             value={problemType}
             onChange={handleProblemType}
@@ -345,7 +345,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Function String"
+            placeholder="Enter Function String i.e in Latex: x^2-2"
             name="functionString"
             value={functionString}
             onChange={handleFunctionString}
@@ -357,7 +357,7 @@ const ProblemComponent = () => {
         <div className="row">
           <TextField
             type="text"
-            placeholder="Enter Problem Data"
+            placeholder="Enter Problem Data i.e: JSON field {iterations:2}"
             name="problemData"
             value={problemData}
             onChange={handleProblemData}
