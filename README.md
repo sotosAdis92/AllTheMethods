@@ -144,43 +144,43 @@ spring-react/
 # Screenshots of the App (Some changes may be made in later versions)
 ---
 # About Page
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/aboutAllTheMethods.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/aboutAllTheMethods.JPG?raw=true)
 # Problems List
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemsList.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemsList.JPG?raw=true)
 # Achievement List
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/achievementList.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/achievementList.JPG?raw=true)
 # Profile
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile1.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile1.JPG?raw=true)
 # Profile
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile2.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile2.JPG?raw=true)
 # Profile
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/profile3.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile3.JPG?raw=true)
 # Favorites Screen
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/favorites.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favorites.JPG?raw=true)
 # Favorites Screen
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/favoritesWithZero.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favoritesWithZero.JPG?raw=true)
 # Problem Screen Example
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/problemScreen.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreen.JPG?raw=true)
 # Problem Type Screen Example
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/typeScreenExample1.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/typeScreenExample1.JPG?raw=true)
 # Admin Panel
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/adminProblems.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/adminProblems.JPG?raw=true)
 # Admin Panel
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin2.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin2.JPG?raw=true)
 # Admin Panel
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin3.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin3.JPG?raw=true)
 # Admin Panel
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/admin4.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin4.JPG?raw=true)
 # Add Achievement Page
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addachievement.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addachievement.JPG?raw=true)
 # Add Problem Page
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/addproblem.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addproblem.JPG?raw=true)
 # Edit Profile Page
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/editProfile.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/editProfile.JPG?raw=true)
 # Login
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/login.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/login.JPG?raw=true)
 # Singup
-![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screeshots/singup.JPG?raw=true)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/singup.JPG?raw=true)
 ---
 # License
 
