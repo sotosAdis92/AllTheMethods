@@ -110,6 +110,7 @@ const Header = () => {
               </li>
             )}
           </ul>
+
           <div className="userAndLogout">
             <ToggleTheme></ToggleTheme>
             <div className="usersDisplay">

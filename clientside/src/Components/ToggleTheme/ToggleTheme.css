@@ -39,3 +39,10 @@
 #themeswitchcheckbox:checked + .label .ball {
   transform: translateX(14px);
 }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}

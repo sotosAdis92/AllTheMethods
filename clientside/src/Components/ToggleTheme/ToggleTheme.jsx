@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ToggleTheme.css";
 const ToggleTheme = () => {
   return (
-    <div>
+    <div className="toggle">
       <input type="checkbox" id="themeswitchcheckbox"></input>
       <label htmlFor="themeswitchcheckbox" className="label">
         <FontAwesomeIcon
