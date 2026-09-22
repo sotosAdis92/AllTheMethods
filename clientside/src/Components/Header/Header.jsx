@@ -7,6 +7,7 @@ import img2 from "../../assets/door.png";
 import img1 from "../../assets/logo.JPG";
 import { isTokenValid, removeToken } from "../../environment/common";
 import { getUser } from "../../services/UsersService";
+import ToggleTheme from "../ToggleTheme/ToggleTheme.jsx";
 import "./Header.css";
 const Header = () => {
   const navigate = useNavigate();
@@ -110,6 +111,7 @@ const Header = () => {
             )}
           </ul>
           <div className="userAndLogout">
+            <ToggleTheme></ToggleTheme>
             <div className="usersDisplay">
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
               {displayName}
