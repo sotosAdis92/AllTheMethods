@@ -169,6 +169,7 @@ const AchievementComponent = () => {
       {pageTitle()}
       <div className="achievement-card">
         <div className="achievement-row">
+          <span className="rowText">Achievement Name</span>
           <TextField
             onChange={handleName}
             value={name}
@@ -181,6 +182,7 @@ const AchievementComponent = () => {
           ></TextField>
         </div>
         <div className="achievement-row">
+          <span className="rowText">Achievement Description</span>
           <TextField
             onChange={handleDescription}
             value={description}
@@ -234,7 +236,7 @@ const AchievementComponent = () => {
           </FormControl>
         </div>
         <div className="achievement-row">
-          <h4>Achievement Counter</h4>
+          <span className="rowText">Achievement Points Counter</span>
           <Button type="button" variant="contained" onClick={handleCounterInc}>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
           </Button>
