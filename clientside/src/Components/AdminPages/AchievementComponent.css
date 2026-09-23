@@ -66,3 +66,10 @@
   margin-left: 0 !important;
   margin-top: 4px !important;
 }
+
+.rowText {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 2px;
+  color: #2c3e50;
+}
