@@ -2,7 +2,6 @@ import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ToggleTheme.css";
 const ToggleTheme = () => {
-  const setDarkMode = () => {};
   return (
     <div className="toggle">
       <input type="checkbox" id="themeswitchcheckbox"></input>
