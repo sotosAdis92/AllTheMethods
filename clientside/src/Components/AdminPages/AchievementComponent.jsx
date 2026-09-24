@@ -174,7 +174,7 @@ const AchievementComponent = () => {
             onChange={handleName}
             value={name}
             type="text"
-            placeholder="Enter Achievement name"
+            placeholder="i.e: Roots Rookie I"
             id={"outlined"}
             name="name"
             error={errors.name}
@@ -187,7 +187,7 @@ const AchievementComponent = () => {
             onChange={handleDescription}
             value={description}
             type="text"
-            placeholder="Enter Achievement description"
+            placeholder="i.e: Solved X problems in the category Y"
             id={"outlined"}
             name="name"
             error={errors.description}
