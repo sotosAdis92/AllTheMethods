@@ -1,5 +1,5 @@
 import axiosInstance from "../environment/axiosinstance";
-const REST_API_BASE_URL = "/api/favourites";
+const REST_API_BASE_URL = "/api/v1/favourites";
 
 export const saveToFavorites = async (favourite) => {
   const response = await axiosInstance.post(REST_API_BASE_URL, favourite);
