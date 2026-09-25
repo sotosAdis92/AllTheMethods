@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/user/achievements")
+@RequestMapping("/api/v1/user/achievements")
 @CrossOrigin("*")
 public class UserAchievementsController {
     private final UserAchievementService userAchievementService;

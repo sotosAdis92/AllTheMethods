@@ -19,7 +19,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/problems")
+@RequestMapping("/api/v1/problems")
 public class ProblemController {
     private ProblemService problemService;
     public ProblemController(ProblemService problemService) {
