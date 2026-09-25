@@ -1,5 +1,5 @@
 import axiosInstance from "../environment/axiosinstance";
-const REST_API_BASE_URL = "/api/user/problems";
+const REST_API_BASE_URL = "/api/v1/user/problems";
 
 export const saveSolvedProblem = async (problemInfo) => {
   const response = await axiosInstance.post(

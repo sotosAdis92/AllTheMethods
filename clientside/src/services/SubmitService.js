@@ -1,5 +1,5 @@
 import axiosInstance from "../environment/axiosinstance";
-const REST_API_BASE_URL = "/api/submissions";
+const REST_API_BASE_URL = "/api/v1/submissions";
 
 export const saveSubmission = async (submission) => {
   const response = await axiosInstance.post(REST_API_BASE_URL, submission);

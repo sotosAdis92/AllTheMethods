@@ -1,5 +1,5 @@
 import axiosInstance from "../environment/axiosinstance";
-const REST_API_BASE_URL = "/api/problems";
+const REST_API_BASE_URL = "/api/v1/problems";
 
 export const getProblem = async (problemId) => {
   const response = await axiosInstance.get(REST_API_BASE_URL + "/" + problemId);

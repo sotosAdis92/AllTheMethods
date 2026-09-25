@@ -1,5 +1,5 @@
 import axiosInstance from "../environment/axiosinstance";
-const REST_API_BASE_URL = "api/user";
+const REST_API_BASE_URL = "api/v1/user";
 
 export const getUser = async () => {
   const response = axiosInstance.get(REST_API_BASE_URL + "/username");
