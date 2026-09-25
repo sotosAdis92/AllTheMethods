@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/achievements")
+@RequestMapping("/api/v1/achievements")
 public class AchievementController {
     private AchievementService achievementService;
     public AchievementController(AchievementService achievementService) {

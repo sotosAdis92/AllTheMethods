@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/favourites")
+@RequestMapping("/api/v1/favourites")
 public class FavoritesController {
     private FavoritesService favoritesService;
 
