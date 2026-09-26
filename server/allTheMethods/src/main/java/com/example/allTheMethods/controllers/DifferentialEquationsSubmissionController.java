@@ -20,22 +20,22 @@ public class DifferentialEquationsSubmissionController {
     }
 
     @PostMapping("/rungeKutta")
-    public ResponseEntity<?> checkRungeKuttaData(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.checkRungeKuttaData(rungeKuttaDataDto), HttpStatus.OK);
+    public ResponseEntity<?> rungeKutta(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKutta(rungeKuttaDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/improvedEuler")
-    public ResponseEntity<?> checkImprovedEulerData(@RequestBody ImprovedEulerDto improvedEulerDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.checkImprovedEulerData(improvedEulerDto), HttpStatus.OK);
+    public ResponseEntity<?> improvedEuler(@RequestBody ImprovedEulerDto improvedEulerDto){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.improvedEuler(improvedEulerDto), HttpStatus.OK);
     }
 
     @PostMapping("/directEuler")
-    public ResponseEntity<?> checkDirectEulerData(@RequestBody DirectEulerDto directEulerDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.checkDirectEulerData(directEulerDto), HttpStatus.OK);
+    public ResponseEntity<?> directEuler(@RequestBody DirectEulerDto directEulerDto){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.directEuler(directEulerDto), HttpStatus.OK);
     }
 
     @PostMapping("/rungeKuttaN")
-    public ResponseEntity<?> checkRungeKuttaNystromData(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.checkRungeKuttaNystromData(rungeKuttaNystromDto), HttpStatus.OK);
+    public ResponseEntity<?> rungeKuttaNystrom(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKuttaNystrom(rungeKuttaNystromDto), HttpStatus.OK);
     }
 }

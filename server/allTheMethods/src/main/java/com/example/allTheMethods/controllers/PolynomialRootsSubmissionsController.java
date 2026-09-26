@@ -19,28 +19,28 @@ public class PolynomialRootsSubmissionsController {
     }
 
     @PostMapping("/bisection")
-    public ResponseEntity<?> checkDataBisection(@RequestBody BisectionDataDto bisectionDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataBisection(bisectionDataDto), HttpStatus.OK);
+    public ResponseEntity<?> bisection(@RequestBody BisectionDataDto bisectionDataDto){
+        return new ResponseEntity<>(submissionServicePolynomials.bisection(bisectionDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/regulaFalsi")
-    public ResponseEntity<?> checkDataRegulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataRegulaFalsi(regulaFalsiDataDto), HttpStatus.OK);
+    public ResponseEntity<?> regulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
+        return new ResponseEntity<>(submissionServicePolynomials.regulaFalsi(regulaFalsiDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/newtonRaphson")
-    public ResponseEntity<?> checkDataNewtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataNewtonRaphson(newtonRaphsonDataDto), HttpStatus.OK);
+    public ResponseEntity<?> newtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
+        return new ResponseEntity<>(submissionServicePolynomials.newtonRaphson(newtonRaphsonDataDto), HttpStatus.OK);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
-    public ResponseEntity<?> chekcDataDiakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataDiakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.OK);
+    public ResponseEntity<?> diakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
+        return new ResponseEntity<>(submissionServicePolynomials.diakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.OK);
     }
 
     @PostMapping("/fixedPoint")
-    public ResponseEntity<?> checkDataFixedPoint(@RequestBody FixedPointDto fixedPointDto){
-        return new ResponseEntity<>(submissionServicePolynomials.checkDataFixedPointMethod(fixedPointDto), HttpStatus.OK);
+    public ResponseEntity<?> fixedPointMethod(@RequestBody FixedPointDto fixedPointDto){
+        return new ResponseEntity<>(submissionServicePolynomials.fixedPointMethod(fixedPointDto), HttpStatus.OK);
     }
 
 }

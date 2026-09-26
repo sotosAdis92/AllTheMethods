@@ -3,9 +3,9 @@ import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.request.*;
 
 public interface SubmissionServicePolynomials {
-    boolean checkDataBisection(BisectionDataDto bisectionDataDto);
-    boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto);
-    boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException;
-    boolean checkDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto);
-    boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto);
+    boolean bisection(BisectionDataDto bisectionDataDto);
+    boolean regulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto);
+    boolean newtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException;
+    boolean diakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto);
+    boolean fixedPointMethod(FixedPointDto fixedPointDto);
 }

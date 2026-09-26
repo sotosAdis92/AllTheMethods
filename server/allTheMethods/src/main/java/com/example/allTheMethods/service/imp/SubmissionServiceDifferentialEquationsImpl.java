@@ -16,7 +16,7 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 @Service
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
     @Override
-    public boolean checkRungeKuttaData(RungeKuttaDataDto rungeKuttaDataDto) {
+    public boolean rungeKutta(RungeKuttaDataDto rungeKuttaDataDto) {
         boolean flag = false;
         int iterations = rungeKuttaDataDto.getIterations();
         double xZero = rungeKuttaDataDto.getxZero();
@@ -50,7 +50,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean checkRungeKuttaNystromData(RungeKuttaNystromDto rungeKuttaNystromDto) {
+    public boolean rungeKuttaNystrom(RungeKuttaNystromDto rungeKuttaNystromDto) {
         boolean flag = false;
         int i = 0;
         int iterations = rungeKuttaNystromDto.getIterations();
@@ -82,7 +82,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean checkImprovedEulerData(ImprovedEulerDto improvedEulerDto) {
+    public boolean improvedEuler(ImprovedEulerDto improvedEulerDto) {
         boolean flag = false;
         int i = 0;
         int iterations = improvedEulerDto.getIterations();
@@ -109,7 +109,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean checkDirectEulerData(DirectEulerDto directEulerDto) {
+    public boolean directEuler(DirectEulerDto directEulerDto) {
         boolean flag = false;
         int i = 0;
         int iterations = directEulerDto.getIterations();

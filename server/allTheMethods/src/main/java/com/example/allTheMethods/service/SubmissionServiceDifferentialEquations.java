@@ -7,8 +7,8 @@ import com.example.allTheMethods.dto.request.RungeKuttaNystromDto;
 
 
 public interface SubmissionServiceDifferentialEquations {
-    boolean checkRungeKuttaData(RungeKuttaDataDto rungeKuttaDataDto);
-    boolean checkRungeKuttaNystromData(RungeKuttaNystromDto rungeKuttaNystromDto);
-    boolean checkImprovedEulerData(ImprovedEulerDto improvedEulerDto);
-    boolean checkDirectEulerData(DirectEulerDto directEulerDto);
+    boolean rungeKutta(RungeKuttaDataDto rungeKuttaDataDto);
+    boolean rungeKuttaNystrom(RungeKuttaNystromDto rungeKuttaNystromDto);
+    boolean improvedEuler(ImprovedEulerDto improvedEulerDto);
+    boolean directEuler(DirectEulerDto directEulerDto);
 }

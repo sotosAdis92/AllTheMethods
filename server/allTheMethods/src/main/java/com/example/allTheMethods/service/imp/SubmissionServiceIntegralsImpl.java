@@ -18,7 +18,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean checkTrapezodialRuleData(TrapezodialRuleDataDto trapezodialRuleDataDto) {
+    public boolean trapezodialRule(TrapezodialRuleDataDto trapezodialRuleDataDto) {
         boolean flag = false;
         int countMatchingInputs=0;
         int integrationPointA = trapezodialRuleDataDto.getIntegrationPointA();
@@ -67,7 +67,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
     the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean checkSimpsonData(SimpsonDataDto simpsonDataDto) {
+    public boolean simpson(SimpsonDataDto simpsonDataDto) {
         boolean flag = false;
         int integrationSpaceA = simpsonDataDto.getIntegrationSpaceA();
         int integrationSpaceB = simpsonDataDto.getIntegrationSpaceB();

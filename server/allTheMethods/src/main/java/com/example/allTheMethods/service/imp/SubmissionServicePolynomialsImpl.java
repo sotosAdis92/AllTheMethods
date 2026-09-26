@@ -18,7 +18,7 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataBisection(BisectionDataDto bisectionDataDto) {
+    public boolean bisection(BisectionDataDto bisectionDataDto) {
         //Starting Values
         boolean flag = false;
         int i=0;
@@ -65,7 +65,7 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataRegulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
+    public boolean regulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
         boolean flag  = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -114,7 +114,7 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataNewtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
+    public boolean newtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -146,7 +146,7 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean checkDataDiakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
+    public boolean diakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
@@ -177,7 +177,7 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean checkDataFixedPointMethod(FixedPointDto fixedPointDto){
+    public boolean fixedPointMethod(FixedPointDto fixedPointDto){
         boolean flag = false;
         int i = 0;
         double xk = fixedPointDto.getXo();

@@ -5,6 +5,6 @@ import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 
 
 public interface SubmissionServiceIntegrals {
-    boolean checkTrapezodialRuleData(TrapezodialRuleDataDto trapezodialRuleDataDto);
-    boolean checkSimpsonData(SimpsonDataDto simpsonDataDto);
+    boolean trapezodialRule(TrapezodialRuleDataDto trapezodialRuleDataDto);
+    boolean simpson(SimpsonDataDto simpsonDataDto);
 }

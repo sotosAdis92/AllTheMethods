@@ -20,7 +20,7 @@ class SubmissionServiceIntegralsImplTest {
         testingInputs.add(0.5);
         testingInputs.add(0.33333);
         try{
-        assertEquals(true, submissionServiceIntegrals.checkTrapezodialRuleData(trpdto));
+        assertEquals(true, submissionServiceIntegrals.trapezodialRule(trpdto));
         } catch (IllegalArgumentException illegalArgumentException){
           System.out.println("Token exception");
         }
