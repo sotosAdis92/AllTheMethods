@@ -13,7 +13,7 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 @Service
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
     @Override
-    public boolean checkThreePointDerivativeData(ThreePointDerivativeDto threePointDerivativeDto) {
+    public boolean threePointDerivative(ThreePointDerivativeDto threePointDerivativeDto) {
         boolean flag = false;
         String typeOfDerivative = threePointDerivativeDto.getTypeOfDerivative();
         List<Integer> fiParameters = threePointDerivativeDto.getFiParameters();
@@ -52,7 +52,7 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
     }
 
     @Override
-    public boolean checkFivePointDerivativeData(FivePointDerivativeDto fivePointDerivativeDto) {
+    public boolean FivePointDerivative(FivePointDerivativeDto fivePointDerivativeDto) {
         boolean flag = false;
         String typeOfDerivative = fivePointDerivativeDto.getTypeOfDerivative();
         List<Integer> fiParameters = fivePointDerivativeDto.getFiParameters();
@@ -91,7 +91,7 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
     }
 
     @Override
-    public boolean checkRichardsonData(RichardsonDataDto richardsonDataDto) {
+    public boolean richardson(RichardsonDataDto richardsonDataDto) {
         boolean flag = false;
         List<Integer> fiParameters = richardsonDataDto.getFiParameters();
         List<Integer> xiParameters = richardsonDataDto.getXiParameters();

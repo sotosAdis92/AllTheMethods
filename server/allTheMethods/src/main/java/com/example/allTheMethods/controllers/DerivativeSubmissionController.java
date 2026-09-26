@@ -23,18 +23,18 @@ public class DerivativeSubmissionController {
     @PostMapping("/threePointsDer")
     public ResponseEntity<?> checkThreePointDerivativeData(@RequestBody ThreePointDerivativeDto threePointDerivativeDto){
         log.debug("Getting response from three point derivative problem");
-        return new ResponseEntity<>(submissionServiceDerivatives.checkThreePointDerivativeData(threePointDerivativeDto), HttpStatus.OK);
+        return new ResponseEntity<>(submissionServiceDerivatives.threePointDerivative(threePointDerivativeDto), HttpStatus.OK);
     }
 
     @PostMapping("/fivePointsDer")
     public ResponseEntity<?> checkFivePointDerivativeData(@RequestBody FivePointDerivativeDto fivePointDerivativeDto){
         log.debug("Getting response from five point derivative problem");
-        return new ResponseEntity<>(submissionServiceDerivatives.checkFivePointDerivativeData(fivePointDerivativeDto), HttpStatus.OK);
+        return new ResponseEntity<>(submissionServiceDerivatives.FivePointDerivative(fivePointDerivativeDto), HttpStatus.OK);
     }
 
     @PostMapping("/richardson")
     public ResponseEntity<?> checkRichardsonData(@RequestBody RichardsonDataDto richardsonDataDto){
         log.debug("Getting response from simpson extrapolation problem");
-        return new ResponseEntity<>(submissionServiceDerivatives.checkRichardsonData(richardsonDataDto), HttpStatus.OK);
+        return new ResponseEntity<>(submissionServiceDerivatives.richardson(richardsonDataDto), HttpStatus.OK);
     }
 }

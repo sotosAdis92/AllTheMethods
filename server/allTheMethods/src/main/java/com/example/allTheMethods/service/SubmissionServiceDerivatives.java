@@ -6,7 +6,7 @@ import com.example.allTheMethods.dto.request.ThreePointDerivativeDto;
 
 
 public interface SubmissionServiceDerivatives {
-    boolean checkThreePointDerivativeData(ThreePointDerivativeDto threePointDerivativeDto);
-    boolean checkFivePointDerivativeData(FivePointDerivativeDto fivePointDerivativeDto);
-    boolean checkRichardsonData(RichardsonDataDto richardsonDataDto);
+    boolean threePointDerivative(ThreePointDerivativeDto threePointDerivativeDto);
+    boolean FivePointDerivative(FivePointDerivativeDto fivePointDerivativeDto);
+    boolean richardson(RichardsonDataDto richardsonDataDto);
 }
