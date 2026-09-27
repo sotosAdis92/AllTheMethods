@@ -26,6 +26,7 @@
     stroke 0.2s ease;
   display: block;
   margin: 0 auto;
+  transition: transform 0.2s ease;
 }
 
 .fav-btn.faved .star {
@@ -51,4 +52,8 @@
   100% {
     transform: scale(1);
   }
+}
+
+.star:hover {
+  transform: scale(1.2);
 }
