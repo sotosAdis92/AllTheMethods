@@ -113,7 +113,7 @@ const Header = () => {
           <div className="userAndLogout">
             <div className="usersDisplay">
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-              {displayName}
+              <div className="displayOfName">{displayName}</div>
             </div>
             <Button
               variant="contained"

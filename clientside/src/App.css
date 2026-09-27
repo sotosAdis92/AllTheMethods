@@ -547,6 +547,7 @@ body {
 }
 
 .usersDisplay {
+  display: flex;
   font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.1rem;
   font-weight: 200;

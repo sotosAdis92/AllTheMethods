@@ -57,6 +57,11 @@
   color: #050505;
 }
 
+.displayOfName {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .headerlink:not(.active):hover {
   color: #000000;
 }
