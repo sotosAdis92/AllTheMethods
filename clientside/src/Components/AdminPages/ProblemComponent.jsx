@@ -1,5 +1,6 @@
 import {
   faCheck,
+  faInfo,
   faMinus,
   faPlus,
   faX,
@@ -240,9 +241,13 @@ const ProblemComponent = () => {
           </Button>
           <p className="numberText">{number}</p>
           {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
+          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
         </div>
         <div className="row">
-          <span className="rowText">Problem Title</span>
+          <span className="rowText">
+            Problem Title
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="i.e: Bisection I"
@@ -254,9 +259,11 @@ const ProblemComponent = () => {
             onChange={handleTitle}
           ></TextField>
         </div>
-
         <div className="row">
-          <span className="rowText">Problem String</span>
+          <span className="rowText">
+            Problem String
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="i.e: x^2 - 2"
@@ -268,46 +275,53 @@ const ProblemComponent = () => {
             onChange={handleProblemString}
           ></TextField>
         </div>
+        <div className="row">
+          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          <div className="selector">
+            <FormControl error={errors.category} sx={{ minWidth: 210 }}>
+              <InputLabel>Category</InputLabel>
+              <Select
+                onChange={getSelectedCategory}
+                value={category}
+                label="Category"
+              >
+                <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
+                <MenuItem value={"Integrals"}>Integrals</MenuItem>
+                <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
+                <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
+                <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
+                <MenuItem value={"Differential Equations"}>
+                  Differential Equations
+                </MenuItem>
+              </Select>
+              {errors.category && (
+                <FormHelperText>{errors.category}</FormHelperText>
+              )}
+            </FormControl>
+          </div>
+        </div>
 
-        <div className="selector">
-          <FormControl error={errors.category} sx={{ minWidth: 210 }}>
-            <InputLabel>Category</InputLabel>
-            <Select
-              onChange={getSelectedCategory}
-              value={category}
-              label="Category"
-            >
-              <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
-              <MenuItem value={"Integrals"}>Integrals</MenuItem>
-              <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
-              <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
-              <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
-              <MenuItem value={"Differential Equations"}>
-                Differential Equations
-              </MenuItem>
-            </Select>
-            {errors.category && (
-              <FormHelperText>{errors.category}</FormHelperText>
-            )}
-          </FormControl>
+        <div className="row">
+          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          <div className="selector">
+            <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
+              <InputLabel>Difficulty</InputLabel>
+              <Select
+                onChange={getSelectedDifficulty}
+                value={difficulty}
+                label="difficulty"
+              >
+                <MenuItem value={"Easy"}>Easy</MenuItem>
+                <MenuItem value={"Med."}>Med.</MenuItem>
+                <MenuItem value={"Hard"}>Hard</MenuItem>
+              </Select>
+              {errors.difficulty && (
+                <FormHelperText> {errors.difficulty}</FormHelperText>
+              )}
+            </FormControl>
+          </div>
         </div>
-        <div className="selector">
-          <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
-            <InputLabel>Difficulty</InputLabel>
-            <Select
-              onChange={getSelectedDifficulty}
-              value={difficulty}
-              label="difficulty"
-            >
-              <MenuItem value={"Easy"}>Easy</MenuItem>
-              <MenuItem value={"Med."}>Med.</MenuItem>
-              <MenuItem value={"Hard"}>Hard</MenuItem>
-            </Select>
-            {errors.difficulty && (
-              <FormHelperText> {errors.difficulty}</FormHelperText>
-            )}
-          </FormControl>
-        </div>
+
         <div className="row">
           <h4>Problem Points</h4>
           <Button type="button" variant="contained" onClick={increasePoints}>
@@ -318,9 +332,13 @@ const ProblemComponent = () => {
           </Button>
           <p className="numberText">{points}</p>
           {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
+          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
         </div>
         <div className="row">
-          <span className="rowText">Problem Description</span>
+          <span className="rowText">
+            Problem Description
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="Enter Problem description i.e: Given the following..."
@@ -334,7 +352,10 @@ const ProblemComponent = () => {
         </div>
 
         <div className="row">
-          <span className="rowText">Problem Type</span>
+          <span className="rowText">
+            Problem Type
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="i.e Simpson"
@@ -347,7 +368,10 @@ const ProblemComponent = () => {
           ></TextField>
         </div>
         <div className="row">
-          <span className="rowText">Function String</span>
+          <span className="rowText">
+            Function String
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="i.e in Latex: x^2-2"
@@ -360,7 +384,10 @@ const ProblemComponent = () => {
           ></TextField>
         </div>
         <div className="row">
-          <span className="rowText">Problem Data</span>
+          <span className="rowText">
+            Problem Data
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </span>
           <TextField
             type="text"
             placeholder="i.e {iterations:2}"

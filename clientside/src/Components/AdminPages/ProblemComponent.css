@@ -102,4 +102,26 @@
   font-weight: 500;
   margin-top: 2px;
   color: #2c3e50;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  box-sizing: border-box;
+  border: 2px solid #2c3e50;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.info:hover {
+  color: #0096ff;
+  border-color: #0096ff;
 }
