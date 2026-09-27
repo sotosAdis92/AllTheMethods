@@ -1,6 +1,6 @@
 .problem-container {
   max-width: 800px;
-  margin: 0 auto;
+  flex-shrink: 0;
   padding: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
