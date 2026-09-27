@@ -227,196 +227,209 @@ const ProblemComponent = () => {
     setErrors(errorsCopy);
     return valid;
   }
+
+  const openSideGuide = () => {};
   return (
-    <div className="problem-container">
-      {pageTitle()}
-      <div className="card">
-        <div className="row">
-          <h4>Problem Number</h4>
-          <Button type="button" variant="contained" onClick={increment}>
-            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-          </Button>
-          <Button type="button" variant="contained" onClick={decrement}>
-            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-          </Button>
-          <p className="numberText">{number}</p>
-          {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
-          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-        </div>
-        <div className="row">
-          <span className="rowText">
-            Problem Title
+    <div className="containerAddProblems">
+      <div className="problem-container">
+        {pageTitle()}
+        <div className="card">
+          <div className="row">
+            <h4>Problem Number</h4>
+            <Button type="button" variant="contained" onClick={increment}>
+              <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+            </Button>
+            <Button type="button" variant="contained" onClick={decrement}>
+              <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+            </Button>
+            <p className="numberText">{number}</p>
+            {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
             <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="i.e: Bisection I"
-            name="title"
-            value={title}
-            id={"outlined"}
-            error={errors.title}
-            helperText={errors.title}
-            onChange={handleTitle}
-          ></TextField>
-        </div>
-        <div className="row">
-          <span className="rowText">
-            Problem String
+          </div>
+          <div className="row">
+            <span className="rowText">
+              Problem Title
+              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="i.e: Bisection I"
+              name="title"
+              value={title}
+              id={"outlined"}
+              error={errors.title}
+              helperText={errors.title}
+              onChange={handleTitle}
+            ></TextField>
+          </div>
+          <div className="row">
+            <span className="rowText">
+              Problem String
+              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="i.e: x^2 - 2"
+              name="problemString"
+              value={problemString}
+              id={"outlined"}
+              error={errors.problemString}
+              helperText={errors.problemString}
+              onChange={handleProblemString}
+            ></TextField>
+          </div>
+          <div className="row">
             <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="i.e: x^2 - 2"
-            name="problemString"
-            value={problemString}
-            id={"outlined"}
-            error={errors.problemString}
-            helperText={errors.problemString}
-            onChange={handleProblemString}
-          ></TextField>
-        </div>
-        <div className="row">
-          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          <div className="selector">
-            <FormControl error={errors.category} sx={{ minWidth: 210 }}>
-              <InputLabel>Category</InputLabel>
-              <Select
-                onChange={getSelectedCategory}
-                value={category}
-                label="Category"
-              >
-                <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
-                <MenuItem value={"Integrals"}>Integrals</MenuItem>
-                <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
-                <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
-                <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
-                <MenuItem value={"Differential Equations"}>
-                  Differential Equations
-                </MenuItem>
-              </Select>
-              {errors.category && (
-                <FormHelperText>{errors.category}</FormHelperText>
-              )}
-            </FormControl>
+            <div className="selector">
+              <FormControl error={errors.category} sx={{ minWidth: 210 }}>
+                <InputLabel>Category</InputLabel>
+                <Select
+                  onChange={getSelectedCategory}
+                  value={category}
+                  label="Category"
+                >
+                  <MenuItem value={"Polynomial Roots"}>
+                    Polynomial Roots
+                  </MenuItem>
+                  <MenuItem value={"Integrals"}>Integrals</MenuItem>
+                  <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
+                  <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
+                  <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
+                  <MenuItem value={"Differential Equations"}>
+                    Differential Equations
+                  </MenuItem>
+                </Select>
+                {errors.category && (
+                  <FormHelperText>{errors.category}</FormHelperText>
+                )}
+              </FormControl>
+            </div>
+          </div>
+
+          <div className="row">
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            <div className="selector">
+              <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
+                <InputLabel>Difficulty</InputLabel>
+                <Select
+                  onChange={getSelectedDifficulty}
+                  value={difficulty}
+                  label="difficulty"
+                >
+                  <MenuItem value={"Easy"}>Easy</MenuItem>
+                  <MenuItem value={"Med."}>Med.</MenuItem>
+                  <MenuItem value={"Hard"}>Hard</MenuItem>
+                </Select>
+                {errors.difficulty && (
+                  <FormHelperText> {errors.difficulty}</FormHelperText>
+                )}
+              </FormControl>
+            </div>
+          </div>
+
+          <div className="row">
+            <h4>Problem Points</h4>
+            <Button type="button" variant="contained" onClick={increasePoints}>
+              <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+            </Button>
+            <Button type="button" variant="contained" onClick={decreasePoints}>
+              <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+            </Button>
+            <p className="numberText">{points}</p>
+            {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
+            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+          </div>
+          <div className="row">
+            <span className="rowText">
+              Problem Description
+              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="Enter Problem description i.e: Given the following..."
+              name="description"
+              value={description}
+              onChange={handleDescription}
+              id={"outlined"}
+              error={errors.description}
+              helperText={errors.description}
+            ></TextField>
+          </div>
+
+          <div className="row">
+            <span className="rowText">
+              Problem Type
+              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="i.e Simpson"
+              name="problemType"
+              value={problemType}
+              onChange={handleProblemType}
+              id={"outlined"}
+              error={errors.problemType}
+              helperText={errors.problemType}
+            ></TextField>
+          </div>
+          <div className="row">
+            <span className="rowText">
+              Function String
+              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="i.e in Latex: x^2-2"
+              name="functionString"
+              value={functionString}
+              onChange={handleFunctionString}
+              id={"outlined"}
+              error={errors.functionString}
+              helperText={errors.functionString}
+            ></TextField>
+          </div>
+          <div className="row">
+            <span className="rowText">
+              Problem Data
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide()}
+              ></FontAwesomeIcon>
+            </span>
+            <TextField
+              type="text"
+              placeholder="i.e {iterations:2}"
+              name="problemData"
+              value={problemData}
+              onChange={handleProblemData}
+              id={"outlined"}
+              error={errors.problemData}
+              helperText={errors.problemData}
+            ></TextField>
+          </div>
+          <div className="buttonsDiv">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={saveOrUpdateProblem}
+            >
+              Submit
+              <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+            </Button>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={() => navigator("/admin")}
+            >
+              Cancel
+              <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+            </Button>
           </div>
         </div>
-
-        <div className="row">
-          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          <div className="selector">
-            <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
-              <InputLabel>Difficulty</InputLabel>
-              <Select
-                onChange={getSelectedDifficulty}
-                value={difficulty}
-                label="difficulty"
-              >
-                <MenuItem value={"Easy"}>Easy</MenuItem>
-                <MenuItem value={"Med."}>Med.</MenuItem>
-                <MenuItem value={"Hard"}>Hard</MenuItem>
-              </Select>
-              {errors.difficulty && (
-                <FormHelperText> {errors.difficulty}</FormHelperText>
-              )}
-            </FormControl>
-          </div>
-        </div>
-
-        <div className="row">
-          <h4>Problem Points</h4>
-          <Button type="button" variant="contained" onClick={increasePoints}>
-            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-          </Button>
-          <Button type="button" variant="contained" onClick={decreasePoints}>
-            <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-          </Button>
-          <p className="numberText">{points}</p>
-          {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
-          <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-        </div>
-        <div className="row">
-          <span className="rowText">
-            Problem Description
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="Enter Problem description i.e: Given the following..."
-            name="description"
-            value={description}
-            onChange={handleDescription}
-            id={"outlined"}
-            error={errors.description}
-            helperText={errors.description}
-          ></TextField>
-        </div>
-
-        <div className="row">
-          <span className="rowText">
-            Problem Type
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="i.e Simpson"
-            name="problemType"
-            value={problemType}
-            onChange={handleProblemType}
-            id={"outlined"}
-            error={errors.problemType}
-            helperText={errors.problemType}
-          ></TextField>
-        </div>
-        <div className="row">
-          <span className="rowText">
-            Function String
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="i.e in Latex: x^2-2"
-            name="functionString"
-            value={functionString}
-            onChange={handleFunctionString}
-            id={"outlined"}
-            error={errors.functionString}
-            helperText={errors.functionString}
-          ></TextField>
-        </div>
-        <div className="row">
-          <span className="rowText">
-            Problem Data
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
-          </span>
-          <TextField
-            type="text"
-            placeholder="i.e {iterations:2}"
-            name="problemData"
-            value={problemData}
-            onChange={handleProblemData}
-            id={"outlined"}
-            error={errors.problemData}
-            helperText={errors.problemData}
-          ></TextField>
-        </div>
-        <div className="buttonsDiv">
-          <Button
-            variant="contained"
-            color="success"
-            onClick={saveOrUpdateProblem}
-          >
-            Submit
-            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-          </Button>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={() => navigator("/admin")}
-          >
-            Cancel
-            <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
-          </Button>
-        </div>
+      </div>
+      <div className="sideGuideContainer">
+        <div className="sideGuide">AAAAAAAAA</div>
       </div>
     </div>
   );
