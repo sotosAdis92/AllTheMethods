@@ -15,7 +15,6 @@ const ProblemListComponent = () => {
 
   useEffect(() => {
     listProblems().then((response) => {
-      console.log(response.data);
       setProblems(response.data);
     });
   }, []);

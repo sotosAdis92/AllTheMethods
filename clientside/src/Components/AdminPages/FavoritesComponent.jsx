@@ -8,7 +8,6 @@ const FavoritesComponent = () => {
     getAllFavorites()
       .then((response) => {
         setAllFavorites(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

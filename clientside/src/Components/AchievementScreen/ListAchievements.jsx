@@ -27,8 +27,6 @@ const ListAchievements = () => {
         setAchievements(response.data);
         setAchievementFilters(response.data);
         setAllAchievements(response.data);
-        console.log(response.data);
-        console.log(achievementFilters);
       })
       .catch((error) => {
         console.error(error);

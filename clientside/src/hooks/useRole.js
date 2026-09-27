@@ -5,7 +5,6 @@ export default function useRole() {
   const [role, setRole] = useState("");
   useEffect(() => {
     getUser().then((response) => {
-      console.log(response.data);
       setRole(response.data.userRole);
     });
   }, []);
