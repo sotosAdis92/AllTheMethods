@@ -429,7 +429,7 @@ const ProblemComponent = () => {
         </div>
       </div>
       <div className="sideGuideContainer">
-        <div className="sideGuide">AAAAAAAAA</div>
+        <div className="sideGuide"></div>
       </div>
     </div>
   );

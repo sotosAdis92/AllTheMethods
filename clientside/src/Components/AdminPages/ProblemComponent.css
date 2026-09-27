@@ -1,12 +1,16 @@
 .problem-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .containerAddProblems {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
 }
 
 .problem-container h2 {
@@ -132,5 +136,12 @@
 }
 
 .sideGuideContainer {
-  border: 1px solid black;
+}
+
+.sideGuide {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
+  transition: box-shadow 0.3s ease;
 }
