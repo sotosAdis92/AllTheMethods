@@ -230,8 +230,17 @@ const ProblemComponent = () => {
   }
 
   const openSideGuide = (field) => {
-    setHighlightedField((prev) => (prev === field ? null : field));
-    setShowGuide((prev) => !prev);
+    setShowGuide((prev) => {
+      const nextShowGuide = !prev;
+      if (!nextShowGuide) {
+        setHighlightedField(null);
+      } else {
+        setHighlightedField((prevField) =>
+          prevField === field ? null : field,
+        );
+      }
+      return nextShowGuide;
+    });
   };
 
   const guideContent = {
