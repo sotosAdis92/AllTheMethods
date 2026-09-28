@@ -230,7 +230,21 @@ const ProblemComponent = () => {
     return valid;
   }
 
+  const fields = [
+    "number",
+    "title",
+    "problemString",
+    "category",
+    "difficulty",
+    "points",
+    "description",
+    "problemType",
+    "functionString",
+    "problemData",
+  ];
+
   const openSideGuide = (field) => {
+    setHighlightedField((prev) => (prev === field ? null : field));
     setShowGuide((prev) => !prev);
   };
   return (
@@ -252,6 +266,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("number")}
+              field="number"
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -261,6 +276,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("title")}
+                field="title"
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -281,6 +297,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("string")}
+                field="problemString"
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -299,6 +316,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("category")}
+              field="category"
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.category} sx={{ minWidth: 210 }}>
@@ -331,6 +349,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("difficulty")}
+              field="difficulty"
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
@@ -365,6 +384,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("points")}
+              field="points"
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -374,6 +394,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("description")}
+                field="description"
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -395,6 +416,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("type")}
+                field="problemType"
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -415,6 +437,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("fstring")}
+                field="functionString"
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -435,6 +458,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("data")}
+                field="problemData"
               ></FontAwesomeIcon>
             </span>
             <TextField
