@@ -23,8 +23,10 @@ import {
 import "./ProblemComponent.css";
 const ProblemComponent = () => {
   const buttonRefs = useRef({});
+  const guideRef = useRef(null);
   const [number, setNumber] = useState(0);
   const [showGuide, setShowGuide] = useState(false);
+  const [guideTop, setGuideTop] = useState(0);
   const [highlightedField, setHighlightedField] = useState(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -238,6 +240,20 @@ const ProblemComponent = () => {
         setHighlightedField((prevField) =>
           prevField === field ? null : field,
         );
+        requestAnimationFrame(() => {
+          const el = buttonRefs.current[field];
+          if (!el) return;
+
+          const rect = el.getBoundingClientRect();
+          const guideHeight = guideRef.current?.offsetHeight ?? 200;
+          const top = rect.top + rect.height / 2 - guideHeight / 2;
+          const clamped = Math.max(
+            20,
+            Math.min(top, window.innerHeight - guideHeight - 20),
+          );
+
+          setGuideTop(clamped);
+        });
       }
       return nextShowGuide;
     });
@@ -531,7 +547,10 @@ const ProblemComponent = () => {
           </div>
         </div>
       </div>
-      <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
+      <div
+        className={`sideGuideContainer ${showGuide ? "open" : ""}`}
+        style={{ top: guideTop }}
+      >
         <div className="sideGuide">
           <div>
             {highlightedField && guideContent[highlightedField] ? (

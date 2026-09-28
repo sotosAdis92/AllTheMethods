@@ -147,16 +147,24 @@
 }
 
 .sideGuideContainer {
-  margin-top: 70px;
-  width: 0;
-  overflow: hidden;
-  flex-shrink: 0;
+  position: fixed;
+  top: 10px;
+  right: 300px;
+  width: 320px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    top 0.25s ease,
+    opacity 0.2s ease;
+  z-index: 1000;
 }
 .sideGuideContainer.open {
+  opacity: 1;
+  pointer-events: auto;
   width: 360px;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
   padding: 30px 40px;
   box-sizing: border-box;
 }
@@ -173,6 +181,11 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sideGuideH1 {
