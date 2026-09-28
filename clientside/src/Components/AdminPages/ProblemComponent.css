@@ -136,12 +136,18 @@
 }
 
 .sideGuideContainer {
+  width: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
 }
-
-.sideGuide {
+.sideGuideContainer.open {
+  width: 360px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px 40px;
-  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+.sideGuide {
 }

@@ -24,6 +24,7 @@ import "./ProblemComponent.css";
 
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
+  const [showGuide, setShowGuide] = useState(false);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -228,7 +229,9 @@ const ProblemComponent = () => {
     return valid;
   }
 
-  const openSideGuide = () => {};
+  const openSideGuide = () => {
+    setShowGuide((prev) => !prev);
+  };
   return (
     <div className="containerAddProblems">
       <div className="problem-container">
@@ -394,7 +397,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide()}
+                onClick={openSideGuide}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -428,7 +431,7 @@ const ProblemComponent = () => {
           </div>
         </div>
       </div>
-      <div className="sideGuideContainer">
+      <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
         <div className="sideGuide"></div>
       </div>
     </div>
