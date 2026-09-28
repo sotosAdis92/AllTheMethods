@@ -246,7 +246,7 @@ const ProblemComponent = () => {
   const guideContent = {
     number: {
       title: "Adding a problem Number",
-      body: "Adding a problem number means adding the number next to the problem title, and it is the first thing the user sees. An example of the problem number is 1. XYZW ... The Number should be an integer, positive and unique, not 2 problems should have the same number",
+      body: "Adding a problem number means adding the number next to the problem title, and it is the first thing the user sees. An example of the problem number is 1. XYZW ... The Number should be an integer, positive and unique, no 2 problems should have the same number",
     },
     title: {
       title: "Adding a problem Title",
