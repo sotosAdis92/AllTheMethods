@@ -24,6 +24,7 @@ import "./ProblemComponent.css";
 const ProblemComponent = () => {
   const buttonRefs = useRef({});
   const [number, setNumber] = useState(0);
+  const [guideTop, setGuideTop] = useState(0);
   const [showGuide, setShowGuide] = useState(false);
   const [highlightedField, setHighlightedField] = useState(null);
   const [title, setTitle] = useState("");
@@ -238,6 +239,16 @@ const ProblemComponent = () => {
         setHighlightedField((prevField) =>
           prevField === field ? null : field,
         );
+
+        requestAnimationFrame(() => {
+          const el = buttonRefs.current[field];
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            const guideHeight = 200;
+            const top = rect.top + rect.height / 2 - guideHeight / 2;
+            setGuideTop(Math.max(20, top));
+          }
+        });
       }
       return nextShowGuide;
     });
@@ -531,7 +542,10 @@ const ProblemComponent = () => {
           </div>
         </div>
       </div>
-      <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
+      <div
+        className={`sideGuideContainer ${showGuide ? "open" : ""}`}
+        style={{ top: guideTop }}
+      >
         <div className="sideGuide">
           <div>
             {highlightedField && guideContent[highlightedField] ? (
