@@ -13,7 +13,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   createProblem,
@@ -21,8 +21,8 @@ import {
   updateProblem,
 } from "../../services/ProblemService";
 import "./ProblemComponent.css";
-
 const ProblemComponent = () => {
+  const buttonRefs = useRef({});
   const [number, setNumber] = useState(0);
   const [showGuide, setShowGuide] = useState(false);
   const [highlightedField, setHighlightedField] = useState(null);
@@ -305,6 +305,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("number")}
+              ref={(el) => (buttonRefs.current["number"] = el)}
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -314,6 +315,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("title")}
+                ref={(el) => (buttonRefs.current["title"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -334,6 +336,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("problemString")}
+                ref={(el) => (buttonRefs.current["problemString"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -352,6 +355,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("category")}
+              ref={(el) => (buttonRefs.current["category"] = el)}
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.category} sx={{ minWidth: 210 }}>
@@ -384,6 +388,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("difficulty")}
+              ref={(el) => (buttonRefs.current["difficulty"] = el)}
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
@@ -418,6 +423,7 @@ const ProblemComponent = () => {
               icon={faInfo}
               className="info"
               onClick={() => openSideGuide("points")}
+              ref={(el) => (buttonRefs.current["points"] = el)}
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -427,6 +433,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("description")}
+                ref={(el) => (buttonRefs.current["description"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -448,6 +455,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("problemType")}
+                ref={(el) => (buttonRefs.current["problemType"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -468,6 +476,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("functionString")}
+                ref={(el) => (buttonRefs.current["functionString"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -488,6 +497,7 @@ const ProblemComponent = () => {
                 icon={faInfo}
                 className="info"
                 onClick={() => openSideGuide("problemData")}
+                ref={(el) => (buttonRefs.current["problemData"] = el)}
               ></FontAwesomeIcon>
             </span>
             <TextField
