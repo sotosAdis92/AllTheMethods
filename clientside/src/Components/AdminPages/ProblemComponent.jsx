@@ -247,12 +247,20 @@ const ProblemComponent = () => {
             </Button>
             <p className="numberText">{number}</p>
             {errors.number && <FormHelperText> {errors.number}</FormHelperText>}
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faInfo}
+              className="info"
+              onClick={openSideGuide}
+            ></FontAwesomeIcon>
           </div>
           <div className="row">
             <span className="rowText">
               Problem Title
-              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide}
+              ></FontAwesomeIcon>
             </span>
             <TextField
               type="text"
@@ -268,7 +276,11 @@ const ProblemComponent = () => {
           <div className="row">
             <span className="rowText">
               Problem String
-              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide}
+              ></FontAwesomeIcon>
             </span>
             <TextField
               type="text"
@@ -282,7 +294,11 @@ const ProblemComponent = () => {
             ></TextField>
           </div>
           <div className="row">
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faInfo}
+              className="info"
+              onClick={openSideGuide}
+            ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.category} sx={{ minWidth: 210 }}>
                 <InputLabel>Category</InputLabel>
@@ -310,7 +326,11 @@ const ProblemComponent = () => {
           </div>
 
           <div className="row">
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faInfo}
+              className="info"
+              onClick={openSideGuide}
+            ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
                 <InputLabel>Difficulty</InputLabel>
@@ -340,12 +360,20 @@ const ProblemComponent = () => {
             </Button>
             <p className="numberText">{points}</p>
             {errors.points && <FormHelperText> {errors.points}</FormHelperText>}
-            <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faInfo}
+              className="info"
+              onClick={openSideGuide}
+            ></FontAwesomeIcon>
           </div>
           <div className="row">
             <span className="rowText">
               Problem Description
-              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide}
+              ></FontAwesomeIcon>
             </span>
             <TextField
               type="text"
@@ -362,7 +390,11 @@ const ProblemComponent = () => {
           <div className="row">
             <span className="rowText">
               Problem Type
-              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide}
+              ></FontAwesomeIcon>
             </span>
             <TextField
               type="text"
@@ -378,7 +410,11 @@ const ProblemComponent = () => {
           <div className="row">
             <span className="rowText">
               Function String
-              <FontAwesomeIcon icon={faInfo} className="info"></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInfo}
+                className="info"
+                onClick={openSideGuide}
+              ></FontAwesomeIcon>
             </span>
             <TextField
               type="text"
