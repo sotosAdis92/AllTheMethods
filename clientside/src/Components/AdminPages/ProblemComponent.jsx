@@ -233,6 +233,50 @@ const ProblemComponent = () => {
     setHighlightedField((prev) => (prev === field ? null : field));
     setShowGuide((prev) => !prev);
   };
+
+  const guideContent = {
+    number: {
+      title: "Adding a problem Number",
+      body: "Adding a problem number means adding the number next to the problem title, and it is the first thing the user sees. An example of the problem number is 1. XYZW ... The Number should be an integer, positive and unique, not 2 problems should have the same number",
+    },
+    title: {
+      title: "Adding a problem Title",
+      body: "Adding a problem title means adding the text next to the number we previously added, An example is 'Bisection I', meaning the method name and the title number of the type, this is optional, it can be a very short description of what the problem has.",
+    },
+    problemString: {
+      title: "Adding a problem String",
+      body: "Adding a problem String means adding the problem as it is written in the exams, this will not be showing up on the UI, but it is helpful in the admin panel to know what latex is what string, write the function as it would be written normally, for example 'x^2 - 2'",
+    },
+    category: {
+      title: "Adding a category",
+      body: "Adding a category means picking from the dropdown menu the category the problem belongs to, try to pick the correct one",
+    },
+    difficulty: {
+      title: "Adding a difficulty",
+      body: "Adding a problem difficulty means choosing the appropriate difficulty for the problem you wish to be entered",
+    },
+    points: {
+      title: "Adding points",
+      body: "Adding problem points means giving a Easy problem 5pts, a Med. 10pts or a Hard one 20pts, no more than that",
+    },
+    description: {
+      title: "Adding a description",
+      body: "Adding the problem description is the most important part since it is the entire text that gives the user the whole problem and what constraints and asumpations they may take in solving it.",
+    },
+    problemType: {
+      title: "Adding a problem Type",
+      body: "Adding the problem type means giving the problem the category of the method it is in, for example 'Bisection'",
+    },
+    functionString: {
+      title: "Adding a function String",
+      body: "Adding a function String means adding the latex version of the exact same problem string added earlier, for example 'frac{d }{dx}x^2' with the slash in front",
+    },
+    problemData: {
+      title: "Adding the problem data",
+      body: `Adding the problem data means adding a json (stored as json in the database), of all the parameters that the problem needs to be solved, for example {"problemSpaceA": 1, "problemSpaceB": 3, "iterations": 3}, it needs to be valid json or else it wont work`,
+    },
+  };
+
   return (
     <div className="containerAddProblems">
       <div className="problem-container">
@@ -471,7 +515,14 @@ const ProblemComponent = () => {
       <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
         <div className="sideGuide">
           <div>
-            <div></div>
+            {highlightedField && guideContent[highlightedField] ? (
+              <div>
+                <div>{guideContent[highlightedField].title}</div>
+                <div>{guideContent[highlightedField].body}</div>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       </div>
