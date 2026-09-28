@@ -229,19 +229,6 @@ const ProblemComponent = () => {
     return valid;
   }
 
-  const fields = [
-    "number",
-    "title",
-    "problemString",
-    "category",
-    "difficulty",
-    "points",
-    "description",
-    "problemType",
-    "functionString",
-    "problemData",
-  ];
-
   const openSideGuide = (field) => {
     setHighlightedField((prev) => (prev === field ? null : field));
     setShowGuide((prev) => !prev);
@@ -293,7 +280,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={() => openSideGuide("string")}
+                onClick={() => openSideGuide("problemString")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -407,7 +394,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={() => openSideGuide("type")}
+                onClick={() => openSideGuide("problemType")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -427,7 +414,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={() => openSideGuide("fstring")}
+                onClick={() => openSideGuide("functionString")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -447,7 +434,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={() => openSideGuide("data")}
+                onClick={() => openSideGuide("problemData")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -483,7 +470,6 @@ const ProblemComponent = () => {
       </div>
       <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
         <div className="sideGuide">
-          <h2 className="sideGuideH1">Guide To Filling out a Problem</h2>
           <div>
             <div></div>
           </div>
