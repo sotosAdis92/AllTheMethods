@@ -517,8 +517,12 @@ const ProblemComponent = () => {
           <div>
             {highlightedField && guideContent[highlightedField] ? (
               <div>
-                <div>{guideContent[highlightedField].title}</div>
-                <div>{guideContent[highlightedField].body}</div>
+                <div className="titleguide">
+                  {guideContent[highlightedField].title}
+                </div>
+                <div className="bodyGuide">
+                  {guideContent[highlightedField].body}
+                </div>
               </div>
             ) : (
               <div></div>
