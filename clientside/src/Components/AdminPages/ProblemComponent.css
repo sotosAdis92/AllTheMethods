@@ -147,6 +147,7 @@
 }
 
 .sideGuideContainer {
+  margin-top: 70px;
   width: 0;
   overflow: hidden;
   flex-shrink: 0;
