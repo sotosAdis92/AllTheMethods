@@ -468,7 +468,9 @@ const ProblemComponent = () => {
         </div>
       </div>
       <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
-        <div className="sideGuide"></div>
+        <div className="sideGuide">
+          <h2 className="sideGuideH1">Guide To Filling out a Problem</h2>
+        </div>
       </div>
     </div>
   );
