@@ -25,6 +25,7 @@ import "./ProblemComponent.css";
 const ProblemComponent = () => {
   const [number, setNumber] = useState(0);
   const [showGuide, setShowGuide] = useState(false);
+  const [highlightedField, setHighlightedField] = useState(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -229,7 +230,7 @@ const ProblemComponent = () => {
     return valid;
   }
 
-  const openSideGuide = () => {
+  const openSideGuide = (field) => {
     setShowGuide((prev) => !prev);
   };
   return (
@@ -250,7 +251,7 @@ const ProblemComponent = () => {
             <FontAwesomeIcon
               icon={faInfo}
               className="info"
-              onClick={openSideGuide}
+              onClick={() => openSideGuide("number")}
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -259,7 +260,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("title")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -279,7 +280,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("string")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -297,7 +298,7 @@ const ProblemComponent = () => {
             <FontAwesomeIcon
               icon={faInfo}
               className="info"
-              onClick={openSideGuide}
+              onClick={() => openSideGuide("category")}
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.category} sx={{ minWidth: 210 }}>
@@ -329,7 +330,7 @@ const ProblemComponent = () => {
             <FontAwesomeIcon
               icon={faInfo}
               className="info"
-              onClick={openSideGuide}
+              onClick={() => openSideGuide("difficulty")}
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
@@ -363,7 +364,7 @@ const ProblemComponent = () => {
             <FontAwesomeIcon
               icon={faInfo}
               className="info"
-              onClick={openSideGuide}
+              onClick={() => openSideGuide("points")}
             ></FontAwesomeIcon>
           </div>
           <div className="row">
@@ -372,7 +373,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("description")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -393,7 +394,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("type")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -413,7 +414,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("fstring")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -433,7 +434,7 @@ const ProblemComponent = () => {
               <FontAwesomeIcon
                 icon={faInfo}
                 className="info"
-                onClick={openSideGuide}
+                onClick={() => openSideGuide("data")}
               ></FontAwesomeIcon>
             </span>
             <TextField
@@ -470,6 +471,9 @@ const ProblemComponent = () => {
       <div className={`sideGuideContainer ${showGuide ? "open" : ""}`}>
         <div className="sideGuide">
           <h2 className="sideGuideH1">Guide To Filling out a Problem</h2>
+          <div>
+            <div></div>
+          </div>
         </div>
       </div>
     </div>
