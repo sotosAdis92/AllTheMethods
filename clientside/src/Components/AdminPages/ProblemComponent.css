@@ -153,10 +153,7 @@
   width: 320px;
   opacity: 0;
   pointer-events: none;
-  transition:
-    top 0.25s ease,
-    opacity 0.2s ease;
-  z-index: 1000;
+  z-index: 100;
 }
 .sideGuideContainer.open {
   opacity: 1;
@@ -179,11 +176,14 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  border-radius: 16px;
+  padding: 24px;
+  padding: 1.5rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 2px solid #e2e8f0;
 }
 
 .sideGuideH1 {
