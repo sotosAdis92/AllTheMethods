@@ -89,8 +89,9 @@
 }
 
 .button-group {
+  align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 10rem;
   justify-content: center;
   margin-top: 32px;
   padding-top: 20px;
@@ -112,6 +113,15 @@
   display: flex;
   gap: 10rem;
   justify-content: center;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.buttonsDiv .MuiButton-root {
+  min-width: 120px;
+  font-weight: 600;
+  padding: 10px 24px;
 }
 
 .rowText {
