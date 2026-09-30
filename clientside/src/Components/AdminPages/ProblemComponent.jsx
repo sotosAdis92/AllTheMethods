@@ -54,7 +54,6 @@ const ProblemComponent = () => {
   useEffect(() => {
     if (id) {
       getProblem(id).then((response) => {
-        console.log("Fetched problem data:", response.data);
         setNumber(response.data.number);
         setTitle(response.data.title);
         setCategory(response.data.category);
@@ -527,7 +526,7 @@ const ProblemComponent = () => {
               helperText={errors.problemData}
             ></TextField>
           </div>
-          <div className="buttonsDiv">
+          <div className="achievement-buttons">
             <Button
               variant="contained"
               color="success"
