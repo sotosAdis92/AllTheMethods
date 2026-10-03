@@ -4,8 +4,6 @@ import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 

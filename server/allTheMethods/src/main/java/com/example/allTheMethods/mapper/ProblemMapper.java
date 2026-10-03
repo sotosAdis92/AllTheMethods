@@ -4,8 +4,6 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 

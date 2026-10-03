@@ -4,8 +4,6 @@ import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.UserProblem;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 
