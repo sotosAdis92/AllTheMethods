@@ -1,4 +1,5 @@
 package com.example.allTheMethods.service.imp;
+
 import com.example.allTheMethods.dto.request.SimpsonDataDto;
 import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;

@@ -3,11 +3,8 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
 import com.example.allTheMethods.service.SubmissionServiceLinearSystems;
 import org.springframework.stereotype.Service;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
