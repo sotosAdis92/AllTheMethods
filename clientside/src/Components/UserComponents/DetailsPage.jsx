@@ -112,7 +112,7 @@ const DetailsPage = (props) => {
               onChange={handleDisplayName}
             ></TextField>
           </div>
-          <div className="row">
+          <div className="buttonsRow">
             <Button
               variant="contained"
               color="success"

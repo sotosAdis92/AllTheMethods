@@ -109,3 +109,10 @@
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
   transform: translateY(-1px);
 }
+
+.buttonsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
