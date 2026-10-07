@@ -197,10 +197,15 @@
   text-align: center;
 }
 
-a {
+.link {
   text-decoration: none;
   color: #262626;
   font-size: 12px;
   font-weight: 600;
   margin-left: -10px;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #0096ff;
 }
