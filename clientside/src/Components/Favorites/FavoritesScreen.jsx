@@ -87,6 +87,12 @@ const FavoritesScreen = (props) => {
               className="countZeroImage"
             ></img>
             <p className="noProblems">No Favorites Yet!</p>
+            <p className="linkToProblemsList">
+              Want to add problems to favorites?{" "}
+              <a href="/problems" className="link">
+                Problems List
+              </a>
+            </p>
           </div>
         </div>
       )}
