@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
 import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
+import com.example.allTheMethods.exception.ProblemCountException;
 import com.example.allTheMethods.exception.ProblemNotFoundException;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import com.example.allTheMethods.repository.ProblemRepository;
@@ -103,10 +104,16 @@ public class ProblemServiceImpl implements ProblemService {
         return problemMapper.toDto(problemsByCategoryAndDifficulty);
     }
 
+    @Override
     public long countAllTheExistingProblems(){
-        return problemRepository.count();
+        long count = problemRepository.count();
+        if(count==0){
+            throw new ProblemCountException("Count of problems is zero, no problems found");
+        }
+        return count;
     }
 
+    @Override
     public Page<Problem> getAllProblemsPaged(Pageable pageable){
         return problemRepository.findAll(pageable);
     }
