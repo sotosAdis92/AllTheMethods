@@ -1,7 +1,5 @@
 package com.example.allTheMethods.dto.request;
 
-import com.example.allTheMethods.dto.SubmissionDataDto;
-
 import java.util.List;
 
 public class TrapezodialRuleDataDto extends SubmissionDataDto {

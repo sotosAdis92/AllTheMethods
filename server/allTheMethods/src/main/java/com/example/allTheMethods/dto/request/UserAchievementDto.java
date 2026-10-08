@@ -1,7 +1,5 @@
-package com.example.allTheMethods.dto;
+package com.example.allTheMethods.dto.request;
 
-import com.example.allTheMethods.entity.Achievement;
-import com.example.allTheMethods.entity.Users;
 import lombok.Data;
 
 import java.time.LocalDateTime;

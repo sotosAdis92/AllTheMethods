@@ -1,6 +1,6 @@
 package com.example.allTheMethods.entity;
 
-import com.example.allTheMethods.dto.SubmissionDto;
+import com.example.allTheMethods.dto.request.SubmissionDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,7 +1,5 @@
 package com.example.allTheMethods.dto.request;
 
-import com.example.allTheMethods.dto.SubmissionDataDto;
-
 public class FixedPointDto extends SubmissionDataDto {
     private int iterations;
     private int xo;

@@ -1,9 +1,9 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.AchievementDto;
-import com.example.allTheMethods.dto.SaveUserAchievementDto;
-import com.example.allTheMethods.dto.UserAchievementDto;
-import com.example.allTheMethods.dto.UserProblemDto;
+import com.example.allTheMethods.dto.request.AchievementDto;
+import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
+import com.example.allTheMethods.dto.request.UserAchievementDto;
+import com.example.allTheMethods.dto.request.UserProblemDto;
 import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
