@@ -2,12 +2,9 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SubmissionServiceLinearSystemsImplTest {
