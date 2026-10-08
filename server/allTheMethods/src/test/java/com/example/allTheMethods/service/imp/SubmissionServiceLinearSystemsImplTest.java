@@ -4,6 +4,7 @@ import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,26 @@ class SubmissionServiceLinearSystemsImplTest {
         inputs.add(0.0);
         inputs.add(18.0);
 
-        double[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
+        List<Double> row0 = new ArrayList<>();
+        row0.add(1.0);
+        row0.add(2.0);
+        row0.add(3.0);
+
+        List<Double> row1 = new ArrayList<>();
+        row0.add(4.0);
+        row0.add(5.0);
+        row0.add(6.0);
+
+        List<Double> row2 = new ArrayList<>();
+        row0.add(7.0);
+        row0.add(8.0);
+        row0.add(9.0);
+
+        List<List<Double>> matrix = new ArrayList<List<Double>>();
+        matrix.add(row0);
+        matrix.add(row1);
+        matrix.add(row2);
+
         LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables,equals);
         try{
             assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto));
