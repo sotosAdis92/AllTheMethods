@@ -3,6 +3,7 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.exception.UsernameNotFoundException;
 import com.example.allTheMethods.mapper.UsersMapper;
 import com.example.allTheMethods.repository.UsersRepository;
 import com.example.allTheMethods.service.UsersService;
@@ -12,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,7 +34,7 @@ public class UsersServiceImpl implements UsersService {
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                return usersRepository.findFirstByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                return usersRepository.findFirstByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found with this username"));
             }
         };
     }
