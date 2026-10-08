@@ -3,6 +3,7 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
 import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
+import com.example.allTheMethods.exception.FavouriteNotFoundException;
 import com.example.allTheMethods.mapper.FavoritesMapper;
 import com.example.allTheMethods.repository.FavoritesRepository;
 import com.example.allTheMethods.service.FavoritesService;
@@ -29,7 +30,8 @@ public class FavoritesServiceImpl implements FavoritesService {
 
     @Override
     public void deleteFavourite(Long id) {
-        favoritesRepository.deleteById(id);
+        Favorites favorite = favoritesRepository.findById(id).orElseThrow(() -> new FavouriteNotFoundException("No Favorite with this id" + id + "was found in the database"));
+        favoritesRepository.delete(favorite);
     }
 
     @Override
