@@ -37,6 +37,16 @@ class SubmissionServiceImplTest {
     }
 
     @Test
+    public void secondDegreePolynomialDerivativeTest(){
+        MethodUtils ssi = new MethodUtils();
+        try{
+            assertEquals(1, ssi.fprime(4,"x^2-2x-3"));
+        } catch (TokenizerException tokenizerException){
+            System.out.println("Token Exception");
+        }
+    }
+
+    @Test
     public void firstDescreteFprimeTest(){
         MethodUtils ssi = new MethodUtils();
         assertEquals(2.100,ssi.DiakritiFprime(1,0.1,"x^2-2"));
