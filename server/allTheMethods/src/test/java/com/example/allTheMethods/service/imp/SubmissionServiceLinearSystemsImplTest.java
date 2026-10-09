@@ -52,6 +52,7 @@ class SubmissionServiceLinearSystemsImplTest {
 
     @Test
     public void gershgorinCircleEdgeCase(){
+        //Edge cases for a 3x3 matrix eigen value limits
         SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
         List<Double> inputs = new ArrayList<>();
         List<Optional<String>> variables = new ArrayList<>();
