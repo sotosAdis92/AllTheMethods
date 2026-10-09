@@ -48,7 +48,47 @@ class SubmissionServiceLinearSystemsImplTest {
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println("Token exception");
         }
+    }
 
+    @Test
+    public void gershgorinCircleEdgeCase(){
+        SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
+        List<Double> inputs = new ArrayList<>();
+        List<Optional<String>> variables = new ArrayList<>();
+        List<Optional<Double>> equals = new ArrayList<>();
+        inputs.add(-4.0);
+        inputs.add(6.0);
+        inputs.add(-5.0);
+        inputs.add(15.0);
+        inputs.add(0.0);
+        inputs.add(18.0);
+
+        List<Double> row0 = new ArrayList<>();
+        row0.add(2.0);
+        row0.add(2.0);
+        row0.add(2.0);
+
+        List<Double> row1 = new ArrayList<>();
+        row0.add(2.0);
+        row0.add(2.0);
+        row0.add(2.0);
+
+        List<Double> row2 = new ArrayList<>();
+        row0.add(2.0);
+        row0.add(2.0);
+        row0.add(2.0);
+
+        List<List<Double>> matrix = new ArrayList<List<Double>>();
+        matrix.add(row0);
+        matrix.add(row1);
+        matrix.add(row2);
+
+        LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables,equals);
+        try{
+            assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto));
+        } catch (IllegalArgumentException illegalArgumentException){
+            System.out.println("Token exception");
+        }
     }
 
 }
