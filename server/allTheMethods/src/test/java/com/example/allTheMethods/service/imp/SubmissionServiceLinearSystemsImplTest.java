@@ -11,6 +11,7 @@ class SubmissionServiceLinearSystemsImplTest {
 
     @Test
     public void gershgorinCirclesTest(){
+        //Test case for a real problem in the database
         SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
         List<Double> inputs = new ArrayList<>();
         List<Optional<String>> variables = new ArrayList<>();
