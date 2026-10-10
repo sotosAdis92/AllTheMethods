@@ -30,8 +30,8 @@ class SubmissionServiceIntegralsImplTest {
     @Test
     public void testSimposonRuleTestCase() throws TokenizerException{
         SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
-        SimpsonDataDto simpsonDataDto = new SimpsonDataDto();
         List<Double> testingInputs = new ArrayList<>();
+        SimpsonDataDto simpsonDataDto = new SimpsonDataDto(testingInputs,"x-2",1,3,0.5);
         testingInputs.add(1.0);
         testingInputs.add(0.5);
         testingInputs.add(0.33333);
