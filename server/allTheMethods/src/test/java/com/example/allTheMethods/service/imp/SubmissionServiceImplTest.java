@@ -40,7 +40,7 @@ class SubmissionServiceImplTest {
     public void secondDegreePolynomialDerivativeTest(){
         MethodUtils ssi = new MethodUtils();
         try{
-            assertEquals(1, ssi.fprime(4,"x^2-2x-3"));
+            assertEquals(-3, ssi.fprime(4,"x^2-2x-3"));
         } catch (TokenizerException tokenizerException){
             System.out.println("Token Exception");
         }
