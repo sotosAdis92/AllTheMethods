@@ -1,6 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
+import com.example.allTheMethods.dto.request.SimpsonDataDto;
 import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +29,16 @@ class SubmissionServiceIntegralsImplTest {
 
     @Test
     public void testSimposonRuleTestCase() throws TokenizerException{
-
+        SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
+        SimpsonDataDto simpsonDataDto = new SimpsonDataDto();
+        List<Double> testingInputs = new ArrayList<>();
+        testingInputs.add(1.0);
+        testingInputs.add(0.5);
+        testingInputs.add(0.33333);
+        try{
+            assertEquals(true, submissionServiceIntegrals.simpson(simpsonDataDto));
+        } catch (IllegalArgumentException illegalArgumentException){
+            System.out.println("Token exception");
+        }
     }
 }
