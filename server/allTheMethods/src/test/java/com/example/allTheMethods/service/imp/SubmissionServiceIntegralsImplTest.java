@@ -25,4 +25,9 @@ class SubmissionServiceIntegralsImplTest {
           System.out.println("Token exception");
         }
     }
+
+    @Test
+    public void testSimposonRuleTestCase() throws TokenizerException{
+
+    }
 }
