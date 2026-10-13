@@ -181,6 +181,8 @@ spring-react/
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/login.JPG?raw=true)
 # Singup
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/singup.JPG?raw=true)
+# ERD
+![imagealt]()
 ---
 # License
 
