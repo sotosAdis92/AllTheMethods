@@ -182,8 +182,8 @@ spring-react/
 # Singup
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/singup.JPG?raw=true)
 # ERD
-![imagealt](![Uploading image.png…]()
-)
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/ERDallTheMethods.JPG?raw=true)
+Taken directly from inside the RDBMS
 ---
 # License
 
