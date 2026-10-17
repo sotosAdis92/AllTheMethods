@@ -27,6 +27,7 @@ public class UsersMapperImpl implements UsersMapper {
         user.setDisplayName(request.getDisplayName());
         user.setUserRole(UserRole.USER);
         user.setPassword(new BCryptPasswordEncoder().encode(request.getPassword()));
+        user.setImageUrl(request.getImage_url());
         return user;
     }
 
@@ -40,7 +41,8 @@ public class UsersMapperImpl implements UsersMapper {
                 user.getId(),
                 user.getUsername(),
                 user.getDisplayName(),
-                user.getUserRole()
+                user.getUserRole(),
+                user.getImageUrl()
         );
     }
 
@@ -54,6 +56,7 @@ public class UsersMapperImpl implements UsersMapper {
         user.setUsername(requestDto.username().toLowerCase());
         user.setDisplayName(requestDto.displayName());
         user.setUserRole(UserRole.USER);
+        user.setImageUrl(requestDto.imageUrl());
         return user;
     }
 

@@ -14,6 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Service
 public class UsersServiceImpl implements UsersService {
@@ -62,6 +65,16 @@ public class UsersServiceImpl implements UsersService {
         user.setUsername(updateUserRequestDto.username());
         user.setDisplayName(updateUserRequestDto.displayName());
         return usersMapper.toDto(user);
+    }
+
+    @Override
+    public UserResponseDto uploadImage(Long id, MultipartFile file) throws IOException {
+        return null;
+    }
+
+    @Override
+    public UserResponseDto deleteImage(Long id) throws IOException {
+        return null;
     }
 
 

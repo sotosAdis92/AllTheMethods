@@ -6,5 +6,6 @@ public record UserResponseDto(
     Long id,
     String username,
     String displayName,
-    UserRole userRole
+    UserRole userRole,
+    String image
 ){}
