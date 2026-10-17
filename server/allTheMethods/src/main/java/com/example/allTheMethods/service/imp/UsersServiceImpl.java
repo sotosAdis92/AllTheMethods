@@ -25,11 +25,13 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private final JWTUtil jwtUtil;
     private final UsersMapper usersMapper;
+    private final FileService fileService;
 
-    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil, UsersMapper usersMapper) {
+    public UsersServiceImpl(UsersRepository usersRepository, JWTUtil jwtUtil, UsersMapper usersMapper, FileService fileService) {
         this.usersRepository = usersRepository;
         this.jwtUtil = jwtUtil;
         this.usersMapper = usersMapper;
+        this.fileService = fileService;
     }
 
     @Override
