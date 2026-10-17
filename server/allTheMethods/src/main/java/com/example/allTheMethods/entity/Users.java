@@ -33,6 +33,9 @@ public class Users implements UserDetails {
     @Column(columnDefinition = "VARCHAR(20)")
     private UserRole userRole;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @OneToMany(mappedBy = "user")
     Set<UserAchievements> achievements;
 
@@ -129,5 +132,13 @@ public class Users implements UserDetails {
 
     public void setAchievements(Set<UserAchievements> achievements) {
         this.achievements = achievements;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
