@@ -3,6 +3,7 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
+import com.example.allTheMethods.exception.UserNotFoundException;
 import com.example.allTheMethods.exception.UsernameNotFoundException;
 import com.example.allTheMethods.mapper.UsersMapper;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -71,12 +72,20 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UserResponseDto uploadImage(Long id, MultipartFile file) throws IOException {
-        return null;
+        Users user = usersRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user found with id of: " + id));
+        String imageUrl = fileService.uploadImage(id,file);
+        user.setImageUrl(imageUrl);
+        Users savedUser = usersRepository.save(user);
+        return usersMapper.toDto(savedUser);
     }
 
     @Override
     public UserResponseDto deleteImage(Long id) throws IOException {
-        return null;
+        Users user = usersRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user found with id of: " + id));
+        fileService.deleteImage(id);
+        user.setImageUrl(null);
+        Users savedUser = usersRepository.save(user);
+        return usersMapper.toDto(savedUser);
     }
 
 
