@@ -369,7 +369,7 @@
   height: 200px;
   border: none;
   color: #8a8f96;
-  border-radius: 50%;
+  border-radius: 20px;
 }
 
 input[type="file"] {
