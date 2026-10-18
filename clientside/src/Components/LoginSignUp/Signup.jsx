@@ -65,6 +65,7 @@ const Signup = () => {
         username,
         password,
         displayName,
+        image,
       };
       try {
         const response = await signup(formData);
