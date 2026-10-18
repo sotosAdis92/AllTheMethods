@@ -183,14 +183,16 @@ const Signup = () => {
             Profile Picture
             <img
               src={image === "" ? defaultProfilePic : image}
-              alt={defaultProfilePic}
               className="image-icon"
             ></img>
+            <label for="file" className="input-image">
+              Upload
+            </label>
             <input
               type="file"
               name="file"
+              id="file"
               onChange={handleImage}
-              className="input-image"
             ></input>
           </div>
           <div className="row">

@@ -372,6 +372,13 @@
   border-radius: 50%;
 }
 
-.input-image input {
-  color: #4f8fce;
+input[type="file"] {
+  display: none;
+}
+
+.input-image {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
