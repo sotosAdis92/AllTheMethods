@@ -377,8 +377,26 @@ input[type="file"] {
 }
 
 .input-image {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1.5px dashed #d1d5db;
+  border-radius: 10px;
+  background-color: #fafafa;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.input-image:hover {
+  border-color: #1865ff;
+  border-style: solid;
+  background-color: #f0f5ff;
+  color: #1865ff;
+  box-shadow: 0 4px 12px rgba(24, 101, 255, 0.12);
+  transform: translateY(-1px);
 }
