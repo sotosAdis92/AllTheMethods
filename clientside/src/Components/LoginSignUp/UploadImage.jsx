@@ -59,6 +59,17 @@ const UploadImage = () => {
           </div>
         </div>
       )}
+      <div className="row">
+        <Button
+          className="login-button"
+          type="submit"
+          fullWidth
+          variant="contained"
+          onClick={handleSubmit}
+        >
+          Create Account
+        </Button>
+      </div>
     </div>
   );
 };
