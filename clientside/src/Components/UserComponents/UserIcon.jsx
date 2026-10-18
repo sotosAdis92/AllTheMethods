@@ -1,7 +1,6 @@
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import img1 from "../../assets/userPicDefault.png";
 import "./UserIcon.css";
 
 const UserIcon = (props) => {
@@ -13,7 +12,7 @@ const UserIcon = (props) => {
     <>
       <div className="userIconWrapper">
         <div className="userDetails">
-          <img src={img1} alt="User Avatar"></img>
+          <img src={props.image} alt="User Avatar"></img>
           <div className="displayAndUsername">
             <div className="displayName">{props.displayName}</div>
             <div className="username">{props.username}</div>
