@@ -17,6 +17,22 @@ export const deleteUserById = async (id) => {
 };
 
 export const updateUserAccount = async (id, userDetails) => {
-  const response = axiosInstance.delete(REST_API_BASE_URL + "/details/" + id);
+  const response = axiosInstance.delete(REST_API_BASE_URL + "/details/" + id, {
+    params: userDetails,
+  });
+  return response;
+};
+
+export const uploadProfilePic = async (id, image) => {
+  const response = axiosInstance.post(REST_API_BASE_URL + id + "/image/", {
+    params: {
+      file: image,
+    },
+  });
+  return response;
+};
+
+export const deleteProfilePic = async (id) => {
+  const response = axiosInstance.delete(REST_API_BASE_URL + id + "/image/");
   return response;
 };
