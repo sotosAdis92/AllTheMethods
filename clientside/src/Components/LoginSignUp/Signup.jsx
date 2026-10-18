@@ -19,11 +19,6 @@ const Signup = () => {
   const [errors, setErrors] = useState("");
   const [image, setImage] = useState("");
 
-  function handleImage(e) {
-    console.log(e.target.files);
-    setImage(e.target.files[0]);
-  }
-
   const navigate = useNavigate();
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -34,6 +29,11 @@ const Signup = () => {
   const handleDisplayName = (e) => {
     setDisplayName(e.target.value);
   };
+
+  function handleImage(e) {
+    console.log(e.target.files);
+    setImage(e.target.files[0].name);
+  }
 
   function validateForm() {
     let valid = true;
@@ -94,6 +94,7 @@ const Signup = () => {
       }
     }
   };
+  console.log(image);
   return (
     <>
       <div className="login-container">
@@ -185,7 +186,7 @@ const Signup = () => {
               src={image === "" ? defaultProfilePic : image}
               className="image-icon"
             ></img>
-            <label for="file" className="input-image">
+            <label htmlFor="file" className="input-image">
               Upload
             </label>
             <input
