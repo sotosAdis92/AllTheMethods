@@ -62,6 +62,7 @@ public class AuthController {
             AuthenticationResponse authenticationResponse = new AuthenticationResponse();
             authenticationResponse.setJwtToken(jwt);
             authenticationResponse.setName(createdUser.displayName());
+            authenticationResponse.setId(createdUser.id());
             return ResponseEntity.status(HttpStatus.CREATED).body(authenticationResponse);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("error", "An unexpected error occurred" + e.getMessage()));

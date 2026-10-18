@@ -55,7 +55,7 @@ public class UserController {
         return ResponseEntity.ok("User updated");
     }
 
-    @PostMapping("/{id}/image")
+    @PutMapping("/{id}/image")
     public ResponseEntity<UserResponseDto> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException{
         return ResponseEntity.ok(usersService.uploadImage(id,file));
     }
