@@ -180,8 +180,9 @@ const Signup = () => {
             ></TextField>
           </div>
           <div className="image-upload">
+            Profile Picture
             <img
-              src={defaultProfilePic}
+              src={image === "" ? defaultProfilePic : image}
               alt={defaultProfilePic}
               className="image-icon"
             ></img>
