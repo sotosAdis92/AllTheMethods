@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import defaultProfilePic from "../../assets/userPicDefault.png";
 import { saveToken } from "../../environment/common";
 import { signup } from "../../services/auth";
 import AboutTitle from "../AboutPage/AboutTitle";
@@ -16,12 +17,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [errors, setErrors] = useState("");
-  const [image, setImage] = useState("");
-
-  function handleImage(e) {
-    console.log(e.target.files);
-    setImage(e.target.files[0]);
-  }
+  const [image, setImage] = useState(null);
 
   const navigate = useNavigate();
   const handleUsername = (e) => {
@@ -33,6 +29,11 @@ const Signup = () => {
   const handleDisplayName = (e) => {
     setDisplayName(e.target.value);
   };
+
+  function handleImage(e) {
+    console.log(e.target.files);
+    setImage(URL.createObjectURL(e.target.files[0]));
+  }
 
   function validateForm() {
     let valid = true;
@@ -93,6 +94,7 @@ const Signup = () => {
       }
     }
   };
+  console.log(image);
   return (
     <>
       <div className="login-container">
@@ -178,10 +180,40 @@ const Signup = () => {
               }}
             ></TextField>
           </div>
-          <div>
-            <img src={image}></img>
-            <input type="file" name="file" onChange={handleImage}></input>
-          </div>
+          {image === null ? (
+            <div>
+              <div className="image-upload">
+                Profile Picture
+                <img src={defaultProfilePic} className="image-icon"></img>
+                <label htmlFor="file" className="input-image">
+                  Upload
+                </label>
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  onChange={handleImage}
+                ></input>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="image-upload">
+                Profile Picture
+                <img src={image} className="image-icon"></img>
+                <label htmlFor="file" className="input-image">
+                  Upload
+                </label>
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  onChange={handleImage}
+                ></input>
+              </div>
+            </div>
+          )}
+
           <div className="row">
             <Button
               className="login-button"
