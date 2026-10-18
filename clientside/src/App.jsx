@@ -11,6 +11,7 @@ import Header from "./Components/Header/Header";
 import ListProblems from "./Components/ListProblems/ListProblems";
 import Login from "./Components/LoginSignUp/Login";
 import Signup from "./Components/LoginSignUp/Signup";
+import UploadImage from "./Components/LoginSignUp/UploadImage";
 import ProblemDescription from "./Components/ProblemScreen/ProblemDescription";
 import ProblemTypePage from "./Components/ProblemTypePage/ProblemTypePage";
 import DetailsPage from "./Components/UserComponents/DetailsPage";
@@ -28,6 +29,10 @@ function App() {
               <Route path="/" element={<MainAboutPage></MainAboutPage>}></Route>
               <Route path="/register" element={<Signup></Signup>}></Route>
               <Route path="/login" element={<Login></Login>}></Route>
+              <Route
+                path="/upload/:id"
+                element={<UploadImage></UploadImage>}
+              ></Route>
               <Route
                 path="/problems"
                 element={<ListProblems></ListProblems>}
