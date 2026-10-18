@@ -343,3 +343,17 @@
   font-size: 15px;
   font-weight: 600;
 }
+
+.image-upload {
+}
+
+.image-icon {
+  width: auto;
+  height: 200px;
+  border: none;
+  color: #8a8f96;
+  border-radius: 50%;
+}
+
+.input-image {
+}

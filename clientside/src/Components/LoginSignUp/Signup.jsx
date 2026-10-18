@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import defaultProfilePic from "../../assets/userPicDefault.png";
 import { saveToken } from "../../environment/common";
 import { signup } from "../../services/auth";
 import AboutTitle from "../AboutPage/AboutTitle";
@@ -178,9 +179,18 @@ const Signup = () => {
               }}
             ></TextField>
           </div>
-          <div>
-            <img src={image}></img>
-            <input type="file" name="file" onChange={handleImage}></input>
+          <div className="image-upload">
+            <img
+              src={defaultProfilePic}
+              alt={defaultProfilePic}
+              className="image-icon"
+            ></img>
+            <input
+              type="file"
+              name="file"
+              onChange={handleImage}
+              className="input-image"
+            ></input>
           </div>
           <div className="row">
             <Button
