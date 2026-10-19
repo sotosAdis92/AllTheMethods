@@ -8,6 +8,7 @@ const UserIcon = (props) => {
   const navigateToEdit = () => {
     navigator(`/profile/details/${props.userId}`);
   };
+  console.log(props);
   return (
     <>
       <div className="userIconWrapper">

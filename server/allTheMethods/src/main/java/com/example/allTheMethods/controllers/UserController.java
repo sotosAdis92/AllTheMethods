@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -55,8 +56,9 @@ public class UserController {
         return ResponseEntity.ok("User updated");
     }
 
-    @PutMapping("/{id}/image")
+    @PostMapping( "/{id}/image")
     public ResponseEntity<UserResponseDto> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException{
+        System.out.println("got in the endpoint");
         return ResponseEntity.ok(usersService.uploadImage(id,file));
     }
 

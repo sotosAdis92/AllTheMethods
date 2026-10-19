@@ -28,7 +28,7 @@ public class FileService {
         }
         Path filePath = uploadPath.resolve(imageName);
         Files.copy(file.getInputStream(),filePath, StandardCopyOption.REPLACE_EXISTING);
-        return baseUrl + "/" + fileName;
+        return baseUrl + "/" + imageName;
     }
 
     public void deleteImage(Long id) throws IOException {
