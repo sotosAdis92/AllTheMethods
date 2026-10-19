@@ -16,6 +16,7 @@ const MyProfile = () => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
   const [username, setUsername] = useState("");
+  const [image, setImage] = useState(null);
   const navigator = useNavigate();
 
   const userDisplayName = () => {
@@ -24,6 +25,7 @@ const MyProfile = () => {
         setDisplayName(response.data.displayName);
         setUserId(response.data.id);
         setUsername(response.data.username);
+        setImage(response.data.image);
       })
       .catch((error) => {
         console.error(error);
@@ -44,6 +46,7 @@ const MyProfile = () => {
                 displayName={displayName}
                 username={username}
                 userId={userId}
+                image={image}
               ></UserIcon>
             </div>
           </h1>
