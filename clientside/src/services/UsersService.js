@@ -27,7 +27,7 @@ export const uploadProfilePic = async (id, image) => {
   const formData = new FormData();
   formData.append("file", image);
   const response = axiosInstance.put(
-    `REST_API_BASE_URL/${id}/image`,
+    REST_API_BASE_URL + "/" + id + "/image",
     formData,
     { headers: { "Content-Type": "multipart/form-data" } },
   );

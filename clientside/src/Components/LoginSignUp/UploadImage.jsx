@@ -19,7 +19,7 @@ const UploadImage = () => {
 
   const handleSubmitImage = async (e) => {
     e.preventDefault();
-    const response = await uploadProfilePic(id, image)
+    const response = await uploadProfilePic(id, file)
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
     console.log(response);
