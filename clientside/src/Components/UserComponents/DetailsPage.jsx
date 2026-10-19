@@ -11,6 +11,7 @@ import {
   updateUserAccount,
 } from "../../services/UsersService";
 import Dialog from "../Util/Dialog";
+import defaultProfilePic from "./../../assets/userPicDefault.png";
 import ConfirmationDialog from "./ConfirmationDialog";
 import "./DetailsPage.css";
 
@@ -23,6 +24,14 @@ const DetailsPage = (props) => {
   const [errors, setErrors] = useState({
     displayName: "",
   });
+  const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
+
+  function handleImage(e) {
+    console.log(e.target.files);
+    setFile(e.target.files[0]);
+    setImage(URL.createObjectURL(e.target.files[0]));
+  }
 
   const dialogRef = useRef(null);
 
