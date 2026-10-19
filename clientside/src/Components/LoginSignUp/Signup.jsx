@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { saveToken } from "../../environment/common";
+
 import { signup } from "../../services/auth";
 import AboutTitle from "../AboutPage/AboutTitle";
 import "./LoginSignup.css";
@@ -66,7 +66,7 @@ const Signup = () => {
         const response = await signup(formData);
         if (response.status === 201) {
           const responseData = response.data;
-          saveToken(responseData.jwtToken);
+
           navigate(`/upload/${responseData.id}`);
         }
       } catch (error) {
@@ -84,7 +84,6 @@ const Signup = () => {
       }
     }
   };
-  console.log(image);
   return (
     <>
       <div className="login-container">

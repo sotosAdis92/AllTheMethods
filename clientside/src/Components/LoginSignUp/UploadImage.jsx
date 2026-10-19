@@ -6,27 +6,33 @@ import { uploadProfilePic } from "../../services/UsersService";
 import defaultProfilePic from "./../../assets/userPicDefault.png";
 const UploadImage = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const id = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
 
   function handleImage(e) {
     console.log(e.target.files);
+    setFile(e.target.files[0]);
     setImage(URL.createObjectURL(e.target.files[0]));
   }
 
   const handleSubmitImage = async (e) => {
     e.preventDefault();
-    const response = await uploadProfilePic(id, image);
-    enqueueSnackbar(`Welcome ${response.name}`, {
+    const response = await uploadProfilePic(id, image)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+    console.log(response);
+    //saveToken(response.jwtToken);
+    enqueueSnackbar(`Welcome ${response}`, {
       variant: "success",
       autoHideDuration: 5000,
     });
-    navigate("/about");
+    //navigate("/about");
   };
 
   return (
-    <div>
+    <div className="uploadImageSection">
       {image === null ? (
         <div>
           <div className="image-upload">
