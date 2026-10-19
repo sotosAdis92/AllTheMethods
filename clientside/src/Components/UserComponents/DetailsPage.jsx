@@ -9,6 +9,7 @@ import {
   deleteUserById,
   getUser,
   updateUserAccount,
+  uploadProfilePic,
 } from "../../services/UsersService";
 import Dialog from "../Util/Dialog";
 import defaultProfilePic from "./../../assets/userPicDefault.png";
@@ -69,6 +70,7 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
+        uploadProfilePic(id, file);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
