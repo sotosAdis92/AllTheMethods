@@ -12,5 +12,13 @@ export default defineConfig({
       usePolling: true,
     },
     allowedHosts: ["handstand-precision-caption.ngrok-free.dev"],
+    proxy: {
+      "/images": "http://localhost:8080",
+      "/api": {
+        target: "http://localhost:8080",
+
+        changeOrigin: true,
+      },
+    },
   },
 });

@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { saveToken } from "../../environment/common";
 import { uploadProfilePic } from "../../services/UsersService";
 import defaultProfilePic from "./../../assets/userPicDefault.png";
 const UploadImage = () => {
@@ -23,12 +24,12 @@ const UploadImage = () => {
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
     console.log(response);
-    //saveToken(response.jwtToken);
+    saveToken(response.jwtToken);
     enqueueSnackbar(`Welcome ${response}`, {
       variant: "success",
       autoHideDuration: 5000,
     });
-    //navigate("/about");
+    navigate("/about");
   };
 
   return (

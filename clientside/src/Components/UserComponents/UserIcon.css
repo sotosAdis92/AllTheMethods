@@ -54,8 +54,10 @@
 }
 
 .userDetails img {
-  width: 20%;
-  height: auto;
+  width: 100px;
+  border-radius: 16px;
+  border: 1px solid black;
+  height: 100px;
 }
 
 .userIconWrapper > div:last-child {
