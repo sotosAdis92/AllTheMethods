@@ -180,7 +180,7 @@ const Signup = () => {
               variant="contained"
               onClick={handleSubmit}
             >
-              Create Account
+              Next
             </Button>
           </div>
           <div className="row">
