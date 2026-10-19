@@ -1,20 +1,21 @@
+import Button from "@mui/material/Button";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import defaultProfilePic from "../../assets/userPicDefault.png";
 import { uploadProfilePic } from "../../services/UsersService";
+import defaultProfilePic from "./../../assets/userPicDefault.png";
 const UploadImage = () => {
   const { enqueueSnackbar } = useSnackbar();
   const id = useParams();
   const navigate = useNavigate();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   function handleImage(e) {
     console.log(e.target.files);
     setImage(URL.createObjectURL(e.target.files[0]));
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmitImage = async (e) => {
     e.preventDefault();
     const response = await uploadProfilePic(id, image);
     enqueueSnackbar(`Welcome ${response.name}`, {
@@ -65,7 +66,7 @@ const UploadImage = () => {
           type="submit"
           fullWidth
           variant="contained"
-          onClick={handleSubmit}
+          onClick={handleSubmitImage}
         >
           Create Account
         </Button>
