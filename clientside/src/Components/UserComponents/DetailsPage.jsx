@@ -112,6 +112,54 @@ const DetailsPage = (props) => {
               onChange={handleDisplayName}
             ></TextField>
           </div>
+          <div>
+            <div className="uploadImageSection">
+              {image === null ? (
+                <div>
+                  <div className="image-upload">
+                    Profile Picture
+                    <img src={defaultProfilePic} className="image-icon"></img>
+                    <label htmlFor="file" className="input-image">
+                      Upload
+                    </label>
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      onChange={handleImage}
+                    ></input>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="image-upload">
+                    Profile Picture
+                    <img src={image} className="image-icon"></img>
+                    <label htmlFor="file" className="input-image">
+                      Upload
+                    </label>
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      onChange={handleImage}
+                    ></input>
+                  </div>
+                </div>
+              )}
+              <div className="row">
+                <Button
+                  className="login-button"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  onClick={handleSubmitImage}
+                >
+                  Create Account
+                </Button>
+              </div>
+            </div>
+          </div>
           <div className="buttonsRow">
             <Button
               variant="contained"
