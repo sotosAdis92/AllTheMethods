@@ -9,8 +9,10 @@ import {
   deleteUserById,
   getUser,
   updateUserAccount,
+  uploadProfilePic,
 } from "../../services/UsersService";
 import Dialog from "../Util/Dialog";
+import defaultProfilePic from "./../../assets/userPicDefault.png";
 import ConfirmationDialog from "./ConfirmationDialog";
 import "./DetailsPage.css";
 
@@ -23,6 +25,14 @@ const DetailsPage = (props) => {
   const [errors, setErrors] = useState({
     displayName: "",
   });
+  const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
+
+  function handleImage(e) {
+    console.log(e.target.files);
+    setFile(e.target.files[0]);
+    setImage(URL.createObjectURL(e.target.files[0]));
+  }
 
   const dialogRef = useRef(null);
 
@@ -60,6 +70,7 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
+        uploadProfilePic(id, file);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
@@ -111,6 +122,43 @@ const DetailsPage = (props) => {
               helperText={errors.displayName}
               onChange={handleDisplayName}
             ></TextField>
+          </div>
+          <div>
+            <div className="uploadImageSection">
+              {image === null ? (
+                <div>
+                  <div className="image-upload">
+                    Profile Picture
+                    <img src={defaultProfilePic} className="image-icon"></img>
+                    <label htmlFor="file" className="input-image">
+                      Upload
+                    </label>
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      onChange={handleImage}
+                    ></input>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="image-upload">
+                    Profile Picture
+                    <img src={image} className="image-icon"></img>
+                    <label htmlFor="file" className="input-image">
+                      Upload
+                    </label>
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      onChange={handleImage}
+                    ></input>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           <div className="buttonsRow">
             <Button
