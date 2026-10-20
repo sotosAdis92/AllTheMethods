@@ -72,12 +72,11 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        deleteProfilePic(id).then(
-          uploadProfilePic(id, file)
-            .then((response) => console.log(response))
-            .then((data) => console.log(data))
-            .catch((error) => console.log(error)),
-        );
+        deleteProfilePic(id);
+        uploadProfilePic(id, file)
+          .then((response) => console.log(response))
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
