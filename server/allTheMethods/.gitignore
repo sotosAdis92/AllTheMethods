@@ -38,3 +38,6 @@ build/
 !.env.example
 application-dev.properties
 application-prod.properties
+
+###
+./src/main/resousrces/static/images
