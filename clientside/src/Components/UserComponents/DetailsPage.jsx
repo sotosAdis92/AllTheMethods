@@ -40,6 +40,7 @@ const DetailsPage = (props) => {
     if (id) {
       getUser(id).then((response) => {
         setDisplayName(response.data.displayName);
+        setImage(response.data.image);
         console.log(response.data);
       });
     }
@@ -70,7 +71,10 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        uploadProfilePic(id, file);
+        const response = uploadProfilePic(id, file)
+          .then((response) => console.log(response))
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
