@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import imagePencil from "../../assets/pencil.png";
 import { removeToken } from "../../environment/common";
 import {
+  deleteProfilePic,
   deleteUserById,
   getUser,
   updateUserAccount,
@@ -40,6 +41,7 @@ const DetailsPage = (props) => {
     if (id) {
       getUser(id).then((response) => {
         setDisplayName(response.data.displayName);
+        setImage(response.data.image);
         console.log(response.data);
       });
     }
@@ -62,7 +64,7 @@ const DetailsPage = (props) => {
     return valid;
   }
 
-  const editUserDetails = (e) => {
+  const editUserDetails = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       const userDetails = {
@@ -70,7 +72,15 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        uploadProfilePic(id, file);
+        if (file != null) {
+          deleteProfilePic(id)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
+        }
+        const response = uploadProfilePic(id, file)
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+        console.log(response);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
