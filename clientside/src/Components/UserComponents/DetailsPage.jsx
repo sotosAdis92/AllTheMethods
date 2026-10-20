@@ -72,15 +72,10 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        if (file != null) {
-          deleteProfilePic(id)
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error));
+        if (file) {
+          await deleteProfilePic(id);
+          await uploadProfilePic(id, file);
         }
-        const response = uploadProfilePic(id, file)
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
-        console.log(response);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });

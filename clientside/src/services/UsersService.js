@@ -17,19 +17,20 @@ export const deleteUserById = async (id) => {
 };
 
 export const updateUserAccount = async (id, userDetails) => {
-  const response = axiosInstance.put(REST_API_BASE_URL + "/details/" + id, {
-    params: userDetails,
-  });
+  const response = axiosInstance.put(
+    REST_API_BASE_URL + "/details/" + id,
+    userDetails,
+  );
   return response;
 };
 
 export const uploadProfilePic = async (id, image) => {
   const formData = new FormData();
   formData.append("file", image);
-  const response = axiosInstance.put(
+  const response = axiosInstance.post(
     `${REST_API_BASE_URL}/${id}/image`,
     formData,
-    { headers: { "Content-Type": "multipart/form-data" } },
+    { headers: {} },
   );
   console.log(response);
   return response;
