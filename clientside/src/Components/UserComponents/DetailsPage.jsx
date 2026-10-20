@@ -72,7 +72,9 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        deleteProfilePic(id);
+        if (file != null) {
+          deleteProfilePic(id);
+        }
         uploadProfilePic(id, file);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
