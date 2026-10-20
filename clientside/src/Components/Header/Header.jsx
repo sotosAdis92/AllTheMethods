@@ -1,5 +1,3 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,6 +12,7 @@ const Header = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [displayName, setDisplayName] = useState("");
   const [roleUser, setRoleUser] = useState("");
+  const [profilePic, setProfilePic] = useState("");
 
   const userDisplayName = async () => {
     const isLoggedIn = isTokenValid();
@@ -23,6 +22,7 @@ const Header = () => {
         const response = await getUser();
         setDisplayName(response.data.displayName);
         setRoleUser(response.data.userRole);
+        setProfilePic(response.data.image);
       }
     } catch (error) {
       console.log(error);
@@ -112,7 +112,7 @@ const Header = () => {
 
           <div className="userAndLogout">
             <div className="usersDisplay">
-              <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+              <img className="profilePic" src={profilePic}></img>
               <div className="displayOfName">{displayName}</div>
             </div>
             <Button
