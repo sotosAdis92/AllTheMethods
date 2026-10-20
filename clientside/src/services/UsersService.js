@@ -27,7 +27,7 @@ export const uploadProfilePic = async (id, image) => {
   const formData = new FormData();
   formData.append("file", image);
   const response = axiosInstance.put(
-    REST_API_BASE_URL + "/" + id + "/image",
+    `${REST_API_BASE_URL}/${id}/image`,
     formData,
     { headers: { "Content-Type": "multipart/form-data" } },
   );
@@ -36,8 +36,8 @@ export const uploadProfilePic = async (id, image) => {
 };
 
 export const deleteProfilePic = async (id) => {
-  const response = axiosInstance.delete(
-    REST_API_BASE_URL + "/" + id + "/image",
+  const response = await axiosInstance.delete(
+    `${REST_API_BASE_URL}/${id}/image`,
   );
   return response;
 };
