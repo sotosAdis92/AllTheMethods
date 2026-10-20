@@ -64,7 +64,7 @@ const DetailsPage = (props) => {
     return valid;
   }
 
-  const editUserDetails = (e) => {
+  const editUserDetails = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       const userDetails = {
@@ -73,9 +73,14 @@ const DetailsPage = (props) => {
       };
       if (id) {
         if (file != null) {
-          deleteProfilePic(id);
+          deleteProfilePic(id)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
         }
-        uploadProfilePic(id, file);
+        const response = uploadProfilePic(id, file)
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+        console.log(response);
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
