@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import imagePencil from "../../assets/pencil.png";
 import { removeToken } from "../../environment/common";
 import {
+  deleteProfilePic,
   deleteUserById,
   getUser,
   updateUserAccount,
@@ -71,10 +72,12 @@ const DetailsPage = (props) => {
         displayName,
       };
       if (id) {
-        const response = uploadProfilePic(id, file)
-          .then((response) => console.log(response))
-          .then((data) => console.log(data))
-          .catch((error) => console.log(error));
+        deleteProfilePic(id).then(
+          uploadProfilePic(id, file)
+            .then((response) => console.log(response))
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error)),
+        );
         updateUserAccount(id, userDetails).then((response) => {
           navigator("/profile");
         });
