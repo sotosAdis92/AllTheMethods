@@ -40,4 +40,4 @@ application-dev.properties
 application-prod.properties
 
 ###
-!**/static/images
+!**/src/main/resources/static/images/
