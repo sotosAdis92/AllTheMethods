@@ -3,7 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.AuthenticationRequest;
 import com.example.allTheMethods.dto.response.AuthenticationResponse;
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
-import com.example.allTheMethods.dto.response.UserResponseDto;
+import com.example.allTheMethods.dto.response.UserResponse;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.exception.NullUserException;
 import com.example.allTheMethods.repository.UsersRepository;
@@ -47,7 +47,7 @@ public class AuthController {
             if(authService.hasUserWithUsername(createUserAccountRequest.getUsername())){
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonMap("message", "Username already exists"));
             }
-            UserResponseDto createdUser = authService.createUser(createUserAccountRequest);
+            UserResponse createdUser = authService.createUser(createUserAccountRequest);
             if(createdUser == null){
                 throw new NullUserException("Null user cannot be created");
             }

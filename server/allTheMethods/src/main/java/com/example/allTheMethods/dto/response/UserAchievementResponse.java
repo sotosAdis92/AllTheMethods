@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto.response;
 
 import java.time.LocalDateTime;
 
-public record UserAchievementResponseDto(
+public record UserAchievementResponse(
         Long id,
         Long userId,
         Long achievementId,

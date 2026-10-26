@@ -52,31 +52,31 @@ public class UserProblemController {
 
     @GetMapping("/count/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<List<UserProblemStatsResponseDto>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
-        List<UserProblemStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
+    public ResponseEntity<List<UserProblemStatsResponse>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){
+        List<UserProblemStatsResponse> countDistinct = userProblemService.countDistinctSolvedProblemsByDifficultyForUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 
     @GetMapping("/category/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<List<CategoryStatsResponseDto>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
+    public ResponseEntity<List<CategoryStatsResponse>> countDistinctSolvedProblemsByCategory(@PathVariable("id") int id){
         System.out.println(id);
-        List<CategoryStatsResponseDto> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);
+        List<CategoryStatsResponse> countDistinct = userProblemService.countDistinctSolvedProblemsByCategoryForUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 
     @GetMapping("/summary/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<SummaryResponseDto> getSummeryOfUser(@PathVariable("id") int id){
-        SummaryResponseDto summery = userProblemService.countSummeryOfUser(id);
+    public ResponseEntity<SummaryResponse> getSummeryOfUser(@PathVariable("id") int id){
+        SummaryResponse summery = userProblemService.countSummeryOfUser(id);
         return ResponseEntity.ok(summery);
     }
 
     @GetMapping("/type/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<UserProblemStatsResponseDto> countProblemsSolvedByUserAndType(@PathVariable("id") int id,@RequestParam(name = "type") String type){
+    public ResponseEntity<UserProblemStatsResponse> countProblemsSolvedByUserAndType(@PathVariable("id") int id, @RequestParam(name = "type") String type){
         System.out.println(type);
-        UserProblemStatsResponseDto userProblemStatsResponseDto = userProblemService.countProblemsByUserAndTypeAndDifficulty(id,type);
-        return ResponseEntity.ok(userProblemStatsResponseDto);
+        UserProblemStatsResponse userProblemStatsResponse = userProblemService.countProblemsByUserAndTypeAndDifficulty(id,type);
+        return ResponseEntity.ok(userProblemStatsResponse);
     }
 }

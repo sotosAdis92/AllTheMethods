@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
-import com.example.allTheMethods.dto.response.FavoritesResponseDto;
+import com.example.allTheMethods.dto.response.FavoritesResponse;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.exception.FavouriteNotFoundException;
 import com.example.allTheMethods.mapper.FavoritesMapper;
@@ -23,7 +23,7 @@ public class FavoritesServiceImpl implements FavoritesService {
     }
 
     @Override
-    public FavoritesResponseDto createFavourite(CreateFavoriteRequest createFavoriteRequest) {
+    public FavoritesResponse createFavourite(CreateFavoriteRequest createFavoriteRequest) {
         Favorites favourite = favoritesMapper.toEntity(createFavoriteRequest);
         return favoritesMapper.toDto(favoritesRepository.save(favourite));
     }
@@ -35,13 +35,13 @@ public class FavoritesServiceImpl implements FavoritesService {
     }
 
     @Override
-    public Page<FavoritesResponseDto> getAllUserFavourites(int id, Pageable pageable) {
+    public Page<FavoritesResponse> getAllUserFavourites(int id, Pageable pageable) {
         Page<Favorites> allFavouritesOfUser = favoritesRepository.getFavouritesByUserId(id, pageable);
         return favoritesMapper.toDto(allFavouritesOfUser);
     }
 
     @Override
-    public List<FavoritesResponseDto> getAllFavourites() {
+    public List<FavoritesResponse> getAllFavourites() {
         List<Favorites> allFavourites = favoritesRepository.findAll();
         return favoritesMapper.toDto(allFavourites);
     }

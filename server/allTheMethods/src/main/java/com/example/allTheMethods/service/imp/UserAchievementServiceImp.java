@@ -4,7 +4,7 @@ import com.example.allTheMethods.dto.request.AchievementRequest;
 import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.request.UserAchievementRequest;
 import com.example.allTheMethods.dto.request.UserProblemRequest;
-import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
+import com.example.allTheMethods.dto.response.UserAchievementResponse;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
@@ -38,7 +38,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
 
     @Override
     @Transactional
-    public UserAchievementResponseDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
+    public UserAchievementResponse saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
         UserAchievementRequest userAchievementDto = saveUserAchievementDto.getUserAchievementDto();
         UserProblemRequest userProblemDto = saveUserAchievementDto.getUserProblemDto();
         AchievementRequest achievementRequest = saveUserAchievementDto.getAchievementDto();
@@ -92,7 +92,7 @@ public class UserAchievementServiceImp implements UserAchievementService {
     }
 
     @Override
-    public List<UserAchievementResponseDto> getUserAchievements(Long id) {
+    public List<UserAchievementResponse> getUserAchievements(Long id) {
         Users user = jwtUtil.getLoggedInUser();
         if(user!=null){
             List<UserAchievements> result = userAchievementsRepository.findAllByUserId(id);

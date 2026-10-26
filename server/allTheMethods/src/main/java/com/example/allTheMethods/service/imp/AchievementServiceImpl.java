@@ -2,7 +2,7 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.CreateAchievementRequest;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
-import com.example.allTheMethods.dto.response.AchievementResponseDto;
+import com.example.allTheMethods.dto.response.AchievementResponse;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.exception.AchievementNotFoundException;
 import com.example.allTheMethods.mapper.AchievementMapper;
@@ -25,25 +25,25 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public AchievementResponseDto createAchievement(CreateAchievementRequest achievementDto) {
+    public AchievementResponse createAchievement(CreateAchievementRequest achievementDto) {
         Achievement achievement = achievementMapper.toEntity(achievementDto);
         return achievementMapper.toDto(achievementRepository.save(achievement));
     }
 
     @Override
-    public AchievementResponseDto getAchievementById(Long id) {
+    public AchievementResponse getAchievementById(Long id) {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         return achievementMapper.toDto(achievement);
     }
 
     @Override
-    public List<AchievementResponseDto> getAllAchievements() {
+    public List<AchievementResponse> getAllAchievements() {
         List<Achievement> allAchievements = achievementRepository.findAll();
         return achievementMapper.toDto(allAchievements);
     }
 
     @Override
-    public AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequest updatedAchievement) {
+    public AchievementResponse updateAchievement(Long id, UpdateAchievementRequest updatedAchievement) {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         achievement.setName(updatedAchievement.name());
         achievement.setDescription(updatedAchievement.description());
@@ -62,19 +62,19 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public List<AchievementResponseDto> getAchievementByCategory(String category) {
+    public List<AchievementResponse> getAchievementByCategory(String category) {
         List<Achievement> achievements = achievementRepository.findAchievementByCategory(category);
         return achievementMapper.toDto(achievements);
     }
 
     @Override
-    public List<AchievementResponseDto> getAchievementByRank(String rank){
+    public List<AchievementResponse> getAchievementByRank(String rank){
         List<Achievement> achievements = achievementRepository.findAchievementByRank(rank);
         return achievementMapper.toDto(achievements);
     }
 
     @Override
-    public List<AchievementResponseDto> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks){
+    public List<AchievementResponse> getAchievementByCategoryAndRanks(List<String> categories, List<String> ranks){
         categories = cleanList(categories);
         ranks = cleanList(ranks);
         List<Achievement> achievementsByCategoryAndRank;

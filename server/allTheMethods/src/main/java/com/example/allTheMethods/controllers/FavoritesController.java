@@ -1,7 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
-import com.example.allTheMethods.dto.response.FavoritesResponseDto;
+import com.example.allTheMethods.dto.response.FavoritesResponse;
 import com.example.allTheMethods.service.FavoritesService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -23,9 +23,9 @@ public class FavoritesController {
     }
 
     @PostMapping
-    public ResponseEntity<FavoritesResponseDto> addToFavorites(@Valid @RequestBody CreateFavoriteRequest createFavoriteRequest){
-        FavoritesResponseDto favoritesResponseDto = favoritesService.createFavourite(createFavoriteRequest);
-        return new ResponseEntity<>(favoritesResponseDto, HttpStatus.CREATED);
+    public ResponseEntity<FavoritesResponse> addToFavorites(@Valid @RequestBody CreateFavoriteRequest createFavoriteRequest){
+        FavoritesResponse favoritesResponse = favoritesService.createFavourite(createFavoriteRequest);
+        return new ResponseEntity<>(favoritesResponse, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -36,19 +36,19 @@ public class FavoritesController {
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<FavoritesResponseDto>> getAllFavorites(){
-        List<FavoritesResponseDto> favoritesResponseDtos = favoritesService.getAllFavourites();
-        return new ResponseEntity<>(favoritesResponseDtos, HttpStatus.OK);
+    public ResponseEntity<List<FavoritesResponse>> getAllFavorites(){
+        List<FavoritesResponse> favoritesResponses = favoritesService.getAllFavourites();
+        return new ResponseEntity<>(favoritesResponses, HttpStatus.OK);
     }
 
     @GetMapping("/user/all/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<Page<FavoritesResponseDto>> getAllUserFavorites(
+    public ResponseEntity<Page<FavoritesResponse>> getAllUserFavorites(
             @PathVariable("id") int id,
             @RequestParam(defaultValue = "1",name = "pageNo", required = false) int pageNo,
             @RequestParam(defaultValue = "20",name = "pageSize",required = false) int pageSize
     ){
-        Page<FavoritesResponseDto> favouritesOfUser = favoritesService.getAllUserFavourites(id, PageRequest.of(pageNo-1, pageSize));
+        Page<FavoritesResponse> favouritesOfUser = favoritesService.getAllUserFavourites(id, PageRequest.of(pageNo-1, pageSize));
         return new ResponseEntity<>(favouritesOfUser, HttpStatus.OK);
     }
 }

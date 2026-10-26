@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
-import com.example.allTheMethods.dto.response.UserResponseDto;
+import com.example.allTheMethods.dto.response.UserResponse;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.exception.UsernameAlreadyExistsException;
 import com.example.allTheMethods.mapper.UsersMapper;
@@ -22,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     @Transactional
-    public UserResponseDto createUser(CreateUserAccountRequest createUserAccountRequest) {
+    public UserResponse createUser(CreateUserAccountRequest createUserAccountRequest) {
         if(hasUserWithUsername(createUserAccountRequest.getUsername())){
             throw new UsernameAlreadyExistsException("Username already exists: " + createUserAccountRequest.getUsername());
         }

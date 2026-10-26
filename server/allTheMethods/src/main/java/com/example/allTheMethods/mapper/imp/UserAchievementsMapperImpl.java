@@ -2,7 +2,7 @@ package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.AchievementRequest;
 import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
-import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
+import com.example.allTheMethods.dto.response.UserAchievementResponse;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
 import com.example.allTheMethods.entity.Users;
@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 public class UserAchievementsMapperImpl implements UserAchievementsMapper {
 
     @Override
-    public UserAchievementResponseDto toDto(UserAchievements userAchievements) {
+    public UserAchievementResponse toDto(UserAchievements userAchievements) {
         if(userAchievements == null){
             return null;
         }
-        return new UserAchievementResponseDto(
+        return new UserAchievementResponse(
                 userAchievements.getUserAchievementId(),
                 userAchievements.getUser().getId(),
                 userAchievements.getAchievement().getAchievementId(),
@@ -35,7 +35,7 @@ public class UserAchievementsMapperImpl implements UserAchievementsMapper {
     }
 
     @Override
-    public List<UserAchievementResponseDto> toDto(List<UserAchievements> userAchievements) {
+    public List<UserAchievementResponse> toDto(List<UserAchievements> userAchievements) {
         if(userAchievements == null){
             return null;
         }

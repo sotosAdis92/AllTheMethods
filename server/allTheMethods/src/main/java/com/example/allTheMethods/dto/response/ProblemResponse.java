@@ -1,8 +1,6 @@
 package com.example.allTheMethods.dto.response;
 
-import jakarta.validation.constraints.NotBlank;
-
-public record ProblemResponseDto(
+public record ProblemResponse(
         Long id,
         int number,
         String title,

@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto.response;
 
 import com.example.allTheMethods.enums.UserRole;
 
-public record UserResponseDto(
+public record UserResponse(
     Long id,
     String username,
     String displayName,

@@ -1,9 +1,9 @@
 package com.example.allTheMethods.repository;
 
-import com.example.allTheMethods.dto.response.CategoryStatsResponseDto;
+import com.example.allTheMethods.dto.response.CategoryStatsResponse;
 import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.SummaryResponseDto;
-import com.example.allTheMethods.dto.response.UserProblemStatsResponseDto;
+import com.example.allTheMethods.dto.response.SummaryResponse;
+import com.example.allTheMethods.dto.response.UserProblemStatsResponse;
 import com.example.allTheMethods.entity.UserProblem;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.domain.Page;
@@ -28,18 +28,18 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 GROUP BY p.difficulty")
     @QueryHints({@QueryHint(name="org.hibernate.readOnly",value="true"),@QueryHint(name = "org.hibernate.cacheable",value = "true")})
-    List<UserProblemStatsResponseDto> countDistinctSolvedByDifficultyFromUser(@Param("userId") Long userId);
+    List<UserProblemStatsResponse> countDistinctSolvedByDifficultyFromUser(@Param("userId") Long userId);
 
     @Query("SELECT p.problemType,COUNT(p.problemType) FROM Problem p FULL JOIN UserProblem up ON p.id = up.problem.id WHERE up.user.id = ?1 GROUP BY p.problemType")
     @QueryHints({@QueryHint(name="org.hibernate.readOnly",value="true"),@QueryHint(name = "org.hibernate.cacheable",value = "true")})
-    List<CategoryStatsResponseDto> countDistinctByIdAndCategory(@Param("userId") Long userId);
+    List<CategoryStatsResponse> countDistinctByIdAndCategory(@Param("userId") Long userId);
 
     boolean existsByUserIdAndProblemId(Long userId, Long problemId);
 
     @Query("SELECT COALESCE(COUNT(DISTINCT up.problem.id), 0),COALESCE(COUNT(s), 0),COALESCE(CASE WHEN COUNT(s) = 0 OR COUNT(DISTINCT up.problem.id) = 0 THEN 0.0 ELSE 100.0 * COUNT(DISTINCT up.problem.id) / COUNT(s) END, 0.0) FROM Submission s LEFT JOIN UserProblem up ON s.user.id = up.user.id AND s.problem.id = up.problem.id WHERE s.user.id = ?1")
     @QueryHints({@QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint( name= "org.hibernate.cacheable",value = "true")})
-    SummaryResponseDto countSummeryOfUser(@Param("userId") Long userId);
+    SummaryResponse countSummeryOfUser(@Param("userId") Long userId);
 
     @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 WHERE p.problemType LIKE ?2 GROUP BY p.difficulty")
-    UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
+    UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
 }

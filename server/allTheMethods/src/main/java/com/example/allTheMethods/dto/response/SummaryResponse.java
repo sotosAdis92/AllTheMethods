@@ -1,6 +1,6 @@
 package com.example.allTheMethods.dto.response;
 
-public record SummaryResponseDto(
+public record SummaryResponse(
         Long countTotalProblems,
         Long countSubmissions,
         Double userAcceptanceRate

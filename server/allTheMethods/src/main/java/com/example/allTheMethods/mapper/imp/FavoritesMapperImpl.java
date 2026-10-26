@@ -1,7 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
-import com.example.allTheMethods.dto.response.FavoritesResponseDto;
+import com.example.allTheMethods.dto.response.FavoritesResponse;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Users;
@@ -29,10 +29,10 @@ public class FavoritesMapperImpl implements FavoritesMapper {
     }
 
     @Override
-    public FavoritesResponseDto toDto(Favorites favorites) {
+    public FavoritesResponse toDto(Favorites favorites) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String date = favorites.getDateAdded().format(formatter);
-        return new FavoritesResponseDto(
+        return new FavoritesResponse(
             favorites.getId(),
                 favorites.getUser().getId(),
                 favorites.getProblem().getId(),
@@ -45,12 +45,12 @@ public class FavoritesMapperImpl implements FavoritesMapper {
     }
 
     @Override
-    public List<FavoritesResponseDto> toDto(List<Favorites> favoritesList) {
+    public List<FavoritesResponse> toDto(List<Favorites> favoritesList) {
         return favoritesList.stream().map(this::toDto).toList();
     }
 
     @Override
-    public Page<FavoritesResponseDto> toDto(Page<Favorites> favoritesPage) {
+    public Page<FavoritesResponse> toDto(Page<Favorites> favoritesPage) {
         return favoritesPage.map(this::toDto);
     }
 }

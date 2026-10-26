@@ -3,7 +3,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.CreateProblemRequest;
 import com.example.allTheMethods.dto.request.UpdateProblemRequest;
-import com.example.allTheMethods.dto.response.ProblemResponseDto;
+import com.example.allTheMethods.dto.response.ProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
 import jakarta.validation.Valid;
@@ -27,27 +27,27 @@ public class ProblemController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> createProblem(@Valid @RequestBody CreateProblemRequest problemDto){
-        ProblemResponseDto savedProblem =  problemService.createProblem(problemDto);
+    public ResponseEntity<ProblemResponse> createProblem(@Valid @RequestBody CreateProblemRequest problemDto){
+        ProblemResponse savedProblem =  problemService.createProblem(problemDto);
         return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProblemResponseDto> getProblemById(@PathVariable("id") int id){
-        ProblemResponseDto problemDto = problemService.getProblemById(id);
+    public ResponseEntity<ProblemResponse> getProblemById(@PathVariable("id") int id){
+        ProblemResponse problemDto = problemService.getProblemById(id);
         return ResponseEntity.ok(problemDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<ProblemResponseDto>> getAllProblems(){
-        List<ProblemResponseDto> problems = problemService.getAllProblems();
+    public ResponseEntity<List<ProblemResponse>> getAllProblems(){
+        List<ProblemResponse> problems = problemService.getAllProblems();
         return ResponseEntity.ok(problems);
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequest updateProblemDto){
-        ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
+    public ResponseEntity<ProblemResponse> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequest updateProblemDto){
+        ProblemResponse problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }
 
@@ -59,20 +59,20 @@ public class ProblemController {
     }
 
     @GetMapping("categories/{category}")
-    public ResponseEntity<List<ProblemResponseDto>> getProblemsByCategory(@PathVariable("category") String category){
-        List<ProblemResponseDto> problemDtos = problemService.getProblemsByCategory(category);
+    public ResponseEntity<List<ProblemResponse>> getProblemsByCategory(@PathVariable("category") String category){
+        List<ProblemResponse> problemDtos = problemService.getProblemsByCategory(category);
         return ResponseEntity.ok(problemDtos);
     }
 
     @GetMapping("difficulty/{difficulty}")
-    public ResponseEntity<List<ProblemResponseDto>> getProblemsByDifficulty(@PathVariable("difficulty") String difficulty){
-        List<ProblemResponseDto> problemDtos = problemService.getProblemsByDifficulty(difficulty);
+    public ResponseEntity<List<ProblemResponse>> getProblemsByDifficulty(@PathVariable("difficulty") String difficulty){
+        List<ProblemResponse> problemDtos = problemService.getProblemsByDifficulty(difficulty);
         return ResponseEntity.ok(problemDtos);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ProblemResponseDto>> getProblemsByCategoryAndDifficulty(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> difficulties){
-        List<ProblemResponseDto> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
+    public ResponseEntity<List<ProblemResponse>> getProblemsByCategoryAndDifficulty(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> difficulties){
+        List<ProblemResponse> problemDtos = problemService.getProblemsByCategoryOrDifficulty(categories,difficulties);
         return ResponseEntity.ok(problemDtos);
     }
 
@@ -83,9 +83,9 @@ public class ProblemController {
     }
 
     @GetMapping("/types/{type}")
-    public ResponseEntity<List<ProblemResponseDto>> getProblemsByProblemType(@PathVariable("type") String problemType){
-        List<ProblemResponseDto> problemResponseDtos = problemService.getProblemsByProblemType(problemType);
-        return ResponseEntity.ok((problemResponseDtos));
+    public ResponseEntity<List<ProblemResponse>> getProblemsByProblemType(@PathVariable("type") String problemType){
+        List<ProblemResponse> problemResponses = problemService.getProblemsByProblemType(problemType);
+        return ResponseEntity.ok((problemResponses));
     }
 
     @GetMapping("/list")

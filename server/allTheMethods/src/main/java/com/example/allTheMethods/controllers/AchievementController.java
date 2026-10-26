@@ -1,7 +1,7 @@
 package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.CreateAchievementRequest;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
-import com.example.allTheMethods.dto.response.AchievementResponseDto;
+import com.example.allTheMethods.dto.response.AchievementResponse;
 import com.example.allTheMethods.service.AchievementService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -22,28 +22,28 @@ public class AchievementController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> createAchievement(@Valid @RequestBody CreateAchievementRequest achievementDto){
-        AchievementResponseDto savedAchievement = achievementService.createAchievement(achievementDto);
+    public ResponseEntity<AchievementResponse> createAchievement(@Valid @RequestBody CreateAchievementRequest achievementDto){
+        AchievementResponse savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AchievementResponseDto> getAchievementById(@PathVariable("id") Long id){
-        AchievementResponseDto achievementDto = achievementService.getAchievementById(id);
+    public ResponseEntity<AchievementResponse> getAchievementById(@PathVariable("id") Long id){
+        AchievementResponse achievementDto = achievementService.getAchievementById(id);
         return ResponseEntity.ok(achievementDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<AchievementResponseDto>> getAllAchievements(){
-        List<AchievementResponseDto> achievevments = achievementService.getAllAchievements();
+    public ResponseEntity<List<AchievementResponse>> getAllAchievements(){
+        List<AchievementResponse> achievevments = achievementService.getAllAchievements();
         return ResponseEntity.ok(achievevments);
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> updateAchievement(@Valid @PathVariable("id") Long id, @Valid @RequestBody UpdateAchievementRequest updateAchievementDto){
+    public ResponseEntity<AchievementResponse> updateAchievement(@Valid @PathVariable("id") Long id, @Valid @RequestBody UpdateAchievementRequest updateAchievementDto){
         System.out.println(updateAchievementDto);
-        AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
+        AchievementResponse achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);
     }
 
@@ -55,20 +55,20 @@ public class AchievementController {
     }
 
     @GetMapping("categories/{category}")
-    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByCategory(@PathVariable("category") String category){
-        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByCategory(category);
+    public ResponseEntity<List<AchievementResponse>> getAchievementsByCategory(@PathVariable("category") String category){
+        List<AchievementResponse> achievementDtos = achievementService.getAchievementByCategory(category);
         return ResponseEntity.ok(achievementDtos);
     }
 
     @GetMapping("ranks/{rank}")
-    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByRank(@PathVariable("rank") String rank){
-        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByRank(rank);
+    public ResponseEntity<List<AchievementResponse>> getAchievementsByRank(@PathVariable("rank") String rank){
+        List<AchievementResponse> achievementDtos = achievementService.getAchievementByRank(rank);
         return ResponseEntity.ok(achievementDtos);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<AchievementResponseDto>> getAchievementsByCategoryAndRank(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> ranks){
-        List<AchievementResponseDto> achievementDtos = achievementService.getAchievementByCategoryAndRanks(categories,ranks);
+    public ResponseEntity<List<AchievementResponse>> getAchievementsByCategoryAndRank(@RequestParam(required = false) List<String> categories, @RequestParam(required = false) List<String> ranks){
+        List<AchievementResponse> achievementDtos = achievementService.getAchievementByCategoryAndRanks(categories,ranks);
         return ResponseEntity.ok(achievementDtos);
     }
 

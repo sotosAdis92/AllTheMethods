@@ -82,9 +82,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id){
+    public List<UserProblemStatsResponse> countDistinctSolvedProblemsByDifficultyForUser(int id){
         Users user = jwtUtil.getLoggedInUser();
-        List<UserProblemStatsResponseDto> countDistinctSolved = new ArrayList<>();
+        List<UserProblemStatsResponse> countDistinctSolved = new ArrayList<>();
         if(user!=null){
             countDistinctSolved = userProblemsRepository.countDistinctSolvedByDifficultyFromUser((long) id);
         }
@@ -92,9 +92,9 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public List<CategoryStatsResponseDto> countDistinctSolvedProblemsByCategoryForUser(int id) {
+    public List<CategoryStatsResponse> countDistinctSolvedProblemsByCategoryForUser(int id) {
         Users user = jwtUtil.getLoggedInUser();
-        List<CategoryStatsResponseDto> countDistinctSolved = new ArrayList<>();
+        List<CategoryStatsResponse> countDistinctSolved = new ArrayList<>();
         if(user!=null){
             countDistinctSolved = userProblemsRepository.countDistinctByIdAndCategory((long) id);
         }
@@ -102,19 +102,19 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public SummaryResponseDto countSummeryOfUser(int id) {
+    public SummaryResponse countSummeryOfUser(int id) {
         Users user = jwtUtil.getLoggedInUser();
-        SummaryResponseDto summaryResponseDto = new SummaryResponseDto(0L,0L,0.0);
+        SummaryResponse summaryResponse = new SummaryResponse(0L,0L,0.0);
         if(user!=null){
-            summaryResponseDto = userProblemsRepository.countSummeryOfUser((long) id);
+            summaryResponse = userProblemsRepository.countSummeryOfUser((long) id);
         }
-        return summaryResponseDto;
+        return summaryResponse;
     }
 
     @Override
-    public UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(int id, String type) {
+    public UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(int id, String type) {
         Users user = jwtUtil.getLoggedInUser();
-        UserProblemStatsResponseDto difficultyStatsResponse = new UserProblemStatsResponseDto("",0L,0L);
+        UserProblemStatsResponse difficultyStatsResponse = new UserProblemStatsResponse("",0L,0L);
         if(user!=null){
             difficultyStatsResponse = userProblemsRepository.countProblemsByUserAndTypeAndDifficulty((long) id, type);
             System.out.println(difficultyStatsResponse);

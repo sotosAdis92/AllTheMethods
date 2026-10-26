@@ -2,7 +2,7 @@ package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.CreateAchievementRequest;
 import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
-import com.example.allTheMethods.dto.response.AchievementResponseDto;
+import com.example.allTheMethods.dto.response.AchievementResponse;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.mapper.AchievementMapper;
 import org.springframework.stereotype.Component;
@@ -41,8 +41,8 @@ public class AchievementMapperImpl implements AchievementMapper {
     }
 
     @Override
-    public AchievementResponseDto toDto(Achievement achievement) {
-        return new AchievementResponseDto(
+    public AchievementResponse toDto(Achievement achievement) {
+        return new AchievementResponse(
                 achievement.getAchievementId(),
                 achievement.getName(),
                 achievement.getDescription(),
@@ -54,7 +54,7 @@ public class AchievementMapperImpl implements AchievementMapper {
     }
 
     @Override
-    public List<AchievementResponseDto> toDto(List<Achievement> achievementList) {
+    public List<AchievementResponse> toDto(List<Achievement> achievementList) {
         return achievementList.stream().map(this::toDto).toList();
     }
 }

@@ -1,7 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
-import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
+import com.example.allTheMethods.dto.response.UserAchievementResponse;
 import com.example.allTheMethods.service.UserAchievementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +20,9 @@ public class UserAchievementsController {
 
     @PostMapping("/save")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<UserAchievementResponseDto> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
+    public ResponseEntity<UserAchievementResponse> saveUserAchievement(@RequestBody SaveUserAchievementDto saveUserAchievementDto){
         System.out.println("Hit endpoint user achievements");
-        UserAchievementResponseDto userAchievementDto = userAchievementService.saveUserAchievements(saveUserAchievementDto);
+        UserAchievementResponse userAchievementDto = userAchievementService.saveUserAchievements(saveUserAchievementDto);
         return new ResponseEntity<>(userAchievementDto, HttpStatus.CREATED);
     }
 

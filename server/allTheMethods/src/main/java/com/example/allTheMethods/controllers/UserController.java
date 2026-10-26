@@ -1,7 +1,7 @@
 package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.UpdateUserRequest;
-import com.example.allTheMethods.dto.response.UserResponseDto;
+import com.example.allTheMethods.dto.response.UserResponse;
 import com.example.allTheMethods.service.UsersService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,13 +25,13 @@ public class UserController {
     }
 
     @GetMapping("/username")
-    public UserResponseDto getUserName(){
+    public UserResponse getUserName(){
         return usersService.getUserName();
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Page<UserResponseDto>> getAllUsers(
+    public ResponseEntity<Page<UserResponse>> getAllUsers(
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
             @RequestParam(value = "pageSize", required = false, defaultValue = "30") int pageSize,
             @RequestParam(value = "sortBy", required = false, defaultValue = "id") String sortBy,
@@ -39,7 +39,7 @@ public class UserController {
     ){
         Sort sort = null;
         sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-        Page<UserResponseDto> users = usersService.getAllUsers(PageRequest.of(pageNo-1,pageSize, sort));
+        Page<UserResponse> users = usersService.getAllUsers(PageRequest.of(pageNo-1,pageSize, sort));
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
@@ -56,13 +56,13 @@ public class UserController {
     }
 
     @PostMapping( "/{id}/image")
-    public ResponseEntity<UserResponseDto> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException{
+    public ResponseEntity<UserResponse> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException{
         System.out.println("got in the endpoint");
         return ResponseEntity.ok(usersService.uploadImage(id,file));
     }
 
     @DeleteMapping("/{id}/image")
-    public ResponseEntity<UserResponseDto> deleteImage(@PathVariable Long id) throws IOException{
+    public ResponseEntity<UserResponse> deleteImage(@PathVariable Long id) throws IOException{
         return ResponseEntity.ok(usersService.deleteImage(id));
     }
 

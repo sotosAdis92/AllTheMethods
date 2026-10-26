@@ -3,7 +3,7 @@ package com.example.allTheMethods.mapper.imp;
 
 import com.example.allTheMethods.dto.request.CreateUserAccountRequest;
 import com.example.allTheMethods.dto.request.UpdateUserRequest;
-import com.example.allTheMethods.dto.response.UserResponseDto;
+import com.example.allTheMethods.dto.response.UserResponse;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.enums.UserRole;
 import com.example.allTheMethods.exception.NullUserException;
@@ -32,12 +32,12 @@ public class UsersMapperImpl implements UsersMapper {
     }
 
     @Override
-    public UserResponseDto toDto(Users user) throws NullUserException {
+    public UserResponse toDto(Users user) throws NullUserException {
         if(user == null){
             System.out.println("no user returned");
             throw new NullUserException("no user returned");
         }
-        return new UserResponseDto(
+        return new UserResponse(
                 user.getId(),
                 user.getUsername(),
                 user.getDisplayName(),
@@ -61,7 +61,7 @@ public class UsersMapperImpl implements UsersMapper {
     }
 
     @Override
-    public Page<UserResponseDto> toDto(Page<Users> users) {
+    public Page<UserResponse> toDto(Page<Users> users) {
        return users.map(this::toDto);
     }
 

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.dto.response;
 
-public record AchievementResponseDto(
+public record AchievementResponse(
     Long id,
     String name,
     String description,

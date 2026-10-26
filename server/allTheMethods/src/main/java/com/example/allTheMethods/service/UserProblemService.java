@@ -12,8 +12,8 @@ public interface UserProblemService {
     Page<UserProblemResponse> getUserProblemsByUserId(int id, Pageable pageable);
     boolean checkIfUserSolvedAProblem(int id);
     List<DifficultyStatsResponse> countAllByUserAndProblemDifficulty(int id);
-    List<UserProblemStatsResponseDto> countDistinctSolvedProblemsByDifficultyForUser(int id);
-    List<CategoryStatsResponseDto> countDistinctSolvedProblemsByCategoryForUser(int id);
-    SummaryResponseDto countSummeryOfUser(int id);
-    UserProblemStatsResponseDto countProblemsByUserAndTypeAndDifficulty(int id, String type);
+    List<UserProblemStatsResponse> countDistinctSolvedProblemsByDifficultyForUser(int id);
+    List<CategoryStatsResponse> countDistinctSolvedProblemsByCategoryForUser(int id);
+    SummaryResponse countSummeryOfUser(int id);
+    UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(int id, String type);
 }

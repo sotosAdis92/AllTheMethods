@@ -1,7 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 import com.example.allTheMethods.dto.request.CreateProblemRequest;
 import com.example.allTheMethods.dto.request.UpdateProblemRequest;
-import com.example.allTheMethods.dto.response.ProblemResponseDto;
+import com.example.allTheMethods.dto.response.ProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import org.springframework.stereotype.Component;
@@ -48,8 +48,8 @@ public class ProblemMapperImpl implements ProblemMapper {
     }
 
     @Override
-    public ProblemResponseDto toDto(Problem problem) {
-        return new ProblemResponseDto(
+    public ProblemResponse toDto(Problem problem) {
+        return new ProblemResponse(
                 problem.getId(),
                 problem.getNumber(),
                 problem.getTitle(),
@@ -65,7 +65,7 @@ public class ProblemMapperImpl implements ProblemMapper {
     }
 
     @Override
-    public List<ProblemResponseDto> toDto(List<Problem> problemList) {
+    public List<ProblemResponse> toDto(List<Problem> problemList) {
         return problemList.stream().map(this::toDto).toList();
     }
 }

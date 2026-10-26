@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.UpdateUserRequest;
-import com.example.allTheMethods.dto.response.UserResponseDto;
+import com.example.allTheMethods.dto.response.UserResponse;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.exception.UserNotFoundException;
 import com.example.allTheMethods.exception.UsernameNotFoundException;
@@ -45,14 +45,14 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserResponseDto getUserName(){
+    public UserResponse getUserName(){
        Users currentUser = jwtUtil.getLoggedInUser();
        return usersMapper.toDto(currentUser);
     }
 
     @Override
-    public Page<UserResponseDto> getAllUsers(Pageable pageable) {
-        Page<UserResponseDto> users = usersMapper.toDto(usersRepository.findAll(pageable));
+    public Page<UserResponse> getAllUsers(Pageable pageable) {
+        Page<UserResponse> users = usersMapper.toDto(usersRepository.findAll(pageable));
         return users;
     }
 
@@ -62,7 +62,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserResponseDto updateUserAccount(int id, UpdateUserRequest updateUserRequest) {
+    public UserResponse updateUserAccount(int id, UpdateUserRequest updateUserRequest) {
         Users user = usersRepository.findById((long) id).orElseThrow(() -> new UsernameNotFoundException("User not found with this id"));
         user.setUsername(updateUserRequest.username());
         user.setDisplayName(updateUserRequest.displayName());
@@ -70,7 +70,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserResponseDto uploadImage(Long id, MultipartFile file) throws IOException {
+    public UserResponse uploadImage(Long id, MultipartFile file) throws IOException {
         Users user = usersRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user found with id of: " + id));
         String imageUrl = fileService.uploadImage(id,file);
         user.setImageUrl(imageUrl);
@@ -79,7 +79,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserResponseDto deleteImage(Long id) throws IOException {
+    public UserResponse deleteImage(Long id) throws IOException {
         Users user = usersRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user found with id of: " + id));
         fileService.deleteImage(id);
         user.setImageUrl(null);

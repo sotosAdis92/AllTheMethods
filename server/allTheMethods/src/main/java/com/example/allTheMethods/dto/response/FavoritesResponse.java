@@ -1,6 +1,6 @@
 package com.example.allTheMethods.dto.response;
 
-public record FavoritesResponseDto(
+public record FavoritesResponse(
         Long id,
         Long userId,
         Long problemId,
