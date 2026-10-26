@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
 import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.entity.Problem;
@@ -16,13 +16,13 @@ import java.util.List;
 @Component
 public class FavoritesMapperImpl implements FavoritesMapper {
     @Override
-    public Favorites toEntity(CreateFavoriteRequestDto createFavoriteRequestDto) {
+    public Favorites toEntity(CreateFavoriteRequest createFavoriteRequest) {
         Favorites favourites = new Favorites();
         Users user = new Users();
-        user.setId(createFavoriteRequestDto.user());
+        user.setId(createFavoriteRequest.user());
         favourites.setUser(user);
         Problem problem = new Problem();
-        problem.setId(createFavoriteRequestDto.problem());
+        problem.setId(createFavoriteRequest.problem());
         favourites.setProblem(problem);
         favourites.setDateAdded(LocalDateTime.now());
         return favourites;

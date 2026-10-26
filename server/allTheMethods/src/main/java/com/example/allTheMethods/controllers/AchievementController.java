@@ -1,6 +1,6 @@
 package com.example.allTheMethods.controllers;
-import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
-import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.CreateAchievementRequest;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.service.AchievementService;
 import jakarta.validation.Valid;
@@ -22,7 +22,7 @@ public class AchievementController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> createAchievement(@Valid @RequestBody CreateAchievementRequestDto achievementDto){
+    public ResponseEntity<AchievementResponseDto> createAchievement(@Valid @RequestBody CreateAchievementRequest achievementDto){
         AchievementResponseDto savedAchievement = achievementService.createAchievement(achievementDto);
         return new ResponseEntity<>(savedAchievement, HttpStatus.CREATED);
     }
@@ -41,7 +41,7 @@ public class AchievementController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AchievementResponseDto> updateAchievement(@Valid @PathVariable("id") Long id, @Valid @RequestBody UpdateAchievementRequestDto updateAchievementDto){
+    public ResponseEntity<AchievementResponseDto> updateAchievement(@Valid @PathVariable("id") Long id, @Valid @RequestBody UpdateAchievementRequest updateAchievementDto){
         System.out.println(updateAchievementDto);
         AchievementResponseDto achievementDto = achievementService.updateAchievement(id, updateAchievementDto);
         return ResponseEntity.ok(achievementDto);

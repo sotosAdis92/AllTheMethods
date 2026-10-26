@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
-import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequest;
+import com.example.allTheMethods.dto.request.UpdateProblemRequest;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import org.springframework.data.domain.Page;
@@ -10,10 +10,10 @@ import java.util.List;
 
 
 public interface ProblemService {
-    ProblemResponseDto createProblem(CreateProblemRequestDto problemDto);
+    ProblemResponseDto createProblem(CreateProblemRequest problemDto);
     ProblemResponseDto getProblemById(int id);
     List<ProblemResponseDto> getAllProblems();
-    ProblemResponseDto updateProblem(Long id, UpdateProblemRequestDto updatedProblem);
+    ProblemResponseDto updateProblem(Long id, UpdateProblemRequest updatedProblem);
     void deleteProblem(Long id);
     List<ProblemResponseDto> getProblemsByCategory(String category);
     List<ProblemResponseDto> getProblemsByDifficulty(String difficulty);

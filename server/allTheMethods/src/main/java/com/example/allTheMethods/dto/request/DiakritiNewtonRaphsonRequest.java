@@ -1,11 +1,11 @@
 package com.example.allTheMethods.dto.request;
 
-public class DiakritiNewtonRaphsonDto extends SubmissionDataDto {
+public class DiakritiNewtonRaphsonRequest extends SubmissionRequest {
     private int iterations;
     private int hParameter;
     private int xoParameter;
 
-    public DiakritiNewtonRaphsonDto() {
+    public DiakritiNewtonRaphsonRequest() {
     }
 
     public int getIterations() {

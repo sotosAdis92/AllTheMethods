@@ -19,28 +19,28 @@ public class PolynomialRootsSubmissionsController {
     }
 
     @PostMapping("/bisection")
-    public ResponseEntity<?> bisection(@RequestBody BisectionDataDto bisectionDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.bisection(bisectionDataDto), HttpStatus.OK);
+    public ResponseEntity<?> bisection(@RequestBody BisectionRequest bisectionRequest){
+        return new ResponseEntity<>(submissionServicePolynomials.bisection(bisectionRequest), HttpStatus.OK);
     }
 
     @PostMapping("/regulaFalsi")
-    public ResponseEntity<?> regulaFalsi(@RequestBody RegulaFalsiDataDto regulaFalsiDataDto){
-        return new ResponseEntity<>(submissionServicePolynomials.regulaFalsi(regulaFalsiDataDto), HttpStatus.OK);
+    public ResponseEntity<?> regulaFalsi(@RequestBody RegulaFalsiRequest regulaFalsiRequest){
+        return new ResponseEntity<>(submissionServicePolynomials.regulaFalsi(regulaFalsiRequest), HttpStatus.OK);
     }
 
     @PostMapping("/newtonRaphson")
-    public ResponseEntity<?> newtonRaphson(@RequestBody NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
-        return new ResponseEntity<>(submissionServicePolynomials.newtonRaphson(newtonRaphsonDataDto), HttpStatus.OK);
+    public ResponseEntity<?> newtonRaphson(@RequestBody NewtonRaphsonRequest newtonRaphsonRequest) throws TokenizerException {
+        return new ResponseEntity<>(submissionServicePolynomials.newtonRaphson(newtonRaphsonRequest), HttpStatus.OK);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
-    public ResponseEntity<?> diakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto){
-        return new ResponseEntity<>(submissionServicePolynomials.diakritiNewtonRaphson(diakritiNewtonRaphsonDto), HttpStatus.OK);
+    public ResponseEntity<?> diakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonRequest diakritiNewtonRaphsonRequest){
+        return new ResponseEntity<>(submissionServicePolynomials.diakritiNewtonRaphson(diakritiNewtonRaphsonRequest), HttpStatus.OK);
     }
 
     @PostMapping("/fixedPoint")
-    public ResponseEntity<?> fixedPointMethod(@RequestBody FixedPointDto fixedPointDto){
-        return new ResponseEntity<>(submissionServicePolynomials.fixedPointMethod(fixedPointDto), HttpStatus.OK);
+    public ResponseEntity<?> fixedPointMethod(@RequestBody FixedPointRequest fixedPointRequest){
+        return new ResponseEntity<>(submissionServicePolynomials.fixedPointMethod(fixedPointRequest), HttpStatus.OK);
     }
 
 }

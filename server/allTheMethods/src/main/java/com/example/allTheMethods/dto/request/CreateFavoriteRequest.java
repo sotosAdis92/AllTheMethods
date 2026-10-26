@@ -3,7 +3,7 @@ package com.example.allTheMethods.dto.request;
 import jakarta.validation.constraints.FutureOrPresent;
 import java.time.LocalDateTime;
 
-public record CreateFavoriteRequestDto(
+public record CreateFavoriteRequest(
         Long id,
         Long user,
         Long problem,

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper;
 
-import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequest;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import org.springframework.data.domain.Page;
@@ -11,5 +11,5 @@ public interface SubmissionMapper {
     SubmissionResponse toDto(Submission submission);
     List<SubmissionResponse> toDto(List<Submission> submissions);
     Page<SubmissionResponse> toDto(Page<Submission> submissionPage);
-    Submission toEntity(CreateSubmissionRequestDto createSubmissionRequestDto);
+    Submission toEntity(CreateSubmissionRequest createSubmissionRequest);
 }

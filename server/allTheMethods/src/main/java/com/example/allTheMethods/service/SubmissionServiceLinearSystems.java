@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
+import com.example.allTheMethods.dto.request.LinearSystemsRequest;
 
 public interface SubmissionServiceLinearSystems {
-    boolean gershgorinCirclesAlgorithm(LinearSystemsDataDto linearSystemsDataDto);
+    boolean gershgorinCirclesAlgorithm(LinearSystemsRequest linearSystemsRequest);
 }

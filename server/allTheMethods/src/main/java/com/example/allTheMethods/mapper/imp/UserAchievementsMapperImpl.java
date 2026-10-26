@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.AchievementDto;
+import com.example.allTheMethods.dto.request.AchievementRequest;
 import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
 import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
@@ -53,14 +53,14 @@ public class UserAchievementsMapperImpl implements UserAchievementsMapper {
         userAchievements.setUser(user);
 
         Achievement achievement = new Achievement();
-        AchievementDto achievementDto = saveUserAchievementDto.getAchievementDto();
-        achievement.setAchievementId(achievementDto.getAchievementId());
-        achievement.setName(achievementDto.getName());
-        achievement.setDescription(achievementDto.getDescription());
-        achievement.setCategory(achievementDto.getCategory());
-        achievement.setRank(achievementDto.getRank());
-        achievement.setVisibility(achievementDto.getVisibility());
-        achievement.setCounter(achievementDto.getCounter());
+        AchievementRequest achievementRequest = saveUserAchievementDto.getAchievementDto();
+        achievement.setAchievementId(achievementRequest.getAchievementId());
+        achievement.setName(achievementRequest.getName());
+        achievement.setDescription(achievementRequest.getDescription());
+        achievement.setCategory(achievementRequest.getCategory());
+        achievement.setRank(achievementRequest.getRank());
+        achievement.setVisibility(achievementRequest.getVisibility());
+        achievement.setCounter(achievementRequest.getCounter());
         userAchievements.setAchievement(achievement);
 
         return userAchievements;

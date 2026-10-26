@@ -3,7 +3,7 @@ package com.example.allTheMethods.dto.request;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
 
-public record CreateAchievementRequestDto(
+public record CreateAchievementRequest(
         @NotEmpty(message = "Name cannot be empty")
         @NotNull(message = "Name cannot be null")
         @NotBlank(message = "Name cannot be blank")

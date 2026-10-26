@@ -1,10 +1,10 @@
 package com.example.allTheMethods.service;
 
-import com.example.allTheMethods.dto.request.SimpsonDataDto;
-import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataRequest;
+import com.example.allTheMethods.dto.request.TrapezodialRuleRequest;
 
 
 public interface SubmissionServiceIntegrals {
-    boolean trapezodialRule(TrapezodialRuleDataDto trapezodialRuleDataDto);
-    boolean simpson(SimpsonDataDto simpsonDataDto);
+    boolean trapezodialRule(TrapezodialRuleRequest trapezodialRuleDataDto);
+    boolean simpson(SimpsonDataRequest simpsonDataRequest);
 }

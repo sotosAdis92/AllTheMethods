@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper.imp;
-import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
-import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequest;
+import com.example.allTheMethods.dto.request.UpdateProblemRequest;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.mapper.ProblemMapper;
@@ -12,37 +12,37 @@ import java.util.List;
 public class ProblemMapperImpl implements ProblemMapper {
 
     @Override
-    public Problem toEntity(CreateProblemRequestDto createProblemRequestDto) {
+    public Problem toEntity(CreateProblemRequest createProblemRequest) {
         Problem problem = new Problem(
             null,
-            createProblemRequestDto.number(),
-                createProblemRequestDto.title(),
-                createProblemRequestDto.category(),
-                createProblemRequestDto.difficulty(),
-                createProblemRequestDto.description(),
-                createProblemRequestDto.points(),
-                createProblemRequestDto.problemString(),
-                createProblemRequestDto.problemType(),
-                createProblemRequestDto.functionString(),
-                createProblemRequestDto.problemData()
+            createProblemRequest.number(),
+                createProblemRequest.title(),
+                createProblemRequest.category(),
+                createProblemRequest.difficulty(),
+                createProblemRequest.description(),
+                createProblemRequest.points(),
+                createProblemRequest.problemString(),
+                createProblemRequest.problemType(),
+                createProblemRequest.functionString(),
+                createProblemRequest.problemData()
         );
         return problem;
     }
 
     @Override
-    public Problem toEntity(UpdateProblemRequestDto updateProblemRequestDto) {
+    public Problem toEntity(UpdateProblemRequest updateProblemRequest) {
         Problem problem = new Problem(
                 null,
-                updateProblemRequestDto.number(),
-                updateProblemRequestDto.title(),
-                updateProblemRequestDto.category(),
-                updateProblemRequestDto.difficulty(),
-                updateProblemRequestDto.description(),
-                updateProblemRequestDto.points(),
-                updateProblemRequestDto.problemString(),
-                updateProblemRequestDto.problemType(),
-                updateProblemRequestDto.functionString(),
-                updateProblemRequestDto.problemData()
+                updateProblemRequest.number(),
+                updateProblemRequest.title(),
+                updateProblemRequest.category(),
+                updateProblemRequest.difficulty(),
+                updateProblemRequest.description(),
+                updateProblemRequest.points(),
+                updateProblemRequest.problemString(),
+                updateProblemRequest.problemType(),
+                updateProblemRequest.functionString(),
+                updateProblemRequest.problemData()
         );
         return problem;
     }

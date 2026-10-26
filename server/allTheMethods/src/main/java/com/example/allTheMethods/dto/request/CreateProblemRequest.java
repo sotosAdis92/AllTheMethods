@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-public record CreateProblemRequestDto(
+public record CreateProblemRequest(
     @NotNull(message = "Number cannot be null")
     @Positive(message = "Number must be a positive")
     int number,

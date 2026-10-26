@@ -3,7 +3,7 @@ package com.example.allTheMethods.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 
-public record CreateSubmissionRequestDto(
+public record CreateSubmissionRequest(
         @NotNull(message = "ID cannot be null")
         Long userId,
 

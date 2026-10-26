@@ -1,13 +1,13 @@
 package com.example.allTheMethods.dto.request;
 
-public class FixedPointDto extends SubmissionDataDto {
+public class FixedPointRequest extends SubmissionRequest {
     private int iterations;
     private int xo;
 
-    public FixedPointDto() {
+    public FixedPointRequest() {
     }
 
-    public FixedPointDto(int iterations, int xo) {
+    public FixedPointRequest(int iterations, int xo) {
         this.iterations = iterations;
         this.xo = xo;
     }

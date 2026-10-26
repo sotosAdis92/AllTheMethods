@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
 import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.entity.Favorites;
 import com.example.allTheMethods.exception.FavouriteNotFoundException;
@@ -23,8 +23,8 @@ public class FavoritesServiceImpl implements FavoritesService {
     }
 
     @Override
-    public FavoritesResponseDto createFavourite(CreateFavoriteRequestDto createFavoriteRequestDto) {
-        Favorites favourite = favoritesMapper.toEntity(createFavoriteRequestDto);
+    public FavoritesResponseDto createFavourite(CreateFavoriteRequest createFavoriteRequest) {
+        Favorites favourite = favoritesMapper.toEntity(createFavoriteRequest);
         return favoritesMapper.toDto(favoritesRepository.save(favourite));
     }
 

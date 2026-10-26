@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
-import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequest;
+import com.example.allTheMethods.dto.request.UpdateProblemRequest;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.exception.ProblemCountException;
@@ -31,7 +31,7 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public ProblemResponseDto createProblem(CreateProblemRequestDto problemDto) {
+    public ProblemResponseDto createProblem(CreateProblemRequest problemDto) {
         Problem problem = problemMapper.toEntity(problemDto);
         return problemMapper.toDto(problemRepository.save(problem));
     }
@@ -49,7 +49,7 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public ProblemResponseDto updateProblem(Long id, UpdateProblemRequestDto updatedProblem) {
+    public ProblemResponseDto updateProblem(Long id, UpdateProblemRequest updatedProblem) {
         Problem problem = problemRepository.findById(id).orElseThrow(() -> new ProblemNotFoundException("Problem not found" + id));
         problem.setNumber(updatedProblem.number());
         problem.setCategory(updatedProblem.category());

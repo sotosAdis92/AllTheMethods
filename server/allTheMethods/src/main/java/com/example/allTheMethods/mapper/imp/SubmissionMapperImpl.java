@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequest;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.Submission;
@@ -50,11 +50,11 @@ public class SubmissionMapperImpl implements SubmissionMapper {
     }
 
     @Override
-    public Submission toEntity(CreateSubmissionRequestDto createSubmissionRequestDto){
-        Users user = usersRepository.findById(createSubmissionRequestDto.userId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequestDto.userId()));
-        Problem problem = problemRepository.findById(createSubmissionRequestDto.problemId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequestDto.problemId()));
+    public Submission toEntity(CreateSubmissionRequest createSubmissionRequest){
+        Users user = usersRepository.findById(createSubmissionRequest.userId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequest.userId()));
+        Problem problem = problemRepository.findById(createSubmissionRequest.problemId()).orElseThrow(() -> new RuntimeException("User not found with an Id:" + createSubmissionRequest.problemId()));
         Submission submission = new Submission();
-        submission.setDate(createSubmissionRequestDto.submittedAt());
+        submission.setDate(createSubmissionRequest.submittedAt());
         submission.setUser(user);
         submission.setProblem(problem);
         return submission;

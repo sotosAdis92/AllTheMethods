@@ -1,6 +1,6 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
+import com.example.allTheMethods.dto.request.UpdateUserRequest;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.service.UsersService;
 import org.springframework.data.domain.Page;
@@ -50,8 +50,8 @@ public class UserController {
     }
 
     @PutMapping("/details/{id}")
-    public ResponseEntity<String> updateUserAccount(@PathVariable int id,@RequestBody UpdateUserRequestDto updateUserRequestDto){
-        usersService.updateUserAccount(id,updateUserRequestDto);
+    public ResponseEntity<String> updateUserAccount(@PathVariable int id,@RequestBody UpdateUserRequest updateUserRequest){
+        usersService.updateUserAccount(id, updateUserRequest);
         return ResponseEntity.ok("User updated");
     }
 

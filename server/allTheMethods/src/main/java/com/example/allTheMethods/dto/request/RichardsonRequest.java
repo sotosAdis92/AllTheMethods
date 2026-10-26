@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class RichardsonDataDto extends SubmissionDataDto {
+public class RichardsonRequest extends SubmissionRequest {
     private List<Integer> coutingParameters;
     private List<Integer> xiParameters;
     private List<Integer> fiParameters;
@@ -10,7 +10,7 @@ public class RichardsonDataDto extends SubmissionDataDto {
     private int hParameter;
 
 
-    public RichardsonDataDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, int hParameter, int secondHParameter) {
+    public RichardsonRequest(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, int hParameter, int secondHParameter) {
         super(inp, problemString);
         this.coutingParameters = coutingParameters;
         this.xiParameters = xiParameters;

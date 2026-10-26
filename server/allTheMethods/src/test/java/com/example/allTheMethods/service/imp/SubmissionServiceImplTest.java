@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.request.NewtonRaphsonDataDto;
+import com.example.allTheMethods.dto.request.NewtonRaphsonRequest;
 import com.example.allTheMethods.utils.MethodUtils;
 import org.junit.jupiter.api.Test;
 
@@ -55,15 +55,15 @@ class SubmissionServiceImplTest {
     @Test
     public void TestingNewtonRaphsonMethod(){
         MethodUtils ssi = new MethodUtils();
-        NewtonRaphsonDataDto newtonRaphsonDataDto = new NewtonRaphsonDataDto();
+        NewtonRaphsonRequest newtonRaphsonRequest = new NewtonRaphsonRequest();
         List<Double> testingInputs = new ArrayList<>();
         testingInputs.add(1.5);
-        newtonRaphsonDataDto.setInp(testingInputs);
-        newtonRaphsonDataDto.setXo(1);
-        newtonRaphsonDataDto.setIterations(1);
-        newtonRaphsonDataDto.setProblemString("x^2-2");
+        newtonRaphsonRequest.setInp(testingInputs);
+        newtonRaphsonRequest.setXo(1);
+        newtonRaphsonRequest.setIterations(1);
+        newtonRaphsonRequest.setProblemString("x^2-2");
        // try{
-        //    assertEquals(true, ssi.checkDataNewtonRaphson(newtonRaphsonDataDto));
+        //    assertEquals(true, ssi.checkDataNewtonRaphson(newtonRaphsonRequest));
       //  } catch (TokenizerException tokenizerException){
        //     System.out.println("Token exception");
       //  }

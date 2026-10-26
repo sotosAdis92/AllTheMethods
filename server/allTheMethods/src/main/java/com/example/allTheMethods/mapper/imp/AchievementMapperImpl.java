@@ -1,7 +1,7 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
-import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.CreateAchievementRequest;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.mapper.AchievementMapper;
@@ -13,7 +13,7 @@ import java.util.List;
 public class AchievementMapperImpl implements AchievementMapper {
 
     @Override
-    public Achievement toEntity(CreateAchievementRequestDto achievementRequestDto) {
+    public Achievement toEntity(CreateAchievementRequest achievementRequestDto) {
         Achievement achievement = new Achievement(
                 null,
                 achievementRequestDto.name(),
@@ -27,7 +27,7 @@ public class AchievementMapperImpl implements AchievementMapper {
     }
 
     @Override
-    public Achievement toEntity(UpdateAchievementRequestDto achievementRequestDto) {
+    public Achievement toEntity(UpdateAchievementRequest achievementRequestDto) {
         Achievement achievement = new Achievement(
                 null,
                 achievementRequestDto.name(),

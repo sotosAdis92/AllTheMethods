@@ -2,13 +2,13 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class DirectEulerDto extends SubmissionDataDto {
+public class RungeKuttaRequest extends SubmissionRequest {
     private int iterations;
     private double hParameter;
     private double yZero;
     private double xZero;
 
-    public DirectEulerDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
+    public RungeKuttaRequest(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
         super(inp, problemString);
         this.iterations = iterations;
         this.hParameter = hParameter;

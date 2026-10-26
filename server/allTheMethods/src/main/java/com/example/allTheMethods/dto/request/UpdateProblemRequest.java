@@ -2,7 +2,7 @@ package com.example.allTheMethods.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record UpdateProblemRequestDto(
+public record UpdateProblemRequest(
         @NotBlank(message = "Number cannot be empty or null")
         int number,
 

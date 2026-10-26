@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequest;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.entity.Submission;
 import com.example.allTheMethods.entity.Users;
@@ -34,7 +34,7 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
-    public SubmissionResponse createSubmission(CreateSubmissionRequestDto submissionDto) {
+    public SubmissionResponse createSubmission(CreateSubmissionRequest submissionDto) {
         Submission submission = submissionMapper.toEntity(submissionDto);
         Submission savedSubmission = submissionRepository.save(submission);
         return submissionMapper.toDto(savedSubmission);

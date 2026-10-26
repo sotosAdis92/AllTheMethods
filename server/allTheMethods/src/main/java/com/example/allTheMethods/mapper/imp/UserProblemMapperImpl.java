@@ -1,6 +1,6 @@
 package com.example.allTheMethods.mapper.imp;
 
-import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
+import com.example.allTheMethods.dto.request.SaveUserProblemRequest;
 import com.example.allTheMethods.dto.response.UserProblemResponse;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
@@ -49,15 +49,15 @@ public class UserProblemMapperImpl implements UserProblemMapper {
     }
 
     @Override
-    public UserProblem toEntity(SaveUserProblemRequestDto saveUserProblemRequestDto) {
-        if(saveUserProblemRequestDto == null){
+    public UserProblem toEntity(SaveUserProblemRequest saveUserProblemRequest) {
+        if(saveUserProblemRequest == null){
             return null;
         }
         UserProblem userProblem = new UserProblem();
         Users user = new Users();
         Problem problem = new Problem();
-        user.setId(saveUserProblemRequestDto.userId());
-        problem.setId(saveUserProblemRequestDto.problemId());
+        user.setId(saveUserProblemRequest.userId());
+        problem.setId(saveUserProblemRequest.problemId());
         userProblem.setProblem(problem);
         userProblem.setUser(user);
         userProblem.setId(null);

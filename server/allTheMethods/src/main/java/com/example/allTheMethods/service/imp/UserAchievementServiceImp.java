@@ -1,9 +1,9 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.AchievementDto;
+import com.example.allTheMethods.dto.request.AchievementRequest;
 import com.example.allTheMethods.dto.request.SaveUserAchievementDto;
-import com.example.allTheMethods.dto.request.UserAchievementDto;
-import com.example.allTheMethods.dto.request.UserProblemDto;
+import com.example.allTheMethods.dto.request.UserAchievementRequest;
+import com.example.allTheMethods.dto.request.UserProblemRequest;
 import com.example.allTheMethods.dto.response.UserAchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.entity.UserAchievements;
@@ -39,16 +39,16 @@ public class UserAchievementServiceImp implements UserAchievementService {
     @Override
     @Transactional
     public UserAchievementResponseDto saveUserAchievements(SaveUserAchievementDto saveUserAchievementDto) {
-        UserAchievementDto userAchievementDto = saveUserAchievementDto.getUserAchievementDto();
-        UserProblemDto userProblemDto = saveUserAchievementDto.getUserProblemDto();
-        AchievementDto achievementDto = saveUserAchievementDto.getAchievementDto();
+        UserAchievementRequest userAchievementDto = saveUserAchievementDto.getUserAchievementDto();
+        UserProblemRequest userProblemDto = saveUserAchievementDto.getUserProblemDto();
+        AchievementRequest achievementRequest = saveUserAchievementDto.getAchievementDto();
 
         Long user = userProblemDto.getUserId();
         System.out.println(user);
         String category = userProblemDto.getCategory();
         Integer counter = 0;
-        counter = achievementDto.getCounter();
-        String categoryToCheck = achievementDto.getCategory();
+        counter = achievementRequest.getCounter();
+        String categoryToCheck = achievementRequest.getCategory();
         int result = 0;
         try{
             result = userAchievementsRepository.countProblemsByCategory(user, category);
@@ -64,22 +64,22 @@ public class UserAchievementServiceImp implements UserAchievementService {
         System.out.println(category.equals(categoryToCheck));
         System.out.println(counter == result);
         if(category.equals(categoryToCheck) && counter<=result){
-            Long achievementId = achievementDto.getAchievementId();
+            Long achievementId = achievementRequest.getAchievementId();
             boolean achievementAlreadySaved = userAchievementsRepository.existsByUserIdAndAchievementId(user,achievementId);
             if(achievementAlreadySaved){
                 System.out.println("Achievement already earned");
                 return null;
             }
             System.out.println("Condition Met, entered If");
-            Achievement achievement = achievementRepository.findById(achievementDto.getAchievementId()).orElse(null);
-            UserAchievementDto userAchievementsDto = new UserAchievementDto();
+            Achievement achievement = achievementRepository.findById(achievementRequest.getAchievementId()).orElse(null);
+            UserAchievementRequest userAchievementsDto = new UserAchievementRequest();
             userAchievementsDto.setUserId(user);
-            userAchievementsDto.setCategory(achievementDto.getCategory());
-            userAchievementsDto.setName(achievementDto.getName());
-            userAchievementsDto.setDescription(achievementDto.getDescription());
-            userAchievementsDto.setRank(achievementDto.getRank());
-            userAchievementsDto.setVisibility(achievementDto.getVisibility());
-            userAchievementsDto.setCounter(achievementDto.getCounter());
+            userAchievementsDto.setCategory(achievementRequest.getCategory());
+            userAchievementsDto.setName(achievementRequest.getName());
+            userAchievementsDto.setDescription(achievementRequest.getDescription());
+            userAchievementsDto.setRank(achievementRequest.getRank());
+            userAchievementsDto.setVisibility(achievementRequest.getVisibility());
+            userAchievementsDto.setCounter(achievementRequest.getCounter());
             userAchievementsDto.setAchievementId(achievement.getAchievementId());
 
             UserAchievements userAchievements = userAchievementsMapper.toEntity(saveUserAchievementDto);

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.UpdateUserRequestDto;
+import com.example.allTheMethods.dto.request.UpdateUserRequest;
 import com.example.allTheMethods.dto.response.UserResponseDto;
 import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.exception.UserNotFoundException;
@@ -62,10 +62,10 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserResponseDto updateUserAccount(int id, UpdateUserRequestDto updateUserRequestDto) {
+    public UserResponseDto updateUserAccount(int id, UpdateUserRequest updateUserRequest) {
         Users user = usersRepository.findById((long) id).orElseThrow(() -> new UsernameNotFoundException("User not found with this id"));
-        user.setUsername(updateUserRequestDto.username());
-        user.setDisplayName(updateUserRequestDto.displayName());
+        user.setUsername(updateUserRequest.username());
+        user.setDisplayName(updateUserRequest.displayName());
         return usersMapper.toDto(user);
     }
 

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.dto.request;
 
-public record UpdateUserRequestDto(
+public record UpdateUserRequest(
         String username,
         String displayName,
         String imageUrl

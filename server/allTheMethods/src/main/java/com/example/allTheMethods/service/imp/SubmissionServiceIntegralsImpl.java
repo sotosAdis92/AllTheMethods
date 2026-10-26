@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.SimpsonDataDto;
-import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataRequest;
+import com.example.allTheMethods.dto.request.TrapezodialRuleRequest;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean trapezodialRule(TrapezodialRuleDataDto trapezodialRuleDataDto) {
+    public boolean trapezodialRule(TrapezodialRuleRequest trapezodialRuleDataDto) {
         boolean flag = false;
         int countMatchingInputs=0;
         int integrationPointA = trapezodialRuleDataDto.getIntegrationPointA();
@@ -68,14 +68,14 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
     the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean simpson(SimpsonDataDto simpsonDataDto) {
+    public boolean simpson(SimpsonDataRequest simpsonDataRequest) {
         boolean flag = false;
-        int integrationSpaceA = simpsonDataDto.getIntegrationSpaceA();
-        int integrationSpaceB = simpsonDataDto.getIntegrationSpaceB();
-        double hParameter = simpsonDataDto.gethParameter();
-        List<Double> userInputs = simpsonDataDto.getInp();
+        int integrationSpaceA = simpsonDataRequest.getIntegrationSpaceA();
+        int integrationSpaceB = simpsonDataRequest.getIntegrationSpaceB();
+        double hParameter = simpsonDataRequest.gethParameter();
+        List<Double> userInputs = simpsonDataRequest.getInp();
         List<Double> generatedList = new ArrayList<>();
-        String problemString = simpsonDataDto.getProblemString();
+        String problemString = simpsonDataRequest.getProblemString();
         int i = 0;
         double finalCount = 0;
         int countMatchingInputs = 0;

@@ -1,8 +1,8 @@
 package com.example.allTheMethods.controllers;
 
 
-import com.example.allTheMethods.dto.request.CreateProblemRequestDto;
-import com.example.allTheMethods.dto.request.UpdateProblemRequestDto;
+import com.example.allTheMethods.dto.request.CreateProblemRequest;
+import com.example.allTheMethods.dto.request.UpdateProblemRequest;
 import com.example.allTheMethods.dto.response.ProblemResponseDto;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.service.ProblemService;
@@ -27,7 +27,7 @@ public class ProblemController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> createProblem(@Valid @RequestBody CreateProblemRequestDto problemDto){
+    public ResponseEntity<ProblemResponseDto> createProblem(@Valid @RequestBody CreateProblemRequest problemDto){
         ProblemResponseDto savedProblem =  problemService.createProblem(problemDto);
         return new ResponseEntity<>(savedProblem, HttpStatus.CREATED);
     }
@@ -46,7 +46,7 @@ public class ProblemController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProblemResponseDto> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequestDto updateProblemDto){
+    public ResponseEntity<ProblemResponseDto> updateProblem(@Valid @PathVariable("id") Long id, @RequestBody UpdateProblemRequest updateProblemDto){
         ProblemResponseDto problemDto = problemService.updateProblem(id, updateProblemDto);
         return ResponseEntity.ok(problemDto);
     }

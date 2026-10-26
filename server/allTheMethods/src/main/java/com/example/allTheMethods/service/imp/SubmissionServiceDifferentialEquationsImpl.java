@@ -1,9 +1,9 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.DirectEulerDto;
-import com.example.allTheMethods.dto.request.ImprovedEulerDto;
-import com.example.allTheMethods.dto.request.RungeKuttaDataDto;
-import com.example.allTheMethods.dto.request.RungeKuttaNystromDto;
+import com.example.allTheMethods.dto.request.DirectEulerRequest;
+import com.example.allTheMethods.dto.request.ImprovedEulerRequest;
+import com.example.allTheMethods.dto.request.RungeKuttaRequest;
+import com.example.allTheMethods.dto.request.RungeKuttaNystromRequest;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
@@ -16,14 +16,14 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 @Service
 public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
     @Override
-    public boolean rungeKutta(RungeKuttaDataDto rungeKuttaDataDto) {
+    public boolean rungeKutta(RungeKuttaRequest rungeKuttaRequest) {
         boolean flag = false;
-        int iterations = rungeKuttaDataDto.getIterations();
-        double xZero = rungeKuttaDataDto.getxZero();
-        double yZero = rungeKuttaDataDto.getyZero();
-        double hParameter = rungeKuttaDataDto.gethParameter();
-        String problemString = rungeKuttaDataDto.getProblemString();
-        List<Double> input = rungeKuttaDataDto.getInp();
+        int iterations = rungeKuttaRequest.getIterations();
+        double xZero = rungeKuttaRequest.getxZero();
+        double yZero = rungeKuttaRequest.getyZero();
+        double hParameter = rungeKuttaRequest.gethParameter();
+        String problemString = rungeKuttaRequest.getProblemString();
+        List<Double> input = rungeKuttaRequest.getInp();
         List<Double> listToCheck = new ArrayList<>();
         int countMatchingInputs = 0;
         double k1 = 0.0;
@@ -50,19 +50,19 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean rungeKuttaNystrom(RungeKuttaNystromDto rungeKuttaNystromDto) {
+    public boolean rungeKuttaNystrom(RungeKuttaNystromRequest rungeKuttaNystromRequest) {
         boolean flag = false;
         int i = 0;
-        int iterations = rungeKuttaNystromDto.getIterations();
-        double yZero = rungeKuttaNystromDto.getyZero();
-        double xZero = rungeKuttaNystromDto.getxZero();
-        double yPrimeZero = rungeKuttaNystromDto.getyPrimeZero();
-        double xPrimeZero = rungeKuttaNystromDto.getxPrimeZero();
-        double hParameter = rungeKuttaNystromDto.gethParameter();
-        String problemString = rungeKuttaNystromDto.getProblemString();
+        int iterations = rungeKuttaNystromRequest.getIterations();
+        double yZero = rungeKuttaNystromRequest.getyZero();
+        double xZero = rungeKuttaNystromRequest.getxZero();
+        double yPrimeZero = rungeKuttaNystromRequest.getyPrimeZero();
+        double xPrimeZero = rungeKuttaNystromRequest.getxPrimeZero();
+        double hParameter = rungeKuttaNystromRequest.gethParameter();
+        String problemString = rungeKuttaNystromRequest.getProblemString();
         List<Double> listToCheck = new ArrayList<>();
         List<Double> listToCheckPrime = new ArrayList<>();
-        List<Double> input = rungeKuttaNystromDto.getInp();
+        List<Double> input = rungeKuttaNystromRequest.getInp();
         int countMatchingInputs = 0;
         double k1 = 0.0;
         double k2 = 0.0;
@@ -82,16 +82,16 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean improvedEuler(ImprovedEulerDto improvedEulerDto) {
+    public boolean improvedEuler(ImprovedEulerRequest improvedEulerRequest) {
         boolean flag = false;
         int i = 0;
-        int iterations = improvedEulerDto.getIterations();
-        double yZero = improvedEulerDto.getyZero();
-        double xZero = improvedEulerDto.getxZero();
-        double hParameter = improvedEulerDto.gethParameter();
-        String problemString = improvedEulerDto.getProblemString();
+        int iterations = improvedEulerRequest.getIterations();
+        double yZero = improvedEulerRequest.getyZero();
+        double xZero = improvedEulerRequest.getxZero();
+        double hParameter = improvedEulerRequest.gethParameter();
+        String problemString = improvedEulerRequest.getProblemString();
         List<Double> listToCheck = new ArrayList<>();
-        List<Double> input = improvedEulerDto.getInp();
+        List<Double> input = improvedEulerRequest.getInp();
         double xn = xZero;
         double yn = yZero;
         int countMatchingInputs = 0;
@@ -109,16 +109,16 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
     }
 
     @Override
-    public boolean directEuler(DirectEulerDto directEulerDto) {
+    public boolean directEuler(DirectEulerRequest directEulerRequest) {
         boolean flag = false;
         int i = 0;
-        int iterations = directEulerDto.getIterations();
-        double yZero = directEulerDto.getyZero();
-        double xZero = directEulerDto.getxZero();
-        double hParameter = directEulerDto.gethParameter();
-        String problemString = directEulerDto.getProblemString();
+        int iterations = directEulerRequest.getIterations();
+        double yZero = directEulerRequest.getyZero();
+        double xZero = directEulerRequest.getxZero();
+        double hParameter = directEulerRequest.gethParameter();
+        String problemString = directEulerRequest.getProblemString();
         List<Double> listToCheck = new ArrayList<>();
-        List<Double> input = directEulerDto.getInp();
+        List<Double> input = directEulerRequest.getInp();
         int countMatchingInputs = 0;
         for(i=0;i<iterations;i++){
             yZero = yZero + hParameter * f(xZero,yZero,problemString);

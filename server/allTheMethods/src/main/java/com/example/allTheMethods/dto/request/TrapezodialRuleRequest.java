@@ -2,15 +2,15 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class TrapezodialRuleDataDto extends SubmissionDataDto {
-    public TrapezodialRuleDataDto() {
+public class TrapezodialRuleRequest extends SubmissionRequest {
+    public TrapezodialRuleRequest() {
     }
 
     private int integrationPointA;
     private int integrationPointB;
     private double hParameter;
 
-    public TrapezodialRuleDataDto(List<Double> inp, String problemString, int integrationPointA, int integrationPointB, double hParameter) {
+    public TrapezodialRuleRequest(List<Double> inp, String problemString, int integrationPointA, int integrationPointB, double hParameter) {
         super(inp, problemString);
         this.integrationPointA = integrationPointA;
         this.integrationPointB = integrationPointB;

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.request.CreateFavoriteRequestDto;
+import com.example.allTheMethods.dto.request.CreateFavoriteRequest;
 import com.example.allTheMethods.dto.response.FavoritesResponseDto;
 import com.example.allTheMethods.service.FavoritesService;
 import jakarta.validation.Valid;
@@ -23,8 +23,8 @@ public class FavoritesController {
     }
 
     @PostMapping
-    public ResponseEntity<FavoritesResponseDto> addToFavorites(@Valid @RequestBody CreateFavoriteRequestDto createFavoriteRequestDto){
-        FavoritesResponseDto favoritesResponseDto = favoritesService.createFavourite(createFavoriteRequestDto);
+    public ResponseEntity<FavoritesResponseDto> addToFavorites(@Valid @RequestBody CreateFavoriteRequest createFavoriteRequest){
+        FavoritesResponseDto favoritesResponseDto = favoritesService.createFavourite(createFavoriteRequest);
         return new ResponseEntity<>(favoritesResponseDto, HttpStatus.CREATED);
     }
 

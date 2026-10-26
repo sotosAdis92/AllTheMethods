@@ -1,8 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
-import com.example.allTheMethods.dto.request.SimpsonDataDto;
-import com.example.allTheMethods.dto.request.TrapezodialRuleDataDto;
+import com.example.allTheMethods.dto.request.SimpsonDataRequest;
+import com.example.allTheMethods.dto.request.TrapezodialRuleRequest;
 import org.junit.jupiter.api.Test;
 
 
@@ -15,7 +15,7 @@ class SubmissionServiceIntegralsImplTest {
     @Test
     public void testingTrapezodalRuleTestCase() throws TokenizerException{
         SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
-        TrapezodialRuleDataDto trpdto = new TrapezodialRuleDataDto();
+        TrapezodialRuleRequest trpdto = new TrapezodialRuleRequest();
         List<Double> testingInputs = new ArrayList<>();
         testingInputs.add(1.0);
         testingInputs.add(0.5);
@@ -31,12 +31,12 @@ class SubmissionServiceIntegralsImplTest {
     public void testSimposonRuleTestCase() throws TokenizerException{
         SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
         List<Double> testingInputs = new ArrayList<>();
-        SimpsonDataDto simpsonDataDto = new SimpsonDataDto(testingInputs,"x-2",1,3,0.5);
+        SimpsonDataRequest simpsonDataRequest = new SimpsonDataRequest(testingInputs,"x-2",1,3,0.5);
         testingInputs.add(1.0);
         testingInputs.add(0.5);
         testingInputs.add(0.33333);
         try{
-            assertEquals(true, submissionServiceIntegrals.simpson(simpsonDataDto));
+            assertEquals(true, submissionServiceIntegrals.simpson(simpsonDataRequest));
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println("Token exception");
         }

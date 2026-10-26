@@ -2,19 +2,19 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class SimpsonDataDto extends SubmissionDataDto {
+public class SimpsonDataRequest extends SubmissionRequest {
     private int integrationSpaceA;
     private int integrationSpaceB;
     private double hParameter;
 
-    public SimpsonDataDto(List<Double> inp, String problemString, int integrationSpaceA, int integrationSpaceB, double hParameter) {
+    public SimpsonDataRequest(List<Double> inp, String problemString, int integrationSpaceA, int integrationSpaceB, double hParameter) {
         super(inp, problemString);
         this.integrationSpaceA = integrationSpaceA;
         this.integrationSpaceB = integrationSpaceB;
         this.hParameter = hParameter;
     }
 
-    public SimpsonDataDto(List<Double> inp, String problemString) {
+    public SimpsonDataRequest(List<Double> inp, String problemString) {
         super(inp, problemString);
     }
 

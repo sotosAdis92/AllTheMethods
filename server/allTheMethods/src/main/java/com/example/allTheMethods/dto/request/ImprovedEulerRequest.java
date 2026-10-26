@@ -2,22 +2,18 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class RungeKuttaNystromDto extends SubmissionDataDto {
+public class ImprovedEulerRequest extends SubmissionRequest {
     private int iterations;
     private double hParameter;
     private double yZero;
     private double xZero;
-    private double yPrimeZero;
-    private double xPrimeZero;
 
-    public RungeKuttaNystromDto(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero, double yPrimeZero, double xPrimeZero) {
+    public ImprovedEulerRequest(List<Double> inp, String problemString, int iterations, double hParameter, double yZero, double xZero) {
         super(inp, problemString);
         this.iterations = iterations;
         this.hParameter = hParameter;
         this.yZero = yZero;
         this.xZero = xZero;
-        this.yPrimeZero = yPrimeZero;
-        this.xPrimeZero = xPrimeZero;
     }
 
     public int getIterations() {
@@ -36,14 +32,6 @@ public class RungeKuttaNystromDto extends SubmissionDataDto {
         this.hParameter = hParameter;
     }
 
-    public double getyZero() {
-        return yZero;
-    }
-
-    public void setyZero(double yZero) {
-        this.yZero = yZero;
-    }
-
     public double getxZero() {
         return xZero;
     }
@@ -52,19 +40,11 @@ public class RungeKuttaNystromDto extends SubmissionDataDto {
         this.xZero = xZero;
     }
 
-    public double getyPrimeZero() {
-        return yPrimeZero;
+    public double getyZero() {
+        return yZero;
     }
 
-    public void setyPrimeZero(double yPrimeZero) {
-        this.yPrimeZero = yPrimeZero;
-    }
-
-    public double getxPrimeZero() {
-        return xPrimeZero;
-    }
-
-    public void setxPrimeZero(double xPrimeZero) {
-        this.xPrimeZero = xPrimeZero;
+    public void setyZero(double yZero) {
+        this.yZero = yZero;
     }
 }

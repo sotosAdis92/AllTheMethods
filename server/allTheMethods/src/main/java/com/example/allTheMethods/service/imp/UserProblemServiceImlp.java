@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.SaveUserProblemRequestDto;
+import com.example.allTheMethods.dto.request.SaveUserProblemRequest;
 import com.example.allTheMethods.dto.response.*;
 import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.entity.UserProblem;
@@ -38,7 +38,7 @@ public class UserProblemServiceImlp implements UserProblemService {
 
     @Override
     @Transactional
-    public UserProblemResponse saveUserProblem(SaveUserProblemRequestDto userProblemRequest) {
+    public UserProblemResponse saveUserProblem(SaveUserProblemRequest userProblemRequest) {
         if(checkIfUserSolvedAProblem(userProblemRequest.problemId().intValue())){
             throw new RuntimeException("User has already solved the problem");
         }

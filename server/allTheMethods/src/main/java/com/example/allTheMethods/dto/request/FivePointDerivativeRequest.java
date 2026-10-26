@@ -2,14 +2,14 @@ package com.example.allTheMethods.dto.request;
 
 import java.util.List;
 
-public class FivePointDerivativeDto extends SubmissionDataDto {
+public class FivePointDerivativeRequest extends SubmissionRequest {
     private List<Integer> coutingParameters;
     private List<Integer> xiParameters;
     private List<Integer> fiParameters;
     private double xoParameter;
     private String typeOfDerivative;
 
-    public FivePointDerivativeDto(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, String typeOfDerivative) {
+    public FivePointDerivativeRequest(List<Double> inp, String problemString, List<Integer> coutingParameters, List<Integer> xiParameters, List<Integer> fiParameters, double xoParameter, String typeOfDerivative) {
         super(inp, problemString);
         this.coutingParameters = coutingParameters;
         this.xiParameters = xiParameters;

@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
+import com.example.allTheMethods.dto.request.LinearSystemsRequest;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +43,9 @@ class SubmissionServiceLinearSystemsImplTest {
         matrix.add(row1);
         matrix.add(row2);
 
-        LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables,equals);
+        LinearSystemsRequest linearSystemsRequest = new LinearSystemsRequest(inputs,matrix,variables,equals);
         try{
-            assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto));
+            assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsRequest));
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println("Token exception");
         }
@@ -85,9 +85,9 @@ class SubmissionServiceLinearSystemsImplTest {
         matrix.add(row1);
         matrix.add(row2);
 
-        LinearSystemsDataDto linearSystemsDataDto = new LinearSystemsDataDto(inputs,matrix,variables,equals);
+        LinearSystemsRequest linearSystemsRequest = new LinearSystemsRequest(inputs,matrix,variables,equals);
         try{
-            assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsDataDto));
+            assertEquals(true, submissionServiceLinearSystems.gershgorinCirclesAlgorithm(linearSystemsRequest));
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println("Token exception");
         }

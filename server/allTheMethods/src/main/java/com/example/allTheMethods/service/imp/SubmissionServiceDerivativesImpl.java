@@ -1,8 +1,8 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.FivePointDerivativeDto;
-import com.example.allTheMethods.dto.request.RichardsonDataDto;
-import com.example.allTheMethods.dto.request.ThreePointDerivativeDto;
+import com.example.allTheMethods.dto.request.FivePointDerivativeRequest;
+import com.example.allTheMethods.dto.request.RichardsonRequest;
+import com.example.allTheMethods.dto.request.ThreePointDerivativeRequest;
 import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -13,14 +13,14 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 @Service
 public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
     @Override
-    public boolean threePointDerivative(ThreePointDerivativeDto threePointDerivativeDto) {
+    public boolean threePointDerivative(ThreePointDerivativeRequest threePointDerivativeRequest) {
         boolean flag = false;
-        String typeOfDerivative = threePointDerivativeDto.getTypeOfDerivative();
-        List<Integer> fiParameters = threePointDerivativeDto.getFiParameters();
-        List<Integer> xiParameters = threePointDerivativeDto.getXiParameters();
-        List<Double> userInputs = threePointDerivativeDto.getInp();
+        String typeOfDerivative = threePointDerivativeRequest.getTypeOfDerivative();
+        List<Integer> fiParameters = threePointDerivativeRequest.getFiParameters();
+        List<Integer> xiParameters = threePointDerivativeRequest.getXiParameters();
+        List<Double> userInputs = threePointDerivativeRequest.getInp();
         List<Double> listToCheck = new ArrayList<>();
-        double xoParameter = threePointDerivativeDto.getXoParameter();
+        double xoParameter = threePointDerivativeRequest.getXoParameter();
         double hParameter = 0.0;
         double fprime = 0.0;
         double fsecondPrime = 0.0;
@@ -52,14 +52,14 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
     }
 
     @Override
-    public boolean FivePointDerivative(FivePointDerivativeDto fivePointDerivativeDto) {
+    public boolean FivePointDerivative(FivePointDerivativeRequest fivePointDerivativeRequest) {
         boolean flag = false;
-        String typeOfDerivative = fivePointDerivativeDto.getTypeOfDerivative();
-        List<Integer> fiParameters = fivePointDerivativeDto.getFiParameters();
-        List<Integer> xiParameters = fivePointDerivativeDto.getXiParameters();
-        List<Double> userInputs = fivePointDerivativeDto.getInp();
+        String typeOfDerivative = fivePointDerivativeRequest.getTypeOfDerivative();
+        List<Integer> fiParameters = fivePointDerivativeRequest.getFiParameters();
+        List<Integer> xiParameters = fivePointDerivativeRequest.getXiParameters();
+        List<Double> userInputs = fivePointDerivativeRequest.getInp();
         List<Double> listToCheck = new ArrayList<>();
-        double xoParameter = fivePointDerivativeDto.getXoParameter();
+        double xoParameter = fivePointDerivativeRequest.getXoParameter();
         double hParameter = 0.0;
         double fprime = 0.0;
         double fsecondPrime = 0.0;
@@ -91,14 +91,14 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
     }
 
     @Override
-    public boolean richardson(RichardsonDataDto richardsonDataDto) {
+    public boolean richardson(RichardsonRequest richardsonRequest) {
         boolean flag = false;
-        List<Integer> fiParameters = richardsonDataDto.getFiParameters();
-        List<Integer> xiParameters = richardsonDataDto.getXiParameters();
-        List<Double> userInputs = richardsonDataDto.getInp();
+        List<Integer> fiParameters = richardsonRequest.getFiParameters();
+        List<Integer> xiParameters = richardsonRequest.getXiParameters();
+        List<Double> userInputs = richardsonRequest.getInp();
         List<Double> listToCheck = new ArrayList<>();
-        double xoParameter = richardsonDataDto.getXoParameter();
-        int hParameter = richardsonDataDto.gethParameter();
+        double xoParameter = richardsonRequest.getXoParameter();
+        int hParameter = richardsonRequest.gethParameter();
         int indexOfXoParameter = 0;
         int i;
         double fprimeForNormalH = 0.0;

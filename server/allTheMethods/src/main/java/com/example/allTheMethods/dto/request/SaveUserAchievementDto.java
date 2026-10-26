@@ -1,34 +1,34 @@
 package com.example.allTheMethods.dto.request;
 
 public class SaveUserAchievementDto {
-    private UserAchievementDto userAchievementDto;
-    private UserProblemDto userProblemDto;
-    private AchievementDto achievementDto;
+    private UserAchievementRequest userAchievementDto;
+    private UserProblemRequest userProblemDto;
+    private AchievementRequest achievementRequest;
 
     public SaveUserAchievementDto() {
     }
 
-    public UserAchievementDto getUserAchievementDto() {
+    public UserAchievementRequest getUserAchievementDto() {
         return userAchievementDto;
     }
 
-    public void setUserAchievementDto(UserAchievementDto userAchievementDto) {
+    public void setUserAchievementDto(UserAchievementRequest userAchievementDto) {
         this.userAchievementDto = userAchievementDto;
     }
 
-    public UserProblemDto getUserProblemDto() {
+    public UserProblemRequest getUserProblemDto() {
         return userProblemDto;
     }
 
-    public void setUserProblemDto(UserProblemDto userProblemDto) {
+    public void setUserProblemDto(UserProblemRequest userProblemDto) {
         this.userProblemDto = userProblemDto;
     }
 
-    public AchievementDto getAchievementDto() {
-        return achievementDto;
+    public AchievementRequest getAchievementDto() {
+        return achievementRequest;
     }
 
-    public void setAchievementDto(AchievementDto achievementDto) {
-        this.achievementDto = achievementDto;
+    public void setAchievementDto(AchievementRequest achievementRequest) {
+        this.achievementRequest = achievementRequest;
     }
 }

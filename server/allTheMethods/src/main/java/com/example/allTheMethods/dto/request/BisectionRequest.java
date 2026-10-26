@@ -1,14 +1,23 @@
 package com.example.allTheMethods.dto.request;
 
-public class RegulaFalsiDataDto extends SubmissionDataDto {
+import java.util.List;
+
+public class BisectionRequest extends SubmissionRequest {
     private int iterations;
     private int problemSpaceA;
     private int problemSpaceB;
 
-    public RegulaFalsiDataDto() {
+    public BisectionRequest() {
+    }
+    public BisectionRequest(int iterations, int problemSpaceA, int problemSpaceB){
+        super();
+        this.iterations = iterations;
+        this.problemSpaceA = problemSpaceA;
+        this.problemSpaceB = problemSpaceB;
     }
 
-    public RegulaFalsiDataDto(int iterations, int problemSpaceA, int problemSpaceB) {
+    public BisectionRequest(List<Double> inp, String problemString, int iterations, int problemSpaceA, int problemSpaceB) {
+        super(inp, problemString);
         this.iterations = iterations;
         this.problemSpaceA = problemSpaceA;
         this.problemSpaceB = problemSpaceB;

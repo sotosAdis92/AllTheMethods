@@ -1,6 +1,6 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.request.CreateSubmissionRequestDto;
+import com.example.allTheMethods.dto.request.CreateSubmissionRequest;
 import com.example.allTheMethods.dto.response.SubmissionResponse;
 import com.example.allTheMethods.service.*;
 import jakarta.validation.Valid;
@@ -25,7 +25,7 @@ public class SubmissionController {
     }
 
     @PostMapping
-    public ResponseEntity<SubmissionResponse> createSubmission(@Valid @RequestBody CreateSubmissionRequestDto submissionDto){
+    public ResponseEntity<SubmissionResponse> createSubmission(@Valid @RequestBody CreateSubmissionRequest submissionDto){
         SubmissionResponse submission = submissionService.createSubmission(submissionDto);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);
     }

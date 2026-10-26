@@ -5,15 +5,15 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class UserAchievementDto extends AchievementDto{
+public class UserAchievementRequest extends AchievementRequest {
     private Long userAchievementId;
     private Long userId;
     private Long achievementId;
     private LocalDateTime achievedAt;
 
-    public UserAchievementDto() {
+    public UserAchievementRequest() {
     }
-    public UserAchievementDto(String name, String description, String category, String rank, String visibility, Long userAchievementId, Long userId, Long achievementId, LocalDateTime achievedAt) {
+    public UserAchievementRequest(String name, String description, String category, String rank, String visibility, Long userAchievementId, Long userId, Long achievementId, LocalDateTime achievedAt) {
         super(name, description, category, rank, visibility);
         this.userAchievementId = userAchievementId;
         this.userId = userId;

@@ -17,17 +17,17 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean bisection(BisectionDataDto bisectionDataDto) {
+    public boolean bisection(BisectionRequest bisectionRequest) {
         //Starting Values
         boolean flag = false;
         int i=0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
-        List<Double> input = bisectionDataDto.getInp();
-        int length = bisectionDataDto.getIterations();
-        int Inta = bisectionDataDto.getProblemSpaceA();
-        int Intb = bisectionDataDto.getProblemSpaceB();
-        String problem = bisectionDataDto.getProblemString();
+        List<Double> input = bisectionRequest.getInp();
+        int length = bisectionRequest.getIterations();
+        int Inta = bisectionRequest.getProblemSpaceA();
+        int Intb = bisectionRequest.getProblemSpaceB();
+        String problem = bisectionRequest.getProblemString();
         List<Double> listToCheck = new ArrayList<>();
         double DomainA = (int)Inta;
         double DomainB = (int)Intb;
@@ -64,17 +64,17 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean regulaFalsi(RegulaFalsiDataDto regulaFalsiDataDto) {
+    public boolean regulaFalsi(RegulaFalsiRequest regulaFalsiRequest) {
         boolean flag  = false;
         int i = 0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
 
-        List<Double> input = regulaFalsiDataDto.getInp();
-        int length = regulaFalsiDataDto.getIterations();
-        int Inta = regulaFalsiDataDto.getProblemSpaceA();
-        int Intb = regulaFalsiDataDto.getProblemSpaceB();
-        String problem = regulaFalsiDataDto.getProblemString();
+        List<Double> input = regulaFalsiRequest.getInp();
+        int length = regulaFalsiRequest.getIterations();
+        int Inta = regulaFalsiRequest.getProblemSpaceA();
+        int Intb = regulaFalsiRequest.getProblemSpaceB();
+        String problem = regulaFalsiRequest.getProblemString();
 
         List<Double> listToCheck = new ArrayList<>();
         double x = 0;
@@ -113,15 +113,15 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean newtonRaphson(NewtonRaphsonDataDto newtonRaphsonDataDto) throws TokenizerException {
+    public boolean newtonRaphson(NewtonRaphsonRequest newtonRaphsonRequest) throws TokenizerException {
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
-        double xk = newtonRaphsonDataDto.getXo();
-        List<Double> input = newtonRaphsonDataDto.getInp();
-        String problem = newtonRaphsonDataDto.getProblemString();
-        int iterations = newtonRaphsonDataDto.getIterations();
+        double xk = newtonRaphsonRequest.getXo();
+        List<Double> input = newtonRaphsonRequest.getInp();
+        String problem = newtonRaphsonRequest.getProblemString();
+        int iterations = newtonRaphsonRequest.getIterations();
 
         double x = 0;
         List<Double> listToCheck = new ArrayList<>();
@@ -145,16 +145,16 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
     @Override
-    public boolean diakritiNewtonRaphson(DiakritiNewtonRaphsonDto diakritiNewtonRaphsonDto) {
+    public boolean diakritiNewtonRaphson(DiakritiNewtonRaphsonRequest diakritiNewtonRaphsonRequest) {
         boolean flag = false;
         int i = 0;
         int countMatchingInputs = 0;
         int decimalPoint = 3;
-        double xk = diakritiNewtonRaphsonDto.getXoParameter();
-        int hParameter = diakritiNewtonRaphsonDto.gethParameter();
-        List<Double> input = diakritiNewtonRaphsonDto.getInp();
-        String problemString = diakritiNewtonRaphsonDto.getProblemString();
-        int iterations = diakritiNewtonRaphsonDto.getIterations();
+        double xk = diakritiNewtonRaphsonRequest.getXoParameter();
+        int hParameter = diakritiNewtonRaphsonRequest.gethParameter();
+        List<Double> input = diakritiNewtonRaphsonRequest.getInp();
+        String problemString = diakritiNewtonRaphsonRequest.getProblemString();
+        int iterations = diakritiNewtonRaphsonRequest.getIterations();
         double x = 0;
         List<Double> listToCheck = new ArrayList<>();
 
@@ -176,17 +176,17 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean fixedPointMethod(FixedPointDto fixedPointDto){
+    public boolean fixedPointMethod(FixedPointRequest fixedPointRequest){
         boolean flag = false;
         int i = 0;
-        double xk = fixedPointDto.getXo();
+        double xk = fixedPointRequest.getXo();
         double x = 0.0;
         int decimalPoint = 3;
         int countMatchingInputs = 0;
-        int iterations = fixedPointDto.getIterations();
-        List<Double> inputs = fixedPointDto.getInp();
+        int iterations = fixedPointRequest.getIterations();
+        List<Double> inputs = fixedPointRequest.getInp();
         List<Double> listToCheck = new ArrayList<>();
-        String problemString = fixedPointDto.getProblemString();
+        String problemString = fixedPointRequest.getProblemString();
         for(i=0;i<iterations;i++){
             x = fx(xk,problemString);
             x = truncateDecimalPlaces(x,decimalPoint);

@@ -1,7 +1,7 @@
 package com.example.allTheMethods.dto.request;
 
 
-public class ProblemDto {
+public class ProblemRequest {
     private Long id;
     private int number;
     private String title;
@@ -22,11 +22,11 @@ public class ProblemDto {
         this.problemData = problemData;
     }
 
-    public ProblemDto(String functionString) {
+    public ProblemRequest(String functionString) {
         this.functionString = functionString;
     }
 
-    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
+    public ProblemRequest(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -40,7 +40,7 @@ public class ProblemDto {
         this.functionString = functionString;
     }
 
-    public ProblemDto(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
+    public ProblemRequest(int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData, String functionString) {
         this.number = number;
         this.title = title;
         this.category = category;
@@ -53,7 +53,7 @@ public class ProblemDto {
         this.functionString = functionString;
     }
 
-    public ProblemDto(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String functionString) {
+    public ProblemRequest(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String functionString) {
         this.id = id;
         this.number = number;
         this.title = title;

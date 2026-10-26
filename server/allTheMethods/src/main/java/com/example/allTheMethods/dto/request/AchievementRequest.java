@@ -1,7 +1,7 @@
 package com.example.allTheMethods.dto.request;
 
 
-public class AchievementDto {
+public class AchievementRequest {
     private Long achievementId;
     private String name;
     private String description;
@@ -10,10 +10,10 @@ public class AchievementDto {
     private String visibility;
     private int counter;
 
-    public AchievementDto() {
+    public AchievementRequest() {
     }
 
-    public AchievementDto(Long achievementId, String name, String description, String category, String rank, String visibility) {
+    public AchievementRequest(Long achievementId, String name, String description, String category, String rank, String visibility) {
         this.achievementId = achievementId;
         this.name = name;
         this.description = description;
@@ -22,7 +22,7 @@ public class AchievementDto {
         this.visibility = visibility;
     }
 
-    public AchievementDto(String name, String description, String category, String rank, String visibility) {
+    public AchievementRequest(String name, String description, String category, String rank, String visibility) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -30,7 +30,7 @@ public class AchievementDto {
         this.visibility = visibility;
     }
 
-    public AchievementDto(Long achievementId, String name, String description, String category, String rank, String visibility, int counter) {
+    public AchievementRequest(Long achievementId, String name, String description, String category, String rank, String visibility, int counter) {
         this.achievementId = achievementId;
         this.name = name;
         this.description = description;

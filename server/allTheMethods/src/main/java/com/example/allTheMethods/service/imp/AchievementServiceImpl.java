@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.CreateAchievementRequestDto;
-import com.example.allTheMethods.dto.request.UpdateAchievementRequestDto;
+import com.example.allTheMethods.dto.request.CreateAchievementRequest;
+import com.example.allTheMethods.dto.request.UpdateAchievementRequest;
 import com.example.allTheMethods.dto.response.AchievementResponseDto;
 import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.exception.AchievementNotFoundException;
@@ -25,7 +25,7 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public AchievementResponseDto createAchievement(CreateAchievementRequestDto achievementDto) {
+    public AchievementResponseDto createAchievement(CreateAchievementRequest achievementDto) {
         Achievement achievement = achievementMapper.toEntity(achievementDto);
         return achievementMapper.toDto(achievementRepository.save(achievement));
     }
@@ -43,7 +43,7 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequestDto updatedAchievement) {
+    public AchievementResponseDto updateAchievement(Long id, UpdateAchievementRequest updatedAchievement) {
         Achievement achievement = achievementRepository.findById(id).orElseThrow(() -> new AchievementNotFoundException("Achievement not found" + id));
         achievement.setName(updatedAchievement.name());
         achievement.setDescription(updatedAchievement.description());

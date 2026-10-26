@@ -1,9 +1,9 @@
 package com.example.allTheMethods.controllers;
 
-import com.example.allTheMethods.dto.request.DirectEulerDto;
-import com.example.allTheMethods.dto.request.ImprovedEulerDto;
-import com.example.allTheMethods.dto.request.RungeKuttaDataDto;
-import com.example.allTheMethods.dto.request.RungeKuttaNystromDto;
+import com.example.allTheMethods.dto.request.DirectEulerRequest;
+import com.example.allTheMethods.dto.request.ImprovedEulerRequest;
+import com.example.allTheMethods.dto.request.RungeKuttaRequest;
+import com.example.allTheMethods.dto.request.RungeKuttaNystromRequest;
 import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,22 +20,22 @@ public class DifferentialEquationsSubmissionController {
     }
 
     @PostMapping("/rungeKutta")
-    public ResponseEntity<?> rungeKutta(@RequestBody RungeKuttaDataDto rungeKuttaDataDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKutta(rungeKuttaDataDto), HttpStatus.OK);
+    public ResponseEntity<?> rungeKutta(@RequestBody RungeKuttaRequest rungeKuttaRequest){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKutta(rungeKuttaRequest), HttpStatus.OK);
     }
 
     @PostMapping("/improvedEuler")
-    public ResponseEntity<?> improvedEuler(@RequestBody ImprovedEulerDto improvedEulerDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.improvedEuler(improvedEulerDto), HttpStatus.OK);
+    public ResponseEntity<?> improvedEuler(@RequestBody ImprovedEulerRequest improvedEulerRequest){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.improvedEuler(improvedEulerRequest), HttpStatus.OK);
     }
 
     @PostMapping("/directEuler")
-    public ResponseEntity<?> directEuler(@RequestBody DirectEulerDto directEulerDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.directEuler(directEulerDto), HttpStatus.OK);
+    public ResponseEntity<?> directEuler(@RequestBody DirectEulerRequest directEulerRequest){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.directEuler(directEulerRequest), HttpStatus.OK);
     }
 
     @PostMapping("/rungeKuttaN")
-    public ResponseEntity<?> rungeKuttaNystrom(@RequestBody RungeKuttaNystromDto rungeKuttaNystromDto){
-        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKuttaNystrom(rungeKuttaNystromDto), HttpStatus.OK);
+    public ResponseEntity<?> rungeKuttaNystrom(@RequestBody RungeKuttaNystromRequest rungeKuttaNystromRequest){
+        return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKuttaNystrom(rungeKuttaNystromRequest), HttpStatus.OK);
     }
 }

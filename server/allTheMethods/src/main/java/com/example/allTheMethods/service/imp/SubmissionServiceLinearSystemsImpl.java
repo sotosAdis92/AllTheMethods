@@ -1,6 +1,6 @@
 package com.example.allTheMethods.service.imp;
 
-import com.example.allTheMethods.dto.request.LinearSystemsDataDto;
+import com.example.allTheMethods.dto.request.LinearSystemsRequest;
 import com.example.allTheMethods.service.SubmissionServiceLinearSystems;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -12,15 +12,15 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 public class SubmissionServiceLinearSystemsImpl implements SubmissionServiceLinearSystems {
 
     @Override
-    public boolean gershgorinCirclesAlgorithm(LinearSystemsDataDto linearSystemsDataDto) {
-        List<List<Double>> matrix = linearSystemsDataDto.matrix();
+    public boolean gershgorinCirclesAlgorithm(LinearSystemsRequest linearSystemsRequest) {
+        List<List<Double>> matrix = linearSystemsRequest.matrix();
         int i = 0;
         int j = 0;
         int countMatchingInputs = 0;
 
         boolean flag = false;
 
-        List<Double> input = linearSystemsDataDto.inp();
+        List<Double> input = linearSystemsRequest.inp();
         List<Double> rowSums = new ArrayList<>();
         List<Double> colSums = new ArrayList<>();
         List<Double> mins = new ArrayList<>();
