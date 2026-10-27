@@ -30,6 +30,9 @@ const UserIcon = (props) => {
           <div className="displayAndUsername">
             <div className="displayName">{props.displayName}</div>
             <div className="username">{props.username}</div>
+            <div>
+              <div id="points">Points: {points}</div>
+            </div>
           </div>
         </div>
         <div>
@@ -37,9 +40,6 @@ const UserIcon = (props) => {
             Edit Profile
             <FontAwesomeIcon icon={faPencil}></FontAwesomeIcon>
           </button>
-        </div>
-        <div>
-          <div>Points: {points}</div>
         </div>
       </div>
     </>

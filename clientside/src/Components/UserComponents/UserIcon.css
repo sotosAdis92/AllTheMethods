@@ -63,3 +63,7 @@
 .userIconWrapper > div:last-child {
   width: 100%;
 }
+
+#points {
+  font-size: 18px;
+}

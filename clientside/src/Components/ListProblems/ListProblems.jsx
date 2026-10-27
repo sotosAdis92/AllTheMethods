@@ -38,6 +38,11 @@ const ListProblems = () => {
   const userId = user?.id;
   const navigator = useNavigate();
 
+  useEffect(() => {
+    getAllProblems();
+    getUserProblemCount();
+  }, [userId]);
+
   function getAllProblems() {
     listProblems()
       .then((response) => {
@@ -63,14 +68,6 @@ const ListProblems = () => {
         });
     }
   }
-
-  useEffect(() => {
-    getAllProblems();
-  }, []);
-
-  useEffect(() => {
-    getUserProblemCount();
-  }, []);
 
   useEffect(() => {
     applyFilters();
@@ -181,7 +178,7 @@ const ListProblems = () => {
           console.log(error);
         });
     });
-  }, []);
+  }, [userId]); //THIS MUST TAKE THE USER ID TO WORK DONT TOUCH THE USER ID IN HERE
 
   useEffect(() => {
     if (userId) {
