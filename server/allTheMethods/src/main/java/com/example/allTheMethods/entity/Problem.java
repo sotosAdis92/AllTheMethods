@@ -2,7 +2,6 @@ package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnTransformer;
-
 import java.util.Set;
 
 
@@ -43,11 +42,7 @@ public class Problem {
     @Column(name = "problem_parameters", columnDefinition = "jsonb")
     @ColumnTransformer(write = "?::jsonb")
     private String problemData;
-    /*
-    ? -> the data you are trying to insert which is of type String
-    :: -> represent casting
-    jsonb -> the target data type we wish our data to be transformed to
-     */
+
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
 
