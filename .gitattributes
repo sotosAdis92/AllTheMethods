@@ -1,1 +1,4 @@
-
+#detect yml files
+*.yml linguist-detectable
+#detect sql files
+*.sql linguist-detectable
