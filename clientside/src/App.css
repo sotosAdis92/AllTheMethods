@@ -7,6 +7,18 @@ html,
 body {
   height: 100%;
   margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 .easyDifficulty {
@@ -48,34 +60,10 @@ body {
 
 .problemDetails {
   display: flex;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
   font-size: 17px;
 }
 
 .problemsTitle {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
   font-weight: 500;
 }
 
@@ -85,35 +73,11 @@ body {
   height: 40px;
   background-color: white;
   border-radius: 10px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
   font-size: 18px;
 }
 
 .numberText {
   font-size: 20px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
 }
 .problemWithButtons {
   width: 100%;
@@ -481,18 +445,6 @@ body {
 }
 
 .achTitle {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
@@ -508,18 +460,6 @@ body {
 }
 
 .achDesc {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #000000;
@@ -542,7 +482,6 @@ body {
 
 .usersDisplay {
   display: flex;
-  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.1rem;
   font-weight: 200;
   color: #1e293b;
@@ -555,7 +494,6 @@ body {
 .userAndLogout .MuiButton-contained {
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: white;
-  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1rem;
   font-weight: 300;
   text-transform: none;
@@ -584,7 +522,6 @@ body {
 }
 
 .loginHeader {
-  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 32px;
   font-weight: 600;
   color: black;
@@ -625,7 +562,6 @@ body {
 .login-button {
   padding: 8px !important;
   border-radius: 12px !important;
-  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.2rem !important;
   font-weight: 600 !important;
   text-transform: none !important;
@@ -636,7 +572,6 @@ body {
 }
 
 .singup-link {
-  font-family: "Inter", "Roboto", sans-serif !important;
   font-size: 1rem !important;
   color: #64748b !important;
   cursor: pointer;
