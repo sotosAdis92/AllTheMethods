@@ -122,10 +122,6 @@ body {
   margin-bottom: 10px;
 }
 
-.achievementCardWrapper {
-  width: 50%;
-}
-
 .bronze {
   margin-top: 10px;
   border-radius: 24px;
@@ -389,7 +385,6 @@ body {
   display: flex;
   margin-top: 10px;
   border-radius: 24px;
-  display: flex;
   align-items: center;
   gap: 16px;
   padding: 10px 15px;
@@ -498,7 +493,6 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
@@ -1072,7 +1066,6 @@ body {
 .viewAchievements {
   width: 100%;
   border-radius: 16px;
-  padding: 24px;
   padding: 1.5rem;
   margin: 20px 0;
   box-shadow:
@@ -1232,14 +1225,7 @@ body {
   white-space: nowrap;
   display: flex;
 }
-.filterContainer {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  gap: 8px;
-}
+
 .filterImage img {
   width: 15px;
   height: 15px;
@@ -1396,9 +1382,6 @@ body {
     0 8px 25px rgba(52, 152, 219, 0.25),
     0 0 0 3px rgba(52, 152, 219, 0.1);
   color: #2980b9;
-  transform: translateY(-1px);
-}
-.submitButton:hover {
   transform: translateY(-1px);
 }
 
