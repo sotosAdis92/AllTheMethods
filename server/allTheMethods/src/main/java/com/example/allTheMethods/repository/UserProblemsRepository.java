@@ -41,5 +41,5 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
     UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
 
     @Query("SELECT SUM(p.points) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id WHERE up.user.id = ?1")
-    UserPointsResponse countTotalPointsOfUser(@Param("userId") Long userId);
+    Long countTotalPointsOfUser(@Param("userId") Long userId);
 }

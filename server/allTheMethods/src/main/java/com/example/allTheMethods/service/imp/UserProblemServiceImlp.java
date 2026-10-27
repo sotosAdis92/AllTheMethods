@@ -123,19 +123,8 @@ public class UserProblemServiceImlp implements UserProblemService {
     }
 
     @Override
-    public UserPointsResponse countTotalPointsOfUser(int id) {
-        UserPointsResponse userPointsResponse = new UserPointsResponse();
-        userPointsResponse = userProblemsRepository.countTotalPointsOfUser((long) id);
-        if(userPointsResponse == null){
-            userPointsResponse.setPointsCountTotal(0L);
-            return userPointsResponse;
-        }
-        if(userPointsResponse.getPointsCountTotal() == null){
-            userPointsResponse.setPointsCountTotal(0L);
-            return  userPointsResponse;
-        }
-        System.out.println(userPointsResponse);
-        return userPointsResponse;
+    public Long countTotalPointsOfUser(long id) {
+        return userProblemsRepository.countTotalPointsOfUser(id);
     }
 
 

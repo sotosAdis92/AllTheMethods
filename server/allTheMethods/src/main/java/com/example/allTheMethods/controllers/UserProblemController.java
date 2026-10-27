@@ -52,8 +52,8 @@ public class UserProblemController {
 
     @GetMapping("/points/{id}")
     @PreAuthorize("#id == authentication.principal.id")
-    public ResponseEntity<UserPointsResponse> countTotalPointsOfUserWithId(@PathVariable("id") int id){
-        UserPointsResponse countDistinct = userProblemService.countTotalPointsOfUser(id);
+    public ResponseEntity<Long> countTotalPointsOfUserWithId(@PathVariable("id") long id){
+        Long countDistinct = userProblemService.countTotalPointsOfUser(id);
         return ResponseEntity.ok(countDistinct);
     }
 
