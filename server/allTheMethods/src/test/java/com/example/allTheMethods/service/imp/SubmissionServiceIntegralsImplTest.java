@@ -2,7 +2,7 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.request.SimpsonDataRequest;
-import com.example.allTheMethods.dto.request.TrapezodialRuleRequest;
+import com.example.allTheMethods.dto.request.TrapezoidalRuleRequest;
 import org.junit.jupiter.api.Test;
 
 
@@ -15,7 +15,7 @@ class SubmissionServiceIntegralsImplTest {
     @Test
     public void testingTrapezodalRuleTestCase() throws TokenizerException{
         SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
-        TrapezodialRuleRequest trpdto = new TrapezodialRuleRequest();
+        TrapezoidalRuleRequest trpdto = new TrapezoidalRuleRequest();
         List<Double> testingInputs = new ArrayList<>();
         testingInputs.add(1.0);
         testingInputs.add(0.5);

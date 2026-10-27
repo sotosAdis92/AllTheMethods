@@ -1,7 +1,7 @@
 package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.SimpsonDataRequest;
-import com.example.allTheMethods.dto.request.TrapezodialRuleRequest;
+import com.example.allTheMethods.dto.request.TrapezoidalRuleRequest;
 import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
     @Override
-    public boolean trapezodialRule(TrapezodialRuleRequest trapezodialRuleDataDto) {
+    public boolean trapezodialRule(TrapezoidalRuleRequest trapezodialRuleDataDto) {
         boolean flag = false;
         int countMatchingInputs=0;
         int integrationPointA = trapezodialRuleDataDto.getIntegrationPointA();
