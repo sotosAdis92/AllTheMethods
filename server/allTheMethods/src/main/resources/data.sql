@@ -52,3 +52,23 @@ VALUES
      'Newton-Raphson',
      'x^3 + 4x^2 - 10',
      '{"iterations": 5, "xZero": 2}');
+
+INSERT INTO problem(number,title,category,difficulty,description,points,problem_string,problem_type,function_string,problem_parameters)
+VALUES
+    (6,'Trapezoidal I','Integrals','Med.','Given the Integral, function, and the problem space from a to b below, approximate one of it''s ' ||
+                                                     'solution, using the Trapezoidal Rule Method. For ' ||
+                                                     'Each blank space below, there is a text field, with the corresponding ' ||
+                                                     'final result of the method at each step, you may write the final ' ||
+                                                     'result in there, rounded to the nearest 3rd decimal point. You may assume ' ||
+                                                     'that using the method ' ||
+                                                     'only one outcome of the' ||
+                                                     ' polynomial is possible,' ||
+                                                     ' and you may assume that ' ||
+                                                     'the problem converages.',
+     10,
+     'x^2 - 2',
+     'Trapezoidal Rule',
+     'x^2 - 2',
+     '{"integrationSpaceA": 1, "integrationSpaceB": 6, "hParameter": 1}');
+
+
