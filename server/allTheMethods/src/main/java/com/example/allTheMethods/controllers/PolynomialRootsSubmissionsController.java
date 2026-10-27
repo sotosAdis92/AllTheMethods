@@ -3,7 +3,6 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.request.*;
 import com.example.allTheMethods.service.imp.PolynomialsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class PolynomialRootsSubmissionsController {
-    @Autowired
-    private PolynomialsService submissionServicePolynomials;
+    private final PolynomialsService submissionServicePolynomials;
     public PolynomialRootsSubmissionsController(PolynomialsService submissionServicePolynomials){
         this.submissionServicePolynomials = submissionServicePolynomials;
     }

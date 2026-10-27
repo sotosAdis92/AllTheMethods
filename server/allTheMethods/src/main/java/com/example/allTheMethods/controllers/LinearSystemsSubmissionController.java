@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class LinearSystemsSubmissionController {
-    private LinearSystemsService submissionServiceLinearSystems;
+    private final LinearSystemsService submissionServiceLinearSystems;
     public LinearSystemsSubmissionController(LinearSystemsService submissionServiceLinearSystems){
         this.submissionServiceLinearSystems = submissionServiceLinearSystems;
     }

@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/achievements")
 public class AchievementController {
-    private AchievementService achievementService;
+    private final AchievementService achievementService;
     public AchievementController(AchievementService achievementService) {
         this.achievementService = achievementService;
     }

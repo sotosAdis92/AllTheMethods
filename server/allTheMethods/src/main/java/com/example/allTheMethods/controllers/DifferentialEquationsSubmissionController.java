@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class DifferentialEquationsSubmissionController {
-    private DifferentialEquationsService submissionServiceDifferentialEquations;
+    private final DifferentialEquationsService submissionServiceDifferentialEquations;
     public DifferentialEquationsSubmissionController(DifferentialEquationsService submissionServiceDifferentialEquations){
         this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
     }

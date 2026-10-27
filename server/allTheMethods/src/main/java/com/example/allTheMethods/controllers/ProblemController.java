@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/problems")
 public class ProblemController {
-    private ProblemService problemService;
+    private final ProblemService problemService;
     public ProblemController(ProblemService problemService) {
         this.problemService = problemService;
     }

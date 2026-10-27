@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class IntegralSubmissionController {
-    private IntegralsService submissionServiceIntegrals;
+    private final IntegralsService submissionServiceIntegrals;
     public IntegralSubmissionController(IntegralsService submissionServiceIntegrals){
         this.submissionServiceIntegrals = submissionServiceIntegrals;
     }
