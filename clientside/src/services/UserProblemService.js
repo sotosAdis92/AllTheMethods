@@ -67,3 +67,8 @@ export const getUserProblemBySolvedType = async (id, type) => {
   });
   return response;
 };
+
+export const getUserTotalPoints = async (id) => {
+  const response = await axiosInstance.get(REST_API_BASE_URL + "/points/" + id);
+  return response;
+};
