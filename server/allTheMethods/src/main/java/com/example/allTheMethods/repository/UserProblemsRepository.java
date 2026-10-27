@@ -1,9 +1,6 @@
 package com.example.allTheMethods.repository;
 
-import com.example.allTheMethods.dto.response.CategoryStatsResponse;
-import com.example.allTheMethods.dto.response.DifficultyStatsResponse;
-import com.example.allTheMethods.dto.response.SummaryResponse;
-import com.example.allTheMethods.dto.response.UserProblemStatsResponse;
+import com.example.allTheMethods.dto.response.*;
 import com.example.allTheMethods.entity.UserProblem;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.domain.Page;
@@ -42,4 +39,7 @@ public interface UserProblemsRepository extends JpaRepository<UserProblem, Long>
 
     @Query("SELECT p.difficulty,COUNT(p.difficulty),COUNT(up.user.id) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id AND up.user.id = ?1 WHERE p.problemType LIKE ?2 GROUP BY p.difficulty")
     UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(@Param("userId") Long userId, @Param("type") String type);
+
+    @Query("SELECT SUM(p.points) FROM Problem p LEFT JOIN UserProblem up ON p.id = up.problem.id WHERE up.user.id = ?1")
+    UserPointsResponse countTotalPointsOfUser(@Param("userId") Long userId);
 }

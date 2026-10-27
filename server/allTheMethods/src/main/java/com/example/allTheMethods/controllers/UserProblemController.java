@@ -50,6 +50,13 @@ public class UserProblemController {
         return ResponseEntity.ok(count);
     }
 
+    @GetMapping("/points/{id}")
+    @PreAuthorize("#id == authentication.principal.id")
+    public ResponseEntity<UserPointsResponse> countTotalPointsOfUserWithId(@PathVariable("id") int id){
+        UserPointsResponse countDistinct = userProblemService.countTotalPointsOfUser(id);
+        return ResponseEntity.ok(countDistinct);
+    }
+
     @GetMapping("/count/{id}")
     @PreAuthorize("#id == authentication.principal.id")
     public ResponseEntity<List<UserProblemStatsResponse>> countDistinctSolvedProblemsByDifficultyForUser(@PathVariable("id") int id){

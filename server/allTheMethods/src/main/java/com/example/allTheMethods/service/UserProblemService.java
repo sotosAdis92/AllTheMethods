@@ -16,4 +16,5 @@ public interface UserProblemService {
     List<CategoryStatsResponse> countDistinctSolvedProblemsByCategoryForUser(int id);
     SummaryResponse countSummeryOfUser(int id);
     UserProblemStatsResponse countProblemsByUserAndTypeAndDifficulty(int id, String type);
+    UserPointsResponse countTotalPointsOfUser(int id);
 }
