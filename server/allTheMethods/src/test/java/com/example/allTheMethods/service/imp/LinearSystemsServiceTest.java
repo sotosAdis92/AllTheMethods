@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SubmissionServiceLinearSystemsImplTest {
+class LinearSystemsServiceTest {
 
     @Test
     public void gershgorinCirclesTest(){
         //Test case for a real problem in the database
-        SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
+        LinearSystemsService submissionServiceLinearSystems = new LinearSystemsService();
         List<Double> inputs = new ArrayList<>();
         List<Optional<String>> variables = new ArrayList<>();
         List<Optional<Double>> equals = new ArrayList<>();
@@ -54,7 +54,7 @@ class SubmissionServiceLinearSystemsImplTest {
     @Test
     public void gershgorinCircleEdgeCase(){
         //Edge cases for a 3x3 matrix eigen value limits
-        SubmissionServiceLinearSystemsImpl submissionServiceLinearSystems = new SubmissionServiceLinearSystemsImpl();
+        LinearSystemsService submissionServiceLinearSystems = new LinearSystemsService();
         List<Double> inputs = new ArrayList<>();
         List<Optional<String>> variables = new ArrayList<>();
         List<Optional<Double>> equals = new ArrayList<>();

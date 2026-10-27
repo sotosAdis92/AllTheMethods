@@ -4,7 +4,7 @@ import com.example.allTheMethods.dto.request.DirectEulerRequest;
 import com.example.allTheMethods.dto.request.ImprovedEulerRequest;
 import com.example.allTheMethods.dto.request.RungeKuttaRequest;
 import com.example.allTheMethods.dto.request.RungeKuttaNystromRequest;
-import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
+import com.example.allTheMethods.service.imp.DifferentialEquationsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class DifferentialEquationsSubmissionController {
-    private SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations;
-    public DifferentialEquationsSubmissionController(SubmissionServiceDifferentialEquations submissionServiceDifferentialEquations){
+    private DifferentialEquationsService submissionServiceDifferentialEquations;
+    public DifferentialEquationsSubmissionController(DifferentialEquationsService submissionServiceDifferentialEquations){
         this.submissionServiceDifferentialEquations = submissionServiceDifferentialEquations;
     }
 

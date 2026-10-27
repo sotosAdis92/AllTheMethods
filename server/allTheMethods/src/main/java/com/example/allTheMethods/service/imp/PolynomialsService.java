@@ -2,21 +2,19 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.ast.TokenizerException;
 import com.example.allTheMethods.dto.request.*;
-import com.example.allTheMethods.service.SubmissionServicePolynomials;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import static com.example.allTheMethods.utils.MethodUtils.*;
 
 @Service
-public class SubmissionServicePolynomialsImpl implements SubmissionServicePolynomials {
+public class PolynomialsService {
     /*
     Method Implementation of Bisection Method, the method takes in a bisectionData object
     and through the bisection method creates its own list of outputs, and compares that list
     with the list of inputs from the user, if the list matches within 3 significant digits of
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
-    @Override
     public boolean bisection(BisectionRequest bisectionRequest) {
         //Starting Values
         boolean flag = false;
@@ -63,7 +61,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     with the list of inputs from the user, if the list matches within 3 significant digits of
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
-    @Override
     public boolean regulaFalsi(RegulaFalsiRequest regulaFalsiRequest) {
         boolean flag  = false;
         int i = 0;
@@ -112,7 +109,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     with the list of inputs from the user, if the list matches within 3 significant digits of
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
-    @Override
     public boolean newtonRaphson(NewtonRaphsonRequest newtonRaphsonRequest) throws TokenizerException {
         boolean flag = false;
         int i = 0;
@@ -144,7 +140,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
     with the list of inputs from the user, if the list matches within 3 significant digits of
     the correct answer, for all the numbers entered by the client, then it returns true.
      */
-    @Override
     public boolean diakritiNewtonRaphson(DiakritiNewtonRaphsonRequest diakritiNewtonRaphsonRequest) {
         boolean flag = false;
         int i = 0;
@@ -175,7 +170,6 @@ public class SubmissionServicePolynomialsImpl implements SubmissionServicePolyno
    with the list of inputs from the user, if the list matches within 3 significant digits of
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
-    @Override
     public boolean fixedPointMethod(FixedPointRequest fixedPointRequest){
         boolean flag = false;
         int i = 0;

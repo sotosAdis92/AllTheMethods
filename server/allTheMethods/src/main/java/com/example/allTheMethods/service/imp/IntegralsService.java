@@ -2,7 +2,6 @@ package com.example.allTheMethods.service.imp;
 
 import com.example.allTheMethods.dto.request.SimpsonDataRequest;
 import com.example.allTheMethods.dto.request.TrapezoidalRuleRequest;
-import com.example.allTheMethods.service.SubmissionServiceIntegrals;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +10,14 @@ import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount
 import static com.example.allTheMethods.utils.MethodUtils.fx;
 
 @Service
-public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegrals {
+public class IntegralsService {
     /*
    Method Implementation of Trapezodial Rule, the method takes in a TrapezodialRule object
    and through the Trapezodial Rule creates its own list of outputs, and compares that list
    with the list of inputs from the user, if the list matches within 3 significant digits of
    the correct answer, for all the numbers entered by the client, then it returns true.
     */
-    @Override
+
     public boolean trapezodialRule(TrapezoidalRuleRequest trapezodialRuleDataDto) {
         boolean flag = false;
         int countMatchingInputs=0;
@@ -67,7 +66,6 @@ public class SubmissionServiceIntegralsImpl implements SubmissionServiceIntegral
     with the list of inputs from the user, if the list matches within 3 significant digits of
     the correct answer, for all the numbers entered by the client, then it returns true.
     */
-    @Override
     public boolean simpson(SimpsonDataRequest simpsonDataRequest) {
         boolean flag = false;
         int integrationSpaceA = simpsonDataRequest.getIntegrationSpaceA();

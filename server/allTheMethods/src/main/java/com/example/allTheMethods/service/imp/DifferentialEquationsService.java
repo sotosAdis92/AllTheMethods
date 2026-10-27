@@ -4,7 +4,6 @@ import com.example.allTheMethods.dto.request.DirectEulerRequest;
 import com.example.allTheMethods.dto.request.ImprovedEulerRequest;
 import com.example.allTheMethods.dto.request.RungeKuttaRequest;
 import com.example.allTheMethods.dto.request.RungeKuttaNystromRequest;
-import com.example.allTheMethods.service.SubmissionServiceDifferentialEquations;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.springframework.stereotype.Service;
@@ -14,8 +13,8 @@ import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
 @Service
-public class SubmissionServiceDifferentialEquationsImpl implements SubmissionServiceDifferentialEquations {
-    @Override
+public class DifferentialEquationsService {
+
     public boolean rungeKutta(RungeKuttaRequest rungeKuttaRequest) {
         boolean flag = false;
         int iterations = rungeKuttaRequest.getIterations();
@@ -49,7 +48,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         return flag;
     }
 
-    @Override
+
     public boolean rungeKuttaNystrom(RungeKuttaNystromRequest rungeKuttaNystromRequest) {
         boolean flag = false;
         int i = 0;
@@ -81,7 +80,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         return flag;
     }
 
-    @Override
+
     public boolean improvedEuler(ImprovedEulerRequest improvedEulerRequest) {
         boolean flag = false;
         int i = 0;
@@ -108,7 +107,7 @@ public class SubmissionServiceDifferentialEquationsImpl implements SubmissionSer
         return flag;
     }
 
-    @Override
+
     public boolean directEuler(DirectEulerRequest directEulerRequest) {
         boolean flag = false;
         int i = 0;

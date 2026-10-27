@@ -3,7 +3,6 @@ package com.example.allTheMethods.service.imp;
 import com.example.allTheMethods.dto.request.FivePointDerivativeRequest;
 import com.example.allTheMethods.dto.request.RichardsonRequest;
 import com.example.allTheMethods.dto.request.ThreePointDerivativeRequest;
-import com.example.allTheMethods.service.SubmissionServiceDerivatives;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +10,8 @@ import static com.example.allTheMethods.utils.MethodUtils.CheckIfInputsMatch;
 import static com.example.allTheMethods.utils.MethodUtils.checkExpectedListCount;
 
 @Service
-public class SubmissionServiceDerivativesImpl implements SubmissionServiceDerivatives {
-    @Override
+public class DerivativesService {
+
     public boolean threePointDerivative(ThreePointDerivativeRequest threePointDerivativeRequest) {
         boolean flag = false;
         String typeOfDerivative = threePointDerivativeRequest.getTypeOfDerivative();
@@ -51,7 +50,7 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         return flag;
     }
 
-    @Override
+
     public boolean FivePointDerivative(FivePointDerivativeRequest fivePointDerivativeRequest) {
         boolean flag = false;
         String typeOfDerivative = fivePointDerivativeRequest.getTypeOfDerivative();
@@ -90,7 +89,7 @@ public class SubmissionServiceDerivativesImpl implements SubmissionServiceDeriva
         return flag;
     }
 
-    @Override
+
     public boolean richardson(RichardsonRequest richardsonRequest) {
         boolean flag = false;
         List<Integer> fiParameters = richardsonRequest.getFiParameters();

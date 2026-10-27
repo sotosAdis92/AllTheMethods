@@ -11,10 +11,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SubmissionServiceIntegralsImplTest {
+class IntegralsServiceTest {
     @Test
     public void testingTrapezodalRuleTestCase() throws TokenizerException{
-        SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
+        IntegralsService submissionServiceIntegrals = new IntegralsService();
         TrapezoidalRuleRequest trpdto = new TrapezoidalRuleRequest();
         List<Double> testingInputs = new ArrayList<>();
         testingInputs.add(1.0);
@@ -29,7 +29,7 @@ class SubmissionServiceIntegralsImplTest {
 
     @Test
     public void testSimposonRuleTestCase() throws TokenizerException{
-        SubmissionServiceIntegralsImpl submissionServiceIntegrals = new SubmissionServiceIntegralsImpl();
+        IntegralsService submissionServiceIntegrals = new IntegralsService();
         List<Double> testingInputs = new ArrayList<>();
         SimpsonDataRequest simpsonDataRequest = new SimpsonDataRequest(testingInputs,"x-2",1,3,0.5);
         testingInputs.add(1.0);

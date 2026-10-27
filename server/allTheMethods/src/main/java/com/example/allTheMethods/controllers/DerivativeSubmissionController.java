@@ -3,7 +3,7 @@ package com.example.allTheMethods.controllers;
 import com.example.allTheMethods.dto.request.FivePointDerivativeRequest;
 import com.example.allTheMethods.dto.request.RichardsonRequest;
 import com.example.allTheMethods.dto.request.ThreePointDerivativeRequest;
-import com.example.allTheMethods.service.SubmissionServiceDerivatives;
+import com.example.allTheMethods.service.imp.DerivativesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/submissions")
 public class DerivativeSubmissionController {
     private static final Logger log = LoggerFactory.getLogger(DerivativeSubmissionController.class);
-    private SubmissionServiceDerivatives submissionServiceDerivatives;
-    public DerivativeSubmissionController(SubmissionServiceDerivatives submissionServiceDerivatives){
+    private final DerivativesService submissionServiceDerivatives;
+    public DerivativeSubmissionController(DerivativesService submissionServiceDerivatives){
         this.submissionServiceDerivatives = submissionServiceDerivatives;
     }
 

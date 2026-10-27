@@ -3,7 +3,7 @@ package com.example.allTheMethods.controllers;
 
 import com.example.allTheMethods.dto.request.SimpsonDataRequest;
 import com.example.allTheMethods.dto.request.TrapezoidalRuleRequest;
-import com.example.allTheMethods.service.SubmissionServiceIntegrals;
+import com.example.allTheMethods.service.imp.IntegralsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/submissions")
 public class IntegralSubmissionController {
-    private SubmissionServiceIntegrals submissionServiceIntegrals;
-    public IntegralSubmissionController(SubmissionServiceIntegrals submissionServiceIntegrals){
+    private IntegralsService submissionServiceIntegrals;
+    public IntegralSubmissionController(IntegralsService submissionServiceIntegrals){
         this.submissionServiceIntegrals = submissionServiceIntegrals;
     }
 
