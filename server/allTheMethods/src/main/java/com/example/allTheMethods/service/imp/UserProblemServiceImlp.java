@@ -124,7 +124,7 @@ public class UserProblemServiceImlp implements UserProblemService {
 
     @Override
     public Long countTotalPointsOfUser(long id) {
-        return userProblemsRepository.countTotalPointsOfUser(id);
+        return userProblemsRepository.countTotalPointsOfUser(id) == null ? 0 : userProblemsRepository.countTotalPointsOfUser(id);
     }
 
 
