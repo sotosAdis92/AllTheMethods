@@ -41,6 +41,21 @@ class IntegralsServiceTest {
     }
 
     @Test
+    public void testTrapezoidalRuleCaseLargeInput() throws TokenizerException{
+        IntegralsService integralsService = new IntegralsService();
+        List<Double> testingInputs = new ArrayList<>();
+        testingInputs.add(1.0);
+        testingInputs.add(10.0);
+        testingInputs.add(20.0);
+        TrapezoidalRuleRequest trapezoidalRuleRequest = new TrapezoidalRuleRequest(testingInputs,"x^2-2x",1,10,1);
+        try{
+            assertEquals(true, integralsService.trapezodialRule(trapezoidalRuleRequest));
+        } catch (IllegalArgumentException illegalArgumentException){
+            System.out.println("Token Exception");
+        }
+    }
+
+    @Test
     public void testSimposonRuleTestCase() throws TokenizerException{
         IntegralsService submissionServiceIntegrals = new IntegralsService();
         List<Double> testingInputs = new ArrayList<>();
