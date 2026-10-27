@@ -20,22 +20,22 @@ public class DifferentialEquationsSubmissionController {
     }
 
     @PostMapping("/rungeKutta")
-    public ResponseEntity<?> rungeKutta(@RequestBody RungeKuttaRequest rungeKuttaRequest){
+    public ResponseEntity<Boolean> rungeKutta(@RequestBody RungeKuttaRequest rungeKuttaRequest){
         return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKutta(rungeKuttaRequest), HttpStatus.OK);
     }
 
     @PostMapping("/improvedEuler")
-    public ResponseEntity<?> improvedEuler(@RequestBody ImprovedEulerRequest improvedEulerRequest){
+    public ResponseEntity<Boolean> improvedEuler(@RequestBody ImprovedEulerRequest improvedEulerRequest){
         return new ResponseEntity<>(submissionServiceDifferentialEquations.improvedEuler(improvedEulerRequest), HttpStatus.OK);
     }
 
     @PostMapping("/directEuler")
-    public ResponseEntity<?> directEuler(@RequestBody DirectEulerRequest directEulerRequest){
+    public ResponseEntity<Boolean> directEuler(@RequestBody DirectEulerRequest directEulerRequest){
         return new ResponseEntity<>(submissionServiceDifferentialEquations.directEuler(directEulerRequest), HttpStatus.OK);
     }
 
     @PostMapping("/rungeKuttaN")
-    public ResponseEntity<?> rungeKuttaNystrom(@RequestBody RungeKuttaNystromRequest rungeKuttaNystromRequest){
+    public ResponseEntity<Boolean> rungeKuttaNystrom(@RequestBody RungeKuttaNystromRequest rungeKuttaNystromRequest){
         return new ResponseEntity<>(submissionServiceDifferentialEquations.rungeKuttaNystrom(rungeKuttaNystromRequest), HttpStatus.OK);
     }
 }

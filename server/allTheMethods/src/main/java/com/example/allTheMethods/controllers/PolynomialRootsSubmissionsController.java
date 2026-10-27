@@ -17,27 +17,27 @@ public class PolynomialRootsSubmissionsController {
     }
 
     @PostMapping("/bisection")
-    public ResponseEntity<?> bisection(@RequestBody BisectionRequest bisectionRequest){
+    public ResponseEntity<Boolean> bisection(@RequestBody BisectionRequest bisectionRequest){
         return new ResponseEntity<>(submissionServicePolynomials.bisection(bisectionRequest), HttpStatus.OK);
     }
 
     @PostMapping("/regulaFalsi")
-    public ResponseEntity<?> regulaFalsi(@RequestBody RegulaFalsiRequest regulaFalsiRequest){
+    public ResponseEntity<Boolean> regulaFalsi(@RequestBody RegulaFalsiRequest regulaFalsiRequest){
         return new ResponseEntity<>(submissionServicePolynomials.regulaFalsi(regulaFalsiRequest), HttpStatus.OK);
     }
 
     @PostMapping("/newtonRaphson")
-    public ResponseEntity<?> newtonRaphson(@RequestBody NewtonRaphsonRequest newtonRaphsonRequest) throws TokenizerException {
+    public ResponseEntity<Boolean> newtonRaphson(@RequestBody NewtonRaphsonRequest newtonRaphsonRequest) throws TokenizerException {
         return new ResponseEntity<>(submissionServicePolynomials.newtonRaphson(newtonRaphsonRequest), HttpStatus.OK);
     }
 
     @PostMapping("/diakritiNewtonRaphson")
-    public ResponseEntity<?> diakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonRequest diakritiNewtonRaphsonRequest){
+    public ResponseEntity<Boolean> diakritiNewtonRaphson(@RequestBody DiakritiNewtonRaphsonRequest diakritiNewtonRaphsonRequest){
         return new ResponseEntity<>(submissionServicePolynomials.diakritiNewtonRaphson(diakritiNewtonRaphsonRequest), HttpStatus.OK);
     }
 
     @PostMapping("/fixedPoint")
-    public ResponseEntity<?> fixedPointMethod(@RequestBody FixedPointRequest fixedPointRequest){
+    public ResponseEntity<Boolean> fixedPointMethod(@RequestBody FixedPointRequest fixedPointRequest){
         return new ResponseEntity<>(submissionServicePolynomials.fixedPointMethod(fixedPointRequest), HttpStatus.OK);
     }
 

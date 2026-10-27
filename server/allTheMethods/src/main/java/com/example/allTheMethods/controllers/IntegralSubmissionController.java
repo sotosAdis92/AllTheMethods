@@ -18,13 +18,13 @@ public class IntegralSubmissionController {
     }
 
     @PostMapping("/trapezodialRule")
-    public ResponseEntity<?> trapezodialRule(@RequestBody TrapezoidalRuleRequest trapezodialRuleDataDto){
+    public ResponseEntity<Boolean> trapezodialRule(@RequestBody TrapezoidalRuleRequest trapezodialRuleDataDto){
         return new ResponseEntity<>(submissionServiceIntegrals.trapezodialRule(trapezodialRuleDataDto), HttpStatus.OK);
 
     }
 
     @PostMapping("/simpson")
-    public ResponseEntity<?> simpson(@RequestBody SimpsonDataRequest simpsonDataRequest){
+    public ResponseEntity<Boolean> simpson(@RequestBody SimpsonDataRequest simpsonDataRequest){
         return new ResponseEntity<>(submissionServiceIntegrals.simpson(simpsonDataRequest), HttpStatus.OK);
 
     }

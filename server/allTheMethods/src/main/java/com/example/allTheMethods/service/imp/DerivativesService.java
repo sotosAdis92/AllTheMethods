@@ -51,7 +51,7 @@ public class DerivativesService {
     }
 
 
-    public boolean FivePointDerivative(FivePointDerivativeRequest fivePointDerivativeRequest) {
+    public boolean fivePointDerivative(FivePointDerivativeRequest fivePointDerivativeRequest) {
         boolean flag = false;
         String typeOfDerivative = fivePointDerivativeRequest.getTypeOfDerivative();
         List<Integer> fiParameters = fivePointDerivativeRequest.getFiParameters();
