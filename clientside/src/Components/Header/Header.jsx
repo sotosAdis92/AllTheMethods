@@ -111,6 +111,7 @@ const Header = () => {
           </ul>
 
           <div className="userAndLogout">
+            <div></div>
             <div className="usersDisplay">
               <img className="profilePic" src={profilePic}></img>
               <div className="displayOfName">{displayName}</div>
