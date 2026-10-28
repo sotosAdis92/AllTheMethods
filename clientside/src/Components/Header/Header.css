@@ -1,3 +1,9 @@
+:root {
+  /*Header*/
+  --title-text-color: light-dark();
+  --header-menu-text-color: light-dark();
+}
+
 .container {
   display: flex;
   align-items: center;
