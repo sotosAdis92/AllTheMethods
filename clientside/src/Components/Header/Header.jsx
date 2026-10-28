@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img2 from "../../assets/door.png";
-import img1 from "../../assets/logo.JPG";
+import img1 from "../../assets/logo-white.png";
 import { isTokenValid, removeToken } from "../../environment/common";
 import { getUser } from "../../services/UsersService";
 import "./Header.css";
