@@ -1,15 +1,9 @@
-:root {
-  /*Header*/
-  --title-text-color: light-dark(#000000, #ffffff);
-  --title-bg-color: light-dark(#f5f5f5, #191919);
-}
-
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
-  background-color: var(--title-bg-color);
+  background-color: #ffffff;
   border-bottom: 1px solid #f1f5f9;
   position: sticky;
   top: 0;
@@ -29,28 +23,17 @@
 }
 
 .title {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif !important;
+  font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.5rem;
   font-weight: 700;
-  background: var(--title-bg-color);
-  color: var(--title-text-color);
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
   letter-spacing: -0.5px;
   position: relative;
 }
-
 .links {
   display: flex;
   gap: 8px;
@@ -59,19 +42,17 @@
   padding: 0;
   margin-left: 2rem;
 }
-
 .link {
   font-size: 18px;
   margin-left: 1rem;
 }
-
 .headerlink {
   display: inline-block;
   padding: 0.5rem 0.2rem;
   font-family: "Poppins", "Montserrat", sans-serif !important;
   font-size: 1.05rem;
   font-weight: 300;
-  color: var(--title-text-color);
+  color: #a0a0a0;
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease;
