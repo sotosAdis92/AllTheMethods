@@ -106,15 +106,22 @@
   justify-content: center;
   border-radius: 50%;
 }
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 #themeSwitch {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   padding: 0;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #f0f0f0;
+  border: none;
 }
 
 #themeSwitch svg:last-child {
