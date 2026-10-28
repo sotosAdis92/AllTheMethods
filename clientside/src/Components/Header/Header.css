@@ -120,3 +120,11 @@
 #themeSwitch svg:last-child {
   display: none;
 }
+
+.darkmode #themeSwitch svg:last-child {
+  display: none;
+}
+
+.darkmode #themeSwitch svg:last-child {
+  display: none;
+}
