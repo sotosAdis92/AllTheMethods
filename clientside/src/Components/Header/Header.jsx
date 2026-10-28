@@ -63,7 +63,7 @@ const Header = () => {
     <>
       {isUserLoggedIn ? (
         <div className="container">
-          <img src={img1} alt={img1}></img>
+          <img src={img1} alt={img1} className="imageLogo"></img>
           <h2 className="title">All The Methods</h2>
           <ul className="links">
             <li className="link">

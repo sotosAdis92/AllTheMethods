@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="footerTop">
             <div className="nameOfApp">
               <img src={img1} alt={img1}></img>
-              <h3>All The Methods</h3>
+              <h3 className="headingNameOfApp">All The Methods</h3>
             </div>
             <div className="footerDesc">
               <p>

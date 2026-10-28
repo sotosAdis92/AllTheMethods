@@ -1,8 +1,15 @@
+:root {
+  --footer-text-color: light-dark(#000000, #ffffff);
+  --developer-text-color: light-dark(#000000, #ffffff);
+  --footer-bg-color: light-dark(#f5f5f5, #191919);
+}
+
 .containerFooter {
+  color: var(--footer-text-color);
   flex-shrink: 0;
   margin-top: auto;
   width: 100%;
-  background: #ffffff;
+  background: var(--footer-bg-color);
   position: relative;
   padding-top: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -81,7 +88,7 @@
 .nameOfApp h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1b1212;
+  color: var(--footer-text-color);
   margin: 0;
   white-space: nowrap;
   letter-spacing: -0.3px;
@@ -99,7 +106,7 @@
 .footerDesc p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #6b7280;
+  color: var(--footer-text-color);
   margin: 0;
   font-weight: 400;
 }
@@ -113,14 +120,14 @@
 
 .rights {
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: var(--footer-text-color);
   font-weight: 400;
   text-align: left;
 }
 
 .developerName {
   font-size: 0.85rem;
-  color: #000000;
+  color: var(--developer-text-color);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
   text-align: right;
@@ -133,7 +140,6 @@
 }
 
 .developerName::before {
-  content: "⚡";
   margin-right: 6px;
   opacity: 0.3;
   transition: all 0.3s ease;
@@ -141,7 +147,7 @@
 }
 
 .developerName:hover {
-  color: #1b1212;
+  color: var(--developer-text-color);
   background: rgba(40, 166, 151, 0.06);
   border-color: rgba(40, 166, 151, 0.15);
   transform: translateY(-2px);
