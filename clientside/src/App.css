@@ -5,6 +5,7 @@
   --text-primary-color: #1b1212;
   --text-secondary-color: #6b7280;
   --list-item-even-bg-color: #f3f3f3;
+  --lits-item-text-color: #000000;
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
   --card-border-color: #e2e8f0;
@@ -19,12 +20,13 @@
 
 body.darkmode {
   --base-bg-color: #1e1d1d;
-  --header-bg-color: #1e1d1d;
-  --footer-bg-color: #1e1d1d;
+  --header-bg-color: #343232;
+  --footer-bg-color: #343232;
   --text-primary-color: #e7e7e7;
   --text-secondary-color: #cbcbcb;
-  --list-item-even-bg-color: #a6a6a6;
-  --header-link-color: #c1c1c1;
+  --list-item-even-bg-color: #343232;
+  --lits-item-text-color: #ffffff;
+  --header-link-color: #555555;
   --header-link-hover-color: #e7e7e7;
   --card-border-color: #3a3a3a;
   --card-primary-text-color: #e7e7e7;
