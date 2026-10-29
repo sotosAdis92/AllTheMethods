@@ -43,10 +43,8 @@
     "Helvetica Neue",
     sans-serif;
   font-size: 1.9rem;
-  font-weight: 700;
+  font-weight: 600;
   background: black;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
   letter-spacing: -0.5px;
@@ -63,7 +61,6 @@
   height: 36px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  background: #f3f3f3;
 }
 
 .aboutDescription {

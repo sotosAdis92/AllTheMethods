@@ -7,6 +7,9 @@
   --list-item-even-bg-color: #f3f3f3;
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
+  --card-border-color: ;
+  --card-primary-text-color: ;
+  --card-secondary-text-color: ;
 }
 
 body.darkmode {
@@ -18,6 +21,9 @@ body.darkmode {
   --list-item-even-bg-color: #a6a6a6;
   --header-link-color: #c1c1c1;
   --header-link-hover-color: #e7e7e7;
+  --card-border-color: ;
+  --card-primary-text-color: ;
+  --card-secondary-text-color: ;
 }
 
 * {
