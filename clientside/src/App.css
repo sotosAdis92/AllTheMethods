@@ -10,7 +10,7 @@
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
   --header-link-active-color: #1e293b;
-  --header-border-bottom: #f1f5f9;
+  --header-border-bottom: #e3e3e3;
 
   --card-border-color: #e2e8f0;
   --card-primary-text-color: #1b1212;
@@ -22,7 +22,6 @@
   --filters-text-color: #1b1212;
   --filters-bg-hover-color: #f7f7f7;
 
-  --header-border-bottom: #f1f5f9;
   --star-stroke-color: #1b1212;
   --title-text-color: #000000;
   --type-number-background-color: #f3f3f3;
@@ -41,7 +40,7 @@ body.darkmode {
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #ffffff;
   --header-link-active-color: #e7e7e7;
-  --header-border-bottom: #343232;
+  --header-border-bottom: #828282;
 
   --card-border-color: #3a3a3a;
   --card-primary-text-color: #e7e7e7;
@@ -53,7 +52,6 @@ body.darkmode {
   --filters-text-color: #e7e7e7;
   --filters-bg-hover-color: #2a2929;
 
-  --header-border-bottom: #ffffff;
   --star-stroke-color: #737373;
   --title-text-color: #ffffff;
   --type-number-background-color: #3e3e3e;
