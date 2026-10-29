@@ -7,11 +7,13 @@
   --list-item-even-bg-color: #f3f3f3;
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
-  --card-border-color: ;
-  --card-primary-text-color: ;
-  --card-secondary-text-color: ;
-  --card-highlight-field-color: ;
-  --card-highlight-field-text-color: ;
+  --card-border-color: #e2e8f0;
+  --card-primary-text-color: #1b1212;
+  --card-secondary-text-color: #6b7280;
+  --card-highlight-field-color: #f0f0f0;
+  --card-highlight-field-text-color: #1b1212;
+  --filters-bg-color: #f7f7f7;
+  --filters-text-color: #1b1212;
 }
 
 body.darkmode {
@@ -23,11 +25,13 @@ body.darkmode {
   --list-item-even-bg-color: #a6a6a6;
   --header-link-color: #c1c1c1;
   --header-link-hover-color: #e7e7e7;
-  --card-border-color: ;
-  --card-primary-text-color: ;
-  --card-secondary-text-color: ;
-  --card-highlight-field-color: ;
-  --card-highlight-field-text-color: ;
+  --card-border-color: #3a3a3a;
+  --card-primary-text-color: #e7e7e7;
+  --card-secondary-text-color: #cbcbcb;
+  --card-highlight-field-color: #3d3d3d;
+  --card-highlight-field-text-color: #f0f0f0;
+  --filters-bg-color: #2a2929;
+  --filters-text-color: #e7e7e7;
 }
 
 * {
