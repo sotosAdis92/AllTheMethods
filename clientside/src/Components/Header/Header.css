@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
-  background-color: #ffffff;
+  background-color: var(--header-bg-color);
   border-bottom: 1px solid #f1f5f9;
   position: sticky;
   top: 0;

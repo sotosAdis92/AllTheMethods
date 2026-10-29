@@ -14,6 +14,7 @@
   --card-highlight-field-text-color: #1b1212;
   --filters-bg-color: #f7f7f7;
   --filters-text-color: #1b1212;
+  --header-border-bottom: #f1f5f9;
 }
 
 body.darkmode {
@@ -32,6 +33,7 @@ body.darkmode {
   --card-highlight-field-text-color: #f0f0f0;
   --filters-bg-color: #2a2929;
   --filters-text-color: #e7e7e7;
+  --header-border-bottom: #ffffff;
 }
 
 * {
