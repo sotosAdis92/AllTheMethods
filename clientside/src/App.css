@@ -7,6 +7,15 @@
   --list-item-even-bg-color: #f3f3f3;
 }
 
+body.darkmode {
+  --base-bg-color: #1e1d1d;
+  --header-bg-color: #1e1d1d;
+  --footer-bg-color: #1e1d1d;
+  --text-primary-color: #e7e7e7;
+  --text-secondary-color: #cbcbcb;
+  --list-item-even-bg-color: #b8b8b8;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,9 +37,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-}
-
-body.darkmode {
+  background-color: var(--base-bg-color);
 }
 
 .easyDifficulty {
