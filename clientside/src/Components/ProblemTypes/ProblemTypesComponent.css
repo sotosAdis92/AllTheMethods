@@ -15,6 +15,7 @@
   cursor: pointer;
   font-size: 15px;
   text-align: center;
+  color: var(--text-primary-color);
 }
 .typeText {
   display: flex;
@@ -47,8 +48,8 @@
 }
 
 .typeNumber {
-  background-color: #f3f3f3;
-  color: #5f6368;
+  background-color: var(--type-number-background-color);
+  color: var(--text-primary-color);
   display: inline-block;
   border-radius: 50px;
   padding: 1px 8px;
@@ -70,7 +71,7 @@
 }
 
 .type:hover .typeNumber {
-  background-color: #e6f4ff;
+  background-color: var(--type-number-background-hover-color);
   color: #0095ff;
 }
 

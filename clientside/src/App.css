@@ -17,6 +17,9 @@
   --filters-text-color: #1b1212;
   --header-border-bottom: #f1f5f9;
   --star-stroke-color: #1b1212;
+  --title-text-color: #000000;
+  --type-number-background-color: #f3f3f3;
+  --type-number-background-hover-color: #e6f4ff;
 }
 
 body.darkmode {
@@ -27,8 +30,8 @@ body.darkmode {
   --text-secondary-color: #cbcbcb;
   --list-item-even-bg-color: #343232;
   --lits-item-text-color: #ffffff;
-  --header-link-color: #555555;
-  --header-link-hover-color: #e7e7e7;
+  --header-link-color: #a0a0a0;
+  --header-link-hover-color: #ffffff;
   --card-border-color: #3a3a3a;
   --card-primary-text-color: #e7e7e7;
   --card-secondary-text-color: #cbcbcb;
@@ -38,6 +41,9 @@ body.darkmode {
   --filters-text-color: #e7e7e7;
   --header-border-bottom: #ffffff;
   --star-stroke-color: #737373;
+  --title-text-color: #ffffff;
+  --type-number-background-color: #3e3e3e;
+  --type-number-background-hover-color: #00306e;
 }
 
 * {
@@ -115,6 +121,7 @@ body {
 
 .problemsTitle {
   font-weight: 500;
+  color: var(--title-text-color);
 }
 
 .changeNumber {
