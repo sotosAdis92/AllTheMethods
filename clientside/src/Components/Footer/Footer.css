@@ -81,7 +81,7 @@
 .nameOfApp h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1b1212;
+  color: var(--text-primary-color);
   margin: 0;
   white-space: nowrap;
   letter-spacing: -0.3px;
