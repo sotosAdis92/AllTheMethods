@@ -10,6 +10,8 @@
   --card-border-color: ;
   --card-primary-text-color: ;
   --card-secondary-text-color: ;
+  --card-highlight-field-color: ;
+  --card-highlight-field-text-color: ;
 }
 
 body.darkmode {
@@ -24,6 +26,8 @@ body.darkmode {
   --card-border-color: ;
   --card-primary-text-color: ;
   --card-secondary-text-color: ;
+  --card-highlight-field-color: ;
+  --card-highlight-field-text-color: ;
 }
 
 * {
