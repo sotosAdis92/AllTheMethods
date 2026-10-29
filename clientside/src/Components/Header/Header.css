@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 20px 40px;
   background-color: var(--header-bg-color);
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--header-border-bottom);
   position: sticky;
   top: 0;
   z-index: 1000;
