@@ -87,10 +87,6 @@
   letter-spacing: -0.3px;
 }
 
-.nameOfApp h3 span {
-  color: #28a697;
-}
-
 .footerDesc {
   max-width: 500px;
   text-align: left;
@@ -99,7 +95,7 @@
 .footerDesc p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #6b7280;
+  color: var(--text-secondary-color);
   margin: 0;
   font-weight: 400;
 }
@@ -113,14 +109,14 @@
 
 .rights {
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: var(--text-secondary-color);
   font-weight: 400;
   text-align: left;
 }
 
 .developerName {
   font-size: 0.85rem;
-  color: #000000;
+  color: var(--text-primary-color);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
   text-align: right;
@@ -140,7 +136,7 @@
 }
 
 .developerName:hover {
-  color: #1b1212;
+  color: var(--text-primary-color);
   background: rgba(40, 166, 151, 0.06);
   border-color: rgba(40, 166, 151, 0.15);
   transform: translateY(-2px);
