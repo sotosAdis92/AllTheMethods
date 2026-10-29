@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img2 from "../../assets/door.png";
 import img1 from "../../assets/logo.JPG";
+import userDefaultPic from "../../assets/userPicDefault.png";
 import { isTokenValid, removeToken } from "../../environment/common";
 import { getUser } from "../../services/UsersService";
 import "./Header.css";
@@ -134,7 +135,10 @@ const Header = () => {
               </button>
             </div>
             <div className="usersDisplay">
-              <img className="profilePic" src={profilePic}></img>
+              <img
+                className="profilePic"
+                src={profilePic === "" ? userDefaultPic : profilePic}
+              ></img>
               <div className="displayOfName">{displayName}</div>
             </div>
             <Button
