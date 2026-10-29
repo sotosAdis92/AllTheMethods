@@ -129,7 +129,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f0f0f0;
+  background: var(--header-bg-color);
   border: none;
   cursor: pointer;
 }
