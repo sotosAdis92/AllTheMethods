@@ -8,7 +8,7 @@ const AboutButtons = () => {
           <div className="tooltip">Github</div>
           <a href="https://github.com/sotosAdis92/AllTheMethods">
             <span className="spanIcon">
-              <img className="imageIconSpan" src={img}></img>
+              <img className="imageIconSpanG" src={img}></img>
             </span>
           </a>
         </div>
