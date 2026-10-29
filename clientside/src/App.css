@@ -16,6 +16,7 @@
   --filters-bg-color: #f7f7f7;
   --filters-text-color: #1b1212;
   --header-border-bottom: #f1f5f9;
+  --star-stroke-color: #1b1212;
 }
 
 body.darkmode {
@@ -36,6 +37,7 @@ body.darkmode {
   --filters-bg-color: #2a2929;
   --filters-text-color: #e7e7e7;
   --header-border-bottom: #ffffff;
+  --star-stroke-color: #737373;
 }
 
 * {
@@ -90,6 +92,7 @@ body {
   border-radius: 12px;
   padding: 12px;
   cursor: pointer;
+  color: var(--text-primary-color);
 }
 
 .problemOdd {
@@ -97,11 +100,17 @@ body {
   border-radius: 12px;
   padding: 12px;
   cursor: pointer;
+  color: var(--text-primary-color);
 }
 
 .problemDetails {
   display: flex;
   font-size: 17px;
+  color: var(--text-primary-color);
+}
+
+.pointsOfProblem {
+  color: var(--text-primary-color);
 }
 
 .problemsTitle {
@@ -125,6 +134,7 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  color: var(--text-primary-color);
 }
 
 .bronze {

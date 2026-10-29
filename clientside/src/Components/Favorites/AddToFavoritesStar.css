@@ -19,7 +19,7 @@
 
 .star {
   fill: transparent;
-  stroke: #262626;
+  stroke: var(--star-stroke-color);
   stroke-width: 2;
   transition:
     fill 0.2s ease,
