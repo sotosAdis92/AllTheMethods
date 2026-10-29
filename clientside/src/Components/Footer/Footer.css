@@ -133,7 +133,6 @@
 }
 
 .developerName::before {
-  content: "⚡";
   margin-right: 6px;
   opacity: 0.3;
   transition: all 0.3s ease;

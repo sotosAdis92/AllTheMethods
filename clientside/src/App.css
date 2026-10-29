@@ -1,4 +1,10 @@
 :root {
+  --base-bg-color: #ffffff;
+  --header-bg-color: #ffffff;
+  --footer-bg-color: #ffffff;
+  --text-primary-color: #0b0b0b;
+  --text-secondary-color: #6b7280;
+  --list-item-even-bg-color: #f3f3f3;
 }
 
 * {

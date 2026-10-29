@@ -19,7 +19,6 @@ const Footer = () => {
               </p>
             </div>
           </div>
-
           <div className="reserved">
             <div className="rights">
               ©{year} AllTheMethods. All Rights Reserved
