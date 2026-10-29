@@ -6,8 +6,11 @@
   --text-secondary-color: #6b7280;
   --list-item-even-bg-color: #f3f3f3;
   --lits-item-text-color: #000000;
+
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
+  --header-link-active-color: #1e293b;
+
   --card-border-color: #e2e8f0;
   --card-primary-text-color: #1b1212;
   --card-secondary-text-color: #6b7280;
@@ -33,8 +36,11 @@ body.darkmode {
   --text-secondary-color: #cbcbcb;
   --list-item-even-bg-color: #343232;
   --lits-item-text-color: #ffffff;
+
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #ffffff;
+  --header-link-active-color: ;
+
   --card-border-color: #3a3a3a;
   --card-primary-text-color: #e7e7e7;
   --card-secondary-text-color: #cbcbcb;
