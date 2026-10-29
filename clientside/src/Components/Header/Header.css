@@ -86,11 +86,11 @@
 }
 
 .headerlink.active {
-  color: #1e293b !important;
+  color: var(--header-link-active-color) !important;
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
-  text-decoration-color: #000000;
+  text-decoration-color: var(--header-link-active-color);
 }
 
 .logout {
