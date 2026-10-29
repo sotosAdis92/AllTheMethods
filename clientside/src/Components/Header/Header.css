@@ -37,7 +37,7 @@
     sans-serif !important;
   font-size: 1.5rem;
   font-weight: 600;
-  background: black;
+  color: var(--text-primary-color);
   background-clip: text;
   margin: 0;
   letter-spacing: -0.5px;
@@ -74,6 +74,7 @@
 .displayOfName {
   font-size: 18px;
   font-weight: 600;
+  color: var(--text-primary-color);
 }
 
 .headerlink:not(.active):hover {
