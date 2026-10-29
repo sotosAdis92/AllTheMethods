@@ -16,6 +16,8 @@ body.darkmode {
   --text-primary-color: #e7e7e7;
   --text-secondary-color: #cbcbcb;
   --list-item-even-bg-color: #a6a6a6;
+  --header-link-color: #c1c1c1;
+  --header-link-hover-color: #e7e7e7;
 }
 
 * {
