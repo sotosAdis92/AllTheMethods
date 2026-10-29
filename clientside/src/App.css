@@ -13,7 +13,7 @@ body.darkmode {
   --footer-bg-color: #1e1d1d;
   --text-primary-color: #e7e7e7;
   --text-secondary-color: #cbcbcb;
-  --list-item-even-bg-color: #b8b8b8;
+  --list-item-even-bg-color: #a6a6a6;
 }
 
 * {
@@ -64,7 +64,7 @@ body {
 
 .problemItem {
   flex: 1;
-  background-color: #f3f3f3;
+  background-color: var(--list-item-even-bg-color);
   border-radius: 12px;
   padding: 12px;
   cursor: pointer;
