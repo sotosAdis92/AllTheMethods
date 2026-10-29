@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img2 from "../../assets/door.png";
 import img1 from "../../assets/logo.JPG";
@@ -60,6 +60,23 @@ const Header = () => {
   const isActive = (path) => {
     return location.pathname === path;
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("darkmode") === "active") {
+      document.body.classList.add("darkmode");
+    }
+  }, []);
+
+  const toggleDarkTheme = useCallback(() => {
+    const isActive = localStorage.getItem("darkmode") === "active";
+    if (isActive) {
+      document.body.classList.remove("darkmode");
+      localStorage.setItem("darkmode", "null");
+    } else {
+      document.body.classList.add("darkmode");
+      localStorage.setItem("darkmode", "active");
+    }
+  }, []);
   return (
     <>
       {isUserLoggedIn ? (
@@ -113,7 +130,11 @@ const Header = () => {
 
           <div className="userAndLogout">
             <div className="themeToggle">
-              <button className="buttonThemeToggle" id="themeSwitch">
+              <button
+                className="buttonThemeToggle"
+                id="themeSwitch"
+                onClick={toggleDarkTheme}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24px"

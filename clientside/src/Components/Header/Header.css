@@ -138,10 +138,10 @@
   display: none;
 }
 
-.darkmode #themeSwitch svg:last-child {
+.darkmode #themeSwitch svg:first-child {
   display: none;
 }
 
 .darkmode #themeSwitch svg:last-child {
-  display: none;
+  display: block;
 }
