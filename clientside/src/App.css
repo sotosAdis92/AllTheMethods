@@ -13,6 +13,7 @@
   --header-border-bottom: #e3e3e3;
 
   --card-border-color: #e2e8f0;
+  --card-shadow: #00000026;
   --card-primary-text-color: #1b1212;
   --card-secondary-text-color: #6b7280;
   --card-highlight-field-color: #f0f0f0;
@@ -43,6 +44,7 @@ body.darkmode {
   --header-border-bottom: #828282;
 
   --card-border-color: #3a3a3a;
+  --card-shadow: #000000;
   --card-primary-text-color: #e7e7e7;
   --card-secondary-text-color: #cbcbcb;
   --card-highlight-field-color: #3d3d3d;
@@ -65,7 +67,6 @@ body.darkmode {
 }
 html,
 body {
-  height: 100%;
   margin: 0;
   font-family:
     system-ui,
