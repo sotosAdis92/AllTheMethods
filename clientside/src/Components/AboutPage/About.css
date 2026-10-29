@@ -154,7 +154,7 @@
 }
 .techStackHeading {
   margin-top: 1.5rem;
-  color: #8b8b8b;
+  color: var(--text-secondary-color);
   font-size: 17px;
   position: relative;
 }
@@ -411,4 +411,9 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  color: var(--text-primary-color);
+}
+
+.externalLinkGithub {
+  background-color: #fff;
 }

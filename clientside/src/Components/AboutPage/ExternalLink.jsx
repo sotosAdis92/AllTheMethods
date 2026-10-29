@@ -1,3 +1,4 @@
+import "./About.css";
 const ExternalLink = () => {
   return (
     <>
