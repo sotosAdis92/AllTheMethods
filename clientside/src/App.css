@@ -100,12 +100,12 @@ body.darkmode {
   --page-button-hover: #5c5c5c;
   --page-button-active: #9bc7f4;
 
-  --edit-profile-button-bg-color: #bbf7d0;
-  --edit-profile-button-hover-color: #86efac;
-  --edit-profile-button-text-color: #15803d;
-  --edit-profile-button-border: #86efac;
-  --edit-profile-button-border-hover: #16a34a;
-  --edit-profile-button-shadow: rgba(22, 163, 74, 0.3);
+  --edit-profile-button-bg-color: #1e3a2a;
+  --edit-profile-button-hover-color: #2a4d38;
+  --edit-profile-button-text-color: #7ee2a8;
+  --edit-profile-button-border: #2f5e42;
+  --edit-profile-button-border-hover: #4ade80;
+  --edit-profile-button-shadow: rgba(74, 222, 128, 0.15);
 
   --input-bg-color: ;
 }
