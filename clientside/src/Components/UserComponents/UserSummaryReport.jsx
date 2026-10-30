@@ -34,7 +34,7 @@ const UserSummaryReport = (props) => {
         </div>
         <div className="acceptanceRate">
           Acceptance Rate
-          <div className="acceptancePercent">{acceptanceRate}%</div>
+          <div className="acceptancePercent">{Math.trunc(acceptanceRate)}%</div>
         </div>
       </div>
     </>
