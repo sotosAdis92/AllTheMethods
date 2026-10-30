@@ -1093,11 +1093,10 @@ body {
     sans-serif;
   width: auto;
   text-align: center;
-  color: #b3b3b3;
+  color: var(--text-primary-color);
   font-size: 0.95rem;
   padding: 2.5rem 1rem;
   background: var(--card-secondary-bg-color);
-  color: var(--text-secondary-color);
   border-radius: 8px;
   margin-top: 1rem;
 }
