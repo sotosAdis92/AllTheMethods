@@ -26,10 +26,6 @@
   --filters-text-color: #1b1212;
   --filters-bg-hover-color: #f7f7f7;
 
-  --filter-active-bg: #c6c6c6;
-  --filter-active-border: #b0b0b0;
-  --filter-active-text: #1b1212;
-
   --star-stroke-color: #1b1212;
   --title-text-color: #000000;
   --type-number-background-color: #f3f3f3;
@@ -83,10 +79,6 @@ body.darkmode {
   --filters-bg-color: #343232;
   --filters-text-color: #e7e7e7;
   --filters-bg-hover-color: #343232;
-
-  --filter-active-bg: #2f4a63;
-  --filter-active-border: #4a7ba6;
-  --filter-active-text: #e7e7e7;
 
   --star-stroke-color: #737373;
   --title-text-color: #ffffff;
@@ -1166,13 +1158,13 @@ body {
 .filterButton {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-primary-color);
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: var(--header-bg-color);
+  background-color: #f4f4f5;
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1205,68 +1197,7 @@ body {
 .filterButton:hover {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-secondary-color);
-  text-transform: none;
-  letter-spacing: 0.3px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: var(--header-bg-color);
-  box-shadow: none;
-  cursor: pointer;
-  margin: 4px 4px;
-  transition: all 0.2s ease;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
-  white-space: nowrap;
-  display: flex;
-}
-
-.filters {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--filters-text-color);
-  text-transform: none;
-  letter-spacing: 0.3px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: var(--filters-bg-color);
-  box-shadow: none;
-  cursor: pointer;
-  margin: 4px 4px;
-  transition: all 0.2s ease;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
-  white-space: nowrap;
-  display: flex;
-  border: 2px solid var(--filter-border-color);
-}
-
-.filters:hover {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--filter-text-hover);
+  color: #707070;
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
@@ -1291,7 +1222,66 @@ body {
     sans-serif;
   white-space: nowrap;
   display: flex;
-  border: 2px solid var(--card-border-color);
+}
+
+.filters {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #707070;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #f4f4f5;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 4px 4px;
+  transition: all 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  white-space: nowrap;
+  display: flex;
+}
+
+.filters:hover {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #707070;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e7e7e7;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 4px 4px;
+  transition: all 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  white-space: nowrap;
+  display: flex;
 }
 
 .filterImage img {
