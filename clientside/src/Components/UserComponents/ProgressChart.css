@@ -2,7 +2,6 @@
   list-style: none;
   padding: 20px;
   margin: 0;
-  border: 2px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--card-border-color);
@@ -48,7 +47,6 @@
   border: none;
   border-radius: 12px;
   overflow: hidden;
-  background: var(--card-secondary-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;

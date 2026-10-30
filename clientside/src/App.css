@@ -33,7 +33,7 @@
 
   --button-bg-color: #f3f3f3;
 
-  --card-secondary-bg-color: #f4f2f2;
+  --card-secondary-bg-color: #f5f5f5;
 
   --favorites-card-bg-color: #f8f9fa;
   --favorites-card-border: #f7c983;
@@ -51,8 +51,6 @@
   --edit-profile-button-border: #86efac;
   --edit-profile-button-border-hover: #16a34a;
   --edit-profile-button-shadow: rgba(22, 163, 74, 0.3);
-
-  --input-bg-color: ;
 }
 
 body.darkmode {
@@ -89,7 +87,7 @@ body.darkmode {
 
   --button-bg-color: #3e3e3e;
 
-  --card-secondary-bg-color: #545454;
+  --card-secondary-bg-color: #484848;
 
   --favorites-card-bg-color: #2d2d2d;
   --favorites-card-border: #836341;
@@ -106,8 +104,6 @@ body.darkmode {
   --edit-profile-button-border: #2f5e42;
   --edit-profile-button-border-hover: #4ade80;
   --edit-profile-button-shadow: rgba(74, 222, 128, 0.15);
-
-  --input-bg-color: ;
 }
 
 * {
