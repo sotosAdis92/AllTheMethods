@@ -26,6 +26,10 @@
   --filters-text-color: #1b1212;
   --filters-bg-hover-color: #f7f7f7;
 
+  --filter-active-bg: #c6c6c6;
+  --filter-active-border: #b0b0b0;
+  --filter-active-text: #1b1212;
+
   --star-stroke-color: #1b1212;
   --title-text-color: #000000;
   --type-number-background-color: #f3f3f3;
@@ -79,6 +83,10 @@ body.darkmode {
   --filters-bg-color: #343232;
   --filters-text-color: #e7e7e7;
   --filters-bg-hover-color: #343232;
+
+  --filter-active-bg: #2f4a63;
+  --filter-active-border: #4a7ba6;
+  --filter-active-text: #e7e7e7;
 
   --star-stroke-color: #737373;
   --title-text-color: #ffffff;
@@ -1227,13 +1235,13 @@ body {
 .filters {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-primary-color);
+  color: var(--filters-text-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: var(--header-bg-color);
+  background-color: var(--filters-bg-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1252,13 +1260,13 @@ body {
     sans-serif;
   white-space: nowrap;
   display: flex;
-  border: 2px solid var(--card-border-color);
+  border: 2px solid var(--filter-border-color);
 }
 
 .filters:hover {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--filter-text-hover);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
