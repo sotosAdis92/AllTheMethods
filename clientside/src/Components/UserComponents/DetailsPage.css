@@ -34,15 +34,17 @@
   margin-right: 10px;
 }
 .profile-card {
+  color: var(--text-primary-color);
   width: 50%;
   border-radius: 16px;
   padding: 24px;
   padding: 1.5rem;
   margin: 20px 0;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
+  background-color: var(--header-bg-color);
 }
 .section-title {
   align-items: center;
@@ -62,7 +64,7 @@
   width: auto;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #262626;
+  color: var(--text-primary-color);
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
@@ -71,7 +73,7 @@
 }
 
 .danger-zone {
-  background-color: #fdf5f5;
+  background-color: var(--base-bg-color);
   border: 1px solid #fcd5d5;
   border-radius: 8px;
   padding: 24px;
@@ -90,7 +92,7 @@
 }
 
 .terminate-button {
-  background-color: #fee2e2;
+  background-color: var(--header-bg-color);
   color: #dc2626;
   border: 1px solid #fecaca;
   padding: 10px 20px;
