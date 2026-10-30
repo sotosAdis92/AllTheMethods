@@ -5,8 +5,10 @@
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--card-border-color);
+  color: var(--text-primary-color);
+  background: var(--header-bg-color);
+  box-shadow: 0 2px 4px var(--card-shadow);
   width: 100%;
   height: auto;
   display: flex;
@@ -31,7 +33,11 @@
 
 .doughnut {
   width: 45%;
-  height: 45%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .containerOfListOfUser {
@@ -42,7 +48,7 @@
   border: none;
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--card-secondary-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +60,7 @@
   border-radius: 6px;
   transition: background-color 0.2s;
   text-align: center;
+  color: var(--text-primary-color);
 }
 
 .containerOfListOfUser > :first-child {

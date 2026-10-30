@@ -28,6 +28,8 @@
   align-items: stretch;
   gap: 0px;
   padding: 0px;
+  background-color: var(--base-bg-color);
+  color: var(--text-primary-color);
 }
 
 .displayAndUsername {

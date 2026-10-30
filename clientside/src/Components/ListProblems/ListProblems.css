@@ -3,7 +3,7 @@
 }
 
 .pointsOfProblem {
-  color: #3f3f3f;
+  color: var(--text-primary-color);
   font-weight: 500;
   margin-left: 2%;
 }
@@ -25,4 +25,5 @@
   margin-left: 0px;
   position: relative;
   align-content: end;
+  color: var(--text-primary-color);
 }

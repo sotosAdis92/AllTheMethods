@@ -94,27 +94,31 @@ const ProgressChart = (props) => {
       } = chart;
       const allCount = chart.options.allCount;
       const userCount = chart.options.userCount;
+      const styles = getComputedStyle(chart.canvas.parentElement);
+      const textColor = styles
+        .getPropertyValue("--lits-item-text-color")
+        .trim();
       ctx.save();
       ctx.font = "2.5rem system-ui";
-      ctx.fillStyle = "black";
+      ctx.fillStyle = textColor;
       ctx.textAlign = "center";
       ctx.fillText(userCount, width / 2 - 11, height / 2);
 
-      ctx.save();
       ctx.font = "1.2rem system-ui";
-      ctx.fillStyle = "black";
+      ctx.fillStyle = textColor;
       ctx.textAlign = "center";
       ctx.fillText(`/${allCount}`, width / 2 + 11, height / 2);
 
-      ctx.save();
       ctx.font = "0.9rem system-ui";
-      ctx.fillStyle = "black";
+      ctx.fillStyle = textColor;
       ctx.textAlign = "center";
       ctx.fillText("Solved", width / 2, height / 2 + 25);
+      ctx.restore();
     },
   };
 
   ChartJS.register(stackedText);
+
   return (
     <div className="doughnutContainerDiv">
       <div className="doughnut" style={{}}>
@@ -126,6 +130,8 @@ const ProgressChart = (props) => {
                 label: "Problems Solved",
                 data: distinctUserData,
                 backgroundColor: ["#00b8a3", "#ffbf40", "#FF375F"],
+                borderColor: "transparent",
+                borderWidth: 0,
               },
             ],
           }}
@@ -134,6 +140,9 @@ const ProgressChart = (props) => {
             maintainAspectRatio: true,
             aspectRatio: 1,
             cutout: "93%",
+            layout: {
+              padding: 0,
+            },
             userCount: userCount.length,
             allCount: countAllProblems,
             plugins: {

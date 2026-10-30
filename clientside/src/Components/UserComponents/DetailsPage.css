@@ -5,7 +5,6 @@
   border: none;
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   width: 100%;
   height: auto;
@@ -27,6 +26,8 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  background: var(--base-bg-color);
+  color: var(--text-primary-color);
 }
 .imagePencil {
   width: 20px;
