@@ -78,9 +78,9 @@ body.darkmode {
 
   --card-secondary-bg-color: #464646;
 
-  --favorites-card-bg-color: #2a2520;
-  --favorites-card-border: #f7c983;
-  --favorites-card-bg-color-hover: #3a3128;
+  --favorites-card-bg-color: #2d2d2d;
+  --favorites-card-border: #836341;
+  --favorites-card-bg-color-hover: #3a3a3a;
   --favorites-card-border-hover: #f57c00;
 }
 
@@ -2003,7 +2003,7 @@ body {
   border-radius: 12px;
   padding: 1.5rem;
   margin: 20px 0px;
-  border: 2px solid #f7c983;
+  border: 2px solid var(--favorites-card-border);
   background: var(--favorites-card-bg-color);
   display: flex;
   font-family:
@@ -2029,7 +2029,7 @@ body {
 
 .goToFavoritesButton:hover {
   background: var(--favorites-card-bg-color-hover);
-  border-color: #f57c00;
+  border-color: var(--favorites-card-border-hover);
   box-shadow: var(--card-border-color);
   transform: translateY(-2px);
   transition: 0.2s ease;
