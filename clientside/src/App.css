@@ -1158,13 +1158,13 @@ body {
 .filterButton {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--text-primary-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #f4f4f5;
+  background-color: var(--header-bg-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1197,13 +1197,13 @@ body {
 .filterButton:hover {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--text-secondary-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #e7e7e7;
+  background-color: var(--header-bg-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1227,13 +1227,13 @@ body {
 .filters {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--text-primary-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #f4f4f5;
+  background-color: var(--header-link-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1252,6 +1252,7 @@ body {
     sans-serif;
   white-space: nowrap;
   display: flex;
+  border: 2px solid var(--card-border-color);
 }
 
 .filters:hover {
@@ -1282,6 +1283,7 @@ body {
     sans-serif;
   white-space: nowrap;
   display: flex;
+  border: 2px solid var(--card-border-color);
 }
 
 .filterImage img {
@@ -1612,6 +1614,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  background-color: var(--header-bg-color);
 }
 
 .problemTagsImage {
@@ -1789,14 +1792,12 @@ body {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
+  background-color: var(--header-bg-color);
+  border: 1px solid var(--card-border-color);
   border-radius: 12px;
   padding: 20px;
   width: 320px;
-  box-shadow:
-    0 10px 25px -5px rgba(0, 0, 0, 0.1),
-    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px var(--card-shadow);
   z-index: 100;
 }
 
@@ -1813,7 +1814,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  color: #4b5563;
+  color: var(--text-primary-color);
   margin-top: 12px;
   margin-bottom: 6px;
 }
@@ -1827,6 +1828,7 @@ body {
   margin-bottom: 0.5rem;
   margin-left: 0;
   padding-left: 0;
+  gap: 4px;
 }
 .filterContainerAchievements {
   position: relative;
@@ -1837,6 +1839,7 @@ body {
   margin-bottom: 0.5rem;
   margin-left: 0;
   padding-left: 0;
+  gap: 4px;
 }
 .filters.special-active-class {
   background-color: #c6c6c6;
@@ -1944,8 +1947,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 4px 9px;
-  background: #f8f8f8;
-  color: #000000;
+  background: var(--filters-bg-color);
+  color: var(--text-primary-color);
   font-size: 15px;
   border-radius: 25px;
   white-space: nowrap;
@@ -1966,8 +1969,8 @@ body {
 .openFilterButtonAchievements:hover .tooltip {
   opacity: 1;
   bottom: calc(100% + 16px);
-  background: #f8f8f8;
-  color: #000000;
+  background: var(--filters-bg-color);
+  color: var(--text-primary-color);
 }
 
 .openFilterButtonAchievements .tooltip::after {
@@ -1978,7 +1981,7 @@ body {
   transform: translateX(-50%);
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #f8f8f8;
+  border-top: 8px solid var(--filters-bg-color);
 }
 
 .openFilterButton .tooltip {
@@ -1987,8 +1990,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 4px 9px;
-  background: #f8f8f8;
-  color: #000000;
+  background: var(--filters-bg-color);
+  color: var(--text-primary-color);
   font-size: 15px;
   border-radius: 25px;
   white-space: nowrap;
@@ -2009,8 +2012,8 @@ body {
 .openFilterButton:hover .tooltip {
   opacity: 1;
   bottom: calc(100% + 16px);
-  background: #f8f8f8;
-  color: #000000;
+  background: var(--filters-bg-color);
+  color: var(--text-primary-color);
 }
 
 .openFilterButton .tooltip::after {
@@ -2021,7 +2024,7 @@ body {
   transform: translateX(-50%);
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #f8f8f8;
+  border-top: 8px solid var(--filters-bg-color);
 }
 
 .goToFavoritesButton {
