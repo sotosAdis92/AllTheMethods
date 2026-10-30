@@ -90,7 +90,7 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--base-bg-color);
   width: 100%;
 }
 

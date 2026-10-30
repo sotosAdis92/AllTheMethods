@@ -34,6 +34,12 @@
   --button-bg-color: #f3f3f3;
 
   --card-secondary-bg-color: #f4f2f2;
+
+  --favorites-card-bg-color: #f8f9fa;
+  --favorites-card-border: #f7c983;
+
+  --favorites-card-bg-color-hover: #fffbf5;
+  --favorites-card-border-hover: #f57c00;
 }
 
 body.darkmode {
@@ -71,6 +77,11 @@ body.darkmode {
   --button-bg-color: #3e3e3e;
 
   --card-secondary-bg-color: #464646;
+
+  --favorites-card-bg-color: #2a2520;
+  --favorites-card-border: #f7c983;
+  --favorites-card-bg-color-hover: #3a3128;
+  --favorites-card-border-hover: #f57c00;
 }
 
 * {
@@ -1069,7 +1080,7 @@ body {
 }
 
 .containerUser {
-  background: #ffffff;
+  background: var(--base-bg-color);
   padding: 2rem 0 1.5rem 0;
   margin-bottom: 0;
   display: flex;
@@ -1153,6 +1164,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  background-color: var(--base-bg-color);
 }
 
 .filterButton:hover {
@@ -1992,7 +2004,7 @@ body {
   padding: 1.5rem;
   margin: 20px 0px;
   border: 2px solid #f7c983;
-  background: #f8f9fa;
+  background: var(--favorites-card-bg-color);
   display: flex;
   font-family:
     system-ui,
@@ -2012,14 +2024,14 @@ body {
   gap: 10px;
   align-items: center;
   cursor: pointer;
+  color: var(--text-primary-color);
 }
 
 .goToFavoritesButton:hover {
-  background: #fffbf5;
+  background: var(--favorites-card-bg-color-hover);
   border-color: #f57c00;
-  box-shadow:
-    0 4px 12px rgba(245, 124, 0, 0.15),
-    0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--card-border-color);
   transform: translateY(-2px);
   transition: 0.2s ease;
+  color: var(--text-primary-color);
 }
