@@ -1334,12 +1334,14 @@ body {
     sans-serif;
   margin-top: 2%;
   margin-left: 0.8rem;
+  color: var(--text-primary-color);
 }
 
 .problemStringDiv {
   font-size: 18px;
   margin-left: 0.8rem;
   margin-top: 0.8rem;
+  color: var(--text-primary-color);
 }
 
 .submitButton {
