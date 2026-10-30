@@ -40,6 +40,11 @@
 
   --favorites-card-bg-color-hover: #fffbf5;
   --favorites-card-border-hover: #f57c00;
+
+  --page-button-color: ;
+  --page-button-hover: ;
+  --page-button-active: ;
+  --page-button-inactive: ;
 }
 
 body.darkmode {
@@ -82,6 +87,11 @@ body.darkmode {
   --favorites-card-border: #836341;
   --favorites-card-bg-color-hover: #3a3a3a;
   --favorites-card-border-hover: #f57c00;
+
+  --page-button-color: ;
+  --page-button-hover: ;
+  --page-button-active: ;
+  --page-button-inactive: ;
 }
 
 * {
