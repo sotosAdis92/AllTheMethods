@@ -87,9 +87,9 @@ body.darkmode {
   --favorites-card-bg-color-hover: #3a3a3a;
   --favorites-card-border-hover: #f57c00;
 
-  --page-button-color: #818181;
+  --page-button-color: #a2a2a2;
   --page-button-hover: #5c5c5c;
-  --page-button-active: #d1d1d1;
+  --page-button-active: #d8d8d8;
 }
 
 * {
