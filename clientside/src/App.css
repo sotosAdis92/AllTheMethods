@@ -29,6 +29,8 @@
   --title-text-color: #000000;
   --type-number-background-color: #f3f3f3;
   --type-number-background-hover-color: #e6f4ff;
+
+  --button-bg-color: #f3f3f3;
 }
 
 body.darkmode {
@@ -50,7 +52,7 @@ body.darkmode {
   --card-border-color: #3a3a3a;
   --card-shadow: #000000;
   --card-primary-text-color: #e7e7e7;
-  --card-secondary-text-color: #cbcbcb;
+  --card-secondary-text-color: #313131;
   --card-highlight-field-color: #3d3d3d;
   --card-highlight-field-text-color: #f0f0f0;
 
@@ -62,6 +64,8 @@ body.darkmode {
   --title-text-color: #ffffff;
   --type-number-background-color: #3e3e3e;
   --type-number-background-hover-color: #00306e;
+
+  --button-bg-color: #3e3e3e;
 }
 
 * {
@@ -1351,12 +1355,12 @@ body {
 
 .submitButton {
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--button-bg-color);
   border: 1px solid #e2e8f0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   box-sizing: border-box;
-  color: #2c3e50;
+  color: var(--text-primary-color);
   cursor: pointer;
   display: inline-flex;
   font-family:
@@ -1477,6 +1481,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-left: 0.8rem;
+  color: var(--text-primary-color);
 }
 
 .problemSpaceDiv {
@@ -1493,6 +1498,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-left: 0.8rem;
+  color: var(--text-primary-color);
 }
 
 .generalClassforFontFamilySystemUi {
@@ -1511,11 +1517,15 @@ body {
   margin-left: 0.8rem;
 }
 
+.katexLabel {
+  color: var(--text-primary-color);
+}
+
 .inputs {
   width: 100%;
   max-width: 300px;
   padding: 12px 20px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--card-secondary-text-color);
   margin-top: 0.8rem;
   font-family:
     system-ui,
