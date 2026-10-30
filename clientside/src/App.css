@@ -1233,7 +1233,7 @@ body {
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: var(--header-link-color);
+  background-color: var(--header-bg-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
