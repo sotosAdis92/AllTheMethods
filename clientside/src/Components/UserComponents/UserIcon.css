@@ -1,7 +1,7 @@
 .editAccountButton {
-  background-color: #bbf7d0;
-  color: #15803d;
-  border: 1px solid #86efac;
+  background-color: var(--edit-profile-button-bg-color);
+  color: var(--edit-profile-button-text-color);
+  border: 1px solid var(--edit-profile-button-border);
   padding: 7px 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -15,9 +15,9 @@
 }
 
 .editAccountButton:hover {
-  background-color: #86efac;
-  border-color: #16a34a;
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  background-color: var(--edit-profile-button-hover-color);
+  border-color: var(--edit-profile-button-border-hover);
+  box-shadow: 0 4px 12px var(--edit-profile-button-shadow);
   transform: translateY(-1px);
 }
 
