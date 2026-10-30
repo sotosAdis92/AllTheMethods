@@ -73,7 +73,7 @@ const FavoritesScreen = (props) => {
                 </div>
               </div>
             </div>
-            <div className="favoritesList">{listOfFavorites}</div>
+            <div className="favoriteList">{listOfFavorites}</div>
           </div>
         </div>
       ) : (

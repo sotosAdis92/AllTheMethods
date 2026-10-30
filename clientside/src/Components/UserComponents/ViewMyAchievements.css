@@ -43,7 +43,8 @@
 }
 
 .listOfMyAchievements > div:nth-child(even) {
-  background-color: #f5f5fc;
+  color: var(--text-primary-color);
+  background: var(--card-secondary-bg-color);
 }
 
 .listOfMyAchievements > div:last-child {

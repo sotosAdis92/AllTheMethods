@@ -6,11 +6,13 @@
   padding: 1.5rem;
   margin: 20px 0;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
   align-items: center;
   justify-content: center;
+  background: var(--header-bg-color);
+  color: var(--text-primary-color);
 }
 .containerDiv {
   display: flex;
@@ -36,7 +38,7 @@
     sans-serif;
   width: 100%;
   font-size: 0.85rem;
-  color: #8b8b8b;
+  color: var(--text-secondary-color);
   border-radius: 20px;
   display: flex;
   margin-bottom: 1.25rem;
@@ -49,11 +51,10 @@
 .favoritesContainerDiv {
   width: 50%;
   margin: 0 auto;
-  background: #ffffff;
+  background: var(--header-bg-color);
   border-radius: 16px;
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
   width: 100%;
   margin-bottom: 2.5rem;
   align-items: center;
@@ -77,7 +78,7 @@
   width: auto;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #262626;
+  color: var(--text-primary-color);
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
@@ -85,16 +86,16 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
-.favoritesList {
+.favoriteList {
   list-style: none;
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background: var(--base-bg-color);
+  background: var(--header-bg-color);
   width: 100%;
 }
 
-.favoritesList > div {
+.favoriteList > div {
   display: flex;
   align-items: center;
   padding: 16px 20px;
@@ -104,20 +105,22 @@
   box-sizing: border-box;
   min-height: 60px;
   height: 60px;
+  background: var(--header-bg-color);
 }
 
-.favoritesList > div:nth-child(even) {
-  background-color: #f5f5fc;
+.favoriteList > div:nth-child(even) {
+  color: var(--text-primary-color);
+  background: var(--card-secondary-bg-color);
 }
 
-.favoritesList > div:last-child {
+.favoriteList > div:last-child {
   border-bottom: none;
 }
 
-.favoritesList > div > div:first-child {
+.favoriteList > div > div:first-child {
   font-size: 16px;
   font-weight: 600;
-  color: #262626;
+  color: var(--text-primary-color);
   min-width: 36px;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
@@ -127,7 +130,7 @@
   text-align: center;
 }
 
-.favoritesList > div > div:last-child {
+.favoriteList > div > div:last-child {
   font-size: 16px;
   font-weight: 600;
   min-width: 50px;
@@ -146,11 +149,11 @@
     sans-serif;
 }
 
-.favoritesList > div > div:nth-child(2) {
+.favoriteList > div > div:nth-child(2) {
   flex: 1;
   font-size: 15px;
   font-weight: 400;
-  color: #6b7280;
+  color: var(--text-primary-color);
   font-family:
     system-ui,
     -apple-system,
@@ -199,7 +202,7 @@
 
 .link {
   text-decoration: none;
-  color: #262626;
+  color: var(--text-primary-color);
   font-size: 12px;
   font-weight: 600;
   margin-left: -10px;

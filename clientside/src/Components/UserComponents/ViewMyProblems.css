@@ -13,8 +13,8 @@
 }
 
 .listOfUserProblems > div:nth-child(even) {
-  background-color: var(--header-bg-color);
   color: var(--text-primary-color);
+  background: var(--card-secondary-bg-color);
 }
 
 .userProblem {
