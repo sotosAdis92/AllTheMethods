@@ -1049,10 +1049,10 @@ body {
     sans-serif;
   width: auto;
   text-align: center;
-  color: #b3b3b3;
   font-size: 0.95rem;
   padding: 2.5rem 1rem;
-  background: #f7f8fa;
+  background: var(--card-secondary-bg-color);
+  color: var(--text-secondary-color);
   border-radius: 8px;
   margin-top: 1rem;
 }
@@ -1074,7 +1074,8 @@ body {
   color: #b3b3b3;
   font-size: 0.95rem;
   padding: 2.5rem 1rem;
-  background: #f7f8fa;
+  background: var(--card-secondary-bg-color);
+  color: var(--text-secondary-color);
   border-radius: 8px;
   margin-top: 1rem;
 }
@@ -1858,7 +1859,6 @@ body {
   list-style: none;
   padding: 20px;
   margin: 20px 0;
-
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--card-border-color);
@@ -1887,13 +1887,13 @@ body {
 }
 
 .skillsItemName {
-  background-color: #edeef1;
+  background-color: var(--card-secondary-bg-color);
   padding: 5px 12px;
   border-radius: 20px;
   font-weight: 400;
   transition: background-color 0.2s;
   font-size: 0.85em;
-  color: rgb(127, 127, 127);
+  color: var(--text-primary-color);
 }
 
 .skillsItemCount {

@@ -1,6 +1,6 @@
 .listOfUserProblems {
   overflow: hidden;
-  background: var(--card-secondary-bg-color);
+  background: var(--header-bg-color);
   overflow: hidden;
   margin-top: 1rem;
   width: 100%;

@@ -50,7 +50,6 @@
     sans-serif;
   width: 100%;
   font-size: 0.85rem;
-  color: #8b8b8b;
   border-radius: 20px;
   display: flex;
   margin-bottom: 1.25rem;
@@ -133,7 +132,7 @@
   flex: 1;
   font-size: 15px;
   font-weight: 400;
-  color: #6b7280;
+  color: var(--text-secondary-color);
   font-family:
     system-ui,
     -apple-system,

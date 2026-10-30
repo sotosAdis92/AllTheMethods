@@ -140,7 +140,7 @@
   width: auto;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #262626;
+  color: var(--text-primary-color);
   letter-spacing: -0.3px;
   border: none;
   padding: 0;
@@ -162,7 +162,7 @@
     sans-serif;
   width: auto;
   font-size: 0.85rem;
-  color: #8b8b8b;
+  color: var(--text-secondary-color);
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1.25rem;
