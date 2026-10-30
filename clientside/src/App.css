@@ -76,9 +76,9 @@ body.darkmode {
   --card-highlight-field-color: #3d3d3d;
   --card-highlight-field-text-color: #f0f0f0;
 
-  --filters-bg-color: #434343;
+  --filters-bg-color: #343232;
   --filters-text-color: #e7e7e7;
-  --filters-bg-hover-color: #595959;
+  --filters-bg-hover-color: #343232;
 
   --star-stroke-color: #737373;
   --title-text-color: #ffffff;
