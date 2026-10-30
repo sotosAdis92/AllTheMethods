@@ -1,10 +1,11 @@
 .listOfUserProblems {
   overflow: hidden;
-  background: #ffffff;
+  background: var(--card-secondary-bg-color);
   overflow: hidden;
   margin-top: 1rem;
   width: 100%;
   border-radius: 12px;
+  color: var(--text-primary-color);
 }
 
 .listOfUserProblems > div {
@@ -12,7 +13,8 @@
 }
 
 .listOfUserProblems > div:nth-child(even) {
-  background-color: #f5f5fc;
+  background-color: var(--header-bg-color);
+  color: var(--text-primary-color);
 }
 
 .userProblem {
@@ -72,7 +74,7 @@
     sans-serif;
   width: auto;
   font-size: 0.85rem;
-  color: #8b8b8b;
+  color: var(--text-secondary-color);
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1.25rem;
@@ -122,4 +124,9 @@
 
 .headerText {
   margin-left: 0.7%;
+  color: var(--text-primary-color);
+}
+
+.problemsContainer {
+  background: var(--header-bg-color);
 }

@@ -76,7 +76,7 @@ body.darkmode {
 
   --button-bg-color: #3e3e3e;
 
-  --card-secondary-bg-color: #464646;
+  --card-secondary-bg-color: #545454;
 
   --favorites-card-bg-color: #2d2d2d;
   --favorites-card-border: #836341;
@@ -1098,10 +1098,12 @@ body {
   border-radius: 16px;
   padding: 1.5rem;
   margin: 20px 0;
+  color: var(--text-primary-color);
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
+  background: var(--header-bg-color);
 }
 
 .viewSubmissions {
@@ -1111,9 +1113,10 @@ body {
   padding: 1.5rem;
   margin: 20px 0;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
+  background: var(--header-bg-color);
 }
 
 .viewProblems {
@@ -1123,9 +1126,10 @@ body {
   padding: 1.5rem;
   margin: 20px 0;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
+  background: var(--header-bg-color);
 }
 
 .filterButton {
