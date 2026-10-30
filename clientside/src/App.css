@@ -7,6 +7,8 @@
   --list-item-even-bg-color: #f3f3f3;
   --lits-item-text-color: #000000;
 
+  --tags-color: #e8e8e8;
+
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #050505;
   --header-link-active-color: #1e293b;
@@ -37,6 +39,8 @@ body.darkmode {
   --text-secondary-color: #cbcbcb;
   --list-item-even-bg-color: #343232;
   --lits-item-text-color: #ffffff;
+
+  --tags-color: #434343;
 
   --header-link-color: #a0a0a0;
   --header-link-hover-color: #ffffff;
@@ -1260,6 +1264,7 @@ body {
   font-size: 27px;
   font-weight: 600;
   padding: 0.9rem;
+  color: var(--text-primary-color);
 }
 
 .problemDifficultyDiv {
@@ -1276,8 +1281,8 @@ body {
     "Helvetica Neue",
     sans-serif;
   display: inline-block;
-  background-color: #e8e8e8;
-  color: #1a1a1a;
+  background-color: var(--tags-color);
+  color: var(--text-primary-color);
   border: none;
   border-radius: 20px;
   padding: 4px 16px;
@@ -1305,8 +1310,8 @@ body {
     "Helvetica Neue",
     sans-serif;
   display: inline-block;
-  background-color: #e8e8e8;
-  color: #1a1a1a;
+  background-color: var(--tags-color);
+  color: var(--text-primary-color);
   border: none;
   border-radius: 20px;
   padding: 4px 16px;
@@ -1418,17 +1423,18 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: var(--base-bg-color);
   padding: 1rem;
   display: flex;
   align-items: center;
   gap: 4px;
+  color: var(--text-primary-color);
 }
 
 .problemTags > div {
   display: inline-block;
-  background-color: #e8e8e8;
-  color: #1a1a1a;
+  background-color: var(--tags-color);
+  color: var(--text-primary-color);
   border-radius: 20px;
   padding: 4px 16px;
   margin: 4px 6px 4px 0;
@@ -1451,11 +1457,10 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin-left: 10px;
-  border: 1px solid #e2e8f0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .problemTags > div:hover {
-  background-color: #d0d0d0;
+  background-color: #939393;
 }
 
 .iterationsDiv {
