@@ -116,11 +116,12 @@ const DetailsPage = (props) => {
             Edit Profile Details
           </div>
           <div className="row">
-            <InputLabel>Display Name</InputLabel>
+            <InputLabel className="rowText">Display Name</InputLabel>
             <TextField
               type="text"
               placeholder="Enter Display Name"
               name="username"
+              InputProps={{ className: "rowField" }}
               value={displayName}
               id={"outlined"}
               error={errors.displayName}

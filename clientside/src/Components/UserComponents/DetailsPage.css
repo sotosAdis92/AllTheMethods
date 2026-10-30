@@ -29,6 +29,16 @@
   background: var(--base-bg-color);
   color: var(--text-primary-color);
 }
+
+.rowText {
+  color: var(--text-primary-color) !important;
+}
+
+.rowField {
+  color: var(--text-primary-color) !important;
+  border: 1px solid var(--text-primary-color);
+}
+
 .imagePencil {
   width: 20px;
   margin-right: 10px;
@@ -73,8 +83,7 @@
 }
 
 .danger-zone {
-  background-color: var(--base-bg-color);
-  border: 1px solid #fcd5d5;
+  background-color: var(--header-bg-color);
   border-radius: 8px;
   padding: 24px;
   margin-top: 100px;
@@ -92,8 +101,8 @@
 }
 
 .terminate-button {
-  background-color: var(--header-bg-color);
-  color: #dc2626;
+  background-color: #dc2626;
+  color: var(--text-primary-color);
   border: 1px solid #fecaca;
   padding: 10px 20px;
   border-radius: 4px;
@@ -107,7 +116,7 @@
 }
 
 .terminate-button:hover {
-  background-color: #fecaca;
+  background-color: #fb6868;
   border-color: #ef4444;
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
   transform: translateY(-1px);
@@ -118,4 +127,9 @@
   justify-content: center;
   align-items: center;
   gap: 60px;
+}
+
+.input-image {
+  background-color: var(--header-bg-color);
+  color: var(--text-primary-color);
 }
