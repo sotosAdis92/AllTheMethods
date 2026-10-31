@@ -148,12 +148,12 @@
 }
 
 .login-card .login-input .MuiOutlinedInput-root:hover {
-  background: var(--base-bg-color) !important;
+  background: var(--page-button-hover) !important;
   color: var(--text-primary-color) !important;
 }
 
 .login-card .login-input .MuiOutlinedInput-root.Mui-focused {
-  background: var(--base-bg-color) !important;
+  background: var(--header-bg-color) !important;
   color: var(--text-primary-color) !important;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .login-card .login-input .MuiOutlinedInput-root.Mui-focused fieldset {
-  border-color: #2563eb !important;
+  border-color: #5184f1 !important;
   border-width: 2px !important;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.06) !important;
 }
