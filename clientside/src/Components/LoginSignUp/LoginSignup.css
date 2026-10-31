@@ -101,7 +101,7 @@
   box-shadow:
     0 1px 3px var(--card-shadow),
     0 8px 24px var(--card-shadow) !important;
-  border: 1px solid #e8ecf0 !important;
+  border: 1px solid var(--card-border-color) !important;
   transition: all 0.3s ease !important;
 }
 
@@ -252,11 +252,11 @@
 }
 
 .login-card .singup-link:hover {
-  color: #2563eb !important;
+  color: var(--signup-link-hover) !important;
 }
 
 .login-card .singup-link .MuiLink-root {
-  color: #2563eb !important;
+  color: var(--signup-link-hover) !important;
   text-decoration: none !important;
   font-weight: 500 !important;
   cursor: pointer !important;
@@ -264,7 +264,7 @@
 }
 
 .login-card .singup-link .MuiLink-root:hover {
-  color: #1d4ed8 !important;
+  color: var(--signup-link-hover) !important;
   text-decoration: underline !important;
 }
 
@@ -283,7 +283,7 @@
   .MuiOutlinedInput-root.Mui-focused
   .MuiInputAdornment-root
   svg {
-  color: #2563eb !important;
+  color: var(--signup-link-hover) !important;
 }
 
 .login-card
@@ -340,8 +340,8 @@
 }
 
 .bolderBlueDiv {
-  color: #1d4ed8 !important;
-  border-color: #1d4ed8 !important;
+  color: var(--signup-link-hover) !important;
+  border-color: var(--signup-link-hover) !important;
   font-size: 15px;
   font-weight: 600;
 }
@@ -387,10 +387,10 @@ input[type="file"] {
   justify-content: center;
   width: 100%;
   padding: 10px 16px;
-  border: 1.5px dashed #d1d5db;
+  border: 1.5px dashed var(--card-border-color);
   border-radius: 10px;
-  background-color: #fafafa;
-  color: #4b5563;
+  background-color: var(--base-bg-color);
+  color: var(--text-secondary-color);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -398,10 +398,10 @@ input[type="file"] {
 }
 
 .input-image:hover {
-  border-color: #1865ff;
+  border-color: var(--signup-link-hover);
   border-style: solid;
   background-color: #f0f5ff;
-  color: #1865ff;
-  box-shadow: 0 4px 12px rgba(24, 101, 255, 0.12);
+  color: var(--signup-link-hover);
+  box-shadow: 0 4px 12px var(--card-shadow);
   transform: translateY(-1px);
 }

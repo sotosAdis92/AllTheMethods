@@ -60,6 +60,8 @@
   --admin-edit-button-text-color: #ea580c;
   --admin-delete-button-bg-color-hover: #fee2e2;
   --admin-delete-button-text-color: #dc2626;
+
+  --signup-link-hover: #2563eb;
 }
 
 body.darkmode {
@@ -125,6 +127,8 @@ body.darkmode {
   --admin-delete-button-text-color: #f87171;
   --admin-delete-button-bg-color-hover: #450a0a;
   --admin-delete-button-text-color-hover: #fecaca;
+
+  --signup-link-hover: #2563eb;
 }
 
 * {
