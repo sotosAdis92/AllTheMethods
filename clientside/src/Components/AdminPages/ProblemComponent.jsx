@@ -339,6 +339,7 @@ const ProblemComponent = () => {
               name="title"
               value={title}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.title}
               helperText={errors.title}
               onChange={handleTitle}
@@ -360,6 +361,7 @@ const ProblemComponent = () => {
               name="problemString"
               value={problemString}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.problemString}
               helperText={errors.problemString}
               onChange={handleProblemString}
@@ -458,6 +460,7 @@ const ProblemComponent = () => {
               value={description}
               onChange={handleDescription}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.description}
               helperText={errors.description}
             ></TextField>
@@ -480,6 +483,7 @@ const ProblemComponent = () => {
               value={problemType}
               onChange={handleProblemType}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.problemType}
               helperText={errors.problemType}
             ></TextField>
@@ -501,6 +505,7 @@ const ProblemComponent = () => {
               value={functionString}
               onChange={handleFunctionString}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.functionString}
               helperText={errors.functionString}
             ></TextField>
@@ -522,6 +527,7 @@ const ProblemComponent = () => {
               value={problemData}
               onChange={handleProblemData}
               id={"outlined"}
+              InputProps={{ className: "rowField" }}
               error={errors.problemData}
               helperText={errors.problemData}
             ></TextField>

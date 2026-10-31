@@ -189,6 +189,7 @@ const AchievementComponent = () => {
             type="text"
             placeholder="i.e: Solved X problems in the category Y"
             id={"outlined"}
+            InputProps={{ className: "rowField" }}
             name="name"
             error={errors.description}
             helperText={errors.description}

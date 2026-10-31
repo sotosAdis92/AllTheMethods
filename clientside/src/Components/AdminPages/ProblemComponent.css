@@ -25,7 +25,7 @@
 }
 
 .problem-container h2 {
-  color: #2c3e50;
+  color: var(--text-primary-color);
   text-align: center;
   margin-bottom: 30px;
   font-weight: 600;
@@ -49,6 +49,7 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  color: var(--text-primary-color);
 }
 
 .row:last-child {
@@ -58,7 +59,7 @@
 .numberText {
   font-size: 24px;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text-primary-color);
   min-width: 60px;
   text-align: center;
   margin: 0;
@@ -68,15 +69,19 @@
 .selector {
   margin-bottom: 24px;
   width: 100%;
+
+  color: var(--text-primary-color);
 }
 
 .selector:last-child {
   margin-bottom: 0;
+  color: var(--text-primary-color);
 }
 
 .MuiFormHelperText-root {
   margin-left: 0 !important;
   margin-top: 4px !important;
+  color: var(--text-primary-color) !important;
 }
 
 .row .MuiTextField-root {
@@ -90,7 +95,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-top: 2px;
-  color: #2c3e50;
+  color: var(--text-primary-color);
 }
 
 .info {
@@ -100,7 +105,7 @@
   width: 26px;
   height: 26px;
   box-sizing: border-box;
-  border: 2px solid #2c3e50;
+  border: 2px solid var(--text-primary-color);
   border-radius: 50%;
   font-size: 14px;
   line-height: 1;
@@ -121,6 +126,7 @@
   opacity: 0;
   pointer-events: none;
   z-index: 100;
+  color: var(--text-primary-color);
 }
 .sideGuideContainer.open {
   opacity: 1;
@@ -129,6 +135,7 @@
   border-radius: 12px;
   padding: 30px 40px;
   box-sizing: border-box;
+  color: var(--text-primary-color);
 }
 .sideGuide {
   font-family:
@@ -151,6 +158,7 @@
     0 1px 3px rgba(0, 0, 0, 0.06),
     0 4px 16px rgba(0, 0, 0, 0.04);
   border: 2px solid #e2e8f0;
+  color: var(--text-primary-color);
 }
 
 .sideGuideH1 {
@@ -166,13 +174,16 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  color: var(--text-primary-color);
 }
 
 .titleguide {
   font-size: 20px;
   font-weight: 600;
+  color: var(--text-primary-color);
 }
 
 .bodyGuide {
   margin-top: 30px;
+  color: var(--text-primary-color);
 }

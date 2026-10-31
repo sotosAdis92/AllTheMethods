@@ -170,7 +170,6 @@
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.06) !important;
 }
 
-/* Input label */
 .login-card .login-input .MuiInputLabel-root {
   color: #8a8f96 !important;
   font-weight: 400 !important;
@@ -238,7 +237,7 @@
   margin-top: 24px !important;
   padding-top: 24px !important;
   border-top: 1px solid #e8ecf0 !important;
-  color: #8a8f96 !important;
+  color: var(--text-secondary-color) !important;
   font-size: 14px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
