@@ -1158,13 +1158,13 @@ body {
 .filterButton {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--text-primary-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #f4f4f5;
+  background-color: var(--filters-bg-hover-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1197,13 +1197,13 @@ body {
 .filterButton:hover {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #707070;
+  color: var(--text-primary-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #e7e7e7;
+  background-color: var(--filters-bg-hover-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
