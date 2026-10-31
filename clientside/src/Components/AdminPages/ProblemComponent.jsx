@@ -424,7 +424,7 @@ const ProblemComponent = () => {
             ></FontAwesomeIcon>
             <div className="selector">
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
-                <InputLabel>Difficulty</InputLabel>
+                <InputLabel className="inputLabel">Difficulty</InputLabel>
                 <Select
                   className="selection"
                   onChange={getSelectedDifficulty}

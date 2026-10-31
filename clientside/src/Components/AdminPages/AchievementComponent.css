@@ -76,6 +76,14 @@
   margin-top: 4px !important;
 }
 
+.achievement-row .MuiInputLabel-root {
+  color: var(--text-primary-color);
+}
+
+.achievement-row .MuiSvgIcon-root {
+  color: var(--text-primary-color);
+}
+
 .rowText {
   font-size: 16px;
   font-weight: 500;

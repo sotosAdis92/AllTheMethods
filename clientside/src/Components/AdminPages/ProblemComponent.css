@@ -111,6 +111,14 @@
   background-color: rgba(0, 0, 0, 0.08);
 }
 
+.selector .MuiInputLabel-root {
+  color: var(--text-primary-color);
+}
+
+.selection .MuiSvgIcon-root {
+  color: var(--text-primary-color);
+}
+
 .row .MuiTextField-root {
   width: 100%;
 }

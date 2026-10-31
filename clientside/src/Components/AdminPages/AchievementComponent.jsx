@@ -199,13 +199,29 @@ const AchievementComponent = () => {
         <div className="achievement-row">
           <FormControl error={errors.category} sx={{ minWidth: 210 }}>
             <InputLabel>Category</InputLabel>
-            <Select onChange={handleCategory} value={category}>
-              <MenuItem value={"Polynomial Roots"}>Polynomial Roots</MenuItem>
-              <MenuItem value={"Integrals"}>Integrals</MenuItem>
-              <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
-              <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
-              <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
-              <MenuItem value={"Differential Equations"}>
+            <Select
+              onChange={handleCategory}
+              value={category}
+              MenuProps={{
+                PaperProps: { className: "menuItemPaper" },
+              }}
+            >
+              <MenuItem value={"Polynomial Roots"} className="menuItem">
+                Polynomial Roots
+              </MenuItem>
+              <MenuItem value={"Integrals"} className="menuItem">
+                Integrals
+              </MenuItem>
+              <MenuItem value={"Paremboles"} className="menuItem">
+                Paremboles
+              </MenuItem>
+              <MenuItem value={"Linear Systems"} className="menuItem">
+                Linear Systems
+              </MenuItem>
+              <MenuItem value={"Derivatives"} className="menuItem">
+                Derivatives
+              </MenuItem>
+              <MenuItem value={"Differential Equations"} className="menuItem">
                 Differential Equations
               </MenuItem>
             </Select>
@@ -217,10 +233,22 @@ const AchievementComponent = () => {
         <div className="achievement-row">
           <FormControl error={errors.rank} sx={{ minWidth: 210 }}>
             <InputLabel>Rank</InputLabel>
-            <Select onChange={handleRank} value={rank}>
-              <MenuItem value={"Bronze"}>Bronze</MenuItem>
-              <MenuItem value={"Silver"}>Silver</MenuItem>
-              <MenuItem value={"Gold"}>Gold</MenuItem>
+            <Select
+              onChange={handleRank}
+              value={rank}
+              MenuProps={{
+                PaperProps: { className: "menuItemPaper" },
+              }}
+            >
+              <MenuItem value={"Bronze"} className="menuItem">
+                Bronze
+              </MenuItem>
+              <MenuItem value={"Silver"} className="menuItem">
+                Silver
+              </MenuItem>
+              <MenuItem value={"Gold"} className="menuItem">
+                Gold
+              </MenuItem>
             </Select>
             {errors.rank && <FormHelperText>{errors.rank}</FormHelperText>}
           </FormControl>
@@ -228,9 +256,19 @@ const AchievementComponent = () => {
         <div className="achievement-row">
           <FormControl error={errors.visibility} sx={{ minWidth: 210 }}>
             <InputLabel>Visibility</InputLabel>
-            <Select onChange={handleVisibility} value={visibility}>
-              <MenuItem value={"Visible"}>Visible</MenuItem>
-              <MenuItem value={"Hidden"}>Hidden</MenuItem>
+            <Select
+              onChange={handleVisibility}
+              value={visibility}
+              MenuProps={{
+                PaperProps: { className: "menuItemPaper" },
+              }}
+            >
+              <MenuItem value={"Visible"} className="menuItem">
+                Visible
+              </MenuItem>
+              <MenuItem value={"Hidden"} className="menuItem">
+                Hidden
+              </MenuItem>
             </Select>
             {errors.visibility && (
               <FormHelperText>{errors.visibility}</FormHelperText>
