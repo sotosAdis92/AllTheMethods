@@ -175,6 +175,7 @@ const AchievementComponent = () => {
             value={name}
             type="text"
             placeholder="i.e: Roots Rookie I"
+            InputProps={{ className: "rowField" }}
             id={"outlined"}
             name="name"
             error={errors.name}
