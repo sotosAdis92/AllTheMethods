@@ -60,7 +60,7 @@
 }
 
 .loginSingUp {
-  background: transparent !important;
+  background: var(--text-primary-color) !important;
   border-color: #d9dde3 !important;
   color: #1a1a1a !important;
   box-shadow: none !important;
@@ -88,7 +88,7 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background: #ffffff !important;
+  background: var(--base-bg-color) !important;
   padding: 20px !important;
 }
 
@@ -96,11 +96,11 @@
   max-width: 400px !important;
   width: 100% !important;
   padding: 40px 36px !important;
-  background: #ffffff !important;
+  background: var(--header-bg-color) !important;
   border-radius: 16px !important;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    0 1px 3px var(--card-shadow),
+    0 8px 24px var(--card-shadow) !important;
   border: 1px solid #e8ecf0 !important;
   transition: all 0.3s ease !important;
 }
@@ -113,7 +113,7 @@
 .login-card .about-title h1 {
   font-size: 26px !important;
   font-weight: 600 !important;
-  color: #1a1a1a !important;
+  color: var(--text-primary-color) !important;
   letter-spacing: -0.5px !important;
   margin: 0 0 6px 0 !important;
   font-family:
@@ -121,10 +121,11 @@
 }
 
 .login-card .about-title p {
-  color: #8a8f96 !important;
+  color: var(--text-secondary-color) !important;
   font-size: 14px !important;
   margin: 0 !important;
   font-weight: 400 !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card .row {
@@ -141,17 +142,19 @@
 
 .login-card .login-input .MuiOutlinedInput-root {
   border-radius: 8px !important;
-  background: #fafbfc !important;
+  background: var(--header-bg-color) !important;
   transition: all 0.2s ease !important;
   height: 48px !important;
 }
 
 .login-card .login-input .MuiOutlinedInput-root:hover {
-  background: #ffffff !important;
+  background: var(--base-bg-color) !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card .login-input .MuiOutlinedInput-root.Mui-focused {
-  background: #ffffff !important;
+  background: var(--base-bg-color) !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card .login-input .MuiOutlinedInput-root fieldset {
@@ -266,7 +269,7 @@
 }
 
 .login-card .login-input .MuiInputAdornment-root {
-  color: #8a8f96 !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card .login-input .MuiInputAdornment-root svg {
@@ -326,7 +329,7 @@
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-size: 13px !important;
-  color: #1f2124 !important;
+  color: var(--text-primary-color) !important;
   text-align: center !important;
   margin-bottom: 24px !important;
   font-weight: 500 !important;
