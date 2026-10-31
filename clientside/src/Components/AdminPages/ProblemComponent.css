@@ -38,9 +38,9 @@
   padding: 24px;
   padding: 1.5rem;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 2px solid #e2e8f0;
+    0 1px 3px var(--card-shadow),
+    0 4px 16px var(--card-shadow);
+  border: 2px solid var(--card-border-color);
 }
 
 .row {
@@ -81,6 +81,34 @@
   margin-left: 0 !important;
   margin-top: 4px !important;
   color: var(--text-primary-color) !important;
+}
+
+.selection {
+  width: 250px;
+  background-color: var(--header-bg-color);
+  color: var(--text-primary-color);
+  border-radius: 8px;
+}
+
+.selection .MuiSelect-select {
+  color: var(--text-primary-color);
+  padding: 10px 14px;
+}
+
+.menuItemPaper {
+  background-color: var(--header-bg-color) !important;
+  color: var(--text-primary-color);
+  border-radius: 8px;
+}
+
+.menuItemPaper .menuItem {
+  color: var(--text-primary-color);
+  background-color: var(--header-bg-color);
+  font-size: 0.95rem;
+}
+
+.menuItemPaper .menuItem:hover {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .row .MuiTextField-root {

@@ -383,7 +383,7 @@ const ProblemComponent = () => {
                   label="Category"
                   className="selection"
                   MenuProps={{
-                    PaperProps: { className: "menuItem" },
+                    PaperProps: { className: "menuItemPaper" },
                   }}
                 >
                   <MenuItem value={"Polynomial Roots"} className="menuItem">
@@ -426,13 +426,23 @@ const ProblemComponent = () => {
               <FormControl error={errors.difficulty} sx={{ minWidth: 210 }}>
                 <InputLabel>Difficulty</InputLabel>
                 <Select
+                  className="selection"
                   onChange={getSelectedDifficulty}
                   value={difficulty}
                   label="difficulty"
+                  MenuProps={{
+                    PaperProps: { className: "menuItemPaper" },
+                  }}
                 >
-                  <MenuItem value={"Easy"}>Easy</MenuItem>
-                  <MenuItem value={"Med."}>Med.</MenuItem>
-                  <MenuItem value={"Hard"}>Hard</MenuItem>
+                  <MenuItem value={"Easy"} className="menuItem">
+                    Easy
+                  </MenuItem>
+                  <MenuItem value={"Med."} className="menuItem">
+                    Med.
+                  </MenuItem>
+                  <MenuItem value={"Hard"} className="menuItem">
+                    Hard
+                  </MenuItem>
                 </Select>
                 {errors.difficulty && (
                   <FormHelperText> {errors.difficulty}</FormHelperText>
