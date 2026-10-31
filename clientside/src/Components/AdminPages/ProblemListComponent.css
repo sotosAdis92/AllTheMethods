@@ -23,7 +23,7 @@
 }
 
 .problem-item-table:hover {
-  background: #fafafa;
+  background: var(--header-bg-color);
 }
 
 .problem-item-table div {
