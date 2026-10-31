@@ -51,6 +51,15 @@
   --edit-profile-button-border: #86efac;
   --edit-profile-button-border-hover: #16a34a;
   --edit-profile-button-shadow: rgba(22, 163, 74, 0.3);
+
+  --admin-add-button-text-color: #22c55e;
+  --admin-add-button-bg-color-hover: #dcfce7;
+  --admin-add-button-text-color-hover: #22c55e;
+  --admin-edit-button-text-color: #f97316;
+  --admin-edit-button-bg-color-hover: #ffedd5;
+  --admin-edit-button-text-color: #ea580c;
+  --admin-delete-button-bg-color-hover: #fee2e2;
+  --admin-delete-button-text-color: #dc2626;
 }
 
 body.darkmode {
@@ -104,6 +113,18 @@ body.darkmode {
   --edit-profile-button-border: #2f5e42;
   --edit-profile-button-border-hover: #4ade80;
   --edit-profile-button-shadow: rgba(74, 222, 128, 0.15);
+
+  --admin-add-button-text-color: #4ade80;
+  --admin-add-button-bg-color-hover: #052e16;
+  --admin-add-button-text-color-hover: #bbf7d0;
+
+  --admin-edit-button-text-color: #fb923c;
+  --admin-edit-button-bg-color-hover: #583505;
+  --admin-edit-button-text-color-hover: #fed7aa;
+
+  --admin-delete-button-text-color: #f87171;
+  --admin-delete-button-bg-color-hover: #450a0a;
+  --admin-delete-button-text-color-hover: #fecaca;
 }
 
 * {

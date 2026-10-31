@@ -46,7 +46,9 @@
 }
 
 .delete-btn-table:hover {
-  background: #fee2e2;
+  background: var(--admin-delete-button-bg-color-hover);
+  color: var(--admin-delete-button-text-color-hover);
+  box-shadow: 0 4px 12px var(--admin-delete-button-bg-color-hover);
 }
 
 .edit-btn-table {
@@ -63,8 +65,9 @@
 }
 
 .edit-btn-table:hover {
-  background: #ffedd5;
-  color: #ea580c;
+  background: var(--admin-edit-button-bg-color-hover);
+  color: var(--admin-edit-button-text-color-hover);
+  box-shadow: 0 4px 12px var(--admin-edit-button-bg-color-hover);
 }
 
 .add-btn-table {
@@ -81,8 +84,9 @@
 }
 
 .add-btn-table:hover {
-  background: #dcfce7;
-  color: #16a34a;
+  background: var(--admin-add-button-bg-color-hover);
+  color: var(--admin-add-button-text-color-hover);
+  box-shadow: 0 4px 12px var(--admin-add-button-bg-color-hover);
 }
 
 .headerAchievement {

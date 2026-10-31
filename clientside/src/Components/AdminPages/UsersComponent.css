@@ -46,7 +46,9 @@
 }
 
 .delete-btn-table:hover {
-  background: #fee2e2;
+  background: var(--admin-delete-button-bg-color-hover);
+  color: var(--admin-delete-button-text-color-hover);
+  box-shadow: 0 4px 12px var(--admin-delete-button-bg-color-hover);
 }
 
 .headerUser {
