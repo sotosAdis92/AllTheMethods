@@ -381,15 +381,30 @@ const ProblemComponent = () => {
                   onChange={getSelectedCategory}
                   value={category}
                   label="Category"
+                  className="selection"
+                  MenuProps={{
+                    PaperProps: { className: "menuItem" },
+                  }}
                 >
-                  <MenuItem value={"Polynomial Roots"}>
+                  <MenuItem value={"Polynomial Roots"} className="menuItem">
                     Polynomial Roots
                   </MenuItem>
-                  <MenuItem value={"Integrals"}>Integrals</MenuItem>
-                  <MenuItem value={"Paremboles"}>Paremboles</MenuItem>
-                  <MenuItem value={"Linear Systems"}>Linear Systems</MenuItem>
-                  <MenuItem value={"Derivatives"}>Derivatives</MenuItem>
-                  <MenuItem value={"Differential Equations"}>
+                  <MenuItem value={"Integrals"} className="menuItem">
+                    Integrals
+                  </MenuItem>
+                  <MenuItem value={"Paremboles"} className="menuItem">
+                    Paremboles
+                  </MenuItem>
+                  <MenuItem value={"Linear Systems"} className="menuItem">
+                    Linear Systems
+                  </MenuItem>
+                  <MenuItem value={"Derivatives"} className="menuItem">
+                    Derivatives
+                  </MenuItem>
+                  <MenuItem
+                    value={"Differential Equations"}
+                    className="menuItem"
+                  >
                     Differential Equations
                   </MenuItem>
                 </Select>
