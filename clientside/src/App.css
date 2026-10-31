@@ -77,8 +77,8 @@ body.darkmode {
   --card-highlight-field-text-color: #f0f0f0;
 
   --filters-bg-color: #343232;
-  --filters-text-color: #e7e7e7;
-  --filters-bg-hover-color: #343232;
+  --filters-text-color: #ffffff;
+  --filters-bg-hover-color: #5a5a5a;
 
   --star-stroke-color: #737373;
   --title-text-color: #ffffff;
@@ -720,6 +720,7 @@ body {
   width: 60%;
   text-align: center;
   font-weight: 500;
+  color: var(--text-primary-color);
 }
 
 .submissionButton {
@@ -1225,14 +1226,14 @@ body {
 
 .filters {
   font-size: 0.8rem;
-  font-weight: 500;
-  color: #707070;
+  font-weight: 400;
+  color: var(--filters-text-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #f4f4f5;
+  background-color: var(--filters-bg-hover-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
@@ -1255,14 +1256,14 @@ body {
 
 .filters:hover {
   font-size: 0.8rem;
-  font-weight: 500;
-  color: #707070;
+  font-weight: 400;
+  color: var(--filters-text-color);
   text-transform: none;
   letter-spacing: 0.3px;
   padding: 5px 10px;
   border-radius: 20px;
   border: none;
-  background-color: #e7e7e7;
+  background-color: var(--filters-bg-hover-color);
   box-shadow: none;
   cursor: pointer;
   margin: 4px 4px;
