@@ -1840,8 +1840,8 @@ body {
   gap: 4px;
 }
 .filters.special-active-class {
-  background-color: #c6c6c6;
-  border-color: #b0b0b0;
+  background-color: var(--text-primary-color);
+  color: var(--base-bg-color);
 }
 
 .viewAchievements img,
