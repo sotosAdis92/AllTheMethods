@@ -18,7 +18,6 @@ This Repository was created for the storage and versioning control of the web ap
 This was my first ever project with these technologies and i am constantly trying to improve in them, from this project i learned the basics and intermediate subject matters of the Spring framework and react library, as well as Unit testing with JUnit 5, the katex library for LaTex rendering in the web, PostgreSQL Database.
 
 I hope you like this personal project...
-# NEW UPDATE: YOU CAN NOW ADD A PROFILE PICTURE
 # NEW UPDATE: DARK MODE
 ---
 
