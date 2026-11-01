@@ -19,6 +19,7 @@ This was my first ever project with these technologies and i am constantly tryin
 
 I hope you like this personal project...
 # NEW UPDATE: YOU CAN NOW ADD A PROFILE PICTURE
+# NEW UPDATE: DARK MODE
 ---
 
 ### Prerequisites
