@@ -87,6 +87,7 @@ const ViewMyProblems = (props) => {
                     height="27px"
                     viewBox="0 0 512.000000 512.000000"
                     preserveAspectRatio="xMidYMid meet"
+                    className="image"
                   >
                     <g
                       transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
@@ -195,8 +196,8 @@ l-34 -65 -101 0 c-56 0 -125 -5 -155 -10 -180 -34 -325 -179 -359 -359 -14
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
-            width="30px"
-            height="30px"
+            width="300px"
+            height="300px"
             viewBox="0 0 512.000000 512.000000"
             preserveAspectRatio="xMidYMid meet"
             className="countZeroImage"
