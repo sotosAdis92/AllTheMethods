@@ -98,7 +98,11 @@ const Login = () => {
                   <InputAdornment position="end">
                     <User
                       pack="filled"
-                      fill={errors.username ? "#ff3333" : "black"}
+                      fill={
+                        errors.username
+                          ? "#ff3333"
+                          : "var(--text-primary-color)"
+                      }
                     ></User>
                   </InputAdornment>
                 ),
@@ -125,7 +129,11 @@ const Login = () => {
                   <InputAdornment position="end">
                     <Lock
                       pack="filled"
-                      fill={errors.password ? "#ff3333" : "black"}
+                      fill={
+                        errors.password
+                          ? "#ff3333"
+                          : "var(--text-primary-color)"
+                      }
                     ></Lock>
                   </InputAdornment>
                 ),

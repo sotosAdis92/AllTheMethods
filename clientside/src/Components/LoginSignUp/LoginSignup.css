@@ -145,6 +145,7 @@
   background: var(--header-bg-color) !important;
   transition: all 0.2s ease !important;
   height: 48px !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card .login-input .MuiOutlinedInput-root:hover {
@@ -174,7 +175,7 @@
 }
 
 .login-card .login-input .MuiInputLabel-root {
-  color: #8a8f96 !important;
+  color: var(--text-primary-color) !important;
   font-weight: 400 !important;
   font-size: 14px !important;
 }
@@ -283,7 +284,7 @@
   .MuiOutlinedInput-root.Mui-focused
   .MuiInputAdornment-root
   svg {
-  color: var(--signup-link-hover) !important;
+  color: var(--text-primary-color) !important;
 }
 
 .login-card
@@ -370,7 +371,7 @@
   width: auto;
   height: 200px;
   border: none;
-  color: #8a8f96;
+  color: var(--signup-link-hover) !important;
   border-radius: 20px;
   margin-top: 1rem;
 }
@@ -400,7 +401,7 @@ input[type="file"] {
 .input-image:hover {
   border-color: var(--signup-link-hover);
   border-style: solid;
-  background-color: #f0f5ff;
+  background-color: var(--header-bg-color);
   color: var(--signup-link-hover);
   box-shadow: 0 4px 12px var(--card-shadow);
   transform: translateY(-1px);
