@@ -64,6 +64,8 @@
   --signup-link-hover: #2563eb;
 
   --type-bg-color: #f4f4f4;
+
+  --star-svg-color: #f7c983;
 }
 
 body.darkmode {
@@ -133,6 +135,8 @@ body.darkmode {
   --signup-link-hover: #1e64fb;
 
   --type-bg-color: #343232;
+
+  --star-svg-color: #f57c00;
 }
 
 * {
