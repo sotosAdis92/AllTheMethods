@@ -62,6 +62,8 @@
   --admin-delete-button-text-color: #dc2626;
 
   --signup-link-hover: #2563eb;
+
+  --type-bg-color: #f4f4f4;
 }
 
 body.darkmode {
@@ -129,6 +131,8 @@ body.darkmode {
   --admin-delete-button-text-color-hover: #fecaca;
 
   --signup-link-hover: #1e64fb;
+
+  --type-bg-color: #343232;
 }
 
 * {
