@@ -163,7 +163,7 @@ spring-react/
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile3.JPG?raw=true)
 # Profile Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile1Dark.JPG?raw=true)
 # Profile Dark
 ![imagealt]()
 # Profile Dark
