@@ -162,10 +162,18 @@ spring-react/
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile2.JPG?raw=true)
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile3.JPG?raw=true)
+# Profile Dark
+![imagealt]()
+# Profile Dark
+![imagealt]()
+# Profile Dark
+![imagealt]()
 # Favorites Screen
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favorites.JPG?raw=true)
 # Favorites Screen
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favoritesWithZero.JPG?raw=true)
+# Favorites Screen Dark
+![imagealt]()
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreen.JPG?raw=true)
 # Problem Screen Example Dark
