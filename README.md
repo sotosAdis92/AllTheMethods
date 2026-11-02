@@ -168,8 +168,12 @@ spring-react/
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favoritesWithZero.JPG?raw=true)
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreen.JPG?raw=true)
+# Problem Screen Example Dark
+![imagealt]()
 # Problem Type Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/typeScreenExample1.JPG?raw=true)
+# Problem Type Screen Example Dark
+![imagealt]()
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/adminProblems.JPG?raw=true)
 # Admin Panel
@@ -178,10 +182,22 @@ spring-react/
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin3.JPG?raw=true)
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin4.JPG?raw=true)
+# Admin Panel Dark
+![imagealt]()
+# Admin Panel Dark
+![imagealt]()
+# Admin Panel Dark
+![imagealt]()
+# Admin Panel Dark
+![imagealt]()
 # Add Achievement Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addachievement.JPG?raw=true)
+# Add Achievement Page Dark
+![imagealt]()
 # Add Problem Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addproblem.JPG?raw=true)
+# Add Problem Page Dark
+![imagealt]()
 # Edit Profile Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/editProfile.JPG?raw=true)
 # Login
