@@ -181,7 +181,7 @@ spring-react/
 # Problem Type Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/typeScreenExample1.JPG?raw=true)
 # Problem Type Screen Example Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemTypeDark.JPG?raw=true)
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/adminProblems.JPG?raw=true)
 # Admin Panel
