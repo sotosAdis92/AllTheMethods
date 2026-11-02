@@ -148,10 +148,14 @@ spring-react/
 ---
 # About Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/aboutAllTheMethods.JPG?raw=true)
+# About Dark
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/aboutDark.JPG?raw=true)
 # Problems List
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemsList.JPG?raw=true)
 # Achievement List
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/achievementList.JPG?raw=true)
+# Achievement List Dark
+![imagealt]()
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile1.JPG?raw=true)
 # Profile
