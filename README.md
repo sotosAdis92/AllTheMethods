@@ -155,7 +155,7 @@ spring-react/
 # Achievement List
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/achievementList.JPG?raw=true)
 # Achievement List Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/ahievementsListDark.JPG?raw=true)
 # Profile
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile1.JPG?raw=true)
 # Profile
