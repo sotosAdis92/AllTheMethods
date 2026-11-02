@@ -197,7 +197,7 @@ spring-react/
 # Admin Panel Dark
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin3Dark.JPG?raw=true)
 # Admin Panel Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin4Dark.JPG?raw=true)
 # Add Achievement Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addachievement.JPG?raw=true)
 # Add Achievement Page Dark
