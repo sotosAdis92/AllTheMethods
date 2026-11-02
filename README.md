@@ -201,7 +201,7 @@ spring-react/
 # Add Achievement Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addachievement.JPG?raw=true)
 # Add Achievement Page Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addAchievementDark.JPG?raw=true)
 # Add Problem Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addproblem.JPG?raw=true)
 # Add Problem Page Dark
