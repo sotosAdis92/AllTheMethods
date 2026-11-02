@@ -167,7 +167,7 @@ spring-react/
 # Profile Dark
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/profile2Dark.JPG?raw=true)
 # Profile Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin3Dark.JPG?raw=true)
 # Favorites Screen
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favorites.JPG?raw=true)
 # Favorites Screen
