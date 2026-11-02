@@ -173,7 +173,7 @@ spring-react/
 # Favorites Screen
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favoritesWithZero.JPG?raw=true)
 # Favorites Screen Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/favoritesDark.JPG?raw=true)
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreen.JPG?raw=true)
 # Problem Screen Example Dark
