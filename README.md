@@ -177,7 +177,7 @@ spring-react/
 # Problem Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreen.JPG?raw=true)
 # Problem Screen Example Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/problemScreenDark.JPG?raw=true)
 # Problem Type Screen Example
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/typeScreenExample1.JPG?raw=true)
 # Problem Type Screen Example Dark
