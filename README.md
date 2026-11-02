@@ -205,7 +205,7 @@ spring-react/
 # Add Problem Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addproblem.JPG?raw=true)
 # Add Problem Page Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/addProblemDark.JPG?raw=true)
 # Edit Profile Page
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/editProfile.JPG?raw=true)
 # Login
