@@ -191,7 +191,7 @@ spring-react/
 # Admin Panel
 ![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin4.JPG?raw=true)
 # Admin Panel Dark
-![imagealt]()
+![imagealt](https://github.com/sotosAdis92/AllTheMethods/blob/main/screenshots/admin1Dark.JPG?raw=true)
 # Admin Panel Dark
 ![imagealt]()
 # Admin Panel Dark
