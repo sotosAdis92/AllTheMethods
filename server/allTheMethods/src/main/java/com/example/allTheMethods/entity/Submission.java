@@ -39,22 +39,6 @@ public class Submission {
     public Submission() {
     }
 
-    public Submission(Long id, String date, String valid, Users user, Problem problem) {
-        this.id = id;
-        this.date = date;
-        this.user = user;
-        this.problem = problem;
-    }
-
-    public Submission(Long id, String date, Users user, Instant createdAt, Instant updatedAt, Problem problem) {
-        this.id = id;
-        this.date = date;
-        this.user = user;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.problem = problem;
-    }
-
     public Long getId() {
         return id;
     }
