@@ -2,6 +2,8 @@ package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnTransformer;
+
+import java.time.Instant;
 import java.util.Set;
 
 
@@ -46,6 +48,12 @@ public class Problem {
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
 
+    @Column(nullable = false)
+    private Instant createdAt;
+
+    @Column(nullable = false)
+    private Instant updatedAt;
+
     public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
         this.id = id;
         this.number = number;
@@ -80,9 +88,6 @@ public class Problem {
     public void setProblemData(String problemData) {
         this.problemData = problemData;
     }
-
-
-
 
 
     public Problem() {
@@ -220,5 +225,21 @@ public class Problem {
 
     public void setFunctionString(String functionSting) {
         this.functionString = functionSting;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
