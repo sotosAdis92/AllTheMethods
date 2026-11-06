@@ -6,6 +6,7 @@ import com.example.allTheMethods.entity.Problem;
 import com.example.allTheMethods.mapper.ProblemMapper;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 
 @Component
@@ -24,7 +25,9 @@ public class ProblemMapperImpl implements ProblemMapper {
                 createProblemRequest.problemString(),
                 createProblemRequest.problemType(),
                 createProblemRequest.functionString(),
-                createProblemRequest.problemData()
+                createProblemRequest.problemData(),
+                Instant.now(),
+                Instant.now()
         );
         return problem;
     }

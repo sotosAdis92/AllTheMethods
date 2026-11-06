@@ -139,6 +139,22 @@ public class Problem {
         this.problemType = problemType;
     }
 
+    public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String functionString, String problemData, Instant createdAt, Instant updatedAt) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.points = points;
+        this.problemString = problemString;
+        this.problemType = problemType;
+        this.functionString = functionString;
+        this.problemData = problemData;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
     public String getProblemString() {
         return problemString;
     }
