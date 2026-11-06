@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,6 +27,12 @@ public class UserAchievements {
     @JsonIgnore
     private Achievement achievement;
 
+    @Column(nullable = false)
+    private Instant createdAt;
+
+    @Column(nullable = false)
+    private Instant updatedAt;
+
     private LocalDateTime achievedAt;
 
     public UserAchievements() {
@@ -34,6 +42,15 @@ public class UserAchievements {
         this.userAchievementId = userAchievementId;
         this.user = user;
         this.achievement = achievement;
+        this.achievedAt = achievedAt;
+    }
+
+    public UserAchievements(Long userAchievementId, Users user, Achievement achievement, Instant createdAt, Instant updatedAt, LocalDateTime achievedAt) {
+        this.userAchievementId = userAchievementId;
+        this.user = user;
+        this.achievement = achievement;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
         this.achievedAt = achievedAt;
     }
 
@@ -67,5 +84,21 @@ public class UserAchievements {
 
     public LocalDateTime getAchievedAt() {
         return achievedAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

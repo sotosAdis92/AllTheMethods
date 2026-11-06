@@ -9,6 +9,7 @@ import com.example.allTheMethods.entity.Users;
 import com.example.allTheMethods.mapper.UserAchievementsMapper;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,6 +63,8 @@ public class UserAchievementsMapperImpl implements UserAchievementsMapper {
         achievement.setVisibility(achievementRequest.getVisibility());
         achievement.setCounter(achievementRequest.getCounter());
         userAchievements.setAchievement(achievement);
+        userAchievements.setCreatedAt(Instant.now());
+        userAchievements.setUpdatedAt(Instant.now());
 
         return userAchievements;
     }
