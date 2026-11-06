@@ -12,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
+
 
 @Component
 public class UsersMapperImpl implements UsersMapper {
@@ -28,6 +30,8 @@ public class UsersMapperImpl implements UsersMapper {
         user.setUserRole(UserRole.USER);
         user.setPassword(new BCryptPasswordEncoder().encode(request.getPassword()));
         user.setImageUrl(request.getImage_url());
+        user.setCreatedAt(Instant.now());
+        user.setUpdatedAt(Instant.now());
         return user;
     }
 
@@ -57,6 +61,7 @@ public class UsersMapperImpl implements UsersMapper {
         user.setDisplayName(requestDto.displayName());
         user.setUserRole(UserRole.USER);
         user.setImageUrl(requestDto.imageUrl());
+        user.setUpdatedAt(Instant.now());
         return user;
     }
 

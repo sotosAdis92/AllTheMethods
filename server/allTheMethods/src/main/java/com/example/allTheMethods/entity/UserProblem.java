@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "user_problem")
 public class UserProblem {
@@ -23,6 +25,12 @@ public class UserProblem {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Problem problem;
+
+    @Column(nullable = false)
+    private Instant createdAt;
+
+    @Column(nullable = false)
+    private Instant updatedAt;
 
 
     public UserProblem() {
@@ -56,5 +64,21 @@ public class UserProblem {
 
     public void setProblem(Problem problem) {
         this.problem = problem;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

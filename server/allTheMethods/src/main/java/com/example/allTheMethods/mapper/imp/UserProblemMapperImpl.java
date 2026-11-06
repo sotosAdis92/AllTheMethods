@@ -9,6 +9,7 @@ import com.example.allTheMethods.mapper.UserProblemMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,6 +62,8 @@ public class UserProblemMapperImpl implements UserProblemMapper {
         userProblem.setProblem(problem);
         userProblem.setUser(user);
         userProblem.setId(null);
+        userProblem.setCreatedAt(Instant.now());
+        userProblem.setUpdatedAt(Instant.now());
         return userProblem;
     }
 }
