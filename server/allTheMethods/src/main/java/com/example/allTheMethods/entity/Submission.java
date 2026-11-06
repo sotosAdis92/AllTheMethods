@@ -1,6 +1,5 @@
 package com.example.allTheMethods.entity;
 
-import com.example.allTheMethods.dto.request.SubmissionDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -102,14 +101,5 @@ public class Submission {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public SubmissionDto getSubmissionDto(){
-        SubmissionDto submissionDto = new SubmissionDto();
-        submissionDto.setSubmissionId(id);
-        submissionDto.setUserId(user.getId());
-        submissionDto.setProblemId(problem.getId());
-        submissionDto.setSubmittedAt(date);
-        return submissionDto;
     }
 }
