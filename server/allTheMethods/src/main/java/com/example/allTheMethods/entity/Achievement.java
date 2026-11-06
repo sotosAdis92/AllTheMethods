@@ -1,6 +1,8 @@
 package com.example.allTheMethods.entity;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.util.Set;
 
 @Entity
@@ -31,6 +33,11 @@ public class Achievement {
     @OneToMany(mappedBy = "achievement")
     Set<UserAchievements> achievements;
 
+    @Column(nullable = false)
+    private Instant createdAt;
+
+    @Column(nullable = false)
+    private Instant updatedAt;
 
     public Achievement() {
     }
@@ -63,6 +70,18 @@ public class Achievement {
         this.rank = rank;
         this.visibility = visibility;
         this.counter = counter;
+    }
+
+    public Achievement(Long achievementId, String name, String description, String category, String rank, String visibility, int counter, Instant createdAt, Instant updatedAt) {
+        this.achievementId = achievementId;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.rank = rank;
+        this.visibility = visibility;
+        this.counter = counter;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Long getAchievementId() {

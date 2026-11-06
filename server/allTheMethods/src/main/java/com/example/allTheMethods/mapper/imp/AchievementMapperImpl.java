@@ -7,6 +7,7 @@ import com.example.allTheMethods.entity.Achievement;
 import com.example.allTheMethods.mapper.AchievementMapper;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 
 @Component
@@ -21,7 +22,9 @@ public class AchievementMapperImpl implements AchievementMapper {
                 achievementRequestDto.category(),
                 achievementRequestDto.rank(),
                 achievementRequestDto.visibility(),
-                achievementRequestDto.counter()
+                achievementRequestDto.counter(),
+                Instant.now(),
+                Instant.now()
         );
         return achievement;
     }
@@ -35,7 +38,9 @@ public class AchievementMapperImpl implements AchievementMapper {
                 achievementRequestDto.category(),
                 achievementRequestDto.rank(),
                 achievementRequestDto.visibility(),
-                achievementRequestDto.counter()
+                achievementRequestDto.counter(),
+                Instant.now(),
+                Instant.now()
         );
         return achievement;
     }
