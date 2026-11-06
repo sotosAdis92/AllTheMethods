@@ -11,6 +11,7 @@ import com.example.allTheMethods.repository.UsersRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,6 +58,8 @@ public class SubmissionMapperImpl implements SubmissionMapper {
         submission.setDate(createSubmissionRequest.submittedAt());
         submission.setUser(user);
         submission.setProblem(problem);
+        submission.setCreatedAt(Instant.now());
+        submission.setUpdatedAt(Instant.now());
         return submission;
     }
 }
