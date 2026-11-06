@@ -48,10 +48,10 @@ public class Problem {
     @OneToMany(mappedBy = "problem")
     Set<Submission> problems;
 
-    @Column(nullable = false)
+    @Column()
     private Instant createdAt;
 
-    @Column(nullable = false)
+    @Column()
     private Instant updatedAt;
 
     public Problem(Long id, int number, String title, String category, String difficulty, String description, int points, String problemString, String problemType, String problemData) {
