@@ -55,7 +55,7 @@ public class UserController {
         return ResponseEntity.ok("User updated");
     }
 
-    @PostMapping( "/{id}/image")
+    @PostMapping("/{id}/image")
     public ResponseEntity<UserResponse> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException{
         System.out.println("got in the endpoint");
         return ResponseEntity.ok(usersService.uploadImage(id,file));
