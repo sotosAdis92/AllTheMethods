@@ -19,16 +19,19 @@ const UploadImage = () => {
 
   const handleSubmitImage = async (e) => {
     e.preventDefault();
-    const response = await uploadProfilePic(id, file)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-    console.log(response);
-    saveToken(response.jwtToken);
-    enqueueSnackbar(`Welcome ${response}`, {
-      variant: "success",
-      autoHideDuration: 5000,
-    });
-    navigate("/about");
+    try {
+      const response = await uploadProfilePic(id, file);
+      console.log(response);
+      saveToken(response.jwtToken);
+      enqueueSnackbar(`Welcome ${response}`, {
+        variant: "success",
+        autoHideDuration: 5000,
+      });
+      navigate("/about");
+    } catch (error) {
+      console.log(error);
+      enqueueSnackbar("Upload failed", { variant: "error" });
+    }
   };
 
   return (
