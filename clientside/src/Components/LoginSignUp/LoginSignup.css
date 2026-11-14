@@ -60,7 +60,7 @@
 }
 
 .loginSingUp {
-  background: var(--text-primary-color) !important;
+  background: white !important;
   border-color: #d9dde3 !important;
   color: #1a1a1a !important;
   box-shadow: none !important;
