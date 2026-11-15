@@ -1,3 +1,4 @@
+/*
 INSERT INTO problem(number,title,category,difficulty,description,points,problem_string,problem_type,function_string,problem_parameters)
 VALUES
 (3,'Regula Falsi I','Polynomial Roots','Hard','Given the Polynomial, and the problem space from a to b below, approximate one of it''s ' ||
@@ -71,4 +72,5 @@ VALUES
      'x^2 - 2',
      '{"integrationSpaceA": 1, "integrationSpaceB": 6, "hParameter": 1}');
 
+ */
 
