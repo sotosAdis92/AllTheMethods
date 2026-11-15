@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { saveToken } from "../../environment/common";
 
 import { signup } from "../../services/auth";
 import AboutTitle from "../AboutPage/AboutTitle";
@@ -65,9 +66,12 @@ const Signup = () => {
       try {
         const response = await signup(formData);
         if (response.status === 201) {
-          const responseData = response.data;
-
-          navigate(`/upload/${responseData.id}`);
+          saveToken(response.jwtToken);
+          enqueueSnackbar(`Welcome ${response}`, {
+            variant: "success",
+            autoHideDuration: 5000,
+          });
+          navigate("/about");
         }
       } catch (error) {
         if (error.response && error.response.status === 409) {
