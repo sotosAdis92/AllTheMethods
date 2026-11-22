@@ -42,7 +42,7 @@ public class WebSecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                //.cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -76,6 +76,7 @@ public class WebSecurityConfiguration {
         return config.getAuthenticationManager();
     }
 
+    /*
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -87,4 +88,5 @@ public class WebSecurityConfiguration {
         s.registerCorsConfiguration("/**",corsConfiguration);
         return s;
     }
+     */
 }
